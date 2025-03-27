@@ -23,6 +23,7 @@ import Switch from "@mui/material/Switch";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import Avatar from '@mui/material/Avatar';
 import { createFilterOptions } from "@mui/material/Autocomplete";
 import { useTheme } from '@mui/material/styles';
 
@@ -49,6 +50,7 @@ import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 import BOSS_SETDEX_ID from "../data/sets/id_raid_bosses.json";
 
 import PokemonLookup from "./PokemonLookup";
+import { Divider } from "@mui/material";
 
 
 // we will always use Gen 9
@@ -297,6 +299,10 @@ const RightCell = styled(TableCell)(({ theme }) => ({
     padding: '0px',
     borderBottom: 0,
 })); 
+
+const Icon = styled(Avatar)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'light' ? "#bebebe" : "#7e7e7e",
+}));
   
 export function SummaryRow({name, value, setValue, options, prettyMode, optionFinder = (option: any) => option, translationKey, translationCategory}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean, optionFinder?: Function, translationKey: any, translationCategory: string}) {
 return (
@@ -366,6 +372,40 @@ function ModalRow({name, value, getString = (val: any) => val, show = true, icon
     )   
 }
 
+function StatsDisplayTable({stats, translationKey}: {stats: StatsTable, translationKey: any}) {
+    return (
+        <TableContainer>
+            <Table size="small" style={{ width: "fit-content" }}>
+                <TableBody>
+                    <TableRow>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("HP", translationKey, "stats") + ":"}</Typography></LeftCell>
+                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.hp || ""}</Typography></RightCell>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("SpA", translationKey,"stats") + ":"}</Typography></LeftCell>
+                        <RightCell><Typography fontSize={10}>{stats.spa || ""}</Typography></RightCell>
+                    </TableRow>
+                    <TableRow>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Atk", translationKey, "stats") + ":"}</Typography></LeftCell>
+                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.atk || ""}</Typography></RightCell>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("SpD", translationKey,"stats") + ":"}</Typography></LeftCell>
+                        <RightCell><Typography fontSize={10}>{stats.spd || ""}</Typography></RightCell>
+                    </TableRow> 
+                    <TableRow>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Def", translationKey, "stats") + ":"}</Typography></LeftCell>
+                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.def || ""}</Typography></RightCell>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Spe", translationKey,"stats") + ":"}</Typography></LeftCell>
+                        <RightCell><Typography fontSize={10}>{stats.spe || ""}</Typography></RightCell>
+                    </TableRow>
+                    <p style={{margin: "5px"}}></p>
+                    <TableRow>
+                        <LeftCell>{getTranslation("BST", translationKey, "stats") + ":"}</LeftCell>
+                        <RightCell>{Object.entries(stats).reduce((acc, [id,val]) => acc + val, 0) || ""}</RightCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </TableContainer>
+    )
+}
+
 export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translationKey}: {name: string, showPopper: boolean, anchorEl: HTMLElement | null, allSpecies: Map<SpeciesName,PokemonData> | null, translationKey: any}) {
     
     const [pokemon, setPokemon] = useState<PokemonData | null>(null);
@@ -397,62 +437,70 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
         <Popper
             open={showPopper}
             anchorEl={anchorEl}
-            placement="bottom"
+            placement="right-start"
             disablePortal={false}
-            sx={{ position: "relative", zIndex: 1000000 }}
+            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
         { pokemon && pokemon.name && 
             <Paper sx={{ p: 1.5, backgroundColor: "modal.main" }} >
-                <Stack>
+                <Stack sx={{ width: "100%" }}>
                     <Box sx={{paddingBottom: "10px"}}>
-                        <Stack direction="row" spacing={1} alignItems="center">
-                            <Typography variant="body1" fontWeight={600}>{name}</Typography>
-                            <Box flexGrow={1} />
-                            <Box
-                                sx={{
-                                    width: "25px",
-                                    height: "25px",
-                                    overflow: 'hidden',
-                                    background: `url(${getPokemonSpriteURL(pokemon.name)}) no-repeat center center / contain`,
-                                }}
-                            />
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getPokemonSpriteURL(pokemon.name)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
+                            <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+                                <Stack direction="row" alignItems="center">
+                                    <Typography fontSize={18} mb={-.5}>{pokemon.name}</Typography>
+                                    <Box flexGrow={1} sx={{ minWidth: "10px" }}/>
+                                    { pokemon.types && pokemon.types.map((type) => (
+                                        <Box
+                                            sx={{
+                                                width: "20px",
+                                                height: "20px",
+                                                overflow: 'hidden',
+                                                background: `url(${getTypeIconURL(type)}) no-repeat center center / contain`,
+                                            }}
+                                        />
+                                        ))
+                                    }
+                                </Stack>
+                                <Typography fontSize={11}>{category}</Typography>
+                                { pokemon.weightkg &&  <>
+                                    <Typography fontSize={10}>{getTranslation("Weight", translationKey, "ui") + " : " + pokemon.weightkg + (" kg")}</Typography>
+                                </>}
+                            </Stack>
                         </Stack>
-                        { pokemon.category &&
-                            <Typography variant="body2">{category}</Typography>
-                        }
                     </Box> 
-                    <TableContainer>
-                        <Table size="small" style={{ width: "fit-content" }}>
-                            <TableBody>
-                                <ModalRow name={getTranslation("Type", translationKey, "ui")} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
-                                <p style={{margin: "5px"}}></p>
-                                { pokemon && pokemon.abilities.length > 0 &&
-                                    <ModalRow name={getTranslation("Ability", translationKey, "ui") + ":"} value={getTranslation(pokemon.abilities[0].name, translationKey, "abilities")} />
-                                }
-                                { pokemon && pokemon.abilities.slice(1).map((ability, index) => (
-                                    <ModalRow key={index} name={""} value={getTranslation(ability.name, translationKey, "abilities")} />
-                                ))}
-                                <p style={{margin: "5px"}}></p>
-                                { pokemon && pokemon.weightkg &&
-                                    <ModalRow name={getTranslation("Weight", translationKey, "ui") + ":"} value={pokemon.weightkg + (" kg")} />
-                                }
-                                {/* { pokemon && pokemon.gender &&
-                                    <ModalRow name={getTranslation("Gender", translationKey) + ":"} value={getTranslation(pokemon.gender, translationKey)} />
-                                } */}
-                                <p style={{margin: "5px"}}></p>
-                                <ModalRow name={getTranslation("Stats", translationKey, "ui") + ":"} value="" />
-                                <ModalRow name={getTranslation("HP", translationKey, "stats")}  value={pokemon ? pokemon.stats.hp  : ""} />
-                                <ModalRow name={getTranslation("Atk", translationKey, "stats")} value={pokemon ? pokemon.stats.atk : ""} />
-                                <ModalRow name={getTranslation("Def", translationKey, "stats")} value={pokemon ? pokemon.stats.def : ""} />
-                                <ModalRow name={getTranslation("SpA", translationKey, "stats")} value={pokemon ? pokemon.stats.spa : ""} />
-                                <ModalRow name={getTranslation("SpD", translationKey, "stats")} value={pokemon ? pokemon.stats.spd : ""} />
-                                <ModalRow name={getTranslation("Spe", translationKey, "stats")} value={pokemon ? pokemon.stats.spe : ""} />
-                                <p style={{margin: "5px"}}></p>
-                                <ModalRow name={getTranslation("BST", translationKey, "stats")} value={pokemon ? Object.entries(pokemon.stats).reduce((acc, [id,val]) => acc + val, 0)  : ""} />
-
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
+                    <Stack spacing={0.5}>
+                        <Divider textAlign="left">{getTranslation("Ability", translationKey)}</Divider>
+                        <Stack spacing={-0.5} sx={{ paddingLeft: "10px", width: "100%" }}>
+                            { pokemon.abilities.map((ability, index) => (
+                                <Stack direction="row" spacing={0} alignItems="center">
+                                    <Box
+                                        sx={{
+                                            width: "15px",
+                                            height: "15px",
+                                            overflow: 'hidden',
+                                            background: `url(${getItemSpriteURL(ability.hidden ? "Ability Patch" : "Ability Capsule")}) no-repeat center center / contain`,
+                                        }}
+                                    />
+                                    <Typography fontSize={10} m={.5}>{getTranslation(ability.name, translationKey, "abilities")}</Typography>
+                                </Stack>
+                            ))}
+                        </Stack>
+                    </Stack>
+                    <Divider textAlign="left">{getTranslation("Stats", translationKey, "ui")}</Divider>
+                    <Box sx={{ paddingLeft: "5px" }}>
+                        <StatsDisplayTable stats={pokemon.stats} translationKey={translationKey} />          
+                    </Box>    
                 </Stack>
             </Paper>
         }
@@ -498,41 +546,48 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
         <Popper 
             open={showPopper} 
             anchorEl={anchorEl} 
-            placement="bottom"
+            placement="right-start"
             disablePortal={false}
-            sx={{ position: "relative", zIndex: 1000000 }}
+            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
         {(moveData && move && moveData.name !== "(No Move)") &&
             <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px" }} >
-                <Stack>
-                    <Stack direction="row" alignItems="center" sx={{paddingBottom: "5px"}}>
-                        <Typography variant="body1" fontWeight={600}>{moveItem.name}</Typography>
-                        <Box flexGrow={1} />
-                        { moveData.moveCategory &&
-                            <Box
-                                sx={{
-                                    width: "30px",
-                                    height: "30px",
-                                    overflow: 'hidden',
-                                    background: `url(${getTypeIconURL(moveData.moveCategory)}) no-repeat center center / contain`,
-                                }}
-                            />
-                        }
+                <Stack spacing={1}>
+                    <Stack direction="row" alignItems="center" spacing={1}>
                         { moveData.type &&
-                            <Box
-                                sx={{
-                                    width: "30px",
-                                    height: "30px",
-                                    overflow: 'hidden',
-                                    background: `url(${getTypeIconURL(moveData.type)}) no-repeat center center / contain`,
-                                }}
-                            />
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getTypeIconURL(moveData.type)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
                         }
+                        <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+                            <Stack direction="row" alignItems="end">
+                                <Typography fontSize={18} mb={-.5}>{moveItem.name}</Typography>
+                                <Box flexGrow={1} />
+                                { moveData.moveCategory &&
+                                    <Box
+                                        sx={{
+                                            width: "30px",
+                                            height: "30px",
+                                            overflow: 'hidden',
+                                            background: `url(${getTypeIconURL(moveData.moveCategory)}) no-repeat center center / contain`,
+                                        }}
+                                    />
+                                }
+                            </Stack>
+                            <Divider/>
+                        </Stack>
                     </Stack>
-                    <TableContainer>
+                    <TableContainer sx={{ paddingLeft: "10px" }}>
                         <Table size="small" style={{ width: "fit-content" }}>
                             <TableBody>
-                                <ModalRow 
+                                {/* <ModalRow 
                                     name={getTranslation("Type", translationKey)}
                                     value={getTranslation(move.type, translationKey, "types")}
                                     show={move.type !== undefined}
@@ -541,7 +596,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                                     name={getTranslation("Category", translationKey)}
                                     value={getTranslation(move.category, translationKey, "ui")}
                                     show={move.category !== undefined}
-                                />
+                                /> */}
                                 <ModalRow 
                                     name={getTranslation("Power", translationKey)}
                                     value={move.bp}
@@ -617,9 +672,10 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                             </TableBody>
                         </Table>
                     </TableContainer>
-                    { flavorText &&
-                        <Typography variant="body2" sx={{paddingTop: "10px" }}>{flavorText}</Typography>
-                    }
+                    { flavorText &&  <>
+                        <Divider/>
+                        <Typography fontSize={10}>{flavorText}</Typography>
+                    </>}
                 </Stack>
             </Paper>
         }
@@ -649,27 +705,31 @@ export function ItemPopper({name, showPopper, anchorEl, translationKey}: {name: 
         <Popper 
             open={showPopper} 
             anchorEl={anchorEl} 
-            placement="bottom"
+            placement="right-start"
             disablePortal={false}
-            sx={{ position: "relative", zIndex: 1000000 }}
+            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
             {(name && itemData && name !== "(No Item)") &&
                 <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px"}} >
-                <Stack spacing={1}>
-                    <Stack direction="row" spacing={1} alignItems="center">
-                        <Typography variant="body1" fontWeight={600}>{getTranslation(name, translationKey, "items")}</Typography>      
-                        <Box flexGrow={1} />
-                        <Box
-                            sx={{
-                                width: "25px",
-                                height: "25px",
-                                overflow: 'hidden',
-                                background: `url(${getItemSpriteURL(name)}) no-repeat center center / contain`,
-                            }}
-                        />
+                    <Stack spacing={1}>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getItemSpriteURL(name)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
+                            <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+                                <Typography fontSize={18} mb={-.5}>{getTranslation(name, translationKey, "items")}</Typography>
+                                <Divider/>
+                            </Stack>
+                        </Stack>
+                        <Typography fontSize={10}>{flavorText}</Typography>
                     </Stack>
-                    <Typography variant="body2">{flavorText}</Typography>
-                </Stack>
             </Paper>
             }
         </Popper>
@@ -698,15 +758,30 @@ export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {
         <Popper 
             open={showPopper} 
             anchorEl={anchorEl} 
-            placement="bottom"
+            placement="right-start"
             disablePortal={false}
-            sx={{ position: "relative", zIndex: 1000000 }}
+            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
             {(ability && abilityData && (ability.engName !== "(No Ability)")) &&
                 <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px"}} >
                     <Stack justifyContent="left" spacing={1}>
-                        <Typography variant="body1" fontWeight={600}>{ability.name}</Typography>      
-                        <Typography variant="body2">{flavorText}</Typography>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getItemSpriteURL(ability.hidden ? "Ability Patch" : "Ability Capsule")}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
+                            <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+                                <Typography fontSize={18} mb={-.5}>{ability.name}</Typography>
+                                <Divider/>
+                            </Stack>
+                        </Stack>                        
+                        <Typography fontSize={10}>{flavorText}</Typography>
                     </Stack>
                 </Paper>
             }

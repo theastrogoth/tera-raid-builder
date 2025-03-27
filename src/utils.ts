@@ -355,7 +355,7 @@ export function getTranslation(word: string, translationKey: any, translationCat
 export function getTranslationWithoutCategory(word: string, translationKey: any) {
     if (!translationKey) { return word; }
     for (const category in translationKey) {
-        if (translationKey[category][word]) {
+        if (category !== "lang" && translationKey[category][word]) {
             return translationKey[category][word];
         }
     }

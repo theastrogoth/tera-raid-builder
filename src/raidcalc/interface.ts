@@ -65,6 +65,18 @@ export type AilmentName =   "confusion" |               // many of these are not
                             "encore" |
                             "taunt";
 
+export type FlavorTexts = {
+    "en": string,
+    "es": string,
+    "fr": string,
+    "de": string,
+    "it": string,
+    "ja": string,
+    "ko": string,
+    "zh-hans": string,
+    "zh-hant": string,
+}
+
 export type MoveData = {
     name:           MoveName
     moveCategory?: "Physical" | "Special" | "Status",
@@ -97,6 +109,17 @@ export type MoveData = {
     isPulse?:       boolean,
     isSlicing?:     boolean,
     isWind?:        boolean,
+    flavorText?:    FlavorTexts,
+}
+
+export type AbilityData = {
+    name: string,
+    flavorText: FlavorTexts,
+}
+
+export type ItemData = {
+    name: string,
+    flavorText: FlavorTexts,
 }
 
 export type ShieldData  = {

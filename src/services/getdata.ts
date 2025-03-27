@@ -1,5 +1,5 @@
 import { TypeName, AbilityName, MoveName, SpeciesName, StatsTable } from '../calc/data/interface';
-import { MoveData } from '../raidcalc/interface';
+import { MoveData, FlavorTexts } from '../raidcalc/interface';
 
 const assetsProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/data/"
 
@@ -10,6 +10,7 @@ export function prepareFileName(name: string) {
 
 export type PokemonData = {
     name:   SpeciesName,
+    category?: FlavorTexts,
     types:  TypeName[],
     abilities: {name: AbilityName, hidden: boolean}[],
     stats:  StatsTable,

@@ -389,6 +389,9 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name, pokemon, showPopper])
+
+    const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
+    const category = pokemon ? (pokemon.category ? pokemon.category[lang] : null) : null;
     
     return (
         <Popper
@@ -398,40 +401,61 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
             disablePortal={false}
             sx={{ position: "relative", zIndex: 1000000 }}
         >
-            <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
-                <TableContainer>
-                    <Table size="small" width="100%">
-                        <TableBody>
-                            <ModalRow name={getTranslation("Type", translationKey, "ui")} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
-                            <p style={{margin: "5px"}}></p>
-                            { pokemon && pokemon.abilities.length > 0 &&
-                                <ModalRow name={getTranslation("Ability", translationKey, "ui") + ":"} value={getTranslation(pokemon.abilities[0].name, translationKey, "abilities")} />
-                            }
-                            { pokemon && pokemon.abilities.slice(1).map((ability, index) => (
-                                <ModalRow key={index} name={""} value={getTranslation(ability.name, translationKey, "abilities")} />
-                            ))}
-                            <p style={{margin: "5px"}}></p>
-                            { pokemon && pokemon.weightkg &&
-                                <ModalRow name={getTranslation("Weight", translationKey, "ui") + ":"} value={pokemon.weightkg + (" kg")} />
-                            }
-                            {/* { pokemon && pokemon.gender &&
-                                <ModalRow name={getTranslation("Gender", translationKey) + ":"} value={getTranslation(pokemon.gender, translationKey)} />
-                            } */}
-                            <p style={{margin: "5px"}}></p>
-                            <ModalRow name={getTranslation("Stats", translationKey, "ui") + ":"} value="" />
-                            <ModalRow name={getTranslation("HP", translationKey, "stats")}  value={pokemon ? pokemon.stats.hp  : ""} />
-                            <ModalRow name={getTranslation("Atk", translationKey, "stats")} value={pokemon ? pokemon.stats.atk : ""} />
-                            <ModalRow name={getTranslation("Def", translationKey, "stats")} value={pokemon ? pokemon.stats.def : ""} />
-                            <ModalRow name={getTranslation("SpA", translationKey, "stats")} value={pokemon ? pokemon.stats.spa : ""} />
-                            <ModalRow name={getTranslation("SpD", translationKey, "stats")} value={pokemon ? pokemon.stats.spd : ""} />
-                            <ModalRow name={getTranslation("Spe", translationKey, "stats")} value={pokemon ? pokemon.stats.spe : ""} />
-                            <p style={{margin: "5px"}}></p>
-                            <ModalRow name={getTranslation("BST", translationKey, "stats")} value={pokemon ? Object.entries(pokemon.stats).reduce((acc, [id,val]) => acc + val, 0)  : ""} />
+        { pokemon && pokemon.name && 
+            <Paper sx={{ p: 1.5, backgroundColor: "modal.main" }} >
+                <Stack>
+                    <Box sx={{paddingBottom: "10px"}}>
+                        <Stack direction="row" spacing={1} alignItems="center">
+                            <Typography variant="body1" fontWeight={600}>{name}</Typography>
+                            <Box flexGrow={1} />
+                            <Box
+                                sx={{
+                                    width: "25px",
+                                    height: "25px",
+                                    overflow: 'hidden',
+                                    background: `url(${getPokemonSpriteURL(pokemon.name)}) no-repeat center center / contain`,
+                                }}
+                            />
+                        </Stack>
+                        { pokemon.category &&
+                            <Typography variant="body2">{category}</Typography>
+                        }
+                    </Box> 
+                    <TableContainer>
+                        <Table size="small" style={{ width: "fit-content" }}>
+                            <TableBody>
+                                <ModalRow name={getTranslation("Type", translationKey, "ui")} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
+                                <p style={{margin: "5px"}}></p>
+                                { pokemon && pokemon.abilities.length > 0 &&
+                                    <ModalRow name={getTranslation("Ability", translationKey, "ui") + ":"} value={getTranslation(pokemon.abilities[0].name, translationKey, "abilities")} />
+                                }
+                                { pokemon && pokemon.abilities.slice(1).map((ability, index) => (
+                                    <ModalRow key={index} name={""} value={getTranslation(ability.name, translationKey, "abilities")} />
+                                ))}
+                                <p style={{margin: "5px"}}></p>
+                                { pokemon && pokemon.weightkg &&
+                                    <ModalRow name={getTranslation("Weight", translationKey, "ui") + ":"} value={pokemon.weightkg + (" kg")} />
+                                }
+                                {/* { pokemon && pokemon.gender &&
+                                    <ModalRow name={getTranslation("Gender", translationKey) + ":"} value={getTranslation(pokemon.gender, translationKey)} />
+                                } */}
+                                <p style={{margin: "5px"}}></p>
+                                <ModalRow name={getTranslation("Stats", translationKey, "ui") + ":"} value="" />
+                                <ModalRow name={getTranslation("HP", translationKey, "stats")}  value={pokemon ? pokemon.stats.hp  : ""} />
+                                <ModalRow name={getTranslation("Atk", translationKey, "stats")} value={pokemon ? pokemon.stats.atk : ""} />
+                                <ModalRow name={getTranslation("Def", translationKey, "stats")} value={pokemon ? pokemon.stats.def : ""} />
+                                <ModalRow name={getTranslation("SpA", translationKey, "stats")} value={pokemon ? pokemon.stats.spa : ""} />
+                                <ModalRow name={getTranslation("SpD", translationKey, "stats")} value={pokemon ? pokemon.stats.spd : ""} />
+                                <ModalRow name={getTranslation("Spe", translationKey, "stats")} value={pokemon ? pokemon.stats.spe : ""} />
+                                <p style={{margin: "5px"}}></p>
+                                <ModalRow name={getTranslation("BST", translationKey, "stats")} value={pokemon ? Object.entries(pokemon.stats).reduce((acc, [id,val]) => acc + val, 0)  : ""} />
 
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                </Stack>
             </Paper>
+        }
         </Popper>
     )
 }
@@ -470,6 +494,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
     const flavorText = moveData ? ( moveData.flavorText ? moveData.flavorText[lang] : null ) : null;
 
     return (
+        
         <Popper 
             open={showPopper} 
             anchorEl={anchorEl} 
@@ -477,103 +502,127 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
             disablePortal={false}
             sx={{ position: "relative", zIndex: 1000000 }}
         >
-            {(moveData && move && moveData.name !== "(No Move)") &&
-                <Paper sx={{ p: 1, backgroundColor: "modal.main", maxWidth: "250px" }} >
-                    <Stack spacing={1} justifyContent="left">
-                        <TableContainer>
-                            <Table size="small" width="100%">
-                                <TableBody>
-                                    <ModalRow 
-                                        name={getTranslation("Type", translationKey)}
-                                        value={getTranslation(move.type, translationKey, "types")}
-                                        show={move.type !== undefined}
-                                    />
-                                    <ModalRow 
-                                        name={getTranslation("Category", translationKey)}
-                                        value={getTranslation(move.category, translationKey, "ui")}
-                                        show={move.category !== undefined}
-                                    />
-                                    <ModalRow 
-                                        name={getTranslation("Power", translationKey)}
-                                        value={move.bp}
-                                        show={move.bp !== undefined && move.bp > 0}
-                                    />
-                                    <ModalRow
-                                        name={getTranslation("Healing", translationKey)}
-                                        value={moveData.healing}
-                                        getString={(v: number): string => v.toString() + "%"}
-                                        show={moveData.healing !== null && moveData.healing! !== 0}
-                                    />
-                                    <ModalRow
-                                        name={(moveData.drain! > 0) ? getTranslation("Drain", translationKey) : getTranslation("Recoil", translationKey)}
-                                        value={moveData.drain}
-                                        getString={(v: number): string => Math.abs(v).toString() + "%"}
-                                        show={moveData.drain !== null && moveData.drain! !== 0}
-                                    />
-                                    <ModalRow
-                                        name={getTranslation("Accuracy", translationKey)}
-                                        value={moveData.accuracy}
-                                        getString={(v: number): string => v.toString() + "%"}
-                                        show={moveData.accuracy !== null}
-                                    />
-                                    <ModalRow
-                                        name={getTranslation("# Hits", translationKey)}
-                                        value={[moveData.minHits, moveData.maxHits]}
-                                        getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
-                                        show={moveData.maxHits !== null && moveData.maxHits! > 1}
-                                    />
-                                    <ModalRow
-                                        name={getTranslation("Priority", translationKey)}
-                                        value={moveData.priority}
-                                        getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
-                                        show={moveData.priority !== null && moveData.priority! !== 0}
-                                    />
-                                    <ModalRow
-                                        name={getTranslation("Status", translationKey)}
-                                        value={getTranslation(getAilmentReadableName(moveData.ailment) || "", translationKey, "status")}
-                                        show={moveData.ailment !== null}
-                                    />
-                                    <ModalRow
-                                        name=""
-                                        value={moveData.ailmentChance}
-                                        getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey) }
-                                        show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
-                                    />
-                                    <ModalRow
-                                        name={getTranslation("Stat Changes", translationKey)}
-                                        value={moveData.statChanges}
-                                        getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v, translationKey)}
-                                        show={moveData.statChanges !== null}
-                                    />
-                                    <ModalRow
-                                        name=""
-                                        value={moveData.statChance}
-                                        getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey)}
-                                        show={moveData.statChance !== null && moveData.statChance! > 0}
-                                    />
-                                    <ModalRow
-                                        name=""
-                                        value={moveData.flinchChance}
-                                        getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
-                                        show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
-                                    />
-                                    { moveItem.method && 
-                                        <ModalRow
-                                            name={getTranslation("Learn Method", translationKey)}
-                                            value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
-                                            show={moveItem.method !== undefined}
-                                            iconURLs={spriteURL}
-                                        />
-                                    }                                 
-                                </TableBody>
-                            </Table>
-                        </TableContainer>
-                        { flavorText &&
-                            <Typography variant="body2">{flavorText}</Typography>
-                        }   
+        {(moveData && move && moveData.name !== "(No Move)") &&
+            <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px" }} >
+                <Stack>
+                    <Stack direction="row" alignItems="center" sx={{paddingBottom: "5px"}}>
+                        <Typography variant="body1" fontWeight={600}>{moveItem.name}</Typography>
+                        <Box flexGrow={1} />
+                        { moveData.moveCategory &&
+                            <Box
+                                sx={{
+                                    width: "30px",
+                                    height: "30px",
+                                    overflow: 'hidden',
+                                    background: `url(${getTypeIconURL(moveData.moveCategory)}) no-repeat center center / contain`,
+                                }}
+                            />
+                        }
+                        { moveData.type &&
+                            <Box
+                                sx={{
+                                    width: "30px",
+                                    height: "30px",
+                                    overflow: 'hidden',
+                                    background: `url(${getTypeIconURL(moveData.type)}) no-repeat center center / contain`,
+                                }}
+                            />
+                        }
                     </Stack>
-                </Paper>
-            }
+                    <TableContainer>
+                        <Table size="small" style={{ width: "fit-content" }}>
+                            <TableBody>
+                                <ModalRow 
+                                    name={getTranslation("Type", translationKey)}
+                                    value={getTranslation(move.type, translationKey, "types")}
+                                    show={move.type !== undefined}
+                                />
+                                <ModalRow 
+                                    name={getTranslation("Category", translationKey)}
+                                    value={getTranslation(move.category, translationKey, "ui")}
+                                    show={move.category !== undefined}
+                                />
+                                <ModalRow 
+                                    name={getTranslation("Power", translationKey)}
+                                    value={move.bp}
+                                    show={move.bp !== undefined && move.bp > 0}
+                                />
+                                <ModalRow
+                                    name={getTranslation("Healing", translationKey)}
+                                    value={moveData.healing}
+                                    getString={(v: number): string => v.toString() + "%"}
+                                    show={moveData.healing !== null && moveData.healing! !== 0}
+                                />
+                                <ModalRow
+                                    name={(moveData.drain! > 0) ? getTranslation("Drain", translationKey) : getTranslation("Recoil", translationKey)}
+                                    value={moveData.drain}
+                                    getString={(v: number): string => Math.abs(v).toString() + "%"}
+                                    show={moveData.drain !== null && moveData.drain! !== 0}
+                                />
+                                <ModalRow
+                                    name={getTranslation("Accuracy", translationKey)}
+                                    value={moveData.accuracy}
+                                    getString={(v: number): string => v.toString() + "%"}
+                                    show={moveData.accuracy !== null}
+                                />
+                                <ModalRow
+                                    name={getTranslation("# Hits", translationKey)}
+                                    value={[moveData.minHits, moveData.maxHits]}
+                                    getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
+                                    show={moveData.maxHits !== null && moveData.maxHits! > 1}
+                                />
+                                <ModalRow
+                                    name={getTranslation("Priority", translationKey)}
+                                    value={moveData.priority}
+                                    getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
+                                    show={moveData.priority !== null && moveData.priority! !== 0}
+                                />
+                                <ModalRow
+                                    name={getTranslation("Status", translationKey)}
+                                    value={getTranslation(getAilmentReadableName(moveData.ailment) || "", translationKey, "status")}
+                                    show={moveData.ailment !== null}
+                                />
+                                <ModalRow
+                                    name=""
+                                    value={moveData.ailmentChance}
+                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey) }
+                                    show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
+                                />
+                                <ModalRow
+                                    name={getTranslation("Stat Changes", translationKey)}
+                                    value={moveData.statChanges}
+                                    getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v, translationKey)}
+                                    show={moveData.statChanges !== null}
+                                />
+                                <ModalRow
+                                    name=""
+                                    value={moveData.statChance}
+                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey)}
+                                    show={moveData.statChance !== null && moveData.statChance! > 0}
+                                />
+                                {/* <ModalRow
+                                    name=""
+                                    value={moveData.flinchChance}
+                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
+                                    show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
+                                /> */}
+                                { moveItem.method && 
+                                    <ModalRow
+                                        name={getTranslation("Learn Method", translationKey)}
+                                        value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
+                                        show={moveItem.method !== undefined}
+                                        iconURLs={spriteURL}
+                                    />
+                                }
+                            </TableBody>
+                        </Table>
+                    </TableContainer>
+                    { flavorText &&
+                        <Typography variant="body2" sx={{paddingTop: "10px" }}>{flavorText}</Typography>
+                    }
+                </Stack>
+            </Paper>
+        }
         </Popper>
     )
 }
@@ -605,9 +654,20 @@ export function ItemPopper({name, showPopper, anchorEl, translationKey}: {name: 
             sx={{ position: "relative", zIndex: 1000000 }}
         >
             {(name && itemData && name !== "(No Item)") &&
-                <Paper sx={{ p: 1, backgroundColor: "modal.main", maxWidth: "250px"}} >
-                <Stack justifyContent="left" spacing={1}>
-                    <Typography variant="body1">{getTranslation(name, translationKey, "items")}</Typography>      
+                <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px"}} >
+                <Stack spacing={1}>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                        <Typography variant="body1" fontWeight={600}>{getTranslation(name, translationKey, "items")}</Typography>      
+                        <Box flexGrow={1} />
+                        <Box
+                            sx={{
+                                width: "25px",
+                                height: "25px",
+                                overflow: 'hidden',
+                                background: `url(${getItemSpriteURL(name)}) no-repeat center center / contain`,
+                            }}
+                        />
+                    </Stack>
                     <Typography variant="body2">{flavorText}</Typography>
                 </Stack>
             </Paper>
@@ -643,9 +703,9 @@ export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {
             sx={{ position: "relative", zIndex: 1000000 }}
         >
             {(ability && abilityData && (ability.engName !== "(No Ability)")) &&
-                <Paper sx={{ p: 1, backgroundColor: "modal.main", maxWidth: "250px"}} >
+                <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px"}} >
                     <Stack justifyContent="left" spacing={1}>
-                        <Typography variant="body1">{ability.name}</Typography>      
+                        <Typography variant="body1" fontWeight={600}>{ability.name}</Typography>      
                         <Typography variant="body2">{flavorText}</Typography>
                     </Stack>
                 </Paper>
@@ -697,6 +757,33 @@ export function MoveWithIcon({move, allMoves, prettyMode, translationKey}: {move
 }
 
 function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, allMoves, disabled, prettyMode,translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], currentMoves: MoveName[], allMoves: Map<MoveName,MoveData> | null, disabled: boolean, prettyMode: boolean, translationKey: any}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+    const [open, setOpen] = useState(false);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null && !open) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseLeave = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+
+    const handleDropdownOpen = () => {
+        setOpen(true);
+        handleMouseLeave();
+    }
+    
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -707,30 +794,35 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
                         <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} />
                     }
                     {!prettyMode &&
-                        <Autocomplete
-                            disablePortal
-                            disableClearable
-                            disabled={disabled}
-                            autoHighlight={true}    
-                            size="small"
-                            value={value ? getTranslation(value, translationKey, "moves") : undefined}
-                            options={options}
-                            filterOptions={
-                                createFilterOptions({
-                                    stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "moves")
-                                })
-                            }
-                            renderOption={(props, option) => 
-                                <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
-                            }
-                            getOptionDisabled={(option) => option !== "(No Move)" && option !== value && currentMoves.includes(option as MoveName)}
-                            renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
-                            onChange={(event: any, newValue: string) => {
-                                setValue(newValue);
-                            }}
-                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
-                            sx = {{width: '85%'}}
-                        />
+                        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                            <Autocomplete
+                                disablePortal
+                                disableClearable
+                                disabled={disabled}
+                                autoHighlight={true}    
+                                onOpen={handleDropdownOpen}
+                                onClose={() => setOpen(false)}
+                                size="small"
+                                value={value ? getTranslation(value, translationKey, "moves") : undefined}
+                                options={options}
+                                filterOptions={
+                                    createFilterOptions({
+                                        stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "moves")
+                                    })
+                                }
+                                renderOption={(props, option) => 
+                                    <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
+                                }
+                                getOptionDisabled={(option) => option !== "(No Move)" && option !== value && currentMoves.includes(option as MoveName)}
+                                renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                                onChange={(event: any, newValue: string) => {
+                                    setValue(newValue);
+                                }}
+                                componentsProps={{ popper: { style: { width: 'fit-content' } } }}
+                                sx = {{width: '85%'}}
+                            />
+                            <MovePopper moveItem={findOptionFromMoveName(value, moveSet, translationKey)} showPopper={showPopper} anchorEl={anchorEl} allMoves={allMoves} translationKey={translationKey} />
+                        </Box>
                     }
                 </RightCell>
             </TableRow>
@@ -777,6 +869,33 @@ function AbilityWithIcon({ability, prettyMode, translationKey}: {ability: {name:
 }
 
 function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode, translationKey}: {name: string, value: AbilityName, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean, translationKey: any}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+    const [open, setOpen] = useState(false);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null && !open) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseLeave = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+
+    const handleDropdownOpen = () => {
+        setOpen(true);
+        handleMouseLeave();
+    }
+
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -787,28 +906,33 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
                         <AbilityWithIcon ability={findOptionFromAbilityName(value, abilities, translationKey)} prettyMode={prettyMode} translationKey={translationKey} />
                     }
                     {!prettyMode &&
-                        <Autocomplete
-                            disablePortal
-                            disableClearable
-                            autoHighlight={true}    
-                            size="small"
-                            value={value ? getTranslation(value, translationKey, "abilities") : undefined}
-                            options={options}
-                            filterOptions={
-                                createFilterOptions({
-                                    stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "abilities")
-                                })
-                            }
-                            renderOption={(props, option) => 
-                                <li {...props}><AbilityWithIcon ability={findOptionFromAbilityName(option || "(No Ability)", abilities, translationKey)} prettyMode={prettyMode} translationKey={translationKey} /></li>
-                            }
-                            renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
-                            onChange={(event: any, newValue: string) => {
-                                setValue(newValue);
-                            }}
-                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
-                            sx = {{width: '85%'}}
-                        />
+                        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                            <Autocomplete
+                                disablePortal
+                                disableClearable
+                                autoHighlight={true}   
+                                onOpen={handleDropdownOpen} 
+                                onClose={() => setOpen(false)}
+                                size="small"
+                                value={value ? getTranslation(value, translationKey, "abilities") : undefined}
+                                options={options}
+                                filterOptions={
+                                    createFilterOptions({
+                                        stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "abilities")
+                                    })
+                                }
+                                renderOption={(props, option) => 
+                                    <li {...props}><AbilityWithIcon ability={findOptionFromAbilityName(option || "(No Ability)", abilities, translationKey)} prettyMode={prettyMode} translationKey={translationKey} /></li>
+                                }
+                                renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                                onChange={(event: any, newValue: string) => {
+                                    setValue(newValue);
+                                }}
+                                componentsProps={{ popper: { style: { width: 'fit-content' } } }}
+                                sx = {{width: '85%'}}
+                            />
+                            <AbilityPopper ability={findOptionFromAbilityName(value, abilities, translationKey)} translatedName={value} showPopper={showPopper} anchorEl={anchorEl} translationKey={translationKey} />
+                        </Box>
                     }
                 </RightCell>
             </TableRow>
@@ -865,6 +989,33 @@ export function GenericWithIcon({name, engName, spriteFetcher, prettyMode, Modal
 }
 
 function GenericIconSummaryRow({name, value, setValue, options, optionFinder, spriteFetcher, prettyMode, translationKey, translationCategory, ModalComponent, modalProps}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], optionFinder: Function, spriteFetcher: Function, prettyMode: boolean, translationKey: any, translationCategory: string, ModalComponent?: ((p: any) => JSX.Element) | null, modalProps?: any}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+    const [open, setOpen] = useState(false);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null && !open && !!ModalComponent) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseLeave = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+
+    const handleDropdownOpen = () => {
+        setOpen(true);
+        handleMouseLeave();
+    }
+
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -875,35 +1026,42 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                         <GenericWithIcon name={optionFinder(value, translationKey)} engName={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: value}}/>
                     }
                     {!prettyMode &&
-                        <Autocomplete
-                            disablePortal
-                            disableClearable
-                            autoHighlight={true}    
-                            size="small"
-                            value={value ? (
-                                    translationCategory === "pokemon" ? findOptionFromPokemonName(value, translationKey) : getTranslation(value, translationKey, translationCategory) 
-                                ) : undefined
+                        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                            <Autocomplete
+                                disablePortal
+                                disableClearable
+                                autoHighlight={true}    
+                                onOpen={handleDropdownOpen}
+                                onClose={() => setOpen(false)}
+                                size="small"
+                                value={value ? (
+                                        translationCategory === "pokemon" ? findOptionFromPokemonName(value, translationKey) : getTranslation(value, translationKey, translationCategory) 
+                                    ) : undefined
+                                }
+                                options={options}
+                                filterOptions={
+                                    createFilterOptions({
+                                        stringify: (option: string | undefined) => (
+                                            translationCategory === "pokemon" ? findOptionFromPokemonName(option || "", translationKey) : getTranslation(option || "", translationKey, translationCategory)
+                                        )
+                                    })
+                                }
+                                renderOption={(props, option) => 
+                                    <li {...props}><GenericWithIcon name={optionFinder(option, translationKey)} engName={optionFinder(option, null)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: option}} /></li>
+                                }
+                                renderInput={(params) => 
+                                    <TextField {...params} variant="standard" size="small" />}
+                                onChange={(event: any, newValue: string) => {
+                                    //@ts-ignore
+                                    checkSetValueIsDefault(newValue) ? setValue(undefined) : setValue(newValue);
+                                }}
+                                componentsProps={{ popper: { style: { width: 'fit-content' } } }}
+                                sx = {{width: '85%'}}
+                            />
+                            { !!(ModalComponent) && 
+                                <ModalComponent name={value} showPopper={showPopper} anchorEl={anchorEl} {...modalProps} />
                             }
-                            options={options}
-                            filterOptions={
-                                createFilterOptions({
-                                    stringify: (option: string | undefined) => (
-                                        translationCategory === "pokemon" ? findOptionFromPokemonName(option || "", translationKey) : getTranslation(option || "", translationKey, translationCategory)
-                                    )
-                                })
-                            }
-                            renderOption={(props, option) => 
-                                <li {...props}><GenericWithIcon name={optionFinder(option, translationKey)} engName={optionFinder(option, null)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: option}} /></li>
-                            }
-                            renderInput={(params) => 
-                                <TextField {...params} variant="standard" size="small" />}
-                            onChange={(event: any, newValue: string) => {
-                                //@ts-ignore
-                                checkSetValueIsDefault(newValue) ? setValue(undefined) : setValue(newValue);
-                            }}
-                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
-                            sx = {{width: '85%'}}
-                        />
+                        </Box>
                     }
                 </RightCell>
             </TableRow>

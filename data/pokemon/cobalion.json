@@ -1,5 +1,16 @@
 {
     "name": "Cobalion",
+    "category": {
+        "en": "Iron Will Pokémon",
+        "ja": "てっしんポケモン",
+        "fr": "Pokémon Cœur de Fer",
+        "es": "Pokémon Tesón Acero",
+        "de": "Eisenkern-Pokémon",
+        "it": "Pokémon Metalcuore",
+        "ko": "철심포켓몬",
+        "zh-Hant": "鐵心寶可夢",
+        "zh-Hans": "铁心宝可梦"
+    },
     "abilities": [
         {
             "name": "Justified",

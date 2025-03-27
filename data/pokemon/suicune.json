@@ -1,5 +1,16 @@
 {
     "name": "Suicune",
+    "category": {
+        "en": "Aurora Pokémon",
+        "ja": "オーロラポケモン",
+        "fr": "Pokémon Aurore",
+        "es": "Pokémon Aurora",
+        "de": "Polarlicht-Pokémon",
+        "it": "Pokémon Aurora",
+        "ko": "오로라포켓몬",
+        "zh-Hant": "極光寶可夢",
+        "zh-Hans": "极光宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

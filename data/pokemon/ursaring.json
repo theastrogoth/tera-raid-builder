@@ -1,5 +1,16 @@
 {
     "name": "Ursaring",
+    "category": {
+        "en": "Hibernator Pokémon",
+        "ja": "とうみんポケモン",
+        "fr": "Pokémon Hibernant",
+        "es": "Pokémon Hibernante",
+        "de": "Schläfer-Pokémon",
+        "it": "Pokémon Letargo",
+        "ko": "동면포켓몬",
+        "zh-Hant": "冬眠寶可夢",
+        "zh-Hans": "冬眠宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

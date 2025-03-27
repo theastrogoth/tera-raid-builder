@@ -1,5 +1,16 @@
 {
     "name": "Seedot",
+    "category": {
+        "en": "Acorn Pokémon",
+        "ja": "どんぐりポケモン",
+        "fr": "Pokémon Gland",
+        "es": "Pokémon Bellota",
+        "de": "Eichelnuss-Pokémon",
+        "it": "Pokémon Ghianda",
+        "ko": "도토리포켓몬",
+        "zh-Hant": "橡實寶可夢",
+        "zh-Hans": "橡实宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

@@ -1,5 +1,16 @@
 {
     "name": "Combee",
+    "category": {
+        "en": "Tiny Bee Pokémon",
+        "ja": "はちのこポケモン",
+        "fr": "Pokémon Miniabeille",
+        "es": "Pokémon Abejita",
+        "de": "Kleinbienen-Pokémon",
+        "it": "Pokémon Apetta",
+        "ko": "꼬마벌포켓몬",
+        "zh-Hant": "幼蜂寶可夢",
+        "zh-Hans": "幼蜂宝可梦"
+    },
     "abilities": [
         {
             "name": "Honey Gather",

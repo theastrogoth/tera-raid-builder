@@ -1,5 +1,16 @@
 {
     "name": "Dedenne",
+    "category": {
+        "en": "Antenna Pokémon",
+        "ja": "アンテナポケモン",
+        "fr": "Pokémon Antenne",
+        "es": "Pokémon Antenas",
+        "de": "Antennen-Pokémon",
+        "it": "Pokémon Antenna",
+        "ko": "안테나포켓몬",
+        "zh-Hant": "天線寶可夢",
+        "zh-Hans": "天线宝可梦"
+    },
     "abilities": [
         {
             "name": "Cheek Pouch",

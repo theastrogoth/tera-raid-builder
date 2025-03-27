@@ -1,5 +1,16 @@
 {
     "name": "Wynaut",
+    "category": {
+        "en": "Bright Pokémon",
+        "ja": "ほがらかポケモン",
+        "fr": "Pokémon Ravi",
+        "es": "Pokémon Radiante",
+        "de": "Strahlekind-Pokémon",
+        "it": "Pokémon Brillante",
+        "ko": "명랑포켓몬",
+        "zh-Hant": "開朗寶可夢",
+        "zh-Hans": "开朗宝可梦"
+    },
     "abilities": [
         {
             "name": "Shadow Tag",

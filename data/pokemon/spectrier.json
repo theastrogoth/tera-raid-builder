@@ -1,5 +1,16 @@
 {
     "name": "Spectrier",
+    "category": {
+        "en": "Swift Horse Pokémon",
+        "ja": "しゅんばポケモン",
+        "fr": "Pokémon Cheval Vif",
+        "es": "Pokémon Corcel Veloz",
+        "de": "Flinkblut-Pokémon",
+        "it": "Pokémon Sveltequino",
+        "ko": "빠른말포켓몬",
+        "zh-Hant": "駿馬寶可夢",
+        "zh-Hans": "骏马宝可梦"
+    },
     "abilities": [
         {
             "name": "Grim Neigh",

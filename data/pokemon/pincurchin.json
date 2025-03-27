@@ -1,5 +1,16 @@
 {
     "name": "Pincurchin",
+    "category": {
+        "en": "Sea Urchin Pokémon",
+        "ja": "うにポケモン",
+        "fr": "Pokémon Oursin",
+        "es": "Pokémon Erizo de Mar",
+        "de": "Seeigel-Pokémon",
+        "it": "Pokémon Echino",
+        "ko": "성게포켓몬",
+        "zh-Hant": "海膽寶可夢",
+        "zh-Hans": "海胆宝可梦"
+    },
     "abilities": [
         {
             "name": "Lightning Rod",

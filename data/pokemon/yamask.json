@@ -1,5 +1,16 @@
 {
     "name": "Yamask",
+    "category": {
+        "en": "Spirit Pokémon",
+        "ja": "たましいポケモン",
+        "fr": "Pokémon Âme",
+        "es": "Pokémon Espíritu",
+        "de": "Seelen-Pokémon",
+        "it": "Pokémon Fatuanima",
+        "ko": "영혼포켓몬",
+        "zh-Hant": "魂寶可夢",
+        "zh-Hans": "魂宝可梦"
+    },
     "abilities": [
         {
             "name": "Mummy",

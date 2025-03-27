@@ -1,5 +1,16 @@
 {
     "name": "Mismagius",
+    "category": {
+        "en": "Magical Pokémon",
+        "ja": "マジカルポケモン",
+        "fr": "Pokémon Magique",
+        "es": "Pokémon Mágico",
+        "de": "Magisch-Pokémon",
+        "it": "Pokémon Stregone",
+        "ko": "매지컬포켓몬",
+        "zh-Hant": "魔法寶可夢",
+        "zh-Hans": "魔法宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

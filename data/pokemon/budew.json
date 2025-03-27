@@ -1,5 +1,16 @@
 {
     "name": "Budew",
+    "category": {
+        "en": "Bud Pokémon",
+        "ja": "つぼみポケモン",
+        "fr": "Pokémon Bourgeon",
+        "es": "Pokémon Brote",
+        "de": "Knospen-Pokémon",
+        "it": "Pokémon Germoglio",
+        "ko": "꽃봉오리포켓몬",
+        "zh-Hant": "花苞寶可夢",
+        "zh-Hans": "花苞宝可梦"
+    },
     "abilities": [
         {
             "name": "Natural Cure",

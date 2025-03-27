@@ -1,5 +1,16 @@
 {
     "name": "Donphan",
+    "category": {
+        "en": "Armor Pokémon",
+        "ja": "よろいポケモン",
+        "fr": "Pokémon Armure",
+        "es": "Pokémon Coraza",
+        "de": "Panzer-Pokémon",
+        "it": "Pokémon Armatura",
+        "ko": "갑옷포켓몬",
+        "zh-Hant": "鎧甲寶可夢",
+        "zh-Hans": "铠甲宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

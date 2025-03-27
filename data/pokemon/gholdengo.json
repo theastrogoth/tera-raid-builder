@@ -1,5 +1,16 @@
 {
     "name": "Gholdengo",
+    "category": {
+        "en": "Coin Entity Pokémon",
+        "ja": "たからものポケモン",
+        "fr": "Pokémon Trésor Animé",
+        "es": "Pokémon Tesoro",
+        "de": "Schatzwesen-Pokémon",
+        "it": "Pokémon Tesoro",
+        "ko": "보물생명체포켓몬",
+        "zh-Hant": "寶者寶可夢",
+        "zh-Hans": "宝者宝可梦"
+    },
     "abilities": [
         {
             "name": "Good as Gold",

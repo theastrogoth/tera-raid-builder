@@ -1,5 +1,16 @@
 {
     "name": "Gyarados",
+    "category": {
+        "en": "Atrocious Pokémon",
+        "ja": "きょうあくポケモン",
+        "fr": "Pokémon Terrifiant",
+        "es": "Pokémon Atrocidad",
+        "de": "Grausam-Pokémon",
+        "it": "Pokémon Atroce",
+        "ko": "흉악포켓몬",
+        "zh-Hant": "凶惡寶可夢",
+        "zh-Hans": "凶恶宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

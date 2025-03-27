@@ -1,5 +1,16 @@
 {
     "name": "Dragalge",
+    "category": {
+        "en": "Mock Kelp Pokémon",
+        "ja": "クサモドキポケモン",
+        "fr": "Pokémon Simulalgue",
+        "es": "Pokémon Pseudoalga",
+        "de": "Tangmimikry-Pokémon",
+        "it": "Pokémon Similalga",
+        "ko": "풀모방포켓몬",
+        "zh-Hant": "似草寶可夢",
+        "zh-Hans": "似草宝可梦"
+    },
     "abilities": [
         {
             "name": "Poison Point",

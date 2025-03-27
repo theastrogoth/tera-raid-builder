@@ -1,5 +1,16 @@
 {
     "name": "Sigilyph",
+    "category": {
+        "en": "Avianoid Pokémon",
+        "ja": "とりもどきポケモン",
+        "fr": "Pokémon Similoiseau",
+        "es": "Pokémon Pseudopájaro",
+        "de": "Vogelgleich-Pokémon",
+        "it": "Pokémon Pseuduccello",
+        "ko": "흡사새포켓몬",
+        "zh-Hant": "似鳥寶可夢",
+        "zh-Hans": "似鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Wonder Skin",

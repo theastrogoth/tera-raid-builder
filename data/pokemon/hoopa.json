@@ -1,5 +1,16 @@
 {
     "name": "Hoopa",
+    "category": {
+        "en": "Mischief Pokémon",
+        "ja": "いたずらポケモン",
+        "fr": "Pokémon Chenapan",
+        "es": "Pokémon Travesura",
+        "de": "Schabernack-Pokémon",
+        "it": "Pokémon Birba",
+        "ko": "장난포켓몬",
+        "zh-Hant": "頑童寶可夢",
+        "zh-Hans": "顽童宝可梦"
+    },
     "abilities": [
         {
             "name": "Magician",

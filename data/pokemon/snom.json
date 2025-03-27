@@ -1,5 +1,16 @@
 {
     "name": "Snom",
+    "category": {
+        "en": "Worm Pokémon",
+        "ja": "いもむしポケモン",
+        "fr": "Pokémon Ver",
+        "es": "Pokémon Gusano",
+        "de": "Wurm-Pokémon",
+        "it": "Pokémon Baco",
+        "ko": "애벌레포켓몬",
+        "zh-Hant": "蟲寶寶寶可夢",
+        "zh-Hans": "虫宝宝宝可梦"
+    },
     "abilities": [
         {
             "name": "Shield Dust",

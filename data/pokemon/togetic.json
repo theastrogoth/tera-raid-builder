@@ -1,5 +1,16 @@
 {
     "name": "Togetic",
+    "category": {
+        "en": "Happiness Pokémon",
+        "ja": "しあわせポケモン",
+        "fr": "Pokémon Bonheur",
+        "es": "Pokémon Felicidad",
+        "de": "Freuden-Pokémon",
+        "it": "Pokémon Felicità",
+        "ko": "행복포켓몬",
+        "zh-Hant": "幸福寶可夢",
+        "zh-Hans": "幸福宝可梦"
+    },
     "abilities": [
         {
             "name": "Hustle",

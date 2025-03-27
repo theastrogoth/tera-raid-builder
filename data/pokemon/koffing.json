@@ -1,5 +1,16 @@
 {
     "name": "Koffing",
+    "category": {
+        "en": "Poison Gas Pokémon",
+        "ja": "どくガスポケモン",
+        "fr": "Pokémon Gaz Mortel",
+        "es": "Pokémon Gas Venenoso",
+        "de": "Giftwolken-Pokémon",
+        "it": "Pokémon Velenuvola",
+        "ko": "독가스포켓몬",
+        "zh-Hant": "毒氣寶可夢",
+        "zh-Hans": "毒气宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

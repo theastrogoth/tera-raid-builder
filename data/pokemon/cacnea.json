@@ -1,5 +1,16 @@
 {
     "name": "Cacnea",
+    "category": {
+        "en": "Cactus Pokémon",
+        "ja": "サボテンポケモン",
+        "fr": "Pokémon Cactus",
+        "es": "Pokémon Cactus",
+        "de": "Kaktus-Pokémon",
+        "it": "Pokémon Cactus",
+        "ko": "선인장포켓몬",
+        "zh-Hant": "仙人掌寶可夢",
+        "zh-Hans": "仙人掌宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Veil",

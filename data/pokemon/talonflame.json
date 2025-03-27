@@ -1,5 +1,16 @@
 {
     "name": "Talonflame",
+    "category": {
+        "en": "Scorching Pokémon",
+        "ja": "れっかポケモン",
+        "fr": "Pokémon Fournaise",
+        "es": "Pokémon Flamígero",
+        "de": "Stichflammen-Pokémon",
+        "it": "Pokémon Ardifiamma",
+        "ko": "열화포켓몬",
+        "zh-Hant": "烈火寶可夢",
+        "zh-Hans": "烈火宝可梦"
+    },
     "abilities": [
         {
             "name": "Flame Body",

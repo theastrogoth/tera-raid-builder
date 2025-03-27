@@ -1,5 +1,16 @@
 {
     "name": "Vivillon",
+    "category": {
+        "en": "Scale Pokémon",
+        "ja": "りんぷんポケモン",
+        "fr": "Pokémon Lépidécaille",
+        "es": "Pokémon Escamaposa",
+        "de": "Flügelstaub-Pokémon",
+        "it": "Pokémon Farfascaglia",
+        "ko": "인분포켓몬",
+        "zh-Hant": "鱗粉寶可夢",
+        "zh-Hans": "鳞粉宝可梦"
+    },
     "abilities": [
         {
             "name": "Shield Dust",

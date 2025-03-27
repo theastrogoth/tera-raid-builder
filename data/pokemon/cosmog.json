@@ -1,5 +1,16 @@
 {
     "name": "Cosmog",
+    "category": {
+        "en": "Nebula Pokémon",
+        "ja": "せいうんポケモン",
+        "fr": "Pokémon Nébuleuse",
+        "es": "Pokémon Nebulosa",
+        "de": "Nebula-Pokémon",
+        "it": "Pokémon Nebulosa",
+        "ko": "성운포켓몬",
+        "zh-Hant": "星雲寶可夢",
+        "zh-Hans": "星云宝可梦"
+    },
     "abilities": [
         {
             "name": "Unaware",

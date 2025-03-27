@@ -1,5 +1,16 @@
 {
     "name": "Shedinja",
+    "category": {
+        "en": "Shed Pokémon",
+        "ja": "ぬけがらポケモン",
+        "fr": "Pokémon Exuvie",
+        "es": "Pokémon Muda",
+        "de": "Häutungs-Pokémon",
+        "it": "Pokémon Cambiapelle",
+        "ko": "허물포켓몬",
+        "zh-Hant": "空殼寶可夢",
+        "zh-Hans": "空壳宝可梦"
+    },
     "abilities": [
         {
             "name": "Wonder Guard",

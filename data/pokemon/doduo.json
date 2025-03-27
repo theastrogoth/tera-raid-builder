@@ -1,5 +1,16 @@
 {
     "name": "Doduo",
+    "category": {
+        "en": "Twin Bird Pokémon",
+        "ja": "ふたごどりポケモン",
+        "fr": "Pokémon Duoiseau",
+        "es": "Pokémon Ave Gemela",
+        "de": "Duovogel-Pokémon",
+        "it": "Pokémon Biuccello",
+        "ko": "쌍둥이새포켓몬",
+        "zh-Hant": "兩頭鳥寶可夢",
+        "zh-Hans": "两头鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

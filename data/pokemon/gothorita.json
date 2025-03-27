@@ -1,5 +1,16 @@
 {
     "name": "Gothorita",
+    "category": {
+        "en": "Manipulate Pokémon",
+        "ja": "あやつりポケモン",
+        "fr": "Pokémon Magouilleur",
+        "es": "Pokémon Manipulador",
+        "de": "Manipulator-Pokémon",
+        "it": "Pokémon Raggiro",
+        "ko": "조작포켓몬",
+        "zh-Hant": "操縱寶可夢",
+        "zh-Hans": "操纵宝可梦"
+    },
     "abilities": [
         {
             "name": "Frisk",

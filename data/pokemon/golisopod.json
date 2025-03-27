@@ -1,5 +1,16 @@
 {
     "name": "Golisopod",
+    "category": {
+        "en": "Hard Scale Pokémon",
+        "ja": "そうこうポケモン",
+        "fr": "Pokémon Blindé",
+        "es": "Pokémon Blindaje",
+        "de": "Rüstungs-Pokémon",
+        "it": "Pokémon Blindato",
+        "ko": "장갑포켓몬",
+        "zh-Hant": "裝甲寶可夢",
+        "zh-Hans": "装甲宝可梦"
+    },
     "abilities": [
         {
             "name": "Emergency Exit",

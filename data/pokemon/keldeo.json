@@ -1,5 +1,16 @@
 {
     "name": "Keldeo",
+    "category": {
+        "en": "Colt Pokémon",
+        "ja": "わかごまポケモン",
+        "fr": "Pokémon Poulain",
+        "es": "Pokémon Potro",
+        "de": "Fohlen-Pokémon",
+        "it": "Pokémon Puledro",
+        "ko": "망아지포켓몬",
+        "zh-Hant": "幼馬寶可夢",
+        "zh-Hans": "幼马宝可梦"
+    },
     "abilities": [
         {
             "name": "Justified",

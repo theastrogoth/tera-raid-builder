@@ -1,5 +1,16 @@
 {
     "name": "Espathra",
+    "category": {
+        "en": "Ostrich Pokémon",
+        "ja": "ダチョウポケモン",
+        "fr": "Pokémon Autruche",
+        "es": "Pokémon Avestruz",
+        "de": "Strauß-Pokémon",
+        "it": "Pokémon Struzzo",
+        "ko": "타조포켓몬",
+        "zh-Hant": "鴕鳥寶可夢",
+        "zh-Hans": "鸵鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Opportunist",

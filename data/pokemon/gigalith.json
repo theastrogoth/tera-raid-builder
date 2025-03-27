@@ -1,5 +1,16 @@
 {
     "name": "Gigalith",
+    "category": {
+        "en": "Compressed Pokémon",
+        "ja": "こうあつポケモン",
+        "fr": "Pokémon Surpression",
+        "es": "Pokémon Presurizado",
+        "de": "Kompressions-Pokémon",
+        "it": "Pokémon Pressionalta",
+        "ko": "고압포켓몬",
+        "zh-Hant": "高壓寶可夢",
+        "zh-Hans": "高压宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

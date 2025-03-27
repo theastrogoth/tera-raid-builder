@@ -1,5 +1,16 @@
 {
     "name": "Groudon",
+    "category": {
+        "en": "Continent Pokémon",
+        "ja": "たいりくポケモン",
+        "fr": "Pokémon Continent",
+        "es": "Pokémon Continente",
+        "de": "Kontinent-Pokémon",
+        "it": "Pokémon Continente",
+        "ko": "대륙포켓몬",
+        "zh-Hant": "大陸寶可夢",
+        "zh-Hans": "大陆宝可梦"
+    },
     "abilities": [
         {
             "name": "Drought",

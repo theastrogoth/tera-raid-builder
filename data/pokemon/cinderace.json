@@ -1,5 +1,16 @@
 {
     "name": "Cinderace",
+    "category": {
+        "en": "Striker Pokémon",
+        "ja": "ストライカーポケモン",
+        "fr": "Pokémon Buteur",
+        "es": "Pokémon Delantero",
+        "de": "Torschützen-Pokémon",
+        "it": "Pokémon Cannoniere",
+        "ko": "스트라이커포켓몬",
+        "zh-Hant": "前鋒寶可夢",
+        "zh-Hans": "前锋宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

@@ -1,5 +1,16 @@
 {
     "name": "Cacturne",
+    "category": {
+        "en": "Scarecrow Pokémon",
+        "ja": "カカシぐさポケモン",
+        "fr": "Pokémon Épouvantail",
+        "es": "Pokémon Espantajo",
+        "de": "Vogelschock-Pokémon",
+        "it": "Pokémon Spavento",
+        "ko": "허수아비포켓몬",
+        "zh-Hant": "稻草人寶可夢",
+        "zh-Hans": "稻草人宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Veil",

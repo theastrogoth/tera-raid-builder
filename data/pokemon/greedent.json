@@ -1,5 +1,16 @@
 {
     "name": "Greedent",
+    "category": {
+        "en": "Greedy Pokémon",
+        "ja": "よくばりポケモン",
+        "fr": "Pokémon Goulu",
+        "es": "Pokémon Avaricia",
+        "de": "Gierschlund-Pokémon",
+        "it": "Pokémon Ingordigia",
+        "ko": "욕심쟁이포켓몬",
+        "zh-Hant": "貪慾寶可夢",
+        "zh-Hans": "贪欲宝可梦"
+    },
     "abilities": [
         {
             "name": "Cheek Pouch",

@@ -1,5 +1,16 @@
 {
     "name": "Pumpkaboo-Large",
+    "category": {
+        "en": "Pumpkin Pokémon",
+        "ja": "かぼちゃポケモン",
+        "fr": "Pokémon Citrouille",
+        "es": "Pokémon Calabaza",
+        "de": "Kürbis-Pokémon",
+        "it": "Pokémon Zucca",
+        "ko": "호박포켓몬",
+        "zh-Hant": "南瓜寶可夢",
+        "zh-Hans": "南瓜宝可梦"
+    },
     "abilities": [
         {
             "name": "Pickup",

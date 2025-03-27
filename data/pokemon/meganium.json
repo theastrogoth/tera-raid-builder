@@ -1,5 +1,16 @@
 {
     "name": "Meganium",
+    "category": {
+        "en": "Herb Pokémon",
+        "ja": "ハーブポケモン",
+        "fr": "Pokémon Herbe",
+        "es": "Pokémon Hierba",
+        "de": "Kräuter-Pokémon",
+        "it": "Pokémon Erbe",
+        "ko": "허브포켓몬",
+        "zh-Hant": "芳草寶可夢",
+        "zh-Hans": "芳草宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

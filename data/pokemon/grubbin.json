@@ -1,5 +1,16 @@
 {
     "name": "Grubbin",
+    "category": {
+        "en": "Larva Pokémon",
+        "ja": "ようちゅうポケモン",
+        "fr": "Pokémon Larve",
+        "es": "Pokémon Pupa",
+        "de": "Larven-Pokémon",
+        "it": "Pokémon Coleolarva",
+        "ko": "유충포켓몬",
+        "zh-Hant": "幼蟲寶可夢",
+        "zh-Hans": "幼虫宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

@@ -1,5 +1,16 @@
 {
     "name": "Mr. Rime",
+    "category": {
+        "en": "Comedian Pokémon",
+        "ja": "コメディアンポケモン",
+        "fr": "Pokémon Comédien",
+        "es": "Pokémon Cómico",
+        "de": "Komiker-Pokémon",
+        "it": "Pokémon Comico",
+        "ko": "코미디언포켓몬",
+        "zh-Hant": "喜劇演員寶可夢",
+        "zh-Hans": "喜剧演员宝可梦"
+    },
     "abilities": [
         {
             "name": "Tangled Feet",

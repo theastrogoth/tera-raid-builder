@@ -1,5 +1,16 @@
 {
     "name": "Breloom",
+    "category": {
+        "en": "Mushroom Pokémon",
+        "ja": "きのこポケモン",
+        "fr": "Pokémon Champignon",
+        "es": "Pokémon Hongo",
+        "de": "Pilz-Pokémon",
+        "it": "Pokémon Fungo",
+        "ko": "버섯포켓몬",
+        "zh-Hant": "蘑菇寶可夢",
+        "zh-Hans": "蘑菇宝可梦"
+    },
     "abilities": [
         {
             "name": "Effect Spore",

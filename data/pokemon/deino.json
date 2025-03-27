@@ -1,5 +1,16 @@
 {
     "name": "Deino",
+    "category": {
+        "en": "Irate Pokémon",
+        "ja": "そぼうポケモン",
+        "fr": "Pokémon Rude",
+        "es": "Pokémon Tosco",
+        "de": "Haudrauf-Pokémon",
+        "it": "Pokémon Impeto",
+        "ko": "폭거포켓몬",
+        "zh-Hant": "粗魯寶可夢",
+        "zh-Hans": "粗鲁宝可梦"
+    },
     "abilities": [
         {
             "name": "Hustle",

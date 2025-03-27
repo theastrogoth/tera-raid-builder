@@ -1,5 +1,16 @@
 {
     "name": "Lilligant",
+    "category": {
+        "en": "Flowering Pokémon",
+        "ja": "はなかざりポケモン",
+        "fr": "Pokémon Chef-Fleur",
+        "es": "Pokémon Adornofloral",
+        "de": "Blumenzier-Pokémon",
+        "it": "Pokémon Fiorfronzolo",
+        "ko": "꽃장식포켓몬",
+        "zh-Hant": "花飾寶可夢",
+        "zh-Hans": "花饰宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

@@ -1,5 +1,16 @@
 {
     "name": "Arrokuda",
+    "category": {
+        "en": "Rush Pokémon",
+        "ja": "とつげきポケモン",
+        "fr": "Pokémon Fonceur",
+        "es": "Pokémon Arremetida",
+        "de": "Rempler-Pokémon",
+        "it": "Pokémon Carica",
+        "ko": "돌격포켓몬",
+        "zh-Hant": "突擊寶可夢",
+        "zh-Hans": "突击宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

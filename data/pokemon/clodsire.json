@@ -1,5 +1,16 @@
 {
     "name": "Clodsire",
+    "category": {
+        "en": "Spiny Fish Pokémon",
+        "ja": "とげうおポケモン",
+        "fr": "Pokémon Poissépine",
+        "es": "Pokémon Pez Púas",
+        "de": "Dornfisch-Pokémon",
+        "it": "Pokémon Pescespine",
+        "ko": "가시물고기포켓몬",
+        "zh-Hant": "刺魚寶可夢",
+        "zh-Hans": "刺鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Poison Point",

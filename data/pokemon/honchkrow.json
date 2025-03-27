@@ -1,5 +1,16 @@
 {
     "name": "Honchkrow",
+    "category": {
+        "en": "Big Boss Pokémon",
+        "ja": "おおボスポケモン",
+        "fr": "Pokémon Big Boss",
+        "es": "Pokémon Gran Jefe",
+        "de": "Anführer-Pokémon",
+        "it": "Pokémon Grancapo",
+        "ko": "큰형님포켓몬",
+        "zh-Hant": "大頭目寶可夢",
+        "zh-Hans": "大头目宝可梦"
+    },
     "abilities": [
         {
             "name": "Insomnia",

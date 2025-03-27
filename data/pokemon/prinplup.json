@@ -1,5 +1,16 @@
 {
     "name": "Prinplup",
+    "category": {
+        "en": "Penguin Pokémon",
+        "ja": "ペンギンポケモン",
+        "fr": "Pokémon Pingouin",
+        "es": "Pokémon Pingüino",
+        "de": "Pinguin-Pokémon",
+        "it": "Pokémon Pinguino",
+        "ko": "펭귄포켓몬",
+        "zh-Hant": "企鵝寶可夢",
+        "zh-Hans": "企鹅宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

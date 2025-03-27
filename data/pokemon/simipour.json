@@ -1,5 +1,16 @@
 {
     "name": "Simipour",
+    "category": {
+        "en": "Geyser Pokémon",
+        "ja": "ほうすいポケモン",
+        "fr": "Pokémon Drainage",
+        "es": "Pokémon Drenaje",
+        "de": "Drainage-Pokémon",
+        "it": "Pokémon Spruzzacqua",
+        "ko": "방수포켓몬",
+        "zh-Hant": "放水寶可夢",
+        "zh-Hans": "放水宝可梦"
+    },
     "abilities": [
         {
             "name": "Gluttony",

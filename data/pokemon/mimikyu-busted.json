@@ -1,5 +1,16 @@
 {
     "name": "Mimikyu-Busted",
+    "category": {
+        "en": "Disguise Pokémon",
+        "ja": "ばけのかわポケモン",
+        "fr": "Pokémon Fantômasque",
+        "es": "Pokémon Disfraz",
+        "de": "Kostümspuk-Pokémon",
+        "it": "Pokémon Fantasmanto",
+        "ko": "탈포켓몬",
+        "zh-Hant": "畫皮寶可夢",
+        "zh-Hans": "画皮宝可梦"
+    },
     "abilities": [
         {
             "name": "Disguise",

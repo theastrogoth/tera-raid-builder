@@ -1,5 +1,16 @@
 {
     "name": "Passimian",
+    "category": {
+        "en": "Teamwork Pokémon",
+        "ja": "れんけいポケモン",
+        "fr": "Pokémon Coopération",
+        "es": "Pokémon Cooperación",
+        "de": "Teamwork-Pokémon",
+        "it": "Pokémon Giocosquadra",
+        "ko": "연계포켓몬",
+        "zh-Hant": "配合寶可夢",
+        "zh-Hans": "配合宝可梦"
+    },
     "abilities": [
         {
             "name": "Receiver",

@@ -1,5 +1,16 @@
 {
     "name": "Gurdurr",
+    "category": {
+        "en": "Muscular Pokémon",
+        "ja": "きんこつポケモン",
+        "fr": "Pokémon Costaud",
+        "es": "Pokémon Musculoso",
+        "de": "Muskel-Pokémon",
+        "it": "Pokémon Forzaimmane",
+        "ko": "근골포켓몬",
+        "zh-Hant": "筋骨寶可夢",
+        "zh-Hans": "筋骨宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

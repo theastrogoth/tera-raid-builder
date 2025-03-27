@@ -1,5 +1,16 @@
 {
     "name": "Porygon-Z",
+    "category": {
+        "en": "Virtual Pokémon",
+        "ja": "バーチャルポケモン",
+        "fr": "Pokémon Virtuel",
+        "es": "Pokémon Virtual",
+        "de": "Virtuell-Pokémon",
+        "it": "Pokémon Virtuale",
+        "ko": "가상포켓몬",
+        "zh-Hant": "虛擬寶可夢",
+        "zh-Hans": "虚拟宝可梦"
+    },
     "abilities": [
         {
             "name": "Adaptability",

@@ -1,5 +1,16 @@
 {
     "name": "Riolu",
+    "category": {
+        "en": "Emanation Pokémon",
+        "ja": "はもんポケモン",
+        "fr": "Pokémon Émanation",
+        "es": "Pokémon Emanación",
+        "de": "Wellenspiel-Pokémon",
+        "it": "Pokémon Emanazione",
+        "ko": "파문포켓몬",
+        "zh-Hant": "波紋寶可夢",
+        "zh-Hans": "波纹宝可梦"
+    },
     "abilities": [
         {
             "name": "Steadfast",

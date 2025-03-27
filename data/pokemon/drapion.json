@@ -1,5 +1,16 @@
 {
     "name": "Drapion",
+    "category": {
+        "en": "Ogre Scorpion Pokémon",
+        "ja": "ばけさそりポケモン",
+        "fr": "Pokémon Scorpogre",
+        "es": "Pokémon Escorpiogro",
+        "de": "Ogerskorpion-Pokémon",
+        "it": "Pokémon Scorpiaccio",
+        "ko": "요괴전갈포켓몬",
+        "zh-Hant": "蠍怪寶可夢",
+        "zh-Hans": "蝎怪宝可梦"
+    },
     "abilities": [
         {
             "name": "Battle Armor",

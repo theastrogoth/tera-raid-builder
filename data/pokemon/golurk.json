@@ -1,5 +1,16 @@
 {
     "name": "Golurk",
+    "category": {
+        "en": "Automaton Pokémon",
+        "ja": "ゴーレムポケモン",
+        "fr": "Pokémon Golem Ancien",
+        "es": "Pokémon Autómata",
+        "de": "Urgolem-Pokémon",
+        "it": "Pokémon Statuanimata",
+        "ko": "골렘포켓몬",
+        "zh-Hant": "魔像寶可夢",
+        "zh-Hans": "魔像宝可梦"
+    },
     "abilities": [
         {
             "name": "Iron Fist",

@@ -1,5 +1,16 @@
 {
     "name": "Barbaracle",
+    "category": {
+        "en": "Collective Pokémon",
+        "ja": "しゅうごうポケモン",
+        "fr": "Pokémon Assemblage",
+        "es": "Pokémon Combinación",
+        "de": "Ballungs-Pokémon",
+        "it": "Pokémon Aggregato",
+        "ko": "집합포켓몬",
+        "zh-Hant": "集合寶可夢",
+        "zh-Hans": "集合宝可梦"
+    },
     "abilities": [
         {
             "name": "Tough Claws",

@@ -1,5 +1,16 @@
 {
     "name": "Tadbulb",
+    "category": {
+        "en": "EleTadpole Pokémon",
+        "ja": "でんきおたまポケモン",
+        "fr": "Pokémon Électêtard",
+        "es": "Pokémon Electrocuajo",
+        "de": "Stromquappen-Pokémon",
+        "it": "Pokémon Amperino",
+        "ko": "전기올챙이포켓몬",
+        "zh-Hant": "電蝌蚪寶可夢",
+        "zh-Hans": "电蝌蚪宝可梦"
+    },
     "abilities": [
         {
             "name": "Own Tempo",

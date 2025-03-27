@@ -1,5 +1,16 @@
 {
     "name": "Maschiff",
+    "category": {
+        "en": "Rascal Pokémon",
+        "ja": "わかぞうポケモン",
+        "fr": "Pokémon Jeunot",
+        "es": "Pokémon Bisoño",
+        "de": "Halbstark-Pokémon",
+        "it": "Pokémon Rompicollo",
+        "ko": "애송이포켓몬",
+        "zh-Hant": "小輩寶可夢",
+        "zh-Hans": "小辈宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

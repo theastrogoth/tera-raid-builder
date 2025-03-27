@@ -1,5 +1,16 @@
 {
     "name": "Celesteela",
+    "category": {
+        "en": "Launch Pokémon",
+        "ja": "うちあげポケモン",
+        "fr": "Pokémon Décollage",
+        "es": "Pokémon Lanzamiento",
+        "de": "Raketenstart-Pokémon",
+        "it": "Pokémon Decollo",
+        "ko": "쏴올리기포켓몬",
+        "zh-Hant": "發射寶可夢",
+        "zh-Hans": "发射宝可梦"
+    },
     "abilities": [
         {
             "name": "Beast Boost",

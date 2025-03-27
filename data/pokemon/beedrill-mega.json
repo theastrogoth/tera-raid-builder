@@ -1,5 +1,16 @@
 {
     "name": "Beedrill-Mega",
+    "category": {
+        "en": "Poison Bee Pokémon",
+        "ja": "どくばちポケモン",
+        "fr": "Pokémon Guêpoison",
+        "es": "Pokémon Abeja Veneno",
+        "de": "Giftbienen-Pokémon",
+        "it": "Pokémon Velenape",
+        "ko": "독벌포켓몬",
+        "zh-Hant": "毒蜂寶可夢",
+        "zh-Hans": "毒蜂宝可梦"
+    },
     "abilities": [
         {
             "name": "Adaptability",

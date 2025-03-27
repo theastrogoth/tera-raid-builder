@@ -1,5 +1,16 @@
 {
     "name": "Furret",
+    "category": {
+        "en": "Long Body Pokémon",
+        "ja": "どうながポケモン",
+        "fr": "Pokémon Allongé",
+        "es": "Pokémon Alargado",
+        "de": "Langleib-Pokémon",
+        "it": "Pokémon Lungocorpo",
+        "ko": "긴몸통포켓몬",
+        "zh-Hant": "長軀幹寶可夢",
+        "zh-Hans": "长躯干宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

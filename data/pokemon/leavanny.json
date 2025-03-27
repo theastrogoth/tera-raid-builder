@@ -1,5 +1,16 @@
 {
     "name": "Leavanny",
+    "category": {
+        "en": "Nurturing Pokémon",
+        "ja": "こそだてポケモン",
+        "fr": "Pokémon Précepteur",
+        "es": "Pokémon Cuidador",
+        "de": "Kinderpflege-Pokémon",
+        "it": "Pokémon Balia",
+        "ko": "육아포켓몬",
+        "zh-Hant": "育兒寶可夢",
+        "zh-Hans": "育儿宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

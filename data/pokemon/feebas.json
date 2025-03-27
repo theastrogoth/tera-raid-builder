@@ -1,5 +1,16 @@
 {
     "name": "Feebas",
+    "category": {
+        "en": "Fish Pokémon",
+        "ja": "さかなポケモン",
+        "fr": "Pokémon Poisson",
+        "es": "Pokémon Pez",
+        "de": "Fisch-Pokémon",
+        "it": "Pokémon Pesce",
+        "ko": "물고기포켓몬",
+        "zh-Hant": "魚寶可夢",
+        "zh-Hans": "鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

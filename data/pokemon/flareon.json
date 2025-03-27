@@ -1,5 +1,16 @@
 {
     "name": "Flareon",
+    "category": {
+        "en": "Flame Pokémon",
+        "ja": "ほのおポケモン",
+        "fr": "Pokémon Flamme",
+        "es": "Pokémon Llama",
+        "de": "Feuer-Pokémon",
+        "it": "Pokémon Fiamma",
+        "ko": "불꽃포켓몬",
+        "zh-Hant": "火寶可夢",
+        "zh-Hans": "火宝可梦"
+    },
     "abilities": [
         {
             "name": "Flash Fire",

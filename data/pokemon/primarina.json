@@ -1,5 +1,16 @@
 {
     "name": "Primarina",
+    "category": {
+        "en": "Soloist Pokémon",
+        "ja": "ソリストポケモン",
+        "fr": "Pokémon Soliste",
+        "es": "Pokémon Solista",
+        "de": "Solisten-Pokémon",
+        "it": "Pokémon Solista",
+        "ko": "솔리스트포켓몬",
+        "zh-Hant": "獨唱者寶可夢",
+        "zh-Hans": "独唱者宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

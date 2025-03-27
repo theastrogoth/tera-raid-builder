@@ -1,5 +1,16 @@
 {
     "name": "Jirachi",
+    "category": {
+        "en": "Wish Pokémon",
+        "ja": "ねがいごとポケモン",
+        "fr": "Pokémon Souhait",
+        "es": "Pokémon Deseo",
+        "de": "Wünscher-Pokémon",
+        "it": "Pokémon Desiderio",
+        "ko": "희망사항포켓몬",
+        "zh-Hant": "祈願寶可夢",
+        "zh-Hans": "祈愿宝可梦"
+    },
     "abilities": [
         {
             "name": "Serene Grace",

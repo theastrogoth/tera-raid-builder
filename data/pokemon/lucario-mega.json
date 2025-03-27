@@ -1,5 +1,16 @@
 {
     "name": "Lucario-Mega",
+    "category": {
+        "en": "Aura Pokémon",
+        "ja": "はどうポケモン",
+        "fr": "Pokémon Aura",
+        "es": "Pokémon Aura",
+        "de": "Aura-Pokémon",
+        "it": "Pokémon Aura",
+        "ko": "파동포켓몬",
+        "zh-Hant": "波導寶可夢",
+        "zh-Hans": "波导宝可梦"
+    },
     "abilities": [
         {
             "name": "Adaptability",

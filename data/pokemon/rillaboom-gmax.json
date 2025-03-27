@@ -1,5 +1,16 @@
 {
     "name": "Rillaboom-Gmax",
+    "category": {
+        "en": "Drummer Pokémon",
+        "ja": "ドラマーポケモン",
+        "fr": "Pokémon Batteur",
+        "es": "Pokémon Percusión",
+        "de": "Drummer-Pokémon",
+        "it": "Pokémon Percussione",
+        "ko": "드러머포켓몬",
+        "zh-Hant": "鼓手寶可夢",
+        "zh-Hans": "鼓手宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

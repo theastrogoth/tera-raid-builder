@@ -1,5 +1,16 @@
 {
     "name": "Relicanth",
+    "category": {
+        "en": "Longevity Pokémon",
+        "ja": "ちょうじゅポケモン",
+        "fr": "Pokémon Longévité",
+        "es": "Pokémon Longevo",
+        "de": "Bestand-Pokémon",
+        "it": "Pokémon Longevità",
+        "ko": "장수포켓몬",
+        "zh-Hant": "長壽寶可夢",
+        "zh-Hans": "长寿宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

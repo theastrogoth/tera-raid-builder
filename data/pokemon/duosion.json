@@ -1,5 +1,16 @@
 {
     "name": "Duosion",
+    "category": {
+        "en": "Mitosis Pokémon",
+        "ja": "ぶんかつポケモン",
+        "fr": "Pokémon Divisé",
+        "es": "Pokémon Mitosis",
+        "de": "Zellteilungs-Pokémon",
+        "it": "Pokémon Scissione",
+        "ko": "분할포켓몬",
+        "zh-Hant": "分割寶可夢",
+        "zh-Hans": "分割宝可梦"
+    },
     "abilities": [
         {
             "name": "Overcoat",

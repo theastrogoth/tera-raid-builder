@@ -1,5 +1,16 @@
 {
     "name": "Dudunsparce",
+    "category": {
+        "en": "Land Snake Pokémon",
+        "ja": "つちへびポケモン",
+        "fr": "Pokémon Serpent",
+        "es": "Pokémon Serpiente Tierra",
+        "de": "Erdschlangen-Pokémon",
+        "it": "Pokémon Terraserpe",
+        "ko": "땅뱀포켓몬",
+        "zh-Hant": "地蛇寶可夢",
+        "zh-Hans": "地蛇宝可梦"
+    },
     "abilities": [
         {
             "name": "Serene Grace",

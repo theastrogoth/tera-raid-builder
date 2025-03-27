@@ -1,5 +1,16 @@
 {
     "name": "Maushold",
+    "category": {
+        "en": "Family Pokémon",
+        "ja": "ファミリーポケモン",
+        "fr": "Pokémon Famille",
+        "es": "Pokémon Familia",
+        "de": "Familien-Pokémon",
+        "it": "Pokémon Famiglia",
+        "ko": "패밀리포켓몬",
+        "zh-Hant": "家族寶可夢",
+        "zh-Hans": "家族宝可梦"
+    },
     "abilities": [
         {
             "name": "Friend Guard",

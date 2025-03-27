@@ -1,5 +1,16 @@
 {
     "name": "Urshifu",
+    "category": {
+        "en": "Wushu Pokémon",
+        "ja": "けんぽうポケモン",
+        "fr": "Pokémon Kung-fu",
+        "es": "Pokémon Kung-Fu",
+        "de": "Kung-Fu-Pokémon",
+        "it": "Pokémon Kung Fu",
+        "ko": "권법포켓몬",
+        "zh-Hant": "拳法寶可夢",
+        "zh-Hans": "拳法宝可梦"
+    },
     "abilities": [
         {
             "name": "Unseen Fist",

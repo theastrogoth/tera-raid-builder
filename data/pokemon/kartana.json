@@ -1,5 +1,16 @@
 {
     "name": "Kartana",
+    "category": {
+        "en": "Drawn Sword Pokémon",
+        "ja": "ばっとうポケモン",
+        "fr": "Pokémon Battô",
+        "es": "Pokémon Desenvaine",
+        "de": "Schwertkunst-Pokémon",
+        "it": "Pokémon Spadatratta",
+        "ko": "발도포켓몬",
+        "zh-Hant": "拔刀寶可夢",
+        "zh-Hans": "拔刀宝可梦"
+    },
     "abilities": [
         {
             "name": "Beast Boost",

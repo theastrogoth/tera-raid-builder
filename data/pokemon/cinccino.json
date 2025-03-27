@@ -1,5 +1,16 @@
 {
     "name": "Cinccino",
+    "category": {
+        "en": "Scarf Pokémon",
+        "ja": "スカーフポケモン",
+        "fr": "Pokémon Écharpe",
+        "es": "Pokémon Estola",
+        "de": "Schal-Pokémon",
+        "it": "Pokémon Sciarpa",
+        "ko": "스카프포켓몬",
+        "zh-Hant": "圍巾寶可夢",
+        "zh-Hans": "围巾宝可梦"
+    },
     "abilities": [
         {
             "name": "Cute Charm",

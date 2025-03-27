@@ -1,5 +1,16 @@
 {
     "name": "Sneasler",
+    "category": {
+        "en": "Free Climb Pokémon",
+        "ja": "クライミングポケモン",
+        "fr": "Pokémon Grimpeur",
+        "es": "Pokémon Escalada",
+        "de": "Kletterei-Pokémon",
+        "it": "Pokémon Scalata",
+        "ko": "클라이밍포켓몬",
+        "zh-Hant": "攀崖寶可夢",
+        "zh-Hans": "攀崖宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

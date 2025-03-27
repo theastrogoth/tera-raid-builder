@@ -1,5 +1,16 @@
 {
     "name": "Crabominable",
+    "category": {
+        "en": "Woolly Crab Pokémon",
+        "ja": "けがにポケモン",
+        "fr": "Pokémon Crabe Velu",
+        "es": "Pokémon Cangrejopelo",
+        "de": "Fellkrabben-Pokémon",
+        "it": "Pokémon Peligranchio",
+        "ko": "털게포켓몬",
+        "zh-Hant": "毛蟹寶可夢",
+        "zh-Hans": "毛蟹宝可梦"
+    },
     "abilities": [
         {
             "name": "Hyper Cutter",

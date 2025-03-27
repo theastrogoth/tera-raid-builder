@@ -1,5 +1,16 @@
 {
     "name": "Sinistea",
+    "category": {
+        "en": "Black Tea Pokémon",
+        "ja": "こうちゃポケモン",
+        "fr": "Pokémon Thé Noir",
+        "es": "Pokémon Té",
+        "de": "Schwarztee-Pokémon",
+        "it": "Pokémon Tè",
+        "ko": "홍차포켓몬",
+        "zh-Hant": "紅茶寶可夢",
+        "zh-Hans": "红茶宝可梦"
+    },
     "abilities": [
         {
             "name": "Weak Armor",

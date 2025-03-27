@@ -1,5 +1,16 @@
 {
     "name": "Lumineon",
+    "category": {
+        "en": "Neon Pokémon",
+        "ja": "ネオンポケモン",
+        "fr": "Pokémon Néon",
+        "es": "Pokémon Neón",
+        "de": "Neon-Pokémon",
+        "it": "Pokémon Neon",
+        "ko": "네온포켓몬",
+        "zh-Hant": "霓虹寶可夢",
+        "zh-Hans": "霓虹宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

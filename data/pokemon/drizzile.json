@@ -1,5 +1,16 @@
 {
     "name": "Drizzile",
+    "category": {
+        "en": "Water Lizard Pokémon",
+        "ja": "みずとかげポケモン",
+        "fr": "Pokémon Lézard'Eau",
+        "es": "Pokémon Acuartija",
+        "de": "Wasserechsen-Pokémon",
+        "it": "Pokémon Acquacertola",
+        "ko": "물도마뱀포켓몬",
+        "zh-Hant": "水蜥寶可夢",
+        "zh-Hans": "水蜥宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

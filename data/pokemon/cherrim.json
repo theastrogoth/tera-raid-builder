@@ -1,5 +1,16 @@
 {
     "name": "Cherrim",
+    "category": {
+        "en": "Blossom Pokémon",
+        "ja": "サクラポケモン",
+        "fr": "Pokémon Floraison",
+        "es": "Pokémon Floración",
+        "de": "Blüten-Pokémon",
+        "it": "Pokémon Bocciolo",
+        "ko": "벚꽃포켓몬",
+        "zh-Hant": "櫻花寶可夢",
+        "zh-Hans": "樱花宝可梦"
+    },
     "abilities": [
         {
             "name": "Flower Gift",

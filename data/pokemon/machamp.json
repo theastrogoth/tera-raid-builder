@@ -1,5 +1,16 @@
 {
     "name": "Machamp",
+    "category": {
+        "en": "Superpower Pokémon",
+        "ja": "かいりきポケモン",
+        "fr": "Pokémon Colosse",
+        "es": "Pokémon Superpoder",
+        "de": "Kraftprotz-Pokémon",
+        "it": "Pokémon Megaforza",
+        "ko": "괴력포켓몬",
+        "zh-Hant": "怪力寶可夢",
+        "zh-Hans": "怪力宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

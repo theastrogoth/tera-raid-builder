@@ -1,5 +1,16 @@
 {
     "name": "Whismur",
+    "category": {
+        "en": "Whisper Pokémon",
+        "ja": "ささやきポケモン",
+        "fr": "Pokémon Chuchoteur",
+        "es": "Pokémon Susurro",
+        "de": "Flüster-Pokémon",
+        "it": "Pokémon Sussurro",
+        "ko": "속삭임포켓몬",
+        "zh-Hant": "細語寶可夢",
+        "zh-Hans": "细语宝可梦"
+    },
     "abilities": [
         {
             "name": "Soundproof",

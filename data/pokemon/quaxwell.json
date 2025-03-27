@@ -1,5 +1,16 @@
 {
     "name": "Quaxwell",
+    "category": {
+        "en": "Practicing Pokémon",
+        "ja": "レッスンポケモン",
+        "fr": "Pokémon Leçon",
+        "es": "Pokémon Disciplinado",
+        "de": "Übungs-Pokémon",
+        "it": "Pokémon Esercizio",
+        "ko": "레슨포켓몬",
+        "zh-Hant": "習藝寶可夢",
+        "zh-Hans": "习艺宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

@@ -1,5 +1,16 @@
 {
     "name": "Minccino",
+    "category": {
+        "en": "Chinchilla Pokémon",
+        "ja": "チンチラポケモン",
+        "fr": "Pokémon Chinchilla",
+        "es": "Pokémon Chinchilla",
+        "de": "Chinchilla-Pokémon",
+        "it": "Pokémon Cincillà",
+        "ko": "친칠라포켓몬",
+        "zh-Hant": "栗鼠寶可夢",
+        "zh-Hans": "栗鼠宝可梦"
+    },
     "abilities": [
         {
             "name": "Cute Charm",

@@ -1,5 +1,16 @@
 {
     "name": "Galvantula",
+    "category": {
+        "en": "EleSpider Pokémon",
+        "ja": "でんきグモポケモン",
+        "fr": "Pokémon Araclectrik",
+        "es": "Pokémon Electroaraña",
+        "de": "Stromspinnen-Pokémon",
+        "it": "Pokémon Elettroragno",
+        "ko": "전기거미포켓몬",
+        "zh-Hant": "電蜘蛛寶可夢",
+        "zh-Hans": "电蜘蛛宝可梦"
+    },
     "abilities": [
         {
             "name": "Compound Eyes",

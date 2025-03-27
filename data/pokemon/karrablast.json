@@ -1,5 +1,16 @@
 {
     "name": "Karrablast",
+    "category": {
+        "en": "Clamping Pokémon",
+        "ja": "かぶりつきポケモン",
+        "fr": "Pokémon Carabe",
+        "es": "Pokémon Bocado",
+        "de": "Schnappbiss-Pokémon",
+        "it": "Pokémon Addentatore",
+        "ko": "덥석물기포켓몬",
+        "zh-Hant": "啃咬寶可夢",
+        "zh-Hans": "啃咬宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

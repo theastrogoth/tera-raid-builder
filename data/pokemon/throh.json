@@ -1,5 +1,16 @@
 {
     "name": "Throh",
+    "category": {
+        "en": "Judo Pokémon",
+        "ja": "じゅうどうポケモン",
+        "fr": "Pokémon Judo",
+        "es": "Pokémon Judo",
+        "de": "Judo-Pokémon",
+        "it": "Pokémon Judo",
+        "ko": "유도포켓몬",
+        "zh-Hant": "柔道寶可夢",
+        "zh-Hans": "柔道宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

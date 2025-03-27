@@ -1,5 +1,16 @@
 {
     "name": "Slurpuff",
+    "category": {
+        "en": "Meringue Pokémon",
+        "ja": "ホイップポケモン",
+        "fr": "Pokémon Mousseline",
+        "es": "Pokémon Nata",
+        "de": "Schlagsahne-Pokémon",
+        "it": "Pokémon Panna",
+        "ko": "휩포켓몬",
+        "zh-Hant": "泡沫奶油寶可夢",
+        "zh-Hans": "泡沫奶油宝可梦"
+    },
     "abilities": [
         {
             "name": "Sweet Veil",

@@ -1,5 +1,16 @@
 {
     "name": "Metapod",
+    "category": {
+        "en": "Cocoon Pokémon",
+        "ja": "さなぎポケモン",
+        "fr": "Pokémon Cocon",
+        "es": "Pokémon Capullo",
+        "de": "Kokon-Pokémon",
+        "it": "Pokémon Bozzolo",
+        "ko": "번데기포켓몬",
+        "zh-Hant": "蛹寶可夢",
+        "zh-Hans": "蛹宝可梦"
+    },
     "abilities": [
         {
             "name": "Shed Skin",

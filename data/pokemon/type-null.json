@@ -1,5 +1,16 @@
 {
     "name": "Type: Null",
+    "category": {
+        "en": "Synthetic Pokémon",
+        "ja": "じんこうポケモン",
+        "fr": "Pokémon Multigénome",
+        "es": "Pokémon Multigénico",
+        "de": "Modifikations-Pokémon",
+        "it": "Pokémon Multigene",
+        "ko": "인공포켓몬",
+        "zh-Hant": "人工寶可夢",
+        "zh-Hans": "人工宝可梦"
+    },
     "abilities": [
         {
             "name": "Battle Armor",

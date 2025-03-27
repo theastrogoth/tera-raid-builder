@@ -1,5 +1,16 @@
 {
     "name": "Altaria-Mega",
+    "category": {
+        "en": "Humming Pokémon",
+        "ja": "ハミングポケモン",
+        "fr": "Pokémon Virevolteur",
+        "es": "Pokémon Cantor",
+        "de": "Summsel-Pokémon",
+        "it": "Pokémon Canterino",
+        "ko": "허밍포켓몬",
+        "zh-Hant": "哼唱寶可夢",
+        "zh-Hans": "哼唱宝可梦"
+    },
     "abilities": [
         {
             "name": "Pixilate",

@@ -1,5 +1,16 @@
 {
     "name": "Poliwag",
+    "category": {
+        "en": "Tadpole Pokémon",
+        "ja": "おたまポケモン",
+        "fr": "Pokémon Têtard",
+        "es": "Pokémon Renacuajo",
+        "de": "Kaulquappen-Pokémon",
+        "it": "Pokémon Girino",
+        "ko": "올챙이포켓몬",
+        "zh-Hant": "蝌蚪寶可夢",
+        "zh-Hans": "蝌蚪宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Absorb",

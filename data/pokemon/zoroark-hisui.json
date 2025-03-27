@@ -1,5 +1,16 @@
 {
     "name": "Zoroark-Hisui",
+    "category": {
+        "en": "Illusion Fox Pokémon",
+        "ja": "ばけぎつねポケモン",
+        "fr": "Pokémon Polymorfox",
+        "es": "Pokémon Disfrazorro",
+        "de": "Polymorfuchs-Pokémon",
+        "it": "Pokémon Mutevolpe",
+        "ko": "요괴여우포켓몬",
+        "zh-Hant": "妖狐寶可夢",
+        "zh-Hans": "妖狐宝可梦"
+    },
     "abilities": [
         {
             "name": "Illusion",

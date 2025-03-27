@@ -1,5 +1,16 @@
 {
     "name": "Shelgon",
+    "category": {
+        "en": "Endurance Pokémon",
+        "ja": "にんたいポケモン",
+        "fr": "Pokémon Endurant",
+        "es": "Pokémon Resistencia",
+        "de": "Durchsteher-Pokémon",
+        "it": "Pokémon Resistenza",
+        "ko": "인내포켓몬",
+        "zh-Hant": "耐力寶可夢",
+        "zh-Hans": "耐力宝可梦"
+    },
     "abilities": [
         {
             "name": "Rock Head",

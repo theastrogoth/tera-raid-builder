@@ -1,5 +1,16 @@
 {
     "name": "Lurantis",
+    "category": {
+        "en": "Bloom Sickle Pokémon",
+        "ja": "はなかまポケモン",
+        "fr": "Pokémon Fauch'Fleur",
+        "es": "Pokémon Filo Flor",
+        "de": "Blumensichel-Pokémon",
+        "it": "Pokémon Mantifiore",
+        "ko": "꽃사마귀포켓몬",
+        "zh-Hant": "花鐮寶可夢",
+        "zh-Hans": "花镰宝可梦"
+    },
     "abilities": [
         {
             "name": "Leaf Guard",

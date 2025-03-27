@@ -1,5 +1,16 @@
 {
     "name": "Makuhita",
+    "category": {
+        "en": "Guts Pokémon",
+        "ja": "こんじょうポケモン",
+        "fr": "Pokémon Tenace",
+        "es": "Pokémon Valiente",
+        "de": "Courage-Pokémon",
+        "it": "Pokémon Coraggio",
+        "ko": "근성포켓몬",
+        "zh-Hant": "毅力寶可夢",
+        "zh-Hans": "毅力宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

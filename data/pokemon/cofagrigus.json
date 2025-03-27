@@ -1,5 +1,16 @@
 {
     "name": "Cofagrigus",
+    "category": {
+        "en": "Coffin Pokémon",
+        "ja": "かんおけポケモン",
+        "fr": "Pokémon Cercueil",
+        "es": "Pokémon Sepultura",
+        "de": "Sarkophag-Pokémon",
+        "it": "Pokémon Bara",
+        "ko": "관포켓몬",
+        "zh-Hant": "棺木寶可夢",
+        "zh-Hans": "棺木宝可梦"
+    },
     "abilities": [
         {
             "name": "Mummy",

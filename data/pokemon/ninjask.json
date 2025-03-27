@@ -1,5 +1,16 @@
 {
     "name": "Ninjask",
+    "category": {
+        "en": "Ninja Pokémon",
+        "ja": "しのびポケモン",
+        "fr": "Pokémon Ninja",
+        "es": "Pokémon Ninja",
+        "de": "Ninja-Pokémon",
+        "it": "Pokémon Ninja",
+        "ko": "시노비포켓몬",
+        "zh-Hant": "忍者寶可夢",
+        "zh-Hans": "忍者宝可梦"
+    },
     "abilities": [
         {
             "name": "Speed Boost",

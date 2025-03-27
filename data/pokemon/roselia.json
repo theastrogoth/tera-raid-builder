@@ -1,5 +1,16 @@
 {
     "name": "Roselia",
+    "category": {
+        "en": "Thorn Pokémon",
+        "ja": "いばらポケモン",
+        "fr": "Pokémon Épine",
+        "es": "Pokémon Espina",
+        "de": "Dorn-Pokémon",
+        "it": "Pokémon Spina",
+        "ko": "가시포켓몬",
+        "zh-Hant": "荊棘寶可夢",
+        "zh-Hans": "荆棘宝可梦"
+    },
     "abilities": [
         {
             "name": "Natural Cure",

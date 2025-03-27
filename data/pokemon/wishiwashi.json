@@ -1,5 +1,16 @@
 {
     "name": "Wishiwashi",
+    "category": {
+        "en": "Small Fry Pokémon",
+        "ja": "こざかなポケモン",
+        "fr": "Pokémon Minipoisson",
+        "es": "Pokémon Pececillo",
+        "de": "Kleinfisch-Pokémon",
+        "it": "Pokémon Pesciolino",
+        "ko": "잔물고기포켓몬",
+        "zh-Hant": "小魚寶可夢",
+        "zh-Hans": "小鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Schooling",

@@ -1,5 +1,16 @@
 {
     "name": "Persian-Alola",
+    "category": {
+        "en": "Classy Cat Pokémon",
+        "ja": "シャムネコポケモン",
+        "fr": "Pokémon Chadeville",
+        "es": "Pokémon Gato Fino",
+        "de": "Rassekatzen-Pokémon",
+        "it": "Pokémon Nobilgatto",
+        "ko": "샴고양이포켓몬",
+        "zh-Hant": "暹羅貓寶可夢",
+        "zh-Hans": "暹罗猫宝可梦"
+    },
     "abilities": [
         {
             "name": "Fur Coat",

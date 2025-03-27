@@ -1,5 +1,16 @@
 {
     "name": "Varoom",
+    "category": {
+        "en": "Single-Cyl Pokémon",
+        "ja": "たんきとうポケモン",
+        "fr": "Pokémon Monocylindre",
+        "es": "Pokémon Monocilindro",
+        "de": "Einzylinder-Pokémon",
+        "it": "Pokémon Monocilindro",
+        "ko": "단기통포켓몬",
+        "zh-Hant": "單汽缸寶可夢",
+        "zh-Hans": "单汽缸宝可梦"
+    },
     "abilities": [
         {
             "name": "Overcoat",

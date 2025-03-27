@@ -1,5 +1,16 @@
 {
     "name": "Cradily",
+    "category": {
+        "en": "Barnacle Pokémon",
+        "ja": "いわつぼポケモン",
+        "fr": "Pokémon Bernacle",
+        "es": "Pokémon Percebe",
+        "de": "Rankfüßer-Pokémon",
+        "it": "Pokémon Lepade",
+        "ko": "바위단지포켓몬",
+        "zh-Hant": "藤壺寶可夢",
+        "zh-Hans": "藤壶宝可梦"
+    },
     "abilities": [
         {
             "name": "Suction Cups",

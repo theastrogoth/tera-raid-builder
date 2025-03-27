@@ -1,5 +1,16 @@
 {
     "name": "Froslass",
+    "category": {
+        "en": "Snow Land Pokémon",
+        "ja": "ゆきぐにポケモン",
+        "fr": "Pokémon Enneigement",
+        "es": "Pokémon Tierra Fría",
+        "de": "Schneegebiets-Pokémon",
+        "it": "Pokémon Suolnevoso",
+        "ko": "설국포켓몬",
+        "zh-Hant": "雪國寶可夢",
+        "zh-Hans": "雪国宝可梦"
+    },
     "abilities": [
         {
             "name": "Snow Cloak",

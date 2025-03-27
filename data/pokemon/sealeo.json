@@ -1,5 +1,16 @@
 {
     "name": "Sealeo",
+    "category": {
+        "en": "Ball Roll Pokémon",
+        "ja": "たままわしポケモン",
+        "fr": "Pokémon Roule Boule",
+        "es": "Pokémon Rodabola",
+        "de": "Spielball-Pokémon",
+        "it": "Pokémon Rotapalla",
+        "ko": "공돌리기포켓몬",
+        "zh-Hant": "滾球寶可夢",
+        "zh-Hans": "滚球宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

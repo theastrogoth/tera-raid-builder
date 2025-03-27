@@ -1,5 +1,16 @@
 {
     "name": "Magnezone",
+    "category": {
+        "en": "Magnet Area Pokémon",
+        "ja": "じばポケモン",
+        "fr": "Pokémon Aimant",
+        "es": "Pokémon Magnético",
+        "de": "Magnetgebiets-Pokémon",
+        "it": "Pokémon Magnetico",
+        "ko": "자기장포켓몬",
+        "zh-Hant": "磁場寶可夢",
+        "zh-Hans": "磁场宝可梦"
+    },
     "abilities": [
         {
             "name": "Magnet Pull",

@@ -1,5 +1,16 @@
 {
     "name": "Vaporeon",
+    "category": {
+        "en": "Bubble Jet Pokémon",
+        "ja": "あわはきポケモン",
+        "fr": "Pokémon Bulleur",
+        "es": "Pokémon Burbuja",
+        "de": "Blubbblasen-Pokémon",
+        "it": "Pokémon Bollajet",
+        "ko": "거품뿜기포켓몬",
+        "zh-Hant": "吐泡寶可夢",
+        "zh-Hans": "吐泡宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Absorb",

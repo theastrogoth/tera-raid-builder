@@ -1,5 +1,16 @@
 {
     "name": "Petilil",
+    "category": {
+        "en": "Bulb Pokémon",
+        "ja": "ねっこポケモン",
+        "fr": "Pokémon Racine",
+        "es": "Pokémon Bulbo",
+        "de": "Wurzel-Pokémon",
+        "it": "Pokémon Radice",
+        "ko": "뿌리포켓몬",
+        "zh-Hant": "根莖寶可夢",
+        "zh-Hans": "根茎宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

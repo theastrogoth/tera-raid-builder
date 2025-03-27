@@ -1,5 +1,16 @@
 {
     "name": "Smeargle",
+    "category": {
+        "en": "Painter Pokémon",
+        "ja": "えかきポケモン",
+        "fr": "Pokémon Peintre",
+        "es": "Pokémon Pintor",
+        "de": "Maler-Pokémon",
+        "it": "Pokémon Pittore",
+        "ko": "그림장이포켓몬",
+        "zh-Hant": "畫畫寶可夢",
+        "zh-Hans": "画画宝可梦"
+    },
     "abilities": [
         {
             "name": "Own Tempo",

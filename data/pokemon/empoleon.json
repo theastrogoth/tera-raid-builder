@@ -1,5 +1,16 @@
 {
     "name": "Empoleon",
+    "category": {
+        "en": "Emperor Pokémon",
+        "ja": "こうていポケモン",
+        "fr": "Pokémon Empereur",
+        "es": "Pokémon Emperador",
+        "de": "Kaiser-Pokémon",
+        "it": "Pokémon Imperatore",
+        "ko": "황제포켓몬",
+        "zh-Hant": "皇帝寶可夢",
+        "zh-Hans": "皇帝宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

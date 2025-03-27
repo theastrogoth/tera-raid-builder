@@ -1,5 +1,16 @@
 {
     "name": "Dubwool",
+    "category": {
+        "en": "Sheep Pokémon",
+        "ja": "ひつじポケモン",
+        "fr": "Pokémon Mouton",
+        "es": "Pokémon Oveja",
+        "de": "Schaf-Pokémon",
+        "it": "Pokémon Pecora",
+        "ko": "양포켓몬",
+        "zh-Hant": "綿羊寶可夢",
+        "zh-Hans": "绵羊宝可梦"
+    },
     "abilities": [
         {
             "name": "Fluffy",

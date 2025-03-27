@@ -1,5 +1,16 @@
 {
     "name": "Gulpin",
+    "category": {
+        "en": "Stomach Pokémon",
+        "ja": "いぶくろポケモン",
+        "fr": "Pokémon Estomac",
+        "es": "Pokémon Estómago",
+        "de": "Magen-Pokémon",
+        "it": "Pokémon Stomaco",
+        "ko": "밥통포켓몬",
+        "zh-Hant": "胃袋寶可夢",
+        "zh-Hans": "胃袋宝可梦"
+    },
     "abilities": [
         {
             "name": "Liquid Ooze",

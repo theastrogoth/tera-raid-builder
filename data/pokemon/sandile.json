@@ -1,5 +1,16 @@
 {
     "name": "Sandile",
+    "category": {
+        "en": "Desert Croc Pokémon",
+        "ja": "さばくワニポケモン",
+        "fr": "Pokémon Croco Sable",
+        "es": "Pokémon Desierdrilo",
+        "de": "Wüstenkroko-Pokémon",
+        "it": "Pokémon Sabbiadrillo",
+        "ko": "사막악어포켓몬",
+        "zh-Hant": "沙漠鱷魚寶可夢",
+        "zh-Hans": "沙漠鳄鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

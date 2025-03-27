@@ -1,5 +1,16 @@
 {
     "name": "Toucannon",
+    "category": {
+        "en": "Cannon Pokémon",
+        "ja": "おおづつポケモン",
+        "fr": "Pokémon Canon",
+        "es": "Pokémon Cañón",
+        "de": "Kanonen-Pokémon",
+        "it": "Pokémon Cannone",
+        "ko": "대포포켓몬",
+        "zh-Hant": "銃炮寶可夢",
+        "zh-Hans": "铳炮宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

@@ -1,5 +1,16 @@
 {
     "name": "Kyogre",
+    "category": {
+        "en": "Sea Basin Pokémon",
+        "ja": "かいていポケモン",
+        "fr": "Pokémon Bassinmarin",
+        "es": "Pokémon Cuenca Mar",
+        "de": "Seegründler-Pokémon",
+        "it": "Pokémon Oceano",
+        "ko": "해저포켓몬",
+        "zh-Hant": "海底寶可夢",
+        "zh-Hans": "海底宝可梦"
+    },
     "abilities": [
         {
             "name": "Drizzle",

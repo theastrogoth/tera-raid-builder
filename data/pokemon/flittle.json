@@ -1,5 +1,16 @@
 {
     "name": "Flittle",
+    "category": {
+        "en": "Frill Pokémon",
+        "ja": "フリルポケモン",
+        "fr": "Pokémon Froufrou",
+        "es": "Pokémon Volantes",
+        "de": "Rüschen-Pokémon",
+        "it": "Pokémon Volant",
+        "ko": "프릴포켓몬",
+        "zh-Hant": "褶邊寶可夢",
+        "zh-Hans": "褶边宝可梦"
+    },
     "abilities": [
         {
             "name": "Anticipation",

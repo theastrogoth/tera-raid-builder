@@ -1,5 +1,16 @@
 {
     "name": "Mawile-Mega",
+    "category": {
+        "en": "Deceiver Pokémon",
+        "ja": "あざむきポケモン",
+        "fr": "Pokémon Trompeur",
+        "es": "Pokémon Tramposo",
+        "de": "Schwindler-Pokémon",
+        "it": "Pokémon Inganno",
+        "ko": "배반포켓몬",
+        "zh-Hant": "欺騙寶可夢",
+        "zh-Hans": "欺骗宝可梦"
+    },
     "abilities": [
         {
             "name": "Huge Power",

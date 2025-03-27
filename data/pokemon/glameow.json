@@ -1,5 +1,16 @@
 {
     "name": "Glameow",
+    "category": {
+        "en": "Catty Pokémon",
+        "ja": "ねこかぶりポケモン",
+        "fr": "Pokémon Chafouin",
+        "es": "Pokémon Gastuto",
+        "de": "Fies-Pokémon",
+        "it": "Pokémon Felide",
+        "ko": "내숭포켓몬",
+        "zh-Hant": "裝乖寶可夢",
+        "zh-Hans": "装乖宝可梦"
+    },
     "abilities": [
         {
             "name": "Limber",

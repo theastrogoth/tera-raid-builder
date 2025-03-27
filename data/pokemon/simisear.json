@@ -1,5 +1,16 @@
 {
     "name": "Simisear",
+    "category": {
+        "en": "Ember Pokémon",
+        "ja": "ひのこポケモン",
+        "fr": "Pokémon Braise",
+        "es": "Pokémon Lumbre",
+        "de": "Funkenregen-Pokémon",
+        "it": "Pokémon Sfavillante",
+        "ko": "불티포켓몬",
+        "zh-Hant": "火花寶可夢",
+        "zh-Hans": "火花宝可梦"
+    },
     "abilities": [
         {
             "name": "Gluttony",

@@ -1,5 +1,16 @@
 {
     "name": "Tyrantrum",
+    "category": {
+        "en": "Despot Pokémon",
+        "ja": "ぼうくんポケモン",
+        "fr": "Pokémon Tyran",
+        "es": "Pokémon Tirano",
+        "de": "Tyrannen-Pokémon",
+        "it": "Pokémon Tiranno",
+        "ko": "폭군포켓몬",
+        "zh-Hant": "暴君寶可夢",
+        "zh-Hans": "暴君宝可梦"
+    },
     "abilities": [
         {
             "name": "Strong Jaw",

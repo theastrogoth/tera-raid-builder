@@ -1,5 +1,16 @@
 {
     "name": "Inkay",
+    "category": {
+        "en": "Revolving Pokémon",
+        "ja": "かいてんポケモン",
+        "fr": "Pokémon Rotation",
+        "es": "Pokémon Rotación",
+        "de": "Rotations-Pokémon",
+        "it": "Pokémon Volteggio",
+        "ko": "회전포켓몬",
+        "zh-Hant": "回轉寶可夢",
+        "zh-Hans": "回转宝可梦"
+    },
     "abilities": [
         {
             "name": "Contrary",

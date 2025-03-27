@@ -1,5 +1,16 @@
 {
     "name": "Beheeyem",
+    "category": {
+        "en": "Cerebral Pokémon",
+        "ja": "ブレインポケモン",
+        "fr": "Pokémon Cerveau",
+        "es": "Pokémon Cerebro",
+        "de": "Grips-Pokémon",
+        "it": "Pokémon Cervello",
+        "ko": "브레인포켓몬",
+        "zh-Hant": "腦寶可夢",
+        "zh-Hans": "脑宝可梦"
+    },
     "abilities": [
         {
             "name": "Telepathy",

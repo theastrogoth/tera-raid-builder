@@ -1,5 +1,16 @@
 {
     "name": "Venomoth",
+    "category": {
+        "en": "Poison Moth Pokémon",
+        "ja": "どくがポケモン",
+        "fr": "Pokémon Papipoison",
+        "es": "Pokémon Polilla Venenosa",
+        "de": "Giftmotten-Pokémon",
+        "it": "Pokémon Velentarma",
+        "ko": "독나방포켓몬",
+        "zh-Hant": "毒蛾寶可夢",
+        "zh-Hans": "毒蛾宝可梦"
+    },
     "abilities": [
         {
             "name": "Shield Dust",

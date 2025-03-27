@@ -1,5 +1,16 @@
 {
     "name": "Veluza",
+    "category": {
+        "en": "Jettison Pokémon",
+        "ja": "きりはなしポケモン",
+        "fr": "Pokémon Décharné",
+        "es": "Pokémon Sueltalastre",
+        "de": "Abtrennungs-Pokémon",
+        "it": "Pokémon Separazione",
+        "ko": "분리포켓몬",
+        "zh-Hant": "卸除寶可夢",
+        "zh-Hans": "卸除宝可梦"
+    },
     "abilities": [
         {
             "name": "Mold Breaker",

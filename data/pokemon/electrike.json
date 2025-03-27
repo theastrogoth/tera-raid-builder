@@ -1,5 +1,16 @@
 {
     "name": "Electrike",
+    "category": {
+        "en": "Lightning Pokémon",
+        "ja": "いなずまポケモン",
+        "fr": "Pokémon Orage",
+        "es": "Pokémon Calambre",
+        "de": "Gewitter-Pokémon",
+        "it": "Pokémon Lampo",
+        "ko": "천둥번개포켓몬",
+        "zh-Hant": "閃電寶可夢",
+        "zh-Hans": "闪电宝可梦"
+    },
     "abilities": [
         {
             "name": "Static",

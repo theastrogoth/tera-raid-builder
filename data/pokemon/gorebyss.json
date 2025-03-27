@@ -1,5 +1,16 @@
 {
     "name": "Gorebyss",
+    "category": {
+        "en": "South Sea Pokémon",
+        "ja": "なんかいポケモン",
+        "fr": "Pokémon Mer du Sud",
+        "es": "Pokémon Mar del Sur",
+        "de": "Südsee-Pokémon",
+        "it": "Pokémon Sudmarino",
+        "ko": "남해포켓몬",
+        "zh-Hant": "南海寶可夢",
+        "zh-Hans": "南海宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

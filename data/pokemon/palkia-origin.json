@@ -1,5 +1,16 @@
 {
     "name": "Palkia-Origin",
+    "category": {
+        "en": "Spatial Pokémon",
+        "ja": "くうかんポケモン",
+        "fr": "Pokémon Espace",
+        "es": "Pokémon Espacial",
+        "de": "Räumlich-Pokémon",
+        "it": "Pokémon Spazio",
+        "ko": "공간포켓몬",
+        "zh-Hant": "空間寶可夢",
+        "zh-Hans": "空间宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

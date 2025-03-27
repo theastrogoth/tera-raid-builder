@@ -1,5 +1,16 @@
 {
     "name": "Tandemaus",
+    "category": {
+        "en": "Couple Pokémon",
+        "ja": "カップルポケモン",
+        "fr": "Pokémon Couple",
+        "es": "Pokémon Pareja",
+        "de": "Paar-Pokémon",
+        "it": "Pokémon Coppia",
+        "ko": "커플포켓몬",
+        "zh-Hant": "成對寶可夢",
+        "zh-Hans": "成对宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

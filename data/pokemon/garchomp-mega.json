@@ -1,5 +1,16 @@
 {
     "name": "Garchomp-Mega",
+    "category": {
+        "en": "Mach Pokémon",
+        "ja": "マッハポケモン",
+        "fr": "Pokémon Supersonic",
+        "es": "Pokémon Mach",
+        "de": "Rasanz-Pokémon",
+        "it": "Pokémon Mach",
+        "ko": "마하포켓몬",
+        "zh-Hant": "音速寶可夢",
+        "zh-Hans": "音速宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Force",

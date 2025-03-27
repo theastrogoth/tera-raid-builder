@@ -1,5 +1,16 @@
 {
     "name": "Sawk",
+    "category": {
+        "en": "Karate Pokémon",
+        "ja": "からてポケモン",
+        "fr": "Pokémon Karaté",
+        "es": "Pokémon Kárate",
+        "de": "Karate-Pokémon",
+        "it": "Pokémon Karate",
+        "ko": "태권도포켓몬",
+        "zh-Hant": "空手道寶可夢",
+        "zh-Hans": "空手道宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

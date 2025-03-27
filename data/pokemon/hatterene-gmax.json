@@ -1,5 +1,16 @@
 {
     "name": "Hatterene-Gmax",
+    "category": {
+        "en": "Silent Pokémon",
+        "ja": "せいじゃくポケモン",
+        "fr": "Pokémon Silencieux",
+        "es": "Pokémon Silencio",
+        "de": "Stille-Pokémon",
+        "it": "Pokémon Silenzio",
+        "ko": "정적포켓몬",
+        "zh-Hant": "寂靜寶可夢",
+        "zh-Hans": "寂静宝可梦"
+    },
     "abilities": [
         {
             "name": "Healer",

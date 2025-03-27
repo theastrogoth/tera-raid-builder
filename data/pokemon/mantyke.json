@@ -1,5 +1,16 @@
 {
     "name": "Mantyke",
+    "category": {
+        "en": "Kite Pokémon",
+        "ja": "カイトポケモン",
+        "fr": "Pokémon Cervolant",
+        "es": "Pokémon Milano",
+        "de": "Flugrochen-Pokémon",
+        "it": "Pokémon Aquilone",
+        "ko": "연포켓몬",
+        "zh-Hant": "風箏寶可夢",
+        "zh-Hans": "风筝宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

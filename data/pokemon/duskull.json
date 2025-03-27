@@ -1,5 +1,16 @@
 {
     "name": "Duskull",
+    "category": {
+        "en": "Requiem Pokémon",
+        "ja": "おむかえポケモン",
+        "fr": "Pokémon Requiem",
+        "es": "Pokémon Réquiem",
+        "de": "Requiem-Pokémon",
+        "it": "Pokémon Requiem",
+        "ko": "마중포켓몬",
+        "zh-Hant": "渡魂寶可夢",
+        "zh-Hans": "渡魂宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

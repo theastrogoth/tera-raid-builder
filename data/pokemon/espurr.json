@@ -1,5 +1,16 @@
 {
     "name": "Espurr",
+    "category": {
+        "en": "Restraint Pokémon",
+        "ja": "じせいポケモン",
+        "fr": "Pokémon Retenue",
+        "es": "Pokémon Moderación",
+        "de": "Zügelungs-Pokémon",
+        "it": "Pokémon Moderazione",
+        "ko": "자제포켓몬",
+        "zh-Hant": "自制寶可夢",
+        "zh-Hans": "自制宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

@@ -1,5 +1,16 @@
 {
     "name": "Victini",
+    "category": {
+        "en": "Victory Pokémon",
+        "ja": "しょうりポケモン",
+        "fr": "Pokémon Victoire",
+        "es": "Pokémon Victoria",
+        "de": "Triumph-Pokémon",
+        "it": "Pokémon Vittoria",
+        "ko": "승리포켓몬",
+        "zh-Hant": "勝利寶可夢",
+        "zh-Hans": "胜利宝可梦"
+    },
     "abilities": [
         {
             "name": "Victory Star",

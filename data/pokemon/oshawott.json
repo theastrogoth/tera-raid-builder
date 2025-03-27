@@ -1,5 +1,16 @@
 {
     "name": "Oshawott",
+    "category": {
+        "en": "Sea Otter Pokémon",
+        "ja": "ラッコポケモン",
+        "fr": "Pokémon Loutre",
+        "es": "Pokémon Nutria",
+        "de": "Otter-Pokémon",
+        "it": "Pokémon Lontra",
+        "ko": "해달포켓몬",
+        "zh-Hant": "海獺寶可夢",
+        "zh-Hans": "海獭宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

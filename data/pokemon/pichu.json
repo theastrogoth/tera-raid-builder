@@ -1,5 +1,16 @@
 {
     "name": "Pichu",
+    "category": {
+        "en": "Tiny Mouse Pokémon",
+        "ja": "こねずみポケモン",
+        "fr": "Pokémon Minisouris",
+        "es": "Pokémon Ratoncito",
+        "de": "Babymaus-Pokémon",
+        "it": "Pokémon Topino",
+        "ko": "아기쥐포켓몬",
+        "zh-Hant": "小鼠寶可夢",
+        "zh-Hans": "小鼠宝可梦"
+    },
     "abilities": [
         {
             "name": "Static",

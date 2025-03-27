@@ -1,5 +1,16 @@
 {
     "name": "Numel",
+    "category": {
+        "en": "Numb Pokémon",
+        "ja": "どんかんポケモン",
+        "fr": "Pokémon Engourdi",
+        "es": "Pokémon Torpe",
+        "de": "Taubheits-Pokémon",
+        "it": "Pokémon Torpore",
+        "ko": "둔감포켓몬",
+        "zh-Hant": "遲鈍寶可夢",
+        "zh-Hans": "迟钝宝可梦"
+    },
     "abilities": [
         {
             "name": "Oblivious",

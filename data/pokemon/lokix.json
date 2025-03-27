@@ -1,5 +1,16 @@
 {
     "name": "Lokix",
+    "category": {
+        "en": "Grasshopper Pokémon",
+        "ja": "バッタポケモン",
+        "fr": "Pokémon Sauterelle",
+        "es": "Pokémon Saltamontes",
+        "de": "Heuschrecken-Pokémon",
+        "it": "Pokémon Cavalletta",
+        "ko": "메뚜기포켓몬",
+        "zh-Hant": "蝗蟲寶可夢",
+        "zh-Hans": "蝗虫宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

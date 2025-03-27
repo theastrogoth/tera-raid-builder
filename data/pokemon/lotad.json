@@ -1,5 +1,16 @@
 {
     "name": "Lotad",
+    "category": {
+        "en": "Water Weed Pokémon",
+        "ja": "うきくさポケモン",
+        "fr": "Pokémon Aquaplante",
+        "es": "Pokémon Lenteja Agua",
+        "de": "Wasserlinsen-Pokémon",
+        "it": "Pokémon Alga",
+        "ko": "개구리밥포켓몬",
+        "zh-Hant": "浮萍寶可夢",
+        "zh-Hans": "浮萍宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

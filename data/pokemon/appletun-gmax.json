@@ -1,5 +1,16 @@
 {
     "name": "Appletun-Gmax",
+    "category": {
+        "en": "Apple Nectar Pokémon",
+        "ja": "りんごじるポケモン",
+        "fr": "Pokémon Jus Pomme",
+        "es": "Pokémon Manzanéctar",
+        "de": "Apfelnektar-Pokémon",
+        "it": "Pokémon Pomisucco",
+        "ko": "사과즙포켓몬",
+        "zh-Hant": "蘋果汁寶可夢",
+        "zh-Hans": "苹果汁宝可梦"
+    },
     "abilities": [
         {
             "name": "Ripen",

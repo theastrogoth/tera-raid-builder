@@ -1,5 +1,16 @@
 {
     "name": "Morgrem",
+    "category": {
+        "en": "Devious Pokémon",
+        "ja": "しょうわるポケモン",
+        "fr": "Pokémon Scélérat",
+        "es": "Pokémon Malicioso",
+        "de": "Schelm-Pokémon",
+        "it": "Pokémon Furbizia",
+        "ko": "성악포켓몬",
+        "zh-Hant": "壞心眼寶可夢",
+        "zh-Hans": "坏心眼宝可梦"
+    },
     "abilities": [
         {
             "name": "Prankster",

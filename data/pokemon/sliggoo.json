@@ -1,5 +1,16 @@
 {
     "name": "Sliggoo",
+    "category": {
+        "en": "Soft Tissue Pokémon",
+        "ja": "なんたいポケモン",
+        "fr": "Pokémon Mollusque",
+        "es": "Pokémon Molusco",
+        "de": "Schneckedei-Pokémon",
+        "it": "Pokémon Mollusco",
+        "ko": "연체포켓몬",
+        "zh-Hant": "軟體生物寶可夢",
+        "zh-Hans": "软体生物宝可梦"
+    },
     "abilities": [
         {
             "name": "Sap Sipper",

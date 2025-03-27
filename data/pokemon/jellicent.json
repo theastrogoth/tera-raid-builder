@@ -1,5 +1,16 @@
 {
     "name": "Jellicent",
+    "category": {
+        "en": "Floating Pokémon",
+        "ja": "ふゆうポケモン",
+        "fr": "Pokémon Flottaison",
+        "es": "Pokémon Ingrávido",
+        "de": "Gleit-Pokémon",
+        "it": "Pokémon Fluttuante",
+        "ko": "부유포켓몬",
+        "zh-Hant": "漂浮寶可夢",
+        "zh-Hans": "漂浮宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Absorb",

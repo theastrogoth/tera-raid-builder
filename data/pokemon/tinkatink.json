@@ -1,5 +1,16 @@
 {
     "name": "Tinkatink",
+    "category": {
+        "en": "Metalsmith Pokémon",
+        "ja": "かなうちポケモン",
+        "fr": "Pokémon Forge",
+        "es": "Pokémon Forja",
+        "de": "Schmied-Pokémon",
+        "it": "Pokémon Forgiatore",
+        "ko": "대장장이포켓몬",
+        "zh-Hant": "錘鍊寶可夢",
+        "zh-Hans": "锤炼宝可梦"
+    },
     "abilities": [
         {
             "name": "Mold Breaker",

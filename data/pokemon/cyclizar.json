@@ -1,5 +1,16 @@
 {
     "name": "Cyclizar",
+    "category": {
+        "en": "Mount Pokémon",
+        "ja": "ライドポケモン",
+        "fr": "Pokémon Monture",
+        "es": "Pokémon Montura",
+        "de": "Ritt-Pokémon",
+        "it": "Pokémon Cavalcatura",
+        "ko": "라이드포켓몬",
+        "zh-Hant": "坐騎寶可夢",
+        "zh-Hans": "坐骑宝可梦"
+    },
     "abilities": [
         {
             "name": "Shed Skin",

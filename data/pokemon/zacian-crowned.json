@@ -1,5 +1,16 @@
 {
     "name": "Zacian-Crowned",
+    "category": {
+        "en": "Warrior Pokémon",
+        "ja": "つわものポケモン",
+        "fr": "Pokémon Valeureux",
+        "es": "Pokémon Guerrero",
+        "de": "Krieger-Pokémon",
+        "it": "Pokémon Guerriero",
+        "ko": "강자포켓몬",
+        "zh-Hant": "強者寶可夢",
+        "zh-Hans": "强者宝可梦"
+    },
     "abilities": [
         {
             "name": "Intrepid Sword",

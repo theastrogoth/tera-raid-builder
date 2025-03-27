@@ -1,5 +1,16 @@
 {
     "name": "Tynamo",
+    "category": {
+        "en": "EleFish Pokémon",
+        "ja": "でんきうおポケモン",
+        "fr": "Pokémon Électrophore",
+        "es": "Pokémon Electropez",
+        "de": "Stromfisch-Pokémon",
+        "it": "Pokémon Elettropesce",
+        "ko": "전기물고기포켓몬",
+        "zh-Hant": "電魚寶可夢",
+        "zh-Hans": "电鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

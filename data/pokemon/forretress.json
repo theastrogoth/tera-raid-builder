@@ -1,5 +1,16 @@
 {
     "name": "Forretress",
+    "category": {
+        "en": "Bagworm Pokémon",
+        "ja": "みのむしポケモン",
+        "fr": "Pokémon Ver Caché",
+        "es": "Pokémon Larva",
+        "de": "Beutelwurm-Pokémon",
+        "it": "Pokémon Larva",
+        "ko": "도롱이벌레포켓몬",
+        "zh-Hant": "蓑衣蟲寶可夢",
+        "zh-Hans": "蓑衣虫宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

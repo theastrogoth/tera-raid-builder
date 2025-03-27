@@ -1,5 +1,16 @@
 {
     "name": "Lileep",
+    "category": {
+        "en": "Sea Lily Pokémon",
+        "ja": "ウミユリポケモン",
+        "fr": "Pokémon Lis d'Eau",
+        "es": "Pokémon Lirio de Mar",
+        "de": "Seeanemonen-Pokémon",
+        "it": "Pokémon Fiordimare",
+        "ko": "바다나리포켓몬",
+        "zh-Hant": "海百合寶可夢",
+        "zh-Hans": "海百合宝可梦"
+    },
     "abilities": [
         {
             "name": "Suction Cups",

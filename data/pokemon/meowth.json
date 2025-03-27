@@ -1,5 +1,16 @@
 {
     "name": "Meowth",
+    "category": {
+        "en": "Scratch Cat Pokémon",
+        "ja": "ばけねこポケモン",
+        "fr": "Pokémon Chadégout",
+        "es": "Pokémon Gato Araña",
+        "de": "Katzen-Pokémon",
+        "it": "Pokémon Graffimiao",
+        "ko": "요괴고양이포켓몬",
+        "zh-Hant": "妖怪貓寶可夢",
+        "zh-Hans": "妖怪猫宝可梦"
+    },
     "abilities": [
         {
             "name": "Pickup",

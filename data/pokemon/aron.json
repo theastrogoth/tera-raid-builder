@@ -1,5 +1,16 @@
 {
     "name": "Aron",
+    "category": {
+        "en": "Iron Armor Pokémon",
+        "ja": "てつヨロイポケモン",
+        "fr": "Pokémon Armurfer",
+        "es": "Pokémon Coraza Férrea",
+        "de": "Eisenpanzer-Pokémon",
+        "it": "Pokémon Corazza",
+        "ko": "철갑옷포켓몬",
+        "zh-Hant": "鐵鎧寶可夢",
+        "zh-Hans": "铁铠宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

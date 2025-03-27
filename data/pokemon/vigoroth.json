@@ -1,5 +1,16 @@
 {
     "name": "Vigoroth",
+    "category": {
+        "en": "Wild Monkey Pokémon",
+        "ja": "あばれザルポケモン",
+        "fr": "Pokémon Turbusinge",
+        "es": "Pokémon Mono Feroz",
+        "de": "Wildaffen-Pokémon",
+        "it": "Pokémon Indocile",
+        "ko": "성난원숭이포켓몬",
+        "zh-Hant": "暴猿寶可夢",
+        "zh-Hans": "暴猿宝可梦"
+    },
     "abilities": [
         {
             "name": "Vital Spirit",

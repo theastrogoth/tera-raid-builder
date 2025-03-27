@@ -1,5 +1,16 @@
 {
     "name": "Crawdaunt",
+    "category": {
+        "en": "Rogue Pokémon",
+        "ja": "ならずものポケモン",
+        "fr": "Pokémon Crapule",
+        "es": "Pokémon Granuja",
+        "de": "Schlingel-Pokémon",
+        "it": "Pokémon Canaglia",
+        "ko": "불량배포켓몬",
+        "zh-Hant": "流氓寶可夢",
+        "zh-Hans": "流氓宝可梦"
+    },
     "abilities": [
         {
             "name": "Hyper Cutter",

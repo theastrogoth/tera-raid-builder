@@ -1,5 +1,16 @@
 {
     "name": "Farigiraf",
+    "category": {
+        "en": "Long Neck Pokémon",
+        "ja": "くびながポケモン",
+        "fr": "Pokémon Long-Cou",
+        "es": "Pokémon Gran Cuello",
+        "de": "Langhals-Pokémon",
+        "it": "Pokémon Lungocollo",
+        "ko": "긴목포켓몬",
+        "zh-Hant": "長頸寶可夢",
+        "zh-Hans": "长颈宝可梦"
+    },
     "abilities": [
         {
             "name": "Cud Chew",

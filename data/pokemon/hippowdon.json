@@ -1,5 +1,16 @@
 {
     "name": "Hippowdon",
+    "category": {
+        "en": "Heavyweight Pokémon",
+        "ja": "じゅうりょうポケモン",
+        "fr": "Pokémon Poids Lourd",
+        "es": "Pokémon Peso Pesado",
+        "de": "Schwergewichts-Pokémon",
+        "it": "Pokémon Grandepeso",
+        "ko": "중량포켓몬",
+        "zh-Hant": "重量寶可夢",
+        "zh-Hans": "重量宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Stream",

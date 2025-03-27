@@ -1,5 +1,16 @@
 {
     "name": "Solgaleo",
+    "category": {
+        "en": "Sunne Pokémon",
+        "ja": "にちりんポケモン",
+        "fr": "Pokémon Halo Solaire",
+        "es": "Pokémon Corona Solar",
+        "de": "Sonnenkreis-Pokémon",
+        "it": "Pokémon Solare",
+        "ko": "일륜포켓몬",
+        "zh-Hant": "日輪寶可夢",
+        "zh-Hans": "日轮宝可梦"
+    },
     "abilities": [
         {
             "name": "Full Metal Body",

@@ -1,5 +1,16 @@
 {
     "name": "Tangrowth",
+    "category": {
+        "en": "Vine Pokémon",
+        "ja": "ツルじょうポケモン",
+        "fr": "Pokémon Vigne",
+        "es": "Pokémon Enredadera",
+        "de": "Ranken-Pokémon",
+        "it": "Pokémon Liana",
+        "ko": "넝쿨포켓몬",
+        "zh-Hant": "藤蔓狀寶可夢",
+        "zh-Hans": "藤蔓状宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

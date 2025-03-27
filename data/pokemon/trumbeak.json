@@ -1,5 +1,16 @@
 {
     "name": "Trumbeak",
+    "category": {
+        "en": "Bugle Beak Pokémon",
+        "ja": "ラッパぐちポケモン",
+        "fr": "Pokémon Bec Clairon",
+        "es": "Pokémon Trompeta",
+        "de": "Trompeten-Pokémon",
+        "it": "Pokémon Trombecco",
+        "ko": "나팔입포켓몬",
+        "zh-Hant": "喇叭喙寶可夢",
+        "zh-Hans": "喇叭喙宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

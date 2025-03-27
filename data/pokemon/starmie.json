@@ -1,5 +1,16 @@
 {
     "name": "Starmie",
+    "category": {
+        "en": "Mysterious Pokémon",
+        "ja": "なぞのポケモン",
+        "fr": "Pokémon Mystérieux",
+        "es": "Pokémon Misterioso",
+        "de": "Mysteriös-Pokémon",
+        "it": "Pokémon Misterioso",
+        "ko": "수수께끼포켓몬",
+        "zh-Hant": "謎寶可夢",
+        "zh-Hans": "谜宝可梦"
+    },
     "abilities": [
         {
             "name": "Illuminate",

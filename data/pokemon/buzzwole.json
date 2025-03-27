@@ -1,5 +1,16 @@
 {
     "name": "Buzzwole",
+    "category": {
+        "en": "Swollen Pokémon",
+        "ja": "ぼうちょうポケモン",
+        "fr": "Pokémon Enflé",
+        "es": "Pokémon Hinchado",
+        "de": "Ausdehnungs-Pokémon",
+        "it": "Pokémon Gonfiacorpo",
+        "ko": "팽창포켓몬",
+        "zh-Hant": "膨脹寶可夢",
+        "zh-Hans": "膨胀宝可梦"
+    },
     "abilities": [
         {
             "name": "Beast Boost",

@@ -1,5 +1,16 @@
 {
     "name": "Basculegion",
+    "category": {
+        "en": "Big Fish Pokémon",
+        "ja": "おおうおポケモン",
+        "fr": "Pokémon Poissigrand",
+        "es": "Pokémon Gran Pez",
+        "de": "Großfisch-Pokémon",
+        "it": "Pokémon Pescegrosso",
+        "ko": "큰물고기포켓몬",
+        "zh-Hant": "大魚寶可夢",
+        "zh-Hans": "大鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

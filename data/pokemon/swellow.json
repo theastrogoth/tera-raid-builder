@@ -1,5 +1,16 @@
 {
     "name": "Swellow",
+    "category": {
+        "en": "Swallow Pokémon",
+        "ja": "ツバメポケモン",
+        "fr": "Pokémon Hirondelle",
+        "es": "Pokémon Buche",
+        "de": "Schwalben-Pokémon",
+        "it": "Pokémon Rondine",
+        "ko": "제비포켓몬",
+        "zh-Hant": "燕子寶可夢",
+        "zh-Hans": "燕子宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

@@ -1,5 +1,16 @@
 {
     "name": "Palpitoad",
+    "category": {
+        "en": "Vibration Pokémon",
+        "ja": "しんどうポケモン",
+        "fr": "Pokémon Vibration",
+        "es": "Pokémon Vibrante",
+        "de": "Vibrations-Pokémon",
+        "it": "Pokémon Vibrazione",
+        "ko": "진동포켓몬",
+        "zh-Hant": "震動寶可夢",
+        "zh-Hans": "振动宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

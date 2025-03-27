@@ -1,5 +1,16 @@
 {
     "name": "Noivern",
+    "category": {
+        "en": "Sound Wave Pokémon",
+        "ja": "おんぱポケモン",
+        "fr": "Pokémon Ondes",
+        "es": "Pokémon Onda Sónica",
+        "de": "Schallwellen-Pokémon",
+        "it": "Pokémon Ondasonora",
+        "ko": "음파포켓몬",
+        "zh-Hant": "音波寶可夢",
+        "zh-Hans": "音波宝可梦"
+    },
     "abilities": [
         {
             "name": "Frisk",

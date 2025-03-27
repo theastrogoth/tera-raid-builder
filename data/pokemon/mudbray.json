@@ -1,5 +1,16 @@
 {
     "name": "Mudbray",
+    "category": {
+        "en": "Donkey Pokémon",
+        "ja": "うさぎうまポケモン",
+        "fr": "Pokémon Âne",
+        "es": "Pokémon Asno",
+        "de": "Packesel-Pokémon",
+        "it": "Pokémon Ciuconiglio",
+        "ko": "당나귀포켓몬",
+        "zh-Hant": "驢寶可夢",
+        "zh-Hans": "驴宝可梦"
+    },
     "abilities": [
         {
             "name": "Own Tempo",

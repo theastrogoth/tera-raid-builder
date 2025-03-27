@@ -1,5 +1,16 @@
 {
     "name": "Crustle",
+    "category": {
+        "en": "Stone Home Pokémon",
+        "ja": "いわやどポケモン",
+        "fr": "Pokémon Lapidicole",
+        "es": "Pokémon Casarroca",
+        "de": "Felshaus-Pokémon",
+        "it": "Pokémon Scogliocasa",
+        "ko": "바위집포켓몬",
+        "zh-Hant": "岩居寶可夢",
+        "zh-Hans": "岩居宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

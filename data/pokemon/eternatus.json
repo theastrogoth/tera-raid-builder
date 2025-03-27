@@ -1,5 +1,16 @@
 {
     "name": "Eternatus",
+    "category": {
+        "en": "Gigantic Pokémon",
+        "ja": "キョダイポケモン",
+        "fr": "Pokémon Giga",
+        "es": "Pokémon Gigantesco",
+        "de": "Giganten-Pokémon",
+        "it": "Pokémon Gigante",
+        "ko": "거대포켓몬",
+        "zh-Hant": "超極巨寶可夢",
+        "zh-Hans": "超极巨宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

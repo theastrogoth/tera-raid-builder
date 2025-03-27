@@ -1,5 +1,16 @@
 {
     "name": "Chewtle",
+    "category": {
+        "en": "Snapping Pokémon",
+        "ja": "くいつきポケモン",
+        "fr": "Pokémon Mordillage",
+        "es": "Pokémon Mordedura",
+        "de": "Schnapp-Pokémon",
+        "it": "Pokémon Mordace",
+        "ko": "물고늘어지기포켓몬",
+        "zh-Hant": "咬住寶可夢",
+        "zh-Hans": "咬住宝可梦"
+    },
     "abilities": [
         {
             "name": "Strong Jaw",

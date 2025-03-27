@@ -1,5 +1,16 @@
 {
     "name": "Skarmory",
+    "category": {
+        "en": "Armor Bird Pokémon",
+        "ja": "よろいどりポケモン",
+        "fr": "Pokémon Armoiseau",
+        "es": "Pokémon Coraza Ave",
+        "de": "Flugstahl-Pokémon",
+        "it": "Pokémon Armuccello",
+        "ko": "갑옷새포켓몬",
+        "zh-Hant": "鋼甲鳥寶可夢",
+        "zh-Hans": "钢甲鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

@@ -1,5 +1,16 @@
 {
     "name": "Magby",
+    "category": {
+        "en": "Live Coal Pokémon",
+        "ja": "ひだねポケモン",
+        "fr": "Pokémon Charbon",
+        "es": "Pokémon Ascuas",
+        "de": "Glutherd-Pokémon",
+        "it": "Pokémon Carbonvivo",
+        "ko": "불씨포켓몬",
+        "zh-Hant": "火種寶可夢",
+        "zh-Hans": "火种宝可梦"
+    },
     "abilities": [
         {
             "name": "Flame Body",

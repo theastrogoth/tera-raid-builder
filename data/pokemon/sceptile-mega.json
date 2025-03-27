@@ -1,5 +1,16 @@
 {
     "name": "Sceptile-Mega",
+    "category": {
+        "en": "Forest Pokémon",
+        "ja": "みつりんポケモン",
+        "fr": "Pokémon Forêt",
+        "es": "Pokémon Bosque",
+        "de": "Dschungel-Pokémon",
+        "it": "Pokémon Foresta",
+        "ko": "밀림포켓몬",
+        "zh-Hant": "密林寶可夢",
+        "zh-Hans": "密林宝可梦"
+    },
     "abilities": [
         {
             "name": "Lightning Rod",

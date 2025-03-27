@@ -1,5 +1,16 @@
 {
     "name": "Charjabug",
+    "category": {
+        "en": "Battery Pokémon",
+        "ja": "バッテリーポケモン",
+        "fr": "Pokémon Batterie",
+        "es": "Pokémon Batería",
+        "de": "Batterie-Pokémon",
+        "it": "Pokémon Batteria",
+        "ko": "배터리포켓몬",
+        "zh-Hant": "蓄電池寶可夢",
+        "zh-Hans": "蓄电池宝可梦"
+    },
     "abilities": [
         {
             "name": "Battery",

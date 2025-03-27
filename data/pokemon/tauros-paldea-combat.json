@@ -1,5 +1,16 @@
 {
     "name": "Tauros-Paldea-Combat",
+    "category": {
+        "en": "Wild Bull Pokémon",
+        "ja": "あばれうしポケモン",
+        "fr": "Pokémon Buffle",
+        "es": "Pokémon Toro Bravo",
+        "de": "Wildbullen-Pokémon",
+        "it": "Pokémon Torobrado",
+        "ko": "성난소포켓몬",
+        "zh-Hant": "暴牛寶可夢",
+        "zh-Hans": "暴牛宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

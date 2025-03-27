@@ -1,5 +1,16 @@
 {
     "name": "Incineroar",
+    "category": {
+        "en": "Heel Pokémon",
+        "ja": "ヒールポケモン",
+        "fr": "Pokémon Vil Catcheur",
+        "es": "Pokémon Rudo",
+        "de": "Fieslings-Pokémon",
+        "it": "Pokémon Colpibassi",
+        "ko": "힐포켓몬",
+        "zh-Hant": "反派寶可夢",
+        "zh-Hans": "反派宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

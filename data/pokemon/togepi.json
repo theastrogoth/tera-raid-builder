@@ -1,5 +1,16 @@
 {
     "name": "Togepi",
+    "category": {
+        "en": "Spike Ball Pokémon",
+        "ja": "はりたまポケモン",
+        "fr": "Pokémon Balle Pic",
+        "es": "Pokémon Bolapicuda",
+        "de": "Zackenball-Pokémon",
+        "it": "Pokémon Pallapunte",
+        "ko": "바늘알포켓몬",
+        "zh-Hant": "針球寶可夢",
+        "zh-Hans": "针球宝可梦"
+    },
     "abilities": [
         {
             "name": "Hustle",

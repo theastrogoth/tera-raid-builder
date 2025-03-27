@@ -1,5 +1,16 @@
 {
     "name": "Elekid",
+    "category": {
+        "en": "Electric Pokémon",
+        "ja": "でんきポケモン",
+        "fr": "Pokémon Électrique",
+        "es": "Pokémon Eléctrico",
+        "de": "Elektro-Pokémon",
+        "it": "Pokémon Elettrico",
+        "ko": "전류포켓몬",
+        "zh-Hant": "電氣寶可夢",
+        "zh-Hans": "电气宝可梦"
+    },
     "abilities": [
         {
             "name": "Static",

@@ -1,5 +1,16 @@
 {
     "name": "Deoxys-Defense",
+    "category": {
+        "en": "DNA Pokémon",
+        "ja": "ＤＮＡポケモン",
+        "fr": "Pokémon ADN",
+        "es": "Pokémon ADN",
+        "de": "DNS-Pokémon",
+        "it": "Pokémon DNA",
+        "ko": "DNA포켓몬",
+        "zh-Hant": "ＤＮＡ寶可夢",
+        "zh-Hans": "ＤＮＡ宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

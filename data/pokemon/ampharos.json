@@ -1,5 +1,16 @@
 {
     "name": "Ampharos",
+    "category": {
+        "en": "Light Pokémon",
+        "ja": "ライトポケモン",
+        "fr": "Pokémon Lumière",
+        "es": "Pokémon Luz",
+        "de": "Leuchten-Pokémon",
+        "it": "Pokémon Luce",
+        "ko": "라이트포켓몬",
+        "zh-Hant": "燈寶可夢",
+        "zh-Hans": "灯宝可梦"
+    },
     "abilities": [
         {
             "name": "Static",

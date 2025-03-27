@@ -1,5 +1,16 @@
 {
     "name": "Swoobat",
+    "category": {
+        "en": "Courting Pokémon",
+        "ja": "きゅうあいポケモン",
+        "fr": "Pokémon Cupidon",
+        "es": "Pokémon Galante",
+        "de": "Balz-Pokémon",
+        "it": "Pokémon Cercamore",
+        "ko": "구애포켓몬",
+        "zh-Hant": "求愛寶可夢",
+        "zh-Hans": "求爱宝可梦"
+    },
     "abilities": [
         {
             "name": "Unaware",

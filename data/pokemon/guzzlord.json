@@ -1,5 +1,16 @@
 {
     "name": "Guzzlord",
+    "category": {
+        "en": "Junkivore Pokémon",
+        "ja": "あくじきポケモン",
+        "fr": "Pokémon Bizarrovore",
+        "es": "Pokémon Tragaldabas",
+        "de": "Gaumenfolter-Pokémon",
+        "it": "Pokémon Divoratutto",
+        "ko": "악식성포켓몬",
+        "zh-Hant": "異食寶可夢",
+        "zh-Hans": "异食宝可梦"
+    },
     "abilities": [
         {
             "name": "Beast Boost",

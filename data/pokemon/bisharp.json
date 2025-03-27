@@ -1,5 +1,16 @@
 {
     "name": "Bisharp",
+    "category": {
+        "en": "Sword Blade Pokémon",
+        "ja": "とうじんポケモン",
+        "fr": "Pokémon Tranchant",
+        "es": "Pokémon Filo",
+        "de": "Schwertklingen-Pokémon",
+        "it": "Pokémon Fildilama",
+        "ko": "도인포켓몬",
+        "zh-Hant": "刀刃寶可夢",
+        "zh-Hans": "刀刃宝可梦"
+    },
     "abilities": [
         {
             "name": "Defiant",

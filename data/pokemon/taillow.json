@@ -1,5 +1,16 @@
 {
     "name": "Taillow",
+    "category": {
+        "en": "Tiny Swallow Pokémon",
+        "ja": "こツバメポケモン",
+        "fr": "Pokémon Minirondel",
+        "es": "Pokémon Pequebuche",
+        "de": "Schwälblein-Pokémon",
+        "it": "Pokémon Rondinella",
+        "ko": "아기제비포켓몬",
+        "zh-Hant": "幼燕寶可夢",
+        "zh-Hans": "幼燕宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

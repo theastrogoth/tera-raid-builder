@@ -1,5 +1,16 @@
 {
     "name": "Togekiss",
+    "category": {
+        "en": "Jubilee Pokémon",
+        "ja": "しゅくふくポケモン",
+        "fr": "Pokémon Célébration",
+        "es": "Pokémon Festejo",
+        "de": "Jubilierer-Pokémon",
+        "it": "Pokémon Festa",
+        "ko": "축복포켓몬",
+        "zh-Hant": "祝福寶可夢",
+        "zh-Hans": "祝福宝可梦"
+    },
     "abilities": [
         {
             "name": "Hustle",

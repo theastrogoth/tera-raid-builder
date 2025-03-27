@@ -1,5 +1,16 @@
 {
     "name": "Castform",
+    "category": {
+        "en": "Weather Pokémon",
+        "ja": "てんきポケモン",
+        "fr": "Pokémon Climat",
+        "es": "Pokémon Clima",
+        "de": "Wetter-Pokémon",
+        "it": "Pokémon Meteo",
+        "ko": "날씨포켓몬",
+        "zh-Hant": "天氣寶可夢",
+        "zh-Hans": "天气宝可梦"
+    },
     "abilities": [
         {
             "name": "Forecast",

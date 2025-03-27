@@ -1,5 +1,16 @@
 {
     "name": "Lampent",
+    "category": {
+        "en": "Lamp Pokémon",
+        "ja": "ランプポケモン",
+        "fr": "Pokémon Lampe",
+        "es": "Pokémon Farolillo",
+        "de": "Lampen-Pokémon",
+        "it": "Pokémon Lanterna",
+        "ko": "램프포켓몬",
+        "zh-Hant": "油燈寶可夢",
+        "zh-Hans": "油灯宝可梦"
+    },
     "abilities": [
         {
             "name": "Flash Fire",

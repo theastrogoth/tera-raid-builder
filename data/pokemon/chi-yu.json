@@ -1,5 +1,16 @@
 {
     "name": "Chi-Yu",
+    "category": {
+        "en": "Ruinous Pokémon",
+        "ja": "さいやくポケモン",
+        "fr": "Pokémon Fléau",
+        "es": "Pokémon Debacle",
+        "de": "Unheils-Pokémon",
+        "it": "Pokémon Disgrazia",
+        "ko": "재액포켓몬",
+        "zh-Hant": "災厄寶可夢",
+        "zh-Hans": "灾厄宝可梦"
+    },
     "abilities": [
         {
             "name": "Beads of Ruin",

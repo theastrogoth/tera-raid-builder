@@ -1,5 +1,16 @@
 {
     "name": "Honedge",
+    "category": {
+        "en": "Sword Pokémon",
+        "ja": "とうけんポケモン",
+        "fr": "Pokémon Glaive",
+        "es": "Pokémon Tizona",
+        "de": "Klingenkraft-Pokémon",
+        "it": "Pokémon Armabianca",
+        "ko": "도검포켓몬",
+        "zh-Hant": "刀劍寶可夢",
+        "zh-Hans": "刀剑宝可梦"
+    },
     "abilities": [
         {
             "name": "No Guard",

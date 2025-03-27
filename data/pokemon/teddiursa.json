@@ -1,5 +1,16 @@
 {
     "name": "Teddiursa",
+    "category": {
+        "en": "Little Bear Pokémon",
+        "ja": "こぐまポケモン",
+        "fr": "Pokémon Mini Ours",
+        "es": "Pokémon Osito",
+        "de": "Kleinbären-Pokémon",
+        "it": "Pokémon Orsetto",
+        "ko": "아기곰포켓몬",
+        "zh-Hant": "小熊寶可夢",
+        "zh-Hans": "小熊宝可梦"
+    },
     "abilities": [
         {
             "name": "Pickup",

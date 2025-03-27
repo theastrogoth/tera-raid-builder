@@ -1,5 +1,16 @@
 {
     "name": "Diglett-Alola",
+    "category": {
+        "en": "Mole Pokémon",
+        "ja": "もぐらポケモン",
+        "fr": "Pokémon Taupe",
+        "es": "Pokémon Topo",
+        "de": "Maulwurf-Pokémon",
+        "it": "Pokémon Talpa",
+        "ko": "두더지포켓몬",
+        "zh-Hant": "鼴鼠寶可夢",
+        "zh-Hans": "鼹鼠宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Veil",

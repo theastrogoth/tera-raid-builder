@@ -1,5 +1,16 @@
 {
     "name": "Morpeko-Hangry",
+    "category": {
+        "en": "Two-Sided Pokémon",
+        "ja": "にめんポケモン",
+        "fr": "Pokémon Volt Face",
+        "es": "Pokémon Dos Caras",
+        "de": "Alter Ego-Pokémon",
+        "it": "Pokémon Doppiafaccia",
+        "ko": "양면포켓몬",
+        "zh-Hant": "雙面寶可夢",
+        "zh-Hans": "双面宝可梦"
+    },
     "abilities": [
         {
             "name": "Hunger Switch",

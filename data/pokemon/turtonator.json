@@ -1,5 +1,16 @@
 {
     "name": "Turtonator",
+    "category": {
+        "en": "Blast Turtle Pokémon",
+        "ja": "ばくはつがめポケモン",
+        "fr": "Pokémon Tortue Boum",
+        "es": "Pokémon Tortugabomba",
+        "de": "Knallkröten-Pokémon",
+        "it": "Pokémon Tartabomba",
+        "ko": "폭발거북포켓몬",
+        "zh-Hant": "爆炸龜寶可夢",
+        "zh-Hans": "爆炸龟宝可梦"
+    },
     "abilities": [
         {
             "name": "Shell Armor",

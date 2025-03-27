@@ -1,5 +1,16 @@
 {
     "name": "Uxie",
+    "category": {
+        "en": "Knowledge Pokémon",
+        "ja": "ちしきポケモン",
+        "fr": "Pokémon Savoir",
+        "es": "Pokémon Sabiduría",
+        "de": "Wissens-Pokémon",
+        "it": "Pokémon Sapienza",
+        "ko": "지식포켓몬",
+        "zh-Hant": "知識寶可夢",
+        "zh-Hans": "知识宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

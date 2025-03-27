@@ -1,5 +1,16 @@
 {
     "name": "Clauncher",
+    "category": {
+        "en": "Water Gun Pokémon",
+        "ja": "みずでっぽうポケモン",
+        "fr": "Pokémon Lance à Eau",
+        "es": "Pokémon Proyectagua",
+        "de": "Aquapistolen-Pokémon",
+        "it": "Pokémon Zampillo",
+        "ko": "물대포포켓몬",
+        "zh-Hant": "水槍寶可夢",
+        "zh-Hans": "水枪宝可梦"
+    },
     "abilities": [
         {
             "name": "Mega Launcher",

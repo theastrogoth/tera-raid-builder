@@ -1,5 +1,16 @@
 {
     "name": "Blitzle",
+    "category": {
+        "en": "Electrified Pokémon",
+        "ja": "たいでんポケモン",
+        "fr": "Pokémon Étincélec",
+        "es": "Pokémon Electrizado",
+        "de": "Hochspannungs-Pokémon",
+        "it": "Pokémon Caricavolt",
+        "ko": "하전포켓몬",
+        "zh-Hant": "帶電寶可夢",
+        "zh-Hans": "带电宝可梦"
+    },
     "abilities": [
         {
             "name": "Lightning Rod",

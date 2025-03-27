@@ -1,5 +1,16 @@
 {
     "name": "Poltchageist",
+    "category": {
+        "en": "Matcha Pokémon",
+        "ja": "まっちゃポケモン",
+        "fr": "Pokémon Matcha",
+        "es": "Pokémon Matcha",
+        "de": "Matcha-Pokémon",
+        "it": "Pokémon Matcha",
+        "ko": "말차포켓몬",
+        "zh-Hant": "抹茶寶可夢",
+        "zh-Hans": "抹茶宝可梦"
+    },
     "abilities": [
         {
             "name": "Hospitality",

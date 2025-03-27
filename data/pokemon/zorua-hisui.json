@@ -1,5 +1,16 @@
 {
     "name": "Zorua-Hisui",
+    "category": {
+        "en": "Tricky Fox Pokémon",
+        "ja": "わるぎつねポケモン",
+        "fr": "Pokémon Sombrenard",
+        "es": "Pokémon Zorro Pillo",
+        "de": "Lausefuchs-Pokémon",
+        "it": "Pokémon Malavolpe",
+        "ko": "나쁜여우포켓몬",
+        "zh-Hant": "惡狐寶可夢",
+        "zh-Hans": "恶狐宝可梦"
+    },
     "abilities": [
         {
             "name": "Illusion",

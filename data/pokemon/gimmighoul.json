@@ -1,5 +1,16 @@
 {
     "name": "Gimmighoul",
+    "category": {
+        "en": "Coin Chest Pokémon",
+        "ja": "たからばこポケモン",
+        "fr": "Pokémon Coffrotrésor",
+        "es": "Pokémon Cofre",
+        "de": "Schatztruhen-Pokémon",
+        "it": "Pokémon Scrigno",
+        "ko": "보물상자포켓몬",
+        "zh-Hant": "寶箱寶可夢",
+        "zh-Hans": "宝箱宝可梦"
+    },
     "abilities": [
         {
             "name": "Rattled",

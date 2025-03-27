@@ -1,5 +1,16 @@
 {
     "name": "Avalugg",
+    "category": {
+        "en": "Iceberg Pokémon",
+        "ja": "ひょうざんポケモン",
+        "fr": "Pokémon Iceberg",
+        "es": "Pokémon Iceberg",
+        "de": "Eisberg-Pokémon",
+        "it": "Pokémon Iceberg",
+        "ko": "빙산포켓몬",
+        "zh-Hant": "冰山寶可夢",
+        "zh-Hans": "冰山宝可梦"
+    },
     "abilities": [
         {
             "name": "Own Tempo",

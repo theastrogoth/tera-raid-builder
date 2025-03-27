@@ -1,5 +1,16 @@
 {
     "name": "Cresselia",
+    "category": {
+        "en": "Lunar Pokémon",
+        "ja": "みかづきポケモン",
+        "fr": "Pokémon Lunaire",
+        "es": "Pokémon Lunar",
+        "de": "Lunar-Pokémon",
+        "it": "Pokémon Falcato",
+        "ko": "초승달포켓몬",
+        "zh-Hant": "新月寶可夢",
+        "zh-Hans": "新月宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

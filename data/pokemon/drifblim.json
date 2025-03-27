@@ -1,5 +1,16 @@
 {
     "name": "Drifblim",
+    "category": {
+        "en": "Blimp Pokémon",
+        "ja": "ききゅうポケモン",
+        "fr": "Pokémon Ballon",
+        "es": "Pokémon Dirigible",
+        "de": "Luftschiff-Pokémon",
+        "it": "Pokémon Dirigibile",
+        "ko": "기구포켓몬",
+        "zh-Hant": "熱氣球寶可夢",
+        "zh-Hans": "热气球宝可梦"
+    },
     "abilities": [
         {
             "name": "Aftermath",

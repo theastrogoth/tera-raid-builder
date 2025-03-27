@@ -1,5 +1,16 @@
 {
     "name": "Druddigon",
+    "category": {
+        "en": "Cave Pokémon",
+        "ja": "ほらあなポケモン",
+        "fr": "Pokémon Caverne",
+        "es": "Pokémon Cueva",
+        "de": "Höhlen-Pokémon",
+        "it": "Pokémon Grotta",
+        "ko": "동굴포켓몬",
+        "zh-Hant": "洞穴寶可夢",
+        "zh-Hans": "洞穴宝可梦"
+    },
     "abilities": [
         {
             "name": "Rough Skin",

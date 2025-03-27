@@ -1,5 +1,16 @@
 {
     "name": "Carnivine",
+    "category": {
+        "en": "Bug Catcher Pokémon",
+        "ja": "むしとりポケモン",
+        "fr": "Pokémon Chopinsecte",
+        "es": "Pokémon Cazabichos",
+        "de": "Käfertod-Pokémon",
+        "it": "Pokémon Insettivoro",
+        "ko": "벌레잡이포켓몬",
+        "zh-Hant": "捕蟲寶可夢",
+        "zh-Hans": "捕虫宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

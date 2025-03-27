@@ -1,5 +1,16 @@
 {
     "name": "Magmar",
+    "category": {
+        "en": "Spitfire Pokémon",
+        "ja": "ひふきポケモン",
+        "fr": "Pokémon Crache-Feu",
+        "es": "Pokémon Escupefuego",
+        "de": "Brenner-Pokémon",
+        "it": "Pokémon Sputafuoco",
+        "ko": "불뿜기포켓몬",
+        "zh-Hant": "吐火寶可夢",
+        "zh-Hans": "吐火宝可梦"
+    },
     "abilities": [
         {
             "name": "Flame Body",

@@ -1,5 +1,16 @@
 {
     "name": "Drifloon",
+    "category": {
+        "en": "Balloon Pokémon",
+        "ja": "ふうせんポケモン",
+        "fr": "Pokémon Bouboule",
+        "es": "Pokémon Globo",
+        "de": "Ballon-Pokémon",
+        "it": "Pokémon Pallone",
+        "ko": "풍선포켓몬",
+        "zh-Hant": "氣球寶可夢",
+        "zh-Hans": "气球宝可梦"
+    },
     "abilities": [
         {
             "name": "Aftermath",

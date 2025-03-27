@@ -1,5 +1,16 @@
 {
     "name": "Solrock",
+    "category": {
+        "en": "Meteorite Pokémon",
+        "ja": "いんせきポケモン",
+        "fr": "Pokémon Météorite",
+        "es": "Pokémon Meteorito",
+        "de": "Meteoriten-Pokémon",
+        "it": "Pokémon Meteorite",
+        "ko": "별똥별포켓몬",
+        "zh-Hant": "隕石寶可夢",
+        "zh-Hans": "陨石宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

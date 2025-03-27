@@ -1,5 +1,16 @@
 {
     "name": "Bagon",
+    "category": {
+        "en": "Rock Head Pokémon",
+        "ja": "いしあたまポケモン",
+        "fr": "Pokémon Tête de Roc",
+        "es": "Pokémon Cabeza Roca",
+        "de": "Steinhaupt-Pokémon",
+        "it": "Pokémon Rocciotesta",
+        "ko": "돌머리포켓몬",
+        "zh-Hant": "堅硬腦袋寶可夢",
+        "zh-Hans": "坚硬脑袋宝可梦"
+    },
     "abilities": [
         {
             "name": "Rock Head",

@@ -1,5 +1,16 @@
 {
     "name": "Slugma",
+    "category": {
+        "en": "Lava Pokémon",
+        "ja": "ようがんポケモン",
+        "fr": "Pokémon Lave",
+        "es": "Pokémon Lava",
+        "de": "Lava-Pokémon",
+        "it": "Pokémon Lava",
+        "ko": "용암포켓몬",
+        "zh-Hant": "熔岩寶可夢",
+        "zh-Hans": "熔岩宝可梦"
+    },
     "abilities": [
         {
             "name": "Magma Armor",

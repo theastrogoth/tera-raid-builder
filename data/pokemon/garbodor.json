@@ -1,5 +1,16 @@
 {
     "name": "Garbodor",
+    "category": {
+        "en": "Trash Heap Pokémon",
+        "ja": "ゴミすてばポケモン",
+        "fr": "Pokémon Dépotoir",
+        "es": "Pokémon Vertedero",
+        "de": "Müllhalden-Pokémon",
+        "it": "Pokémon Discarica",
+        "ko": "쓰레기장포켓몬",
+        "zh-Hant": "垃圾場寶可夢",
+        "zh-Hans": "垃圾场宝可梦"
+    },
     "abilities": [
         {
             "name": "Stench",

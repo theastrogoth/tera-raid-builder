@@ -1,5 +1,16 @@
 {
     "name": "Jangmo-o",
+    "category": {
+        "en": "Scaly Pokémon",
+        "ja": "うろこポケモン",
+        "fr": "Pokémon Écailles",
+        "es": "Pokémon Escamas",
+        "de": "Schuppentier-Pokémon",
+        "it": "Pokémon Squama",
+        "ko": "비늘포켓몬",
+        "zh-Hant": "鱗片寶可夢",
+        "zh-Hans": "鳞片宝可梦"
+    },
     "abilities": [
         {
             "name": "Bulletproof",

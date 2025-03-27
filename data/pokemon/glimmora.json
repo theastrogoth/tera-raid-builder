@@ -1,5 +1,16 @@
 {
     "name": "Glimmora",
+    "category": {
+        "en": "Ore Pokémon",
+        "ja": "こうせきポケモン",
+        "fr": "Pokémon Minerai",
+        "es": "Pokémon Mineral",
+        "de": "Erz-Pokémon",
+        "it": "Pokémon Minerale",
+        "ko": "광석포켓몬",
+        "zh-Hant": "礦石寶可夢",
+        "zh-Hans": "矿石宝可梦"
+    },
     "abilities": [
         {
             "name": "Toxic Debris",

@@ -1,5 +1,16 @@
 {
     "name": "Walrein",
+    "category": {
+        "en": "Ice Break Pokémon",
+        "ja": "こおりわりポケモン",
+        "fr": "Pokémon Brise Glace",
+        "es": "Pokémon Rompehielo",
+        "de": "Eisbrecher-Pokémon",
+        "it": "Pokémon Spaccagelo",
+        "ko": "얼음깨기포켓몬",
+        "zh-Hant": "破冰寶可夢",
+        "zh-Hans": "破冰宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

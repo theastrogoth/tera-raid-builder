@@ -1,5 +1,16 @@
 {
     "name": "Copperajah",
+    "category": {
+        "en": "Copperderm Pokémon",
+        "ja": "どうぞうポケモン",
+        "fr": "Pokémon Pachycuivre",
+        "es": "Pokémon Broncefante",
+        "de": "Kupferfant-Pokémon",
+        "it": "Pokémon Bronzofante",
+        "ko": "동상포켓몬",
+        "zh-Hant": "像銅寶可夢",
+        "zh-Hans": "像铜宝可梦"
+    },
     "abilities": [
         {
             "name": "Sheer Force",

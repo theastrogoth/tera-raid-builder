@@ -1,5 +1,16 @@
 {
     "name": "Bombirdier",
+    "category": {
+        "en": "Item Drop Pokémon",
+        "ja": "おとしものポケモン",
+        "fr": "Pokémon Délesteur",
+        "es": "Pokémon Arrojador",
+        "de": "Abwurf-Pokémon",
+        "it": "Pokémon Gettaoggetti",
+        "ko": "낙하물포켓몬",
+        "zh-Hant": "掉東西寶可夢",
+        "zh-Hans": "掉东西宝可梦"
+    },
     "abilities": [
         {
             "name": "Big Pecks",

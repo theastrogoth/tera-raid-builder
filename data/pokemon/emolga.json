@@ -1,5 +1,16 @@
 {
     "name": "Emolga",
+    "category": {
+        "en": "Sky Squirrel Pokémon",
+        "ja": "モモンガポケモン",
+        "fr": "Pokémon Pteromys",
+        "es": "Pokémon Vuelardilla",
+        "de": "Flughörnchen-Pokémon",
+        "it": "Pokémon Petauro",
+        "ko": "하늘다람쥐포켓몬",
+        "zh-Hant": "飛鼠寶可夢",
+        "zh-Hans": "飞鼠宝可梦"
+    },
     "abilities": [
         {
             "name": "Static",

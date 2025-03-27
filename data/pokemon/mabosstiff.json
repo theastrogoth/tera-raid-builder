@@ -1,5 +1,16 @@
 {
     "name": "Mabosstiff",
+    "category": {
+        "en": "Boss Pokémon",
+        "ja": "おやぶんポケモン",
+        "fr": "Pokémon Parrain",
+        "es": "Pokémon Jefazo",
+        "de": "Oberhaupt-Pokémon",
+        "it": "Pokémon Boss",
+        "ko": "두목포켓몬",
+        "zh-Hant": "大佬寶可夢",
+        "zh-Hans": "大佬宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

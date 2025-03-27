@@ -1,5 +1,16 @@
 {
     "name": "Baltoy",
+    "category": {
+        "en": "Clay Doll Pokémon",
+        "ja": "どぐうポケモン",
+        "fr": "Pokémon Poupargile",
+        "es": "Pokémon Muñeca Barro",
+        "de": "Lehmpuppen-Pokémon",
+        "it": "Pokémon Argilla",
+        "ko": "토우포켓몬",
+        "zh-Hant": "泥偶寶可夢",
+        "zh-Hans": "泥偶宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

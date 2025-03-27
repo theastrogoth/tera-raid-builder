@@ -1,5 +1,16 @@
 {
     "name": "Finneon",
+    "category": {
+        "en": "Wing Fish Pokémon",
+        "ja": "はねうおポケモン",
+        "fr": "Pokémon Poisson Ailé",
+        "es": "Pokémon Pez Ala",
+        "de": "Flügelfisch-Pokémon",
+        "it": "Pokémon Pescealato",
+        "ko": "비어포켓몬",
+        "zh-Hant": "飛翅魚寶可夢",
+        "zh-Hans": "飞翅鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

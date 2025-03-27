@@ -1,5 +1,16 @@
 {
     "name": "Trevenant",
+    "category": {
+        "en": "Elder Tree Pokémon",
+        "ja": "ろうぼくポケモン",
+        "fr": "Pokémon Vieillarbre",
+        "es": "Pokémon Árbol Viejo",
+        "de": "Urgehölz-Pokémon",
+        "it": "Pokémon Alberantico",
+        "ko": "고목포켓몬",
+        "zh-Hant": "老樹寶可夢",
+        "zh-Hans": "老树宝可梦"
+    },
     "abilities": [
         {
             "name": "Natural Cure",

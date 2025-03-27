@@ -1,5 +1,16 @@
 {
     "name": "Minun",
+    "category": {
+        "en": "Cheering Pokémon",
+        "ja": "おうえんポケモン",
+        "fr": "Pokémon Acclameur",
+        "es": "Pokémon Ánimo",
+        "de": "Jubel-Pokémon",
+        "it": "Pokémon Incitamento",
+        "ko": "응원포켓몬",
+        "zh-Hant": "加油寶可夢",
+        "zh-Hans": "加油宝可梦"
+    },
     "abilities": [
         {
             "name": "Minus",

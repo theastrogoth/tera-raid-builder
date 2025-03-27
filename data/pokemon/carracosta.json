@@ -1,5 +1,16 @@
 {
     "name": "Carracosta",
+    "category": {
+        "en": "Prototurtle Pokémon",
+        "ja": "こだいがめポケモン",
+        "fr": "Pokémon Tortantique",
+        "es": "Pokémon Pretortuga",
+        "de": "Urzeitkröten-Pokémon",
+        "it": "Pokémon Ancestruga",
+        "ko": "옛날거북포켓몬",
+        "zh-Hant": "古代龜寶可夢",
+        "zh-Hans": "古代龟宝可梦"
+    },
     "abilities": [
         {
             "name": "Solid Rock",

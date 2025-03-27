@@ -1,5 +1,16 @@
 {
     "name": "Arboliva",
+    "category": {
+        "en": "Olive Pokémon",
+        "ja": "オリーブポケモン",
+        "fr": "Pokémon Olive",
+        "es": "Pokémon Aceituna",
+        "de": "Oliven-Pokémon",
+        "it": "Pokémon Oliva",
+        "ko": "올리브포켓몬",
+        "zh-Hant": "橄欖寶可夢",
+        "zh-Hans": "橄榄宝可梦"
+    },
     "abilities": [
         {
             "name": "Seed Sower",

@@ -1,5 +1,16 @@
 {
     "name": "Mewtwo-Mega-X",
+    "category": {
+        "en": "Genetic Pokémon",
+        "ja": "いでんしポケモン",
+        "fr": "Pokémon Génétique",
+        "es": "Pokémon Genético",
+        "de": "Genmutanten-Pokémon",
+        "it": "Pokémon Genetico",
+        "ko": "유전자포켓몬",
+        "zh-Hant": "基因寶可夢",
+        "zh-Hans": "基因宝可梦"
+    },
     "abilities": [
         {
             "name": "Steadfast",

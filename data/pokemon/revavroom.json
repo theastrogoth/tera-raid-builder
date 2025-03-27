@@ -1,5 +1,16 @@
 {
     "name": "Revavroom",
+    "category": {
+        "en": "Multi-Cyl Pokémon",
+        "ja": "たきとうポケモン",
+        "fr": "Pokémon Polycylindre",
+        "es": "Pokémon Policilindro",
+        "de": "Mehrzylinder-Pokémon",
+        "it": "Pokémon Policilindro",
+        "ko": "다기통포켓몬",
+        "zh-Hant": "多汽缸寶可夢",
+        "zh-Hans": "多汽缸宝可梦"
+    },
     "abilities": [
         {
             "name": "Overcoat",

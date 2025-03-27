@@ -1,5 +1,16 @@
 {
     "name": "Floette-Eternal",
+    "category": {
+        "en": "Single Bloom Pokémon",
+        "ja": "いちりんポケモン",
+        "fr": "Pokémon Uniflore",
+        "es": "Pokémon Monoflor",
+        "de": "Einblütler-Pokémon",
+        "it": "Pokémon Monofiore",
+        "ko": "한송이포켓몬",
+        "zh-Hant": "單朵寶可夢",
+        "zh-Hans": "单朵宝可梦"
+    },
     "abilities": [
         {
             "name": "Flower Veil",

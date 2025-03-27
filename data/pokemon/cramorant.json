@@ -1,5 +1,16 @@
 {
     "name": "Cramorant",
+    "category": {
+        "en": "Gulp Pokémon",
+        "ja": "うのみポケモン",
+        "fr": "Pokémon Avaltouron",
+        "es": "Pokémon Tragón",
+        "de": "Schling-Pokémon",
+        "it": "Pokémon Inghiottone",
+        "ko": "그대로삼키기포켓몬",
+        "zh-Hant": "一口吞寶可夢",
+        "zh-Hans": "一口吞宝可梦"
+    },
     "abilities": [
         {
             "name": "Gulp Missile",

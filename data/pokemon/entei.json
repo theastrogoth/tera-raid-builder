@@ -1,5 +1,16 @@
 {
     "name": "Entei",
+    "category": {
+        "en": "Volcano Pokémon",
+        "ja": "かざんポケモン",
+        "fr": "Pokémon Volcan",
+        "es": "Pokémon Volcán",
+        "de": "Vulkan-Pokémon",
+        "it": "Pokémon Vulcano",
+        "ko": "화산포켓몬",
+        "zh-Hant": "火山寶可夢",
+        "zh-Hans": "火山宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

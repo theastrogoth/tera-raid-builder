@@ -1,5 +1,16 @@
 {
     "name": "Swalot",
+    "category": {
+        "en": "Poison Bag Pokémon",
+        "ja": "どくぶくろポケモン",
+        "fr": "Pokémon Sac Poison",
+        "es": "Pokémon Bolsa Veneno",
+        "de": "Giftbeutel-Pokémon",
+        "it": "Pokémon Velenosacco",
+        "ko": "독봉지포켓몬",
+        "zh-Hant": "毒袋寶可夢",
+        "zh-Hans": "毒袋宝可梦"
+    },
     "abilities": [
         {
             "name": "Liquid Ooze",

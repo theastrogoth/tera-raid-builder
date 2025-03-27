@@ -1,5 +1,16 @@
 {
     "name": "Dracozolt",
+    "category": {
+        "en": "Fossil Pokémon",
+        "ja": "かせきポケモン",
+        "fr": "Pokémon Fossile",
+        "es": "Pokémon Fósil",
+        "de": "Fossil-Pokémon",
+        "it": "Pokémon Fossile",
+        "ko": "화석포켓몬",
+        "zh-Hant": "化石寶可夢",
+        "zh-Hans": "化石宝可梦"
+    },
     "abilities": [
         {
             "name": "Volt Absorb",

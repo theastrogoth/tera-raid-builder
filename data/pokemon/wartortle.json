@@ -1,5 +1,16 @@
 {
     "name": "Wartortle",
+    "category": {
+        "en": "Turtle Pokémon",
+        "ja": "かめポケモン",
+        "fr": "Pokémon Tortue",
+        "es": "Pokémon Tortuga",
+        "de": "Kröten-Pokémon",
+        "it": "Pokémon Tartaruga",
+        "ko": "거북포켓몬",
+        "zh-Hant": "龜寶可夢",
+        "zh-Hans": "龟宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

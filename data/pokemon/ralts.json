@@ -1,5 +1,16 @@
 {
     "name": "Ralts",
+    "category": {
+        "en": "Feeling Pokémon",
+        "ja": "きもちポケモン",
+        "fr": "Pokémon Sentiment",
+        "es": "Pokémon Sensible",
+        "de": "Gefühls-Pokémon",
+        "it": "Pokémon Sensazione",
+        "ko": "느낌포켓몬",
+        "zh-Hant": "心情寶可夢",
+        "zh-Hans": "心情宝可梦"
+    },
     "abilities": [
         {
             "name": "Synchronize",

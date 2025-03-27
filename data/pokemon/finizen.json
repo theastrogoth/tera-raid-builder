@@ -1,5 +1,16 @@
 {
     "name": "Finizen",
+    "category": {
+        "en": "Dolphin Pokémon",
+        "ja": "イルカポケモン",
+        "fr": "Pokémon Dauphin",
+        "es": "Pokémon Delfín",
+        "de": "Delfin-Pokémon",
+        "it": "Pokémon Delfino",
+        "ko": "돌고래포켓몬",
+        "zh-Hant": "海豚寶可夢",
+        "zh-Hans": "海豚宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Veil",

@@ -1,5 +1,16 @@
 {
     "name": "Whiscash",
+    "category": {
+        "en": "Whiskers Pokémon",
+        "ja": "ひげうおポケモン",
+        "fr": "Pokémon Barbillon",
+        "es": "Pokémon Bigotudo",
+        "de": "Bartelfisch-Pokémon",
+        "it": "Pokémon Baffetti",
+        "ko": "수염물고기포켓몬",
+        "zh-Hant": "鬚魚寶可夢",
+        "zh-Hans": "须鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Oblivious",

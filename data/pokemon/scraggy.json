@@ -1,5 +1,16 @@
 {
     "name": "Scraggy",
+    "category": {
+        "en": "Shedding Pokémon",
+        "ja": "だっぴポケモン",
+        "fr": "Pokémon Mue",
+        "es": "Pokémon Mudapiel",
+        "de": "Hautwechsel-Pokémon",
+        "it": "Pokémon Mutapelle",
+        "ko": "탈피포켓몬",
+        "zh-Hant": "蛻皮寶可夢",
+        "zh-Hans": "蜕皮宝可梦"
+    },
     "abilities": [
         {
             "name": "Shed Skin",

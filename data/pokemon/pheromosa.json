@@ -1,5 +1,16 @@
 {
     "name": "Pheromosa",
+    "category": {
+        "en": "Lissome Pokémon",
+        "ja": "えんびポケモン",
+        "fr": "Pokémon Gracile",
+        "es": "Pokémon Elegancia",
+        "de": "Eleganz-Pokémon",
+        "it": "Pokémon Leggiadria",
+        "ko": "염미포켓몬",
+        "zh-Hant": "美艷寶可夢",
+        "zh-Hans": "美艳宝可梦"
+    },
     "abilities": [
         {
             "name": "Beast Boost",

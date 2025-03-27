@@ -1,5 +1,16 @@
 {
     "name": "Heracross",
+    "category": {
+        "en": "Single Horn Pokémon",
+        "ja": "１ぽんヅノポケモン",
+        "fr": "Pokémon Unicorne",
+        "es": "Pokémon Cuerno",
+        "de": "Einzelhorn-Pokémon",
+        "it": "Pokémon Monocorno",
+        "ko": "외뿔포켓몬",
+        "zh-Hant": "獨角寶可夢",
+        "zh-Hans": "独角宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

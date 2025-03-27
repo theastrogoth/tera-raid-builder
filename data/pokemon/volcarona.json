@@ -1,5 +1,16 @@
 {
     "name": "Volcarona",
+    "category": {
+        "en": "Sun Pokémon",
+        "ja": "たいようポケモン",
+        "fr": "Pokémon Soleil",
+        "es": "Pokémon Sol",
+        "de": "Sonnen-Pokémon",
+        "it": "Pokémon Sole",
+        "ko": "태양포켓몬",
+        "zh-Hant": "太陽寶可夢",
+        "zh-Hans": "太阳宝可梦"
+    },
     "abilities": [
         {
             "name": "Flame Body",

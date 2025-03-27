@@ -1,5 +1,16 @@
 {
     "name": "Bronzong",
+    "category": {
+        "en": "Bronze Bell Pokémon",
+        "ja": "どうたくポケモン",
+        "fr": "Pokémon Clochebronze",
+        "es": "Pokémon Campana Bronce",
+        "de": "Bronzeglocken-Pokémon",
+        "it": "Pokémon Squibronzo",
+        "ko": "동탁포켓몬",
+        "zh-Hant": "銅鐘寶可夢",
+        "zh-Hans": "铜钟宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

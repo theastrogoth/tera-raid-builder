@@ -1,5 +1,16 @@
 {
     "name": "Diggersby",
+    "category": {
+        "en": "Digging Pokémon",
+        "ja": "あなほりポケモン",
+        "fr": "Pokémon Fouisseur",
+        "es": "Pokémon Excavador",
+        "de": "Baugräber-Pokémon",
+        "it": "Pokémon Scavabuche",
+        "ko": "땅구멍파기포켓몬",
+        "zh-Hant": "挖洞寶可夢",
+        "zh-Hans": "挖洞宝可梦"
+    },
     "abilities": [
         {
             "name": "Pickup",

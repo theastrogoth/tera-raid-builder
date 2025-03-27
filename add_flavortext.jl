@@ -1,116 +1,15 @@
-using JSON3
-using OrderedCollections
-using FileIO
-
-const englishpath = joinpath(@__DIR__, "data", "sv_common", "English.txt")
-
-const translationdir = joinpath(@__DIR__, "data", "translations")
-
-const translationpaths = map(x -> joinpath(@__DIR__, "data", "sv_common", x), [
-    "Japanese (Kanji).txt",
-    "French.txt",
-    "Spanish (Spain).txt",
-    "German.txt",
-    "Italian.txt",
-    "Korean.txt",
-    "Chinese (Traditional).txt",
-    "Chinese (Simplified).txt",
-])
-
-const translationlabels = ["ja", "fr", "es", "de", "it", "ko", "zh-Hant", "zh-Hans"]
-const all_langs = ["en", translationlabels...]
-
-const file2category = Dict{String, String}(
-    "itemname.dat" => "item",
-    "iteminfo.dat" => "iteminfo",
-    "tokusei.dat" => "ability",
-    "tokuseiinfo.dat" => "abilityinfo",
-    "wazaname.dat" => "move",
-    "wazainfo.dat" => "moveinfo"
-)
-
-add_line!(results::OrderedDict{Int,String}, number, text) = push!(results, number => text)
-add_line!(results::OrderedDict{String,Int}, number, text) = push!(results, text => number)
-
-function read_section!(results, io)
-    readline(io) # throw out first line
-    while !eof(io)
-        line = readline(io)
-        if (line == "" || line == "~~~~~~~~~~~~~~~")
-            break
-        end
-        number, address, code, text = split(line, "\t")
-        text = replace(text, '’' => ''')
-        id = split(code, "_")[2] 
-        add_line!(results, parse(Int, id), text)
-    end
-end
-
-
-function read_file!(results, path, categories = file2category)
-    open(path) do io
-        while !eof(io)
-            line = readline(io)
-            if startswith(line, "Text File : ")
-                category = split(line, " : ")[2]
-                if (category ∈ keys(categories))
-                    catdict = occursin("info", category) ? OrderedDict{Int,String}() : OrderedDict{String,Int}()
-                    read_section!(catdict, io)
-                    push!(results, categories[category] => catdict)
-                end
-            end
-        end
-    end
-end
-
-function read_file(path, categories = file2category)
-    results = Dict{String, Union{OrderedDict{Int,String}, OrderedDict{String,Int}}}()
-    read_file!(results, path, categories)
-    return results
-end
-
-englishdata = read_file(englishpath)
-translationdata = [read_file(path) for path in translationpaths]
+include(joinpath(@__DIR__, "read_text_dump.jl"))
 
 ### MOVES ###
 
 const movesdir = joinpath(@__DIR__, "data", "moves")
 const allmovespath = joinpath(movesdir, "_allmoves.json")
 
-function name_to_filename(name)
-    words = split(string(name), [' ','-'])
-    filename = join(words, "-")
-    filename = lowercase(filename)
-    filename = replace(filename, "'" => "")
-    filename = replace(filename, "’" => "")
-    filename = replace(filename, ":" => "")
-    filename = replace(filename, "." => "")
-    filename = replace(filename, "," => "")
-    filename = replace(filename, "é" => "e")
-    return filename
-end
-
-function copy_movedata(movedata)
-    newmovedata = OrderedDict()
-    for (key, val) in movedata
-        if key == :statChanges && !isnothing(val)
-            newStatChanges = []
-            for (stat, change) in val
-                push!(newStatChanges, OrderedDict(stat, change))
-            end
-            push!(newmovedata, :statChanges => newStatChanges)
-        else
-            push!(newmovedata, key => val)
-        end
-    end
-    return newmovedata
-end
-
 function add_move_flavortext!(name, langs, texts, movesdir, allmovesdata)
     fname = joinpath(movesdir, name_to_filename(name) * ".json")
     if isfile(fname)
         movedata = JSON3.read(fname)
-        newmovedata = copy_movedata(movedata)
+        newmovedata = copy_jsondata(movedata)
         flavordict = OrderedDict()
         for (lang, text) in zip(langs, texts)
             push!(flavordict, lang => text)
@@ -139,7 +38,7 @@ function add_move_flavortexts(movesdir, allmovespath)
     allmovesdata = JSON3.read(allmovespath)
     newallmovesdata = OrderedDict()
     for (name, movedata) in allmovesdata
-        push!(newallmovesdata, name => copy_movedata(movedata))
+        push!(newallmovesdata, name => copy_jsondata(movedata))
     end
     for (move, number) in englishdata["move"]
         texts = [englishdata["moveinfo"][number], [tdata["moveinfo"][number] for tdata in translationdata]...]

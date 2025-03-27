@@ -1,5 +1,16 @@
 {
     "name": "Melmetal-Gmax",
+    "category": {
+        "en": "Hex Nut Pokémon",
+        "ja": "ナットポケモン",
+        "fr": "Pokémon Écrou",
+        "es": "Pokémon Tuerca",
+        "de": "Mutter-Pokémon",
+        "it": "Pokémon Bullone",
+        "ko": "너트포켓몬",
+        "zh-Hant": "螺帽寶可夢",
+        "zh-Hans": "螺帽宝可梦"
+    },
     "abilities": [
         {
             "name": "Iron Fist",

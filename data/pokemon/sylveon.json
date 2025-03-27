@@ -1,5 +1,16 @@
 {
     "name": "Sylveon",
+    "category": {
+        "en": "Intertwining Pokémon",
+        "ja": "むすびつきポケモン",
+        "fr": "Pokémon Attachant",
+        "es": "Pokémon Vínculo",
+        "de": "Bindungs-Pokémon",
+        "it": "Pokémon Legame",
+        "ko": "연결포켓몬",
+        "zh-Hant": "連結寶可夢",
+        "zh-Hans": "连结宝可梦"
+    },
     "abilities": [
         {
             "name": "Cute Charm",

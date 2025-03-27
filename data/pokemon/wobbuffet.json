@@ -1,5 +1,16 @@
 {
     "name": "Wobbuffet",
+    "category": {
+        "en": "Patient Pokémon",
+        "ja": "がまんポケモン",
+        "fr": "Pokémon Patient",
+        "es": "Pokémon Paciente",
+        "de": "Gedulds-Pokémon",
+        "it": "Pokémon Pazienza",
+        "ko": "참기포켓몬",
+        "zh-Hant": "忍耐寶可夢",
+        "zh-Hans": "忍耐宝可梦"
+    },
     "abilities": [
         {
             "name": "Shadow Tag",

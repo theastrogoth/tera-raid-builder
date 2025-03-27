@@ -1,5 +1,16 @@
 {
     "name": "Garganacl",
+    "category": {
+        "en": "Rock Salt Pokémon",
+        "ja": "がんえんポケモン",
+        "fr": "Pokémon Halite",
+        "es": "Pokémon Halita",
+        "de": "Steinsalz-Pokémon",
+        "it": "Pokémon Salgemma",
+        "ko": "암염포켓몬",
+        "zh-Hant": "岩鹽寶可夢",
+        "zh-Hans": "岩盐宝可梦"
+    },
     "abilities": [
         {
             "name": "Purifying Salt",

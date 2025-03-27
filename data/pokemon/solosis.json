@@ -1,5 +1,16 @@
 {
     "name": "Solosis",
+    "category": {
+        "en": "Cell Pokémon",
+        "ja": "さいぼうポケモン",
+        "fr": "Pokémon Cellule",
+        "es": "Pokémon Célula",
+        "de": "Zellen-Pokémon",
+        "it": "Pokémon Cellula",
+        "ko": "세포포켓몬",
+        "zh-Hant": "細胞寶可夢",
+        "zh-Hans": "细胞宝可梦"
+    },
     "abilities": [
         {
             "name": "Overcoat",

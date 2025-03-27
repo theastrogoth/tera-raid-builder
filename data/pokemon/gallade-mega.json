@@ -1,5 +1,16 @@
 {
     "name": "Gallade-Mega",
+    "category": {
+        "en": "Blade Pokémon",
+        "ja": "やいばポケモン",
+        "fr": "Pokémon Lame",
+        "es": "Pokémon Cuchilla",
+        "de": "Klingen-Pokémon",
+        "it": "Pokémon Lama",
+        "ko": "검포켓몬",
+        "zh-Hant": "利刃寶可夢",
+        "zh-Hans": "利刃宝可梦"
+    },
     "abilities": [
         {
             "name": "Inner Focus",

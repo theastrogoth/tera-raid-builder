@@ -1,5 +1,16 @@
 {
     "name": "Binacle",
+    "category": {
+        "en": "Two-Handed Pokémon",
+        "ja": "ふたてポケモン",
+        "fr": "Pokémon Bimane",
+        "es": "Pokémon Dos Manos",
+        "de": "Krallenduo-Pokémon",
+        "it": "Pokémon Bimano",
+        "ko": "두손포켓몬",
+        "zh-Hant": "雙手寶可夢",
+        "zh-Hans": "双手宝可梦"
+    },
     "abilities": [
         {
             "name": "Tough Claws",

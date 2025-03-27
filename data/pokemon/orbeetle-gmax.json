@@ -1,5 +1,16 @@
 {
     "name": "Orbeetle-Gmax",
+    "category": {
+        "en": "Seven Spot Pokémon",
+        "ja": "ななほしポケモン",
+        "fr": "Pokémon Sept Points",
+        "es": "Pokémon Siete Puntos",
+        "de": "Siebensterne-Pokémon",
+        "it": "Pokémon Settepunti",
+        "ko": "칠성포켓몬",
+        "zh-Hant": "七星寶可夢",
+        "zh-Hans": "七星宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

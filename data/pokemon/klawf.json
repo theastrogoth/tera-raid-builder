@@ -1,5 +1,16 @@
 {
     "name": "Klawf",
+    "category": {
+        "en": "Ambush Pokémon",
+        "ja": "まちぶせポケモン",
+        "fr": "Pokémon Embuscade",
+        "es": "Pokémon Emboscada",
+        "de": "Lauer-Pokémon",
+        "it": "Pokémon Agguato",
+        "ko": "매복포켓몬",
+        "zh-Hant": "埋伏寶可夢",
+        "zh-Hans": "埋伏宝可梦"
+    },
     "abilities": [
         {
             "name": "Anger Shell",

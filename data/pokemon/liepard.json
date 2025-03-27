@@ -1,5 +1,16 @@
 {
     "name": "Liepard",
+    "category": {
+        "en": "Cruel Pokémon",
+        "ja": "れいこくポケモン",
+        "fr": "Pokémon Implacable",
+        "es": "Pokémon Calculador",
+        "de": "Gefühlskälte-Pokémon",
+        "it": "Pokémon Sanguefreddo",
+        "ko": "냉혹포켓몬",
+        "zh-Hant": "冷酷寶可夢",
+        "zh-Hans": "冷酷宝可梦"
+    },
     "abilities": [
         {
             "name": "Limber",

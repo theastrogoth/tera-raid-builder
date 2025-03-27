@@ -1,5 +1,16 @@
 {
     "name": "Lombre",
+    "category": {
+        "en": "Jolly Pokémon",
+        "ja": "ようきポケモン",
+        "fr": "Pokémon Jovial",
+        "es": "Pokémon Alegre",
+        "de": "Frohmut-Pokémon",
+        "it": "Pokémon Giocoso",
+        "ko": "명랑함포켓몬",
+        "zh-Hant": "爽朗寶可夢",
+        "zh-Hans": "爽朗宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

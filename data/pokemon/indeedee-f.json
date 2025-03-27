@@ -1,5 +1,16 @@
 {
     "name": "Indeedee-F",
+    "category": {
+        "en": "Emotion Pokémon",
+        "ja": "かんじょうポケモン",
+        "fr": "Pokémon Émotion",
+        "es": "Pokémon Sensorio",
+        "de": "Emotions-Pokémon",
+        "it": "Pokémon Emozione",
+        "ko": "감정포켓몬",
+        "zh-Hant": "感情寶可夢",
+        "zh-Hans": "感情宝可梦"
+    },
     "abilities": [
         {
             "name": "Own Tempo",

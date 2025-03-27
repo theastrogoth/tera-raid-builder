@@ -1,5 +1,16 @@
 {
     "name": "Archeops",
+    "category": {
+        "en": "First Bird Pokémon",
+        "ja": "さいこどりポケモン",
+        "fr": "Pokémon Oisancien",
+        "es": "Pokémon Protopájaro",
+        "de": "Urzeitvogel-Pokémon",
+        "it": "Pokémon Paleouccello",
+        "ko": "최초새포켓몬",
+        "zh-Hant": "遠古鳥寶可夢",
+        "zh-Hans": "远古鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Defeatist",

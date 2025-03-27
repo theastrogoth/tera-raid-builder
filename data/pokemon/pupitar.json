@@ -1,5 +1,16 @@
 {
     "name": "Pupitar",
+    "category": {
+        "en": "Hard Shell Pokémon",
+        "ja": "だんがんポケモン",
+        "fr": "Pokémon Carapadure",
+        "es": "Pokémon Caparazón",
+        "de": "Hartschalen-Pokémon",
+        "it": "Pokémon Guscioduro",
+        "ko": "탄환포켓몬",
+        "zh-Hant": "子彈寶可夢",
+        "zh-Hans": "子弹宝可梦"
+    },
     "abilities": [
         {
             "name": "Shed Skin",

@@ -1,5 +1,16 @@
 {
     "name": "Accelgor",
+    "category": {
+        "en": "Shell Out Pokémon",
+        "ja": "からぬけポケモン",
+        "fr": "Pokémon Exuviateur",
+        "es": "Pokémon Sincaparazón",
+        "de": "Entschalungs-Pokémon",
+        "it": "Pokémon Sgusciato",
+        "ko": "탈껍질포켓몬",
+        "zh-Hant": "脫殼寶可夢",
+        "zh-Hans": "脱壳宝可梦"
+    },
     "abilities": [
         {
             "name": "Hydration",

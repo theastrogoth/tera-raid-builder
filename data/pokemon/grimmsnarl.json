@@ -1,5 +1,16 @@
 {
     "name": "Grimmsnarl",
+    "category": {
+        "en": "Bulk Up Pokémon",
+        "ja": "ビルドアップポケモン",
+        "fr": "Pokémon Gonflette",
+        "es": "Pokémon Voluminoso",
+        "de": "Muskelaufbau-Pokémon",
+        "it": "Pokémon Granfisico",
+        "ko": "벌크업포켓몬",
+        "zh-Hant": "健美寶可夢",
+        "zh-Hans": "健美宝可梦"
+    },
     "abilities": [
         {
             "name": "Prankster",

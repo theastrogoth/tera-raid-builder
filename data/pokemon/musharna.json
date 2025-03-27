@@ -1,5 +1,16 @@
 {
     "name": "Musharna",
+    "category": {
+        "en": "Drowsing Pokémon",
+        "ja": "ゆめうつつポケモン",
+        "fr": "Pokémon Rêveur",
+        "es": "Pokémon Duermevela",
+        "de": "Halbschlaf-Pokémon",
+        "it": "Pokémon Dormiveglia",
+        "ko": "꿈결포켓몬",
+        "zh-Hant": "半夢半醒寶可夢",
+        "zh-Hans": "半梦半醒宝可梦"
+    },
     "abilities": [
         {
             "name": "Forewarn",

@@ -1,5 +1,16 @@
 {
     "name": "Chandelure",
+    "category": {
+        "en": "Luring Pokémon",
+        "ja": "いざないポケモン",
+        "fr": "Pokémon Invitation",
+        "es": "Pokémon Señuelo",
+        "de": "Geleit-Pokémon",
+        "it": "Pokémon Attiranime",
+        "ko": "권유포켓몬",
+        "zh-Hant": "引誘寶可夢",
+        "zh-Hans": "引诱宝可梦"
+    },
     "abilities": [
         {
             "name": "Flash Fire",

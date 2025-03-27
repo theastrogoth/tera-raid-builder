@@ -1,5 +1,16 @@
 {
     "name": "Gothitelle",
+    "category": {
+        "en": "Astral Body Pokémon",
+        "ja": "てんたいポケモン",
+        "fr": "Pokémon Cosmique",
+        "es": "Pokémon Astro",
+        "de": "Gestirns-Pokémon",
+        "it": "Pokémon Corpoceleste",
+        "ko": "천체포켓몬",
+        "zh-Hant": "天體寶可夢",
+        "zh-Hans": "天体宝可梦"
+    },
     "abilities": [
         {
             "name": "Frisk",

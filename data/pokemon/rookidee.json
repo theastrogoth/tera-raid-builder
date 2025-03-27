@@ -1,5 +1,16 @@
 {
     "name": "Rookidee",
+    "category": {
+        "en": "Tiny Bird Pokémon",
+        "ja": "ことりポケモン",
+        "fr": "Pokémon Minoiseau",
+        "es": "Pokémon Pajarito",
+        "de": "Kleinvogel-Pokémon",
+        "it": "Pokémon Uccellino",
+        "ko": "아기새포켓몬",
+        "zh-Hant": "小鳥寶可夢",
+        "zh-Hans": "小鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

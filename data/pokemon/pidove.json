@@ -1,5 +1,16 @@
 {
     "name": "Pidove",
+    "category": {
+        "en": "Tiny Pigeon Pokémon",
+        "ja": "こばとポケモン",
+        "fr": "Pokémon Tipigeon",
+        "es": "Pokémon Pichón",
+        "de": "Täubchen-Pokémon",
+        "it": "Pokémon Piccione",
+        "ko": "아기비둘기포켓몬",
+        "zh-Hant": "小鴿寶可夢",
+        "zh-Hans": "小鸽宝可梦"
+    },
     "abilities": [
         {
             "name": "Big Pecks",

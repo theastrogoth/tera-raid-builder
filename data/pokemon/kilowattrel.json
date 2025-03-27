@@ -1,5 +1,16 @@
 {
     "name": "Kilowattrel",
+    "category": {
+        "en": "Frigatebird Pokémon",
+        "ja": "ぐんかんどりポケモン",
+        "fr": "Pokémon Frégate",
+        "es": "Pokémon Fregata",
+        "de": "Fregattvogel-Pokémon",
+        "it": "Pokémon Fregata",
+        "ko": "군함조포켓몬",
+        "zh-Hant": "軍艦鳥寶可夢",
+        "zh-Hans": "军舰鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Wind Power",

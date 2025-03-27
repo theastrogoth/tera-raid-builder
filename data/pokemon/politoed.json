@@ -1,5 +1,16 @@
 {
     "name": "Politoed",
+    "category": {
+        "en": "Frog Pokémon",
+        "ja": "かえるポケモン",
+        "fr": "Pokémon Grenouille",
+        "es": "Pokémon Rana",
+        "de": "Frosch-Pokémon",
+        "it": "Pokémon Rana",
+        "ko": "개구리포켓몬",
+        "zh-Hant": "蛙寶可夢",
+        "zh-Hans": "蛙宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Absorb",

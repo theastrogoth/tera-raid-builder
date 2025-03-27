@@ -1,5 +1,16 @@
 {
     "name": "Haunter",
+    "category": {
+        "en": "Gas Pokémon",
+        "ja": "ガスじょうポケモン",
+        "fr": "Pokémon Gaz",
+        "es": "Pokémon Gas",
+        "de": "Gas-Pokémon",
+        "it": "Pokémon Gas",
+        "ko": "가스포켓몬",
+        "zh-Hant": "氣體狀寶可夢",
+        "zh-Hans": "气体状宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

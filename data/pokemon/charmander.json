@@ -1,5 +1,16 @@
 {
     "name": "Charmander",
+    "category": {
+        "en": "Lizard Pokémon",
+        "ja": "とかげポケモン",
+        "fr": "Pokémon Lézard",
+        "es": "Pokémon Lagartija",
+        "de": "Echsen-Pokémon",
+        "it": "Pokémon Lucertola",
+        "ko": "도롱뇽포켓몬",
+        "zh-Hant": "蜥蜴寶可夢",
+        "zh-Hans": "蜥蜴宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

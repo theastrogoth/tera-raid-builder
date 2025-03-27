@@ -1,5 +1,16 @@
 {
     "name": "Happiny",
+    "category": {
+        "en": "Playhouse Pokémon",
+        "ja": "ままごとポケモン",
+        "fr": "Pokémon Maisonjouet",
+        "es": "Pokémon Casita",
+        "de": "Spielhaus-Pokémon",
+        "it": "Pokémon Ovettino",
+        "ko": "소꿉놀이포켓몬",
+        "zh-Hant": "家家酒寶可夢",
+        "zh-Hans": "家家酒宝可梦"
+    },
     "abilities": [
         {
             "name": "Natural Cure",

@@ -1,5 +1,16 @@
 {
     "name": "Chikorita",
+    "category": {
+        "en": "Leaf Pokémon",
+        "ja": "はっぱポケモン",
+        "fr": "Pokémon Feuille",
+        "es": "Pokémon Hoja",
+        "de": "Laub-Pokémon",
+        "it": "Pokémon Foglia",
+        "ko": "잎사귀포켓몬",
+        "zh-Hant": "葉子寶可夢",
+        "zh-Hans": "叶子宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

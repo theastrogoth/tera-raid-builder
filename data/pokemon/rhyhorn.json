@@ -1,5 +1,16 @@
 {
     "name": "Rhyhorn",
+    "category": {
+        "en": "Spikes Pokémon",
+        "ja": "とげとげポケモン",
+        "fr": "Pokémon Piquant",
+        "es": "Pokémon Punzante",
+        "de": "Stachler-Pokémon",
+        "it": "Pokémon Punzoni",
+        "ko": "뿔포켓몬",
+        "zh-Hant": "尖尖寶可夢",
+        "zh-Hans": "尖尖宝可梦"
+    },
     "abilities": [
         {
             "name": "Lightning Rod",

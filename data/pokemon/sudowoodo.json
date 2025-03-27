@@ -1,5 +1,16 @@
 {
     "name": "Sudowoodo",
+    "category": {
+        "en": "Imitation Pokémon",
+        "ja": "まねポケモン",
+        "fr": "Pokémon Imitation",
+        "es": "Pokémon Imitación",
+        "de": "Imitations-Pokémon",
+        "it": "Pokémon Imitazione",
+        "ko": "흉내포켓몬",
+        "zh-Hant": "模仿寶可夢",
+        "zh-Hans": "模仿宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

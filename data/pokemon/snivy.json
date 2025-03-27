@@ -1,5 +1,16 @@
 {
     "name": "Snivy",
+    "category": {
+        "en": "Grass Snake Pokémon",
+        "ja": "くさへびポケモン",
+        "fr": "Pokémon Serpenterbe",
+        "es": "Pokémon Serpiente Hierba",
+        "de": "Grasschlangen-Pokémon",
+        "it": "Pokémon Serperba",
+        "ko": "풀뱀포켓몬",
+        "zh-Hant": "草蛇寶可夢",
+        "zh-Hans": "草蛇宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

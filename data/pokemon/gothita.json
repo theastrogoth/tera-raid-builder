@@ -1,5 +1,16 @@
 {
     "name": "Gothita",
+    "category": {
+        "en": "Fixation Pokémon",
+        "ja": "ぎょうしポケモン",
+        "fr": "Pokémon Dévisageur",
+        "es": "Pokémon Inquisitivo",
+        "de": "Glotz-Pokémon",
+        "it": "Pokémon Fissosguardo",
+        "ko": "응시포켓몬",
+        "zh-Hant": "凝視寶可夢",
+        "zh-Hans": "凝视宝可梦"
+    },
     "abilities": [
         {
             "name": "Frisk",

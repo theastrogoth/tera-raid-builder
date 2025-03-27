@@ -1,5 +1,16 @@
 {
     "name": "Linoone-Galar",
+    "category": {
+        "en": "Rushing Pokémon",
+        "ja": "とっしんポケモン",
+        "fr": "Pokémon Fonceur",
+        "es": "Pokémon Lanzado",
+        "de": "Sprinter-Pokémon",
+        "it": "Pokémon Sfrecciante",
+        "ko": "돌진포켓몬",
+        "zh-Hant": "猛衝寶可夢",
+        "zh-Hans": "猛冲宝可梦"
+    },
     "abilities": [
         {
             "name": "Pickup",

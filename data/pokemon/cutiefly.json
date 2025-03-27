@@ -1,5 +1,16 @@
 {
     "name": "Cutiefly",
+    "category": {
+        "en": "Bee Fly Pokémon",
+        "ja": "ツリアブポケモン",
+        "fr": "Pokémon Bombyle",
+        "es": "Pokémon Mosca Abeja",
+        "de": "Hummelfliegen-Pokémon",
+        "it": "Pokémon Bombilide",
+        "ko": "재니등에포켓몬",
+        "zh-Hant": "蜂虻寶可夢",
+        "zh-Hans": "蜂虻宝可梦"
+    },
     "abilities": [
         {
             "name": "Honey Gather",

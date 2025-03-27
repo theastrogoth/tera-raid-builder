@@ -1,5 +1,16 @@
 {
     "name": "Annihilape",
+    "category": {
+        "en": "Rage Monkey Pokémon",
+        "ja": "ふんどざるポケモン",
+        "fr": "Pokémon Singe Furax",
+        "es": "Pokémon Mono Furia",
+        "de": "Zornaffen-Pokémon",
+        "it": "Pokémon Irascimmia",
+        "ko": "분노숭이포켓몬",
+        "zh-Hant": "憤怒猴寶可夢",
+        "zh-Hans": "愤怒猴宝可梦"
+    },
     "abilities": [
         {
             "name": "Vital Spirit",

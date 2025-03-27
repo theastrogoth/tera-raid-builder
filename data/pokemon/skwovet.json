@@ -1,5 +1,16 @@
 {
     "name": "Skwovet",
+    "category": {
+        "en": "Cheeky Pokémon",
+        "ja": "ほおばりポケモン",
+        "fr": "Pokémon Joufflu",
+        "es": "Pokémon Abazón",
+        "de": "Raffbacken-Pokémon",
+        "it": "Pokémon Guancepiene",
+        "ko": "볼가득포켓몬",
+        "zh-Hant": "貪吃寶可夢",
+        "zh-Hans": "贪吃宝可梦"
+    },
     "abilities": [
         {
             "name": "Cheek Pouch",

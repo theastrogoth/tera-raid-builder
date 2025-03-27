@@ -1,5 +1,16 @@
 {
     "name": "Ariados",
+    "category": {
+        "en": "Long Leg Pokémon",
+        "ja": "あしながポケモン",
+        "fr": "Pokémon Long-Patte",
+        "es": "Pokémon Pata Larga",
+        "de": "Langbein-Pokémon",
+        "it": "Pokémon Lungazampa",
+        "ko": "롱다리포켓몬",
+        "zh-Hant": "長腿寶可夢",
+        "zh-Hans": "长腿宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

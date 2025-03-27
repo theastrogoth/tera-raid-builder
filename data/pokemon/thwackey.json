@@ -1,5 +1,16 @@
 {
     "name": "Thwackey",
+    "category": {
+        "en": "Beat Pokémon",
+        "ja": "ビートポケモン",
+        "fr": "Pokémon Percussions",
+        "es": "Pokémon Ritmo",
+        "de": "Beat-Pokémon",
+        "it": "Pokémon Ritmo",
+        "ko": "비트포켓몬",
+        "zh-Hant": "節拍寶可夢",
+        "zh-Hans": "节拍宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

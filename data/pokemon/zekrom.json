@@ -1,5 +1,16 @@
 {
     "name": "Zekrom",
+    "category": {
+        "en": "Deep Black Pokémon",
+        "ja": "こくいんポケモン",
+        "fr": "Pokémon Noir Idéal",
+        "es": "Pokémon Negro Puro",
+        "de": "Reines Schwarz-Pokémon",
+        "it": "Pokémon Nero Ideale",
+        "ko": "흑음포켓몬",
+        "zh-Hant": "黑陰寶可夢",
+        "zh-Hans": "黑阴宝可梦"
+    },
     "abilities": [
         {
             "name": "Teravolt",

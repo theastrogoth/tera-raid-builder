@@ -1,5 +1,16 @@
 {
     "name": "Farfetch’d",
+    "category": {
+        "en": "Wild Duck Pokémon",
+        "ja": "かるがもポケモン",
+        "fr": "Pokémon Canard Fou",
+        "es": "Pokémon Pato Salvaje",
+        "de": "Wildenten-Pokémon",
+        "it": "Pokémon Selvanatra",
+        "ko": "청둥오리포켓몬",
+        "zh-Hant": "黃嘴鴨寶可夢",
+        "zh-Hans": "黄嘴鸭宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

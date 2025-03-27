@@ -1,5 +1,16 @@
 {
     "name": "Heatmor",
+    "category": {
+        "en": "Anteater Pokémon",
+        "ja": "アリクイポケモン",
+        "fr": "Pokémon Tamanoir",
+        "es": "Pokémon Hormiguero",
+        "de": "Ameisenbären-Pokémon",
+        "it": "Pokémon Formichiere",
+        "ko": "개미핥기포켓몬",
+        "zh-Hant": "食蟻獸寶可夢",
+        "zh-Hans": "食蚁兽宝可梦"
+    },
     "abilities": [
         {
             "name": "Gluttony",

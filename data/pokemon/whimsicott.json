@@ -1,5 +1,16 @@
 {
     "name": "Whimsicott",
+    "category": {
+        "en": "Windveiled Pokémon",
+        "ja": "かぜかくれポケモン",
+        "fr": "Pokémon Vole Vent",
+        "es": "Pokémon Vuelalviento",
+        "de": "Windschatten-Pokémon",
+        "it": "Pokémon Spiffero",
+        "ko": "바람숨기포켓몬",
+        "zh-Hant": "風隱寶可夢",
+        "zh-Hans": "风隐宝可梦"
+    },
     "abilities": [
         {
             "name": "Prankster",

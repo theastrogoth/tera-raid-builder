@@ -1,5 +1,16 @@
 {
     "name": "Munna",
+    "category": {
+        "en": "Dream Eater Pokémon",
+        "ja": "ゆめくいポケモン",
+        "fr": "Pokémon Mangerêve",
+        "es": "Pokémon Comesueños",
+        "de": "Traumfresser-Pokémon",
+        "it": "Pokémon Divorasogni",
+        "ko": "꿈먹기포켓몬",
+        "zh-Hant": "食夢寶可夢",
+        "zh-Hans": "食梦宝可梦"
+    },
     "abilities": [
         {
             "name": "Forewarn",

@@ -1,5 +1,16 @@
 {
     "name": "Seaking",
+    "category": {
+        "en": "Goldfish Pokémon",
+        "ja": "きんぎょポケモン",
+        "fr": "Pokémon Poisson",
+        "es": "Pokémon Pez Color",
+        "de": "Goldfisch-Pokémon",
+        "it": "Pokémon Pescerosso",
+        "ko": "금붕어포켓몬",
+        "zh-Hant": "金魚寶可夢",
+        "zh-Hans": "金鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

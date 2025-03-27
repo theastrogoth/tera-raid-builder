@@ -1,5 +1,16 @@
 {
     "name": "Munchlax",
+    "category": {
+        "en": "Big Eater Pokémon",
+        "ja": "おおぐいポケモン",
+        "fr": "Pokémon Goinfre",
+        "es": "Pokémon Comilón",
+        "de": "Nimmersatt-Pokémon",
+        "it": "Pokémon Ghiottone",
+        "ko": "대식가포켓몬",
+        "zh-Hant": "大胃王寶可夢",
+        "zh-Hans": "大胃王宝可梦"
+    },
     "abilities": [
         {
             "name": "Pickup",

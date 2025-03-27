@@ -1,5 +1,16 @@
 {
     "name": "Venipede",
+    "category": {
+        "en": "Centipede Pokémon",
+        "ja": "ムカデポケモン",
+        "fr": "Pokémon Chilopode",
+        "es": "Pokémon Ciempiés",
+        "de": "Tausendfüßer-Pokémon",
+        "it": "Pokémon Centipede",
+        "ko": "지네포켓몬",
+        "zh-Hant": "蜈蚣寶可夢",
+        "zh-Hans": "蜈蚣宝可梦"
+    },
     "abilities": [
         {
             "name": "Poison Point",

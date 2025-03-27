@@ -1,5 +1,16 @@
 {
     "name": "Arctibax",
+    "category": {
+        "en": "Ice Fin Pokémon",
+        "ja": "こおりビレポケモン",
+        "fr": "Pokémon Glaçaileron",
+        "es": "Pokémon Aleta Hielo",
+        "de": "Eisfinnen-Pokémon",
+        "it": "Pokémon Gelopinna",
+        "ko": "얼음지느러미포켓몬",
+        "zh-Hant": "冰鰭寶可夢",
+        "zh-Hans": "冰鳍宝可梦"
+    },
     "abilities": [
         {
             "name": "Thermal Exchange",

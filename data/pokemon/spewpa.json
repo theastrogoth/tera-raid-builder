@@ -1,5 +1,16 @@
 {
     "name": "Spewpa",
+    "category": {
+        "en": "Scatterdust Pokémon",
+        "ja": "こなふきポケモン",
+        "fr": "Pokémon Exhalécaille",
+        "es": "Pokémon Tiraescamas",
+        "de": "Puderinsekten-Pokémon",
+        "it": "Pokémon Tirascaglie",
+        "ko": "가루뿜기포켓몬",
+        "zh-Hant": "噴粉寶可夢",
+        "zh-Hans": "喷粉宝可梦"
+    },
     "abilities": [
         {
             "name": "Shed Skin",

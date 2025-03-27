@@ -1,5 +1,16 @@
 {
     "name": "Metang",
+    "category": {
+        "en": "Iron Claw Pokémon",
+        "ja": "てつツメポケモン",
+        "fr": "Pokémon Pincefer",
+        "es": "Pokémon Garra Hierro",
+        "de": "Eisenklauen-Pokémon",
+        "it": "Pokémon Ferrunghia",
+        "ko": "철발톱포켓몬",
+        "zh-Hant": "鐵爪寶可夢",
+        "zh-Hans": "铁爪宝可梦"
+    },
     "abilities": [
         {
             "name": "Clear Body",

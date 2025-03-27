@@ -1,5 +1,16 @@
 {
     "name": "Gliscor",
+    "category": {
+        "en": "Fang Scorpion Pokémon",
+        "ja": "キバさそりポケモン",
+        "fr": "Pokémon Scorpicroc",
+        "es": "Pokémon Colmicorpio",
+        "de": "Zahnskorpion-Pokémon",
+        "it": "Pokémon Scorpidente",
+        "ko": "송곳니전갈포켓몬",
+        "zh-Hant": "牙蠍寶可夢",
+        "zh-Hans": "牙蝎宝可梦"
+    },
     "abilities": [
         {
             "name": "Hyper Cutter",

@@ -1,5 +1,16 @@
 {
     "name": "Omastar",
+    "category": {
+        "en": "Spiral Pokémon",
+        "ja": "うずまきポケモン",
+        "fr": "Pokémon Spirale",
+        "es": "Pokémon Espiral",
+        "de": "Spiralen-Pokémon",
+        "it": "Pokémon Spirale",
+        "ko": "소용돌이포켓몬",
+        "zh-Hant": "漩渦寶可夢",
+        "zh-Hans": "漩涡宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

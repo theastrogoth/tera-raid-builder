@@ -1,5 +1,16 @@
 {
     "name": "Darumaka-Galar",
+    "category": {
+        "en": "Zen Charm Pokémon",
+        "ja": "だるまポケモン",
+        "fr": "Pokémon Daruma",
+        "es": "Pokémon Daruma",
+        "de": "Lampion-Pokémon",
+        "it": "Pokémon Daruma",
+        "ko": "달마포켓몬",
+        "zh-Hant": "不倒翁寶可夢",
+        "zh-Hans": "不倒翁宝可梦"
+    },
     "abilities": [
         {
             "name": "Hustle",

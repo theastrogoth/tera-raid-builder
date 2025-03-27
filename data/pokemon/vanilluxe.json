@@ -1,5 +1,16 @@
 {
     "name": "Vanilluxe",
+    "category": {
+        "en": "Snowstorm Pokémon",
+        "ja": "ブリザードポケモン",
+        "fr": "Pokémon Congère",
+        "es": "Pokémon Nieve Gélida",
+        "de": "Schneesturm-Pokémon",
+        "it": "Pokémon Bufera",
+        "ko": "블리자드포켓몬",
+        "zh-Hant": "暴風雪寶可夢",
+        "zh-Hans": "暴风雪宝可梦"
+    },
     "abilities": [
         {
             "name": "Ice Body",

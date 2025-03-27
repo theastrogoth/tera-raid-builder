@@ -1,5 +1,16 @@
 {
     "name": "Skitty",
+    "category": {
+        "en": "Kitten Pokémon",
+        "ja": "こねこポケモン",
+        "fr": "Pokémon Chaton",
+        "es": "Pokémon Gatito",
+        "de": "Kätzchen-Pokémon",
+        "it": "Pokémon Micio",
+        "ko": "작은고양이포켓몬",
+        "zh-Hant": "小貓寶可夢",
+        "zh-Hans": "小猫宝可梦"
+    },
     "abilities": [
         {
             "name": "Cute Charm",

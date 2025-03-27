@@ -1,5 +1,16 @@
 {
     "name": "Pecharunt",
+    "category": {
+        "en": "Subjugation Pokémon",
+        "ja": "しはいポケモン",
+        "fr": "Pokémon Emprise",
+        "es": "Pokémon Controlador",
+        "de": "Knechtungs-Pokémon",
+        "it": "Pokémon Dominio",
+        "ko": "지배포켓몬",
+        "zh-Hant": "支配寶可夢",
+        "zh-Hans": "支配宝可梦"
+    },
     "abilities": [
         {
             "name": "Poison Puppeteer",

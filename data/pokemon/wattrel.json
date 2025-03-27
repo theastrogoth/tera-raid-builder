@@ -1,5 +1,16 @@
 {
     "name": "Wattrel",
+    "category": {
+        "en": "Storm Petrel Pokémon",
+        "ja": "うみつばめポケモン",
+        "fr": "Pokémon Océanite",
+        "es": "Pokémon Paíño",
+        "de": "Sturmvogel-Pokémon",
+        "it": "Pokémon Idrobatide",
+        "ko": "바다제비포켓몬",
+        "zh-Hant": "海燕寶可夢",
+        "zh-Hans": "海燕宝可梦"
+    },
     "abilities": [
         {
             "name": "Wind Power",

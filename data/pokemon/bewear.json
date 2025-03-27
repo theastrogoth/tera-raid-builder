@@ -1,5 +1,16 @@
 {
     "name": "Bewear",
+    "category": {
+        "en": "Strong Arm Pokémon",
+        "ja": "ごうわんポケモン",
+        "fr": "Pokémon Biscoteaux",
+        "es": "Pokémon Brazo Fuerte",
+        "de": "Kraftarme-Pokémon",
+        "it": "Pokémon Fortebraccio",
+        "ko": "강한완력포켓몬",
+        "zh-Hant": "強臂寶可夢",
+        "zh-Hans": "强臂宝可梦"
+    },
     "abilities": [
         {
             "name": "Fluffy",

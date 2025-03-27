@@ -1,5 +1,16 @@
 {
     "name": "Regirock",
+    "category": {
+        "en": "Rock Peak Pokémon",
+        "ja": "いわやまポケモン",
+        "fr": "Pokémon Pic Rocheux",
+        "es": "Pokémon Pico Roca",
+        "de": "Steingipfel-Pokémon",
+        "it": "Pokémon Picco",
+        "ko": "바위산포켓몬",
+        "zh-Hant": "岩山寶可夢",
+        "zh-Hans": "岩山宝可梦"
+    },
     "abilities": [
         {
             "name": "Clear Body",

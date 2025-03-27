@@ -1,5 +1,16 @@
 {
     "name": "Bellossom",
+    "category": {
+        "en": "Flower Pokémon",
+        "ja": "フラワーポケモン",
+        "fr": "Pokémon Fleur",
+        "es": "Pokémon Flor",
+        "de": "Blumen-Pokémon",
+        "it": "Pokémon Fiore",
+        "ko": "꽃포켓몬",
+        "zh-Hant": "花寶可夢",
+        "zh-Hans": "花宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

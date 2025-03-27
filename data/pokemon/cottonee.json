@@ -1,5 +1,16 @@
 {
     "name": "Cottonee",
+    "category": {
+        "en": "Cotton Puff Pokémon",
+        "ja": "わたたまポケモン",
+        "fr": "Pokémon Boule Coton",
+        "es": "Pokémon Bolalgodón",
+        "de": "Wattebausch-Pokémon",
+        "it": "Pokémon Cotonpalla",
+        "ko": "솜뭉치포켓몬",
+        "zh-Hant": "棉球寶可夢",
+        "zh-Hans": "棉球宝可梦"
+    },
     "abilities": [
         {
             "name": "Prankster",

@@ -1,5 +1,16 @@
 {
     "name": "Axew",
+    "category": {
+        "en": "Tusk Pokémon",
+        "ja": "キバポケモン",
+        "fr": "Pokémon Crocs",
+        "es": "Pokémon Colmillo",
+        "de": "Stoßzahn-Pokémon",
+        "it": "Pokémon Zanna",
+        "ko": "이빨포켓몬",
+        "zh-Hant": "牙寶可夢",
+        "zh-Hans": "牙宝可梦"
+    },
     "abilities": [
         {
             "name": "Rivalry",

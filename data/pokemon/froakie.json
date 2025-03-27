@@ -1,5 +1,16 @@
 {
     "name": "Froakie",
+    "category": {
+        "en": "Bubble Frog Pokémon",
+        "ja": "あわがえるポケモン",
+        "fr": "Pokémon Crapobulle",
+        "es": "Pokémon Burburrana",
+        "de": "Blubbfrosch-Pokémon",
+        "it": "Pokémon Schiumorana",
+        "ko": "거품개구리포켓몬",
+        "zh-Hant": "泡蛙寶可夢",
+        "zh-Hans": "泡蛙宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

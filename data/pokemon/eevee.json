@@ -1,5 +1,16 @@
 {
     "name": "Eevee",
+    "category": {
+        "en": "Evolution Pokémon",
+        "ja": "しんかポケモン",
+        "fr": "Pokémon Évolutif",
+        "es": "Pokémon Evolución",
+        "de": "Evolutions-Pokémon",
+        "it": "Pokémon Evoluzione",
+        "ko": "진화포켓몬",
+        "zh-Hant": "進化寶可夢",
+        "zh-Hans": "进化宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

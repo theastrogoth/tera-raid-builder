@@ -1,5 +1,16 @@
 {
     "name": "Litwick",
+    "category": {
+        "en": "Candle Pokémon",
+        "ja": "ろうそくポケモン",
+        "fr": "Pokémon Chandelle",
+        "es": "Pokémon Vela",
+        "de": "Kerzen-Pokémon",
+        "it": "Pokémon Candela",
+        "ko": "양초포켓몬",
+        "zh-Hant": "蠟燭寶可夢",
+        "zh-Hans": "蜡烛宝可梦"
+    },
     "abilities": [
         {
             "name": "Flash Fire",

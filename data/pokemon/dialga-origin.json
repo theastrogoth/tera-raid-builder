@@ -1,5 +1,16 @@
 {
     "name": "Dialga-Origin",
+    "category": {
+        "en": "Temporal Pokémon",
+        "ja": "じかんポケモン",
+        "fr": "Pokémon Temps",
+        "es": "Pokémon Temporal",
+        "de": "Zeitweilig-Pokémon",
+        "it": "Pokémon Tempo",
+        "ko": "시간포켓몬",
+        "zh-Hant": "時間寶可夢",
+        "zh-Hans": "时间宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

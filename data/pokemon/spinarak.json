@@ -1,5 +1,16 @@
 {
     "name": "Spinarak",
+    "category": {
+        "en": "String Spit Pokémon",
+        "ja": "いとはきポケモン",
+        "fr": "Pokémon Crache Fil",
+        "es": "Pokémon Escupehilo",
+        "de": "Fadenwurf-Pokémon",
+        "it": "Pokémon Tela",
+        "ko": "실뿜기포켓몬",
+        "zh-Hant": "吐絲寶可夢",
+        "zh-Hans": "吐丝宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

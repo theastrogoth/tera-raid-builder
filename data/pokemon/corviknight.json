@@ -1,5 +1,16 @@
 {
     "name": "Corviknight",
+    "category": {
+        "en": "Raven Pokémon",
+        "ja": "カラスポケモン",
+        "fr": "Pokémon Corbeau",
+        "es": "Pokémon Cuervo",
+        "de": "Krähen-Pokémon",
+        "it": "Pokémon Corvo",
+        "ko": "까마귀포켓몬",
+        "zh-Hant": "烏鴉寶可夢",
+        "zh-Hans": "乌鸦宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

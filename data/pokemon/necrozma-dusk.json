@@ -1,5 +1,16 @@
 {
     "name": "Necrozma-Dusk",
+    "category": {
+        "en": "Prism Pokémon",
+        "ja": "プリズムポケモン",
+        "fr": "Pokémon Prisme",
+        "es": "Pokémon Prisma",
+        "de": "Prisma-Pokémon",
+        "it": "Pokémon Prisma",
+        "ko": "프리즘포켓몬",
+        "zh-Hant": "稜鏡寶可夢",
+        "zh-Hans": "棱镜宝可梦"
+    },
     "abilities": [
         {
             "name": "Prism Armor",

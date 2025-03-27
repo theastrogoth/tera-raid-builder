@@ -1,5 +1,16 @@
 {
     "name": "Mareep",
+    "category": {
+        "en": "Wool Pokémon",
+        "ja": "わたげポケモン",
+        "fr": "Pokémon Laine",
+        "es": "Pokémon Lana",
+        "de": "Wolle-Pokémon",
+        "it": "Pokémon Lana",
+        "ko": "솜털포켓몬",
+        "zh-Hant": "綿毛寶可夢",
+        "zh-Hans": "绵毛宝可梦"
+    },
     "abilities": [
         {
             "name": "Static",

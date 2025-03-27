@@ -1,5 +1,16 @@
 {
     "name": "Vullaby",
+    "category": {
+        "en": "Diapered Pokémon",
+        "ja": "おむつポケモン",
+        "fr": "Pokémon Couche",
+        "es": "Pokémon Pañal",
+        "de": "Windel-Pokémon",
+        "it": "Pokémon Pannolino",
+        "ko": "기저귀포켓몬",
+        "zh-Hant": "尿布寶可夢",
+        "zh-Hans": "尿布宝可梦"
+    },
     "abilities": [
         {
             "name": "Big Pecks",

@@ -1,5 +1,16 @@
 {
     "name": "Swirlix",
+    "category": {
+        "en": "Cotton Candy Pokémon",
+        "ja": "わたあめポケモン",
+        "fr": "Pokémon Confiserie",
+        "es": "Pokémon Chuchería",
+        "de": "Zuckerwatte-Pokémon",
+        "it": "Pokémon Zuccherino",
+        "ko": "솜사탕포켓몬",
+        "zh-Hant": "棉花糖寶可夢",
+        "zh-Hans": "棉花糖宝可梦"
+    },
     "abilities": [
         {
             "name": "Sweet Veil",

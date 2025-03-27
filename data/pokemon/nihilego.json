@@ -1,5 +1,16 @@
 {
     "name": "Nihilego",
+    "category": {
+        "en": "Parasite Pokémon",
+        "ja": "きせいポケモン",
+        "fr": "Pokémon Parasite",
+        "es": "Pokémon Parásito",
+        "de": "Parasiten-Pokémon",
+        "it": "Pokémon Parassita",
+        "ko": "기생포켓몬",
+        "zh-Hant": "寄生寶可夢",
+        "zh-Hans": "寄生宝可梦"
+    },
     "abilities": [
         {
             "name": "Beast Boost",

@@ -1,5 +1,16 @@
 {
     "name": "Meowstic-M",
+    "category": {
+        "en": "Constraint Pokémon",
+        "ja": "よくせいポケモン",
+        "fr": "Pokémon SelfContrôle",
+        "es": "Pokémon Autocontrol",
+        "de": "Fassungs-Pokémon",
+        "it": "Pokémon Temperanza",
+        "ko": "억제포켓몬",
+        "zh-Hant": "抑制寶可夢",
+        "zh-Hans": "抑制宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

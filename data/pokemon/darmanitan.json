@@ -1,5 +1,16 @@
 {
     "name": "Darmanitan",
+    "category": {
+        "en": "Blazing Pokémon",
+        "ja": "えんじょうポケモン",
+        "fr": "Pokémon Enflammé",
+        "es": "Pokémon Candente",
+        "de": "Lichterloh-Pokémon",
+        "it": "Pokémon Altefiamme",
+        "ko": "염상포켓몬",
+        "zh-Hant": "爆燃寶可夢",
+        "zh-Hans": "爆燃宝可梦"
+    },
     "abilities": [
         {
             "name": "Sheer Force",

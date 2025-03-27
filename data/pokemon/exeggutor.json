@@ -1,5 +1,16 @@
 {
     "name": "Exeggutor",
+    "category": {
+        "en": "Coconut Pokémon",
+        "ja": "やしのみポケモン",
+        "fr": "Pokémon Fruitpalme",
+        "es": "Pokémon Coco",
+        "de": "Palmfrucht-Pokémon",
+        "it": "Pokémon Nocecocco",
+        "ko": "야자열매포켓몬",
+        "zh-Hant": "椰子寶可夢",
+        "zh-Hans": "椰子宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

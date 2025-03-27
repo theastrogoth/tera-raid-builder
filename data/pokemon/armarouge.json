@@ -1,5 +1,16 @@
 {
     "name": "Armarouge",
+    "category": {
+        "en": "Fire Warrior Pokémon",
+        "ja": "ひのせんしポケモン",
+        "fr": "Pokémon Feu Guerrier",
+        "es": "Pokémon Piroguerrero",
+        "de": "Feuerrüstungs-Pokémon",
+        "it": "Pokémon Guerrigneo",
+        "ko": "불의전사포켓몬",
+        "zh-Hant": "火戰士寶可夢",
+        "zh-Hans": "火战士宝可梦"
+    },
     "abilities": [
         {
             "name": "Flash Fire",

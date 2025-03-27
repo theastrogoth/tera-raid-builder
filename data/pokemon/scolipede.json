@@ -1,5 +1,16 @@
 {
     "name": "Scolipede",
+    "category": {
+        "en": "Megapede Pokémon",
+        "ja": "メガムカデポケモン",
+        "fr": "Pokémon Mégaplopode",
+        "es": "Pokémon Megaciempiés",
+        "de": "Riesenfüßer-Pokémon",
+        "it": "Pokémon Megapede",
+        "ko": "메가지네포켓몬",
+        "zh-Hant": "巨蜈蚣寶可夢",
+        "zh-Hans": "巨蜈蚣宝可梦"
+    },
     "abilities": [
         {
             "name": "Poison Point",

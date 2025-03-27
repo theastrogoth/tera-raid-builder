@@ -1,5 +1,16 @@
 {
     "name": "Clobbopus",
+    "category": {
+        "en": "Tantrum Pokémon",
+        "ja": "だだっこポケモン",
+        "fr": "Pokémon Caprice",
+        "es": "Pokémon Malcriado",
+        "de": "Balg-Pokémon",
+        "it": "Pokémon Bizze",
+        "ko": "떼쟁이포켓몬",
+        "zh-Hant": "纏人寶可夢",
+        "zh-Hans": "缠人宝可梦"
+    },
     "abilities": [
         {
             "name": "Limber",

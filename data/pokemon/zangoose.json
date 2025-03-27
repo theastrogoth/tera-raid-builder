@@ -1,5 +1,16 @@
 {
     "name": "Zangoose",
+    "category": {
+        "en": "Cat Ferret Pokémon",
+        "ja": "ネコイタチポケモン",
+        "fr": "Pokémon Chat Furet",
+        "es": "Pokémon Gato Hurón",
+        "de": "Frettkatz-Pokémon",
+        "it": "Pokémon Furogatto",
+        "ko": "고양이족제비포켓몬",
+        "zh-Hant": "貓鼬寶可夢",
+        "zh-Hans": "猫鼬宝可梦"
+    },
     "abilities": [
         {
             "name": "Immunity",

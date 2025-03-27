@@ -1,5 +1,16 @@
 {
     "name": "Mandibuzz",
+    "category": {
+        "en": "Bone Vulture Pokémon",
+        "ja": "ほねわしポケモン",
+        "fr": "Pokémon Vostour",
+        "es": "Pokémon Buitre Hueso",
+        "de": "Knochenadler-Pokémon",
+        "it": "Pokémon Ossaquila",
+        "ko": "뼈독수리포켓몬",
+        "zh-Hant": "骨鷹寶可夢",
+        "zh-Hans": "骨鹰宝可梦"
+    },
     "abilities": [
         {
             "name": "Big Pecks",

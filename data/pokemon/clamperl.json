@@ -1,5 +1,16 @@
 {
     "name": "Clamperl",
+    "category": {
+        "en": "Bivalve Pokémon",
+        "ja": "２まいがいポケモン",
+        "fr": "Pokémon Bivalve",
+        "es": "Pokémon Bivalvo",
+        "de": "Muschel-Pokémon",
+        "it": "Pokémon Bivalve",
+        "ko": "두조개포켓몬",
+        "zh-Hant": "雙殼貝寶可夢",
+        "zh-Hans": "双壳贝宝可梦"
+    },
     "abilities": [
         {
             "name": "Shell Armor",

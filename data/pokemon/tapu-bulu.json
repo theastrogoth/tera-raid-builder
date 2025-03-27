@@ -1,5 +1,16 @@
 {
     "name": "Tapu Bulu",
+    "category": {
+        "en": "Land Spirit Pokémon",
+        "ja": "とちがみポケモン",
+        "fr": "Pokémon Tutélaire",
+        "es": "Pokémon Dios Nativo",
+        "de": "Schutzpatron-Pokémon",
+        "it": "Pokémon Nume Locale",
+        "ko": "토속신포켓몬",
+        "zh-Hant": "土地神寶可夢",
+        "zh-Hans": "土地神宝可梦"
+    },
     "abilities": [
         {
             "name": "Grassy Surge",

@@ -1,5 +1,16 @@
 {
     "name": "Rattata",
+    "category": {
+        "en": "Mouse Pokémon",
+        "ja": "ねずみポケモン",
+        "fr": "Pokémon Souris",
+        "es": "Pokémon Ratón",
+        "de": "Maus-Pokémon",
+        "it": "Pokémon Topo",
+        "ko": "쥐포켓몬",
+        "zh-Hant": "鼠寶可夢",
+        "zh-Hans": "鼠宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

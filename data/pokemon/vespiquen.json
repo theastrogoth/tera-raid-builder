@@ -1,5 +1,16 @@
 {
     "name": "Vespiquen",
+    "category": {
+        "en": "Beehive Pokémon",
+        "ja": "はちのすポケモン",
+        "fr": "Pokémon Ruche",
+        "es": "Pokémon Colmena",
+        "de": "Bienenstock-Pokémon",
+        "it": "Pokémon Alveare",
+        "ko": "벌집포켓몬",
+        "zh-Hant": "蜂巢寶可夢",
+        "zh-Hans": "蜂巢宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

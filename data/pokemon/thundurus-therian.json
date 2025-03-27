@@ -1,5 +1,16 @@
 {
     "name": "Thundurus-Therian",
+    "category": {
+        "en": "Bolt Strike Pokémon",
+        "ja": "らいげきポケモン",
+        "fr": "Pokémon Foudroyeur",
+        "es": "Pokémon Centella",
+        "de": "Torpedo-Pokémon",
+        "it": "Pokémon Fulminante",
+        "ko": "뇌격포켓몬",
+        "zh-Hant": "雷擊寶可夢",
+        "zh-Hans": "雷击宝可梦"
+    },
     "abilities": [
         {
             "name": "Volt Absorb",

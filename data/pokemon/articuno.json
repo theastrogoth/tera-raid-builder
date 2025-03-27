@@ -1,5 +1,16 @@
 {
     "name": "Articuno",
+    "category": {
+        "en": "Freeze Pokémon",
+        "ja": "れいとうポケモン",
+        "fr": "Pokémon Glaciaire",
+        "es": "Pokémon Congelar",
+        "de": "Eis-Pokémon",
+        "it": "Pokémon Gelo",
+        "ko": "냉동포켓몬",
+        "zh-Hant": "冰凍寶可夢",
+        "zh-Hans": "冰冻宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

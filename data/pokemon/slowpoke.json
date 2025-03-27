@@ -1,5 +1,16 @@
 {
     "name": "Slowpoke",
+    "category": {
+        "en": "Dopey Pokémon",
+        "ja": "まぬけポケモン",
+        "fr": "Pokémon Crétin",
+        "es": "Pokémon Atontado",
+        "de": "Schnarcher-Pokémon",
+        "it": "Pokémon Ronfone",
+        "ko": "얼간이포켓몬",
+        "zh-Hant": "憨憨寶可夢",
+        "zh-Hans": "憨憨宝可梦"
+    },
     "abilities": [
         {
             "name": "Oblivious",

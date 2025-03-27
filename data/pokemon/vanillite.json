@@ -1,5 +1,16 @@
 {
     "name": "Vanillite",
+    "category": {
+        "en": "Fresh Snow Pokémon",
+        "ja": "しんせつポケモン",
+        "fr": "Pokémon Poudreuse",
+        "es": "Pokémon Nieve Fresca",
+        "de": "Neuschnee-Pokémon",
+        "it": "Pokémon Nevefresca",
+        "ko": "신설포켓몬",
+        "zh-Hant": "新雪寶可夢",
+        "zh-Hans": "新雪宝可梦"
+    },
     "abilities": [
         {
             "name": "Ice Body",

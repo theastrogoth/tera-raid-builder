@@ -1,5 +1,16 @@
 {
     "name": "Houndoom",
+    "category": {
+        "en": "Dark Pokémon",
+        "ja": "ダークポケモン",
+        "fr": "Pokémon Sombre",
+        "es": "Pokémon Siniestro",
+        "de": "Hades-Pokémon",
+        "it": "Pokémon Buio",
+        "ko": "다크포켓몬",
+        "zh-Hant": "陰暗寶可夢",
+        "zh-Hans": "阴暗宝可梦"
+    },
     "abilities": [
         {
             "name": "Early Bird",

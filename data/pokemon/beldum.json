@@ -1,5 +1,16 @@
 {
     "name": "Beldum",
+    "category": {
+        "en": "Iron Ball Pokémon",
+        "ja": "てっきゅうポケモン",
+        "fr": "Pokémon Boulefer",
+        "es": "Pokémon Bola Hierro",
+        "de": "Eisenkugel-Pokémon",
+        "it": "Pokémon Ferrosfera",
+        "ko": "철공포켓몬",
+        "zh-Hant": "鐵球寶可夢",
+        "zh-Hans": "铁球宝可梦"
+    },
     "abilities": [
         {
             "name": "Clear Body",

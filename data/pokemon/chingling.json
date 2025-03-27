@@ -1,5 +1,16 @@
 {
     "name": "Chingling",
+    "category": {
+        "en": "Bell Pokémon",
+        "ja": "すずポケモン",
+        "fr": "Pokémon Clochette",
+        "es": "Pokémon Cascabel",
+        "de": "Glöckchen-Pokémon",
+        "it": "Pokémon Sonaglio",
+        "ko": "방울포켓몬",
+        "zh-Hant": "鈴鐺寶可夢",
+        "zh-Hans": "铃铛宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

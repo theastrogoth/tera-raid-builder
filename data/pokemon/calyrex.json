@@ -1,5 +1,16 @@
 {
     "name": "Calyrex",
+    "category": {
+        "en": "King Pokémon",
+        "ja": "キングポケモン",
+        "fr": "Pokémon Roi",
+        "es": "Pokémon Rey",
+        "de": "Königs-Pokémon",
+        "it": "Pokémon Re",
+        "ko": "킹포켓몬",
+        "zh-Hant": "國王寶可夢",
+        "zh-Hans": "国王宝可梦"
+    },
     "abilities": [
         {
             "name": "Unnerve",

@@ -1,5 +1,16 @@
 {
     "name": "Tatsugiri-Stretchy",
+    "category": {
+        "en": "Mimicry Pokémon",
+        "ja": "ぎたいポケモン",
+        "fr": "Pokémon Mimétisme",
+        "es": "Pokémon Mimetismo",
+        "de": "Mimesen-Pokémon",
+        "it": "Pokémon Mimetico",
+        "ko": "의태포켓몬",
+        "zh-Hant": "擬態寶可夢",
+        "zh-Hans": "拟态宝可梦"
+    },
     "abilities": [
         {
             "name": "Commander",

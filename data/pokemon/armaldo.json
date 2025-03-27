@@ -1,5 +1,16 @@
 {
     "name": "Armaldo",
+    "category": {
+        "en": "Plate Pokémon",
+        "ja": "かっちゅうポケモン",
+        "fr": "Pokémon Blindage",
+        "es": "Pokémon Armadura",
+        "de": "Schild-Pokémon",
+        "it": "Pokémon Piastre",
+        "ko": "갑주포켓몬",
+        "zh-Hant": "甲胄寶可夢",
+        "zh-Hans": "甲胄宝可梦"
+    },
     "abilities": [
         {
             "name": "Battle Armor",

@@ -1,5 +1,16 @@
 {
     "name": "Phantump",
+    "category": {
+        "en": "Stump Pokémon",
+        "ja": "きりかぶポケモン",
+        "fr": "Pokémon Souche",
+        "es": "Pokémon Tocón",
+        "de": "Baumstumpf-Pokémon",
+        "it": "Pokémon Ceppo",
+        "ko": "그루터기포켓몬",
+        "zh-Hant": "樹樁寶可夢",
+        "zh-Hans": "树桩宝可梦"
+    },
     "abilities": [
         {
             "name": "Natural Cure",

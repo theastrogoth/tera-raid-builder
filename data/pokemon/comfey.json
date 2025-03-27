@@ -1,5 +1,16 @@
 {
     "name": "Comfey",
+    "category": {
+        "en": "Posy Picker Pokémon",
+        "ja": "はなつみポケモン",
+        "fr": "Pokémon Tressefleur",
+        "es": "Pokémon Recogeflores",
+        "de": "Blumenkranz-Pokémon",
+        "it": "Pokémon Ghirlanda",
+        "ko": "꽃따기포켓몬",
+        "zh-Hant": "摘花寶可夢",
+        "zh-Hans": "摘花宝可梦"
+    },
     "abilities": [
         {
             "name": "Flower Veil",

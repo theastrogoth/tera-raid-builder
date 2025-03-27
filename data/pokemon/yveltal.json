@@ -1,5 +1,16 @@
 {
     "name": "Yveltal",
+    "category": {
+        "en": "Destruction Pokémon",
+        "ja": "はかいポケモン",
+        "fr": "Pokémon Annihilation",
+        "es": "Pokémon Destrucción",
+        "de": "Zerstörungs-Pokémon",
+        "it": "Pokémon Distruzione",
+        "ko": "파괴포켓몬",
+        "zh-Hant": "破壞寶可夢",
+        "zh-Hans": "破坏宝可梦"
+    },
     "abilities": [
         {
             "name": "Dark Aura",

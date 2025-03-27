@@ -1,5 +1,16 @@
 {
     "name": "Rampardos",
+    "category": {
+        "en": "Head Butt Pokémon",
+        "ja": "ずつきポケモン",
+        "fr": "Pokémon Coud'Boule",
+        "es": "Pokémon Cabezazo",
+        "de": "Kopfstoß-Pokémon",
+        "it": "Pokémon Cranioso",
+        "ko": "박치기포켓몬",
+        "zh-Hant": "頭錘寶可夢",
+        "zh-Hans": "头锤宝可梦"
+    },
     "abilities": [
         {
             "name": "Mold Breaker",

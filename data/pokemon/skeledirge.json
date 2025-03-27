@@ -1,5 +1,16 @@
 {
     "name": "Skeledirge",
+    "category": {
+        "en": "Singer Pokémon",
+        "ja": "シンガーポケモン",
+        "fr": "Pokémon Chanteur",
+        "es": "Pokémon Cantante",
+        "de": "Sänger-Pokémon",
+        "it": "Pokémon Cantante",
+        "ko": "싱어포켓몬",
+        "zh-Hant": "歌手寶可夢",
+        "zh-Hans": "歌手宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

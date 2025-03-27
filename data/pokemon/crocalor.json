@@ -1,5 +1,16 @@
 {
     "name": "Crocalor",
+    "category": {
+        "en": "Fire Croc Pokémon",
+        "ja": "ほのおワニポケモン",
+        "fr": "Pokémon Croco Feu",
+        "es": "Pokémon Fuegodrilo",
+        "de": "Feuerkroko-Pokémon",
+        "it": "Pokémon Fuocodrillo",
+        "ko": "불꽃악어포켓몬",
+        "zh-Hant": "火鱷寶可夢",
+        "zh-Hans": "火鳄宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

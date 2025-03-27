@@ -1,5 +1,16 @@
 {
     "name": "Delcatty",
+    "category": {
+        "en": "Prim Pokémon",
+        "ja": "おすましポケモン",
+        "fr": "Pokémon Guindé",
+        "es": "Pokémon Cursi",
+        "de": "Eingebildet-Pokémon",
+        "it": "Pokémon Finezza",
+        "ko": "새침떼기포켓몬",
+        "zh-Hant": "清高寶可夢",
+        "zh-Hans": "清高宝可梦"
+    },
     "abilities": [
         {
             "name": "Cute Charm",

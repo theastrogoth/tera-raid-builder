@@ -1,5 +1,16 @@
 {
     "name": "Braviary",
+    "category": {
+        "en": "Valiant Pokémon",
+        "ja": "ゆうもうポケモン",
+        "fr": "Pokémon Vaillant",
+        "es": "Pokémon Aguerrido",
+        "de": "Kühnheits-Pokémon",
+        "it": "Pokémon Baldanza",
+        "ko": "용맹포켓몬",
+        "zh-Hant": "勇猛寶可夢",
+        "zh-Hans": "勇猛宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

@@ -1,5 +1,16 @@
 {
     "name": "Azelf",
+    "category": {
+        "en": "Willpower Pokémon",
+        "ja": "いしポケモン",
+        "fr": "Pokémon Volonté",
+        "es": "Pokémon Voluntad",
+        "de": "Willenskraft-Pokémon",
+        "it": "Pokémon Volontà",
+        "ko": "의지포켓몬",
+        "zh-Hant": "意志寶可夢",
+        "zh-Hans": "意志宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

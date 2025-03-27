@@ -1,5 +1,16 @@
 {
     "name": "Purugly",
+    "category": {
+        "en": "Tiger Cat Pokémon",
+        "ja": "とらねこポケモン",
+        "fr": "Pokémon Chatigre",
+        "es": "Pokémon Tigre Gato",
+        "de": "Tigerkatzen-Pokémon",
+        "it": "Pokémon Gattotigre",
+        "ko": "얼룩고양이포켓몬",
+        "zh-Hant": "虎斑貓寶可夢",
+        "zh-Hans": "虎斑猫宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

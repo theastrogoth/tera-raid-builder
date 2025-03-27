@@ -1,5 +1,16 @@
 {
     "name": "Bellibolt",
+    "category": {
+        "en": "EleFrog Pokémon",
+        "ja": "でんきがえるポケモン",
+        "fr": "Pokémon Élecrapaud",
+        "es": "Pokémon Electrorrana",
+        "de": "Stromfrosch-Pokémon",
+        "it": "Pokémon Amperana",
+        "ko": "전기개구리포켓몬",
+        "zh-Hant": "電蛙寶可夢",
+        "zh-Hans": "电蛙宝可梦"
+    },
     "abilities": [
         {
             "name": "Electromorphosis",

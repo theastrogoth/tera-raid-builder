@@ -1,5 +1,16 @@
 {
     "name": "Litten",
+    "category": {
+        "en": "Fire Cat Pokémon",
+        "ja": "ひねこポケモン",
+        "fr": "Pokémon Chat Feu",
+        "es": "Pokémon Gato Fuego",
+        "de": "Feuerkatzen-Pokémon",
+        "it": "Pokémon Pirofelino",
+        "ko": "불고양이포켓몬",
+        "zh-Hant": "火貓寶可夢",
+        "zh-Hans": "火猫宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

@@ -1,5 +1,16 @@
 {
     "name": "Pikipek",
+    "category": {
+        "en": "Woodpecker Pokémon",
+        "ja": "きつつきポケモン",
+        "fr": "Pokémon Pivert",
+        "es": "Pokémon Carpintero",
+        "de": "Specht-Pokémon",
+        "it": "Pokémon Picchio",
+        "ko": "딱따구리포켓몬",
+        "zh-Hant": "啄木鳥寶可夢",
+        "zh-Hans": "啄木鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

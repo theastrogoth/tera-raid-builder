@@ -1,5 +1,16 @@
 {
     "name": "Octillery",
+    "category": {
+        "en": "Jet Pokémon",
+        "ja": "ふんしゃポケモン",
+        "fr": "Pokémon Jet",
+        "es": "Pokémon Reactor",
+        "de": "Hochdruck-Pokémon",
+        "it": "Pokémon Jet",
+        "ko": "분사포켓몬",
+        "zh-Hant": "噴射寶可夢",
+        "zh-Hans": "喷射宝可梦"
+    },
     "abilities": [
         {
             "name": "Suction Cups",

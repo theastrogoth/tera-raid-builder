@@ -1,5 +1,16 @@
 {
     "name": "Crabrawler",
+    "category": {
+        "en": "Boxing Pokémon",
+        "ja": "けんとうポケモン",
+        "fr": "Pokémon Boxeur",
+        "es": "Pokémon Púgil",
+        "de": "Boxkampf-Pokémon",
+        "it": "Pokémon Pugile",
+        "ko": "권투포켓몬",
+        "zh-Hant": "拳鬥寶可夢",
+        "zh-Hans": "拳斗宝可梦"
+    },
     "abilities": [
         {
             "name": "Hyper Cutter",

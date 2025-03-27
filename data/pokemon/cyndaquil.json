@@ -1,5 +1,16 @@
 {
     "name": "Cyndaquil",
+    "category": {
+        "en": "Fire Mouse Pokémon",
+        "ja": "ひねずみポケモン",
+        "fr": "Pokémon Souris Feu",
+        "es": "Pokémon Ratón Fuego",
+        "de": "Feuermaus-Pokémon",
+        "it": "Pokémon Fuocotopo",
+        "ko": "불쥐포켓몬",
+        "zh-Hant": "火鼠寶可夢",
+        "zh-Hans": "火鼠宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

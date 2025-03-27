@@ -1,5 +1,16 @@
 {
     "name": "Ho-Oh",
+    "category": {
+        "en": "Rainbow Pokémon",
+        "ja": "にじいろポケモン",
+        "fr": "Pokémon Arcenciel",
+        "es": "Pokémon Arcoíris",
+        "de": "Regenbogen-Pokémon",
+        "it": "Pokémon Arcobaleno",
+        "ko": "무지개색포켓몬",
+        "zh-Hant": "虹色寶可夢",
+        "zh-Hans": "虹色宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

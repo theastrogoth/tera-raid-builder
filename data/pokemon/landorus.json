@@ -1,5 +1,16 @@
 {
     "name": "Landorus",
+    "category": {
+        "en": "Abundance Pokémon",
+        "ja": "ほうじょうポケモン",
+        "fr": "Pokémon Fertilité",
+        "es": "Pokémon Fertilidad",
+        "de": "Reichtums-Pokémon",
+        "it": "Pokémon Fertilità",
+        "ko": "풍요포켓몬",
+        "zh-Hant": "豐饒寶可夢",
+        "zh-Hans": "丰饶宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Force",

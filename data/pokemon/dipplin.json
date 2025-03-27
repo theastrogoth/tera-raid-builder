@@ -1,5 +1,16 @@
 {
     "name": "Dipplin",
+    "category": {
+        "en": "Candy Apple Pokémon",
+        "ja": "りんごあめポケモン",
+        "fr": "Pokémon Sirop Pomme",
+        "es": "Pokémon Manzamelo",
+        "de": "Apfelsirup-Pokémon",
+        "it": "Pokémon Pomelassa",
+        "ko": "사과사탕포켓몬",
+        "zh-Hant": "糖蘋果寶可夢",
+        "zh-Hans": "糖苹果宝可梦"
+    },
     "abilities": [
         {
             "name": "Supersweet Syrup",

@@ -1,5 +1,16 @@
 {
     "name": "Beartic",
+    "category": {
+        "en": "Freezing Pokémon",
+        "ja": "とうけつポケモン",
+        "fr": "Pokémon Congelé",
+        "es": "Pokémon Glaciación",
+        "de": "Packeis-Pokémon",
+        "it": "Pokémon Glaciale",
+        "ko": "동결포켓몬",
+        "zh-Hant": "凍結寶可夢",
+        "zh-Hans": "冻结宝可梦"
+    },
     "abilities": [
         {
             "name": "Snow Cloak",

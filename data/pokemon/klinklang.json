@@ -1,5 +1,16 @@
 {
     "name": "Klinklang",
+    "category": {
+        "en": "Gear Pokémon",
+        "ja": "はぐるまポケモン",
+        "fr": "Pokémon Engrenage",
+        "es": "Pokémon Engranaje",
+        "de": "Getriebe-Pokémon",
+        "it": "Pokémon Ingranaggio",
+        "ko": "톱니바퀴포켓몬",
+        "zh-Hant": "齒輪寶可夢",
+        "zh-Hans": "齿轮宝可梦"
+    },
     "abilities": [
         {
             "name": "Plus",

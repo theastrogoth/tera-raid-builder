@@ -1,5 +1,16 @@
 {
     "name": "Terrakion",
+    "category": {
+        "en": "Cavern Pokémon",
+        "ja": "がんくつポケモン",
+        "fr": "Pokémon Grotte",
+        "es": "Pokémon Gruta",
+        "de": "Felsenhöhlen-Pokémon",
+        "it": "Pokémon Caverna",
+        "ko": "암굴포켓몬",
+        "zh-Hant": "岩窟寶可夢",
+        "zh-Hans": "岩窟宝可梦"
+    },
     "abilities": [
         {
             "name": "Justified",

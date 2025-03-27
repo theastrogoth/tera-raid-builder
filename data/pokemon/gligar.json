@@ -1,5 +1,16 @@
 {
     "name": "Gligar",
+    "category": {
+        "en": "Fly Scorpion Pokémon",
+        "ja": "とびさそりポケモン",
+        "fr": "Pokémon Scorpivol",
+        "es": "Pokémon Escorpiala",
+        "de": "Flugskorpion-Pokémon",
+        "it": "Pokémon Aliscorpio",
+        "ko": "날전갈포켓몬",
+        "zh-Hant": "飛蠍寶可夢",
+        "zh-Hans": "飞蝎宝可梦"
+    },
     "abilities": [
         {
             "name": "Hyper Cutter",

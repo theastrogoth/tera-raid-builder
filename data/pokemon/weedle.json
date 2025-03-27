@@ -1,5 +1,16 @@
 {
     "name": "Weedle",
+    "category": {
+        "en": "Hairy Bug Pokémon",
+        "ja": "けむしポケモン",
+        "fr": "Pokémon Insectopic",
+        "es": "Pokémon Oruga",
+        "de": "Raupen-Pokémon",
+        "it": "Pokémon Millepiedi",
+        "ko": "송충이포켓몬",
+        "zh-Hant": "毛毛蟲寶可夢",
+        "zh-Hans": "毛毛虫宝可梦"
+    },
     "abilities": [
         {
             "name": "Shield Dust",

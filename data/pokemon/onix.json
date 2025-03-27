@@ -1,5 +1,16 @@
 {
     "name": "Onix",
+    "category": {
+        "en": "Rock Snake Pokémon",
+        "ja": "いわへびポケモン",
+        "fr": "Pokémon Serpenroc",
+        "es": "Pokémon Serpiente Roca",
+        "de": "Felsnatter-Pokémon",
+        "it": "Pokémon Serpesasso",
+        "ko": "돌뱀포켓몬",
+        "zh-Hant": "岩蛇寶可夢",
+        "zh-Hans": "岩蛇宝可梦"
+    },
     "abilities": [
         {
             "name": "Rock Head",

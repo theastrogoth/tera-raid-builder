@@ -1,5 +1,16 @@
 {
     "name": "Carvanha",
+    "category": {
+        "en": "Savage Pokémon",
+        "ja": "どうもうポケモン",
+        "fr": "Pokémon Féroce",
+        "es": "Pokémon Feroz",
+        "de": "Gnadenlos-Pokémon",
+        "it": "Pokémon Feroce",
+        "ko": "사나움포켓몬",
+        "zh-Hant": "凶猛寶可夢",
+        "zh-Hans": "凶猛宝可梦"
+    },
     "abilities": [
         {
             "name": "Rough Skin",

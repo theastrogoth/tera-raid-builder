@@ -1,5 +1,16 @@
 {
     "name": "Ambipom",
+    "category": {
+        "en": "Long Tail Pokémon",
+        "ja": "おながポケモン",
+        "fr": "Pokémon Longqueue",
+        "es": "Pokémon Cola Larga",
+        "de": "Langschweif-Pokémon",
+        "it": "Pokémon Lungacoda",
+        "ko": "긴꼬리포켓몬",
+        "zh-Hant": "長尾寶可夢",
+        "zh-Hans": "长尾宝可梦"
+    },
     "abilities": [
         {
             "name": "Technician",

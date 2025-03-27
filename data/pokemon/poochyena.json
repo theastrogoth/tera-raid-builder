@@ -1,5 +1,16 @@
 {
     "name": "Poochyena",
+    "category": {
+        "en": "Bite Pokémon",
+        "ja": "かみつきポケモン",
+        "fr": "Pokémon Morsure",
+        "es": "Pokémon Mordisco",
+        "de": "Biss-Pokémon",
+        "it": "Pokémon Morso",
+        "ko": "물어뜯기포켓몬",
+        "zh-Hant": "緊咬寶可夢",
+        "zh-Hans": "紧咬宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

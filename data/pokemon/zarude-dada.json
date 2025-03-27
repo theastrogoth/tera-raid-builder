@@ -1,5 +1,16 @@
 {
     "name": "Zarude-Dada",
+    "category": {
+        "en": "Rogue Monkey Pokémon",
+        "ja": "わるざるポケモン",
+        "fr": "Pokémon Vilain Singe",
+        "es": "Pokémon Simiestro",
+        "de": "Finsteraffen-Pokémon",
+        "it": "Pokémon Scimmialigna",
+        "ko": "나쁜원숭이포켓몬",
+        "zh-Hant": "惡猿寶可夢",
+        "zh-Hans": "恶猿宝可梦"
+    },
     "abilities": [
         {
             "name": "Leaf Guard",

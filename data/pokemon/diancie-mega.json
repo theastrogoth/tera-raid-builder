@@ -1,5 +1,16 @@
 {
     "name": "Diancie-Mega",
+    "category": {
+        "en": "Jewel Pokémon",
+        "ja": "ほうせきポケモン",
+        "fr": "Pokémon Joyau",
+        "es": "Pokémon Joya",
+        "de": "Edelstein-Pokémon",
+        "it": "Pokémon Gemma",
+        "ko": "보석포켓몬",
+        "zh-Hant": "寶石寶可夢",
+        "zh-Hans": "宝石宝可梦"
+    },
     "abilities": [
         {
             "name": "Magic Bounce",

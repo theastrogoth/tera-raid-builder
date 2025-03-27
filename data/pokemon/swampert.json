@@ -1,5 +1,16 @@
 {
     "name": "Swampert",
+    "category": {
+        "en": "Mud Fish Pokémon",
+        "ja": "ぬまうおポケモン",
+        "fr": "Pokémon Poissonboue",
+        "es": "Pokémon Pez Lodo",
+        "de": "Lehmhüpfer-Pokémon",
+        "it": "Pokémon Fango Pesce",
+        "ko": "늪물고기포켓몬",
+        "zh-Hant": "沼魚寶可夢",
+        "zh-Hans": "沼鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

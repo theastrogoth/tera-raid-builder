@@ -1,5 +1,16 @@
 {
     "name": "Inteleon-Gmax",
+    "category": {
+        "en": "Secret Agent Pokémon",
+        "ja": "エージェントポケモン",
+        "fr": "Pokémon Agent Secret",
+        "es": "Pokémon Agente",
+        "de": "Geheimagenten-Pokémon",
+        "it": "Pokémon Agente",
+        "ko": "에이전트포켓몬",
+        "zh-Hant": "特工寶可夢",
+        "zh-Hans": "特工宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

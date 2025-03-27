@@ -1,5 +1,16 @@
 {
     "name": "Hypno",
+    "category": {
+        "en": "Hypnosis Pokémon",
+        "ja": "さいみんポケモン",
+        "fr": "Pokémon Hypnose",
+        "es": "Pokémon Hipnosis",
+        "de": "Hypnose-Pokémon",
+        "it": "Pokémon Ipnosi",
+        "ko": "최면포켓몬",
+        "zh-Hant": "催眠寶可夢",
+        "zh-Hans": "催眠宝可梦"
+    },
     "abilities": [
         {
             "name": "Insomnia",

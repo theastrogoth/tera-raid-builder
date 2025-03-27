@@ -1,5 +1,16 @@
 {
     "name": "Krabby",
+    "category": {
+        "en": "River Crab Pokémon",
+        "ja": "さわがにポケモン",
+        "fr": "Pokémon Doux Crabe",
+        "es": "Pokémon Cangrejo",
+        "de": "Krabben-Pokémon",
+        "it": "Pokémon Granchio",
+        "ko": "게포켓몬",
+        "zh-Hant": "清水蟹寶可夢",
+        "zh-Hans": "清水蟹宝可梦"
+    },
     "abilities": [
         {
             "name": "Hyper Cutter",

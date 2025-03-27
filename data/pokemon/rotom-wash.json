@@ -1,5 +1,16 @@
 {
     "name": "Rotom-Wash",
+    "category": {
+        "en": "Plasma Pokémon",
+        "ja": "プラズマポケモン",
+        "fr": "Pokémon Plasma",
+        "es": "Pokémon Plasma",
+        "de": "Plasma-Pokémon",
+        "it": "Pokémon Plasma",
+        "ko": "플라스마포켓몬",
+        "zh-Hant": "等離子寶可夢",
+        "zh-Hans": "等离子宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

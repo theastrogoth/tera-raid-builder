@@ -1,5 +1,16 @@
 {
     "name": "Swanna",
+    "category": {
+        "en": "White Bird Pokémon",
+        "ja": "しらとりポケモン",
+        "fr": "Pokémon Cygne",
+        "es": "Pokémon Cisne",
+        "de": "Schwan-Pokémon",
+        "it": "Pokémon Biancuccello",
+        "ko": "백조포켓몬",
+        "zh-Hant": "白鳥寶可夢",
+        "zh-Hans": "白鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

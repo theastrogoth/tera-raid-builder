@@ -1,5 +1,16 @@
 {
     "name": "Azumarill",
+    "category": {
+        "en": "Aqua Rabbit Pokémon",
+        "ja": "みずうさぎポケモン",
+        "fr": "Pokémon Aqualapin",
+        "es": "Pokémon Conejo Agua",
+        "de": "Aquahasen-Pokémon",
+        "it": "Pokémon Acquniglio",
+        "ko": "물토끼포켓몬",
+        "zh-Hant": "水兔寶可夢",
+        "zh-Hans": "水兔宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

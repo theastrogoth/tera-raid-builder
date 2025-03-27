@@ -1,5 +1,16 @@
 {
     "name": "Krookodile",
+    "category": {
+        "en": "Intimidation Pokémon",
+        "ja": "いかくポケモン",
+        "fr": "Pokémon Intimidation",
+        "es": "Pokémon Amenazador",
+        "de": "Abschreckungs-Pokémon",
+        "it": "Pokémon Minaccia",
+        "ko": "위협포켓몬",
+        "zh-Hant": "威嚇寶可夢",
+        "zh-Hans": "威吓宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

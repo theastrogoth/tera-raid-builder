@@ -1,5 +1,16 @@
 {
     "name": "Cubone",
+    "category": {
+        "en": "Lonely Pokémon",
+        "ja": "こどくポケモン",
+        "fr": "Pokémon Solitaire",
+        "es": "Pokémon Solitario",
+        "de": "Einsam-Pokémon",
+        "it": "Pokémon Solitario",
+        "ko": "고독포켓몬",
+        "zh-Hant": "孤獨寶可夢",
+        "zh-Hans": "孤独宝可梦"
+    },
     "abilities": [
         {
             "name": "Rock Head",

@@ -1,5 +1,16 @@
 {
     "name": "Herdier",
+    "category": {
+        "en": "Loyal Dog Pokémon",
+        "ja": "ちゅうけんポケモン",
+        "fr": "Pokémon Chien Fidèle",
+        "es": "Pokémon Leal",
+        "de": "Treuhund-Pokémon",
+        "it": "Pokémon Fedeltà",
+        "ko": "충견포켓몬",
+        "zh-Hant": "忠犬寶可夢",
+        "zh-Hans": "忠犬宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

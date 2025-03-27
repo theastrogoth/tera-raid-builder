@@ -1,5 +1,16 @@
 {
     "name": "Klefki",
+    "category": {
+        "en": "Key Ring Pokémon",
+        "ja": "かぎたばポケモン",
+        "fr": "Pokémon Trousseau",
+        "es": "Pokémon Llavero",
+        "de": "Schlüssel-Pokémon",
+        "it": "Pokémon Portachiavi",
+        "ko": "열쇠꾸러미포켓몬",
+        "zh-Hant": "鑰匙串寶可夢",
+        "zh-Hans": "钥匙串宝可梦"
+    },
     "abilities": [
         {
             "name": "Prankster",

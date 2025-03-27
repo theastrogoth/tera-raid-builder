@@ -1,5 +1,16 @@
 {
     "name": "Shinx",
+    "category": {
+        "en": "Flash Pokémon",
+        "ja": "せんこうポケモン",
+        "fr": "Pokémon Flash",
+        "es": "Pokémon Flash",
+        "de": "Flacker-Pokémon",
+        "it": "Pokémon Baleno",
+        "ko": "섬광포켓몬",
+        "zh-Hant": "閃光寶可夢",
+        "zh-Hans": "闪光宝可梦"
+    },
     "abilities": [
         {
             "name": "Rivalry",

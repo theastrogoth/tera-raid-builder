@@ -1,5 +1,16 @@
 {
     "name": "Zapdos",
+    "category": {
+        "en": "Electric Pokémon",
+        "ja": "でんげきポケモン",
+        "fr": "Pokémon Électrique",
+        "es": "Pokémon Eléctrico",
+        "de": "Elektro-Pokémon",
+        "it": "Pokémon Elettrico",
+        "ko": "전기포켓몬",
+        "zh-Hant": "電擊寶可夢",
+        "zh-Hans": "电击宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

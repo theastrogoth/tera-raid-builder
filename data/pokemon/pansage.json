@@ -1,5 +1,16 @@
 {
     "name": "Pansage",
+    "category": {
+        "en": "Grass Monkey Pokémon",
+        "ja": "くさざるポケモン",
+        "fr": "Pokémon Singe Herbe",
+        "es": "Pokémon Mono Hierba",
+        "de": "Grasaffen-Pokémon",
+        "it": "Pokémon Scimperba",
+        "ko": "풀원숭이포켓몬",
+        "zh-Hant": "草猴寶可夢",
+        "zh-Hans": "草猴宝可梦"
+    },
     "abilities": [
         {
             "name": "Gluttony",

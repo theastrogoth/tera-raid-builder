@@ -1,5 +1,16 @@
 {
     "name": "Bramblin",
+    "category": {
+        "en": "Tumbleweed Pokémon",
+        "ja": "ころがりぐさポケモン",
+        "fr": "Pokémon Virevoltant",
+        "es": "Pokémon Estepicursor",
+        "de": "Rollgras-Pokémon",
+        "it": "Pokémon Rotolerba",
+        "ko": "회전초포켓몬",
+        "zh-Hant": "滾草寶可夢",
+        "zh-Hans": "滚草宝可梦"
+    },
     "abilities": [
         {
             "name": "Wind Rider",

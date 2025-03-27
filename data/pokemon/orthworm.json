@@ -1,5 +1,16 @@
 {
     "name": "Orthworm",
+    "category": {
+        "en": "Earthworm Pokémon",
+        "ja": "ミミズポケモン",
+        "fr": "Pokémon Ver de Terre",
+        "es": "Pokémon Lombriz",
+        "de": "Regenwurm-Pokémon",
+        "it": "Pokémon Lombrico",
+        "ko": "지렁이포켓몬",
+        "zh-Hant": "蚯蚓寶可夢",
+        "zh-Hans": "蚯蚓宝可梦"
+    },
     "abilities": [
         {
             "name": "Earth Eater",

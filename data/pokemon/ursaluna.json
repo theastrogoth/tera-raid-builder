@@ -1,5 +1,16 @@
 {
     "name": "Ursaluna",
+    "category": {
+        "en": "Peat Pokémon",
+        "ja": "でいたんポケモン",
+        "fr": "Pokémon Tourbe",
+        "es": "Pokémon Turba",
+        "de": "Torf-Pokémon",
+        "it": "Pokémon Torba",
+        "ko": "이탄포켓몬",
+        "zh-Hant": "泥炭寶可夢",
+        "zh-Hans": "泥炭宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

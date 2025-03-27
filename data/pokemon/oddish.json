@@ -1,5 +1,16 @@
 {
     "name": "Oddish",
+    "category": {
+        "en": "Weed Pokémon",
+        "ja": "ざっそうポケモン",
+        "fr": "Pokémon Racine",
+        "es": "Pokémon Hierbajo",
+        "de": "Unkraut-Pokémon",
+        "it": "Pokémon Malerba",
+        "ko": "잡초포켓몬",
+        "zh-Hant": "雜草寶可夢",
+        "zh-Hans": "杂草宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

@@ -1,5 +1,16 @@
 {
     "name": "Bonsly",
+    "category": {
+        "en": "Bonsai Pokémon",
+        "ja": "ぼんさいポケモン",
+        "fr": "Pokémon Bonsaï",
+        "es": "Pokémon Bonsái",
+        "de": "Bonsai-Pokémon",
+        "it": "Pokémon Bonsai",
+        "ko": "분재포켓몬",
+        "zh-Hant": "盆栽寶可夢",
+        "zh-Hans": "盆栽宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

@@ -1,5 +1,16 @@
 {
     "name": "Luxray",
+    "category": {
+        "en": "Gleam Eyes Pokémon",
+        "ja": "がんこうポケモン",
+        "fr": "Pokémon Brillœil",
+        "es": "Pokémon Chispa Ojos",
+        "de": "Glühaugen-Pokémon",
+        "it": "Pokémon Occhiluce",
+        "ko": "안광포켓몬",
+        "zh-Hant": "目光寶可夢",
+        "zh-Hans": "目光宝可梦"
+    },
     "abilities": [
         {
             "name": "Rivalry",

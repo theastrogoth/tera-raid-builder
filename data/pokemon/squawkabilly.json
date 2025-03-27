@@ -1,5 +1,16 @@
 {
     "name": "Squawkabilly",
+    "category": {
+        "en": "Parrot Pokémon",
+        "ja": "インコポケモン",
+        "fr": "Pokémon Perroquet",
+        "es": "Pokémon Loro",
+        "de": "Sittich-Pokémon",
+        "it": "Pokémon Pappagallo",
+        "ko": "잉꼬포켓몬",
+        "zh-Hant": "鸚鵡寶可夢",
+        "zh-Hans": "鹦鹉宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

@@ -1,5 +1,16 @@
 {
     "name": "Tinkatuff",
+    "category": {
+        "en": "Hammer Pokémon",
+        "ja": "ハンマーポケモン",
+        "fr": "Pokémon Marteau",
+        "es": "Pokémon Martillo",
+        "de": "Hammer-Pokémon",
+        "it": "Pokémon Martello",
+        "ko": "해머포켓몬",
+        "zh-Hant": "錘子寶可夢",
+        "zh-Hans": "锤子宝可梦"
+    },
     "abilities": [
         {
             "name": "Mold Breaker",

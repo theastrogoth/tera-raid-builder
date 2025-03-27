@@ -1,5 +1,16 @@
 {
     "name": "Pancham",
+    "category": {
+        "en": "Playful Pokémon",
+        "ja": "やんちゃポケモン",
+        "fr": "Pokémon Garnement",
+        "es": "Pokémon Juguetón",
+        "de": "Verspielt-Pokémon",
+        "it": "Pokémon Briccone",
+        "ko": "개구쟁이포켓몬",
+        "zh-Hant": "頑皮寶可夢",
+        "zh-Hans": "顽皮宝可梦"
+    },
     "abilities": [
         {
             "name": "Iron Fist",

@@ -1,5 +1,16 @@
 {
     "name": "Latios-Mega",
+    "category": {
+        "en": "Eon Pokémon",
+        "ja": "むげんポケモン",
+        "fr": "Pokémon Éon",
+        "es": "Pokémon Eón",
+        "de": "Äon-Pokémon",
+        "it": "Pokémon Eone",
+        "ko": "무한포켓몬",
+        "zh-Hant": "無限寶可夢",
+        "zh-Hans": "无限宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

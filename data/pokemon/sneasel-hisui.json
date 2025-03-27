@@ -1,5 +1,16 @@
 {
     "name": "Sneasel-Hisui",
+    "category": {
+        "en": "Sharp Claw Pokémon",
+        "ja": "かぎづめポケモン",
+        "fr": "Pokémon Grifacérée",
+        "es": "Pokémon Garra Filo",
+        "de": "Stichklauen-Pokémon",
+        "it": "Pokémon Lamartigli",
+        "ko": "갈고리손톱포켓몬",
+        "zh-Hant": "鉤爪寶可夢",
+        "zh-Hans": "钩爪宝可梦"
+    },
     "abilities": [
         {
             "name": "Inner Focus",

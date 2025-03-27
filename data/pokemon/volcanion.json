@@ -1,5 +1,16 @@
 {
     "name": "Volcanion",
+    "category": {
+        "en": "Steam Pokémon",
+        "ja": "スチームポケモン",
+        "fr": "Pokémon Vapeur",
+        "es": "Pokémon Vapor",
+        "de": "Dampf-Pokémon",
+        "it": "Pokémon Vapore",
+        "ko": "스팀포켓몬",
+        "zh-Hant": "蒸汽寶可夢",
+        "zh-Hans": "蒸汽宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Absorb",

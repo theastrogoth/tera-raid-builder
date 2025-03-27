@@ -1,5 +1,16 @@
 {
     "name": "Stunky",
+    "category": {
+        "en": "Skunk Pokémon",
+        "ja": "スカンクポケモン",
+        "fr": "Pokémon Moufette",
+        "es": "Pokémon Mofeta",
+        "de": "Stinktier-Pokémon",
+        "it": "Pokémon Moffetta",
+        "ko": "스컹크포켓몬",
+        "zh-Hant": "臭鼬寶可夢",
+        "zh-Hans": "臭鼬宝可梦"
+    },
     "abilities": [
         {
             "name": "Stench",

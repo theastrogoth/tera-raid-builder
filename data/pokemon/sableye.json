@@ -1,5 +1,16 @@
 {
     "name": "Sableye",
+    "category": {
+        "en": "Darkness Pokémon",
+        "ja": "くらやみポケモン",
+        "fr": "Pokémon Obscurité",
+        "es": "Pokémon Oscuridad",
+        "de": "Finsternis-Pokémon",
+        "it": "Pokémon Oscurità",
+        "ko": "어둠포켓몬",
+        "zh-Hant": "黑暗寶可夢",
+        "zh-Hans": "黑暗宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

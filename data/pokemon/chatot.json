@@ -1,5 +1,16 @@
 {
     "name": "Chatot",
+    "category": {
+        "en": "Music Note Pokémon",
+        "ja": "おんぷポケモン",
+        "fr": "Pokémon Note Musique",
+        "es": "Pokémon Corchea",
+        "de": "Musiknoten-Pokémon",
+        "it": "Pokémon Musicale",
+        "ko": "음표포켓몬",
+        "zh-Hant": "音符寶可夢",
+        "zh-Hans": "音符宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

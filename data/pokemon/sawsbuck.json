@@ -1,5 +1,16 @@
 {
     "name": "Sawsbuck",
+    "category": {
+        "en": "Season Pokémon",
+        "ja": "きせつポケモン",
+        "fr": "Pokémon Saison",
+        "es": "Pokémon Estacional",
+        "de": "Jahreszeiten-Pokémon",
+        "it": "Pokémon Stagione",
+        "ko": "계절포켓몬",
+        "zh-Hant": "季節寶可夢",
+        "zh-Hans": "季节宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

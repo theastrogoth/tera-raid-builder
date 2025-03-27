@@ -1,5 +1,16 @@
 {
     "name": "Toxapex",
+    "category": {
+        "en": "Brutal Star Pokémon",
+        "ja": "ヒトデナシポケモン",
+        "fr": "Pokémon Cruel",
+        "es": "Pokémon Estrellatroz",
+        "de": "Quäl-Stern-Pokémon",
+        "it": "Pokémon Stellatroce",
+        "ko": "깨비사리포켓몬",
+        "zh-Hant": "非星寶可夢",
+        "zh-Hans": "非星宝可梦"
+    },
     "abilities": [
         {
             "name": "Merciless",

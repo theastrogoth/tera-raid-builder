@@ -1,5 +1,16 @@
 {
     "name": "Meloetta",
+    "category": {
+        "en": "Melody Pokémon",
+        "ja": "せんりつポケモン",
+        "fr": "Pokémon Mélodie",
+        "es": "Pokémon Melodía",
+        "de": "Melodie-Pokémon",
+        "it": "Pokémon Melodia",
+        "ko": "선율포켓몬",
+        "zh-Hant": "旋律寶可夢",
+        "zh-Hans": "旋律宝可梦"
+    },
     "abilities": [
         {
             "name": "Serene Grace",

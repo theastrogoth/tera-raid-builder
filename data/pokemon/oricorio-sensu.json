@@ -1,5 +1,16 @@
 {
     "name": "Oricorio-Sensu",
+    "category": {
+        "en": "Dancing Pokémon",
+        "ja": "ダンスポケモン",
+        "fr": "Pokémon Danse",
+        "es": "Pokémon Danza",
+        "de": "Tanz-Pokémon",
+        "it": "Pokémon Danza",
+        "ko": "댄스포켓몬",
+        "zh-Hant": "舞蹈寶可夢",
+        "zh-Hans": "舞蹈宝可梦"
+    },
     "abilities": [
         {
             "name": "Dancer",

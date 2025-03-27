@@ -1,5 +1,16 @@
 {
     "name": "Magnemite",
+    "category": {
+        "en": "Magnet Pokémon",
+        "ja": "じしゃくポケモン",
+        "fr": "Pokémon Magnétique",
+        "es": "Pokémon Imán",
+        "de": "Magnet-Pokémon",
+        "it": "Pokémon Calamita",
+        "ko": "자석포켓몬",
+        "zh-Hant": "磁鐵寶可夢",
+        "zh-Hans": "磁铁宝可梦"
+    },
     "abilities": [
         {
             "name": "Magnet Pull",

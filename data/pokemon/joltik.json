@@ -1,5 +1,16 @@
 {
     "name": "Joltik",
+    "category": {
+        "en": "Attaching Pokémon",
+        "ja": "くっつきポケモン",
+        "fr": "Pokémon Crampon",
+        "es": "Pokémon Lapa",
+        "de": "Kleben-Pokémon",
+        "it": "Pokémon Appiccicante",
+        "ko": "들러붙기포켓몬",
+        "zh-Hant": "吸附寶可夢",
+        "zh-Hans": "吸附宝可梦"
+    },
     "abilities": [
         {
             "name": "Compound Eyes",

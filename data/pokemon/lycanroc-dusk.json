@@ -1,5 +1,16 @@
 {
     "name": "Lycanroc-Dusk",
+    "category": {
+        "en": "Wolf Pokémon",
+        "ja": "オオカミポケモン",
+        "fr": "Pokémon Loup",
+        "es": "Pokémon Lobo",
+        "de": "Wolfs-Pokémon",
+        "it": "Pokémon Lupo",
+        "ko": "늑대포켓몬",
+        "zh-Hant": "狼寶可夢",
+        "zh-Hans": "狼宝可梦"
+    },
     "abilities": [
         {
             "name": "Tough Claws",

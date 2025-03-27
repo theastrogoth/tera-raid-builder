@@ -1,5 +1,16 @@
 {
     "name": "Medicham",
+    "category": {
+        "en": "Meditate Pokémon",
+        "ja": "めいそうポケモン",
+        "fr": "Pokémon Méditation",
+        "es": "Pokémon Meditador",
+        "de": "Meditations-Pokémon",
+        "it": "Pokémon Meditazione",
+        "ko": "명상포켓몬",
+        "zh-Hant": "冥想寶可夢",
+        "zh-Hans": "冥想宝可梦"
+    },
     "abilities": [
         {
             "name": "Pure Power",

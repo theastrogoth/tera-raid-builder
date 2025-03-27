@@ -1,5 +1,16 @@
 {
     "name": "Aurorus",
+    "category": {
+        "en": "Tundra Pokémon",
+        "ja": "ツンドラポケモン",
+        "fr": "Pokémon Toundra",
+        "es": "Pokémon Tundra",
+        "de": "Tundra-Pokémon",
+        "it": "Pokémon Tundra",
+        "ko": "툰드라포켓몬",
+        "zh-Hant": "凍原寶可夢",
+        "zh-Hans": "冻原宝可梦"
+    },
     "abilities": [
         {
             "name": "Refrigerate",

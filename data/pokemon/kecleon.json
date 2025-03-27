@@ -1,5 +1,16 @@
 {
     "name": "Kecleon",
+    "category": {
+        "en": "Color Swap Pokémon",
+        "ja": "いろへんげポケモン",
+        "fr": "Pokémon Multicolor",
+        "es": "Pokémon Camaleónico",
+        "de": "Farbenspiel-Pokémon",
+        "it": "Pokémon Mutacolore",
+        "ko": "색변화포켓몬",
+        "zh-Hant": "變色寶可夢",
+        "zh-Hans": "变色宝可梦"
+    },
     "abilities": [
         {
             "name": "Color Change",

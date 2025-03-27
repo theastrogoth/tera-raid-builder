@@ -1,5 +1,16 @@
 {
     "name": "Larvesta",
+    "category": {
+        "en": "Torch Pokémon",
+        "ja": "たいまつポケモン",
+        "fr": "Pokémon Torche",
+        "es": "Pokémon Antorcha",
+        "de": "Fackel-Pokémon",
+        "it": "Pokémon Torcia",
+        "ko": "횃불포켓몬",
+        "zh-Hant": "火炬寶可夢",
+        "zh-Hans": "火炬宝可梦"
+    },
     "abilities": [
         {
             "name": "Flame Body",

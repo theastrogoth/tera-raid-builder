@@ -1,5 +1,16 @@
 {
     "name": "Bastiodon",
+    "category": {
+        "en": "Shield Pokémon",
+        "ja": "シールドポケモン",
+        "fr": "Pokémon Bouclier",
+        "es": "Pokémon Escudo",
+        "de": "Schutzschild-Pokémon",
+        "it": "Pokémon Schermo",
+        "ko": "실드포켓몬",
+        "zh-Hant": "護盾寶可夢",
+        "zh-Hans": "护盾宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

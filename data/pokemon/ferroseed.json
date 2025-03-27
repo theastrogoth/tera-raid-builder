@@ -1,5 +1,16 @@
 {
     "name": "Ferroseed",
+    "category": {
+        "en": "Thorn Seed Pokémon",
+        "ja": "とげのみポケモン",
+        "fr": "Pokémon Graine Épine",
+        "es": "Pokémon Fruto Espina",
+        "de": "Dornfrucht-Pokémon",
+        "it": "Pokémon Spinaseme",
+        "ko": "가시열매포켓몬",
+        "zh-Hant": "刺果寶可夢",
+        "zh-Hans": "刺果宝可梦"
+    },
     "abilities": [
         {
             "name": "Iron Barbs",

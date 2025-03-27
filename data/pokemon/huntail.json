@@ -1,5 +1,16 @@
 {
     "name": "Huntail",
+    "category": {
+        "en": "Deep Sea Pokémon",
+        "ja": "しんかいポケモン",
+        "fr": "Pokémon Abysse",
+        "es": "Pokémon Abisal",
+        "de": "Tiefsee-Pokémon",
+        "it": "Pokémon Abissi",
+        "ko": "깊은바다포켓몬",
+        "zh-Hant": "深海寶可夢",
+        "zh-Hans": "深海宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

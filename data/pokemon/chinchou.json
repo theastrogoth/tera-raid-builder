@@ -1,5 +1,16 @@
 {
     "name": "Chinchou",
+    "category": {
+        "en": "Angler Pokémon",
+        "ja": "あんこうポケモン",
+        "fr": "Pokémon Poisson",
+        "es": "Pokémon Rape",
+        "de": "Angler-Pokémon",
+        "it": "Pokémon Pescatore",
+        "ko": "아귀포켓몬",
+        "zh-Hant": "琵琶魚寶可夢",
+        "zh-Hans": "琵琶鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Volt Absorb",

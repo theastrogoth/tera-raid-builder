@@ -1,5 +1,16 @@
 {
     "name": "Aromatisse",
+    "category": {
+        "en": "Fragrance Pokémon",
+        "ja": "ほうこうポケモン",
+        "fr": "Pokémon Parfum",
+        "es": "Pokémon Fragancia",
+        "de": "Duft-Pokémon",
+        "it": "Pokémon Fragranza",
+        "ko": "방향포켓몬",
+        "zh-Hant": "芳香寶可夢",
+        "zh-Hans": "芳香宝可梦"
+    },
     "abilities": [
         {
             "name": "Healer",

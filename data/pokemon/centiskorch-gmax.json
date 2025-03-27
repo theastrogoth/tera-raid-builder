@@ -1,5 +1,16 @@
 {
     "name": "Centiskorch-Gmax",
+    "category": {
+        "en": "Radiator Pokémon",
+        "ja": "はつねつポケモン",
+        "fr": "Pokémon Calorifère",
+        "es": "Pokémon Radiador",
+        "de": "Exotherm-Pokémon",
+        "it": "Pokémon Termogeno",
+        "ko": "발열포켓몬",
+        "zh-Hant": "發熱寶可夢",
+        "zh-Hans": "发热宝可梦"
+    },
     "abilities": [
         {
             "name": "Flash Fire",

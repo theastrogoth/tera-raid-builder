@@ -1,5 +1,16 @@
 {
     "name": "Helioptile",
+    "category": {
+        "en": "Generator Pokémon",
+        "ja": "はつでんポケモン",
+        "fr": "Pokémon Générateur",
+        "es": "Pokémon Generador",
+        "de": "Generatoren-Pokémon",
+        "it": "Pokémon Generatore",
+        "ko": "발전포켓몬",
+        "zh-Hant": "發電寶可夢",
+        "zh-Hans": "发电宝可梦"
+    },
     "abilities": [
         {
             "name": "Dry Skin",

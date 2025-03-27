@@ -1,5 +1,16 @@
 {
     "name": "Litleo",
+    "category": {
+        "en": "Lion Cub Pokémon",
+        "ja": "わかじしポケモン",
+        "fr": "Pokémon Lionceau",
+        "es": "Pokémon Leoncito",
+        "de": "Junglöwen-Pokémon",
+        "it": "Pokémon Leoncino",
+        "ko": "어린사자포켓몬",
+        "zh-Hant": "幼獅寶可夢",
+        "zh-Hans": "幼狮宝可梦"
+    },
     "abilities": [
         {
             "name": "Rivalry",

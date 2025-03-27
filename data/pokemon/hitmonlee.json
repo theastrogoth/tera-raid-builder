@@ -1,5 +1,16 @@
 {
     "name": "Hitmonlee",
+    "category": {
+        "en": "Kicking Pokémon",
+        "ja": "キックポケモン",
+        "fr": "Pokémon Latteur",
+        "es": "Pokémon Patada",
+        "de": "Kicker-Pokémon",
+        "it": "Pokémon Tiracalci",
+        "ko": "킥포켓몬",
+        "zh-Hant": "踢腿寶可夢",
+        "zh-Hans": "踢腿宝可梦"
+    },
     "abilities": [
         {
             "name": "Limber",

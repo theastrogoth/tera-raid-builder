@@ -1,5 +1,16 @@
 {
     "name": "Registeel",
+    "category": {
+        "en": "Iron Pokémon",
+        "ja": "くろがねポケモン",
+        "fr": "Pokémon Fer",
+        "es": "Pokémon Hierro",
+        "de": "Eisen-Pokémon",
+        "it": "Pokémon Ferro",
+        "ko": "쇠철포켓몬",
+        "zh-Hant": "黑金寶可夢",
+        "zh-Hans": "黑金宝可梦"
+    },
     "abilities": [
         {
             "name": "Clear Body",

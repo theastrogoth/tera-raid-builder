@@ -1,5 +1,16 @@
 {
     "name": "Clefairy",
+    "category": {
+        "en": "Fairy Pokémon",
+        "ja": "ようせいポケモン",
+        "fr": "Pokémon Fée",
+        "es": "Pokémon Hada",
+        "de": "Feen-Pokémon",
+        "it": "Pokémon Fata",
+        "ko": "요정포켓몬",
+        "zh-Hant": "妖精寶可夢",
+        "zh-Hans": "妖精宝可梦"
+    },
     "abilities": [
         {
             "name": "Cute Charm",

@@ -1,5 +1,16 @@
 {
     "name": "Flapple",
+    "category": {
+        "en": "Apple Wing Pokémon",
+        "ja": "りんごはねポケモン",
+        "fr": "Pokémon Ailes Pomme",
+        "es": "Pokémon Manzanala",
+        "de": "Apfelflügel-Pokémon",
+        "it": "Pokémon Pomivolo",
+        "ko": "사과날개포켓몬",
+        "zh-Hant": "蘋果翅寶可夢",
+        "zh-Hans": "苹果翅宝可梦"
+    },
     "abilities": [
         {
             "name": "Ripen",

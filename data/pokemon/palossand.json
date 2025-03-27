@@ -1,5 +1,16 @@
 {
     "name": "Palossand",
+    "category": {
+        "en": "Sand Castle Pokémon",
+        "ja": "すなのしろポケモン",
+        "fr": "Pokémon Châtod'Sable",
+        "es": "Pokémon Castiarena",
+        "de": "Sandschloss-Pokémon",
+        "it": "Pokémon Castelsabbia",
+        "ko": "모래성포켓몬",
+        "zh-Hant": "沙堡寶可夢",
+        "zh-Hans": "沙堡宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Compaction",

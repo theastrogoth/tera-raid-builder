@@ -1,5 +1,16 @@
 {
     "name": "Glalie",
+    "category": {
+        "en": "Face Pokémon",
+        "ja": "がんめんポケモン",
+        "fr": "Pokémon Face",
+        "es": "Pokémon Cara",
+        "de": "Antlitz-Pokémon",
+        "it": "Pokémon Tuttomuso",
+        "ko": "얼굴포켓몬",
+        "zh-Hant": "臉面寶可夢",
+        "zh-Hans": "脸面宝可梦"
+    },
     "abilities": [
         {
             "name": "Inner Focus",

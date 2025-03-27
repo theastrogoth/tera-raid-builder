@@ -1,5 +1,16 @@
 {
     "name": "Shroodle",
+    "category": {
+        "en": "Toxic Mouse Pokémon",
+        "ja": "どくねずみポケモン",
+        "fr": "Pokémon Souris Venin",
+        "es": "Pokémon Ratón Veneno",
+        "de": "Giftmaus-Pokémon",
+        "it": "Pokémon Velentopo",
+        "ko": "독쥐포켓몬",
+        "zh-Hant": "毒鼠寶可夢",
+        "zh-Hans": "毒鼠宝可梦"
+    },
     "abilities": [
         {
             "name": "Unburden",

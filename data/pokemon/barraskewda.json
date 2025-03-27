@@ -1,5 +1,16 @@
 {
     "name": "Barraskewda",
+    "category": {
+        "en": "Skewer Pokémon",
+        "ja": "くしざしポケモン",
+        "fr": "Pokémon Transperceur",
+        "es": "Pokémon Ensarta",
+        "de": "Spieß-Pokémon",
+        "it": "Pokémon Spiedo",
+        "ko": "꼬치포켓몬",
+        "zh-Hant": "穿刺寶可夢",
+        "zh-Hans": "穿刺宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

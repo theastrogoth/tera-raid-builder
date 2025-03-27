@@ -1,5 +1,16 @@
 {
     "name": "Hitmontop",
+    "category": {
+        "en": "Handstand Pokémon",
+        "ja": "さかだちポケモン",
+        "fr": "Pokémon Poirier",
+        "es": "Pokémon Boca Abajo",
+        "de": "Kopfstand-Pokémon",
+        "it": "Pokémon Verticale",
+        "ko": "물구나무포켓몬",
+        "zh-Hant": "倒立寶可夢",
+        "zh-Hans": "倒立宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

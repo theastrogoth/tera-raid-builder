@@ -1,5 +1,16 @@
 {
     "name": "Alakazam-Mega",
+    "category": {
+        "en": "Psi Pokémon",
+        "ja": "ねんりきポケモン",
+        "fr": "Pokémon Psy",
+        "es": "Pokémon Psi",
+        "de": "Psi-Pokémon",
+        "it": "Pokémon Psico",
+        "ko": "초능력포켓몬",
+        "zh-Hant": "念力寶可夢",
+        "zh-Hans": "念力宝可梦"
+    },
     "abilities": [
         {
             "name": "Trace",

@@ -1,5 +1,16 @@
 {
     "name": "Wingull",
+    "category": {
+        "en": "Seagull Pokémon",
+        "ja": "うみねこポケモン",
+        "fr": "Pokémon Mouette",
+        "es": "Pokémon Gaviota",
+        "de": "Seemöwen-Pokémon",
+        "it": "Pokémon Gabbiano",
+        "ko": "괭이갈매기포켓몬",
+        "zh-Hant": "海鷗寶可夢",
+        "zh-Hans": "海鸥宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

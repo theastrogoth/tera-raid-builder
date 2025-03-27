@@ -1,5 +1,16 @@
 {
     "name": "Darkrai",
+    "category": {
+        "en": "Pitch-Black Pokémon",
+        "ja": "あんこくポケモン",
+        "fr": "Pokémon Noirtotal",
+        "es": "Pokémon Oscuridad",
+        "de": "Dunkelnacht-Pokémon",
+        "it": "Pokémon Neropesto",
+        "ko": "암흑포켓몬",
+        "zh-Hant": "暗黑寶可夢",
+        "zh-Hans": "暗黑宝可梦"
+    },
     "abilities": [
         {
             "name": "Bad Dreams",

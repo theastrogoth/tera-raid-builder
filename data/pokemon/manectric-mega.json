@@ -1,5 +1,16 @@
 {
     "name": "Manectric-Mega",
+    "category": {
+        "en": "Discharge Pokémon",
+        "ja": "ほうでんポケモン",
+        "fr": "Pokémon Décharge",
+        "es": "Pokémon Descarga",
+        "de": "Entladungs-Pokémon",
+        "it": "Pokémon Scossa",
+        "ko": "방전포켓몬",
+        "zh-Hant": "放電寶可夢",
+        "zh-Hans": "放电宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

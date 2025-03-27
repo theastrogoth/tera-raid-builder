@@ -1,5 +1,16 @@
 {
     "name": "Stakataka",
+    "category": {
+        "en": "Rampart Pokémon",
+        "ja": "いしがきポケモン",
+        "fr": "Pokémon Muraille",
+        "es": "Pokémon Muro",
+        "de": "Steinmauer-Pokémon",
+        "it": "Pokémon Bastione",
+        "ko": "돌담포켓몬",
+        "zh-Hant": "石牆寶可夢",
+        "zh-Hans": "石墙宝可梦"
+    },
     "abilities": [
         {
             "name": "Beast Boost",

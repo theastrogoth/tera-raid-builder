@@ -1,5 +1,16 @@
 {
     "name": "Capsakid",
+    "category": {
+        "en": "Spicy Pepper Pokémon",
+        "ja": "ハバネロポケモン",
+        "fr": "Pokémon Habanero",
+        "es": "Pokémon Habanero",
+        "de": "Habanero-Pokémon",
+        "it": "Pokémon Habanero",
+        "ko": "하바네로포켓몬",
+        "zh-Hant": "熱辣寶可夢",
+        "zh-Hans": "热辣宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

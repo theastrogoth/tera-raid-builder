@@ -1,5 +1,16 @@
 {
     "name": "Munkidori",
+    "category": {
+        "en": "Retainer Pokémon",
+        "ja": "けらいポケモン",
+        "fr": "Pokémon Serviteur",
+        "es": "Pokémon Esbirro",
+        "de": "Lakaien-Pokémon",
+        "it": "Pokémon Servo",
+        "ko": "수하포켓몬",
+        "zh-Hant": "隨從寶可夢",
+        "zh-Hans": "随从宝可梦"
+    },
     "abilities": [
         {
             "name": "Toxic Chain",

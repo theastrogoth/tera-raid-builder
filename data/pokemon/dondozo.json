@@ -1,5 +1,16 @@
 {
     "name": "Dondozo",
+    "category": {
+        "en": "Big Catfish Pokémon",
+        "ja": "おおなまずポケモン",
+        "fr": "Pokémon Grand Silure",
+        "es": "Pokémon Gran Siluro",
+        "de": "Großwels-Pokémon",
+        "it": "Pokémon Pescegattone",
+        "ko": "큰메기포켓몬",
+        "zh-Hant": "大鯰寶可夢",
+        "zh-Hans": "大鲶宝可梦"
+    },
     "abilities": [
         {
             "name": "Unaware",

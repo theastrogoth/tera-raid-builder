@@ -1,5 +1,16 @@
 {
     "name": "Manaphy",
+    "category": {
+        "en": "Seafaring Pokémon",
+        "ja": "かいゆうポケモン",
+        "fr": "Pokémon Voyagenmer",
+        "es": "Pokémon Náutico",
+        "de": "Seefahrer-Pokémon",
+        "it": "Pokémon Oceandante",
+        "ko": "회유포켓몬",
+        "zh-Hant": "洄游寶可夢",
+        "zh-Hans": "回游宝可梦"
+    },
     "abilities": [
         {
             "name": "Hydration",

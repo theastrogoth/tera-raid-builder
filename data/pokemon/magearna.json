@@ -1,5 +1,16 @@
 {
     "name": "Magearna",
+    "category": {
+        "en": "Artificial Pokémon",
+        "ja": "じんぞうポケモン",
+        "fr": "Pokémon Artificiel",
+        "es": "Pokémon Artificial",
+        "de": "Fabrikats-Pokémon",
+        "it": "Pokémon Artificiale",
+        "ko": "인조포켓몬",
+        "zh-Hant": "人造寶可夢",
+        "zh-Hans": "人造宝可梦"
+    },
     "abilities": [
         {
             "name": "Soul-Heart",

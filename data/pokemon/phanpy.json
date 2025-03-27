@@ -1,5 +1,16 @@
 {
     "name": "Phanpy",
+    "category": {
+        "en": "Long Nose Pokémon",
+        "ja": "ながはなポケモン",
+        "fr": "Pokémon Long-Nez",
+        "es": "Pokémon Narizotas",
+        "de": "Langrüssel-Pokémon",
+        "it": "Pokémon Nasone",
+        "ko": "긴코포켓몬",
+        "zh-Hant": "長鼻寶可夢",
+        "zh-Hans": "长鼻宝可梦"
+    },
     "abilities": [
         {
             "name": "Pickup",

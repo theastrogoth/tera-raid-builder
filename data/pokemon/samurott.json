@@ -1,5 +1,16 @@
 {
     "name": "Samurott",
+    "category": {
+        "en": "Formidable Pokémon",
+        "ja": "かんろくポケモン",
+        "fr": "Pokémon Dignitaire",
+        "es": "Pokémon Majestuoso",
+        "de": "Würde-Pokémon",
+        "it": "Pokémon Dignità",
+        "ko": "관록포켓몬",
+        "zh-Hant": "威嚴寶可夢",
+        "zh-Hans": "威严宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

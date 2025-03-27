@@ -1,5 +1,16 @@
 {
     "name": "Drampa",
+    "category": {
+        "en": "Placid Pokémon",
+        "ja": "ゆうゆうポケモン",
+        "fr": "Pokémon Nonchalant",
+        "es": "Pokémon Sosiego",
+        "de": "Gelassenheits-Pokémon",
+        "it": "Pokémon Tuttacalma",
+        "ko": "느긋누긋포켓몬",
+        "zh-Hant": "悠遊寶可夢",
+        "zh-Hans": "悠游宝可梦"
+    },
     "abilities": [
         {
             "name": "Berserk",

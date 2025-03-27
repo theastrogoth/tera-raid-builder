@@ -1,5 +1,16 @@
 {
     "name": "Mudsdale",
+    "category": {
+        "en": "Draft Horse Pokémon",
+        "ja": "ばんばポケモン",
+        "fr": "Pokémon Cheval Trait",
+        "es": "Pokémon Caballo Tiro",
+        "de": "Zugpferd-Pokémon",
+        "it": "Pokémon Fortequino",
+        "ko": "만마포켓몬",
+        "zh-Hant": "挽馬寶可夢",
+        "zh-Hans": "挽马宝可梦"
+    },
     "abilities": [
         {
             "name": "Own Tempo",

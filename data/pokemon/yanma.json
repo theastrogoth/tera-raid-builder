@@ -1,5 +1,16 @@
 {
     "name": "Yanma",
+    "category": {
+        "en": "Clear Wing Pokémon",
+        "ja": "うすばねポケモン",
+        "fr": "Pokémon Translaile",
+        "es": "Pokémon Ala Clara",
+        "de": "Libellen-Pokémon",
+        "it": "Pokémon Alachiara",
+        "ko": "얇은날개포켓몬",
+        "zh-Hant": "薄翼寶可夢",
+        "zh-Hans": "薄翼宝可梦"
+    },
     "abilities": [
         {
             "name": "Speed Boost",

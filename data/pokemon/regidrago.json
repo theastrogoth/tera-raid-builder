@@ -1,5 +1,16 @@
 {
     "name": "Regidrago",
+    "category": {
+        "en": "Dragon Orb Pokémon",
+        "ja": "りゅうぎょくポケモン",
+        "fr": "Pokémon Boule Dragon",
+        "es": "Pokémon Dragosfera",
+        "de": "Drachenkugel-Pokémon",
+        "it": "Pokémon Dracosfera",
+        "ko": "용옥포켓몬",
+        "zh-Hant": "龍玉寶可夢",
+        "zh-Hans": "龙玉宝可梦"
+    },
     "abilities": [
         {
             "name": "Dragon's Maw",

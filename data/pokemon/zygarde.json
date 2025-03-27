@@ -1,5 +1,16 @@
 {
     "name": "Zygarde",
+    "category": {
+        "en": "Order Pokémon",
+        "ja": "ちつじょポケモン",
+        "fr": "Pokémon Équilibre",
+        "es": "Pokémon Equilibrio",
+        "de": "Ordnungs-Pokémon",
+        "it": "Pokémon Equilibrio",
+        "ko": "질서포켓몬",
+        "zh-Hant": "秩序寶可夢",
+        "zh-Hans": "秩序宝可梦"
+    },
     "abilities": [
         {
             "name": "Aura Break",

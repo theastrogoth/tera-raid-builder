@@ -1,5 +1,16 @@
 {
     "name": "Slowbro",
+    "category": {
+        "en": "Hermit Crab Pokémon",
+        "ja": "やどかりポケモン",
+        "fr": "Pokémon Symbiose",
+        "es": "Pokémon Ermitaño",
+        "de": "Symbiose-Pokémon",
+        "it": "Pokémon Paguro",
+        "ko": "기생포켓몬",
+        "zh-Hant": "寄居蟹寶可夢",
+        "zh-Hans": "寄居蟹宝可梦"
+    },
     "abilities": [
         {
             "name": "Oblivious",

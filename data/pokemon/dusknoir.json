@@ -1,5 +1,16 @@
 {
     "name": "Dusknoir",
+    "category": {
+        "en": "Gripper Pokémon",
+        "ja": "てづかみポケモン",
+        "fr": "Pokémon Mainpince",
+        "es": "Pokémon Grilletes",
+        "de": "Greifer-Pokémon",
+        "it": "Pokémon Pinza",
+        "ko": "움켜쥐기포켓몬",
+        "zh-Hant": "抓握寶可夢",
+        "zh-Hans": "抓握宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

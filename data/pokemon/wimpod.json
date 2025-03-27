@@ -1,5 +1,16 @@
 {
     "name": "Wimpod",
+    "category": {
+        "en": "Turn Tail Pokémon",
+        "ja": "そうこうポケモン",
+        "fr": "Pokémon Cavaleur",
+        "es": "Pokémon Huidizo",
+        "de": "Laufschritt-Pokémon",
+        "it": "Pokémon Lestopode",
+        "ko": "주행포켓몬",
+        "zh-Hant": "疾行寶可夢",
+        "zh-Hans": "疾行宝可梦"
+    },
     "abilities": [
         {
             "name": "Wimp Out",

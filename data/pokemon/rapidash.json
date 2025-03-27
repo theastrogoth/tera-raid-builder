@@ -1,5 +1,16 @@
 {
     "name": "Rapidash",
+    "category": {
+        "en": "Fire Horse Pokémon",
+        "ja": "ひのうまポケモン",
+        "fr": "Pokémon Cheval Feu",
+        "es": "Pokémon Caballo Fuego",
+        "de": "Feuerpferd-Pokémon",
+        "it": "Pokémon Cavalfuoco",
+        "ko": "불의말포켓몬",
+        "zh-Hant": "火馬寶可夢",
+        "zh-Hans": "火马宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

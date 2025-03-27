@@ -1,5 +1,16 @@
 {
     "name": "Kricketot",
+    "category": {
+        "en": "Cricket Pokémon",
+        "ja": "こおろぎポケモン",
+        "fr": "Pokémon Criquet",
+        "es": "Pokémon Grillo",
+        "de": "Zirper-Pokémon",
+        "it": "Pokémon Grillo",
+        "ko": "귀뚜라미포켓몬",
+        "zh-Hant": "蟋蟀寶可夢",
+        "zh-Hans": "蟋蟀宝可梦"
+    },
     "abilities": [
         {
             "name": "Shed Skin",

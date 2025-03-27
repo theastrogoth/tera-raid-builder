@@ -1,5 +1,16 @@
 {
     "name": "Tyrunt",
+    "category": {
+        "en": "Royal Heir Pokémon",
+        "ja": "ようくんポケモン",
+        "fr": "Pokémon Prince",
+        "es": "Pokémon Heredero",
+        "de": "Kronprinz-Pokémon",
+        "it": "Pokémon Principino",
+        "ko": "유군포켓몬",
+        "zh-Hant": "幼君寶可夢",
+        "zh-Hans": "幼君宝可梦"
+    },
     "abilities": [
         {
             "name": "Strong Jaw",

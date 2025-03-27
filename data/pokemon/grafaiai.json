@@ -1,5 +1,16 @@
 {
     "name": "Grafaiai",
+    "category": {
+        "en": "Toxic Monkey Pokémon",
+        "ja": "どくざるポケモン",
+        "fr": "Pokémon Singe Venin",
+        "es": "Pokémon Mono Veneno",
+        "de": "Giftaffen-Pokémon",
+        "it": "Pokémon Velenprimate",
+        "ko": "독원숭이포켓몬",
+        "zh-Hant": "毒猴寶可夢",
+        "zh-Hans": "毒猴宝可梦"
+    },
     "abilities": [
         {
             "name": "Unburden",

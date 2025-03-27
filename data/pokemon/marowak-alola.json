@@ -1,5 +1,16 @@
 {
     "name": "Marowak-Alola",
+    "category": {
+        "en": "Bone Keeper Pokémon",
+        "ja": "ほねずきポケモン",
+        "fr": "Pokémon Gard'Os",
+        "es": "Pokémon Apilahueso",
+        "de": "Knochenfan-Pokémon",
+        "it": "Pokémon Guardaossi",
+        "ko": "뼈다귀포켓몬",
+        "zh-Hant": "愛骨寶可夢",
+        "zh-Hans": "爱骨宝可梦"
+    },
     "abilities": [
         {
             "name": "Cursed Body",

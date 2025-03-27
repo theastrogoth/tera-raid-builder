@@ -1,5 +1,16 @@
 {
     "name": "Bidoof",
+    "category": {
+        "en": "Plump Mouse Pokémon",
+        "ja": "まるねずみポケモン",
+        "fr": "Pokémon Souridodue",
+        "es": "Pokémon Gran Ratón",
+        "de": "Dickmaus-Pokémon",
+        "it": "Pokémon Topaffuto",
+        "ko": "둥글쥐포켓몬",
+        "zh-Hant": "圓鼠寶可夢",
+        "zh-Hans": "圆鼠宝可梦"
+    },
     "abilities": [
         {
             "name": "Simple",

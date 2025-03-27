@@ -1,5 +1,16 @@
 {
     "name": "Torchic",
+    "category": {
+        "en": "Chick Pokémon",
+        "ja": "ひよこポケモン",
+        "fr": "Pokémon Poussin",
+        "es": "Pokémon Polluelo",
+        "de": "Küken-Pokémon",
+        "it": "Pokémon Pulcino",
+        "ko": "풋내기포켓몬",
+        "zh-Hant": "雛雞寶可夢",
+        "zh-Hans": "雏鸡宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

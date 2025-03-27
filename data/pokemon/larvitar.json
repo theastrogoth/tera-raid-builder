@@ -1,5 +1,16 @@
 {
     "name": "Larvitar",
+    "category": {
+        "en": "Rock Skin Pokémon",
+        "ja": "いわはだポケモン",
+        "fr": "Pokémon Peaupierre",
+        "es": "Pokémon Piel Roca",
+        "de": "Felshaut-Pokémon",
+        "it": "Pokémon Peldisasso",
+        "ko": "바위표면포켓몬",
+        "zh-Hant": "岩石膚寶可夢",
+        "zh-Hans": "岩石肤宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

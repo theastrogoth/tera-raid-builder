@@ -1,5 +1,16 @@
 {
     "name": "Heatran",
+    "category": {
+        "en": "Lava Dome Pokémon",
+        "ja": "かこうポケモン",
+        "fr": "Pokémon Caldeira",
+        "es": "Pokémon Domo Lava",
+        "de": "Lavadom-Pokémon",
+        "it": "Pokémon Cratere",
+        "ko": "화구포켓몬",
+        "zh-Hant": "火山口寶可夢",
+        "zh-Hans": "火山口宝可梦"
+    },
     "abilities": [
         {
             "name": "Flash Fire",

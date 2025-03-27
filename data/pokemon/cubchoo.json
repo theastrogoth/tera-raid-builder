@@ -1,5 +1,16 @@
 {
     "name": "Cubchoo",
+    "category": {
+        "en": "Chill Pokémon",
+        "ja": "ひょうけつポケモン",
+        "fr": "Pokémon Gelé",
+        "es": "Pokémon Congelación",
+        "de": "Eisschollen-Pokémon",
+        "it": "Pokémon Freddo",
+        "ko": "빙결포켓몬",
+        "zh-Hant": "結冰寶可夢",
+        "zh-Hans": "结冰宝可梦"
+    },
     "abilities": [
         {
             "name": "Snow Cloak",

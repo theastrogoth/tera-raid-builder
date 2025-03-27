@@ -1,5 +1,16 @@
 {
     "name": "Rhydon",
+    "category": {
+        "en": "Drill Pokémon",
+        "ja": "ドリルポケモン",
+        "fr": "Pokémon Perceur",
+        "es": "Pokémon Taladro",
+        "de": "Bohrer-Pokémon",
+        "it": "Pokémon Trapano",
+        "ko": "드릴포켓몬",
+        "zh-Hant": "鑽錐寶可夢",
+        "zh-Hans": "钻锥宝可梦"
+    },
     "abilities": [
         {
             "name": "Lightning Rod",

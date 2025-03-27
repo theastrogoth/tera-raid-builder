@@ -1,5 +1,16 @@
 {
     "name": "Regieleki",
+    "category": {
+        "en": "Electron Pokémon",
+        "ja": "エレクトロンポケモン",
+        "fr": "Pokémon Électron",
+        "es": "Pokémon Electrón",
+        "de": "Elektronen-Pokémon",
+        "it": "Pokémon Elettrone",
+        "ko": "일렉트론포켓몬",
+        "zh-Hant": "電子寶可夢",
+        "zh-Hans": "电子宝可梦"
+    },
     "abilities": [
         {
             "name": "Transistor",

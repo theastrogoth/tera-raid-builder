@@ -1,5 +1,16 @@
 {
     "name": "Victreebel",
+    "category": {
+        "en": "Flycatcher Pokémon",
+        "ja": "ハエとりポケモン",
+        "fr": "Pokémon Carnivore",
+        "es": "Pokémon Atrapamoscas",
+        "de": "Fliegentod-Pokémon",
+        "it": "Pokémon Moschivoro",
+        "ko": "파리잡이포켓몬",
+        "zh-Hant": "捕蠅寶可夢",
+        "zh-Hans": "捕蝇宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

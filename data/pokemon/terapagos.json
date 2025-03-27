@@ -1,5 +1,16 @@
 {
     "name": "Terapagos",
+    "category": {
+        "en": "Tera Pokémon",
+        "ja": "テラスタルポケモン",
+        "fr": "Pokémon Téracristal",
+        "es": "Pokémon Teracristal",
+        "de": "Terakristall-Pokémon",
+        "it": "Pokémon Teracristal",
+        "ko": "테라스탈포켓몬",
+        "zh-Hant": "太晶寶可夢",
+        "zh-Hans": "太晶宝可梦"
+    },
     "abilities": [
         {
             "name": "Tera Shift",

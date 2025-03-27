@@ -1,5 +1,16 @@
 {
     "name": "Mothim",
+    "category": {
+        "en": "Moth Pokémon",
+        "ja": "ミノガポケモン",
+        "fr": "Pokémon Phalène",
+        "es": "Pokémon Polilla",
+        "de": "Motten-Pokémon",
+        "it": "Pokémon Falena",
+        "ko": "나방포켓몬",
+        "zh-Hant": "蓑衣蛾寶可夢",
+        "zh-Hans": "蓑衣蛾宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

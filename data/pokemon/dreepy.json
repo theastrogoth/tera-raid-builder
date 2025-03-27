@@ -1,5 +1,16 @@
 {
     "name": "Dreepy",
+    "category": {
+        "en": "Lingering Pokémon",
+        "ja": "うらめしポケモン",
+        "fr": "Pokémon Âme Errante",
+        "es": "Pokémon Resentido",
+        "de": "Missgunst-Pokémon",
+        "it": "Pokémon Risentimento",
+        "ko": "원망포켓몬",
+        "zh-Hant": "哀怨寶可夢",
+        "zh-Hans": "哀怨宝可梦"
+    },
     "abilities": [
         {
             "name": "Clear Body",

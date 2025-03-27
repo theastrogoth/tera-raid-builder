@@ -1,5 +1,16 @@
 {
     "name": "Pawniard",
+    "category": {
+        "en": "Sharp Blade Pokémon",
+        "ja": "はものポケモン",
+        "fr": "Pokémon Coupant",
+        "es": "Pokémon Tajo",
+        "de": "Stahlklingen-Pokémon",
+        "it": "Pokémon Lamaffilata",
+        "ko": "날붙이포켓몬",
+        "zh-Hant": "利器寶可夢",
+        "zh-Hans": "利器宝可梦"
+    },
     "abilities": [
         {
             "name": "Defiant",

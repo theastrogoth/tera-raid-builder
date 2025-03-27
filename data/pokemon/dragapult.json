@@ -1,5 +1,16 @@
 {
     "name": "Dragapult",
+    "category": {
+        "en": "Stealth Pokémon",
+        "ja": "ステルスポケモン",
+        "fr": "Pokémon Furtif",
+        "es": "Pokémon Furtivo",
+        "de": "Tarnkünstler-Pokémon",
+        "it": "Pokémon Furtivo",
+        "ko": "스텔스포켓몬",
+        "zh-Hant": "隱形寶可夢",
+        "zh-Hans": "隐形宝可梦"
+    },
     "abilities": [
         {
             "name": "Clear Body",

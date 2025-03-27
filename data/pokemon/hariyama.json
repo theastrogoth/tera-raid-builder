@@ -1,5 +1,16 @@
 {
     "name": "Hariyama",
+    "category": {
+        "en": "Arm Thrust Pokémon",
+        "ja": "つっぱりポケモン",
+        "fr": "Pokémon Cogneur",
+        "es": "Pokémon Empuje",
+        "de": "Armwurf-Pokémon",
+        "it": "Pokémon Sberletese",
+        "ko": "손바닥치기포켓몬",
+        "zh-Hant": "猛推寶可夢",
+        "zh-Hans": "猛推宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

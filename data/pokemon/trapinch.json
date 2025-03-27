@@ -1,5 +1,16 @@
 {
     "name": "Trapinch",
+    "category": {
+        "en": "Ant Pit Pokémon",
+        "ja": "ありじごくポケモン",
+        "fr": "Pokémon Piégeur",
+        "es": "Pokémon Hormiga León",
+        "de": "Ameisenlöwen-Pokémon",
+        "it": "Pokémon Formicaleone",
+        "ko": "개미지옥포켓몬",
+        "zh-Hant": "蟻獅寶可夢",
+        "zh-Hans": "蚁狮宝可梦"
+    },
     "abilities": [
         {
             "name": "Hyper Cutter",

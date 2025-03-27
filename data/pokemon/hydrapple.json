@@ -1,5 +1,16 @@
 {
     "name": "Hydrapple",
+    "category": {
+        "en": "Apple Hydra Pokémon",
+        "ja": "りんごオロチポケモン",
+        "fr": "Pokémon Hydre Pomme",
+        "es": "Pokémon Manzanhidra",
+        "de": "Apfelhydra-Pokémon",
+        "it": "Pokémon Pomidra",
+        "ko": "사과이무기포켓몬",
+        "zh-Hant": "蘋果大蛇寶可夢",
+        "zh-Hans": "苹果大蛇宝可梦"
+    },
     "abilities": [
         {
             "name": "Supersweet Syrup",

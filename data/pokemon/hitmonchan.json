@@ -1,5 +1,16 @@
 {
     "name": "Hitmonchan",
+    "category": {
+        "en": "Punching Pokémon",
+        "ja": "パンチポケモン",
+        "fr": "Pokémon Puncheur",
+        "es": "Pokémon Puñetazo",
+        "de": "Puncher-Pokémon",
+        "it": "Pokémon Tirapugni",
+        "ko": "펀치포켓몬",
+        "zh-Hant": "拳擊寶可夢",
+        "zh-Hans": "拳击宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

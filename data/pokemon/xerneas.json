@@ -1,5 +1,16 @@
 {
     "name": "Xerneas",
+    "category": {
+        "en": "Life Pokémon",
+        "ja": "せいめいポケモン",
+        "fr": "Pokémon Existence",
+        "es": "Pokémon Creación",
+        "de": "Lebens-Pokémon",
+        "it": "Pokémon Creazione",
+        "ko": "생명포켓몬",
+        "zh-Hant": "生命寶可夢",
+        "zh-Hans": "生命宝可梦"
+    },
     "abilities": [
         {
             "name": "Fairy Aura",

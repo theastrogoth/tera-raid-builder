@@ -1,5 +1,16 @@
 {
     "name": "Bronzor",
+    "category": {
+        "en": "Bronze Pokémon",
+        "ja": "せいどうポケモン",
+        "fr": "Pokémon Bronze",
+        "es": "Pokémon Bronce",
+        "de": "Bronze-Pokémon",
+        "it": "Pokémon Bronzo",
+        "ko": "청동포켓몬",
+        "zh-Hant": "青銅寶可夢",
+        "zh-Hans": "青铜宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

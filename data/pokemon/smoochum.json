@@ -1,5 +1,16 @@
 {
     "name": "Smoochum",
+    "category": {
+        "en": "Kiss Pokémon",
+        "ja": "くちづけポケモン",
+        "fr": "Pokémon Bisou",
+        "es": "Pokémon Beso",
+        "de": "Kuss-Pokémon",
+        "it": "Pokémon Bacio",
+        "ko": "뽀뽀포켓몬",
+        "zh-Hant": "親吻寶可夢",
+        "zh-Hans": "亲吻宝可梦"
+    },
     "abilities": [
         {
             "name": "Oblivious",

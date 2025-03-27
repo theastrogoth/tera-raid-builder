@@ -1,5 +1,16 @@
 {
     "name": "Tornadus-Therian",
+    "category": {
+        "en": "Cyclone Pokémon",
+        "ja": "せんぷうポケモン",
+        "fr": "Pokémon Tornade",
+        "es": "Pokémon Torbellino",
+        "de": "Wirbelsturm-Pokémon",
+        "it": "Pokémon Turbinio",
+        "ko": "선풍포켓몬",
+        "zh-Hant": "旋風寶可夢",
+        "zh-Hans": "旋风宝可梦"
+    },
     "abilities": [
         {
             "name": "Regenerator",

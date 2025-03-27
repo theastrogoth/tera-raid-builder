@@ -1,5 +1,16 @@
 {
     "name": "Miltank",
+    "category": {
+        "en": "Milk Cow Pokémon",
+        "ja": "ちちうしポケモン",
+        "fr": "Pokémon Vachalait",
+        "es": "Pokémon Lechera",
+        "de": "Milchkuh-Pokémon",
+        "it": "Pokémon Bovino",
+        "ko": "젖소포켓몬",
+        "zh-Hant": "乳牛寶可夢",
+        "zh-Hans": "奶牛宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

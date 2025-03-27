@@ -1,5 +1,16 @@
 {
     "name": "Arbok",
+    "category": {
+        "en": "Cobra Pokémon",
+        "ja": "コブラポケモン",
+        "fr": "Pokémon Cobra",
+        "es": "Pokémon Cobra",
+        "de": "Kobra-Pokémon",
+        "it": "Pokémon Cobra",
+        "ko": "코브라포켓몬",
+        "zh-Hant": "眼鏡蛇寶可夢",
+        "zh-Hans": "眼镜蛇宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

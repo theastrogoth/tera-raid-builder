@@ -1,5 +1,16 @@
 {
     "name": "Charcadet",
+    "category": {
+        "en": "Fire Child Pokémon",
+        "ja": "ひのこポケモン",
+        "fr": "Pokémon Enfant Feu",
+        "es": "Pokémon Piroescudero",
+        "de": "Feuerkind-Pokémon",
+        "it": "Pokémon Infantigneo",
+        "ko": "불의아이포켓몬",
+        "zh-Hant": "小火星寶可夢",
+        "zh-Hans": "小火星宝可梦"
+    },
     "abilities": [
         {
             "name": "Flash Fire",

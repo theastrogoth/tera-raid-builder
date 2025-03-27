@@ -1,5 +1,16 @@
 {
     "name": "Floragato",
+    "category": {
+        "en": "Grass Cat Pokémon",
+        "ja": "くさねこポケモン",
+        "fr": "Pokémon Chat Plante",
+        "es": "Pokémon Gato Planta",
+        "de": "Florakatzen-Pokémon",
+        "it": "Pokémon Erbagatto",
+        "ko": "풀고양이포켓몬",
+        "zh-Hant": "草貓寶可夢",
+        "zh-Hans": "草猫宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

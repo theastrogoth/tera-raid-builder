@@ -1,5 +1,16 @@
 {
     "name": "Swadloon",
+    "category": {
+        "en": "Leaf-Wrapped Pokémon",
+        "ja": "はごもりポケモン",
+        "fr": "Pokémon Capefeuille",
+        "es": "Pokémon Arropado",
+        "de": "Wickelblatt-Pokémon",
+        "it": "Pokémon Coprifoglia",
+        "ko": "잎숨기포켓몬",
+        "zh-Hant": "足不出葉寶可夢",
+        "zh-Hans": "足不出叶宝可梦"
+    },
     "abilities": [
         {
             "name": "Leaf Guard",

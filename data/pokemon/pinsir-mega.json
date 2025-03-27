@@ -1,5 +1,16 @@
 {
     "name": "Pinsir-Mega",
+    "category": {
+        "en": "Stag Beetle Pokémon",
+        "ja": "くわがたポケモン",
+        "fr": "Pokémon Scarabée",
+        "es": "Pokémon Escarabajo",
+        "de": "Kneifkäfer-Pokémon",
+        "it": "Pokémon Cervolante",
+        "ko": "뿔집게포켓몬",
+        "zh-Hant": "鍬形蟲寶可夢",
+        "zh-Hans": "锹形虫宝可梦"
+    },
     "abilities": [
         {
             "name": "Aerilate",

@@ -1,5 +1,16 @@
 {
     "name": "Mr. Mime",
+    "category": {
+        "en": "Barrier Pokémon",
+        "ja": "バリアーポケモン",
+        "fr": "Pokémon Bloqueur",
+        "es": "Pokémon Barrera",
+        "de": "Sperren-Pokémon",
+        "it": "Pokémon Barriera",
+        "ko": "배리어포켓몬",
+        "zh-Hant": "屏障寶可夢",
+        "zh-Hans": "屏障宝可梦"
+    },
     "abilities": [
         {
             "name": "Soundproof",

@@ -1,5 +1,16 @@
 {
     "name": "Slakoth",
+    "category": {
+        "en": "Slacker Pokémon",
+        "ja": "なまけものポケモン",
+        "fr": "Pokémon Flâneur",
+        "es": "Pokémon Gandul",
+        "de": "Faulpelz-Pokémon",
+        "it": "Pokémon Ozioso",
+        "ko": "게으름뱅이포켓몬",
+        "zh-Hant": "懶人寶可夢",
+        "zh-Hans": "懒人宝可梦"
+    },
     "abilities": [
         {
             "name": "Truant",

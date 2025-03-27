@@ -1,5 +1,16 @@
 {
     "name": "Ogerpon-Hearthflame",
+    "category": {
+        "en": "Mask Pokémon",
+        "ja": "おめんポケモン",
+        "fr": "Pokémon Masque",
+        "es": "Pokémon Máscara",
+        "de": "Masken-Pokémon",
+        "it": "Pokémon Maschera",
+        "ko": "가면포켓몬",
+        "zh-Hant": "面具寶可夢",
+        "zh-Hans": "面具宝可梦"
+    },
     "abilities": [
         {
             "name": "Mold Breaker",

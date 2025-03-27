@@ -1,5 +1,16 @@
 {
     "name": "Sewaddle",
+    "category": {
+        "en": "Sewing Pokémon",
+        "ja": "さいほうポケモン",
+        "fr": "Pokémon Couture",
+        "es": "Pokémon Sastre",
+        "de": "Schneider-Pokémon",
+        "it": "Pokémon Grancucito",
+        "ko": "재봉포켓몬",
+        "zh-Hant": "裁縫寶可夢",
+        "zh-Hans": "裁缝宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

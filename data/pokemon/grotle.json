@@ -1,5 +1,16 @@
 {
     "name": "Grotle",
+    "category": {
+        "en": "Grove Pokémon",
+        "ja": "こだちポケモン",
+        "fr": "Pokémon Bosquet",
+        "es": "Pokémon Arboleda",
+        "de": "Hain-Pokémon",
+        "it": "Pokémon Boschetto",
+        "ko": "나무숲포켓몬",
+        "zh-Hant": "樹叢寶可夢",
+        "zh-Hans": "树丛宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

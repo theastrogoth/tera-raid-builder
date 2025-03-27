@@ -1,5 +1,16 @@
 {
     "name": "Eldegoss",
+    "category": {
+        "en": "Cotton Bloom Pokémon",
+        "ja": "わたかざりポケモン",
+        "fr": "Pokémon Chef-Coton",
+        "es": "Pokémon Adornalgodón",
+        "de": "Baumwollzier-Pokémon",
+        "it": "Pokémon Cotofronzolo",
+        "ko": "솜장식포켓몬",
+        "zh-Hant": "棉飾寶可夢",
+        "zh-Hans": "棉饰宝可梦"
+    },
     "abilities": [
         {
             "name": "Cotton Down",

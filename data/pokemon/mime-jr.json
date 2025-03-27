@@ -1,5 +1,16 @@
 {
     "name": "Mime Jr.",
+    "category": {
+        "en": "Mime Pokémon",
+        "ja": "マイムポケモン",
+        "fr": "Pokémon Mime",
+        "es": "Pokémon Mimo",
+        "de": "Mimen-Pokémon",
+        "it": "Pokémon Mimo",
+        "ko": "따라하기포켓몬",
+        "zh-Hant": "默劇寶可夢",
+        "zh-Hans": "默剧宝可梦"
+    },
     "abilities": [
         {
             "name": "Soundproof",

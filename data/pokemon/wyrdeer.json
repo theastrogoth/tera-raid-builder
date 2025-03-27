@@ -1,5 +1,16 @@
 {
     "name": "Wyrdeer",
+    "category": {
+        "en": "Big Horn Pokémon",
+        "ja": "おおツノポケモン",
+        "fr": "Pokémon Maxi Corne",
+        "es": "Pokémon Gran Cuerno",
+        "de": "Vielender-Pokémon",
+        "it": "Pokémon Grancorno",
+        "ko": "큰뿔포켓몬",
+        "zh-Hant": "大角寶可夢",
+        "zh-Hans": "大角宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

@@ -1,5 +1,16 @@
 {
     "name": "Corphish",
+    "category": {
+        "en": "Ruffian Pokémon",
+        "ja": "ごろつきポケモン",
+        "fr": "Pokémon Brute",
+        "es": "Pokémon Rufián",
+        "de": "Grobian-Pokémon",
+        "it": "Pokémon Birbone",
+        "ko": "건달포켓몬",
+        "zh-Hant": "無賴寶可夢",
+        "zh-Hans": "无赖宝可梦"
+    },
     "abilities": [
         {
             "name": "Hyper Cutter",

@@ -1,5 +1,16 @@
 {
     "name": "Marshadow",
+    "category": {
+        "en": "Gloomdweller Pokémon",
+        "ja": "かげすみポケモン",
+        "fr": "Pokémon Ombrefuge",
+        "es": "Pokémon Morasombra",
+        "de": "Dunkelwesen-Pokémon",
+        "it": "Pokémon Vivinombra",
+        "ko": "그림자살이포켓몬",
+        "zh-Hant": "棲影寶可夢",
+        "zh-Hans": "栖影宝可梦"
+    },
     "abilities": [
         {
             "name": "Technician",

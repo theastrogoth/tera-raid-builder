@@ -1,5 +1,16 @@
 {
     "name": "Wailord",
+    "category": {
+        "en": "Float Whale Pokémon",
+        "ja": "うきくじらポケモン",
+        "fr": "Pokémon Cachabouée",
+        "es": "Pokémon Ballenaflot",
+        "de": "Flutwal-Pokémon",
+        "it": "Pokémon Megabalena",
+        "ko": "뜸고래포켓몬",
+        "zh-Hant": "浮鯨寶可夢",
+        "zh-Hans": "浮鲸宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Veil",

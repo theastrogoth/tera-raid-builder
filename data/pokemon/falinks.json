@@ -1,5 +1,16 @@
 {
     "name": "Falinks",
+    "category": {
+        "en": "Formation Pokémon",
+        "ja": "じんけいポケモン",
+        "fr": "Pokémon Escadron",
+        "es": "Pokémon Formación",
+        "de": "Formations-Pokémon",
+        "it": "Pokémon Schieramento",
+        "ko": "진형포켓몬",
+        "zh-Hant": "陣形寶可夢",
+        "zh-Hans": "阵形宝可梦"
+    },
     "abilities": [
         {
             "name": "Battle Armor",

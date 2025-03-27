@@ -1,5 +1,16 @@
 {
     "name": "Salamence-Mega",
+    "category": {
+        "en": "Dragon Pokémon",
+        "ja": "ドラゴンポケモン",
+        "fr": "Pokémon Dragon",
+        "es": "Pokémon Dragón",
+        "de": "Drachen-Pokémon",
+        "it": "Pokémon Drago",
+        "ko": "드래곤포켓몬",
+        "zh-Hant": "龍寶可夢",
+        "zh-Hans": "龙宝可梦"
+    },
     "abilities": [
         {
             "name": "Aerilate",

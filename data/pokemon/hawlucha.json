@@ -1,5 +1,16 @@
 {
     "name": "Hawlucha",
+    "category": {
+        "en": "Wrestling Pokémon",
+        "ja": "レスリングポケモン",
+        "fr": "Pokémon Catcheur",
+        "es": "Pokémon Lucha Libre",
+        "de": "Wrestling-Pokémon",
+        "it": "Pokémon Lottalibera",
+        "ko": "레슬링포켓몬",
+        "zh-Hant": "摔角寶可夢",
+        "zh-Hans": "摔角宝可梦"
+    },
     "abilities": [
         {
             "name": "Limber",

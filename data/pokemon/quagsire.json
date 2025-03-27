@@ -1,5 +1,16 @@
 {
     "name": "Quagsire",
+    "category": {
+        "en": "Water Fish Pokémon",
+        "ja": "みずうおポケモン",
+        "fr": "Pokémon Poisson",
+        "es": "Pokémon Pez Agua",
+        "de": "Fisch-Pokémon",
+        "it": "Pokémon Acquapesce",
+        "ko": "수어포켓몬",
+        "zh-Hant": "水魚寶可夢",
+        "zh-Hans": "水鱼宝可梦"
+    },
     "abilities": [
         {
             "name": "Damp",

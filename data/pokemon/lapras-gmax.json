@@ -1,5 +1,16 @@
 {
     "name": "Lapras-Gmax",
+    "category": {
+        "en": "Transport Pokémon",
+        "ja": "のりものポケモン",
+        "fr": "Pokémon Transport",
+        "es": "Pokémon Transporte",
+        "de": "Transport-Pokémon",
+        "it": "Pokémon Trasporto",
+        "ko": "탈것포켓몬",
+        "zh-Hant": "乘載寶可夢",
+        "zh-Hans": "乘载宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Absorb",

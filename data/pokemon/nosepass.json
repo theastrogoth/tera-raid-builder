@@ -1,5 +1,16 @@
 {
     "name": "Nosepass",
+    "category": {
+        "en": "Compass Pokémon",
+        "ja": "コンパスポケモン",
+        "fr": "Pokémon Boussole",
+        "es": "Pokémon Brújula",
+        "de": "Kompass-Pokémon",
+        "it": "Pokémon Bussola",
+        "ko": "컴퍼스포켓몬",
+        "zh-Hant": "羅盤寶可夢",
+        "zh-Hans": "罗盘宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

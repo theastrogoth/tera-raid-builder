@@ -1,5 +1,16 @@
 {
     "name": "Clawitzer",
+    "category": {
+        "en": "Howitzer Pokémon",
+        "ja": "ランチャーポケモン",
+        "fr": "Pokémon Blaster",
+        "es": "Pokémon Lanzachorro",
+        "de": "Aquawummen-Pokémon",
+        "it": "Pokémon Acqualancio",
+        "ko": "런처포켓몬",
+        "zh-Hant": "發射器寶可夢",
+        "zh-Hans": "发射器宝可梦"
+    },
     "abilities": [
         {
             "name": "Mega Launcher",

@@ -1,5 +1,16 @@
 {
     "name": "Volbeat",
+    "category": {
+        "en": "Firefly Pokémon",
+        "ja": "ほたるポケモン",
+        "fr": "Pokémon Luciole",
+        "es": "Pokémon Luciérnaga",
+        "de": "Glühwürmchen-Pokémon",
+        "it": "Pokémon Lucciola",
+        "ko": "반딧불포켓몬",
+        "zh-Hant": "螢火蟲寶可夢",
+        "zh-Hans": "萤火虫宝可梦"
+    },
     "abilities": [
         {
             "name": "Illuminate",

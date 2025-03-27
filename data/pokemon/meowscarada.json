@@ -1,5 +1,16 @@
 {
     "name": "Meowscarada",
+    "category": {
+        "en": "Magician Pokémon",
+        "ja": "マジシャンポケモン",
+        "fr": "Pokémon Magicien",
+        "es": "Pokémon Mago",
+        "de": "Magier-Pokémon",
+        "it": "Pokémon Illusionista",
+        "ko": "매지션포켓몬",
+        "zh-Hant": "魔術師寶可夢",
+        "zh-Hans": "魔术师宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

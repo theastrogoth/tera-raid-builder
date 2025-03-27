@@ -1,5 +1,16 @@
 {
     "name": "Noctowl",
+    "category": {
+        "en": "Owl Pokémon",
+        "ja": "ふくろうポケモン",
+        "fr": "Pokémon Hibou",
+        "es": "Pokémon Búho",
+        "de": "Eulen-Pokémon",
+        "it": "Pokémon Gufo",
+        "ko": "부엉이포켓몬",
+        "zh-Hant": "貓頭鷹寶可夢",
+        "zh-Hans": "猫头鹰宝可梦"
+    },
     "abilities": [
         {
             "name": "Insomnia",

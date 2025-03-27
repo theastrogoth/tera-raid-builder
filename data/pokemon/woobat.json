@@ -1,5 +1,16 @@
 {
     "name": "Woobat",
+    "category": {
+        "en": "Bat Pokémon",
+        "ja": "こうもりポケモン",
+        "fr": "Pokémon Chovsouris",
+        "es": "Pokémon Murciélago",
+        "de": "Fledermaus-Pokémon",
+        "it": "Pokémon Pipistrello",
+        "ko": "박쥐포켓몬",
+        "zh-Hant": "蝙蝠寶可夢",
+        "zh-Hans": "蝙蝠宝可梦"
+    },
     "abilities": [
         {
             "name": "Unaware",

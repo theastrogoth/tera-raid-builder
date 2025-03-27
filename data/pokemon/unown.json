@@ -1,5 +1,16 @@
 {
     "name": "Unown",
+    "category": {
+        "en": "Symbol Pokémon",
+        "ja": "シンボルポケモン",
+        "fr": "Pokémon Symbolique",
+        "es": "Pokémon Símbolo",
+        "de": "Symbol-Pokémon",
+        "it": "Pokémon Simbolo",
+        "ko": "심볼포켓몬",
+        "zh-Hant": "象徵寶可夢",
+        "zh-Hans": "象征宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

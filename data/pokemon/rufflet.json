@@ -1,5 +1,16 @@
 {
     "name": "Rufflet",
+    "category": {
+        "en": "Eaglet Pokémon",
+        "ja": "ヒナわしポケモン",
+        "fr": "Pokémon Aiglon",
+        "es": "Pokémon Aguilucho",
+        "de": "Adlerküken-Pokémon",
+        "it": "Pokémon Aquilotto",
+        "ko": "새끼독수리포켓몬",
+        "zh-Hant": "雛鷹寶可夢",
+        "zh-Hans": "雏鹰宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

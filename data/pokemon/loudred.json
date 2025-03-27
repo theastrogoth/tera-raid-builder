@@ -1,5 +1,16 @@
 {
     "name": "Loudred",
+    "category": {
+        "en": "Big Voice Pokémon",
+        "ja": "おおごえポケモン",
+        "fr": "Pokémon Grosse Voix",
+        "es": "Pokémon Chillón",
+        "de": "Lauthals-Pokémon",
+        "it": "Pokémon Vocione",
+        "ko": "큰목소리포켓몬",
+        "zh-Hant": "大聲寶可夢",
+        "zh-Hans": "大声宝可梦"
+    },
     "abilities": [
         {
             "name": "Soundproof",

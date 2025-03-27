@@ -1,5 +1,16 @@
 {
     "name": "Steelix-Mega",
+    "category": {
+        "en": "Iron Snake Pokémon",
+        "ja": "てつへびポケモン",
+        "fr": "Pokémon Serpenfer",
+        "es": "Pokémon Serpiente Férrea",
+        "de": "Stahlboa-Pokémon",
+        "it": "Pokémon Ferroserpe",
+        "ko": "철뱀포켓몬",
+        "zh-Hant": "鐵蛇寶可夢",
+        "zh-Hans": "铁蛇宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Force",

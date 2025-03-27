@@ -1,5 +1,16 @@
 {
     "name": "Golduck",
+    "category": {
+        "en": "Duck Pokémon",
+        "ja": "あひるポケモン",
+        "fr": "Pokémon Canard",
+        "es": "Pokémon Pato",
+        "de": "Enten-Pokémon",
+        "it": "Pokémon Papero",
+        "ko": "오리포켓몬",
+        "zh-Hant": "鴨寶可夢",
+        "zh-Hans": "鸭宝可梦"
+    },
     "abilities": [
         {
             "name": "Damp",

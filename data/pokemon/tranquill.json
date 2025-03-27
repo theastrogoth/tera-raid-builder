@@ -1,5 +1,16 @@
 {
     "name": "Tranquill",
+    "category": {
+        "en": "Wild Pigeon Pokémon",
+        "ja": "のばとポケモン",
+        "fr": "Pokémon Sauvapigeon",
+        "es": "Pokémon Torcaz",
+        "de": "Wildtauben-Pokémon",
+        "it": "Pokémon Granpiccione",
+        "ko": "들비둘기포켓몬",
+        "zh-Hant": "野鴿寶可夢",
+        "zh-Hans": "野鸽宝可梦"
+    },
     "abilities": [
         {
             "name": "Big Pecks",

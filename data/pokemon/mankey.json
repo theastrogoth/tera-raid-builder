@@ -1,5 +1,16 @@
 {
     "name": "Mankey",
+    "category": {
+        "en": "Pig Monkey Pokémon",
+        "ja": "ぶたざるポケモン",
+        "fr": "Pokémon Porsinge",
+        "es": "Pokémon Mono Cerdo",
+        "de": "Schweinsaffen-Pokémon",
+        "it": "Pokémon Suinpanzé",
+        "ko": "돈숭이포켓몬",
+        "zh-Hant": "豬猴寶可夢",
+        "zh-Hans": "猪猴宝可梦"
+    },
     "abilities": [
         {
             "name": "Vital Spirit",

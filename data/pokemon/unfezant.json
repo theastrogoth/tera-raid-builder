@@ -1,5 +1,16 @@
 {
     "name": "Unfezant",
+    "category": {
+        "en": "Proud Pokémon",
+        "ja": "プライドポケモン",
+        "fr": "Pokémon Fier",
+        "es": "Pokémon Altanero",
+        "de": "Stolz-Pokémon",
+        "it": "Pokémon Orgoglio",
+        "ko": "프라이드포켓몬",
+        "zh-Hant": "自尊心寶可夢",
+        "zh-Hans": "自尊心宝可梦"
+    },
     "abilities": [
         {
             "name": "Big Pecks",

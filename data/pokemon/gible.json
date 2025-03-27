@@ -1,5 +1,16 @@
 {
     "name": "Gible",
+    "category": {
+        "en": "Land Shark Pokémon",
+        "ja": "りくザメポケモン",
+        "fr": "Pokémon Terrequin",
+        "es": "Pokémon Terrascualo",
+        "de": "Landhai-Pokémon",
+        "it": "Pokémon Squaloterra",
+        "ko": "육지상어포켓몬",
+        "zh-Hant": "陸鯊寶可夢",
+        "zh-Hans": "陆鲨宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Veil",

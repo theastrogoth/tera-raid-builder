@@ -1,5 +1,16 @@
 {
     "name": "Snorlax-Gmax",
+    "category": {
+        "en": "Sleeping Pokémon",
+        "ja": "いねむりポケモン",
+        "fr": "Pokémon Pionceur",
+        "es": "Pokémon Dormir",
+        "de": "Tagträumer-Pokémon",
+        "it": "Pokémon Sonno",
+        "ko": "졸음포켓몬",
+        "zh-Hant": "瞌睡寶可夢",
+        "zh-Hans": "瞌睡宝可梦"
+    },
     "abilities": [
         {
             "name": "Immunity",

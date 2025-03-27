@@ -1,5 +1,16 @@
 {
     "name": "Hydreigon",
+    "category": {
+        "en": "Brutal Pokémon",
+        "ja": "きょうぼうポケモン",
+        "fr": "Pokémon Brutal",
+        "es": "Pokémon Voraz",
+        "de": "Brutal-Pokémon",
+        "it": "Pokémon Brutale",
+        "ko": "난폭포켓몬",
+        "zh-Hant": "凶暴寶可夢",
+        "zh-Hans": "凶暴宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

@@ -1,5 +1,16 @@
 {
     "name": "Spiritomb",
+    "category": {
+        "en": "Forbidden Pokémon",
+        "ja": "ふういんポケモン",
+        "fr": "Pokémon Interdit",
+        "es": "Pokémon Prohibido",
+        "de": "Verboten-Pokémon",
+        "it": "Pokémon Proibito",
+        "ko": "봉인포켓몬",
+        "zh-Hant": "封印寶可夢",
+        "zh-Hans": "封印宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

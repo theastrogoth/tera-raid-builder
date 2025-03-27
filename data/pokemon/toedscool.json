@@ -1,5 +1,16 @@
 {
     "name": "Toedscool",
+    "category": {
+        "en": "Woodear Pokémon",
+        "ja": "きくらげポケモン",
+        "fr": "Pokémon Champiméduse",
+        "es": "Pokémon Auricularia",
+        "de": "Quallenpilz-Pokémon",
+        "it": "Pokémon Auricularia",
+        "ko": "목이버섯포켓몬",
+        "zh-Hant": "木耳寶可夢",
+        "zh-Hans": "木耳宝可梦"
+    },
     "abilities": [
         {
             "name": "Mycelium Might",

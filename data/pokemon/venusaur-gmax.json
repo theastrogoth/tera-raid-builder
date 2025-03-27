@@ -1,5 +1,16 @@
 {
     "name": "Venusaur-Gmax",
+    "category": {
+        "en": "Seed Pokémon",
+        "ja": "たねポケモン",
+        "fr": "Pokémon Graine",
+        "es": "Pokémon Semilla",
+        "de": "Samen-Pokémon",
+        "it": "Pokémon Seme",
+        "ko": "씨앗포켓몬",
+        "zh-Hant": "種子寶可夢",
+        "zh-Hans": "种子宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

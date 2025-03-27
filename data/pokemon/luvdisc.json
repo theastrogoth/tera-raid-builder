@@ -1,5 +1,16 @@
 {
     "name": "Luvdisc",
+    "category": {
+        "en": "Rendezvous Pokémon",
+        "ja": "ランデブーポケモン",
+        "fr": "Pokémon Rendezvous",
+        "es": "Pokémon Cita",
+        "de": "Rendezvous-Pokémon",
+        "it": "Pokémon Rendezvous",
+        "ko": "랑데부포켓몬",
+        "zh-Hant": "相隨寶可夢",
+        "zh-Hans": "相随宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

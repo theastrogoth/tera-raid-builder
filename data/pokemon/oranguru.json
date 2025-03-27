@@ -1,5 +1,16 @@
 {
     "name": "Oranguru",
+    "category": {
+        "en": "Sage Pokémon",
+        "ja": "けんじゃポケモン",
+        "fr": "Pokémon Grand Sage",
+        "es": "Pokémon Sabio",
+        "de": "Weisheits-Pokémon",
+        "it": "Pokémon Saggio",
+        "ko": "현자포켓몬",
+        "zh-Hant": "賢者寶可夢",
+        "zh-Hans": "贤者宝可梦"
+    },
     "abilities": [
         {
             "name": "Inner Focus",

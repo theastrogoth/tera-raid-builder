@@ -1,5 +1,16 @@
 {
     "name": "Iron Thorns",
+    "category": {
+        "en": "Paradox Pokémon",
+        "ja": "パラドックスポケモン",
+        "fr": "Pokémon Paradoxe",
+        "es": "Pokémon Paradoja",
+        "de": "Paradox-Pokémon",
+        "it": "Pokémon Paradosso",
+        "ko": "패러독스포켓몬",
+        "zh-Hant": "悖謬寶可夢",
+        "zh-Hans": "悖谬宝可梦"
+    },
     "abilities": [
         {
             "name": "Quark Drive",

@@ -1,5 +1,16 @@
 {
     "name": "Decidueye",
+    "category": {
+        "en": "Arrow Quill Pokémon",
+        "ja": "やばねポケモン",
+        "fr": "Pokémon Plumeflèche",
+        "es": "Pokémon Pluma Flecha",
+        "de": "Pfeilflügel-Pokémon",
+        "it": "Pokémon Alifreccia",
+        "ko": "화살깃포켓몬",
+        "zh-Hant": "箭羽寶可夢",
+        "zh-Hans": "箭羽宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

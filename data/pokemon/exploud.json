@@ -1,5 +1,16 @@
 {
     "name": "Exploud",
+    "category": {
+        "en": "Loud Noise Pokémon",
+        "ja": "そうおんポケモン",
+        "fr": "Pokémon Bruit Sourd",
+        "es": "Pokémon Escandaloso",
+        "de": "Krach-Pokémon",
+        "it": "Pokémon Fragore",
+        "ko": "소음포켓몬",
+        "zh-Hant": "噪音寶可夢",
+        "zh-Hans": "噪音宝可梦"
+    },
     "abilities": [
         {
             "name": "Soundproof",

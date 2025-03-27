@@ -1,5 +1,16 @@
 {
     "name": "Lugia",
+    "category": {
+        "en": "Diving Pokémon",
+        "ja": "せんすいポケモン",
+        "fr": "Pokémon Plongeon",
+        "es": "Pokémon Buceo",
+        "de": "Taucher-Pokémon",
+        "it": "Pokémon Immersione",
+        "ko": "잠수포켓몬",
+        "zh-Hant": "潛水寶可夢",
+        "zh-Hans": "潜水宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

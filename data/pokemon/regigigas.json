@@ -1,5 +1,16 @@
 {
     "name": "Regigigas",
+    "category": {
+        "en": "Colossal Pokémon",
+        "ja": "きょだいポケモン",
+        "fr": "Pokémon Prodigieux",
+        "es": "Pokémon Colosal",
+        "de": "Kolossal-Pokémon",
+        "it": "Pokémon Colossale",
+        "ko": "거대포켓몬",
+        "zh-Hant": "巨大寶可夢",
+        "zh-Hans": "巨大宝可梦"
+    },
     "abilities": [
         {
             "name": "Slow Start",

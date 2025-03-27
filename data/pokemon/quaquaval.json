@@ -1,5 +1,16 @@
 {
     "name": "Quaquaval",
+    "category": {
+        "en": "Dancer Pokémon",
+        "ja": "ダンサーポケモン",
+        "fr": "Pokémon Danseur",
+        "es": "Pokémon Bailarín",
+        "de": "Tänzer-Pokémon",
+        "it": "Pokémon Ballerino",
+        "ko": "댄서포켓몬",
+        "zh-Hant": "舞者寶可夢",
+        "zh-Hans": "舞者宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

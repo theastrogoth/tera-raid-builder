@@ -1,5 +1,16 @@
 {
     "name": "Cosmoem",
+    "category": {
+        "en": "Protostar Pokémon",
+        "ja": "げんしせいポケモン",
+        "fr": "Pokémon Proto-Étoile",
+        "es": "Pokémon Protostrella",
+        "de": "Urgestirns-Pokémon",
+        "it": "Pokémon Protostella",
+        "ko": "원시성포켓몬",
+        "zh-Hant": "原始星寶可夢",
+        "zh-Hans": "原始星宝可梦"
+    },
     "abilities": [
         {
             "name": "Sturdy",

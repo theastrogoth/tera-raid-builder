@@ -1,5 +1,16 @@
 {
     "name": "Bruxish",
+    "category": {
+        "en": "Gnash Teeth Pokémon",
+        "ja": "はぎしりポケモン",
+        "fr": "Pokémon Grincedent",
+        "es": "Pokémon Rechinante",
+        "de": "Knirschzahn-Pokémon",
+        "it": "Pokémon Sfregadenti",
+        "ko": "이갈기포켓몬",
+        "zh-Hant": "磨牙寶可夢",
+        "zh-Hans": "磨牙宝可梦"
+    },
     "abilities": [
         {
             "name": "Dazzling",

@@ -1,5 +1,16 @@
 {
     "name": "Grookey",
+    "category": {
+        "en": "Chimp Pokémon",
+        "ja": "こざるポケモン",
+        "fr": "Pokémon Chimpanzé",
+        "es": "Pokémon Chimpancé",
+        "de": "Schimpansen-Pokémon",
+        "it": "Pokémon Scimpanzé",
+        "ko": "꼬마원숭이포켓몬",
+        "zh-Hant": "小猴寶可夢",
+        "zh-Hans": "小猴宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

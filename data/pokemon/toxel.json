@@ -1,5 +1,16 @@
 {
     "name": "Toxel",
+    "category": {
+        "en": "Baby Pokémon",
+        "ja": "あかごポケモン",
+        "fr": "Pokémon Poupon",
+        "es": "Pokémon Retoño",
+        "de": "Baby-Pokémon",
+        "it": "Pokémon Bebè",
+        "ko": "젖먹이포켓몬",
+        "zh-Hant": "嬰兒寶可夢",
+        "zh-Hans": "婴儿宝可梦"
+    },
     "abilities": [
         {
             "name": "Rattled",

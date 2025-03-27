@@ -1,5 +1,16 @@
 {
     "name": "Lunala",
+    "category": {
+        "en": "Moone Pokémon",
+        "ja": "がちりんポケモン",
+        "fr": "Pokémon Halo Lunaire",
+        "es": "Pokémon Corona Lunar",
+        "de": "Mondscheiben-Pokémon",
+        "it": "Pokémon Lunare",
+        "ko": "월륜포켓몬",
+        "zh-Hant": "月輪寶可夢",
+        "zh-Hans": "月轮宝可梦"
+    },
     "abilities": [
         {
             "name": "Shadow Shield",

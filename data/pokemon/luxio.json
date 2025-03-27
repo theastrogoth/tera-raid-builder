@@ -1,5 +1,16 @@
 {
     "name": "Luxio",
+    "category": {
+        "en": "Spark Pokémon",
+        "ja": "でんこうポケモン",
+        "fr": "Pokémon Étincelle",
+        "es": "Pokémon Chispa",
+        "de": "Funken-Pokémon",
+        "it": "Pokémon Favilla",
+        "ko": "전광포켓몬",
+        "zh-Hant": "電光寶可夢",
+        "zh-Hans": "电光宝可梦"
+    },
     "abilities": [
         {
             "name": "Rivalry",

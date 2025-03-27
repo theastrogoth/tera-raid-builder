@@ -1,5 +1,16 @@
 {
     "name": "Spoink",
+    "category": {
+        "en": "Bounce Pokémon",
+        "ja": "とびはねポケモン",
+        "fr": "Pokémon Rebond",
+        "es": "Pokémon Saltarín",
+        "de": "Sprungfeder-Pokémon",
+        "it": "Pokémon Molla",
+        "ko": "바운스포켓몬",
+        "zh-Hant": "彈跳寶可夢",
+        "zh-Hans": "弹跳宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

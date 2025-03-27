@@ -1,5 +1,16 @@
 {
     "name": "Bibarel",
+    "category": {
+        "en": "Beaver Pokémon",
+        "ja": "ビーバーポケモン",
+        "fr": "Pokémon Castor",
+        "es": "Pokémon Castor",
+        "de": "Biber-Pokémon",
+        "it": "Pokémon Castoro",
+        "ko": "비버포켓몬",
+        "zh-Hant": "河狸寶可夢",
+        "zh-Hans": "河狸宝可梦"
+    },
     "abilities": [
         {
             "name": "Simple",

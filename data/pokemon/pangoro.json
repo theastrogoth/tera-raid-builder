@@ -1,5 +1,16 @@
 {
     "name": "Pangoro",
+    "category": {
+        "en": "Daunting Pokémon",
+        "ja": "こわもてポケモン",
+        "fr": "Pokémon Patibulaire",
+        "es": "Pokémon Rostro Fiero",
+        "de": "Gaunerblick-Pokémon",
+        "it": "Pokémon Occhiotruce",
+        "ko": "무서운얼굴포켓몬",
+        "zh-Hant": "惡顏寶可夢",
+        "zh-Hans": "恶颜宝可梦"
+    },
     "abilities": [
         {
             "name": "Iron Fist",

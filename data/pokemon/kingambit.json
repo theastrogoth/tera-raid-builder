@@ -1,5 +1,16 @@
 {
     "name": "Kingambit",
+    "category": {
+        "en": "Big Blade Pokémon",
+        "ja": "だいとうポケモン",
+        "fr": "Pokémon Pourfendant",
+        "es": "Pokémon Gran Espada",
+        "de": "Langschwert-Pokémon",
+        "it": "Pokémon Granspada",
+        "ko": "대도포켓몬",
+        "zh-Hant": "大刀寶可夢",
+        "zh-Hans": "大刀宝可梦"
+    },
     "abilities": [
         {
             "name": "Defiant",

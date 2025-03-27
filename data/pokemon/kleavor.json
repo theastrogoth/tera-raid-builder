@@ -1,5 +1,16 @@
 {
     "name": "Kleavor",
+    "category": {
+        "en": "Axe Pokémon",
+        "ja": "まさかりポケモン",
+        "fr": "Pokémon Hache",
+        "es": "Pokémon Hacha",
+        "de": "Axt-Pokémon",
+        "it": "Pokémon Scure",
+        "ko": "큰도끼포켓몬",
+        "zh-Hant": "斧鉞寶可夢",
+        "zh-Hans": "斧钺宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

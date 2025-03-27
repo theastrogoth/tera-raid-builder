@@ -1,5 +1,16 @@
 {
     "name": "Spidops",
+    "category": {
+        "en": "Trap Pokémon",
+        "ja": "トラップポケモン",
+        "fr": "Pokémon Piège",
+        "es": "Pokémon Trampa",
+        "de": "Falle-Pokémon",
+        "it": "Pokémon Trappola",
+        "ko": "트랩포켓몬",
+        "zh-Hant": "陷阱寶可夢",
+        "zh-Hans": "陷阱宝可梦"
+    },
     "abilities": [
         {
             "name": "Insomnia",

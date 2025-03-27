@@ -1,5 +1,16 @@
 {
     "name": "Blaziken",
+    "category": {
+        "en": "Blaze Pokémon",
+        "ja": "もうかポケモン",
+        "fr": "Pokémon Ardent",
+        "es": "Pokémon Llameante",
+        "de": "Großbrand-Pokémon",
+        "it": "Pokémon Vampe",
+        "ko": "맹화포켓몬",
+        "zh-Hant": "猛火寶可夢",
+        "zh-Hans": "猛火宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

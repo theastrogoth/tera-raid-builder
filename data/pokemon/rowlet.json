@@ -1,5 +1,16 @@
 {
     "name": "Rowlet",
+    "category": {
+        "en": "Grass Quill Pokémon",
+        "ja": "くさばねポケモン",
+        "fr": "Pokémon Plumefeuille",
+        "es": "Pokémon Pluma Hoja",
+        "de": "Laubflügel-Pokémon",
+        "it": "Pokémon Aliderba",
+        "ko": "풀깃포켓몬",
+        "zh-Hant": "草羽寶可夢",
+        "zh-Hans": "草羽宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

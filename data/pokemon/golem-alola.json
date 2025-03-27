@@ -1,5 +1,16 @@
 {
     "name": "Golem-Alola",
+    "category": {
+        "en": "Megaton Pokémon",
+        "ja": "メガトンポケモン",
+        "fr": "Pokémon Titanesque",
+        "es": "Pokémon Megatón",
+        "de": "Urgesteins-Pokémon",
+        "it": "Pokémon Megatone",
+        "ko": "메가톤포켓몬",
+        "zh-Hant": "重量級寶可夢",
+        "zh-Hans": "重量级宝可梦"
+    },
     "abilities": [
         {
             "name": "Magnet Pull",

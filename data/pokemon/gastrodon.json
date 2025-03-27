@@ -1,5 +1,16 @@
 {
     "name": "Gastrodon",
+    "category": {
+        "en": "Sea Slug Pokémon",
+        "ja": "ウミウシポケモン",
+        "fr": "Pokémon Aqualimace",
+        "es": "Pokémon Babosa Marina",
+        "de": "Seeschnecken-Pokémon",
+        "it": "Pokémon Lumacomare",
+        "ko": "갯민숭달팽이포켓몬",
+        "zh-Hant": "海兔寶可夢",
+        "zh-Hans": "海兔宝可梦"
+    },
     "abilities": [
         {
             "name": "Sticky Hold",

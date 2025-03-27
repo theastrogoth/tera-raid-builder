@@ -1,5 +1,16 @@
 {
     "name": "Simisage",
+    "category": {
+        "en": "Thorn Monkey Pokémon",
+        "ja": "とげざるポケモン",
+        "fr": "Pokémon Singépine",
+        "es": "Pokémon Mono Pincho",
+        "de": "Stachelaffen-Pokémon",
+        "it": "Pokémon Spinpanzé",
+        "ko": "가시원숭이포켓몬",
+        "zh-Hant": "刺猴寶可夢",
+        "zh-Hans": "刺猴宝可梦"
+    },
     "abilities": [
         {
             "name": "Gluttony",

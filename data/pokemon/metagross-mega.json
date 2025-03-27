@@ -1,5 +1,16 @@
 {
     "name": "Metagross-Mega",
+    "category": {
+        "en": "Iron Leg Pokémon",
+        "ja": "てつあしポケモン",
+        "fr": "Pokémon Pattefer",
+        "es": "Pokémon Pata Hierro",
+        "de": "Eisenfuß-Pokémon",
+        "it": "Pokémon Ferrarto",
+        "ko": "무쇠다리포켓몬",
+        "zh-Hant": "鐵足寶可夢",
+        "zh-Hans": "铁足宝可梦"
+    },
     "abilities": [
         {
             "name": "Tough Claws",

@@ -1,5 +1,16 @@
 {
     "name": "Swablu",
+    "category": {
+        "en": "Cotton Bird Pokémon",
+        "ja": "わたどりポケモン",
+        "fr": "Pokémon Oiseaucoton",
+        "es": "Pokémon Ave Algodón",
+        "de": "Wollvogel-Pokémon",
+        "it": "Pokémon Alidicotone",
+        "ko": "솜새포켓몬",
+        "zh-Hant": "綿鳥寶可夢",
+        "zh-Hans": "绵鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Natural Cure",

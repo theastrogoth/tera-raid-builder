@@ -1,5 +1,16 @@
 {
     "name": "Coalossal",
+    "category": {
+        "en": "Coal Pokémon",
+        "ja": "せきたんポケモン",
+        "fr": "Pokémon Charbon",
+        "es": "Pokémon Carbón",
+        "de": "Kohle-Pokémon",
+        "it": "Pokémon Carbone",
+        "ko": "석탄포켓몬",
+        "zh-Hant": "煤炭寶可夢",
+        "zh-Hans": "煤炭宝可梦"
+    },
     "abilities": [
         {
             "name": "Steam Engine",

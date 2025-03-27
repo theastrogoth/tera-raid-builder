@@ -1,5 +1,16 @@
 {
     "name": "Jynx",
+    "category": {
+        "en": "Human Shape Pokémon",
+        "ja": "ひとがたポケモン",
+        "fr": "Pokémon Humanoïde",
+        "es": "Pokémon Forma Humana",
+        "de": "Humanotyp-Pokémon",
+        "it": "Pokémon Umanoide",
+        "ko": "인간형태포켓몬",
+        "zh-Hant": "人形寶可夢",
+        "zh-Hans": "人形宝可梦"
+    },
     "abilities": [
         {
             "name": "Oblivious",

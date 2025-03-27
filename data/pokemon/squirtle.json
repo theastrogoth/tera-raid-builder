@@ -1,5 +1,16 @@
 {
     "name": "Squirtle",
+    "category": {
+        "en": "Tiny Turtle Pokémon",
+        "ja": "かめのこポケモン",
+        "fr": "Pokémon Minitortue",
+        "es": "Pokémon Tortuguita",
+        "de": "Minikröten-Pokémon",
+        "it": "Pokémon Tartaghina",
+        "ko": "꼬마거북포켓몬",
+        "zh-Hant": "小龜寶可夢",
+        "zh-Hans": "小龟宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

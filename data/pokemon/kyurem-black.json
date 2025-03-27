@@ -1,5 +1,16 @@
 {
     "name": "Kyurem-Black",
+    "category": {
+        "en": "Boundary Pokémon",
+        "ja": "きょうかいポケモン",
+        "fr": "Pokémon Frontière",
+        "es": "Pokémon Frontera",
+        "de": "Schwellen-Pokémon",
+        "it": "Pokémon Confine",
+        "ko": "경계포켓몬",
+        "zh-Hant": "境界寶可夢",
+        "zh-Hans": "境界宝可梦"
+    },
     "abilities": [
         {
             "name": "Teravolt",

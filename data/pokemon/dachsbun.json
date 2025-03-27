@@ -1,5 +1,16 @@
 {
     "name": "Dachsbun",
+    "category": {
+        "en": "Dog Pokémon",
+        "ja": "いぬポケモン",
+        "fr": "Pokémon Chien",
+        "es": "Pokémon Perro",
+        "de": "Hunde-Pokémon",
+        "it": "Pokémon Cane",
+        "ko": "개포켓몬",
+        "zh-Hant": "狗寶可夢",
+        "zh-Hans": "狗宝可梦"
+    },
     "abilities": [
         {
             "name": "Well-Baked Body",

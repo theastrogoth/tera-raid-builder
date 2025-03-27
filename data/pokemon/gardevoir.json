@@ -1,5 +1,16 @@
 {
     "name": "Gardevoir",
+    "category": {
+        "en": "Embrace Pokémon",
+        "ja": "ほうようポケモン",
+        "fr": "Pokémon Étreinte",
+        "es": "Pokémon Envolvente",
+        "de": "Umarmungs-Pokémon",
+        "it": "Pokémon Abbraccio",
+        "ko": "포용포켓몬",
+        "zh-Hant": "包容寶可夢",
+        "zh-Hans": "包容宝可梦"
+    },
     "abilities": [
         {
             "name": "Synchronize",

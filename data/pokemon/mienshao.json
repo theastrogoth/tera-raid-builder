@@ -1,5 +1,16 @@
 {
     "name": "Mienshao",
+    "category": {
+        "en": "Martial Arts Pokémon",
+        "ja": "ぶじゅつポケモン",
+        "fr": "Pokémon Art Martial",
+        "es": "Pokémon Arte Marcial",
+        "de": "Kampfkünste-Pokémon",
+        "it": "Pokémon Marziale",
+        "ko": "무술포켓몬",
+        "zh-Hant": "武術寶可夢",
+        "zh-Hans": "武术宝可梦"
+    },
     "abilities": [
         {
             "name": "Inner Focus",

@@ -1,5 +1,16 @@
 {
     "name": "Blacephalon",
+    "category": {
+        "en": "Fireworks Pokémon",
+        "ja": "はなびポケモン",
+        "fr": "Pokémon Artificier",
+        "es": "Pokémon Pirotecnia",
+        "de": "Feuerwerks-Pokémon",
+        "it": "Pokémon Pirotecnico",
+        "ko": "불꽃놀이포켓몬",
+        "zh-Hant": "煙火寶可夢",
+        "zh-Hans": "烟火宝可梦"
+    },
     "abilities": [
         {
             "name": "Beast Boost",

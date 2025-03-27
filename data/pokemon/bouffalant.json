@@ -1,5 +1,16 @@
 {
     "name": "Bouffalant",
+    "category": {
+        "en": "Bash Buffalo Pokémon",
+        "ja": "ずつきうしポケモン",
+        "fr": "Pokémon Coup d'Bœuf",
+        "es": "Pokémon Torocabezazo",
+        "de": "Kopfstoßrind-Pokémon",
+        "it": "Pokémon Sfondatoro",
+        "ko": "박치기소포켓몬",
+        "zh-Hant": "頭錘牛寶可夢",
+        "zh-Hans": "头锤牛宝可梦"
+    },
     "abilities": [
         {
             "name": "Reckless",

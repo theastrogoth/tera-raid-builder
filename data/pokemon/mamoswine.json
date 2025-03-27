@@ -1,5 +1,16 @@
 {
     "name": "Mamoswine",
+    "category": {
+        "en": "Twin Tusk Pokémon",
+        "ja": "２ほんキバポケモン",
+        "fr": "Pokémon Deudéfenses",
+        "es": "Pokémon Doscolmillos",
+        "de": "Doppelstoßzahn-Pokémon",
+        "it": "Pokémon Duezanne",
+        "ko": "2개송곳니포켓몬",
+        "zh-Hant": "雙牙寶可夢",
+        "zh-Hans": "双牙宝可梦"
+    },
     "abilities": [
         {
             "name": "Oblivious",

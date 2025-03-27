@@ -1,5 +1,16 @@
 {
     "name": "Surskit",
+    "category": {
+        "en": "Pond Skater Pokémon",
+        "ja": "あめんぼポケモン",
+        "fr": "Pokémon Maresurfeur",
+        "es": "Pokémon Zapatero",
+        "de": "Wassergeher-Pokémon",
+        "it": "Pokémon Sfiorapozze",
+        "ko": "소금쟁이포켓몬",
+        "zh-Hant": "水黽寶可夢",
+        "zh-Hans": "水黾宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

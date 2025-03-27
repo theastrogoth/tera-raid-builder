@@ -1,5 +1,16 @@
 {
     "name": "Gengar-Mega",
+    "category": {
+        "en": "Shadow Pokémon",
+        "ja": "シャドーポケモン",
+        "fr": "Pokémon Ombre",
+        "es": "Pokémon Sombra",
+        "de": "Schatten-Pokémon",
+        "it": "Pokémon Ombra",
+        "ko": "그림자포켓몬",
+        "zh-Hant": "影子寶可夢",
+        "zh-Hans": "影子宝可梦"
+    },
     "abilities": [
         {
             "name": "Shadow Tag",

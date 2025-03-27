@@ -1,5 +1,16 @@
 {
     "name": "Raikou",
+    "category": {
+        "en": "Thunder Pokémon",
+        "ja": "いかずちポケモン",
+        "fr": "Pokémon Foudre",
+        "es": "Pokémon Trueno",
+        "de": "Donner-Pokémon",
+        "it": "Pokémon Tuono",
+        "ko": "우레포켓몬",
+        "zh-Hant": "天雷寶可夢",
+        "zh-Hans": "天雷宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

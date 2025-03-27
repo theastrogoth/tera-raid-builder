@@ -1,5 +1,16 @@
 {
     "name": "Flamigo",
+    "category": {
+        "en": "Synchronize Pokémon",
+        "ja": "シンクロポケモン",
+        "fr": "Pokémon Synchro",
+        "es": "Pokémon Sincronizado",
+        "de": "Synchron-Pokémon",
+        "it": "Pokémon Sincronia",
+        "ko": "싱크로포켓몬",
+        "zh-Hant": "同步寶可夢",
+        "zh-Hans": "同步宝可梦"
+    },
     "abilities": [
         {
             "name": "Scrappy",

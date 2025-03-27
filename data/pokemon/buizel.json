@@ -1,5 +1,16 @@
 {
     "name": "Buizel",
+    "category": {
+        "en": "Sea Weasel Pokémon",
+        "ja": "うみイタチポケモン",
+        "fr": "Pokémon Aquabelette",
+        "es": "Pokémon Nutria Marina",
+        "de": "Meereswiesel-Pokémon",
+        "it": "Pokémon Maridonnola",
+        "ko": "바다족제비포켓몬",
+        "zh-Hant": "海鼬寶可夢",
+        "zh-Hans": "海鼬宝可梦"
+    },
     "abilities": [
         {
             "name": "Swift Swim",

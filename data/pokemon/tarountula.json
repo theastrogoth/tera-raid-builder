@@ -1,5 +1,16 @@
 {
     "name": "Tarountula",
+    "category": {
+        "en": "String Ball Pokémon",
+        "ja": "いとだまポケモン",
+        "fr": "Pokémon Boule de Fil",
+        "es": "Pokémon Ovillo",
+        "de": "Fadenkugel-Pokémon",
+        "it": "Pokémon Gomitolo",
+        "ko": "실타래포켓몬",
+        "zh-Hant": "線球寶可夢",
+        "zh-Hans": "线球宝可梦"
+    },
     "abilities": [
         {
             "name": "Insomnia",

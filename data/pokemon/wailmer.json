@@ -1,5 +1,16 @@
 {
     "name": "Wailmer",
+    "category": {
+        "en": "Ball Whale Pokémon",
+        "ja": "たまくじらポケモン",
+        "fr": "Pokémon Baleinboule",
+        "es": "Pokémon Ballenabola",
+        "de": "Kugelwal-Pokémon",
+        "it": "Pokémon Balenottero",
+        "ko": "둥근고래포켓몬",
+        "zh-Hant": "球鯨寶可夢",
+        "zh-Hans": "球鲸宝可梦"
+    },
     "abilities": [
         {
             "name": "Water Veil",

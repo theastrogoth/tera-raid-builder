@@ -1,5 +1,16 @@
 {
     "name": "Charizard-Mega-X",
+    "category": {
+        "en": "Flame Pokémon",
+        "ja": "かえんポケモン",
+        "fr": "Pokémon Flamme",
+        "es": "Pokémon Llama",
+        "de": "Flammen-Pokémon",
+        "it": "Pokémon Fiamma",
+        "ko": "화염포켓몬",
+        "zh-Hant": "火焰寶可夢",
+        "zh-Hans": "火焰宝可梦"
+    },
     "abilities": [
         {
             "name": "Tough Claws",

@@ -1,5 +1,16 @@
 {
     "name": "Dhelmise",
+    "category": {
+        "en": "Sea Creeper Pokémon",
+        "ja": "もくずポケモン",
+        "fr": "Pokémon Varech",
+        "es": "Pokémon Alga Ancla",
+        "de": "Seetang-Pokémon",
+        "it": "Pokémon Brandellalga",
+        "ko": "해초조각포켓몬",
+        "zh-Hant": "碎藻寶可夢",
+        "zh-Hans": "碎藻宝可梦"
+    },
     "abilities": [
         {
             "name": "Steelworker",

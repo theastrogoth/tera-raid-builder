@@ -1,5 +1,16 @@
 {
     "name": "Misdreavus",
+    "category": {
+        "en": "Screech Pokémon",
+        "ja": "よなきポケモン",
+        "fr": "Pokémon Strident",
+        "es": "Pokémon Chirrido",
+        "de": "Kreischer-Pokémon",
+        "it": "Pokémon Strido",
+        "ko": "야명포켓몬",
+        "zh-Hant": "夜啼寶可夢",
+        "zh-Hans": "夜啼宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

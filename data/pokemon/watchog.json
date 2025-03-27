@@ -1,5 +1,16 @@
 {
     "name": "Watchog",
+    "category": {
+        "en": "Lookout Pokémon",
+        "ja": "けいかいポケモン",
+        "fr": "Pokémon Vigilant",
+        "es": "Pokémon Alerta",
+        "de": "Wachsamkeits-Pokémon",
+        "it": "Pokémon Sentinella",
+        "ko": "경계포켓몬",
+        "zh-Hant": "警戒寶可夢",
+        "zh-Hans": "警戒宝可梦"
+    },
     "abilities": [
         {
             "name": "Illuminate",

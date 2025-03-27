@@ -1,5 +1,16 @@
 {
     "name": "Applin",
+    "category": {
+        "en": "Apple Core Pokémon",
+        "ja": "りんごぐらしポケモン",
+        "fr": "Pokémon Nid Pomme",
+        "es": "Pokémon Manzanido",
+        "de": "Apfelhaus-Pokémon",
+        "it": "Pokémon Pomicolo",
+        "ko": "사과살이포켓몬",
+        "zh-Hant": "蘋果居寶可夢",
+        "zh-Hans": "苹果居宝可梦"
+    },
     "abilities": [
         {
             "name": "Ripen",

@@ -1,5 +1,16 @@
 {
     "name": "Cetitan",
+    "category": {
+        "en": "Terra Whale Pokémon",
+        "ja": "りくくじらポケモン",
+        "fr": "Pokémon Baleinapied",
+        "es": "Pokémon Geoballena",
+        "de": "Landwal-Pokémon",
+        "it": "Pokémon Balenotterra",
+        "ko": "육지고래포켓몬",
+        "zh-Hant": "陸鯨寶可夢",
+        "zh-Hans": "陆鲸宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

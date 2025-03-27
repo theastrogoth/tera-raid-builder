@@ -1,5 +1,16 @@
 {
     "name": "Ledian",
+    "category": {
+        "en": "Five Star Pokémon",
+        "ja": "いつつぼしポケモン",
+        "fr": "Pokémon 5 Étoiles",
+        "es": "Pokémon 5 Estrellas",
+        "de": "Fünf-Punkt-Pokémon",
+        "it": "Pokémon Pentastra",
+        "ko": "별다섯포켓몬",
+        "zh-Hant": "五星寶可夢",
+        "zh-Hans": "五星宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

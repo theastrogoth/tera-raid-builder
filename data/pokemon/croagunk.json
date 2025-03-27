@@ -1,5 +1,16 @@
 {
     "name": "Croagunk",
+    "category": {
+        "en": "Toxic Mouth Pokémon",
+        "ja": "どくづきポケモン",
+        "fr": "Pokémon Toxique",
+        "es": "Pokémon Boca Tóxica",
+        "de": "Giftmund-Pokémon",
+        "it": "Pokémon Inveieleno",
+        "ko": "독설포켓몬",
+        "zh-Hant": "毒擊寶可夢",
+        "zh-Hans": "毒击宝可梦"
+    },
     "abilities": [
         {
             "name": "Anticipation",

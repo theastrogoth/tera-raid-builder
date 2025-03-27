@@ -1,5 +1,16 @@
 {
     "name": "Staravia",
+    "category": {
+        "en": "Starling Pokémon",
+        "ja": "むくどりポケモン",
+        "fr": "Pokémon Étourneau",
+        "es": "Pokémon Estornino",
+        "de": "Star-Pokémon",
+        "it": "Pokémon Storno",
+        "ko": "찌르레기포켓몬",
+        "zh-Hant": "椋鳥寶可夢",
+        "zh-Hans": "椋鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

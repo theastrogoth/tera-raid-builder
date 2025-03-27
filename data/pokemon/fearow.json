@@ -1,5 +1,16 @@
 {
     "name": "Fearow",
+    "category": {
+        "en": "Beak Pokémon",
+        "ja": "くちばしポケモン",
+        "fr": "Pokémon Bec-Oiseau",
+        "es": "Pokémon Pico",
+        "de": "Pickvogel-Pokémon",
+        "it": "Pokémon Becco",
+        "ko": "부리포켓몬",
+        "zh-Hant": "鳥嘴寶可夢",
+        "zh-Hans": "鸟嘴宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

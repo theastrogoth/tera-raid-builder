@@ -1,5 +1,16 @@
 {
     "name": "Scyther",
+    "category": {
+        "en": "Mantis Pokémon",
+        "ja": "かまきりポケモン",
+        "fr": "Pokémon Mante",
+        "es": "Pokémon Mantis",
+        "de": "Mantis-Pokémon",
+        "it": "Pokémon Mantide",
+        "ko": "버마재비포켓몬",
+        "zh-Hant": "螳螂寶可夢",
+        "zh-Hans": "螳螂宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

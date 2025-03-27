@@ -1,5 +1,16 @@
 {
     "name": "Pawmot",
+    "category": {
+        "en": "Hands-On Pokémon",
+        "ja": "てあてポケモン",
+        "fr": "Pokémon Pose Paume",
+        "es": "Pokémon Palmada",
+        "de": "Behandlungs-Pokémon",
+        "it": "Pokémon Toccasana",
+        "ko": "손길포켓몬",
+        "zh-Hant": "押掌寶可夢",
+        "zh-Hans": "押掌宝可梦"
+    },
     "abilities": [
         {
             "name": "Volt Absorb",

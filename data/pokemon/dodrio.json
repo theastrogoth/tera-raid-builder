@@ -1,5 +1,16 @@
 {
     "name": "Dodrio",
+    "category": {
+        "en": "Triple Bird Pokémon",
+        "ja": "みつごどりポケモン",
+        "fr": "Pokémon Trioiseau",
+        "es": "Pokémon Ave Triple",
+        "de": "Trivogel-Pokémon",
+        "it": "Pokémon Triuccello",
+        "ko": "세쌍둥이새포켓몬",
+        "zh-Hant": "三頭鳥寶可夢",
+        "zh-Hans": "三头鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

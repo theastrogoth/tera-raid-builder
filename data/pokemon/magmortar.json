@@ -1,5 +1,16 @@
 {
     "name": "Magmortar",
+    "category": {
+        "en": "Blast Pokémon",
+        "ja": "ばくえんポケモン",
+        "fr": "Pokémon Explosion",
+        "es": "Pokémon Explosión",
+        "de": "Detonations-Pokémon",
+        "it": "Pokémon Esplosivo",
+        "ko": "폭염포켓몬",
+        "zh-Hant": "爆炎寶可夢",
+        "zh-Hans": "爆炎宝可梦"
+    },
     "abilities": [
         {
             "name": "Flame Body",

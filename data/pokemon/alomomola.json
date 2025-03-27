@@ -1,5 +1,16 @@
 {
     "name": "Alomomola",
+    "category": {
+        "en": "Caring Pokémon",
+        "ja": "かいほうポケモン",
+        "fr": "Pokémon Soigneur",
+        "es": "Pokémon Socorrista",
+        "de": "Fürsorge-Pokémon",
+        "it": "Pokémon Assistenza",
+        "ko": "돌보기포켓몬",
+        "zh-Hant": "看護寶可夢",
+        "zh-Hans": "看护宝可梦"
+    },
     "abilities": [
         {
             "name": "Healer",

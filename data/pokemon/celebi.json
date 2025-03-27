@@ -1,5 +1,16 @@
 {
     "name": "Celebi",
+    "category": {
+        "en": "Time Travel Pokémon",
+        "ja": "ときわたりポケモン",
+        "fr": "Pokémon Temporel",
+        "es": "Pokémon Viajetiempo",
+        "de": "Zeitreise-Pokémon",
+        "it": "Pokémon Tempovia",
+        "ko": "시간이동포켓몬",
+        "zh-Hant": "時空穿越寶可夢",
+        "zh-Hans": "时空穿越宝可梦"
+    },
     "abilities": [
         {
             "name": "Natural Cure",

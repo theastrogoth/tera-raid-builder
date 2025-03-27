@@ -1,5 +1,16 @@
 {
     "name": "Panpour",
+    "category": {
+        "en": "Spray Pokémon",
+        "ja": "みずかけポケモン",
+        "fr": "Pokémon Jet d'Eau",
+        "es": "Pokémon Salpicadura",
+        "de": "Wasserstrahl-Pokémon",
+        "it": "Pokémon Annaffiatore",
+        "ko": "물뿌리기포켓몬",
+        "zh-Hant": "潑水寶可夢",
+        "zh-Hans": "泼水宝可梦"
+    },
     "abilities": [
         {
             "name": "Gluttony",

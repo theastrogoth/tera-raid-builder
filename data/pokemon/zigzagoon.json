@@ -1,5 +1,16 @@
 {
     "name": "Zigzagoon",
+    "category": {
+        "en": "Tiny Raccoon Pokémon",
+        "ja": "まめだぬきポケモン",
+        "fr": "Pokémon Petit Raton",
+        "es": "Pokémon Mapachito",
+        "de": "Kleindachs-Pokémon",
+        "it": "Pokémon Procione",
+        "ko": "앙증너구리포켓몬",
+        "zh-Hant": "豆貍寶可夢",
+        "zh-Hans": "豆狸宝可梦"
+    },
     "abilities": [
         {
             "name": "Pickup",

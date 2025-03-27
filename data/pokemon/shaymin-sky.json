@@ -1,5 +1,16 @@
 {
     "name": "Shaymin-Sky",
+    "category": {
+        "en": "Gratitude Pokémon",
+        "ja": "かんしゃポケモン",
+        "fr": "Pokémon Gratitude",
+        "es": "Pokémon Gratitud",
+        "de": "Dankbarkeits-Pokémon",
+        "it": "Pokémon Gratitudine",
+        "ko": "감사포켓몬",
+        "zh-Hant": "感謝寶可夢",
+        "zh-Hans": "感谢宝可梦"
+    },
     "abilities": [
         {
             "name": "Serene Grace",

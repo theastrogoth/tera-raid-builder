@@ -1,5 +1,16 @@
 {
     "name": "Escavalier",
+    "category": {
+        "en": "Cavalry Pokémon",
+        "ja": "きへいポケモン",
+        "fr": "Pokémon Chevalier",
+        "es": "Pokémon Soldado",
+        "de": "Kavallerie-Pokémon",
+        "it": "Pokémon Cavaliere",
+        "ko": "기병포켓몬",
+        "zh-Hant": "騎兵寶可夢",
+        "zh-Hans": "骑兵宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

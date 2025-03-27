@@ -1,5 +1,16 @@
 {
     "name": "Archaludon",
+    "category": {
+        "en": "Alloy Pokémon",
+        "ja": "ごうきんポケモン",
+        "fr": "Pokémon Alliage",
+        "es": "Pokémon Aleación",
+        "de": "Legierungs-Pokémon",
+        "it": "Pokémon Metallolega",
+        "ko": "합금포켓몬",
+        "zh-Hant": "合金寶可夢",
+        "zh-Hans": "合金宝可梦"
+    },
     "abilities": [
         {
             "name": "Stamina",

@@ -1,5 +1,16 @@
 {
     "name": "Masquerain",
+    "category": {
+        "en": "Eyeball Pokémon",
+        "ja": "めだまポケモン",
+        "fr": "Pokémon Boule Œil",
+        "es": "Pokémon Globocular",
+        "de": "Augen-Pokémon",
+        "it": "Pokémon Occhi",
+        "ko": "안구포켓몬",
+        "zh-Hant": "眼珠寶可夢",
+        "zh-Hans": "眼珠宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

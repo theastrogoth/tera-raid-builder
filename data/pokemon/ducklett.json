@@ -1,5 +1,16 @@
 {
     "name": "Ducklett",
+    "category": {
+        "en": "Water Bird Pokémon",
+        "ja": "みずどりポケモン",
+        "fr": "Pokémon Oiseaudo",
+        "es": "Pokémon Ave Agua",
+        "de": "Wasservogel-Pokémon",
+        "it": "Pokémon Alacquatico",
+        "ko": "물새포켓몬",
+        "zh-Hant": "水鳥寶可夢",
+        "zh-Hans": "水鸟宝可梦"
+    },
     "abilities": [
         {
             "name": "Keen Eye",

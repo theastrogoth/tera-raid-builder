@@ -1,5 +1,16 @@
 {
     "name": "Trubbish",
+    "category": {
+        "en": "Trash Bag Pokémon",
+        "ja": "ゴミぶくろポケモン",
+        "fr": "Pokémon Sac Poubelle",
+        "es": "Pokémon Bolsa Basura",
+        "de": "Mülltüten-Pokémon",
+        "it": "Pokémon Spazzatura",
+        "ko": "쓰레기봉투포켓몬",
+        "zh-Hant": "垃圾袋寶可夢",
+        "zh-Hans": "垃圾袋宝可梦"
+    },
     "abilities": [
         {
             "name": "Stench",

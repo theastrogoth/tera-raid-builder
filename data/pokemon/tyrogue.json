@@ -1,5 +1,16 @@
 {
     "name": "Tyrogue",
+    "category": {
+        "en": "Scuffle Pokémon",
+        "ja": "けんかポケモン",
+        "fr": "Pokémon Bagarreur",
+        "es": "Pokémon Peleón",
+        "de": "Racker-Pokémon",
+        "it": "Pokémon Baruffa",
+        "ko": "싸움포켓몬",
+        "zh-Hant": "打鬥寶可夢",
+        "zh-Hans": "打斗宝可梦"
+    },
     "abilities": [
         {
             "name": "Guts",

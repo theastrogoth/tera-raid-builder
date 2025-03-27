@@ -1,5 +1,16 @@
 {
     "name": "Absol",
+    "category": {
+        "en": "Disaster Pokémon",
+        "ja": "わざわいポケモン",
+        "fr": "Pokémon Désastre",
+        "es": "Pokémon Catástrofe",
+        "de": "Desaster-Pokémon",
+        "it": "Pokémon Catastrofe",
+        "ko": "재난포켓몬",
+        "zh-Hant": "災禍寶可夢",
+        "zh-Hans": "灾祸宝可梦"
+    },
     "abilities": [
         {
             "name": "Pressure",

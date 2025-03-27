@@ -1,5 +1,16 @@
 {
     "name": "Combusken",
+    "category": {
+        "en": "Young Fowl Pokémon",
+        "ja": "わかどりポケモン",
+        "fr": "Pokémon Poulet",
+        "es": "Pokémon Ave Corral",
+        "de": "Jungvogel-Pokémon",
+        "it": "Pokémon Rampollo",
+        "ko": "꼬마닭포켓몬",
+        "zh-Hant": "幼雞寶可夢",
+        "zh-Hans": "幼鸡宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

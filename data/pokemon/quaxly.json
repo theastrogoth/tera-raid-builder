@@ -1,5 +1,16 @@
 {
     "name": "Quaxly",
+    "category": {
+        "en": "Duckling Pokémon",
+        "ja": "こがもポケモン",
+        "fr": "Pokémon Caneton",
+        "es": "Pokémon Patito",
+        "de": "Jungenten-Pokémon",
+        "it": "Pokémon Anatroccolo",
+        "ko": "꼬마오리포켓몬",
+        "zh-Hant": "小鴨寶可夢",
+        "zh-Hans": "小鸭宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

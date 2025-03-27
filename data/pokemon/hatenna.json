@@ -1,5 +1,16 @@
 {
     "name": "Hatenna",
+    "category": {
+        "en": "Calm Pokémon",
+        "ja": "おだやかポケモン",
+        "fr": "Pokémon Calme",
+        "es": "Pokémon Calma",
+        "de": "Geruhsam-Pokémon",
+        "it": "Pokémon Calma",
+        "ko": "차분포켓몬",
+        "zh-Hant": "寧靜寶可夢",
+        "zh-Hans": "宁静宝可梦"
+    },
     "abilities": [
         {
             "name": "Healer",

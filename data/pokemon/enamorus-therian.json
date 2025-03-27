@@ -1,5 +1,16 @@
 {
     "name": "Enamorus-Therian",
+    "category": {
+        "en": "Love-Hate Pokémon",
+        "ja": "あいぞうポケモン",
+        "fr": "Pokémon Hainamour",
+        "es": "Pokémon Amorodio",
+        "de": "Hassliebe-Pokémon",
+        "it": "Pokémon Amoreodio",
+        "ko": "애증포켓몬",
+        "zh-Hant": "愛憎寶可夢",
+        "zh-Hans": "爱憎宝可梦"
+    },
     "abilities": [
         {
             "name": "Overcoat",

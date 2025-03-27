@@ -1,5 +1,16 @@
 {
     "name": "Ditto",
+    "category": {
+        "en": "Transform Pokémon",
+        "ja": "へんしんポケモン",
+        "fr": "Pokémon Morphing",
+        "es": "Pokémon Transformación",
+        "de": "Transform-Pokémon",
+        "it": "Pokémon Mutante",
+        "ko": "변신포켓몬",
+        "zh-Hant": "變身寶可夢",
+        "zh-Hans": "变身宝可梦"
+    },
     "abilities": [
         {
             "name": "Limber",

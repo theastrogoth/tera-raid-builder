@@ -1,5 +1,16 @@
 {
     "name": "Aegislash",
+    "category": {
+        "en": "Royal Sword Pokémon",
+        "ja": "おうけんポケモン",
+        "fr": "Pokémon Noble Lame",
+        "es": "Pokémon Espada Real",
+        "de": "Königsklingen-Pokémon",
+        "it": "Pokémon Spadareale",
+        "ko": "왕검포켓몬",
+        "zh-Hant": "王劍寶可夢",
+        "zh-Hans": "王剑宝可梦"
+    },
     "abilities": [
         {
             "name": "Stance Change",

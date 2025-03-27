@@ -1,5 +1,16 @@
 {
     "name": "Hippopotas",
+    "category": {
+        "en": "Hippo Pokémon",
+        "ja": "カバポケモン",
+        "fr": "Pokémon Hippo",
+        "es": "Pokémon Hipo",
+        "de": "Flusspferd-Pokémon",
+        "it": "Pokémon Ippo",
+        "ko": "하마포켓몬",
+        "zh-Hant": "河馬寶可夢",
+        "zh-Hans": "河马宝可梦"
+    },
     "abilities": [
         {
             "name": "Sand Stream",

@@ -1,5 +1,16 @@
 {
     "name": "Piloswine",
+    "category": {
+        "en": "Swine Pokémon",
+        "ja": "いのししポケモン",
+        "fr": "Pokémon Porc",
+        "es": "Pokémon Puerco",
+        "de": "Wildschwein-Pokémon",
+        "it": "Pokémon Suino",
+        "ko": "멧돼지포켓몬",
+        "zh-Hant": "野豬寶可夢",
+        "zh-Hans": "野猪宝可梦"
+    },
     "abilities": [
         {
             "name": "Oblivious",

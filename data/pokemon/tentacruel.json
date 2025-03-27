@@ -1,5 +1,16 @@
 {
     "name": "Tentacruel",
+    "category": {
+        "en": "Jellyfish Pokémon",
+        "ja": "くらげポケモン",
+        "fr": "Pokémon Mollusque",
+        "es": "Pokémon Medusa",
+        "de": "Quallen-Pokémon",
+        "it": "Pokémon Medusa",
+        "ko": "해파리포켓몬",
+        "zh-Hant": "水母寶可夢",
+        "zh-Hans": "水母宝可梦"
+    },
     "abilities": [
         {
             "name": "Clear Body",

@@ -1,5 +1,16 @@
 {
     "name": "Turtwig",
+    "category": {
+        "en": "Tiny Leaf Pokémon",
+        "ja": "わかばポケモン",
+        "fr": "Pokémon Minifeuille",
+        "es": "Pokémon Hojita",
+        "de": "Winziglaub-Pokémon",
+        "it": "Pokémon Fogliolina",
+        "ko": "어린잎포켓몬",
+        "zh-Hant": "嫩葉寶可夢",
+        "zh-Hans": "嫩叶宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

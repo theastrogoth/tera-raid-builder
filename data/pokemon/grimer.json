@@ -1,5 +1,16 @@
 {
     "name": "Grimer",
+    "category": {
+        "en": "Sludge Pokémon",
+        "ja": "ヘドロポケモン",
+        "fr": "Pokémon Dégueu",
+        "es": "Pokémon Lodo",
+        "de": "Schlamm-Pokémon",
+        "it": "Pokémon Melma",
+        "ko": "오물포켓몬",
+        "zh-Hant": "污泥寶可夢",
+        "zh-Hans": "污泥宝可梦"
+    },
     "abilities": [
         {
             "name": "Stench",

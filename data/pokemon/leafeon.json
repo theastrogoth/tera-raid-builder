@@ -1,5 +1,16 @@
 {
     "name": "Leafeon",
+    "category": {
+        "en": "Verdant Pokémon",
+        "ja": "しんりょくポケモン",
+        "fr": "Pokémon Verdoyant",
+        "es": "Pokémon Verdor",
+        "de": "Frischgrün-Pokémon",
+        "it": "Pokémon Rigoglioso",
+        "ko": "심록포켓몬",
+        "zh-Hant": "新綠寶可夢",
+        "zh-Hans": "新绿宝可梦"
+    },
     "abilities": [
         {
             "name": "Leaf Guard",

@@ -1,5 +1,16 @@
 {
     "name": "Chansey",
+    "category": {
+        "en": "Egg Pokémon",
+        "ja": "たまごポケモン",
+        "fr": "Pokémon Œuf",
+        "es": "Pokémon Huevo",
+        "de": "Ei-Pokémon",
+        "it": "Pokémon Uovo",
+        "ko": "알포켓몬",
+        "zh-Hant": "蛋寶可夢",
+        "zh-Hans": "蛋宝可梦"
+    },
     "abilities": [
         {
             "name": "Natural Cure",

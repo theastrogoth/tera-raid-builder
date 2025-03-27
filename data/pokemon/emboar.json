@@ -1,5 +1,16 @@
 {
     "name": "Emboar",
+    "category": {
+        "en": "Mega Fire Pig Pokémon",
+        "ja": "おおひぶたポケモン",
+        "fr": "Pokémon Grochon Feu",
+        "es": "Pokémon Cerdo Ígneo",
+        "de": "Feuerschwein-Pokémon",
+        "it": "Pokémon Suincendio",
+        "ko": "큰불돼지포켓몬",
+        "zh-Hant": "大火豬寶可夢",
+        "zh-Hans": "大火猪宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

@@ -1,5 +1,16 @@
 {
     "name": "Azurill",
+    "category": {
+        "en": "Polka Dot Pokémon",
+        "ja": "みずたまポケモン",
+        "fr": "Pokémon Point Polka",
+        "es": "Pokémon A Topos",
+        "de": "Gepunktet-Pokémon",
+        "it": "Pokémon Pois",
+        "ko": "물방울포켓몬",
+        "zh-Hant": "水珠寶可夢",
+        "zh-Hans": "水珠宝可梦"
+    },
     "abilities": [
         {
             "name": "Thick Fat",

@@ -1,5 +1,16 @@
 {
     "name": "Patrat",
+    "category": {
+        "en": "Scout Pokémon",
+        "ja": "みはりポケモン",
+        "fr": "Pokémon Espion",
+        "es": "Pokémon Explorador",
+        "de": "Späher-Pokémon",
+        "it": "Pokémon Esplorante",
+        "ko": "망보기포켓몬",
+        "zh-Hant": "放哨寶可夢",
+        "zh-Hans": "放哨宝可梦"
+    },
     "abilities": [
         {
             "name": "Run Away",

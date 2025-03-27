@@ -1,5 +1,16 @@
 {
     "name": "Wiglett",
+    "category": {
+        "en": "Garden Eel Pokémon",
+        "ja": "あなごポケモン",
+        "fr": "Pokémon Congre",
+        "es": "Pokémon Cóngrido",
+        "de": "Meeraal-Pokémon",
+        "it": "Pokémon Grongo",
+        "ko": "정원장어포켓몬",
+        "zh-Hant": "糯鰻寶可夢",
+        "zh-Hans": "糯鳗宝可梦"
+    },
     "abilities": [
         {
             "name": "Gooey",

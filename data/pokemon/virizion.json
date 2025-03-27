@@ -1,5 +1,16 @@
 {
     "name": "Virizion",
+    "category": {
+        "en": "Grassland Pokémon",
+        "ja": "そうげんポケモン",
+        "fr": "Pokémon Plaine Verte",
+        "es": "Pokémon Prado",
+        "de": "Wiesen-Pokémon",
+        "it": "Pokémon Prateria",
+        "ko": "초원포켓몬",
+        "zh-Hant": "草原寶可夢",
+        "zh-Hans": "草原宝可梦"
+    },
     "abilities": [
         {
             "name": "Justified",

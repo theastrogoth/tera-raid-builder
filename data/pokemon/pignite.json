@@ -1,5 +1,16 @@
 {
     "name": "Pignite",
+    "category": {
+        "en": "Fire Pig Pokémon",
+        "ja": "ひぶたポケモン",
+        "fr": "Pokémon Cochon Feu",
+        "es": "Pokémon Cerdo Fuego",
+        "de": "Feuerferkel-Pokémon",
+        "it": "Pokémon Suinfuoco",
+        "ko": "불돼지포켓몬",
+        "zh-Hant": "火豬寶可夢",
+        "zh-Hans": "火猪宝可梦"
+    },
     "abilities": [
         {
             "name": "Blaze",

@@ -1,5 +1,16 @@
 {
     "name": "Brionne",
+    "category": {
+        "en": "Pop Star Pokémon",
+        "ja": "アイドルポケモン",
+        "fr": "Pokémon Starlette",
+        "es": "Pokémon Fama",
+        "de": "Popsternchen-Pokémon",
+        "it": "Pokémon Pop Star",
+        "ko": "아이돌포켓몬",
+        "zh-Hant": "偶像寶可夢",
+        "zh-Hans": "偶像宝可梦"
+    },
     "abilities": [
         {
             "name": "Torrent",

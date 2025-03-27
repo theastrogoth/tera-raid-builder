@@ -1,5 +1,16 @@
 {
     "name": "Lechonk",
+    "category": {
+        "en": "Hog Pokémon",
+        "ja": "ぶたポケモン",
+        "fr": "Pokémon Pourceau",
+        "es": "Pokémon Gorrino",
+        "de": "Schwein-Pokémon",
+        "it": "Pokémon Porcellino",
+        "ko": "돼지포켓몬",
+        "zh-Hant": "豬寶可夢",
+        "zh-Hans": "猪宝可梦"
+    },
     "abilities": [
         {
             "name": "Aroma Veil",

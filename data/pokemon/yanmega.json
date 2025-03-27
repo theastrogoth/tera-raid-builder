@@ -1,5 +1,16 @@
 {
     "name": "Yanmega",
+    "category": {
+        "en": "Ogre Darner Pokémon",
+        "ja": "オニトンボポケモン",
+        "fr": "Pokémon Libellogre",
+        "es": "Pokémon Libélula",
+        "de": "Agrion-Pokémon",
+        "it": "Pokémon Libellorco",
+        "ko": "깨비잠자리포켓몬",
+        "zh-Hant": "勾蜓寶可夢",
+        "zh-Hans": "勾蜓宝可梦"
+    },
     "abilities": [
         {
             "name": "Speed Boost",

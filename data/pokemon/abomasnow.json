@@ -1,5 +1,16 @@
 {
     "name": "Abomasnow",
+    "category": {
+        "en": "Frost Tree Pokémon",
+        "ja": "じゅひょうポケモン",
+        "fr": "Pokémon Arbregelé",
+        "es": "Pokémon Árbol Nieve",
+        "de": "Frostbaum-Pokémon",
+        "it": "Pokémon Albergelo",
+        "ko": "얼음나무포켓몬",
+        "zh-Hant": "樹冰寶可夢",
+        "zh-Hans": "树冰宝可梦"
+    },
     "abilities": [
         {
             "name": "Snow Warning",

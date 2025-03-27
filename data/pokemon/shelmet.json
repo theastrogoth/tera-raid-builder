@@ -1,5 +1,16 @@
 {
     "name": "Shelmet",
+    "category": {
+        "en": "Snail Pokémon",
+        "ja": "マイマイポケモン",
+        "fr": "Pokémon Escargot",
+        "es": "Pokémon Caracol",
+        "de": "Schnecken-Pokémon",
+        "it": "Pokémon Lumachina",
+        "ko": "달팽이포켓몬",
+        "zh-Hant": "蝸牛寶可夢",
+        "zh-Hans": "蜗牛宝可梦"
+    },
     "abilities": [
         {
             "name": "Hydration",

@@ -1,5 +1,16 @@
 {
     "name": "Kangaskhan-Mega",
+    "category": {
+        "en": "Parent Pokémon",
+        "ja": "おやこポケモン",
+        "fr": "Pokémon Maternel",
+        "es": "Pokémon Maternal",
+        "de": "Muttertier-Pokémon",
+        "it": "Pokémon Genitore",
+        "ko": "가족포켓몬",
+        "zh-Hant": "親子寶可夢",
+        "zh-Hans": "亲子宝可梦"
+    },
     "abilities": [
         {
             "name": "Parental Bond",

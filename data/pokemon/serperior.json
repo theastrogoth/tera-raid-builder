@@ -1,5 +1,16 @@
 {
     "name": "Serperior",
+    "category": {
+        "en": "Regal Pokémon",
+        "ja": "ロイヤルポケモン",
+        "fr": "Pokémon Majestueux",
+        "es": "Pokémon Realeza",
+        "de": "Hoheits-Pokémon",
+        "it": "Pokémon Regale",
+        "ko": "로열포켓몬",
+        "zh-Hant": "皇家寶可夢",
+        "zh-Hans": "皇家宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

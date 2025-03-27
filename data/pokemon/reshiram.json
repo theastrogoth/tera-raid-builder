@@ -1,5 +1,16 @@
 {
     "name": "Reshiram",
+    "category": {
+        "en": "Vast White Pokémon",
+        "ja": "はくようポケモン",
+        "fr": "Pokémon Blanc Réel",
+        "es": "Pokémon Blanco Veraz",
+        "de": "Wahres Weiß-Pokémon",
+        "it": "Pokémon Bianco Verità",
+        "ko": "백양포켓몬",
+        "zh-Hant": "白陽寶可夢",
+        "zh-Hans": "白阳宝可梦"
+    },
     "abilities": [
         {
             "name": "Turboblaze",

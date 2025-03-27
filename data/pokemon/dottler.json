@@ -1,5 +1,16 @@
 {
     "name": "Dottler",
+    "category": {
+        "en": "Radome Pokémon",
+        "ja": "レドームポケモン",
+        "fr": "Pokémon Radôme",
+        "es": "Pokémon Radomo",
+        "de": "Radarkuppel-Pokémon",
+        "it": "Pokémon Radome",
+        "ko": "레이돔포켓몬",
+        "zh-Hant": "天線罩寶可夢",
+        "zh-Hans": "天线罩宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

@@ -1,5 +1,16 @@
 {
     "name": "Zweilous",
+    "category": {
+        "en": "Hostile Pokémon",
+        "ja": "らんぼうポケモン",
+        "fr": "Pokémon Violent",
+        "es": "Pokémon Violento",
+        "de": "Grobheits-Pokémon",
+        "it": "Pokémon Irruenza",
+        "ko": "흉포포켓몬",
+        "zh-Hant": "粗暴寶可夢",
+        "zh-Hans": "粗暴宝可梦"
+    },
     "abilities": [
         {
             "name": "Hustle",

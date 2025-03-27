@@ -1,5 +1,16 @@
 {
     "name": "Genesect",
+    "category": {
+        "en": "Paleozoic Pokémon",
+        "ja": "こせいだいポケモン",
+        "fr": "Pokémon Paléozoïque",
+        "es": "Pokémon Paleozoico",
+        "de": "Paläozoikums-Pokémon",
+        "it": "Pokémon Paleozoico",
+        "ko": "고생대포켓몬",
+        "zh-Hant": "古生代寶可夢",
+        "zh-Hans": "古生代宝可梦"
+    },
     "abilities": [
         {
             "name": "Download",

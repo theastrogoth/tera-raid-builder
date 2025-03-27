@@ -1,5 +1,16 @@
 {
     "name": "Salazzle",
+    "category": {
+        "en": "Toxic Lizard Pokémon",
+        "ja": "どくトカゲポケモン",
+        "fr": "Pokémon Toxilézard",
+        "es": "Pokémon Lagartoxina",
+        "de": "Giftechsen-Pokémon",
+        "it": "Pokémon Lucertossina",
+        "ko": "독도마뱀포켓몬",
+        "zh-Hant": "毒蜥寶可夢",
+        "zh-Hans": "毒蜥宝可梦"
+    },
     "abilities": [
         {
             "name": "Corrosion",

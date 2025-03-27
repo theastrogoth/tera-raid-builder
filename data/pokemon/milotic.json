@@ -1,5 +1,16 @@
 {
     "name": "Milotic",
+    "category": {
+        "en": "Tender Pokémon",
+        "ja": "いつくしみポケモン",
+        "fr": "Pokémon Tendre",
+        "es": "Pokémon Tierno",
+        "de": "Zartheits-Pokémon",
+        "it": "Pokémon Tenerezza",
+        "ko": "사랑포켓몬",
+        "zh-Hant": "慈愛寶可夢",
+        "zh-Hans": "慈爱宝可梦"
+    },
     "abilities": [
         {
             "name": "Marvel Scale",

@@ -1,5 +1,16 @@
 {
     "name": "Shiinotic",
+    "category": {
+        "en": "Illuminating Pokémon",
+        "ja": "はっこうポケモン",
+        "fr": "Pokémon Luminescent",
+        "es": "Pokémon Luminiscente",
+        "de": "Lumineszenz-Pokémon",
+        "it": "Pokémon Luminescenza",
+        "ko": "발광포켓몬",
+        "zh-Hant": "發光寶可夢",
+        "zh-Hans": "发光宝可梦"
+    },
     "abilities": [
         {
             "name": "Illuminate",

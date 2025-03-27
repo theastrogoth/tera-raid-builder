@@ -1,5 +1,16 @@
 {
     "name": "Slaking",
+    "category": {
+        "en": "Lazy Pokémon",
+        "ja": "ものぐさポケモン",
+        "fr": "Pokémon Fainéant",
+        "es": "Pokémon Holgazán",
+        "de": "Müßig-Pokémon",
+        "it": "Pokémon Pigrizia",
+        "ko": "나태포켓몬",
+        "zh-Hant": "怕麻煩寶可夢",
+        "zh-Hans": "怕麻烦宝可梦"
+    },
     "abilities": [
         {
             "name": "Truant",

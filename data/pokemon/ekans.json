@@ -1,5 +1,16 @@
 {
     "name": "Ekans",
+    "category": {
+        "en": "Snake Pokémon",
+        "ja": "へびポケモン",
+        "fr": "Pokémon Serpent",
+        "es": "Pokémon Serpiente",
+        "de": "Schlangen-Pokémon",
+        "it": "Pokémon Serpente",
+        "ko": "뱀포켓몬",
+        "zh-Hant": "蛇寶可夢",
+        "zh-Hans": "蛇宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",

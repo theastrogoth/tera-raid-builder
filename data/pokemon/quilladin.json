@@ -1,5 +1,16 @@
 {
     "name": "Quilladin",
+    "category": {
+        "en": "Spiny Armor Pokémon",
+        "ja": "とげよろいポケモン",
+        "fr": "Pokémon Épinarmure",
+        "es": "Pokémon Corazaespín",
+        "de": "Spitzpanzer-Pokémon",
+        "it": "Pokémon Spincorazza",
+        "ko": "가시갑옷포켓몬",
+        "zh-Hant": "刺鎧寶可夢",
+        "zh-Hans": "刺铠宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

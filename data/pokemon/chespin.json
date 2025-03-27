@@ -1,5 +1,16 @@
 {
     "name": "Chespin",
+    "category": {
+        "en": "Spiny Nut Pokémon",
+        "ja": "いがぐりポケモン",
+        "fr": "Pokémon Bogue",
+        "es": "Pokémon Erizo",
+        "de": "Stachelkopf-Pokémon",
+        "it": "Pokémon Castanriccio",
+        "ko": "밤송이포켓몬",
+        "zh-Hant": "刺栗寶可夢",
+        "zh-Hans": "刺栗宝可梦"
+    },
     "abilities": [
         {
             "name": "Overgrow",

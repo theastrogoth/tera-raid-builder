@@ -1,5 +1,16 @@
 {
     "name": "Jolteon",
+    "category": {
+        "en": "Lightning Pokémon",
+        "ja": "かみなりポケモン",
+        "fr": "Pokémon Orage",
+        "es": "Pokémon Relámpago",
+        "de": "Blitz-Pokémon",
+        "it": "Pokémon Luminoso",
+        "ko": "번개포켓몬",
+        "zh-Hant": "雷寶可夢",
+        "zh-Hans": "雷宝可梦"
+    },
     "abilities": [
         {
             "name": "Volt Absorb",

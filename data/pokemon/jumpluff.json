@@ -1,5 +1,16 @@
 {
     "name": "Jumpluff",
+    "category": {
+        "en": "Cottonweed Pokémon",
+        "ja": "わたくさポケモン",
+        "fr": "Pokémon Pissenlit",
+        "es": "Pokémon Diente León",
+        "de": "Löwenzahn-Pokémon",
+        "it": "Pokémon Gramigna",
+        "ko": "솜풀포켓몬",
+        "zh-Hant": "棉草寶可夢",
+        "zh-Hans": "棉草宝可梦"
+    },
     "abilities": [
         {
             "name": "Chlorophyll",

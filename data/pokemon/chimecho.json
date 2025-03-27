@@ -1,5 +1,16 @@
 {
     "name": "Chimecho",
+    "category": {
+        "en": "Wind Chime Pokémon",
+        "ja": "ふうりんポケモン",
+        "fr": "Pokémon Carillon",
+        "es": "Pokémon Campanilla",
+        "de": "Windspiel-Pokémon",
+        "it": "Pokémon Vencampana",
+        "ko": "풍경포켓몬",
+        "zh-Hant": "風鈴寶可夢",
+        "zh-Hans": "风铃宝可梦"
+    },
     "abilities": [
         {
             "name": "Levitate",

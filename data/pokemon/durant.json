@@ -1,5 +1,16 @@
 {
     "name": "Durant",
+    "category": {
+        "en": "Iron Ant Pokémon",
+        "ja": "てつアリポケモン",
+        "fr": "Pokémon Fourmi Dure",
+        "es": "Pokémon Hormigacero",
+        "de": "Eisenameisen-Pokémon",
+        "it": "Pokémon Ferformica",
+        "ko": "철개미포켓몬",
+        "zh-Hant": "鐵蟻寶可夢",
+        "zh-Hans": "铁蚁宝可梦"
+    },
     "abilities": [
         {
             "name": "Swarm",

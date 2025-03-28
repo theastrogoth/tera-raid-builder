@@ -1,4 +1,9 @@
 {
+    "Tyranitar": {
+        "Desserted": "tyranitar/main",
+        "Desserted (3-person version)": "tyranitar/desserted_3",
+        "Classic Anger Point": "tyranitar/ap"
+    },
     "Quaquaval": {
         "Duck Duck Zeus": "quaquaval/main",
         "Duck Duck Zeus (3-person version)": "quaquaval/ddz_3",

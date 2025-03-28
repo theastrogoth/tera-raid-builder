@@ -5,11 +5,10 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Quaquaval",
-            "name": "Quaquaval",
+            "role": "Tyranitar",
+            "name": "Tyranitar",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Moxie",
+            "ability": "Sand Stream",
             "nature": "Adamant",
             "evs": {
                 "hp": 0,
@@ -29,22 +28,22 @@
             },
             "level": 100,
             "gender": "M",
-            "teraType": "Water",
+            "teraType": "Ghost",
             "moves": [
-                "Aqua Step",
-                "Brick Break",
-                "Brave Bird",
-                "Ice Spinner"
+                "Stone Edge",
+                "Crunch",
+                "Earthquake",
+                "Shadow Claw"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Bulk Up",
-                "Rain Dance"
+                "Focus Energy",
+                "Dragon Dance"
             ],
             "shieldData": {
-                "hpTrigger": 75,
+                "hpTrigger": 80,
                 "timeTrigger": 80,
-                "shieldCancelDamage": 35,
+                "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -52,59 +51,42 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Hadron Engine",
-            "item": "Life Orb",
-            "nature": "Modest",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Charge",
-                "Electro Drift",
-                "Parabolic Charge",
-                "Calm Mind"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Torkoal",
-            "name": "Torkoal",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Drought",
-            "item": "Zoom Lens",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -112,43 +94,27 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Will-O-Wisp",
-                "Helping Hand",
-                "Sunny Day",
-                "Lava Plume"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Qwilfish",
-            "name": "Qwilfish",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Intimidate",
-            "item": "Sitrus Berry",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -156,43 +122,27 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Acid Spray",
-                "Chilling Water",
-                "Scary Face",
-                "Acupressure"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Qwilfish",
-            "name": "Qwilfish",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Intimidate",
-            "item": "Sitrus Berry",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -200,31 +150,16 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Acid Spray",
-                "Chilling Water",
-                "Scary Face",
-                "Acupressure"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "moves": []
         }
     ],
     "turns": [
@@ -244,7 +179,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Bulk Up",
+                "name": "Focus Energy",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

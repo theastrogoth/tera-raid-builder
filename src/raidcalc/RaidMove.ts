@@ -18,6 +18,7 @@ export type RaidMoveResult= {
     userID: number;
     targetID: number;
     damage: number[];
+    damaged: boolean[];
     drain: number[];
     healing: number[];
     desc: string[];
@@ -91,7 +92,7 @@ export class RaidMove {
     hits: number;
     isBossAction?: boolean;
     flinch?: boolean;
-    damaged?: boolean;
+    damaged: boolean[];
     statLowered?: boolean;
     statRaised: boolean[];
     delayed?: boolean;
@@ -119,6 +120,7 @@ export class RaidMove {
     _moveType!: TypeName;
     _isSpread?: boolean;
     _damage!: number[];
+    _damaged!: boolean[];
     _damageRolls!: Map<number,number>[][];
     _healing!: number[];
     _drain!: number[];
@@ -127,7 +129,7 @@ export class RaidMove {
     _flags!: string[][];
     _warnings!: string[];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean, statLowered?: boolean, statRaised?: boolean[], instructed?: boolean, delayed?: boolean) {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean[], statLowered?: boolean, statRaised?: boolean[], instructed?: boolean, delayed?: boolean) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
@@ -138,7 +140,7 @@ export class RaidMove {
         this.options = raidMoveOptions || {};
         this.isBossAction = isBossAction || false;
         this.flinch = flinch || false;
-        this.damaged = damaged || false;
+        this.damaged = damaged || [false, false, false, false, false];
         this.statLowered = statLowered || false;
         this.statRaised = statRaised || [false, false, false, false, false];
         this.instructed = instructed || false;
@@ -212,6 +214,7 @@ export class RaidMove {
             userID: this.userID,
             targetID: this.targetID,
             damage: this._damage,
+            damaged: this._damaged,
             drain: this._drain,
             healing: this._healing,
             desc: this._desc,
@@ -239,6 +242,7 @@ export class RaidMove {
         this._statRaised = [false, false, false, false, false];
         this._moveType = this.move.type;
         this._damage = [0,0,0,0,0];
+        this._damaged = [...this.damaged];
         this._damageRolls = [[],[],[],[],[]];
         this._drain = [0,0,0,0,0];
         this._healing = [0,0,0,0,0];
@@ -352,7 +356,7 @@ export class RaidMove {
         this._damage[this.userID] = damageVal;
         this._desc[this.userID] = res.desc();
         this._warnings.push(this._user.name + " hurt itself in its confusion.");
-        this._raidState.applyDamage(this.userID, damageVal, roll, 1, false, false, "???", "Physical", false, false, true, false);
+        this._damaged[this.userID] = this._raidState.applyDamage(this.userID, damageVal, roll, 1, false, false, "???", "Physical", false, false, true, false) || this._damaged[this.userID];
     }
 
     private storeLastMove() {
@@ -821,7 +825,7 @@ export class RaidMove {
                 const attackerIgnoresAbility = (this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !target.hasItem("Ability Shield")) || (this._user.hasAbility("Mycelium Might") && this.move.category === "Status");
                 let [accuracy, accEffectsList] = (this.instructed && this._user.lastAccuracy) ? [this._user.lastAccuracy, []] : getAccuracy(this.moveData, this.move.category, moveUser, target, !this.movesFirst, attackerIgnoresAbility);
                 this._user.lastAccuracy = accuracy;
-                const bpModifier = getBpModifier(this.moveData, target, this.damaged, this.statLowered);
+                const bpModifier = getBpModifier(this.moveData, target, this._damaged[this.userID], this._damaged[id], this.statLowered);
                 const accFraction = Math.min(1,accuracy/100);
                 const rollChance = accFraction * (crit ? critChance : (1 - critChance));
                 if (this.options.allowMiss ? (accuracy >= 100 || roll !== "min") : (accuracy > 0)) {
@@ -900,7 +904,7 @@ export class RaidMove {
                                 hitRoll = catRollCounts(hitRoll, getRollCounts([[0]], 0, target.maxHP(), [1 - accFraction]));
                             }
                             const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
-                            this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this._moveType, this.move.category, true, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted, i !== (this.hits - 1), this.userID);
+                            this._damaged[id] = this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this._moveType, this.move.category, true, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted, i !== (this.hits - 1), this.userID) || this._damaged[id];
                             totalDamage += hitDamage;
                             this._damageRolls[id].push(hitRoll);
         
@@ -914,7 +918,7 @@ export class RaidMove {
                                 (this.moveData.moveCategory === "Physical" && target.hasItem("Jaboca Berry")) ||
                                 (this.moveData.moveCategory === "Special" && target.hasItem("Rowap Berry"))
                             ) {
-                                this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100)));
+                                this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
                                 this._raidState.consumeItem(target.id, target.item!)
                             }
                             // contact checks
@@ -926,11 +930,11 @@ export class RaidMove {
                                     switch (this._raidState.raiders[this._targetID].ability) {
                                         case "Rough Skin":
                                         case "Iron Barbs":
-                                            this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100)));
+                                            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
                                             break;
                                         case "Aftermath":
                                             if (target.originalCurHP === 0) {
-                                                this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 4 / ((this._user.bossMultiplier || 100) / 100)));
+                                                this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 4 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
                                             }
                                             break;
                                         case "Gooey":
@@ -969,7 +973,7 @@ export class RaidMove {
                                 // items
                                 switch (target.item) {
                                     case "Rocky Helmet":
-                                        this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 6 / ((this._user.bossMultiplier || 100) / 100)));
+                                        this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 6 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
                                         break;
                                     case "Sticky Barb":
                                         if (!this._user.item) {
@@ -989,8 +993,12 @@ export class RaidMove {
                         const result = results[0];
                         result.damage = damageResult as number | number[];
                         result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
+                        if (bpModifier !== 1) {
+                            result.rawDesc.moveBP = bpModifier * this.move.bp;
+                        }
                         this._damage[id] = Math.min(totalDamage, this.raidState.raiders[id].originalCurHP);
                         this._desc[id] = result.desc();
+
                         // for Fling / Symbiosis interactions, the Flinger should lose their item *after* the target receives damage
                         if (this.moveData.name === "Fling" && this._user.item) {
                             const flingItem = this._user.item;
@@ -1032,7 +1040,7 @@ export class RaidMove {
                 if (this.moveData.makesContact && this._blockedBy[id] && target.lastMove && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
                     switch (target.lastMove.name) {
                         case "Spiky Shield":
-                            this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100)));
+                            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
                             break;
                         case "Baneful Bunker":
                             this._raidState.applyStatus(this.userID, "psn", target.id, false, false, this.options.roll);
@@ -1107,7 +1115,7 @@ export class RaidMove {
                 }
             }
             if (this._drain[this.userID] && this._user.originalCurHP > 0) {
-                this._raidState.applyDamage(this.userID, -this._drain[this.userID], drainRolls)
+                this._damaged[this.userID] = this._raidState.applyDamage(this.userID, -this._drain[this.userID], drainRolls) || this._damaged[this.userID];
             }
         }
     }
@@ -1272,11 +1280,11 @@ export class RaidMove {
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;
             this._flags[this.userID].push!(selfDamagePercent + "% self damage from " + this.moveData.name)
-            this._raidState.applyDamage(this.userID, selfDamage);
+            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, selfDamage) || this._damaged[this.userID];
         }
         if (lifeOrbDamage !== 0) {
             this._flags[this.userID].push!("Life Orb damage")
-            this._raidState.applyDamage(this.userID, lifeOrbDamage);
+            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, lifeOrbDamage) || this._damaged[this.userID];
         }
     }
 
@@ -1877,7 +1885,7 @@ export class RaidMove {
                 break;
             case "Curse": 
                 if (this._user.hasType("Ghost")) {
-                    this._raidState.applyDamage(this.userID, this._user.maxHP() / 2);
+                    this._damaged[this.userID] = this._raidState.applyDamage(this.userID, this._user.maxHP() / 2) || this._damaged[this.userID];
                     // (Ghost) Curse probably doesn't work in raids
                 }
                 break;

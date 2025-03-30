@@ -233,7 +233,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
     return [accuracy, effects];
 }
 
-export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boolean = false, statLowered: boolean = false): number {
+export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boolean = false, targetDamaged: boolean = false, statLowered: boolean = false): number {
     const movename = movedata.name;
 
     if (defender.isCharging && defender.lastMove) {
@@ -249,6 +249,9 @@ export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boo
         if (["Avalanche", "Revenge"].includes(movename)) {
             return 2;
         }
+    }
+    if (targetDamaged && movename === "Assurance") {
+        return 2;
     }
     if (statLowered) {
         if (movename === "Lash Out") {

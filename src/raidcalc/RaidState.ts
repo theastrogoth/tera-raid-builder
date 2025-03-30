@@ -45,7 +45,7 @@ export class RaidState implements State.RaidState{
             if (damage !== 0 && damageRolls) {
                 pokemon.addDamageRoll(damageRolls); // but we should still record the damage rolls
             }
-            return; 
+            return damage > 0;
         } 
 
         if (pokemon.substitute && !bypassSubstitute) {
@@ -58,6 +58,7 @@ export class RaidState implements State.RaidState{
         const opponents = id === 0 ? [1,2,3,4] : [0];
         let unnerve = false;
         let fainted = pokemon.originalCurHP <= 0;
+        let damaged = false;
         for (let i of opponents) {
             if (this.getPokemon(i).hasAbility("Unnerve")) { unnerve = true; break; }
         }
@@ -72,7 +73,7 @@ export class RaidState implements State.RaidState{
                 pokemon.originalCurHP = originalHP; // no damage is done
                 pokemon.cumDamageRolls = originalDamageRolls;
                 fainted = false;
-                return; // don't trigger item use
+                return false; // don't trigger item use
             }
             if (pokemon.hasAbility("Disguise") && !pokemon.abilityOn && pokemon.name.includes("Mimikyu")) {
                 pokemon.abilityOn = true;
@@ -82,7 +83,7 @@ export class RaidState implements State.RaidState{
                 if (pokemon.originalCurHP === 0) {
                     this.faint(id);
                 }
-                return; // don't trigger item use (except for Air Balloon)
+                return true; // don't trigger item use (except for Air Balloon)
             }
             if (pokemon.item === "Focus Sash" || pokemon.hasAbility("Sturdy")) {
                 if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
@@ -173,7 +174,7 @@ export class RaidState implements State.RaidState{
                 if (source !== undefined && this.getPokemon(source).hasAbility("Moxie")) {
                     this.applyStatChange(source, {atk: 1}, true, source);
                 }
-                return; 
+                return true; 
             }
 
             /// Non-super effective items consumed after damage if the target survives
@@ -264,6 +265,7 @@ export class RaidState implements State.RaidState{
         }
         // Final Check for fainting
         if (fainted) { this.faint(id); }
+        return damage > 0;
     }
 
     public consumeItem(id: number, item: ItemName, lost: boolean = true, blockSymbiosis = false) {

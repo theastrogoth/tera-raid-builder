@@ -338,6 +338,7 @@ export function getSelectableTargets(moveTarget?: MoveTarget): number[] {
     switch (moveTarget) {
         case "ally":
             return [1,2,3,4];
+        case "opponent":
         case "all-opponents":
         case "all-other-pokemon":
             return [0];

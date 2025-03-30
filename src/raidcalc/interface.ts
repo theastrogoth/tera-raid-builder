@@ -37,6 +37,7 @@ export type MoveTarget = "all-opponents" |              // Target
                          "opponents-field" |
                          "user-and-allies" |            // Some healing moves, Heal Cheer
                          "ally" |
+                         "opponent" | 
                          "user-or-ally" |
                          "fainting-pokemon";
 

@@ -184,8 +184,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -194,11 +194,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -206,14 +206,14 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Defense Cheer",
                 "userID": 1,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -222,11 +222,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -240,8 +240,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -250,11 +250,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -268,8 +268,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -278,39 +278,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 1,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 4,
-                "targetID": 4,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -324,8 +296,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -334,11 +306,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -352,8 +324,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -362,11 +334,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -380,8 +352,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -390,11 +362,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
@@ -406,8 +378,7 @@
         [
             1,
             2,
-            3,
-            4
+            3
         ],
         [
             5
@@ -474,8 +445,130 @@
                 ]
             }
         ],
-        [],
-        [],
-        []
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Psyduck",
+                    "name": "Psyduck",
+                    "shiny": false,
+                    "ability": "Cloud Nine",
+                    "item": "Eviolite",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Simple Beam",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Simple Beam",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Medicham",
+                    "name": "Medicham",
+                    "shiny": false,
+                    "isAnyLevel": true,
+                    "ability": "Pure Power",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "Skill Swap"
+                    ]
+                },
+                "substituteMoves": [
+                    "Skill Swap"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Smeargle",
+                    "name": "Smeargle",
+                    "shiny": false,
+                    "isAnyLevel": true,
+                    "ability": "(No Ability)",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "Spicy Extract"
+                    ]
+                },
+                "substituteMoves": [
+                    "Spicy Extract"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ]
     ]
 }

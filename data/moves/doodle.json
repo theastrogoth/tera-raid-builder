@@ -2,7 +2,7 @@
     "name": "Doodle",
     "moveCategory": "Status",
     "category": "unique",
-    "target": "selected-pokemon",
+    "target": "opponent",
     "type": "Normal",
     "power": null,
     "accuracy": 100,

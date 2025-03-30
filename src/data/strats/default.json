@@ -81,12 +81,12 @@
         },
         {
             "id": 2,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -104,10 +104,12 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Decorate",
-                "Helping Hand"
+                "Screech",
+                "Helping Hand",
+                "Mud-Slap",
+                "Foul Play"
             ]
         },
         {
@@ -143,12 +145,12 @@
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -166,12 +168,10 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Mud-Slap",
-                "Foul Play"
+                "Decorate",
+                "Helping Hand"
             ]
         }
     ],

@@ -2,7 +2,11 @@
     "Tyranitar": {
         "Desserted": "tyranitar/main",
         "Desserted (3-person version)": "tyranitar/desserted_3",
-        "Classic Anger Point": "tyranitar/ap"
+        "Classic Anger Point": "tyranitar/ap",
+        "Spicy Rage Ball": "tyranitar/spicy_rage_ball",
+        "Foul Play T1.5": "tyranitar/foul_play",
+        "Mythicals": "tyranitar/mythicals",
+        "Throwing a Tantrum": "tyranitar/throwing_a_tantrum"
     },
     "Quaquaval": {
         "Duck Duck Zeus": "quaquaval/main",

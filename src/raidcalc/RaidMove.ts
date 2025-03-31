@@ -1753,8 +1753,8 @@ export class RaidMove {
                     for (let stat in pokemon.boosts) {
                         const statId = stat as StatIDExceptHP
                         pokemon.boosts[statId] = 0;
-                        pokemon.isPumped = 0;
                     }
+                    pokemon.isPumped = 0;
                 }
                 break;
             case "Heal Bell":

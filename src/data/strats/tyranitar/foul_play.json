@@ -427,15 +427,12 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Foul Play",
-                        "(No Move)",
-                        "(No Move)",
-                        "(No Move)"
+                        "Foul Play"
                     ]
                 },
                 "substituteMoves": [
                     "(No Move)",
-                    "Attack Cheer",
+                    "Defense Cheer",
                     "Foul Play"
                 ],
                 "substituteTargets": [

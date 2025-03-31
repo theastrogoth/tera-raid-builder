@@ -73,7 +73,6 @@ export class RaidBattle {
             if (!this._continuing) {
                 this.calculateTurnZero();
             }
-            const t0 = this._state.clone();
             this.calculateTurns();
             return {
                 endState: this._state,

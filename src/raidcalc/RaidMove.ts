@@ -1335,7 +1335,6 @@ export class RaidMove {
         // apply effects
         const sideFieldIDs = this.userID === 0 ? [0] : [1,2,3,4];
         for (let id of sideFieldIDs) {
-            const poke = this._raiders[id];
             const field = this._fields[id];
             field.attackerSide.isReflect = (reflect && !field.attackerSide.isReflect) ? (this._user.item === "Light Clay" ? 8 : 5) : field.attackerSide.isReflect;
             field.attackerSide.isLightScreen = (lightscreen && !field.attackerSide.isLightScreen) ? (this._user.item === "Light Clay" ? 8 : 5) : field.attackerSide.isLightScreen;

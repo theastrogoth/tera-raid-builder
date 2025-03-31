@@ -58,7 +58,6 @@ export class RaidState implements State.RaidState{
         const opponents = id === 0 ? [1,2,3,4] : [0];
         let unnerve = false;
         let fainted = pokemon.originalCurHP <= 0;
-        let damaged = false;
         for (let i of opponents) {
             if (this.getPokemon(i).hasAbility("Unnerve")) { unnerve = true; break; }
         }

@@ -22,6 +22,7 @@ export class Raider extends Pokemon implements State.Raider {
 
     isEndure?: boolean;         // store that a Pokemon can't faint until its next move
     isTaunt?: number;           // store number of turns that a Pokemon can't use status moves
+    firstTauntTurn?: boolean;
     isSleep?: number;           // store number of turns that a Pokemon is asleep
     isYawn?: number;            // turn countdown until yawn takes effect
     yawnSource?: number;        // id of the pokemon that inflicted the user with Yawn
@@ -34,7 +35,10 @@ export class Raider extends Pokemon implements State.Raider {
     lastTarget?: number;        // stored for Instruct and Copycat
     lastAccuracy?: number;      // stored for accuracy of instructed moves
     moveRepeated?: number;      // stored for boost from Metronome, Fury Cutter, etc
+    movesUsed: boolean[];       // stored for Last Resort
+
     teraCharge: number;         // stored for Tera activation
+    cheersLeft: number;
 
     isChoiceLocked?: boolean;   // indicates that a Pokemon is locked into a move
     isEncore?: number;          // store number of turns that a Pokemon is encored
@@ -53,6 +57,7 @@ export class Raider extends Pokemon implements State.Raider {
     syrupBombDrops?: number;  // stores the number of speed drops left to be applied from Syrup Bomb
 
     lastConsumedItem?: ItemName; // stores the last berry consumed by the raider (via normal consuption of Fling)
+    preventBelch?: boolean;
     isCudChew?: number;          // store number of "turns" (each made of 4 moves) until Cud Chew activates
 
     isTransformed?: boolean; // indicates that the pokemon has been transformed by Transform or Imposter
@@ -82,6 +87,7 @@ export class Raider extends Pokemon implements State.Raider {
         koChance: number = 0,
         isEndure: boolean = false, 
         isTaunt: number = 0,
+        firstTauntTurn: boolean = false,
         isSleep: number = 0,
         isYawn: number = 0,
         yawnSource: number | undefined = undefined,
@@ -92,7 +98,9 @@ export class Raider extends Pokemon implements State.Raider {
         lastTarget: number | undefined = undefined, 
         lastAccuracy: number | undefined = undefined,
         moveRepeated: number | undefined = undefined,
+        movesUsed: boolean[] | undefined = undefined,
         teraCharge: number | undefined = 0, 
+        cheersLeft: number = 3,
         choiceLocked: boolean = false,
         isEncore: number | undefined = 0,
         isTorment: boolean | undefined = false,
@@ -106,6 +114,7 @@ export class Raider extends Pokemon implements State.Raider {
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
         syrupBombDrops: number | undefined = 0,
         lastConsumedItem: ItemName | undefined = undefined,
+        preventBelch: boolean | undefined = false,
         isCudChew: number | undefined = 0,
         isTransformed: boolean | undefined = undefined,
         isChangedForm: boolean | undefined = undefined,
@@ -131,6 +140,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.koChance = koChance;
         this.isEndure = isEndure;
         this.isTaunt = isTaunt;
+        this.firstTauntTurn = firstTauntTurn;
         this.isSleep = isSleep;
         this.isYawn = isYawn;
         this.yawnSource = yawnSource;
@@ -140,8 +150,14 @@ export class Raider extends Pokemon implements State.Raider {
         this.lastMove = lastMove;
         this.lastTarget = lastTarget;
         this.lastAccuracy = lastAccuracy;
+        this.movesUsed = movesUsed || (
+            pokemon.moves.filter(m => m !== "Last Resort" && m !== "(No Move)").length > 0 ?
+                pokemon.moves.map(m => m === "Last Resort" || m === "(No Move)") :
+                Array(pokemon.moves.length).fill(false)
+        );
         this.moveRepeated = moveRepeated;
         this.teraCharge = teraCharge;
+        this.cheersLeft = cheersLeft;
         this.isChoiceLocked = choiceLocked;
         this.isEncore = isEncore;
         this.isTorment = isTorment;
@@ -155,6 +171,7 @@ export class Raider extends Pokemon implements State.Raider {
         this.originalAbility = originalAbility || pokemon.ability || "(No Ability)";
         this.syrupBombDrops = syrupBombDrops;
         this.lastConsumedItem = lastConsumedItem;
+        this.preventBelch = preventBelch;
         this.isCudChew = isCudChew;
         this.isTransformed = isTransformed;
         this.isChangedForm = isChangedForm;
@@ -228,6 +245,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.koChance,
             this.isEndure,
             this.isTaunt,
+            this.firstTauntTurn,
             this.isSleep,
             this.isYawn,
             this.yawnSource,
@@ -238,7 +256,9 @@ export class Raider extends Pokemon implements State.Raider {
             this.lastTarget,
             this.lastAccuracy,
             this.moveRepeated,
+            this.movesUsed.slice(),
             this.teraCharge,
+            this.cheersLeft,
             this.isChoiceLocked,
             this.isEncore,
             this.isTorment,
@@ -252,6 +272,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.originalAbility,
             this.syrupBombDrops,
             this.lastConsumedItem,
+            this.preventBelch,
             this.isCudChew,
             this.isTransformed,
             this.isChangedForm,

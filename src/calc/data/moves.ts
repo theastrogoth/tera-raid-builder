@@ -4384,6 +4384,7 @@ const SV_PATCH: {[name: string]: DeepPartial<MoveData>} = {
     bp: 130,
     type: 'Electric',
     category: 'Special',
+    secondaries: true,
   },
   'Esper Wing': {
     bp: 80,

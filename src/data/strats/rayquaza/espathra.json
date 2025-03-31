@@ -1,0 +1,398 @@
+{
+    "name": "Espathra T1 OHKO Shiny Rayquaza",
+    "notes": "Rayquaza can theoretically use Extreme Speed on Florges to disrupt what Copycat copies, even though Psychic Terrain blocks priority moves. However, the AI appears coded to not target Florges or other Pokemon with Extreme Speed under Psychic Terrain. Since Rayquaza shields late and we use underleveled Pokemon, losing one Pokemon won't trigger shielding if done fast enough. https://www.reddit.com/r/PokePortal/comments/1hm7128/espathra_t1_ohko_shiny_rayquaza/",
+    "credits": "Nyashiro",
+    "pokemon": [
+      {
+        "id": 0,
+        "role": "Rayquaza",
+        "name": "Rayquaza",
+        "shiny": true,
+        "isAnyLevel": false,
+        "ability": "Air Lock",
+        "nature": "Naughty",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "level": 75,
+        "gender": "N",
+        "teraType": "Dragon",
+        "moves": [
+          "Dragon Pulse",
+          "Hurricane",
+          "Earthquake",
+          "Extreme Speed"
+        ],
+        "bossMultiplier": 3500,
+        "extraMoves": [
+          "Dragon Ascent",
+          "Draco Meteor",
+          "Dragon Dance"
+        ],
+        "shieldData": {
+          "hpTrigger": 80,
+          "timeTrigger": 75,
+          "shieldCancelDamage": 30,
+          "shieldDamageRate": 20,
+          "shieldDamageRateTera": 80,
+          "shieldDamageRateTeraChange": 40
+        }
+      },
+      {
+        "id": 1,
+        "role": "Espathra",
+        "name": "Espathra",
+        "shiny": false,
+        "isAnyLevel": false,
+        "ability": "Opportunist",
+        "item": "Mirror Herb",
+        "nature": "Modest",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 0,
+          "spa": 252,
+          "spd": 0,
+          "spe": 0
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "level": 100,
+        "gender": "N",
+        "teraType": null,
+        "moves": [
+          "Stored Power"
+        ],
+        "bossMultiplier": 100,
+        "extraMoves": [],
+        "shieldData": {
+          "hpTrigger": 0,
+          "timeTrigger": 0,
+          "shieldCancelDamage": 0,
+          "shieldDamageRate": 0,
+          "shieldDamageRateTera": 0,
+          "shieldDamageRateTeraChange": 0
+        }
+      },
+      {
+        "id": 2,
+        "role": "Alcremie",
+        "name": "Alcremie",
+        "shiny": false,
+        "isAnyLevel": false,
+        "ability": "Aroma Veil",
+        "item": "Covert Cloak",
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "level": 100,
+        "gender": "F",
+        "teraType": null,
+        "moves": [
+          "Decorate",
+          "(No Move)",
+          "(No Move)",
+          "(No Move)"
+        ],
+        "bossMultiplier": 100,
+        "extraMoves": [],
+        "shieldData": {
+          "hpTrigger": 0,
+          "timeTrigger": 0,
+          "shieldCancelDamage": 0,
+          "shieldDamageRate": 0,
+          "shieldDamageRateTera": 0,
+          "shieldDamageRateTeraChange": 0
+        }
+      },
+      {
+        "id": 3,
+        "role": "Florges",
+        "name": "Florges",
+        "shiny": false,
+        "isAnyLevel": false,
+        "ability": "Symbiosis",
+        "item": "Choice Specs",
+        "nature": "Bold",
+        "evs": {
+          "hp": 0,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 0,
+          "spe": 252
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "level": 90,
+        "gender": "F",
+        "teraType": null,
+        "moves": [
+          "Copycat"
+        ],
+        "bossMultiplier": 100,
+        "extraMoves": [],
+        "shieldData": {
+          "hpTrigger": 0,
+          "timeTrigger": 0,
+          "shieldCancelDamage": 0,
+          "shieldDamageRate": 0,
+          "shieldDamageRateTera": 0,
+          "shieldDamageRateTeraChange": 0
+        }
+      },
+      {
+        "id": 4,
+        "role": "Indeedee",
+        "name": "Indeedee-F",
+        "shiny": false,
+        "isAnyLevel": false,
+        "ability": "Psychic Surge",
+        "item": null,
+        "nature": "Bold",
+        "evs": {
+          "hp": 252,
+          "atk": 0,
+          "def": 252,
+          "spa": 0,
+          "spd": 0,
+          "spe": 0
+        },
+        "ivs": {
+          "hp": 31,
+          "atk": 31,
+          "def": 31,
+          "spa": 31,
+          "spd": 31,
+          "spe": 31
+        },
+        "level": 75,
+        "gender": "F",
+        "teraType": null,
+        "moves": [
+          "Helping Hand"
+        ],
+        "bossMultiplier": 100,
+        "extraMoves": [],
+        "shieldData": {
+          "hpTrigger": 0,
+          "timeTrigger": 0,
+          "shieldCancelDamage": 0,
+          "shieldDamageRate": 0,
+          "shieldDamageRateTera": 0,
+          "shieldDamageRateTeraChange": 0
+        }
+      }
+    ],
+    "turns": [
+      {
+        "id": 0,
+        "group": 0,
+        "moveInfo": {
+          "name": "(No Move)",
+          "userID": 4,
+          "targetID": 4,
+          "options": {
+            "crit": false,
+            "secondaryEffects": false,
+            "roll": "min",
+            "allowMiss": true,
+            "hits": 1
+          }
+        },
+        "bossMoveInfo": {
+          "name": "Dragon Ascent",
+          "userID": 0,
+          "targetID": 1,
+          "options": {
+            "crit": true,
+            "secondaryEffects": true,
+            "roll": "max",
+            "allowMiss": false,
+            "hits": 10
+          }
+        }
+      },
+      {
+        "id": 1,
+        "group": 1,
+        "moveInfo": {
+          "name": "Helping Hand",
+          "userID": 4,
+          "targetID": 1,
+          "options": {
+            "crit": false,
+            "secondaryEffects": false,
+            "allowMiss": true,
+            "roll": "min",
+            "hits": 1
+          }
+        },
+        "bossMoveInfo": {
+          "name": "(Most Damaging)",
+          "userID": 0,
+          "targetID": 1,
+          "options": {
+            "crit": true,
+            "secondaryEffects": true,
+            "allowMiss": false,
+            "roll": "max",
+            "hits": 10
+          }
+        }
+      },
+      {
+        "id": 2,
+        "group": 2,
+        "moveInfo": {
+          "name": "Decorate",
+          "userID": 2,
+          "targetID": 1,
+          "options": {
+            "crit": false,
+            "secondaryEffects": false,
+            "allowMiss": true,
+            "roll": "min",
+            "hits": 1
+          }
+        },
+        "bossMoveInfo": {
+          "name": "(Most Damaging)",
+          "userID": 0,
+          "targetID": 1,
+          "options": {
+            "crit": true,
+            "secondaryEffects": true,
+            "allowMiss": false,
+            "roll": "max",
+            "hits": 10
+          }
+        }
+      },
+      {
+        "id": 3,
+        "group": 3,
+        "moveInfo": {
+          "name": "Copycat",
+          "userID": 3,
+          "targetID": 3,
+          "options": {
+            "crit": false,
+            "secondaryEffects": false,
+            "allowMiss": true,
+            "roll": "min",
+            "hits": 1
+          }
+        },
+        "bossMoveInfo": {
+          "name": "(Most Damaging)",
+          "userID": 0,
+          "targetID": 1,
+          "options": {
+            "crit": true,
+            "secondaryEffects": true,
+            "allowMiss": false,
+            "roll": "max",
+            "hits": 10
+          }
+        }
+      },
+      {
+        "id": 4,
+        "group": 4,
+        "moveInfo": {
+          "name": "Stored Power",
+          "userID": 1,
+          "targetID": 0,
+          "options": {
+            "crit": false,
+            "secondaryEffects": false,
+            "allowMiss": true,
+            "roll": "min",
+            "hits": 1
+          }
+        },
+        "bossMoveInfo": {
+          "name": "(Most Damaging)",
+          "userID": 0,
+          "targetID": 1,
+          "options": {
+            "crit": true,
+            "secondaryEffects": true,
+            "allowMiss": false,
+            "roll": "max",
+            "hits": 10
+          }
+        }
+      }
+    ],
+    "groups": [
+      [
+        0
+      ],
+      [
+        1
+      ],
+      [
+        2
+      ],
+      [
+        3
+      ],
+      [
+        4
+      ]
+    ],
+    "repeats": [
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "substitutes": [
+      [],
+      [],
+      [],
+      []
+    ]
+  }

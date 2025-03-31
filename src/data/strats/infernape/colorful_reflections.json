@@ -1,0 +1,569 @@
+{
+    "name": "Colorful Reflections",
+    "notes": "",
+    "credits": "Vikram aka u/Tacitus2389b4h5ii405",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Infernape",
+            "name": "Infernape",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Iron Fist",
+            "nature": "Naughty",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Rock",
+            "moves": [
+                "Flare Blitz",
+                "Aura Sphere",
+                "Tera Blast",
+                "Grass Knot"
+            ],
+            "bossMultiplier": 3500,
+            "extraMoves": [
+                "Nasty Plot",
+                "Swords Dance",
+                "Focus Energy"
+            ],
+            "shieldData": {
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 50,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Mew",
+            "name": "Mew",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "Synchronize",
+            "item": "Weakness Policy",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Reflect Type",
+                "Close Combat"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 2,
+            "role": "Grumpig",
+            "name": "Grumpig",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "Thick Fat",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Simple Beam"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 3,
+            "role": "Politoed",
+            "name": "Politoed",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "Drizzle",
+            "item": "Liechi Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Fling",
+                "Helping Hand"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "Kommo-o",
+            "name": "Kommo-o",
+            "shiny": true,
+            "isAnyLevel": false,
+            "ability": "Bulletproof",
+            "item": "Zoom Lens",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Fling",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Reflect Type",
+                "userID": 1,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 3,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 5,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 5,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 6,
+            "moveInfo": {
+                "name": "Close Combat",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0,
+            1
+        ],
+        [
+            2
+        ],
+        [
+            3
+        ],
+        [
+            4
+        ],
+        [
+            6,
+            7
+        ],
+        [
+            8
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Mew",
+                    "name": "Mew",
+                    "shiny": true,
+                    "ability": "Synchronize",
+                    "item": "Weakness Policy",
+                    "nature": "Jolly",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Reflect Type",
+                        "Close Combat"
+                    ]
+                },
+                "substituteMoves": [
+                    "Reflect Type",
+                    "Close Combat"
+                ],
+                "substituteTargets": [
+                    4,
+                    0
+                ]
+            }
+        ],
+        [],
+        [],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Kommo-o",
+                    "name": "Kommo-o",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ]
+    ]
+}

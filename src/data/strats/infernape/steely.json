@@ -1,0 +1,324 @@
+{
+    "name": "Steely Spirit T1",
+    "notes": "",
+    "credits": "",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Infernape",
+            "name": "Infernape",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Iron Fist",
+            "nature": "Naughty",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "M",
+            "teraType": "Rock",
+            "moves": [
+                "Flare Blitz",
+                "Aura Sphere",
+                "Tera Blast",
+                "Grass Knot"
+            ],
+            "bossMultiplier": 3500,
+            "extraMoves": [
+                "Nasty Plot",
+                "Swords Dance",
+                "Focus Energy"
+            ],
+            "shieldData": {
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 50,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Gholdengo",
+            "name": "Gholdengo",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Good as Gold",
+            "item": "Life Orb",
+            "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Make It Rain",
+                "Nasty Plot",
+                "Steel Beam",
+                "Metal Sound"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 2,
+            "role": "Perrserker",
+            "name": "Perrserker",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Steely Spirit",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [
+                "Fake Tears"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 3,
+            "role": "Perrserker",
+            "name": "Perrserker",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Steely Spirit",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [
+                "Fake Tears"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        },
+        {
+            "id": 4,
+            "role": "Perrserker",
+            "name": "Perrserker",
+            "shiny": false,
+            "isAnyLevel": true,
+            "ability": "Steely Spirit",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": [
+                "Fake Tears"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": []
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Make It Rain",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0,
+            1,
+            2
+        ],
+        [
+            3
+        ]
+    ],
+    "repeats": [
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

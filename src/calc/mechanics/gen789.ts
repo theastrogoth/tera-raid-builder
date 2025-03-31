@@ -63,8 +63,7 @@ export function calculateSMSSSV(
   checkForecast(defender, field.weather);
   checkItem(attacker, !!field.isMagicRoom);
   checkItem(defender, !!field.isMagicRoom);
-  checkWonderRoom(attacker, !!field.isWonderRoom, defender.hasAbility("Unaware"));
-  checkWonderRoom(defender, !!field.isWonderRoom, attacker.hasAbility("Unaware"));
+  checkWonderRoom(attacker, defender, field);
   // checkSeedBoost(attacker, field);
   // checkSeedBoost(defender, field);
   // checkDauntlessShield(attacker, gen);
@@ -275,7 +274,7 @@ export function calculateSMSSSV(
     move,
     defender.types[0],
     isGhostRevealed,
-    field.isGravity,
+    isGrounded(defender, field),
     isRingTarget
   );
   const type2Effectiveness = defender.types[1]
@@ -284,7 +283,7 @@ export function calculateSMSSSV(
       move,
       defender.types[1],
       isGhostRevealed,
-      field.isGravity,
+      isGrounded(defender, field),
       isRingTarget
     )
     : 1;
@@ -294,7 +293,7 @@ export function calculateSMSSSV(
       move,
       defender.types[2],
       isGhostRevealed,
-      field.isGravity,
+      isGrounded(defender, field),
       isRingTarget
     )
     : 1;
@@ -306,7 +305,7 @@ export function calculateSMSSSV(
       move,
       defTeraType,
       isGhostRevealed,
-      field.isGravity,
+      isGrounded(defender, field),
       isRingTarget
     );
   }
@@ -375,7 +374,7 @@ export function calculateSMSSSV(
         !defender.hasItem('Iron Ball') && defender.hasAbility('Levitate')) ||
       (move.flags.bullet && defender.hasAbility('Bulletproof')) ||
       (move.flags.sound && !move.named('Clangorous Soul') && defender.hasAbility('Soundproof')) ||
-      (move.priority > 0 && field.defenderSide.isDazzling || (defender.hasAbility('Queenly Majesty', 'Dazzling', 'Armor Tail'))) ||
+      (move.priority > 0 && field.defenderSide.isDazzling) || // || (defender.hasAbility('Queenly Majesty', 'Dazzling', 'Armor Tail'))) ||
       (move.hasType('Ground') && defender.hasAbility('Earth Eater')) ||
       (move.flags.wind && defender.hasAbility('Wind Rider'))
   ) {
@@ -409,6 +408,11 @@ export function calculateSMSSSV(
     } else {
       result.damage = fixedDamage;
     }
+    return result;
+  }
+
+  if (move.named('Endeavor')) {
+    result.damage = Math.max(0, defender.originalCurHP - attacker.originalCurHP);
     return result;
   }
 
@@ -905,7 +909,7 @@ export function calculateBasePowerSMSSSV(
     return 0;
   }
   if (move.named(
-    'Breakneck Blitz', 'Bloom Doom', 'Inferno Overdrive', 'Hydro Vortex', 'Gigavolt Havoc',
+    'Beat Up', 'Breakneck Blitz', 'Bloom Doom', 'Inferno Overdrive', 'Hydro Vortex', 'Gigavolt Havoc',
     'Subzero Slammer', 'Supersonic Skystrike', 'Savage Spin-Out', 'Acid Downpour', 'Tectonic Rage',
     'Continental Crush', 'All-Out Pummeling', 'Shattered Psyche', 'Never-Ending Nightmare',
     'Devastating Drake', 'Black Hole Eclipse', 'Corkscrew Crash', 'Twinkle Tackle'
@@ -1020,7 +1024,7 @@ export function calculateBPModsSMSSSV(
       move,
       types[0],
       isGhostRevealed,
-      field.isGravity,
+      isGrounded(defender, field),
       isRingTarget
     );
     const type2Effectiveness = types[1] ? getMoveEffectiveness(
@@ -1028,7 +1032,7 @@ export function calculateBPModsSMSSSV(
       move,
       types[1],
       isGhostRevealed,
-      field.isGravity,
+      isGrounded(defender, field),
       isRingTarget
     ) : 1;
     const type3Effectiveness = types[2] ? getMoveEffectiveness(
@@ -1036,7 +1040,7 @@ export function calculateBPModsSMSSSV(
       move,
       types[2],
       isGhostRevealed,
-      field.isGravity,
+      isGrounded(defender, field),
       isRingTarget
     ) : 1;
     if (type1Effectiveness * type2Effectiveness * type3Effectiveness >= 2) {
@@ -1471,11 +1475,10 @@ export function calculateDefenseSMSSSV(
     (move.named('Shell Side Arm') && getShellSideArmCategory(attacker, defender) === 'Physical');
   const defenseStat = hitsPhysical ? 'def' : 'spd';
   let defEVStat: 'def' | 'spd' = defenseStat;
-  if (field.isWonderRoom) {
+  if (field.isWonderRoom && !attacker.hasAbility("Unaware")) {
     hitsPhysical = !hitsPhysical;
     defEVStat = defenseStat === 'def' ? 'spd' : 'def';
   }
-  hitsPhysical = field.isWonderRoom ? !hitsPhysical : hitsPhysical;
   desc.defenseEVs = getEVDescriptionText(gen, defender, defEVStat, defender.nature);
   if (defender.boosts[defenseStat] === 0 ||
       (isCritical && defender.boosts[defenseStat] > 0) ||
@@ -1573,8 +1576,8 @@ export function calculateDfModsSMSSSV(
     (isQPActive(defender, field))
   ) {
     if (
-      (hitsPhysical && getQPBoostedStat(defender) === 'def') ||
-      (!hitsPhysical && getQPBoostedStat(defender) === 'spd')
+      (hitsPhysical && getQPBoostedStat(defender, !!field.isWonderRoom) === 'def') ||
+      (!hitsPhysical && getQPBoostedStat(defender, !!field.isWonderRoom) === 'spd')
     ) {
       desc.defenderAbility = defender.ability;
       dfMods.push(5324);

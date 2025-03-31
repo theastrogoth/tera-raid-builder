@@ -293,4 +293,10 @@ export async function getStatRadarPlotPNG(id: number, nature: Nature | undefined
     return image as string;
 }
 
-export default React.memo(StatRadarPlot, (next, prev) => (next.evs === prev.evs && next.stats === prev.stats && next.nature === prev.nature && next.translationKey === prev.translationKey));
+export default React.memo(StatRadarPlot, (next, prev) => (
+    next.evs === prev.evs && 
+    next.stats === prev.stats && 
+    next.nature === prev.nature && 
+    next.bossMultiplier === prev.bossMultiplier &&
+    next.translationKey === prev.translationKey
+));

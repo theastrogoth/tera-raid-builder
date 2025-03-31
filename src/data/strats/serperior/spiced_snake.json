@@ -1,0 +1,905 @@
+{
+    "name": "Spiced Snake",
+    "notes": "-Pay careful attention to turn order!\n-Oranguru can be replaced with a Focus Sash Drought user if a Fire-type Pokémon is attacking. A Drought user must replace Oranguru for Gouging Fire to attack.",
+    "credits": "",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Serperior",
+            "name": "Serperior",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Contrary",
+            "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Grass",
+            "moves": [
+                "Leaf Storm",
+                "Gastro Acid",
+                "Dragon Pulse",
+                "Iron Tail"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Sweet Scent",
+                "Breaking Swipe",
+                "Glare"
+            ],
+            "shieldData": {
+                "hpTrigger": 75,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 60,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Ceruledge",
+            "name": "Ceruledge",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Mirror Herb",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Flare Blitz"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 2,
+            "role": "Simple",
+            "name": "Grumpig",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "item": "Choice Scarf",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Simple Beam"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 3,
+            "role": "Spice",
+            "name": "Scovillain",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Spicy Extract"
+            ],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        },
+        {
+            "id": 4,
+            "role": "EvrythngNice",
+            "name": "Oranguru",
+            "shiny": false,
+            "isAnyLevel": false,
+            "ability": "Symbiosis",
+            "item": "Choice Band",
+            "nature": "Bold",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [],
+            "bossMultiplier": 100,
+            "extraMoves": [],
+            "shieldData": {
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
+            }
+        }
+    ],
+    "turns": [
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Sweet Scent",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 1,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 4,
+            "moveInfo": {
+                "name": "Spicy Extract",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 3,
+            "moveInfo": {
+                "name": "Flare Blitz",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            3
+        ],
+        [
+            1
+        ],
+        [
+            0
+        ],
+        [
+            2
+        ],
+        [
+            4
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Koraidon",
+                    "name": "Koraidon",
+                    "shiny": false,
+                    "ability": "Orichalcum Pulse",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flare Blitz"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Flare Blitz"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Rayquaza",
+                    "name": "Rayquaza",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Dragon Ascent"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Dragon Ascent"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Calyrex",
+                    "name": "Calyrex-Ice",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Glacial Lance"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Glacial Lance"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Zapdos",
+                    "name": "Zapdos-Galar",
+                    "shiny": false,
+                    "ability": "Defiant",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Brave Bird"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Brave Bird"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Kleavor",
+                    "name": "Kleavor",
+                    "shiny": false,
+                    "ability": "Sharpness",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "X-Scissor"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "X-Scissor"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Emboar",
+                    "name": "Emboar",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flare Blitz"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Flare Blitz"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Gouging Fire",
+                    "name": "Gouging Fire",
+                    "shiny": false,
+                    "ability": "Protosynthesis",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Raging Fury"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Raging Fury"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Ho-Oh",
+                    "name": "Ho-Oh",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flare Blitz"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Flare Blitz"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Flareon",
+                    "name": "Flareon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flare Blitz"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Flare Blitz"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Staraptor",
+                    "name": "Staraptor",
+                    "shiny": false,
+                    "ability": "Reckless",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Brave Bird"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Brave Bird"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Braviary",
+                    "name": "Braviary",
+                    "shiny": false,
+                    "ability": "Defiant",
+                    "item": "Mirror Herb",
+                    "nature": "Jolly",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Brave Bird"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Brave Bird"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Latios",
+                    "name": "Latios",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Scarf",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Simple Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Simple Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ],
+        [],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Torkoal",
+                    "name": "Torkoal",
+                    "shiny": false,
+                    "ability": "Drought",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    4
+                ]
+            }
+        ]
+    ]
+}

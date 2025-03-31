@@ -4,7 +4,7 @@ import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
 import persistentAbilities from "../data/persistent_abilities.json"
-import { hasNoStatus, pokemonIsGrounded } from "./util";
+import { getSpeedRanking, hasNoStatus, pokemonIsGrounded, rankBySpeed } from "./util";
 import { CumulativeRolls } from "./rolls";
 
 const gen = Generations.get(9);
@@ -29,11 +29,15 @@ export class RaidState implements State.RaidState{
         return this.raiders.map(raider => raider.field);
     }
 
+    public get raidersBySpeed(): Raider[] {
+        return [...this.raiders].sort((a, b) => b.effectiveSpeed - a.effectiveSpeed);
+    }
+
     public getPokemon(id: number): Raider {
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false) {
+    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false, blockWhiteHerb: boolean = false, source?: number) {
         const pokemon = this.getPokemon(id);
         const originalHP = pokemon.originalCurHP;
         const originalDamageRolls = pokemon.cumDamageRolls.clone();
@@ -41,7 +45,7 @@ export class RaidState implements State.RaidState{
             if (damage !== 0 && damageRolls) {
                 pokemon.addDamageRoll(damageRolls); // but we should still record the damage rolls
             }
-            return; 
+            return damage > 0;
         } 
 
         if (pokemon.substitute && !bypassSubstitute) {
@@ -68,7 +72,7 @@ export class RaidState implements State.RaidState{
                 pokemon.originalCurHP = originalHP; // no damage is done
                 pokemon.cumDamageRolls = originalDamageRolls;
                 fainted = false;
-                return; // don't trigger item use
+                return false; // don't trigger item use
             }
             if (pokemon.hasAbility("Disguise") && !pokemon.abilityOn && pokemon.name.includes("Mimikyu")) {
                 pokemon.abilityOn = true;
@@ -78,7 +82,7 @@ export class RaidState implements State.RaidState{
                 if (pokemon.originalCurHP === 0) {
                     this.faint(id);
                 }
-                return; // don't trigger item use (except for Air Balloon)
+                return true; // don't trigger item use (except for Air Balloon)
             }
             if (pokemon.item === "Focus Sash" || pokemon.hasAbility("Sturdy")) {
                 if (pokemon.originalCurHP <= 0 && originalHP === maxHP) { 
@@ -155,7 +159,24 @@ export class RaidState implements State.RaidState{
                     }
                 }
             }
-            /// Non-super effective items consumed after damage
+ 
+            /// abilities triggered by damage even if the target faints
+            if (pokemon.hasAbility("Seed Sower")) {
+                this.applyTerrain("Grassy", pokemon.hasItem("Terrain Extender") ? 8 : 5);
+            } else if (pokemon.hasAbility("Sand Spit")){
+                this.applyWeather("Sand", pokemon.hasItem("Smooth Rock") ? 8 : 5)
+            }
+
+            /// the rest can be skipped if the target faints
+            if (fainted) { 
+                this.faint(id); 
+                if (source !== undefined && this.getPokemon(source).hasAbility("Moxie")) {
+                    this.applyStatChange(source, {atk: 1}, true, source);
+                }
+                return true; 
+            }
+
+            /// Non-super effective items consumed after damage if the target survives
             if ( (!unnerve && pokemon.item === "Chilan Berry" && moveType === "Normal") ||
                  (pokemon.item === "Absorb Bulb" && moveType === "Water") ||
                  (pokemon.item === "Cell Battery" && moveType === "Electric") || 
@@ -166,16 +187,7 @@ export class RaidState implements State.RaidState{
                 ) {
                 this.consumeItem(id, pokemon.item, true, blockSymbiosis);
             }
- 
-            /// abilities triggered by damage even if the target faints
-            if (pokemon.hasAbility("Seed Sower")) {
-                this.applyTerrain("Grassy", pokemon.hasItem("Terrain Extender") ? 8 : 5);
-            } else if (pokemon.hasAbility("Sand Spit")){
-                this.applyWeather("Sand", pokemon.hasItem("Smooth Rock") ? 8 : 5)
-            }
 
-            /// the rest can be skipped if the target faints
-            if (fainted) { this.faint(id); return; }
             /// abilities triggered by damage if the target survives
             if (isCrit && pokemon.hasAbility("Anger Point")) { 
                 const boost = {atk: 12};
@@ -194,7 +206,7 @@ export class RaidState implements State.RaidState{
                 this.applyStatChange(id, boost, true, id);
             }  else if (moveCategory === "Physical" && pokemon.hasAbility("Weak Armor")) {
                 const boost = {def: -1, spe: 2};
-                this.applyStatChange(id, boost, true, id);
+                this.applyStatChange(id, boost, true, id, false, false, blockWhiteHerb);
             } else if (pokemon.hasAbility("Stamina")) {
                 const boost = {def: 1};
                 this.applyStatChange(id, boost, true, id);
@@ -252,6 +264,7 @@ export class RaidState implements State.RaidState{
         }
         // Final Check for fainting
         if (fainted) { this.faint(id); }
+        return damage > 0;
     }
 
     public consumeItem(id: number, item: ItemName, lost: boolean = true, blockSymbiosis = false) {
@@ -271,13 +284,16 @@ export class RaidState implements State.RaidState{
                 if (pokemon.status === "par") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Chesto Berry":
                 if (pokemon.status === "slp") { 
                     pokemon.status = "";
+                    pokemon.isSleep = 0;
                     pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -285,6 +301,7 @@ export class RaidState implements State.RaidState{
                 if (pokemon.status === "psn") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -292,25 +309,32 @@ export class RaidState implements State.RaidState{
                 if (pokemon.status === "brn") { 
                     pokemon.status = "";
                     pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Aspear Berry":
                 if (pokemon.status === "frz") { 
                     pokemon.status = "";
+                    pokemon.isFrozen = 0;
                     pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Lum Berry":
                 if (pokemon.status !== "") { 
                     pokemon.status = "";
+                    pokemon.isFrozen = 0;
+                    pokemon.isSleep = 0;
                     pokemon.lastConsumedItem = item as ItemName; 
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 if (pokemon.volatileStatus.includes("confusion")) { 
                     pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -318,6 +342,7 @@ export class RaidState implements State.RaidState{
                 if (pokemon.volatileStatus.includes("confusion")) { 
                     pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -326,6 +351,7 @@ export class RaidState implements State.RaidState{
                 const atkDiff = this.applyStatChange(id, {atk: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (atkDiff.atk){
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -334,6 +360,7 @@ export class RaidState implements State.RaidState{
                 const defDiff = this.applyStatChange(id, {def: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (defDiff.def){
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -341,6 +368,7 @@ export class RaidState implements State.RaidState{
                 const spaDiff = this.applyStatChange(id, {spa: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (spaDiff.spa){
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -349,6 +377,7 @@ export class RaidState implements State.RaidState{
                 const spdDiff = this.applyStatChange(id, {spd: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (spdDiff.spd){
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -356,17 +385,20 @@ export class RaidState implements State.RaidState{
                 const speDiff = this.applyStatChange(id, {spe: (pokemon.hasAbility("Ripen") ? 2 : 1)});
                 if (speDiff.spe){
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Starf Berry":
                 pokemon.randomBoosts += pokemon.boostCoefficient * (pokemon.hasAbility("Ripen") ? 4 : 2);
                 pokemon.lastConsumedItem = item as ItemName;
+                pokemon.preventBelch = false;
                 if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 break;
             case "Lansat Berry":
                 if (!pokemon.isPumped) {
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 pokemon.isPumped = 2;
@@ -374,6 +406,7 @@ export class RaidState implements State.RaidState{
             case "Micle Berry":
                 if (!pokemon.isMicle) {
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 pokemon.isMicle = true;
@@ -385,13 +418,15 @@ export class RaidState implements State.RaidState{
                 if (pokemon.originalCurHP < maxhp) {
                     pokemon.applyDamage(-Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)), undefined, true);
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
             case "Oran Berry":
                 if (pokemon.originalCurHP < pokemon.maxHP()) {
-                    pokemon.applyDamage(-Math.min(pokemon.maxHP(), pokemon.originalCurHP + (pokemon.hasAbility("Ripen") ? 20 : 10)), undefined, true);
+                    pokemon.applyDamage(-Math.min(pokemon.maxHP() - pokemon.originalCurHP, pokemon.hasAbility("Ripen") ? 20 : 10), undefined, true);
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                 }
                 break;
@@ -404,6 +439,7 @@ export class RaidState implements State.RaidState{
                 if (pokemon.originalCurHP < maxhp) {
                     pokemon.applyDamage(-Math.floor(pokemon.maxHP() * (pokemon.hasAbility("Ripen") ? 2 : 1) / 3), undefined, true);
                     pokemon.lastConsumedItem = item as ItemName;
+                    pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
                     const nature = gen.natures.get(toID(pokemon.nature));
                     if ((item === "Aguav Berry"  && (nature!.plus !== "spd" && nature!.minus === "spd")) ||
@@ -462,6 +498,13 @@ export class RaidState implements State.RaidState{
             case "Mental Herb":
                 const vslen = pokemon.volatileStatus.length;
                 pokemon.volatileStatus = [...pokemon.volatileStatus].filter(status => !["infatuation", "taunt", "encore", "disable", "torment", "heal-block"].includes(status));
+                pokemon.isTaunt = 0;
+                pokemon.firstTauntTurn = false;
+                pokemon.isEncore = 0;
+                pokemon.isDisable = 0;
+                pokemon.disabledMove = undefined;
+                pokemon.isTorment = false;
+                // TO DO: Heal Block
                 if (pokemon.volatileStatus.length < vslen) {
                     pokemon.lastConsumedItem = item as ItemName;
                 }
@@ -473,7 +516,7 @@ export class RaidState implements State.RaidState{
         if (lost) { this.loseItem(id, true, blockSymbiosis); }
     }
 
-    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false): StatsTable {
+    public applyStatChange(id: number, boosts: Partial<StatsTable>, copyable: boolean = true, sourceID: number = id, ignoreAbility: boolean = false, fromMirrorArmor = false, blockWhiteHerb = false): StatsTable {
         const pokemon = this.getPokemon(id);
         const fromSelf = id === sourceID;
         const fromEnemy = (id === 0) ? (sourceID !== 0) : (sourceID === 0)
@@ -531,7 +574,7 @@ export class RaidState implements State.RaidState{
         // Mirror Herb and Opportunist
         if (copyable) { // Stat changes that are being copied shouldn't be copied in turn
             const opponentIds = id === 0 ? [1,2,3,4] : [0];
-            for (const opponentId of opponentIds) {
+            for (const opponentId of getSpeedRanking(opponentIds, this.raiders)) {
                 const opponent = this.getPokemon(opponentId);
                 const mirrorHerb = opponent.item === "Mirror Herb";
                 const opportunist = opponent.hasAbility("Opportunist");
@@ -560,8 +603,13 @@ export class RaidState implements State.RaidState{
             }
         }
         // White Herb
-        if (pokemon.item === "White Herb" && Object.values(diff).some(val => val < 0)) {
-            this.consumeItem(id, pokemon.item, false);
+        if (!blockWhiteHerb && pokemon.item === "White Herb" && Object.values(pokemon.boosts).some(val => val < 0)) {
+            const preWhiteHerbBoosts = {...pokemon.boosts};
+            this.consumeItem(id, pokemon.item, true, false);
+            for (let stat in diff) {
+                const statId = stat as StatIDExceptHP;
+                diff[statId] = (diff[statId] || 0) + (pokemon.boosts[statId] || 0) - (preWhiteHerbBoosts[statId] || 0);
+            }
         }
  
         return diff;
@@ -606,6 +654,9 @@ export class RaidState implements State.RaidState{
                 } else if (status === "frz") { // lasts indefinitely, average of 3 turns
                     pokemon.isFrozen = roll === "max" ? 10 : roll === "min" ? 1 : 3;
                 }
+                if (!selfInflicted && pokemon.hasAbility("Synchronize")) {
+                    this.applyStatus(source, status, id, false, false, roll);
+                }
             }
         }
 
@@ -635,9 +686,9 @@ export class RaidState implements State.RaidState{
             // Safeguard and Misty Terrain block confusion
             if (ailment === "confusion" && ((field.attackerSide.isSafeguard && sourceAbility !== "Infiltrator") || (field.hasTerrain("Misty") && pokemonIsGrounded(pokemon, field)))) { success = false; }
             // Covert Cloak
-            if (ailment === "confusion" && !selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.ability === "Shield Dust")) { success = false; }
+            if (ailment === "confusion" && !selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.hasAbility("Shield Dust"))) { success = false; }
             // Aroma Veil
-            if (field.attackerSide.isAromaVeil && ["confusion", "taunt", "encore", "disable", "infatuation", "yawn"].includes(ailment)) {
+            if (field.attackerSide.isAromaVeil && ["taunt", "encore", "disable", "infatuation", "yawn", "heal-block"].includes(ailment)) {
                 success = false;
             // Own Tempo
             } else if (!attackerIgnoresAbility && pokemon.hasAbility("Own Tempo") && ailment === "confusion") {
@@ -654,6 +705,7 @@ export class RaidState implements State.RaidState{
                 pokemon.volatileStatus.push!(ailment);
                 if (ailment === "taunt") {
                     pokemon.isTaunt = (firstMove ? 3 : 4);
+                    pokemon.firstTauntTurn = true;
                 } else if (ailment === "encore") {
                     pokemon.isEncore = 3;
                 } else if (ailment === "torment") {
@@ -726,7 +778,7 @@ export class RaidState implements State.RaidState{
         // Booster Energy
         if (pokemon.item === "Booster Energy" && pokemon.hasAbility("Protosynthesis", "Quark Drive") && !pokemon.abilityOn) {
             pokemon.abilityOn = true;
-            const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
+            const statId = getQPBoostedStat(pokemon, !!pokemon.field.isWonderRoom, gen) as StatIDExceptHP;
             pokemon.boostedStat = statId;
             pokemon.usedBoosterEnergy = true;
             this.loseItem(id)
@@ -741,7 +793,7 @@ export class RaidState implements State.RaidState{
 
     public applyTerrain(terrain: Terrain | "Teraform Zero" | undefined, turns: number = 5, ids: number[] = [0,1,2,3,4]) {
         const setTeraformZero = terrain === "Teraform Zero";
-        for (let id of ids) {
+        for (let id of getSpeedRanking(ids, this.raiders)) {
             const pokemon = this.getPokemon(id);
             if (setTeraformZero) {
                 pokemon.field.isTeraformZero = true;
@@ -753,7 +805,7 @@ export class RaidState implements State.RaidState{
             if (pokemon.hasAbility("Quark Drive") && !pokemon.usedBoosterEnergy) {
                 if (pokemon.field.hasTerrain("Electric") && !pokemon.abilityOn) {
                     pokemon.abilityOn = true;
-                    const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
+                    const statId = getQPBoostedStat(pokemon, !!pokemon.field.isWonderRoom, gen) as StatIDExceptHP;
                     pokemon.boostedStat = statId;
                 } else if (!pokemon.field.hasTerrain("Electric") && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
@@ -773,7 +825,7 @@ export class RaidState implements State.RaidState{
 
     public applyWeather(weather: Weather | "Cloud Nine" | undefined, turns = 5, ids: number[] = [0,1,2,3,4]) {
         const setCloudNine = weather === "Cloud Nine";
-        for (let id of ids) {
+        for (let id of getSpeedRanking(ids, this.raiders)) {
             const pokemon = this.getPokemon(id);
             if (setCloudNine) {
                 pokemon.field.isCloudNine = true;
@@ -785,7 +837,7 @@ export class RaidState implements State.RaidState{
             if (pokemon.hasAbility("Protosynthesis") && !pokemon.usedBoosterEnergy) {
                 if (pokemon.field.hasWeather("Sun") && !pokemon.abilityOn) {
                     pokemon.abilityOn = true;
-                    const statId = getQPBoostedStat(pokemon, gen) as StatIDExceptHP;
+                    const statId = getQPBoostedStat(pokemon, !!pokemon.field.isWonderRoom, gen) as StatIDExceptHP;
                     pokemon.boostedStat = statId;
                 } else if (!pokemon.field.hasWeather("Sun") && pokemon.abilityOn) {
                     pokemon.abilityOn = false;
@@ -827,7 +879,7 @@ export class RaidState implements State.RaidState{
         if (!pokemon.abilityNullified) {
             this.removeAbilityFieldEffect(id, oldAbility);
         }
-        pokemon.abilityNullified = undefined;
+        // pokemon.abilityNullified = undefined;
         // gained field effects
         this.addAbilityFieldEffect(id, ability);
     }
@@ -861,7 +913,7 @@ export class RaidState implements State.RaidState{
         /// Trace (handled separately so the traced ability can activate if applicable)
         if (ability === "Trace") {
             const opponentIds = id === 0 ? [1,2,3,4] : [0];
-            for (let oid of opponentIds) { // Trace might be random for bosses, but we'll check abilities in order
+            for (let oid of getSpeedRanking(opponentIds, this.raiders)) { // Trace might be random for bosses, but we'll check abilities in order
                 const copiedAbility = this.raiders[oid].ability;
                 if (copiedAbility && !this.raiders[oid].abilityNullified && !persistentAbilities["NoTrace"].includes(copiedAbility)) {
                     pokemon.ability = copiedAbility;
@@ -968,7 +1020,7 @@ export class RaidState implements State.RaidState{
             /// others
             case "Supersweet Syrup":
                 const affectedSSPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
-                for (let opponent of affectedSSPokemon) {
+                for (let opponent of rankBySpeed(affectedSSPokemon)) {
                     const origEva = opponent.boosts.eva || 0;
                     this.applyStatChange(opponent.id, {eva: -1}, true, id);
                     flags[opponent.id].push("Eva: " + origEva + " → " + opponent.boosts.eva + " (Supersweet Syrup)");
@@ -976,8 +1028,11 @@ export class RaidState implements State.RaidState{
                 break;
             case "Hospitality":
                 if (id !== 0) {
-                    const allies = this.raiders.slice(1).splice(id-1, 1);
-                    for (let ally of allies) {
+                    const allies = [
+                        ...this.raiders.slice(1, id),
+                        ...this.raiders.slice(id + 1)
+                    ];
+                    for (let ally of rankBySpeed(allies)) {
                         const healing = Math.floor(ally.maxHP() / 4);
                         this.applyDamage(ally.id, -healing)
                     }
@@ -989,7 +1044,7 @@ export class RaidState implements State.RaidState{
                 let spd = target.stats.spd;
                 def = getModifiedStat(def, target.boosts.def, target.gen);
                 spd = getModifiedStat(spd, target.boosts.spd, target.gen);
-                if (spd <= def) {
+                if (spd <= def && !this.fields[0].isWonderRoom) {
                     const origSpa = pokemon.boosts.spa;
                     this.applyStatChange(id, {spa: 1}, true, id);
                     flags[id].push("SpA: " + origSpa + " → " + (pokemon.boosts.spa > 0 ? "+" : "") + pokemon.boosts.spa + " (Download)");
@@ -1033,7 +1088,7 @@ export class RaidState implements State.RaidState{
                 break;
             case "Intimidate":
                 const affectedPokemon = id === 0 ? this.raiders.slice(1) : [this.raiders[0]];
-                for (let opponent of affectedPokemon) {
+                for (let opponent of rankBySpeed(affectedPokemon)) {
                     if (opponent.hasAbility("Guard Dog")) {
                         const origAtk = opponent.boosts.atk ||  0;
                         this.applyStatChange(opponent.id, {atk: 1}, true, id);
@@ -1059,7 +1114,7 @@ export class RaidState implements State.RaidState{
         /// Other Field-Related Abilities
         switch (ability) {
             case "Neutralizing Gas":
-                for (let i = 0; i < 5; i++) {
+                for (let i of getSpeedRanking([0,1,2,3,4], this.raiders)) {
                     if (i !== id ) {
                         const target = this.raiders[i];
                         const targetAbility = this.raiders[i].ability;
@@ -1069,9 +1124,11 @@ export class RaidState implements State.RaidState{
                         ) { 
                             continue; 
                         }
+                        if (!target.abilityNullified) {
+                            flags[i].push("Ability suppressed by Neutralizing Gas");
+                        }
                         this.removeAbilityFieldEffect(i, target.ability)
                         target.abilityNullified = -1;
-                        flags[i].push("Ability suppressed by Neutralizing Gas");
                     }
                 }
                 break;
@@ -1160,10 +1217,32 @@ export class RaidState implements State.RaidState{
                 const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
                 for (id of allyIDs) {
                     const ally = this.getPokemon(id);
-                    if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
+                    if (ally.originalCurHP > 0 && ally.hasAbility("Minus", "Plus")) {
                         pokemon.abilityOn = true;
                         ally.abilityOn = true;
                         flags[id].push(ability + " activated");
+                    }
+                }
+                break;
+            case "Costar":
+                if (id !== 0) {
+                    let copyFromId = -1;
+                    for (let i=1; i<3; i++) {
+                        let testID = id + i;
+                        if (testID > 4) { testID -= 4; }
+                        if (this.raiders[testID].originalCurHP > 0) {
+                            copyFromId = testID;
+                            break;
+                        }
+                    }
+                    if (copyFromId !== -1) {
+                        const copyFrom = this.getPokemon(copyFromId);
+                        for (let stat of ["atk", "def", "spa", "spd", "spe", "acc", "eva"]) {
+                            const statId = stat as StatIDExceptHP;
+                            pokemon.boosts[statId] = copyFrom.boosts[statId] || 0;
+                        }
+                        pokemon.isPumped = copyFrom.isPumped;
+                        this.applyStatChange(id, {}, false, id, false);
                     }
                 }
                 break;
@@ -1185,12 +1264,12 @@ export class RaidState implements State.RaidState{
                     .filter(r => r.id !== id && r.originalCurHP !== 0)
                     .map(r => r.ability).includes("Neutralizing Gas" as AbilityName)
                 ) {
-                    for (let i = 0; i < 5; i++) {
+                    for (let i of getSpeedRanking([0,1,2,3,4], this.raiders)) {
                         if (i !== id ) {
                             const target = this.raiders[i];
                             if ((target.abilityNullified || 0) < 0 && target.originalAbility !== "(No Ability)") {
                                 target.abilityNullified = undefined;
-                                this.addAbilityFieldEffect(i, target.ability, true);
+                                this.addAbilityFieldEffect(i, target.ability, false);
                             }
                         }
                     }
@@ -1364,10 +1443,10 @@ export class RaidState implements State.RaidState{
             case "Plus":
             case "Minus":
                 const allyIDs = id !== 0 ? [1,2,3,4].filter(i => i !== id) : [];
-                const plusMinusCount = allyIDs.reduce((p, c) => p + (this.getPokemon(c).ability === "Minus" || this.getPokemon(c).ability === "Plus" ? 1 : 0), 0);
+                const plusMinusCount = allyIDs.reduce((p, c) => p + (this.getPokemon(c).hasAbility("Minus","Plus") ? 1 : 0), 0);
                 for (id of allyIDs) {
                     const ally = this.getPokemon(id);
-                    if (ally.originalCurHP > 0 && ally.ability === "Minus" || ally.ability === "Plus") {
+                    if (ally.originalCurHP > 0 && ally.hasAbility("Minus", "Plus")) {
                         ally.abilityOn = plusMinusCount > 1;
                     }
                 }
@@ -1377,7 +1456,8 @@ export class RaidState implements State.RaidState{
             case "Quark Drive":
             case "Orichalcum Pulse":
             case "Hadron Engine":
-                poke.boostedStat = undefined;
+                // When nullified and restored (but not *reactivated*) QP boosts stay the same (?)
+                // poke.boostedStat = undefined;
                 poke.isQP = false;
                 poke.usedBoosterEnergy = false;
                 break;
@@ -1389,20 +1469,20 @@ export class RaidState implements State.RaidState{
         let pokemon = this.getPokemon(id);
         const ability = pokemon.ability;
         // check Receiver / Power of Alchemy
-        for (let i=1; i<5; i++) {
-            if (i === id) { continue; }
+        for (let i of getSpeedRanking([1,2,3,4], this.raiders)) {
+            if (i === 0 || i === id) { continue; }
             const ally = this.getPokemon(i);
-            if ((ally.ability === "Receiver" || ally.ability === "Power Of Alchemy") && ally.originalCurHP !== 0) {
+            if (ally.hasAbility("Receiver","Power of Alchemy","Power Of Alchemy") && ally.originalCurHP !== 0) {
                 if (ability && !persistentAbilities["NoReceiver"].includes(ability)) {
-                    ally.ability = ability;
+                    this.changeAbility(i, ability, false);
                 }
             }
         }
         // check Soul-Heart
-        for (let i=0; i<5; i++) {
+        for (let i of getSpeedRanking([0,1,2,3,4], this.raiders)) {
             if (i === id) { continue; }
             const poke = this.getPokemon(i);
-            if (poke.ability === "Soul-Heart" && poke.originalCurHP !== 0) {
+            if (poke.hasAbility("Soul-Heart") && poke.originalCurHP !== 0) {
                 this.applyStatChange(i, {spa: 1}, true, i);
             }
         }
@@ -1423,6 +1503,7 @@ export class RaidState implements State.RaidState{
         pokemon.field.attackerSide.isQuickGuard = false;
         // reset stats, status, etc, keeping a few things. HP is reset upon switch-in
         const originalSpecies = new Pokemon(9, pokemon.originalSpecies || pokemon.name, {
+            level: pokemon.level,
             ivs: pokemon.ivs,
             evs: pokemon.evs,
             nature: pokemon.nature,
@@ -1459,6 +1540,7 @@ export class RaidState implements State.RaidState{
         pokemon.originalCurHP = 0;
         pokemon.isEndure = false;
         pokemon.isTaunt = 0;
+        pokemon.firstTauntTurn = false;
         pokemon.isCharging = false;
         pokemon.isRecharging = false;
         pokemon.abilityNullified = undefined;
@@ -1499,12 +1581,17 @@ export class RaidState implements State.RaidState{
         pokemon.cumDamageRolls = new CumulativeRolls();
         pokemon.cumDamageRolls.addSequentialCondition(pokemon.item)
         // check Neutralizing Gas
-        const neutralizingGas = this.raiders.reduce((p, c) => p || c.ability === "Neutralizing Gas", false);
-        if (neutralizingGas && !pokemon.hasItem("Ability Shield") && ability !== "Neutralizing Gas") { 
+        const neutralizingGas = this.raiders.reduce((p, c) => p || c.hasAbility("Neutralizing Gas"), false);
+        const nullifiedByGas = neutralizingGas && !pokemon.hasItem("Ability Shield") && ability !== "Neutralizing Gas";
+        if (nullifiedByGas) { 
             pokemon.abilityNullified = -1;
         }
         // add abilites that Take Effect upon switch-in
         const flags = this.addAbilityFieldEffect(id, ability);
+        if (nullifiedByGas) {
+            flags[id].push("Ability suppressed by Neutralizing Gas");
+        }
+
         // Mew stat boosts for Mewtwo event.
         if (id !== 0 && pokemon.name === "Mew" && this.raiders[0].name === "Mewtwo") {
             this.raiders[id] = new Raider(

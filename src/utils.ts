@@ -62,7 +62,7 @@ const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-ra
 
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {
-    if (name === "Carry Slot") { return "substitute"; }
+    if (name === "Carry Slot" || name === "NPC") { return "substitute"; }
     if (name === "Flabébé") { return "flabebe"; } // ugh
     if (name.includes("Arceus")) { return "arceus"; }
     return name.replaceAll(' ','_').replaceAll('.','').replaceAll("’", '').replaceAll("'", '').replaceAll(':','').replaceAll('é','e').toLowerCase();
@@ -338,6 +338,7 @@ export function getSelectableTargets(moveTarget?: MoveTarget): number[] {
     switch (moveTarget) {
         case "ally":
             return [1,2,3,4];
+        case "opponent":
         case "all-opponents":
         case "all-other-pokemon":
             return [0];
@@ -355,7 +356,7 @@ export function getTranslation(word: string, translationKey: any, translationCat
 export function getTranslationWithoutCategory(word: string, translationKey: any) {
     if (!translationKey) { return word; }
     for (const category in translationKey) {
-        if (translationKey[category][word]) {
+        if (category !== "lang" && translationKey[category][word]) {
             return translationKey[category][word];
         }
     }

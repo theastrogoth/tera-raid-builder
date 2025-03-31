@@ -14,11 +14,10 @@ import { createTheme } from '@mui/material/styles';
 import { ThemeProvider } from '@emotion/react';
 import CssBaseline from '@mui/material/CssBaseline';
 
-import PokemonSummary from './uicomponents/PokemonSummary.tsx';
 import BossSummary from './uicomponents/BossSummary.tsx';
 import Navbar from './uicomponents/Navbar.tsx';
 import RaidControls from './uicomponents/RaidControls.tsx';
-import LinkButton, { lightToFullBuildInfo } from './uicomponents/LinkButton.tsx';
+import LinkButton, { lightToFullBuildInfo, serializeInfo } from './uicomponents/LinkButton.tsx';
 import StratHeader from './uicomponents/StratHeader.tsx';
 import StratFooter from './uicomponents/StratFooter.tsx';
 
@@ -27,7 +26,7 @@ import { MoveName, SpeciesName } from './calc/data/interface.ts';
 import { MoveData, SubstituteBuildInfo, TurnGroupInfo } from './raidcalc/interface.ts';
 import { Raider } from './raidcalc/Raider.ts';
 import { RaidInputProps } from './raidcalc/inputs.ts';
-import { RaidBattleResults } from './raidcalc/RaidBattle.ts';
+import { RaidBattleInfo, RaidBattleResults } from './raidcalc/RaidBattle.ts';
 import GraphicsButton from './uicomponents/GraphicsButton.tsx';
 import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
@@ -37,6 +36,7 @@ import { getTranslation } from './utils.ts';
 import DEFAULT_STRAT from './data/strats/default.json';
 import { LightBuildInfo } from './raidcalc/hashData.ts';
 import { deepEqual } from './utils.ts';
+import RaiderSummaries from './uicomponents/RaiderSummaries.tsx';
 
 type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
 
@@ -270,9 +270,6 @@ function App() {
 
   const gen = Generations.get(9); 
 
-  const longHashRef = useRef('');
-  const shortHashRef = useRef('');
-
   const [raidBoss, setRaidBoss] = useState(
     new Raider(0, "Raid Boss", false, false, new Field(), new Pokemon(gen, "Pikachu", {
       shieldData: {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0}
@@ -366,6 +363,32 @@ function App() {
     }
   );
 
+  // aggresively check for unsaved changes in a way that will correctly recognize when changes were made and then reverted
+  const longHashRef = useRef('');  // these refs are used for both prompting on unload
+  const shortHashRef = useRef(''); // and for avoiding the creation of new links for an unchanged strat
+
+  useEffect(() => { // this is updated on every change to the strat, but it is fast (<1ms)
+    const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+      const info: RaidBattleInfo = {
+        name: title,
+        notes: notes,
+        credits: credits,
+        groups: groups,
+        startingState: results.turnZeroState,
+      };
+      const currentLongHash = serializeInfo(info, [substitutes1, substitutes2, substitutes3, substitutes4]);
+      if (currentLongHash !== longHashRef.current) {  // generating the hash and checking for equivalence is 1-2ms
+        event.preventDefault();                       // it can still prompt on unload if a link has been loaded (with no changes by the user)
+      }                                               // if the format of RaidBattleInfo or SubstituteBuildInfo has changed
+    };
+    window.addEventListener('beforeunload', handleBeforeUnload);
+
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [title, notes, credits, results, substitutes1, substitutes2, substitutes3, substitutes4]);
+
   return (
   <ThemeProvider theme={theme}> 
     <CssBaseline />
@@ -407,7 +430,20 @@ function App() {
           </Grid>
         </Grid>
         <Grid container component='main' justifyContent="center" sx={{ my: 1 }}>
-          <Grid item>
+          <RaiderSummaries
+            raidInputProps={raidInputProps}
+            substitutes={[substitutes1, substitutes2, substitutes3, substitutes4]}
+            setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
+            groupsCounter={groupsCounter}
+            setGroupsCounter={setGroupsCounter}
+            allSpecies={allSpecies}
+            allMoves={allMoves}
+            setAllSpecies={setAllSpecies}
+            setAllMoves={setAllMoves}
+            prettyMode={prettyMode}
+            translationKey={translationKey}
+          />
+          {/* <Grid item>
             <Stack direction="row">
               <PokemonSummary pokemon={raider1} setPokemon={setRaider1} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes1} setSubstitutes={setSubstitutes1} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
               <PokemonSummary pokemon={raider2} setPokemon={setRaider2} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes2} setSubstitutes={setSubstitutes2} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey}/>
@@ -418,7 +454,7 @@ function App() {
               <PokemonSummary pokemon={raider3} setPokemon={setRaider3} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes3} setSubstitutes={setSubstitutes3} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
               <PokemonSummary pokemon={raider4} setPokemon={setRaider4} groups={groups} setGroups={setGroups} groupsCounter={groupsCounter} substitutes={substitutes4} setSubstitutes={setSubstitutes4} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
             </Stack>
-          </Grid>
+          </Grid> */}
           <Grid item>
             <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
@@ -451,7 +487,9 @@ function App() {
                   <GraphicsButton
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps} results={results}
-                    allSpecies={allSpecies} 
+                    substitutes={[substitutes1, substitutes2, substitutes3, substitutes4]}
+                    allSpecies={allSpecies}
+                    buildsCount={4}
                     setLoading={setLoading}
                     translationKey={translationKey}
                   />
@@ -506,11 +544,6 @@ function App() {
         </Grid>
       </Stack>
     </Stack>
-    {/* For graphic generation */}
-    <Box id={"statplot1"} display="none" />
-    <Box id={"statplot2"} display="none" />
-    <Box id={"statplot3"} display="none" />
-    <Box id={"statplot4"} display="none" />
   </ThemeProvider>
   );
 }

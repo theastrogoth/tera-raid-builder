@@ -33,6 +33,18 @@ import { alpha } from "@mui/material";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { getSelectableMoves, isRegularMove } from "../raidcalc/util";
 
+const STRUGGLE_DATA: MoveData = {
+    name: "Struggle" as MoveName,
+    moveCategory: "Physical",
+    category: "damage",
+    target: "selected-pokemon",
+    type: "Normal",
+    power: 50,
+    accuracy: undefined,
+    priority: 0,
+    selfDamage: 25,
+};
+
 const RepeatsInput = styled(MuiInput)`
   width: 42px;
 `;
@@ -324,8 +336,12 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
 
     const targetRef = useRef(moveInfo.moveData.target);
 
-    const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
-    const moveSet = ["(No Move)", "(Most Damaging)", ...moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"];
+    // const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
+    const raider = raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID];
+    if (moveName === "Belch") {
+        console.log(raider.preventBelch);
+    }
+    const moveSet = ["(No Move)", "(Most Damaging)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
@@ -383,6 +399,25 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
         }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveSet, moveInfo.moveData.target])
+
+    useEffect(() => {
+        const newDisableTarget = (
+            moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.target === undefined ||
+            moveInfo.moveData.target === "user" ||
+            moveInfo.moveData.target === "user-and-allies" ||
+            moveInfo.moveData.target === "all-allies" ||
+            // moveInfo.moveData.target === "all-opponents" ||
+            // moveInfo.moveData.target === "all-other-pokemon" ||
+            // moveInfo.moveData.target === "all-pokemon" ||
+            moveInfo.moveData.target === "users-field" ||
+            moveInfo.moveData.target === "opponents-field" ||
+            moveInfo.moveData.target === "entire-field"
+        );
+        const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID)
+        setDisableTarget(newDisableTarget);
+        setValidTargets(newValidTargets);
+    }, [moveInfo.userID])
 
     return (
         <Stack direction="row" spacing={-0.5} alignItems="center" justifyContent="right">
@@ -459,6 +494,8 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                                 mData = {name: name, priority: 10, category: "field-effect", target: "user-and-allies"};
                             } else if (name === "Heal Cheer") {
                                 mData = {name: name, priority: 10, category: "heal", target: "user-and-allies"};
+                            } else if (name === "Struggle") {
+                                mData = {...STRUGGLE_DATA};
                             } else {
                                 mData = raiders[moveInfo.userID].moveData.find((m) => m.name === name) as MoveData;
                             }

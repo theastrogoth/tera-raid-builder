@@ -1,5 +1,5 @@
 import { TypeName, AbilityName, MoveName, SpeciesName, StatsTable } from '../calc/data/interface';
-import { MoveData } from '../raidcalc/interface';
+import { MoveData, FlavorTexts } from '../raidcalc/interface';
 
 const assetsProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/data/"
 
@@ -10,6 +10,7 @@ export function prepareFileName(name: string) {
 
 export type PokemonData = {
     name:   SpeciesName,
+    category?: FlavorTexts,
     types:  TypeName[],
     abilities: {name: AbilityName, hidden: boolean}[],
     stats:  StatsTable,
@@ -46,7 +47,28 @@ export namespace PokedexService {
         }
     }
 
-    
+    export async function getAbilityByName(name: string) {
+        try {
+            const preppedName = prepareFileName(name);
+            let response = await fetch(assetsProlog + "abilities/" + preppedName + ".json");
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
+    export async function getItemByName(name: string) {
+        try {
+            const preppedName = prepareFileName(name);
+            let response = await fetch(assetsProlog + "items/" + preppedName + ".json");
+            let responseJson = await response.json();
+            return responseJson;
+        } catch(error) {
+            console.error(error);
+        }
+    }
+
     export async function getAllMoves() {
         console.log("Fetching data for all moves (large file)");
         try {

@@ -206,6 +206,18 @@ export class Pokemon implements State.Pokemon {
     return names.includes(this.name);
   }
 
+  isIdenticalBuild(other: State.Pokemon) {
+    const attributesToCompare: (keyof Pokemon)[] = [
+      "name", "species", "level", "gender", "ability", "item", "teraType", "nature", "ivs", "evs", "moves"
+    ]
+    for (const attr of attributesToCompare) {
+      if (JSON.stringify((this as Pokemon)[attr]) !== JSON.stringify((other as Pokemon)[attr])) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   clone() {
     return new Pokemon(this.gen, this.name, {
       level: this.level,

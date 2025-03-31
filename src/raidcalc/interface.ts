@@ -37,6 +37,7 @@ export type MoveTarget = "all-opponents" |              // Target
                          "opponents-field" |
                          "user-and-allies" |            // Some healing moves, Heal Cheer
                          "ally" |
+                         "opponent" | 
                          "user-or-ally" |
                          "fainting-pokemon";
 
@@ -64,6 +65,18 @@ export type AilmentName =   "confusion" |               // many of these are not
                             "tox" |
                             "encore" |
                             "taunt";
+
+export type FlavorTexts = {
+    "en": string,
+    "es": string,
+    "fr": string,
+    "de": string,
+    "it": string,
+    "ja": string,
+    "ko": string,
+    "zh-hans": string,
+    "zh-hant": string,
+}
 
 export type MoveData = {
     name:           MoveName
@@ -97,6 +110,17 @@ export type MoveData = {
     isPulse?:       boolean,
     isSlicing?:     boolean,
     isWind?:        boolean,
+    flavorText?:    FlavorTexts,
+}
+
+export type AbilityData = {
+    name: string,
+    flavorText: FlavorTexts,
+}
+
+export type ItemData = {
+    name: string,
+    flavorText: FlavorTexts,
 }
 
 export type ShieldData  = {
@@ -134,6 +158,7 @@ export interface Raider extends Pokemon {
     koChance: number;
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
+    firstTauntTurn?: boolean; 
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
     isFrozen?: number;      // store number of turns that a Pokemon is frozen
@@ -143,7 +168,9 @@ export interface Raider extends Pokemon {
     lastTarget?: number;    // stored for Instruct and Copycat
     lastAccuracy?: number;  // stored for accuracy of instructed moves
     moveRepeated?: number;  // stored for boost from Metronome, Fury Cutter, etc
+    usedMoves?: Boolean[];  // stored for Last Resort
     teraCharge?: number;    // stored for Tera activation check
+    cheersLeft?: number;
     isChoiceLocked?: boolean; 
     isEncore?: number;      // store number of turns that a Pokemon is encored    
     isTorment?: boolean;
@@ -157,6 +184,7 @@ export interface Raider extends Pokemon {
     originalAbility?: AbilityName | "(No Ability)"; // stores ability when nullified
     syrupBombDrops?: number;
     lastConsumedItem?: ItemName;
+    preventBelch?: boolean;
     isCudChew?: number;    // store number of "turns" (each made of 4 moves) until Cud Chew activates
     isTransformed?: boolean;
     originalSpecies?: SpeciesName;
@@ -207,6 +235,19 @@ export type SubstituteBuildInfo = {
     raider: Raider,
     substituteMoves: MoveName[],
     substituteTargets: number[],
+}
+
+export type ExtraBuildInfo = {
+    isHiddenAbility?: boolean;
+    learnMethods: string[];
+    moveTypes: TypeName[];
+    optionalMove: boolean[];
+    subFor?: string;
+}
+
+export type GraphicBuildInfo = {
+    raider: Raider,
+    extraBuildInfo: ExtraBuildInfo,
 }
 
 export type SetOption = {

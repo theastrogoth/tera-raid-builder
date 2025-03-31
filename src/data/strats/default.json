@@ -5,11 +5,10 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Dondozo",
-            "name": "Dondozo",
+            "role": "Tyranitar",
+            "name": "Tyranitar",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Unaware",
+            "ability": "Sand Stream",
             "nature": "Adamant",
             "evs": {
                 "hp": 0,
@@ -28,23 +27,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Water",
+            "gender": "M",
+            "teraType": "Ghost",
             "moves": [
-                "Wave Crash",
-                "Order Up",
+                "Stone Edge",
+                "Crunch",
                 "Earthquake",
-                "Avalanche"
+                "Shadow Claw"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Yawn",
-                "Curse"
+                "Focus Energy",
+                "Dragon Dance"
             ],
             "shieldData": {
-                "hpTrigger": 70,
-                "timeTrigger": 70,
-                "shieldCancelDamage": 35,
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -52,18 +51,17 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Krookodile",
+            "name": "Krookodile",
             "shiny": false,
-            "isAnyLevel": false,
-            "ability": "Hadron Engine",
-            "item": "Life Orb",
-            "nature": "Modest",
+            "ability": "(No Ability)",
+            "item": "Choice Band",
+            "nature": "Adamant",
             "evs": {
-                "hp": 0,
-                "atk": 0,
+                "hp": 252,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,140 +75,104 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "???",
             "moves": [
-                "Charge",
-                "Electro Drift"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+                "Power Trip"
+            ]
         },
         {
             "id": 2,
-            "role": "Stonjourner",
-            "name": "Stonjourner",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Power Spot",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            "moves": [
+                "Screech",
+                "Helping Hand",
+                "Mud-Slap",
+                "Foul Play"
+            ]
         },
         {
             "id": 3,
-            "role": "Bonsly",
-            "name": "Bonsly",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Sturdy",
-            "nature": "Hardy",
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
-            "gender": "N",
+            "level": 100,
+            "gender": "F",
             "moves": [
-                "Fake Tears"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+                "Decorate",
+                "Helping Hand"
+            ]
         },
         {
             "id": 4,
-            "role": "Bonsly",
-            "name": "Bonsly",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Sturdy",
-            "nature": "Hardy",
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
-            "gender": "N",
+            "level": 100,
+            "gender": "F",
             "moves": [
-                "Fake Tears"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+                "Decorate",
+                "Helping Hand"
+            ]
         }
     ],
     "turns": [
@@ -221,6 +183,34 @@
                 "name": "(No Move)",
                 "userID": 1,
                 "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Focus Energy",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 4,
+            "moveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -246,9 +236,13 @@
     "groups": [
         [
             0
+        ],
+        [
+            6
         ]
     ],
     "repeats": [
+        1,
         1
     ],
     "substitutes": [

@@ -96,8 +96,8 @@ export function pokemonIsGrounded(pokemon: Raider, field: Field) {
 }
 
 export function getBoostCoefficient(pokemon: Pokemon) {
-    const hasSimple = pokemon.ability === "Simple";
-    const hasContrary = pokemon.ability === "Contrary";
+    const hasSimple = pokemon.hasAbility("Simple");
+    const hasContrary = pokemon.hasAbility("Contrary");
     return hasSimple ? 2 : hasContrary ? -1 : 1;
 }
 
@@ -233,7 +233,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
     return [accuracy, effects];
 }
 
-export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boolean = false): number {
+export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boolean = false, targetDamaged: boolean = false, statLowered: boolean = false): number {
     const movename = movedata.name;
 
     if (defender.isCharging && defender.lastMove) {
@@ -250,6 +250,15 @@ export function getBpModifier(movedata: MoveData, defender: Raider, damaged: boo
             return 2;
         }
     }
+    if (targetDamaged && movename === "Assurance") {
+        return 2;
+    }
+    if (statLowered) {
+        if (movename === "Lash Out") {
+            return 2;
+        }
+    }
+    // Stomping Tantrum & Temper Flare cannot be doubled in raids
     return 1;
 }
 
@@ -326,6 +335,14 @@ export function modifyPokemonSpeedByField(speed: number, field: Field, ability?:
     return speed;
 }
 
+export function rankBySpeed(pokemon: Raider[]) {
+    return [...pokemon].sort((a, b) => getModifiedSpeed(b) - getModifiedSpeed(a));
+}
+
+export function getSpeedRanking(indices: number[], pokemon: Raider[]) {
+    return [...indices].sort((a, b) => getModifiedSpeed(pokemon[b]) - getModifiedSpeed(pokemon[a]));
+}
+
 // no idea if this should go here
 export function getGroupedTurnIDs(turns: RaidTurnInfo[]) {
     const displayGroups: number[][] = [];
@@ -380,7 +397,7 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
         if (pokemon.isDisable && pokemon.disabledMove) {
             selectableMoves = selectableMoves.filter(m => m.name !== pokemon.disabledMove);
         }
-        if (pokemon.isTaunt) {
+        if (pokemon.isTaunt && !(pokemon.id === 0 && pokemon.firstTauntTurn)) {
             selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
         }
         if (pokemon.isThroatChop) {
@@ -388,6 +405,9 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
         }
         if (pokemon.item === "Assault Vest") {
             selectableMoves = selectableMoves.filter(m => m.moveCategory !== "Status");
+        }
+        if (pokemon.preventBelch) {
+            selectableMoves = selectableMoves.filter(m => m.name !== "Belch");
         }
     }
     return selectableMoves.map(m => m.name);

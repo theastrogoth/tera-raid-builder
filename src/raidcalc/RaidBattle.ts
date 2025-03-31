@@ -36,21 +36,35 @@ export class RaidBattle {
     _turnZeroFlags!: string[][];
     _turnZeroOrder!: number[];
 
+    _firstRaiderHasMoved!: boolean;
+    _npcIDs!: number[];
+    // _numNPCs!: number;
+
     constructor(info: RaidBattleInfo, result: RaidBattleResults | null = null) {
         if (result) {
             this.startingState = result.endState;
             this.groups = info.groups;
             this._turnZeroState = result.turnZeroState;
+            this._turnResults = result.turnResults;
             this._turnZeroFlags = result.turnZeroFlags;
             this._turnZeroOrder = result.turnZeroOrder;
-            this._turnResults = result.turnResults;
             this._continuing = true;
+            this._firstRaiderHasMoved = this._turnResults.some(turn => turn.moveInfo.userID === 1 && turn.moveInfo.moveData.name !== "(No Move)");
         } else {
-            this.startingState = info.startingState;
+            this.startingState = info.startingState.clone();
+            // This is a hack
+            // Moves that shouldn't be selectable need to be allowed by default to prevent issues with the move selection UI
+            // We set them to unusable here
+            for (let raider of this.startingState.raiders) {
+                raider.preventBelch = true;
+            }
             this.groups = info.groups;
-            this._continuing = false;
             this._turnResults = [];
+            this._continuing = false;
+            this._firstRaiderHasMoved = false;
         }
+        this._npcIDs = this.startingState.raiders.filter((raider) => raider.name === "NPC").map((raider) => raider.id);    
+        // this._numNPCs = this.startingState.raiders.reduce((acc, raider) => acc + (raider.name === "NPC" ? 1 : 0), 0);
     }
 
     public result(): RaidBattleResults {
@@ -59,7 +73,6 @@ export class RaidBattle {
             if (!this._continuing) {
                 this.calculateTurnZero();
             }
-            const t0 = this._state.clone();
             this.calculateTurns();
             return {
                 endState: this._state,
@@ -91,11 +104,32 @@ export class RaidBattle {
             const repeats = this.groups[i].repeats || 1;
             for (let j = 0; j < repeats; j++) {
                 for (let k = 0; k < turns.length; k++) {
+                    if (this._state.raiders[0].originalCurHP === 0) { break; }
                     const turn = turns[k];
                     const result = new RaidTurn(this._state, turn, turnCounter).result();
                     this._turnResults.push(result);
                     this._state = result.state;
                     if(turn.moveInfo.moveData.name !== "(No Move)") {
+                        if (turn.moveInfo.userID === 1 && this._npcIDs.length > 0 && this._state.raiders[0].originalCurHP > 0) {
+                            for (const npcID of this._npcIDs) {
+                                const raider = this._state.raiders[npcID];
+                                turnCounter++;
+                                const npcMove = {moveData: {name: (this._firstRaiderHasMoved ? "Splash" : "Defense Cheer") as MoveName}, userID: raider.id, targetID: raider.id};
+                                const npcResult = new RaidTurn(
+                                    this._state,
+                                    {
+                                        id: -1,
+                                        group: turn.group,
+                                        moveInfo: npcMove,
+                                        bossMoveInfo: {moveData: {name: "(Most Damaging)" as MoveName}, userID: 0, targetID: raider.id, options: turn.bossMoveInfo.options},
+                                    },
+                                    turnCounter
+                                ).result();
+                                this._turnResults.push(npcResult);
+                                this._firstRaiderHasMoved = true;
+                                this._state = npcResult.state;
+                            }
+                        }
                         turnCounter++;
                     }
                 }

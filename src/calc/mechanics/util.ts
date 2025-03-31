@@ -111,7 +111,7 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
     speedMods.push(6144);
   } else if (pokemon.hasAbility('Slow Start') && pokemon.abilityOn) {
     speedMods.push(2048);
-  } else if (isQPActive(pokemon, field) && getQPBoostedStat(pokemon, gen) === 'spe') {
+  } else if (isQPActive(pokemon, field) && getQPBoostedStat(pokemon, !!field.isWonderRoom, gen) === 'spe') {
     speedMods.push(6144);
   }
 
@@ -199,9 +199,14 @@ export function checkItem(pokemon: Pokemon, magicRoomActive?: boolean) {
   }
 }
 
-export function checkWonderRoom(pokemon: Pokemon, wonderRoomActive?: boolean, opponentHasUnaware?: boolean) {
-  if (wonderRoomActive && !opponentHasUnaware) {
-    [pokemon.rawStats.def, pokemon.rawStats.spd] = [pokemon.rawStats.spd, pokemon.rawStats.def];
+export function checkWonderRoom(attacker: Pokemon, defender: Pokemon, field: Field) {
+  if (field.isWonderRoom) {
+    if (!defender.hasAbility("Unaware")) {
+      [attacker.rawStats.def, attacker.rawStats.spd] = [attacker.rawStats.spd, attacker.rawStats.def];
+    }
+    if (!attacker.hasAbility("Unaware")) {
+      [defender.rawStats.def, defender.rawStats.spd] = [defender.rawStats.spd, defender.rawStats.def];
+    }
   }
 }
 
@@ -412,9 +417,14 @@ export function getBaseDamage(level: number, basePower: number, attack: number, 
  */
 export function getQPBoostedStat(
   pokemon: Pokemon,
+  isWonderRoom?: boolean,
   gen?: Generation
 ): StatID {
   if (pokemon.boostedStat && pokemon.boostedStat !== 'auto') {
+    if (isWonderRoom) {
+      if (pokemon.boostedStat === 'def') { return 'spd'; }
+      if (pokemon.boostedStat === 'spd') { return 'def'; }
+    }
     return pokemon.boostedStat; // override.
   }
   let bestStat: StatID = 'atk';
@@ -427,6 +437,14 @@ export function getQPBoostedStat(
       bestStat = stat;
     }
   }
+  if (isWonderRoom) {
+    if (bestStat === 'def') {
+      bestStat = 'spd';
+    }
+    if (bestStat === 'spd') {
+      bestStat = 'def';
+    }
+  }
   return bestStat;
 }
 
@@ -434,10 +452,7 @@ export function isQPActive(
   pokemon: Pokemon,
   field: Field
 ): boolean {
-  if (!(pokemon.boostedStat && pokemon.abilityOn)) {
-    return false;
-  }
-  return true;
+  return (pokemon.hasAbility('Quark Drive', 'Protosynthesis') && !!pokemon.abilityOn);
 
   // const weather = field.weather || '';
   // const terrain = field.terrain;

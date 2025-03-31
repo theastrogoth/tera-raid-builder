@@ -25,7 +25,7 @@ import STRAT_LIST from "../data/strats/stratlist.json";
 const gen = Generations.get(9);
 const JSON_HASHES = Object.entries(STRAT_LIST).map(([boss, strats]) => Object.entries(strats as Object).map(([name, h]) => h as string)).flat();
 
-async function getFullHashFromShortHash(hash: string, longHashRef: React.MutableRefObject<string>, shortHashRef: React.MutableRefObject<string>): Promise<string> {
+async function getFullHashFromShortHash(hash: string, longHashRef: React.MutableRefObject<string>, shortHashRef: React.MutableRefObject<string>): Promise<string | null> {
     let cleanHash = hash;
     if (hash[0] === "#") {
         cleanHash = hash.slice(1);
@@ -99,13 +99,13 @@ export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
 export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<MoveName,MoveData> | null): Promise<BuildInfo | null> {
     try {
         const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => {
-            const moves = r.moves ? r.moves.filter((m) => m !== "(No Move)") as MoveName[] : undefined;
-            const extraMoves = r.extraMoves ? r.extraMoves.filter((m) => m !== "(No Move)") as MoveName[] : undefined;
+            const moves = r.moves ? r.moves.filter((m) => m !== "(No Move)") as MoveName[] : [];
+            const extraMoves = i > 0 ? undefined : r.extraMoves ? r.extraMoves.filter((m) => m !== "(No Move)") as MoveName[] : [];
             const moveData = (moves ? (allMoves ? 
                 (moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
                 (await Promise.all(moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
             ) as MoveData[] : []);
-            const extraMoveData = (r.extraMoves ? (allMoves ? 
+            const extraMoveData = i > 0 ? undefined : (r.extraMoves ? (allMoves ? 
                 (r.extraMoves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
                 (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
             ) as MoveData[] : []);
@@ -118,12 +118,12 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                         evs: r.evs || undefined,
                         ivs: r.ivs || undefined,
                         level: r.level || undefined,
-                        gender: r.gender as GenderName || undefined,
+                        gender: r.gender as GenderName || 'N',
                         teraType: (r.teraType || undefined) as (TypeName | undefined),
                         isTera: i === 0,
-                        bossMultiplier: r.bossMultiplier || undefined,
+                        bossMultiplier: i === 0 ? r.bossMultiplier || 100 : undefined,
                         moves: moves,
-                        shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
+                        shieldData: i === 0 ? r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0} : undefined,
                     }), 
                     moveData,
                     extraMoves,
@@ -223,8 +223,8 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
         const notes = obj.notes || "";
         const credits = obj.credits || "";
 
-        const substitutes: SubstituteBuildInfo[][] = await Promise.all((obj.substitutes || [[],[],[],[]]).map(async (subsList) => 
-            await Promise.all(subsList.map(async (s,i) => 
+        const substitutes: SubstituteBuildInfo[][] = await Promise.all((obj.substitutes || [[],[],[],[]]).map(async (subsList,i) => 
+            await Promise.all(subsList.map(async s => 
                     {
                         const r = s.raider;
                         const subPoke = new Raider(i+1, r.role, r.shiny, r.isAnyLevel, new Field(), 
@@ -235,12 +235,12 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                                 evs: r.evs || undefined,
                                 ivs: r.ivs || undefined,
                                 level: r.level || undefined,
-                                gender: r.gender as GenderName || undefined,
+                                gender: r.gender as GenderName || 'N',
                                 teraType: (r.teraType || undefined) as (TypeName | undefined),
-                                isTera: i === 0,
-                                bossMultiplier: r.bossMultiplier || undefined,
-                                moves: r.moves || undefined,
-                                shieldData: r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0},
+                                isTera: false,
+                                bossMultiplier: undefined,
+                                moves: r.moves || [],
+                                shieldData: undefined,
                             }), 
                             (r.moves ? (
                                 allMoves ? 
@@ -269,24 +269,24 @@ export function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuild
         notes: info.notes || "",
         credits: info.credits || "",
         pokemon: info.startingState.raiders.map(
-            (r) => { return {
+            (r, idx) => { return {
                 id: r.id,
                 role: r.role,
                 name: r.name,
                 shiny: r.shiny,
-                isAnyLevel: r.isAnyLevel,
+                isAnyLevel: r.isAnyLevel || undefined,
                 ability: r.ability,
                 item: r.item,
                 nature: r.nature,
                 evs: r.evs,
                 ivs: r.ivs,
                 level: r.level,
-                gender: r.gender,
+                gender: r.gender || 'N',
                 teraType: r.teraType,
                 moves: r.moves,
-                bossMultiplier: r.bossMultiplier,
-                extraMoves: r.extraMoves,
-                shieldData: r.shieldData,
+                bossMultiplier: idx === 0 ? r.bossMultiplier || 100 : undefined,
+                extraMoves: idx === 0 ? r.extraMoves || [] : undefined,
+                shieldData: idx === 0 ? r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0} : undefined,
             }}
         ),
         turns: info.groups.map((g) => g.turns.map((t) => {
@@ -317,13 +317,14 @@ export function serializeInfo(info: RaidBattleInfo, substitutes: SubstituteBuild
                     role: r.role,
                     name: r.name,
                     shiny: r.shiny,
+                    isAnyLevel: r.isAnyLevel || undefined,
                     ability: r.ability,
                     item: r.item,
                     nature: r.nature,
                     evs: r.evs,
                     ivs: r.ivs,
                     level: r.level,
-                    gender: r.gender,
+                    gender: r.gender || 'N',
                     teraType: r.teraType,
                     moves: r.moves,
                 },

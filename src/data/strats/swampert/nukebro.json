@@ -239,7 +239,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
+                    "roll": "avg",
                     "hits": 10
                 }
             }

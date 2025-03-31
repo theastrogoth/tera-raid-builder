@@ -23,6 +23,7 @@ import Switch from "@mui/material/Switch";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
 import Select from "@mui/material/Select";
+import Avatar from '@mui/material/Avatar';
 import { createFilterOptions } from "@mui/material/Autocomplete";
 import { useTheme } from '@mui/material/styles';
 
@@ -32,7 +33,7 @@ import { alpha, darken, lighten, styled, SxProps, Theme } from '@mui/material/st
 import { Move, Pokemon, StatsTable, Generations, Field } from '../calc';
 import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName, GenderName } from "../calc/data/interface";
 import { toID } from '../calc/util';
-import { SetOption } from "../raidcalc/interface";
+import { AbilityData, FlavorTexts, ItemData, SetOption } from "../raidcalc/interface";
 
 
 import StatsControls from "./StatsControls";
@@ -49,6 +50,7 @@ import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 import BOSS_SETDEX_ID from "../data/sets/id_raid_bosses.json";
 
 import PokemonLookup from "./PokemonLookup";
+import { Divider } from "@mui/material";
 
 
 // we will always use Gen 9
@@ -147,15 +149,15 @@ export function findOptionFromMoveName(name: string, moveSet: MoveSetItem[], tra
     }
 }
 
-export function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[], translationKey: any): {name: AbilityName, hidden: boolean} {
+export function findOptionFromAbilityName(name: string, abilities: {name: AbilityName, hidden: boolean}[], translationKey: any): {name: string, engName: AbilityName, hidden: boolean} {
     const option = abilities.find((ability) => ability.name === name);
     if (!option) {
         const translatedName = getTranslation("(No Ability)", translationKey, "abilities");
-        return {name: translatedName, hidden: false};
+        return {name: translatedName, engName: "(No Ability)" as AbilityName, hidden: false};
     } else if (!translationKey) {
-        return option;
+        return {name: option.name, engName: option.name, hidden: option.hidden};
     } else {
-        return {name: translationKey["abilities"][name] || name, hidden: option.hidden};
+        return {name: translationKey["abilities"][name] || name, engName: option.name, hidden: option.hidden};
     }
 }
 
@@ -297,6 +299,10 @@ const RightCell = styled(TableCell)(({ theme }) => ({
     padding: '0px',
     borderBottom: 0,
 })); 
+
+const Icon = styled(Avatar)(({ theme }) => ({
+    backgroundColor: theme.palette.mode === 'light' ? "#bebebe" : "#7e7e7e",
+}));
   
 export function SummaryRow({name, value, setValue, options, prettyMode, optionFinder = (option: any) => option, translationKey, translationCategory}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean, optionFinder?: Function, translationKey: any, translationCategory: string}) {
 return (
@@ -366,6 +372,40 @@ function ModalRow({name, value, getString = (val: any) => val, show = true, icon
     )   
 }
 
+function StatsDisplayTable({stats, translationKey}: {stats: StatsTable, translationKey: any}) {
+    return (
+        <TableContainer>
+            <Table size="small" style={{ width: "fit-content" }}>
+                <TableBody>
+                    <TableRow>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("HP", translationKey, "stats") + ":"}</Typography></LeftCell>
+                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.hp || ""}</Typography></RightCell>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("SpA", translationKey,"stats") + ":"}</Typography></LeftCell>
+                        <RightCell><Typography fontSize={10}>{stats.spa || ""}</Typography></RightCell>
+                    </TableRow>
+                    <TableRow>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Atk", translationKey, "stats") + ":"}</Typography></LeftCell>
+                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.atk || ""}</Typography></RightCell>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("SpD", translationKey,"stats") + ":"}</Typography></LeftCell>
+                        <RightCell><Typography fontSize={10}>{stats.spd || ""}</Typography></RightCell>
+                    </TableRow> 
+                    <TableRow>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Def", translationKey, "stats") + ":"}</Typography></LeftCell>
+                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.def || ""}</Typography></RightCell>
+                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Spe", translationKey,"stats") + ":"}</Typography></LeftCell>
+                        <RightCell><Typography fontSize={10}>{stats.spe || ""}</Typography></RightCell>
+                    </TableRow>
+                    <p style={{margin: "5px"}}></p>
+                    <TableRow>
+                        <LeftCell>{getTranslation("BST", translationKey, "stats") + ":"}</LeftCell>
+                        <RightCell>{Object.entries(stats).reduce((acc, [id,val]) => acc + val, 0) || ""}</RightCell>
+                    </TableRow>
+                </TableBody>
+            </Table>
+        </TableContainer>
+    )
+}
+
 export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translationKey}: {name: string, showPopper: boolean, anchorEl: HTMLElement | null, allSpecies: Map<SpeciesName,PokemonData> | null, translationKey: any}) {
     
     const [pokemon, setPokemon] = useState<PokemonData | null>(null);
@@ -389,49 +429,81 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name, pokemon, showPopper])
+
+    const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
+    const category = pokemon ? (pokemon.category ? pokemon.category[lang] : null) : null;
     
     return (
         <Popper
             open={showPopper}
             anchorEl={anchorEl}
-            placement="bottom"
+            placement="right-start"
             disablePortal={false}
-            sx={{ position: "relative", zIndex: 1000000 }}
+            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
-            <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
-                <TableContainer>
-                    <Table size="small" width="100%">
-                        <TableBody>
-                            <ModalRow name={getTranslation("Type", translationKey, "ui")} value="" iconURLs={pokemon ? pokemon.types.map(type => getTypeIconURL(type)) : []} />
-                            <p style={{margin: "5px"}}></p>
-                            { pokemon && pokemon.abilities.length > 0 &&
-                                <ModalRow name={getTranslation("Ability", translationKey, "ui") + ":"} value={getTranslation(pokemon.abilities[0].name, translationKey, "abilities")} />
-                            }
-                            { pokemon && pokemon.abilities.slice(1).map((ability, index) => (
-                                <ModalRow key={index} name={""} value={getTranslation(ability.name, translationKey, "abilities")} />
+        { pokemon && pokemon.name && 
+            <Paper sx={{ p: 1.5, backgroundColor: "modal.main" }} >
+                <Stack sx={{ width: "100%" }}>
+                    <Box sx={{paddingBottom: "10px"}}>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getPokemonSpriteURL(pokemon.name)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
+                            <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+                                <Stack direction="row" alignItems="center">
+                                    <Typography fontSize={18} mb={-.5}>{pokemon.name}</Typography>
+                                    <Box flexGrow={1} sx={{ minWidth: "10px" }}/>
+                                    { pokemon.types && pokemon.types.map((type) => (
+                                        <Box
+                                            sx={{
+                                                width: "20px",
+                                                height: "20px",
+                                                overflow: 'hidden',
+                                                background: `url(${getTypeIconURL(type)}) no-repeat center center / contain`,
+                                            }}
+                                        />
+                                        ))
+                                    }
+                                </Stack>
+                                <Typography fontSize={11}>{category}</Typography>
+                                { pokemon.weightkg &&  <>
+                                    <Typography fontSize={10}>{getTranslation("Weight", translationKey, "ui") + " : " + pokemon.weightkg + (" kg")}</Typography>
+                                </>}
+                            </Stack>
+                        </Stack>
+                    </Box> 
+                    <Stack spacing={0.5}>
+                        <Divider textAlign="left">{getTranslation("Ability", translationKey)}</Divider>
+                        <Stack spacing={-0.5} sx={{ paddingLeft: "10px", width: "100%" }}>
+                            { pokemon.abilities.map((ability, index) => (
+                                <Stack direction="row" spacing={0} alignItems="center">
+                                    <Box
+                                        sx={{
+                                            width: "15px",
+                                            height: "15px",
+                                            overflow: 'hidden',
+                                            background: `url(${getItemSpriteURL(ability.hidden ? "Ability Patch" : "Ability Capsule")}) no-repeat center center / contain`,
+                                        }}
+                                    />
+                                    <Typography fontSize={10} m={.5}>{getTranslation(ability.name, translationKey, "abilities")}</Typography>
+                                </Stack>
                             ))}
-                            <p style={{margin: "5px"}}></p>
-                            { pokemon && pokemon.weightkg &&
-                                <ModalRow name={getTranslation("Weight", translationKey, "ui") + ":"} value={pokemon.weightkg + (" kg")} />
-                            }
-                            {/* { pokemon && pokemon.gender &&
-                                <ModalRow name={getTranslation("Gender", translationKey) + ":"} value={getTranslation(pokemon.gender, translationKey)} />
-                            } */}
-                            <p style={{margin: "5px"}}></p>
-                            <ModalRow name={getTranslation("Stats", translationKey, "ui") + ":"} value="" />
-                            <ModalRow name={getTranslation("HP", translationKey, "stats")}  value={pokemon ? pokemon.stats.hp  : ""} />
-                            <ModalRow name={getTranslation("Atk", translationKey, "stats")} value={pokemon ? pokemon.stats.atk : ""} />
-                            <ModalRow name={getTranslation("Def", translationKey, "stats")} value={pokemon ? pokemon.stats.def : ""} />
-                            <ModalRow name={getTranslation("SpA", translationKey, "stats")} value={pokemon ? pokemon.stats.spa : ""} />
-                            <ModalRow name={getTranslation("SpD", translationKey, "stats")} value={pokemon ? pokemon.stats.spd : ""} />
-                            <ModalRow name={getTranslation("Spe", translationKey, "stats")} value={pokemon ? pokemon.stats.spe : ""} />
-                            <p style={{margin: "5px"}}></p>
-                            <ModalRow name={getTranslation("BST", translationKey, "stats")} value={pokemon ? Object.entries(pokemon.stats).reduce((acc, [id,val]) => acc + val, 0)  : ""} />
-
-                        </TableBody>
-                    </Table>
-                </TableContainer>
+                        </Stack>
+                    </Stack>
+                    <Divider textAlign="left">{getTranslation("Stats", translationKey, "ui")}</Divider>
+                    <Box sx={{ paddingLeft: "5px" }}>
+                        <StatsDisplayTable stats={pokemon.stats} translationKey={translationKey} />          
+                    </Box>    
+                </Stack>
             </Paper>
+        }
         </Popper>
     )
 }
@@ -440,7 +512,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
     const [moveData, setMoveData] = useState<MoveData | null>(null);
     const [move, setMove] = useState<Move | null>(null);
     useEffect(() => {
-        if (showPopper && (moveData === null || moveData.name !== moveItem.engName)) {
+        if (showPopper && (moveData === null || moveData.name !== moveItem.engName) && moveItem.engName !== "(No Move)") {
             if (!allMoves) {
                 async function fetchMoveData() {
                     const newData = await PokedexService.getMoveByName(moveItem.engName);
@@ -466,20 +538,56 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
         moveItem.method === "machine" ? [getMoveMethodIconURL(moveItem.type)] : 
         moveItem.method === "egg" ? [getMoveMethodIconURL("egg")] : null;
 
+    const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
+    const flavorText = moveData ? ( moveData.flavorText ? moveData.flavorText[lang] : null ) : null;
+
     return (
+        
         <Popper 
             open={showPopper} 
             anchorEl={anchorEl} 
-            placement="bottom"
+            placement="right-start"
             disablePortal={false}
-            sx={{ position: "relative", zIndex: 1000000 }}
+            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
-            {(moveData && move && moveData.name !== "(No Move)") &&
-                <Paper sx={{ p: 1, backgroundColor: "modal.main" }} >
-                    <TableContainer>
-                        <Table size="small" width="100%">
+        {(moveData && move && moveData.name !== "(No Move)") &&
+            <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px" }} >
+                <Stack spacing={1}>
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                        { moveData.type &&
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getTypeIconURL(moveData.type)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
+                        }
+                        <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+                            <Stack direction="row" alignItems="end">
+                                <Typography fontSize={18} mb={-.5}>{moveItem.name}</Typography>
+                                <Box flexGrow={1} />
+                                { moveData.moveCategory &&
+                                    <Box
+                                        sx={{
+                                            width: "30px",
+                                            height: "30px",
+                                            overflow: 'hidden',
+                                            background: `url(${getTypeIconURL(moveData.moveCategory)}) no-repeat center center / contain`,
+                                        }}
+                                    />
+                                }
+                            </Stack>
+                            <Divider/>
+                        </Stack>
+                    </Stack>
+                    <TableContainer sx={{ paddingLeft: "10px" }}>
+                        <Table size="small" style={{ width: "fit-content" }}>
                             <TableBody>
-                                <ModalRow 
+                                {/* <ModalRow 
                                     name={getTranslation("Type", translationKey)}
                                     value={getTranslation(move.type, translationKey, "types")}
                                     show={move.type !== undefined}
@@ -488,7 +596,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                                     name={getTranslation("Category", translationKey)}
                                     value={getTranslation(move.category, translationKey, "ui")}
                                     show={move.category !== undefined}
-                                />
+                                /> */}
                                 <ModalRow 
                                     name={getTranslation("Power", translationKey)}
                                     value={move.bp}
@@ -547,12 +655,12 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                                     getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey)}
                                     show={moveData.statChance !== null && moveData.statChance! > 0}
                                 />
-                                <ModalRow
+                                {/* <ModalRow
                                     name=""
                                     value={moveData.flinchChance}
                                     getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
                                     show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
-                                />
+                                /> */}
                                 { moveItem.method && 
                                     <ModalRow
                                         name={getTranslation("Learn Method", translationKey)}
@@ -560,10 +668,121 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                                         show={moveItem.method !== undefined}
                                         iconURLs={spriteURL}
                                     />
-                                }                                    
+                                }
                             </TableBody>
                         </Table>
                     </TableContainer>
+                    { flavorText &&  <>
+                        <Divider/>
+                        <Typography fontSize={10}>{flavorText}</Typography>
+                    </>}
+                </Stack>
+            </Paper>
+        }
+        </Popper>
+    )
+}
+
+export function ItemPopper({name, showPopper, anchorEl, translationKey}: {name: ItemName, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
+    const [itemData, setItemData] = useState<ItemData | null>(null);
+    useEffect(() => {
+        if (showPopper && (itemData === null || itemData.name !== name) && name !== "(No Item)") {
+            async function fetchMoveData() {
+                const newData = await PokedexService.getItemByName(name);
+                if (newData) {
+                    setItemData(newData);
+                }
+            }
+            fetchMoveData().catch((e) => console.log(e));
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [name, showPopper])
+    
+    const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
+    const flavorText = itemData ? itemData.flavorText[lang] : null;
+
+    return (
+        <Popper 
+            open={showPopper} 
+            anchorEl={anchorEl} 
+            placement="right-start"
+            disablePortal={false}
+            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
+        >
+            {(name && itemData && name !== "(No Item)") &&
+                <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px"}} >
+                    <Stack spacing={1}>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getItemSpriteURL(name)}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
+                            <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+                                <Typography fontSize={18} mb={-.5}>{getTranslation(name, translationKey, "items")}</Typography>
+                                <Divider/>
+                            </Stack>
+                        </Stack>
+                        <Typography fontSize={10}>{flavorText}</Typography>
+                    </Stack>
+            </Paper>
+            }
+        </Popper>
+    )
+}
+
+export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {ability: {name: string, engName: AbilityName, hidden: boolean}, translatedName: string, showPopper: boolean, anchorEl: HTMLElement | null, translationKey: any}) {
+    const [abilityData, setAbilityData] = useState<AbilityData | null>(null);
+    useEffect(() => {
+        if (showPopper && (abilityData === null || abilityData.name !== ability.engName) && ability.engName !== "(No Ability)") {
+            async function fetchMoveData() {
+                const newData = await PokedexService.getAbilityByName(ability.engName);
+                if (newData) {
+                    setAbilityData(newData);
+                }
+            }
+            fetchMoveData().catch((e) => console.log(e));
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [ability, showPopper])
+    
+    const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
+    const flavorText = abilityData ? abilityData.flavorText[lang] : null;
+
+    return (
+        <Popper 
+            open={showPopper} 
+            anchorEl={anchorEl} 
+            placement="right-start"
+            disablePortal={false}
+            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
+        >
+            {(ability && abilityData && (ability.engName !== "(No Ability)")) &&
+                <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px"}} >
+                    <Stack justifyContent="left" spacing={1}>
+                        <Stack direction="row" alignItems="center" spacing={1}>
+                            <Icon variant="rounded">
+                                <Box
+                                    sx={{
+                                        width: "32px",
+                                        height: "32px",
+                                        overflow: 'hidden',
+                                        background: `url(${getItemSpriteURL(ability.hidden ? "Ability Patch" : "Ability Capsule")}) no-repeat center center / contain`,
+                                    }}
+                                />
+                            </Icon>
+                            <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
+                                <Typography fontSize={18} mb={-.5}>{ability.name}</Typography>
+                                <Divider/>
+                            </Stack>
+                        </Stack>                        
+                        <Typography fontSize={10}>{flavorText}</Typography>
+                    </Stack>
                 </Paper>
             }
         </Popper>
@@ -613,6 +832,33 @@ export function MoveWithIcon({move, allMoves, prettyMode, translationKey}: {move
 }
 
 function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, allMoves, disabled, prettyMode,translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], currentMoves: MoveName[], allMoves: Map<MoveName,MoveData> | null, disabled: boolean, prettyMode: boolean, translationKey: any}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+    const [open, setOpen] = useState(false);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null && !open) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseLeave = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+
+    const handleDropdownOpen = () => {
+        setOpen(true);
+        handleMouseLeave();
+    }
+    
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -623,30 +869,35 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
                         <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} />
                     }
                     {!prettyMode &&
-                        <Autocomplete
-                            disablePortal
-                            disableClearable
-                            disabled={disabled}
-                            autoHighlight={true}    
-                            size="small"
-                            value={value ? getTranslation(value, translationKey, "moves") : undefined}
-                            options={options}
-                            filterOptions={
-                                createFilterOptions({
-                                    stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "moves")
-                                })
-                            }
-                            renderOption={(props, option) => 
-                                <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
-                            }
-                            getOptionDisabled={(option) => option !== "(No Move)" && currentMoves.includes(option as MoveName)}
-                            renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
-                            onChange={(event: any, newValue: string) => {
-                                setValue(newValue);
-                            }}
-                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
-                            sx = {{width: '85%'}}
-                        />
+                        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                            <Autocomplete
+                                disablePortal
+                                disableClearable
+                                disabled={disabled}
+                                autoHighlight={true}    
+                                onOpen={handleDropdownOpen}
+                                onClose={() => setOpen(false)}
+                                size="small"
+                                value={value ? getTranslation(value, translationKey, "moves") : undefined}
+                                options={options}
+                                filterOptions={
+                                    createFilterOptions({
+                                        stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "moves")
+                                    })
+                                }
+                                renderOption={(props, option) => 
+                                    <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
+                                }
+                                getOptionDisabled={(option) => option !== "(No Move)" && option !== value && currentMoves.includes(option as MoveName)}
+                                renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                                onChange={(event: any, newValue: string) => {
+                                    setValue(newValue);
+                                }}
+                                componentsProps={{ popper: { style: { width: 'fit-content' } } }}
+                                sx = {{width: '85%'}}
+                            />
+                            <MovePopper moveItem={findOptionFromMoveName(value, moveSet, translationKey)} showPopper={showPopper} anchorEl={anchorEl} allMoves={allMoves} translationKey={translationKey} />
+                        </Box>
                     }
                 </RightCell>
             </TableRow>
@@ -655,20 +906,71 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
     )
 }
 
-function AbilityWithIcon({ability, prettyMode}: {ability: {name: AbilityName, hidden: boolean}, prettyMode: boolean}) {
+function AbilityWithIcon({ability, prettyMode, translationKey}: {ability: {name: string, engName: AbilityName, hidden: boolean}, prettyMode: boolean, translationKey: any}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseLeave = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+
     return (
-        <Stack direction="row" alignItems="center" spacing={0.25}>
-            <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
-                {ability.name}
-            </Typography>
-            {ability.hidden === true &&
-                <img src={getMoveMethodIconURL("ability_patch")} height="20px" alt="" />
-            }
-        </Stack>
+        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+            <Stack direction="row" alignItems="center" spacing={0.25}>
+                <Typography variant={prettyMode ? "body1" : "body2"} sx={{ paddingRight: 0.5 }}>
+                    {ability.name}
+                </Typography>
+                {ability.hidden === true &&
+                    <img src={getMoveMethodIconURL("ability_patch")} height="20px" alt="" />
+                }
+            </Stack>
+            <AbilityPopper ability={ability} translatedName={ability.name} showPopper={showPopper} anchorEl={anchorEl} translationKey={translationKey}/>
+        </Box>
     )
 }
 
-function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode, translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean, translationKey: any}) {
+function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMode, translationKey}: {name: string, value: AbilityName, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], abilities: {name: AbilityName, hidden: boolean}[], prettyMode: boolean, translationKey: any}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+    const [open, setOpen] = useState(false);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null && !open) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseLeave = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+
+    const handleDropdownOpen = () => {
+        setOpen(true);
+        handleMouseLeave();
+    }
+
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -676,31 +978,36 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell colSpan={prettyMode ? 1 : 3} sx={{ width: "165px" }}>
                     {prettyMode &&
-                        <AbilityWithIcon ability={findOptionFromAbilityName(value, abilities, translationKey)} prettyMode={prettyMode} />
+                        <AbilityWithIcon ability={findOptionFromAbilityName(value, abilities, translationKey)} prettyMode={prettyMode} translationKey={translationKey} />
                     }
                     {!prettyMode &&
-                        <Autocomplete
-                            disablePortal
-                            disableClearable
-                            autoHighlight={true}    
-                            size="small"
-                            value={value ? getTranslation(value, translationKey, "abilities") : undefined}
-                            options={options}
-                            filterOptions={
-                                createFilterOptions({
-                                    stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "abilities")
-                                })
-                            }
-                            renderOption={(props, option) => 
-                                <li {...props}><AbilityWithIcon ability={findOptionFromAbilityName(option || "(No Ability)", abilities, translationKey)} prettyMode={prettyMode} /></li>
-                            }
-                            renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
-                            onChange={(event: any, newValue: string) => {
-                                setValue(newValue);
-                            }}
-                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
-                            sx = {{width: '85%'}}
-                        />
+                        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                            <Autocomplete
+                                disablePortal
+                                disableClearable
+                                autoHighlight={true}   
+                                onOpen={handleDropdownOpen} 
+                                onClose={() => setOpen(false)}
+                                size="small"
+                                value={value ? getTranslation(value, translationKey, "abilities") : undefined}
+                                options={options}
+                                filterOptions={
+                                    createFilterOptions({
+                                        stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "abilities")
+                                    })
+                                }
+                                renderOption={(props, option) => 
+                                    <li {...props}><AbilityWithIcon ability={findOptionFromAbilityName(option || "(No Ability)", abilities, translationKey)} prettyMode={prettyMode} translationKey={translationKey} /></li>
+                                }
+                                renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
+                                onChange={(event: any, newValue: string) => {
+                                    setValue(newValue);
+                                }}
+                                componentsProps={{ popper: { style: { width: 'fit-content' } } }}
+                                sx = {{width: '85%'}}
+                            />
+                            <AbilityPopper ability={findOptionFromAbilityName(value, abilities, translationKey)} translatedName={value} showPopper={showPopper} anchorEl={anchorEl} translationKey={translationKey} />
+                        </Box>
                     }
                 </RightCell>
             </TableRow>
@@ -757,6 +1064,33 @@ export function GenericWithIcon({name, engName, spriteFetcher, prettyMode, Modal
 }
 
 function GenericIconSummaryRow({name, value, setValue, options, optionFinder, spriteFetcher, prettyMode, translationKey, translationCategory, ModalComponent, modalProps}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], optionFinder: Function, spriteFetcher: Function, prettyMode: boolean, translationKey: any, translationCategory: string, ModalComponent?: ((p: any) => JSX.Element) | null, modalProps?: any}) {
+    const [showPopper, setShowPopper] = useState(false);
+    const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+    const timer = useRef<NodeJS.Timeout | null>(null);
+    const [open, setOpen] = useState(false);
+
+    const handleMouseOver = (event: React.MouseEvent<HTMLElement>) => {
+        const target = event.currentTarget;
+        if(timer.current === null && !open && !!ModalComponent) {
+            timer.current = setTimeout(() => {
+                setShowPopper(true);
+                setAnchorEl(target);
+                timer.current = null;
+            }, 500)
+        }
+    }
+    const handleMouseLeave = () => {
+        setShowPopper(false);
+        setAnchorEl(null);
+        clearTimeout(timer.current as NodeJS.Timeout);
+        timer.current = null;
+    }
+
+    const handleDropdownOpen = () => {
+        setOpen(true);
+        handleMouseLeave();
+    }
+
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -764,38 +1098,45 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell colSpan={prettyMode ? 1 : 3} sx={{ width: "165px" }}>
                     {prettyMode &&
-                        <GenericWithIcon name={optionFinder(value, translationKey)} engName={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} />
+                        <GenericWithIcon name={optionFinder(value, translationKey)} engName={value} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: value}}/>
                     }
                     {!prettyMode &&
-                        <Autocomplete
-                            disablePortal
-                            disableClearable
-                            autoHighlight={true}    
-                            size="small"
-                            value={value ? (
-                                    translationCategory === "pokemon" ? findOptionFromPokemonName(value, translationKey) : getTranslation(value, translationKey, translationCategory) 
-                                ) : undefined
+                        <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
+                            <Autocomplete
+                                disablePortal
+                                disableClearable
+                                autoHighlight={true}    
+                                onOpen={handleDropdownOpen}
+                                onClose={() => setOpen(false)}
+                                size="small"
+                                value={value ? (
+                                        translationCategory === "pokemon" ? findOptionFromPokemonName(value, translationKey) : getTranslation(value, translationKey, translationCategory) 
+                                    ) : undefined
+                                }
+                                options={options}
+                                filterOptions={
+                                    createFilterOptions({
+                                        stringify: (option: string | undefined) => (
+                                            translationCategory === "pokemon" ? findOptionFromPokemonName(option || "", translationKey) : getTranslation(option || "", translationKey, translationCategory)
+                                        )
+                                    })
+                                }
+                                renderOption={(props, option) => 
+                                    <li {...props}><GenericWithIcon name={optionFinder(option, translationKey)} engName={optionFinder(option, null)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: option}} /></li>
+                                }
+                                renderInput={(params) => 
+                                    <TextField {...params} variant="standard" size="small" />}
+                                onChange={(event: any, newValue: string) => {
+                                    //@ts-ignore
+                                    checkSetValueIsDefault(newValue) ? setValue(undefined) : setValue(newValue);
+                                }}
+                                componentsProps={{ popper: { style: { width: 'fit-content' } } }}
+                                sx = {{width: '85%'}}
+                            />
+                            { !!(ModalComponent) && 
+                                <ModalComponent name={value} showPopper={showPopper} anchorEl={anchorEl} {...modalProps} />
                             }
-                            options={options}
-                            filterOptions={
-                                createFilterOptions({
-                                    stringify: (option: string | undefined) => (
-                                        translationCategory === "pokemon" ? findOptionFromPokemonName(option || "", translationKey) : getTranslation(option || "", translationKey, translationCategory)
-                                    )
-                                })
-                            }
-                            renderOption={(props, option) => 
-                                <li {...props}><GenericWithIcon name={optionFinder(option, translationKey)} engName={optionFinder(option, null)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: option}} /></li>
-                            }
-                            renderInput={(params) => 
-                                <TextField {...params} variant="standard" size="small" />}
-                            onChange={(event: any, newValue: string) => {
-                                //@ts-ignore
-                                checkSetValueIsDefault(newValue) ? setValue(undefined) : setValue(newValue);
-                            }}
-                            componentsProps={{ popper: { style: { width: 'fit-content' } } }}
-                            sx = {{width: '85%'}}
-                        />
+                        </Box>
                     }
                 </RightCell>
             </TableRow>
@@ -1273,7 +1614,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             if (pokemon.level !== 1) {
                 setPokemonProperty("level")(1);
             }
-        } else if ((pokemon.level !== level) && !(level === 0 && pokemon.level === 1)) {
+        } else {
             setLevel(pokemon.level);
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -1377,13 +1718,13 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             pokemon.id, 
             pokemon.role, 
             pokemon.shiny, 
-            false,
+            (val === "Carry Slot" || val === "NPC"),
             pokemon.field, 
             new Pokemon(gen, val, {
                 nature: "Hardy", 
-                level: val === "Carry Slot" ? 1 : 100,
+                level: (val === "Carry Slot" || val === "NPC") ? 1 : 100,
                 // ability: "(No Ability)",
-                ivs: val === "Carry Slot" ? {
+                ivs: (val === "Carry Slot" || val === "NPC") ? {
                     hp: 0,
                     atk: 0,
                     def: 0,
@@ -1409,7 +1750,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             poke.id, 
             poke.role, 
             poke.shiny, 
-            false,
+            poke.isAnyLevel,
             poke.field, 
             new Pokemon(gen, val, {
                 nature: poke.nature, 
@@ -1431,6 +1772,21 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
     const handleAddSubstitute = () => {
         const newSubstitute = makeSubstituteInfo(pokemon, groups);
         setSubstitutes([...substitutes, newSubstitute]);
+        setPokemon(new Raider(
+            pokemon.id, 
+            pokemon.role, 
+            pokemon.shiny, 
+            false,
+            pokemon.field, 
+            new Pokemon(gen, "Carry Slot", {
+                nature: "Hardy", 
+                level: 100,
+                // ability: "(No Ability)",
+                ivs: undefined,
+                shieldData: undefined
+            }), 
+            [],
+        ));
     }
 
     return (
@@ -1522,7 +1878,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teraTypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
                                 <AbilitySummaryRow 
                                             name="Ability"
-                                            value={pokemon.ability || "(No Move)"} 
+                                            value={pokemon.ability || "(No Move)" as AbilityName} 
                                             setValue={setPokemonProperty("ability")}
                                             options={createAbilityOptions(abilities)}
                                             abilities={abilities}
@@ -1618,7 +1974,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>
-                                    <GenericIconSummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={items} optionFinder={findOptionFromItemName} spriteFetcher={getItemSpriteURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="items" />
+                                    <GenericIconSummaryRow name="Item" value={pokemon.item || "(No Item)"} setValue={setPokemonProperty("item")} options={items} optionFinder={findOptionFromItemName} spriteFetcher={getItemSpriteURL} prettyMode={prettyMode} ModalComponent={ItemPopper} modalProps={{translationKey: translationKey}} translationKey={translationKey} translationCategory="items" />
                                 <TableRow>
                                     <LeftCell sx={{ paddingTop: '10px'}} />
                                 </TableRow>
@@ -1896,13 +2252,13 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
         }
     }
 
-    const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
-        let val = parseInt(e.target.value);
-        if (val < 1) val = 1;
-        const newPokemon = pokemon.clone();
-        newPokemon.bossMultiplier = val;
-        setPokemon(newPokemon.clone())        
-    }
+    // const setHPMultiplier = (e: React.ChangeEvent<HTMLInputElement>) => {
+    //     let val = parseInt(e.target.value);
+    //     if (val < 1) val = 1;
+    //     const newPokemon = pokemon.clone();
+    //     newPokemon.bossMultiplier = val;
+    //     setPokemon(newPokemon.clone())        
+    // }
 
     const setBMove = (index: number) => async (move: MoveName) => {
         const newPoke = pokemon.clone();
@@ -2018,7 +2374,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                                             }}
                                             fullWidth={false}
                                             value={pokemon.bossMultiplier}
-                                            onChange={setHPMultiplier}
+                                            onChange={(e) => setPokemonProperty("bossMultiplier")(parseInt(e.target.value))}
                                             sx = {{ width: '30%'}}
                                         />
                                     }

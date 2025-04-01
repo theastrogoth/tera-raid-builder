@@ -12,6 +12,7 @@ import rechargeMoves from "../data/recharge_moves.json";
 import magicBounceMoves from "../data/magicbounce_moves.json";
 import thawUserMoves from "../data/thaw_user_moves.json";
 import { getModifiedStat } from "../calc/mechanics/util";
+import { stat } from "fs";
 
 export type RaidMoveResult= {
     state: RaidState;
@@ -1494,7 +1495,7 @@ export class RaidMove {
                 this._desc[this._targetID] = "The Raid Boss removed all negative effects from itself!"
                 const boss = this.getPokemon(0);
                 boss.status = "";
-                boss.volatileStatus = [];
+                boss.volatileStatus = boss.volatileStatus.filter(status => ignoredVolatileStatuses.includes(status));
                 // boss.isTaunt = 0; according to IVSore, taunt isn't cleared
                 boss.isSleep = 0;
                 boss.isYawn = 0;

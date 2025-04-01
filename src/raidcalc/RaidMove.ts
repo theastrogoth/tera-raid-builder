@@ -12,7 +12,6 @@ import rechargeMoves from "../data/recharge_moves.json";
 import magicBounceMoves from "../data/magicbounce_moves.json";
 import thawUserMoves from "../data/thaw_user_moves.json";
 import { getModifiedStat } from "../calc/mechanics/util";
-import { stat } from "fs";
 
 export type RaidMoveResult= {
     state: RaidState;

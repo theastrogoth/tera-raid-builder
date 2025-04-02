@@ -148,7 +148,7 @@ for (let ability of genAbilities) {
     allOptions.push({name: ability, type: "Ability"});
 }
 for (let move of genMoves) {
-    if (["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(move)) { continue; }
+    if (["Attack Cheer", "Defense Cheer", "Heal Cheer", "hurt itself in its confusion"].includes(move)) { continue; }
     allOptions.push({name: move, type: "Moves"});
 }
 

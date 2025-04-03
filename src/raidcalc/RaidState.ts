@@ -1546,6 +1546,7 @@ export class RaidState implements State.RaidState{
         pokemon.abilityNullified = undefined;
         pokemon.moveRepeated = undefined;
         pokemon.isChoiceLocked = false;
+        pokemon.lastMove = undefined;
         pokemon.isSaltCure = false;
         pokemon.usedBoosterEnergy = false;
         pokemon.boostedStat = undefined;

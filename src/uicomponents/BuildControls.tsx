@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Paper from '@mui/material/Paper';
+import Grid from '@mui/material/Grid';
 import TableContainer from "@mui/material/TableContainer";
 import Table from "@mui/material/Table";
 import TableBody from '@mui/material/TableBody';
@@ -9,6 +10,7 @@ import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TextField from '@mui/material/TextField';
 import Typography from "@mui/material/Typography";
+import Divider from "@mui/material/Divider";
 import Autocomplete from '@mui/material/Autocomplete';
 import Button from '@mui/material/Button';
 import IconButton from "@mui/material/IconButton";
@@ -50,7 +52,6 @@ import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 import BOSS_SETDEX_ID from "../data/sets/id_raid_bosses.json";
 
 import PokemonLookup from "./PokemonLookup";
-import { Divider } from "@mui/material";
 
 
 // we will always use Gen 9
@@ -374,35 +375,66 @@ function ModalRow({name, value, getString = (val: any) => val, show = true, icon
 
 function StatsDisplayTable({stats, translationKey}: {stats: StatsTable, translationKey: any}) {
     return (
-        <TableContainer>
-            <Table size="small" style={{ width: "fit-content" }}>
-                <TableBody>
-                    <TableRow>
-                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("HP", translationKey, "stats") + ":"}</Typography></LeftCell>
-                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.hp || ""}</Typography></RightCell>
-                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("SpA", translationKey,"stats") + ":"}</Typography></LeftCell>
-                        <RightCell><Typography fontSize={10}>{stats.spa || ""}</Typography></RightCell>
-                    </TableRow>
-                    <TableRow>
-                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Atk", translationKey, "stats") + ":"}</Typography></LeftCell>
-                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.atk || ""}</Typography></RightCell>
-                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("SpD", translationKey,"stats") + ":"}</Typography></LeftCell>
-                        <RightCell><Typography fontSize={10}>{stats.spd || ""}</Typography></RightCell>
-                    </TableRow> 
-                    <TableRow>
-                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Def", translationKey, "stats") + ":"}</Typography></LeftCell>
-                        <RightCell sx={{ paddingRight: "10px" }}><Typography fontSize={10}>{stats.def || ""}</Typography></RightCell>
-                        <LeftCell><Typography fontSize={10} fontWeight={600}>{getTranslation("Spe", translationKey,"stats") + ":"}</Typography></LeftCell>
-                        <RightCell><Typography fontSize={10}>{stats.spe || ""}</Typography></RightCell>
-                    </TableRow>
-                    <p style={{margin: "5px"}}></p>
-                    <TableRow>
-                        <LeftCell>{getTranslation("BST", translationKey, "stats") + ":"}</LeftCell>
-                        <RightCell>{Object.entries(stats).reduce((acc, [id,val]) => acc + val, 0) || ""}</RightCell>
-                    </TableRow>
-                </TableBody>
-            </Table>
-        </TableContainer>
+        <Box width="100%">
+            <Grid container wrap="wrap" spacing={.5}>
+                <Grid item xs={4}>
+                    <Paper elevation={1} variant="outlined">
+                        <Stack direction="row" justifyContent="center" spacing={.5}>
+                            <Typography fontSize={10} fontWeight={600}>{getTranslation("HP", translationKey, "stats") + ":"}</Typography>
+                            <Typography fontSize={10}>{stats.hp || ""}</Typography>
+                        </Stack>
+                    </Paper>
+                </Grid>
+                <Grid item xs={4}>
+                    <Paper elevation={1} variant="outlined">
+                        <Stack direction="row" justifyContent="center" spacing={.5}>
+                            <Typography fontSize={10} fontWeight={600}>{getTranslation("Atk", translationKey, "stats") + ":"}</Typography>
+                            <Typography fontSize={10}>{stats.atk || ""}</Typography>
+                        </Stack>
+                    </Paper>
+                </Grid>
+                <Grid item xs={4}>
+                    <Paper elevation={1} variant="outlined">
+                        <Stack direction="row" justifyContent="center" spacing={.5}>
+                            <Typography fontSize={10} fontWeight={600}>{getTranslation("Def", translationKey, "stats") + ":"}</Typography>
+                            <Typography fontSize={10}>{stats.def || ""}</Typography>
+                        </Stack>
+                    </Paper>
+                </Grid>
+                <Grid item xs={4}>
+                    <Paper elevation={1} variant="outlined">
+                        <Stack direction="row" justifyContent="center" spacing={.5}>
+                            <Typography fontSize={10} fontWeight={600}>{getTranslation("SpA", translationKey, "stats") + ":"}</Typography>
+                            <Typography fontSize={10}>{stats.spa || ""}</Typography>
+                        </Stack>
+                    </Paper>
+                </Grid>
+                <Grid item xs={4}>
+                    <Paper elevation={1} variant="outlined">
+                        <Stack direction="row" justifyContent="center" spacing={.5}>
+                            <Typography fontSize={10} fontWeight={600}>{getTranslation("SpD", translationKey, "stats") + ":"}</Typography>
+                            <Typography fontSize={10}>{stats.spd || ""}</Typography>
+                        </Stack>
+                    </Paper>
+                </Grid>
+                <Grid item xs={4}>
+                    <Paper elevation={1} variant="outlined">
+                        <Stack direction="row" justifyContent="center" spacing={.5}>
+                            <Typography fontSize={10} fontWeight={600}>{getTranslation("Spe", translationKey, "stats") + ":"}</Typography>
+                            <Typography fontSize={10}>{stats.spe || ""}</Typography>
+                        </Stack>
+                    </Paper>
+                </Grid>
+                <Grid item xs={12}>
+                    <Paper elevation={1} variant="outlined">
+                        <Stack direction="row" justifyContent="center" spacing={.5}>
+                            <Typography fontSize={10} fontWeight={600}>{getTranslation("BST", translationKey, "stats") + ":"}</Typography>
+                            <Typography fontSize={10}>{Object.entries(stats).reduce((acc, [id,val]) => acc + val, 0) || ""}</Typography>
+                        </Stack>
+                    </Paper>
+                </Grid>
+            </Grid>
+        </Box>
     )
 }
 
@@ -439,32 +471,33 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
             anchorEl={anchorEl}
             placement="right-start"
             disablePortal={false}
-            sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
+            sx={{ position: "relative", width: "230px", translate: "-20px 0px", zIndex: 1000000 }}
         >
         { pokemon && pokemon.name && 
-            <Paper sx={{ p: 1.5, backgroundColor: "modal.main" }} >
-                <Stack sx={{ width: "100%" }}>
-                    <Box sx={{paddingBottom: "10px"}}>
-                        <Stack direction="row" alignItems="center" spacing={1}>
-                            <Icon variant="rounded">
-                                <Box
-                                    sx={{
-                                        width: "32px",
-                                        height: "32px",
-                                        overflow: 'hidden',
-                                        background: `url(${getPokemonSpriteURL(pokemon.name)}) no-repeat center center / contain`,
-                                    }}
-                                />
-                            </Icon>
-                            <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
-                                <Stack direction="row" alignItems="center">
-                                    <Typography fontSize={18} mb={-.5}>{pokemon.name}</Typography>
-                                    <Box flexGrow={1} sx={{ minWidth: "10px" }}/>
+            <Paper sx={{ p: 2, backgroundColor: "modal.main" }} >
+                <Stack direction="column" spacing={.5}>
+                    <Stack direction="row" spacing={1} alignItems="center">
+                        <Icon variant="rounded">
+                            <Box sx={{
+                                width: "32px",
+                                height: "32px",
+                                overflow: 'hidden',
+                                background: `url(${getPokemonSpriteURL(pokemon.name)}) no-repeat center center / contain`,
+                            }}/>
+                        </Icon>
+                        <Stack direction="column">
+                            <Typography fontSize={18} mb={-.5}>{pokemon.name}</Typography>
+                            <Typography fontSize={10}>{category}</Typography>
+                        </Stack>
+                        <Box flexGrow={1}/>
+                        <Box height="40px">
+                            <Paper elevation={1} variant="outlined" sx={{ height: "100%"}}>
+                                <Stack direction="column" padding={"4px"}>
                                     { pokemon.types && pokemon.types.map((type) => (
                                         <Box
                                             sx={{
-                                                width: "20px",
-                                                height: "20px",
+                                                width: "15px",
+                                                height: "15px",
                                                 overflow: 'hidden',
                                                 background: `url(${getTypeIconURL(type)}) no-repeat center center / contain`,
                                             }}
@@ -472,35 +505,31 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
                                         ))
                                     }
                                 </Stack>
-                                <Typography fontSize={11}>{category}</Typography>
-                                { pokemon.weightkg &&  <>
-                                    <Typography fontSize={10}>{getTranslation("Weight", translationKey, "ui") + " : " + pokemon.weightkg + (" kg")}</Typography>
-                                </>}
-                            </Stack>
-                        </Stack>
-                    </Box> 
-                    <Stack spacing={0.5}>
+                            </Paper>
+                        </Box>
+                    </Stack>
+                    <Stack spacing={.5}>
                         <Divider textAlign="left">{getTranslation("Ability", translationKey)}</Divider>
-                        <Stack spacing={-0.5} sx={{ paddingLeft: "10px", width: "100%" }}>
+                        <Stack spacing={.5} sx={{width: "100%" }}>
                             { pokemon.abilities.map((ability, index) => (
-                                <Stack direction="row" spacing={0} alignItems="center">
-                                    <Box
-                                        sx={{
-                                            width: "15px",
-                                            height: "15px",
-                                            overflow: 'hidden',
-                                            background: `url(${getItemSpriteURL(ability.hidden ? "Ability Patch" : "Ability Capsule")}) no-repeat center center / contain`,
-                                        }}
-                                    />
-                                    <Typography fontSize={10} m={.5}>{getTranslation(ability.name, translationKey, "abilities")}</Typography>
-                                </Stack>
+                                <Paper elevation={0} variant="outlined">
+                                    <Stack direction="row" alignItems="center" marginLeft={"5px"}>
+                                        <Box
+                                            sx={{
+                                                width: "15px",
+                                                height: "15px",
+                                                overflow: 'hidden',
+                                                background: `url(${getItemSpriteURL(ability.hidden ? "Ability Patch" : "Ability Capsule")}) no-repeat center center / contain`,
+                                            }}
+                                        />
+                                        <Typography fontSize={10} m={.5}>{getTranslation(ability.name, translationKey, "abilities")}</Typography>
+                                    </Stack>
+                                </Paper>     
                             ))}
                         </Stack>
+                        <Divider textAlign="left">{getTranslation("Stats", translationKey, "ui")}</Divider>
+                        <StatsDisplayTable stats={pokemon.stats} translationKey={translationKey} />             
                     </Stack>
-                    <Divider textAlign="left">{getTranslation("Stats", translationKey, "ui")}</Divider>
-                    <Box sx={{ paddingLeft: "5px" }}>
-                        <StatsDisplayTable stats={pokemon.stats} translationKey={translationKey} />          
-                    </Box>    
                 </Stack>
             </Paper>
         }
@@ -538,6 +567,8 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
         moveItem.method === "machine" ? [getMoveMethodIconURL(moveItem.type)] : 
         moveItem.method === "egg" ? [getMoveMethodIconURL("egg")] : null;
 
+    const categoryURL = [getTypeIconURL(moveData?.moveCategory || "")];
+
     const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
     const flavorText = moveData ? ( moveData.flavorText ? moveData.flavorText[lang] : null ) : null;
 
@@ -551,9 +582,9 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
             sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
         {(moveData && move && moveData.name !== "(No Move)") &&
-            <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px" }} >
-                <Stack spacing={1}>
-                    <Stack direction="row" alignItems="center" spacing={1}>
+            <Paper sx={{ p: 2, backgroundColor: "modal.main", maxWidth: "250px" }} >
+                <Stack direction="column" spacing={1}>
+                    <Stack direction="row" spacing={1} alignItems="center">
                         { moveData.type &&
                             <Icon variant="rounded">
                                 <Box
@@ -566,116 +597,111 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                                 />
                             </Icon>
                         }
-                        <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
-                            <Stack direction="row" alignItems="end">
-                                <Typography fontSize={18} mb={-.5}>{moveItem.name}</Typography>
-                                <Box flexGrow={1} />
-                                { moveData.moveCategory &&
-                                    <Box
-                                        sx={{
-                                            width: "30px",
-                                            height: "30px",
-                                            overflow: 'hidden',
-                                            background: `url(${getTypeIconURL(moveData.moveCategory)}) no-repeat center center / contain`,
-                                        }}
-                                    />
-                                }
-                            </Stack>
-                            <Divider/>
+                        <Stack direction="column">
+                            <Typography fontSize={18} mb={-.5}>{moveItem.name}</Typography>
+                            <Typography fontSize={10}>{getTranslation(moveData.type || "", translationKey) + " " + getTranslation(moveData.moveCategory || "", translationKey) + " " + getTranslation("Move", translationKey)}</Typography>
                         </Stack>
                     </Stack>
-                    <TableContainer sx={{ paddingLeft: "10px" }}>
-                        <Table size="small" style={{ width: "fit-content" }}>
-                            <TableBody>
-                                {/* <ModalRow 
-                                    name={getTranslation("Type", translationKey)}
-                                    value={getTranslation(move.type, translationKey, "types")}
-                                    show={move.type !== undefined}
-                                />
-                                <ModalRow 
-                                    name={getTranslation("Category", translationKey)}
-                                    value={getTranslation(move.category, translationKey, "ui")}
-                                    show={move.category !== undefined}
-                                /> */}
-                                <ModalRow 
-                                    name={getTranslation("Power", translationKey)}
-                                    value={move.bp}
-                                    show={move.bp !== undefined && move.bp > 0}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Healing", translationKey)}
-                                    value={moveData.healing}
-                                    getString={(v: number): string => v.toString() + "%"}
-                                    show={moveData.healing !== null && moveData.healing! !== 0}
-                                />
-                                <ModalRow
-                                    name={(moveData.drain! > 0) ? getTranslation("Drain", translationKey) : getTranslation("Recoil", translationKey)}
-                                    value={moveData.drain}
-                                    getString={(v: number): string => Math.abs(v).toString() + "%"}
-                                    show={moveData.drain !== null && moveData.drain! !== 0}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Accuracy", translationKey)}
-                                    value={moveData.accuracy}
-                                    getString={(v: number): string => v.toString() + "%"}
-                                    show={moveData.accuracy !== null}
-                                />
-                                <ModalRow
-                                    name={getTranslation("# Hits", translationKey)}
-                                    value={[moveData.minHits, moveData.maxHits]}
-                                    getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
-                                    show={moveData.maxHits !== null && moveData.maxHits! > 1}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Priority", translationKey)}
-                                    value={moveData.priority}
-                                    getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
-                                    show={moveData.priority !== null && moveData.priority! !== 0}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Status", translationKey)}
-                                    value={getTranslation(getAilmentReadableName(moveData.ailment) || "", translationKey, "status")}
-                                    show={moveData.ailment !== null}
-                                />
-                                <ModalRow
-                                    name=""
-                                    value={moveData.ailmentChance}
-                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey) }
-                                    show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
-                                />
-                                <ModalRow
-                                    name={getTranslation("Stat Changes", translationKey)}
-                                    value={moveData.statChanges}
-                                    getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v, translationKey)}
-                                    show={moveData.statChanges !== null}
-                                />
-                                <ModalRow
-                                    name=""
-                                    value={moveData.statChance}
-                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey)}
-                                    show={moveData.statChance !== null && moveData.statChance! > 0}
-                                />
-                                {/* <ModalRow
-                                    name=""
-                                    value={moveData.flinchChance}
-                                    getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
-                                    show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
-                                /> */}
-                                { moveItem.method && 
-                                    <ModalRow
-                                        name={getTranslation("Learn Method", translationKey)}
-                                        value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
-                                        show={moveItem.method !== undefined}
-                                        iconURLs={spriteURL}
-                                    />
-                                }
-                            </TableBody>
-                        </Table>
-                    </TableContainer>
-                    { flavorText &&  <>
-                        <Divider/>
-                        <Typography fontSize={10}>{flavorText}</Typography>
-                    </>}
+                    <Stack spacing={.5}>
+                        <Divider textAlign="left">{getTranslation("Details", translationKey)}</Divider>
+                        <Paper elevation={1} variant="outlined">
+                            <TableContainer sx={{ padding: 1 }}>
+                                <Table size="small" style={{ width: "fit-content" }}>
+                                    <TableBody>
+                                        {/* <ModalRow 
+                                            name={getTranslation("Type", translationKey)}
+                                            value={getTranslation(move.type, translationKey, "types")}
+                                            show={move.type !== undefined}
+                                        /> */}
+                                        <ModalRow 
+                                            name={getTranslation("Category", translationKey)}
+                                            value={getTranslation(move.category, translationKey, "ui")}
+                                            show={move.category !== undefined}
+                                            iconURLs={categoryURL}
+                                        />
+                                        <ModalRow 
+                                            name={getTranslation("Power", translationKey)}
+                                            value={move.bp}
+                                            show={move.bp !== undefined && move.bp > 0}
+                                        />
+                                        <ModalRow
+                                            name={getTranslation("Healing", translationKey)}
+                                            value={moveData.healing}
+                                            getString={(v: number): string => v.toString() + "%"}
+                                            show={moveData.healing !== null && moveData.healing! !== 0}
+                                        />
+                                        <ModalRow
+                                            name={(moveData.drain! > 0) ? getTranslation("Drain", translationKey) : getTranslation("Recoil", translationKey)}
+                                            value={moveData.drain}
+                                            getString={(v: number): string => Math.abs(v).toString() + "%"}
+                                            show={moveData.drain !== null && moveData.drain! !== 0}
+                                        />
+                                        <ModalRow
+                                            name={getTranslation("Accuracy", translationKey)}
+                                            value={moveData.accuracy}
+                                            getString={(v: number): string => v.toString() + "%"}
+                                            show={moveData.accuracy !== null}
+                                        />
+                                        <ModalRow
+                                            name={getTranslation("# Hits", translationKey)}
+                                            value={[moveData.minHits, moveData.maxHits]}
+                                            getString={(v: number[]): string => v[0].toString() + "-" + v[1].toString()}
+                                            show={moveData.maxHits !== null && moveData.maxHits! > 1}
+                                        />
+                                        <ModalRow
+                                            name={getTranslation("Priority", translationKey)}
+                                            value={moveData.priority}
+                                            getString={(v: number): string => (v > 0 ? "+" : "") + v.toString()}
+                                            show={moveData.priority !== null && moveData.priority! !== 0}
+                                        />
+                                        <ModalRow
+                                            name={getTranslation("Status", translationKey)}
+                                            value={getTranslation(getAilmentReadableName(moveData.ailment) || "", translationKey, "status")}
+                                            show={moveData.ailment !== null}
+                                        />
+                                        <ModalRow
+                                            name=""
+                                            value={moveData.ailmentChance}
+                                            getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey) }
+                                            show={moveData.ailmentChance !== null && moveData.ailmentChance! > 0}
+                                        />
+                                        <ModalRow
+                                            name={getTranslation("Stat Changes", translationKey)}
+                                            value={moveData.statChanges}
+                                            getString={(v: {stat: StatID, change: number}[]): string => statChangesToString(v, translationKey)}
+                                            show={moveData.statChanges !== null}
+                                        />
+                                        <ModalRow
+                                            name=""
+                                            value={moveData.statChance}
+                                            getString={(v: number): string => v.toString() + "% " + getTranslation("Chance", translationKey)}
+                                            show={moveData.statChance !== null && moveData.statChance! > 0}
+                                        />
+                                        {/* <ModalRow
+                                            name=""
+                                            value={moveData.flinchChance}
+                                            getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
+                                            show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
+                                        /> */}
+                                        { moveItem.method && 
+                                            <ModalRow
+                                                name={getTranslation("Learn Method", translationKey)}
+                                                value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
+                                                show={moveItem.method !== undefined}
+                                                iconURLs={spriteURL}
+                                            />
+                                        }
+                                    </TableBody>
+                                </Table>
+                            </TableContainer>
+                        </Paper>
+                        <Divider textAlign="left">{getTranslation("Description", translationKey)}</Divider>
+                        <Paper elevation={1} variant="outlined">
+                            <Box padding={1}>
+                                <Typography fontSize={10}>{flavorText}</Typography>
+                            </Box>
+                        </Paper>
+                    </Stack>
                 </Stack>
             </Paper>
         }
@@ -710,9 +736,9 @@ export function ItemPopper({name, showPopper, anchorEl, translationKey}: {name: 
             sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
             {(name && itemData && name !== "(No Item)") &&
-                <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px"}} >
-                    <Stack spacing={1}>
-                        <Stack direction="row" alignItems="center" spacing={1}>
+                <Paper sx={{ p: 2, backgroundColor: "modal.main", maxWidth: "250px"}} >
+                    <Stack direction="column" spacing={1}>
+                        <Stack direction="row" spacing={1} alignItems="center">
                             <Icon variant="rounded">
                                 <Box
                                     sx={{
@@ -725,10 +751,14 @@ export function ItemPopper({name, showPopper, anchorEl, translationKey}: {name: 
                             </Icon>
                             <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
                                 <Typography fontSize={18} mb={-.5}>{getTranslation(name, translationKey, "items")}</Typography>
-                                <Divider/>
+                                <Typography fontSize={10}>{getTranslation("Held Item", translationKey)}</Typography>
                             </Stack>
                         </Stack>
-                        <Typography fontSize={10}>{flavorText}</Typography>
+                        <Paper elevation={1} variant="outlined">
+                            <Box padding={1}>
+                                <Typography fontSize={10}>{flavorText}</Typography>
+                            </Box>
+                        </Paper>
                     </Stack>
             </Paper>
             }
@@ -763,9 +793,9 @@ export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {
             sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
         >
             {(ability && abilityData && (ability.engName !== "(No Ability)")) &&
-                <Paper sx={{ p: 1.5, backgroundColor: "modal.main", maxWidth: "250px"}} >
-                    <Stack justifyContent="left" spacing={1}>
-                        <Stack direction="row" alignItems="center" spacing={1}>
+                <Paper sx={{ p: 2, backgroundColor: "modal.main", maxWidth: "250px"}} >
+                    <Stack direction="column" spacing={1}>
+                        <Stack direction="row" spacing={1} alignItems="center">
                             <Icon variant="rounded">
                                 <Box
                                     sx={{
@@ -778,10 +808,14 @@ export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {
                             </Icon>
                             <Stack direction="column" spacing={0} sx={{ width: "100%" }}>
                                 <Typography fontSize={18} mb={-.5}>{ability.name}</Typography>
-                                <Divider/>
+                                <Typography fontSize={10}>{getTranslation("Ability", translationKey)}</Typography>
                             </Stack>
-                        </Stack>                        
-                        <Typography fontSize={10}>{flavorText}</Typography>
+                        </Stack>
+                        <Paper elevation={1} variant="outlined">
+                            <Box padding={1}>
+                                <Typography fontSize={10}>{flavorText}</Typography>
+                            </Box>
+                        </Paper>                        
                     </Stack>
                 </Paper>
             }

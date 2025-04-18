@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Tyranitar",
-            "name": "Tyranitar",
+            "role": "Salamence",
+            "name": "Salamence",
             "shiny": false,
-            "ability": "Sand Stream",
-            "nature": "Adamant",
+            "ability": "Moxie",
+            "nature": "Quiet",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,21 +28,22 @@
             },
             "level": 100,
             "gender": "M",
-            "teraType": "Ghost",
+            "teraType": "Flying",
             "moves": [
-                "Stone Edge",
-                "Crunch",
+                "Tera Blast",
+                "Dragon Pulse",
                 "Earthquake",
-                "Shadow Claw"
+                "Flamethrower"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Focus Energy",
+                "Heat Wave",
+                "Breaking Swipe",
                 "Dragon Dance"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 80,
+                "hpTrigger": 85,
+                "timeTrigger": 85,
                 "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -51,128 +52,115 @@
         },
         {
             "id": 1,
-            "role": "Krookodile",
-            "name": "Krookodile",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Choice Band",
-            "nature": "Adamant",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
-                "atk": 252,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Power Trip"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Helping Hand",
-                "Mud-Slap",
-                "Foul Play"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
-            "gender": "F",
-            "moves": [
-                "Decorate",
-                "Helping Hand"
-            ]
+            "level": 1,
+            "gender": "N",
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
-            "gender": "F",
-            "moves": [
-                "Decorate",
-                "Helping Hand"
-            ]
+            "level": 1,
+            "gender": "N",
+            "moves": []
         }
     ],
     "turns": [
@@ -182,7 +170,7 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -192,7 +180,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Focus Energy",
+                "name": "Heat Wave",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -205,10 +193,10 @@
             }
         },
         {
-            "id": 6,
-            "group": 4,
+            "id": 1,
+            "group": 1,
             "moveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(No Move)",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -238,7 +226,7 @@
             0
         ],
         [
-            6
+            1
         ]
     ],
     "repeats": [

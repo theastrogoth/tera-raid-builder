@@ -1,4 +1,8 @@
 {
+    "Salamence": {
+        "Lunar Lights": "salamence/main",
+        "Lunar Lights (3-person version)": "salamence/lunar_lights_3"
+    },
     "Tyranitar": {
         "Desserted": "tyranitar/main",
         "Desserted (3-person version)": "tyranitar/desserted_3",
@@ -9,6 +13,7 @@
         "Not Playing Fair": "tyranitar/foul_play",
         "Team Eeveelutions Powers Up to Take Down Tyranitar!": "tyranitar/eeveelutions",
         "Godzilla vs Zillasaurus": "tyranitar/godzilla",
+        "Zen (and PSY!) Exor-Psy-se the Ghost Tyrant!": "tyranitar/zen_and_psy",
         "The Devil and the Deep Blue Sea": "tyranitar/deep_blue_sea",
         "Fortifying Fairy Family": "tyranitar/fairy_family",
         "Attack from Another Dimension": "tyranitar/another_dimension",

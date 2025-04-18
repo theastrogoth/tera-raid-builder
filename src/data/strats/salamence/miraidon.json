@@ -1,7 +1,7 @@
 {
-    "name": "Lunar Lights (3-Person Version)",
-    "notes": "Supports should NOT move more than once!\n\nThe NPC fainting is not an issue but the Arboliva NPC can be an issue since it overwrites terrain.\nThe NPC cannot faint from just Heat Wave so the simulated NPC is given Flash Fire to represent this.",
-    "credits": "The r/PokePortal Team",
+    "name": "Miraidon T1",
+    "notes": "",
+    "credits": "",
     "pokemon": [
         {
             "id": 0,
@@ -56,8 +56,8 @@
             "name": "Miraidon",
             "shiny": false,
             "ability": "Hadron Engine",
-            "item": "Weakness Policy",
-            "nature": "Calm",
+            "item": "Choice Specs",
+            "nature": "Modest",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -77,23 +77,20 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Charge",
-                "Electro Drift",
-                "Parabolic Charge",
-                "Electric Terrain"
+                "Electro Drift"
             ]
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -107,16 +104,41 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Reflect",
-                "Light Screen"
+                "Decorate"
             ]
         },
         {
             "id": 3,
+            "role": "Stonjourner",
+            "name": "Stonjourner",
+            "shiny": false,
+            "ability": "Power Spot",
+            "item": "Assault Vest",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 252,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": []
+        },
+        {
+            "id": 4,
             "role": "Umbreon",
             "name": "Umbreon",
             "shiny": false,
@@ -141,39 +163,8 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Reflect",
-                "Light Screen"
+                "Fake Tears"
             ]
-        },
-        {
-            "id": 4,
-            "role": "NPC",
-            "name": "NPC",
-            "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Flash Fire",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "level": 1,
-            "gender": "N",
-            "moves": []
         }
     ],
     "turns": [
@@ -206,45 +197,17 @@
             }
         },
         {
-            "id": 6,
-            "group": 4,
-            "moveInfo": {
-                "name": "Charge",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 1,
-            "group": 4,
+            "group": 1,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Decorate",
                 "userID": 2,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
                     "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -255,18 +218,46 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
                     "allowMiss": false,
+                    "roll": "max",
                     "hits": 10
                 }
             }
         },
         {
             "id": 2,
-            "group": 4,
+            "group": 1,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
             "moveInfo": {
                 "name": "Fake Tears",
-                "userID": 3,
+                "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -291,7 +282,7 @@
         },
         {
             "id": 4,
-            "group": 1,
+            "group": 2,
             "moveInfo": {
                 "name": "Electro Drift",
                 "userID": 1,
@@ -323,9 +314,9 @@
             0
         ],
         [
-            6,
             1,
-            2
+            2,
+            3
         ],
         [
             4
@@ -338,6 +329,45 @@
     ],
     "substitutes": [
         [],
+        [],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Charjabug",
+                    "name": "Charjabug",
+                    "shiny": false,
+                    "ability": "Battery",
+                    "item": "Eviolite",
+                    "nature": "Careful",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 252,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    3
+                ]
+            }
+        ],
         [
             {
                 "raider": {
@@ -1100,770 +1130,6 @@
                     0
                 ]
             }
-        ],
-        [
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Flareon",
-                    "name": "Flareon",
-                    "shiny": false,
-                    "isAnyLevel": true,
-                    "ability": "Flash Fire",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Armarouge",
-                    "name": "Armarouge",
-                    "shiny": false,
-                    "isAnyLevel": true,
-                    "ability": "Flash Fire",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Alcremie",
-                    "name": "Alcremie",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "F",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Clefairy",
-                    "name": "Clefairy",
-                    "shiny": false,
-                    "ability": "Friend Guard",
-                    "item": "Eviolite",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Corviknight",
-                    "name": "Corviknight",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Careful",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Eelektross",
-                    "name": "Eelektross",
-                    "shiny": false,
-                    "ability": "Levitate",
-                    "item": "Assault Vest",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Scream Tail",
-                    "name": "Scream Tail",
-                    "shiny": false,
-                    "ability": "Protosynthesis",
-                    "item": "Sitrus Berry",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Ursaluna",
-                    "name": "Ursaluna",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Azumarill",
-                    "name": "Azumarill",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Vaporeon",
-                    "name": "Vaporeon",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Bellibolt",
-                    "name": "Bellibolt",
-                    "shiny": false,
-                    "ability": "Electromorphosis",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Clodsire",
-                    "name": "Clodsire",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Goodra",
-                    "name": "Goodra-Hisui",
-                    "shiny": false,
-                    "ability": "Shell Armor",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Muk",
-                    "name": "Muk",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Muk",
-                    "name": "Muk-Alola",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Pecharunt",
-                    "name": "Pecharunt",
-                    "shiny": false,
-                    "ability": "Poison Puppeteer",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "(No Move)",
-                        "(No Move)",
-                        "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Quagsire",
-                    "name": "Quagsire",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Qwilfish",
-                    "name": "Qwilfish-Hisui",
-                    "shiny": false,
-                    "ability": "Intimidate",
-                    "item": "Eviolite",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Scrafty",
-                    "name": "Scrafty",
-                    "shiny": false,
-                    "ability": "Intimidate",
-                    "item": "Assault Vest",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Toxapex",
-                    "name": "Toxapex",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            }
-        ],
-        []
+        ]
     ]
 }

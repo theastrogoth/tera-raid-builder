@@ -1,7 +1,8 @@
 {
     "Salamence": {
         "Lunar Lights": "salamence/main",
-        "Lunar Lights (3-person version)": "salamence/lunar_lights_3"
+        "Lunar Lights (3-person version)": "salamence/lunar_lights_3",
+        "Miraidon T1": "salamence/miraidon"
     },
     "Tyranitar": {
         "Desserted": "tyranitar/main",

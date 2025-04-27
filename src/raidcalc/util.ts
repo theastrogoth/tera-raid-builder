@@ -106,7 +106,7 @@ export function safeStatStage(value: number) {
 }
 
 export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, string[]] {
-    // returns [accuracy (0-100)]
+    // returns [accuracy (0-100), [...effects]]
 
     if (attacker.hasAbility("No Guard") || defender.hasAbility("No Guard")) {
         return [100,[]];
@@ -119,7 +119,9 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
     }
     // semi-invulnerable moves
     if (defender.isCharging && defender.lastMove) {
-        if (["Bounce","Fly","Sky Drop"].includes(defender.lastMove.name)) {
+        if (["Phantom Force", "Shadow Force"].includes(defender.lastMove.name)) {
+            return [0,[]];
+        } else if (["Bounce","Fly","Sky Drop"].includes(defender.lastMove.name)) {
             if (["Gust", "Twister"].includes(movename)) {
                 return [100,[]];
             } else if (["Hurricane", "Sky Uppercut", "Smack Down", "Thunder", "Thousand Arrows"].includes(movename)) {

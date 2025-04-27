@@ -416,6 +416,9 @@ export class RaidMove {
     }
 
     private checkIfCharging() {
+        if (this.move.name === "Phantom Force") {
+            console.log(this._user.isCharging)
+        }
         if ( // don't move yet for charge moves
             !this._user.isCharging &&
             chargeMoves.includes(this.move.name) &&

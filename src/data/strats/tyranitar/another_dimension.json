@@ -423,6 +423,34 @@
                     "hits": 10
                 }
             }
+        },
+        {
+            "id": 1,
+            "group": 2,
+            "moveInfo": {
+                "name": "Phantom Force",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
         }
     ],
     "groups": [
@@ -446,9 +474,13 @@
         ],
         [
             2
+        ],
+        [
+            1
         ]
     ],
     "repeats": [
+        1,
         1,
         1,
         1,

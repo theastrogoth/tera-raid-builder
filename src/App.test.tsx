@@ -22,7 +22,6 @@ const IGNORED_STRATS = [ // strats that fail, mostly for known reasons
   'meganium/chandelier',
   'meganium/smashing_success',
   'pikachu/flower_power', // test takes a long time due to move optimization -- check manually if desired
-  'tyranitar/another_dimension', // TODO: fix semi-invulnerable (and charge/recharge?) moves
 ]
 
 const MAIN_STRATS = [ // manually include ones that aren't named "main"

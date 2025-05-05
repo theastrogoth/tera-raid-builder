@@ -1574,7 +1574,7 @@ export class RaidState implements State.RaidState{
         this.removeAbilityFieldEffect(id, ability);
     }
 
-    public switchIn(id: number): string[][] {
+    public switchIn(id: number, turnZero: boolean = false): string[][] {
         const pokemon = this.getPokemon(id);
         let ability = pokemon.ability;
         // reset HP and damage rolls
@@ -1589,7 +1589,7 @@ export class RaidState implements State.RaidState{
         }
         // add abilites that Take Effect upon switch-in
         const flags = this.addAbilityFieldEffect(id, ability);
-        if (nullifiedByGas) {
+        if (nullifiedByGas && !turnZero) {
             flags[id].push("Ability suppressed by Neutralizing Gas");
         }
 

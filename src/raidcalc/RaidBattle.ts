@@ -143,11 +143,21 @@ export class RaidBattle {
         const speeds = this._state.raiders.map(raider => raider.effectiveSpeed);
         const speedOrder = speeds.map((speed, index) => [speed, index]).sort((a, b) => b[0] - a[0]).map(pair => pair[1]);
         this._turnZeroOrder = speedOrder;
-        // activate switch-in effects
-        for (let id of speedOrder) {
-            const flags = this._state.switchIn(id);
+        // check for Neutralizing Gas at the start of the raid (ugly fix, I think this is the only time there are "simultaneous" switch-ins)
+        const neutralizingGasIdxs = this._state.raiders.map((r,i) => r.hasAbility("Neutralizing Gas") ? i : -1).filter((x) => x !== -1)
+        for (let id of neutralizingGasIdxs) {
+            const flags = this._state.switchIn(id, true);
             for (let i=0; i<5; i++) {
                 this._turnZeroFlags[i] = this._turnZeroFlags[i].concat(flags[i]);
+            }
+        }
+        // activate switch-in effects
+        for (let id of speedOrder) {
+            if (!neutralizingGasIdxs.includes(id)) {
+                const flags = this._state.switchIn(id, true);
+                for (let i=0; i<5; i++) {
+                    this._turnZeroFlags[i] = this._turnZeroFlags[i].concat(flags[i]);
+                }
             }
         }
         // check for item/ability activation by executing dummy moves

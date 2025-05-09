@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Salamence",
-            "name": "Salamence",
+            "role": "Metagross",
+            "name": "Metagross",
             "shiny": false,
-            "ability": "Moxie",
-            "nature": "Quiet",
+            "ability": "Clear Body",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,70 +28,66 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Flying",
+            "teraType": "Steel",
             "moves": [
-                "Tera Blast",
-                "Dragon Pulse",
+                "Meteor Mash",
+                "Zen Headbutt",
                 "Earthquake",
-                "Flamethrower"
+                "Thunder Punch"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 2500,
             "extraMoves": [
-                "Heat Wave",
-                "Breaking Swipe",
-                "Dragon Dance"
+                "Hone Claws",
+                "Iron Defense",
+                "Light Screen"
             ],
             "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
+                "hpTrigger": 100,
+                "timeTrigger": 100,
+                "shieldCancelDamage": 25,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Weakness Policy",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Charge",
-                "Electro Drift",
-                "Parabolic Charge",
-                "Electric Terrain"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -99,31 +95,27 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Reflect",
-                "Light Screen"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -131,31 +123,27 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Reflect",
-                "Light Screen"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -163,21 +151,16 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Reflect",
-                "Light Screen"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -197,7 +180,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Heat Wave",
+                "name": "Hone Claws",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

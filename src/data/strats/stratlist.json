@@ -1,4 +1,9 @@
 {
+    "Metagross": {
+        "When Pigs Fry": "metagross/main",
+        "A Song in 2 Parts": "metagross/song_in_2_parts",
+        "Charizard T2": "metagross/charizard"
+    },
     "Salamence": {
         "Lunar Lights": "salamence/main",
         "Lunar Lights (3-person version)": "salamence/lunar_lights_3",

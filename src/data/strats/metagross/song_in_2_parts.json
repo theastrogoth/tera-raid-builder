@@ -1,5 +1,5 @@
 {
-    "name": "Song in 2 Parts",
+    "name": "A Song in 2 Parts",
     "notes": "",
     "credits": "The r/PokePortal Team",
     "pokemon": [
@@ -55,7 +55,7 @@
             "role": "Skeledirge",
             "name": "Skeledirge",
             "shiny": false,
-            "ability": "Unaware",
+            "ability": "Blaze",
             "item": "Weakness Policy",
             "nature": "Timid",
             "evs": {
@@ -88,7 +88,7 @@
             "name": "Oranguru",
             "shiny": false,
             "ability": "Symbiosis",
-            "item": "Choice Specs",
+            "item": "Life Orb",
             "nature": "Bold",
             "evs": {
                 "hp": 0,

@@ -111,10 +111,10 @@ type FieldEffects = {
     rain: number,
     snow: number,
     sand: number,
-    grassy: number,
-    psychic: number,
-    misty: number,
-    electric: number,
+    grassyTerrain: number,
+    psychicTerrain: number,
+    mistyTerrain: number,
+    electricTerrain: number,
     gravity: number,
     trickRoom: number,
     wonderRoom: number, 
@@ -295,15 +295,15 @@ function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {
         <Box>
             <Stack direction="row" spacing={1} width="100%" alignItems="center">
                 <Box sx={{ width: 90 }}>
-                    <Stack direction="row">
+                    {/* <Stack direction="row">
                         <Box flexGrow={1}/>
                         <Typography fontWeight={600}>
                             { getTranslation("Field", translationKey) }
                         </Typography>
-                    </Stack>
+                    </Stack> */}
                 </Box>
                 <Box sx={{ width: 20 }}/>
-                <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap" justifyContent="center" width="355px">
+                <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap" justifyContent="center" width="358px">
                     { Object.entries(fieldEffects).map(([effect, value]) => { return (
                         <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
                     )})}
@@ -313,7 +313,7 @@ function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {
                     { Object.entries(bossEffects).map(([effect, value]) => { return (
                         <FieldTag modifier={effect} value={value} boss={true} translationKey={translationKey} />
                     )})}
-                    { noModifiers && <NoModifersTag />}
+                    { noModifiers && <ModifierGenericTag text={getTranslation("No Field Modifiers", translationKey)}/>}
                 </Stack>
             </Stack>
         </Box>
@@ -650,10 +650,10 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "rain": field.weather === "Rain" ? field.weatherTurnsRemaining || 0 : 0,
             "snow": field.weather === "Snow" ? field.weatherTurnsRemaining || 0 : 0,
             "sand": field.weather === "Sand" ? field.weatherTurnsRemaining || 0 : 0,
-            "grassy": field.terrain === "Grassy" ? field.terrainTurnsRemaining || 0 : 0,
-            "psychic": field.terrain === "Psychic" ? field.terrainTurnsRemaining || 0 : 0,
-            "misty": field.terrain === "Misty" ? field.terrainTurnsRemaining || 0 : 0,
-            "electric": field.terrain === "Electric" ? field.terrainTurnsRemaining || 0 : 0,
+            "grassyTerrain": field.terrain === "Grassy" ? field.terrainTurnsRemaining || 0 : 0,
+            "psychicTerrain": field.terrain === "Psychic" ? field.terrainTurnsRemaining || 0 : 0,
+            "mistyTerrain": field.terrain === "Misty" ? field.terrainTurnsRemaining || 0 : 0,
+            "electricTerrain": field.terrain === "Electric" ? field.terrainTurnsRemaining || 0 : 0,
             "gravity": field.isGravity,
             "trickRoom": field.isTrickRoom,
             "wonderRoom": field.isWonderRoom, 

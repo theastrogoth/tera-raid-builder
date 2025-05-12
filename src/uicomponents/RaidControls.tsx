@@ -38,11 +38,11 @@ import MoveDisplay from './MoveDisplay';
 
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { Pokemon, StatsTable } from '../calc';
+import { Field, Pokemon, StatsTable } from '../calc';
 import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
-import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
+import { MoveData, RaidState, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 import { MoveName } from '../calc/data/interface';
 import { getModifiedSpeed } from '../raidcalc/util';
 
@@ -95,6 +95,30 @@ type Modifiers = {
     hitsTaken?: number,
     timesFainted?: number,
     minimized?: boolean,
+}
+
+type FieldSideEffects = {
+    reflect: number,
+    lightScreen: number,
+    auroraVeil: number,
+    mist: number,
+    safeguard: number,
+    tailwind: number,
+}
+
+type FieldEffects = {
+    sun: number,
+    rain: number,
+    snow: number,
+    sand: number,
+    grassy: number,
+    psychic: number,
+    misty: number,
+    electric: number,
+    gravity: number,
+    trickRoom: number,
+    wonderRoom: number, 
+    magicRoom: number,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -203,7 +227,7 @@ function ModifierValueTag({modifier, value, translationKey}: {modifier: string, 
     )
 }
 
-function NoModifersTag({modifiers}: {modifiers: Modifiers}) {
+function NoModifersTag({}: {}) {
     return (
         <ModifierGenericTag text="No Modifiers" />
     );
@@ -241,6 +265,12 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
     }
 }
 
+function FieldTag({modifier, value, boss, translationKey}: {modifier: string, value: number, boss: boolean, translationKey: any}) {
+    return ( value > 0 &&
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${boss ? ' (' + getTranslation("boss", translationKey) + ')': ''}${': ' + value + ' ' + getTranslation("turn" + (value > 1 ? "s" : ""), translationKey)}`} />
+    )
+}
+
 
 
 function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, translationKey: any}) {
@@ -252,9 +282,42 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
             {Object.entries(modifiers).map(([modifier, value]) => (
                 <ModifierTagDispatcher key={modifier} modifier={modifier} value={value} translationKey={translationKey}/>
             ))}
-            {noModifiers && <NoModifersTag modifiers={modifiers}/>}
+            {noModifiers && <NoModifersTag />}
         </Stack>
     );
+}
+
+function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {fieldEffects: FieldEffects, raiderEffects: FieldSideEffects, bossEffects: FieldSideEffects, translationKey: any}) {
+    const noModifiers = Object.entries(fieldEffects).every(([key, value]) => value === 0) && 
+                        Object.entries(raiderEffects).every(([key, value]) => value === 0) &&
+                        Object.entries(bossEffects).every(([key, value]) => value === 0);
+    return ( 
+        <Box>
+            <Stack direction="row" spacing={1} width="100%" alignItems="center">
+                <Box sx={{ width: 90 }}>
+                    <Stack direction="row">
+                        <Box flexGrow={1}/>
+                        <Typography fontWeight={600}>
+                            { getTranslation("Field", translationKey) }
+                        </Typography>
+                    </Stack>
+                </Box>
+                <Box sx={{ width: 20 }}/>
+                <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap" justifyContent="center" width="355px">
+                    { Object.entries(fieldEffects).map(([effect, value]) => { return (
+                        <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
+                    )})}
+                    { Object.entries(raiderEffects).map(([effect, value]) => { return (
+                        <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
+                    )})}
+                    { Object.entries(bossEffects).map(([effect, value]) => { return (
+                        <FieldTag modifier={effect} value={value} boss={true} translationKey={translationKey} />
+                    )})}
+                    { noModifiers && <NoModifersTag />}
+                </Stack>
+            </Stack>
+        </Box>
+    )
 }
 
 function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, koChance, warnings, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {index: number, role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, koChance: number, warnings: string[] | undefined, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
@@ -570,7 +633,37 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "minimized": raider.isMinimize,
         }
     }
+    const getFieldSideEffects = (field: Field): FieldSideEffects => {
+        const atkSide = field.attackerSide;
+        return {
+            "reflect": atkSide.isReflect,
+            "lightScreen": atkSide.isLightScreen,
+            "auroraVeil": atkSide.isAuroraVeil,
+            "mist": atkSide.isMist,
+            "safeguard": atkSide.isSafeguard,
+            "tailwind": atkSide.isTailwind,
+        }
+    }
+    const getFieldEffects = (field: Field): FieldEffects => {
+        return {
+            "sun":  field.weather === "Sun" ? field.weatherTurnsRemaining || 0 : 0,
+            "rain": field.weather === "Rain" ? field.weatherTurnsRemaining || 0 : 0,
+            "snow": field.weather === "Snow" ? field.weatherTurnsRemaining || 0 : 0,
+            "sand": field.weather === "Sand" ? field.weatherTurnsRemaining || 0 : 0,
+            "grassy": field.terrain === "Grassy" ? field.terrainTurnsRemaining || 0 : 0,
+            "psychic": field.terrain === "Psychic" ? field.terrainTurnsRemaining || 0 : 0,
+            "misty": field.terrain === "Misty" ? field.terrainTurnsRemaining || 0 : 0,
+            "electric": field.terrain === "Electric" ? field.terrainTurnsRemaining || 0 : 0,
+            "gravity": field.isGravity,
+            "trickRoom": field.isTrickRoom,
+            "wonderRoom": field.isWonderRoom, 
+            "magicRoom": field.isMagicRoom,
+        }
+    }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));
+    const fieldEffects = getFieldEffects(turnState.raiders[0].field);
+    const raiderSideEffects = getFieldSideEffects(turnState.raiders[1].field);
+    const bossSideEffects = getFieldSideEffects(turnState.raiders[0].field);
 
     const currentBossRole = turnState.raiders[0].role;
     const currentRaiderIndex = getCurrentRaiderIndex(results, displayedTurn);
@@ -619,6 +712,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     return (
         <>
         <Stack spacing={1} sx={{marginBottom: 2}}>
+            <FieldLine fieldEffects={fieldEffects} raiderEffects={raiderSideEffects} bossEffects={bossSideEffects} translationKey={translationKey}/>
             {[0,1,2,3,4].map((i) => (
                 <HpDisplayLine 
                     key={i} 

@@ -169,10 +169,18 @@ function MoveTurn({turnNumber, groups, raiders, results, index, translationKey}:
 function MoveDisplay({groups, raiders, results, translationKey}: {groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults, translationKey: any}) { 
     const turnNumbers = getTurnNumbersFromGroups(groups);
     const [turnGroups, turnLabels] = sortGroupsIntoTurns(turnNumbers, groups);
+    const resultsLen = results.turnResults.length;
+    const trimmedTurnGroups: TurnGroupInfo[][] = [];
+    let turnIdx = 0;
+    for (const turnGroup of turnGroups) {
+        if (turnIdx > resultsLen) { break; }
+        turnIdx = turnIdx + turnGroup.reduce((acc, grp) => acc + grp.turns.length * (grp.repeats || 1), 0);
+        trimmedTurnGroups.push(turnGroup);
+    }
     return (
         <Stack direction="column" spacing={2} alignItems="left" justifyContent="center">
             {
-                turnGroups.map((tGroups, index) => (
+                trimmedTurnGroups.map((tGroups, index) => (
                     <Box key={index}>
                         {/* <MoveGroup group={group} raiders={raiders} results={results} index={index} max={groups.length} translationKey={translationKey} /> */}
                         <MoveTurn key={index} turnNumber={turnLabels[index]} groups={tGroups} raiders={raiders} results={results} index={index} translationKey={translationKey} />

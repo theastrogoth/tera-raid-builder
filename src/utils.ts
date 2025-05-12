@@ -224,7 +224,7 @@ export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
                 bossAction = false;
             }
         }
-        const currentTurn = Math.max(...moveCounters);
+        let currentTurn = Math.max(...moveCounters);
         if (bossAction) {
             turns.push(0);
             for (let i=0; i<4; i++) {
@@ -237,6 +237,7 @@ export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
             for (let i=0; i<4; i++) {
                 moveCounters[i] += (g.repeats || 1) - 1;
             }
+            currentTurn = currentTurn + g.repeats! - 1;
         }
         for (let i=0; i<4; i++) {
             // Attempt to handle weird situations where a raider falls behind in move count,
@@ -266,6 +267,7 @@ export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo
         while ((currentGroupIndex < groups.length) && (turnNumbers[currentGroupIndex] === tn)) {
             turns[turns.length-1].push(groups[currentGroupIndex]);
             currentGroupIndex += 1;
+            if ( tn === 0 ) { break; }
         } 
     }
     return [turns, labels];

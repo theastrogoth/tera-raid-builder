@@ -4,13 +4,19 @@ import { RaidState } from './raidcalc/RaidState';
 import { RaidBattle, RaidBattleInfo } from './raidcalc/RaidBattle';
 import { BuildInfo } from './raidcalc/inputs';
 import { LightBuildInfo } from './raidcalc/hashData';
+import { MoveName } from './calc/data/interface';
+import { MoveData } from './raidcalc/interface';
 
 import { lightToFullBuildInfo } from './uicomponents/LinkButton';
 import { deserialize } from './utilities/shrinkstring';
+import { recursiveEmptiesToNull } from './utils';
 
 import { TextEncoder, TextDecoder } from 'util';
 
 import STRAT_LIST from './data/strats/stratlist.json';
+import speciesText from './data/compressed_species.json';
+import movesText from './data/compressed_moves.json';
+
 import { optimizeBossMoves } from './raidcalc/optmoves';
 
 const IGNORED_STRATS = [ // strats that fail, mostly for known reasons
@@ -52,10 +58,17 @@ for (const [_, list] of Object.entries(STRAT_LIST)) { // collect all the ones na
 
 Object.assign(global, { TextDecoder, TextEncoder });
 
+// load move data
+const movesData = recursiveEmptiesToNull(deserialize(movesText));
+const allMoves = new Map<MoveName,MoveData>();
+for (let [move, data] of Object.entries(movesData)) {
+  allMoves.set(move as MoveName, data as MoveData);
+}
+
 // RaidCalc tests
 
 async function resultsFromLightBuild(strategy: LightBuildInfo, skipMoveCountCheck = false) {
-  const info = await lightToFullBuildInfo(strategy);
+  const info = await lightToFullBuildInfo(strategy, allMoves);
   expect(info).not.toBeNull(); // check that the strategy has been loaded successfully
   for (let raider of info!.pokemon) {
     raider.field.gameType = "Doubles";

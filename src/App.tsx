@@ -32,13 +32,58 @@ import { RaidState } from './raidcalc/RaidState.ts';
 import StratLoadField from './uicomponents/StratLoadField.tsx';
 
 import PokedexService, { PokemonData } from "./services/getdata";
-import { getTranslation } from './utils.ts';
+import { getTranslation, recursiveEmptiesToNull } from './utils.ts';
 import DEFAULT_STRAT from './data/strats/default.json';
 import { LightBuildInfo } from './raidcalc/hashData.ts';
 import { deepEqual } from './utils.ts';
 import RaiderSummaries from './uicomponents/RaiderSummaries.tsx';
 
+import { deserialize } from './utilities/shrinkstring.ts';
+import speciesText from './data/compressed_species.json';
+import movesText from './data/compressed_moves.json';
+
 type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant' | 'zh-Hans';
+
+// Uncomment this to print the compressed species/move info to the console
+// for manual copying to compressed_species.json and compressed_moves.json
+// (this is a dumb way to do this that doesn't involve messing with the filesystem)
+
+// if (window.location.href.split("#")[0].includes("localhost")) { // write compressed species and moves files
+//   const shrinkstr = require('./utilities/shrinkstring.ts')
+//   function compressAndLog(obj: any, message: string) {
+//     console.log(message)
+//     const str = shrinkstr.serialize(obj);
+//     console.log(str)
+//   } 
+//   async function compressMovesSpecies() {
+//     const fetchedAllSpecies = await PokedexService.getAllSpecies();
+//     compressAndLog(fetchedAllSpecies, "species")
+//     const fetchedAllMoves = await PokedexService.getAllMoves();
+//     compressAndLog(fetchedAllMoves, "moves");
+//   }
+//   compressMovesSpecies();
+// }
+
+const speciesData = recursiveEmptiesToNull(deserialize(speciesText));
+const _allSpecies = new Map<SpeciesName,PokemonData>();
+for (let [specie, data] of Object.entries(speciesData)) {
+  if (specie.includes("Flab")) {
+    const flab_species = "Flabebe";
+    const flab_data = {...data as PokemonData, name: "Flabébé" as SpeciesName};
+    _allSpecies.set(flab_species as SpeciesName, flab_data as PokemonData);
+  } else {
+    _allSpecies.set(specie as SpeciesName, data as PokemonData);
+  }
+}
+  
+const movesData = recursiveEmptiesToNull(deserialize(movesText));
+const _allMoves = new Map<MoveName,MoveData>();
+for (let [move, data] of Object.entries(movesData)) {
+  _allMoves.set(move as MoveName, data as MoveData);
+}
+
+console.log(_allSpecies)
+console.log(_allMoves)
 
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
@@ -48,8 +93,8 @@ function App() {
   const [language, setLanguage] = useState<LanguageOption>('en');
   const [translationKey, setTranslationKey] = useState<any>(null);
 
-  const [allSpecies, setAllSpecies] = useState<Map<SpeciesName,PokemonData> | null>(null);
-  const [allMoves, setAllMoves] = useState<Map<MoveName,MoveData> | null>(null);
+  const [allSpecies, setAllSpecies] = useState<Map<SpeciesName,PokemonData> | null>(_allSpecies);
+  const [allMoves, setAllMoves] = useState<Map<MoveName,MoveData> | null>(_allMoves);
 
   const location = useLocation();
   const hash = location.hash

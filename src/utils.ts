@@ -410,6 +410,18 @@ export function deepEqual(a: any, b: any) {
     return false;
 }
 
+export function recursiveEmptiesToNull(obj: any) {
+    if (obj.constructor.name === "Object") {
+        if (Object.keys(obj).length === 0) {
+            return null;
+        }
+        for (let key in obj) {
+            obj[key] = recursiveEmptiesToNull(obj[key]) as any;
+        }
+    } 
+    return obj as any;
+}
+
 const alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789".split("");
 const base = alphabet.length;
 export function encode(id: number) {

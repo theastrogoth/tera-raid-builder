@@ -48,21 +48,21 @@ type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant'
 // for manual copying to compressed_species.json and compressed_moves.json
 // (this is a dumb way to do this that doesn't involve messing with the filesystem)
 
-if (window.location.href.split("#")[0].includes("localhost")) { // write compressed species and moves files
-  const shrinkstr = require('./utilities/shrinkstring.ts')
-  function compressAndLog(obj: any, message: string) {
-    console.log(message)
-    const str = shrinkstr.serialize(obj);
-    console.log(str)
-  } 
-  async function compressMovesSpecies() {
-    const fetchedAllSpecies = await PokedexService.getAllSpecies();
-    compressAndLog(fetchedAllSpecies, "species")
-    const fetchedAllMoves = await PokedexService.getAllMoves();
-    compressAndLog(fetchedAllMoves, "moves");
-  }
-  compressMovesSpecies();
-}
+// if (window.location.href.split("#")[0].includes("localhost")) { // write compressed species and moves files
+//   const shrinkstr = require('./utilities/shrinkstring.ts')
+//   function compressAndLog(obj: any, message: string) {
+//     console.log(message)
+//     const str = shrinkstr.serialize(obj);
+//     console.log(str)
+//   } 
+//   async function compressMovesSpecies() {
+//     const fetchedAllSpecies = await PokedexService.getAllSpecies();
+//     compressAndLog(fetchedAllSpecies, "species")
+//     const fetchedAllMoves = await PokedexService.getAllMoves();
+//     compressAndLog(fetchedAllMoves, "moves");
+//   }
+//   compressMovesSpecies();
+// }
 
 const speciesData = recursiveEmptiesToNull(deserialize(speciesText));
 const _allSpecies = new Map<SpeciesName,PokemonData>();

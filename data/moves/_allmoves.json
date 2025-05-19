@@ -32156,7 +32156,7 @@
     "Scale Shot": {
         "name": "Scale Shot",
         "moveCategory": "Physical",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "selected-pokemon",
         "type": "Dragon",
         "power": 25,

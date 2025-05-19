@@ -82,9 +82,6 @@ for (let [move, data] of Object.entries(movesData)) {
   _allMoves.set(move as MoveName, data as MoveData);
 }
 
-console.log(_allSpecies)
-console.log(_allMoves)
-
 function App() {
   const prefersDarkMode = useMediaQuery('(prefers-color-scheme: dark)');
   const [lightMode, setLightMode] = useState<('dark' | 'light')>(prefersDarkMode ? 'dark' : 'light');

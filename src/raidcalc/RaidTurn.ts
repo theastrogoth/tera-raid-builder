@@ -75,13 +75,15 @@ export class RaidTurn {
         this.raidState = raidState;
         this.raiderID = info.moveInfo.userID;
         this.targetID = info.moveInfo.targetID;
-        this.raiderMoveData = info.moveInfo.moveData;
+        this.raiderMoveData = {...info.moveInfo.moveData};  // prevent mutating the original data
         if (Object.keys(info.moveInfo.moveData).length === 1) { // Transform or Mimic can cause issues with loading full movedata from hashes
-            this.raiderMoveData = this.raidState.raiders[this.raiderID].moveData.find((move) => move.name === info.moveInfo.moveData.name) || {name: info.moveInfo.moveData.name} as MoveData;
+            const raiderMoveData = this.raidState.raiders[this.raiderID].moveData.find((move) => move.name === info.moveInfo.moveData.name) || {name: info.moveInfo.moveData.name} as MoveData;
+            this.raiderMoveData = {...raiderMoveData};
         }
-        this.bossMoveData = info.bossMoveInfo.moveData;
+        this.bossMoveData = {...info.bossMoveInfo.moveData};
         if (Object.keys(info.bossMoveInfo.moveData).length === 1) {
-            this.bossMoveData = this.raidState.raiders[0].moveData.find((move) => move.name === info.bossMoveInfo.moveData.name) || {name: info.bossMoveInfo.moveData.name} as MoveData;
+            const bossMoveData = this.raidState.raiders[0].moveData.find((move) => move.name === info.bossMoveInfo.moveData.name) || {name: info.bossMoveInfo.moveData.name} as MoveData;
+            this.bossMoveData = {...bossMoveData};
         }
         this.id = info.id;
         this.group = info.group;

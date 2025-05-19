@@ -87,10 +87,10 @@ async function setLinkDocument(title: string, raidInputProps: RaidInputProps, fu
     });
 }
 
-export async function deserializeInfo(hash: string): Promise<BuildInfo | null> {
+export async function deserializeInfo(hash: string, allMoves = null): Promise<BuildInfo | null> {
     try {
         const obj = deserialize(hash);
-        return await lightToFullBuildInfo(obj);
+        return await lightToFullBuildInfo(obj, allMoves);
     } catch (e) {
         return null;
     }
@@ -344,9 +344,9 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
   
-function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, shortHashRef, longHashRef, translationKey}: 
+function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, allMoves, shortHashRef, longHashRef, translationKey}: 
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
-      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
+      setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, allMoves: Map<MoveName,MoveData> | null,shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
       setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, translationKey: any}) {
     const [buildInfo, setBuildInfo] = useState<LightBuildInfo | null>(null);
     const [hasLoadedInfo, setHasLoadedInfo] = useState(false);
@@ -412,7 +412,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
             try {
                 let res: BuildInfo | null = null;
                 if (buildInfo && hashChangesRef.current === hashChanges) {
-                    res = await lightToFullBuildInfo(buildInfo);
+                    res = await lightToFullBuildInfo(buildInfo, allMoves);
                 } else {
                     const lcHash = hash.toLowerCase();
                     if (!JSON_HASHES.includes(lcHash.slice(1)) && !JSON_HASHES.includes(lcHash.slice(1) + "/main")) {

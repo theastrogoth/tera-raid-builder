@@ -108,7 +108,7 @@ export class Side implements State.Side {
   isHelpingHand: boolean;
   isAtkCheered: number;
   isFlowerGift: boolean;
-  isDazzling: boolean;
+  isDazzling?: string;
   isFriendGuard: boolean;
   friendGuards: number;
   isAuroraVeil: number;
@@ -144,7 +144,7 @@ export class Side implements State.Side {
     this.isHelpingHand = !!side.isHelpingHand;
     this.isAtkCheered = side.isAtkCheered || 0;
     this.isFlowerGift = !!side.isFlowerGift;
-    this.isDazzling = !!side.isDazzling;
+    this.isDazzling = side.isDazzling;
     this.isFriendGuard = !!side.isFriendGuard;
     this.friendGuards = side.friendGuards || 0;
     this.isAuroraVeil = side.isAuroraVeil || 0;

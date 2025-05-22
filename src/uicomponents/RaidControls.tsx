@@ -42,12 +42,62 @@ import { Field, Pokemon, StatsTable } from '../calc';
 import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
-import { MoveData, RaidState, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
+import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 import { MoveName } from '../calc/data/interface';
 import { getModifiedSpeed } from '../raidcalc/util';
 
+import { TYPE_COLORS } from './typecolors';
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
+
+const TAG_TYPES = {
+    "beadsOfRuin": "Dark",
+    "swordOfRuin": "Dark",
+    "tabletsOfRuin": "Dark",
+    "VesselOfRuin": "Dark",
+    "taunt": "Dark",
+    "throatChop": "Dark",
+    "torment": "Dark",
+    "battery": "Electric",
+    "charged": "Electric",
+    "electricTerrain": "Electric",
+    "prz": "Electric",
+    "aromaVeil": "Fairy",
+    "mistyTerrain": "Fairy",
+    "quickGuard": "Fighting",
+    "brn": "Fire",
+    "flashFireActive": "Fire",
+    "sun": "Fire",
+    "tailwind": "Flying",
+    "hitsTaken": "Ghost",
+    "timesFainted": "Ghost",
+    "flowerVeil": "Grass",
+    "grassyTerrain": "Grass",
+    "ingrain": "Grass",
+    "queenlyMajesty": "Grass",
+    "auroraVeil": "Ice",
+    "frz": "Ice",
+    "mist": "Ice",
+    "snow": "Ice",
+    "powerSpot": "Rock",
+    "saltCure": "Rock",
+    "sand": "Rock",
+    "smackDown": "Rock",
+    "psn": "Poison",
+    "tox": "Poison",
+    "armorTail": "Psychic",
+    "dazzling": "Psychic",
+    "disable": "Psychic",
+    "gravity": "Psychic",
+    "lightScreen": "Psychic",
+    "magicRoom": "Psychic",
+    "psychicTerrain": "Psychic",
+    "reflect": "Psychic",
+    "trickRoom": "Psychic",
+    "wonderRoom": "Psychic",
+    "steelySpirit": "Steel",
+    "rain": "Water",
+}
 
 type Modifiers = {
     attackCheer?: number,
@@ -104,6 +154,13 @@ type FieldSideEffects = {
     mist: number,
     safeguard: number,
     tailwind: number,
+    wideGuard: boolean,
+    quickGuard: boolean,
+    aromaVeil: boolean,
+    flowerVeil: boolean,
+    dazzling: boolean,
+    queenlyMajesty: boolean,
+    armorTail: boolean
 }
 
 type FieldEffects = {
@@ -111,6 +168,7 @@ type FieldEffects = {
     rain: number,
     snow: number,
     sand: number,
+    cloudNine: boolean,
     grassyTerrain: number,
     psychicTerrain: number,
     mistyTerrain: number,
@@ -119,6 +177,10 @@ type FieldEffects = {
     trickRoom: number,
     wonderRoom: number, 
     magicRoom: number,
+    swordOfRuin: boolean,
+    vesselOfRuin: boolean,
+    beadsOfRuin: boolean,
+    tabletsOfRuin: boolean,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -175,9 +237,10 @@ function StatChanges({statChanges, randomStatBoosts, effectiveSpeed, translation
     );
 }
 
-function ModifierGenericTag({text}: {text: String}) {
+function ModifierGenericTag({text, color=""}: {text: String, color?: String}) {
     return (
-        <Paper elevation={0} variant='outlined'>
+        // @ts-ignore
+        <Paper elevation={0} variant='outlined' sx={{ backgroundColor: color }}>
             <Typography fontSize={10} m={.5}>
                 {text}
             </Typography>
@@ -188,13 +251,15 @@ function ModifierGenericTag({text}: {text: String}) {
 
 function ModifierStatusTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatusReadableName(value),translationKey,"status")}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatusReadableName(value),translationKey,"status")}`} color={TYPE_COLORS[TAG_TYPES[value]]}/>
     );
 }
 
 function ModifierTypeTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(convertCamelCaseToWords(value),translationKey,"types")}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(convertCamelCaseToWords(value),translationKey,"types")}`} color={TYPE_COLORS[value]} />
     );
 }
 
@@ -212,22 +277,25 @@ function ModifierChoiceLockTag({modifier, value, translationKey}: {modifier: str
 
 function ModifierBooleanTag({modifier, translationKey}: {modifier: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} />
+        // @ts-ignore
+        <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} color={TYPE_COLORS[TAG_TYPES[modifier]]} />
     );
 }
 
 function ModifierNumberTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} color={TYPE_COLORS[TAG_TYPES[modifier]]} />
     );
 }
 function ModifierValueTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ': ' + value : ''}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ': ' + value : ''}`} color={TYPE_COLORS[TAG_TYPES[modifier]]}/>
     )
 }
 
-function NoModifersTag({}: {}) {
+function NoModifersTag() {
     return (
         <ModifierGenericTag text="No Modifiers" />
     );
@@ -267,7 +335,8 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
 
 function FieldTag({modifier, value, boss, translationKey}: {modifier: string, value: number, boss: boolean, translationKey: any}) {
     return ( value > 0 &&
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${boss ? ' (' + getTranslation("boss", translationKey) + ')': ''}${': ' + value + ' ' + getTranslation("turn" + (value > 1 ? "s" : ""), translationKey)}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${boss ? ' (' + getTranslation("boss", translationKey) + ')': ''}${': ' + value + ' ' + getTranslation("turn" + (value > 1 ? "s" : ""), translationKey)}`} color={TYPE_COLORS[TAG_TYPES[modifier]]}/>
     )
 }
 
@@ -288,9 +357,9 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
 }
 
 function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {fieldEffects: FieldEffects, raiderEffects: FieldSideEffects, bossEffects: FieldSideEffects, translationKey: any}) {
-    const noModifiers = Object.entries(fieldEffects).every(([key, value]) => value === 0) && 
-                        Object.entries(raiderEffects).every(([key, value]) => value === 0) &&
-                        Object.entries(bossEffects).every(([key, value]) => value === 0);
+    const noModifiers = Object.entries(fieldEffects).every(([key, value]) => !value ) && 
+                        Object.entries(raiderEffects).every(([key, value]) => !value ) &&
+                        Object.entries(bossEffects).every(([key, value]) => !value );
     return ( 
         <Box>
             <Stack direction="row" spacing={1} width="100%" alignItems="center">
@@ -304,15 +373,21 @@ function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {
                 </Box>
                 <Box sx={{ width: 20 }}/>
                 <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap" justifyContent="center" width="358px">
-                    { Object.entries(fieldEffects).map(([effect, value]) => { return (
+                    { Object.entries(fieldEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
                         <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
-                    )})}
-                    { Object.entries(raiderEffects).map(([effect, value]) => { return (
+                    ) : (
+                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                    ))})}
+                    { Object.entries(raiderEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
                         <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
-                    )})}
-                    { Object.entries(bossEffects).map(([effect, value]) => { return (
+                    ): (
+                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                    ))})}
+                    { Object.entries(bossEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
                         <FieldTag modifier={effect} value={value} boss={true} translationKey={translationKey} />
-                    )})}
+                    ): (
+                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                    ))})}
                     { noModifiers && <ModifierGenericTag text={getTranslation("No Field Modifiers", translationKey)}/>}
                 </Stack>
             </Stack>
@@ -642,6 +717,13 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "mist": atkSide.isMist,
             "safeguard": atkSide.isSafeguard,
             "tailwind": atkSide.isTailwind,
+            "wideGuard": atkSide.isWideGuard,
+            "quickGuard": atkSide.isQuickGuard,
+            "aromaVeil": atkSide.isAromaVeil,
+            "flowerVeil": atkSide.isFlowerVeil,
+            "dazzling": atkSide.isDazzling === "Dazzling",
+            "queenlyMajesty": atkSide.isDazzling === "Queenly Majesty",
+            "armorTail": atkSide.isDazzling === "Armor Tail",
         }
     }
     const getFieldEffects = (field: Field): FieldEffects => {
@@ -650,6 +732,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "rain": field.weather === "Rain" ? field.weatherTurnsRemaining || 0 : 0,
             "snow": field.weather === "Snow" ? field.weatherTurnsRemaining || 0 : 0,
             "sand": field.weather === "Sand" ? field.weatherTurnsRemaining || 0 : 0,
+            "cloudNine": !!field.isCloudNine,
             "grassyTerrain": field.terrain === "Grassy" ? field.terrainTurnsRemaining || 0 : 0,
             "psychicTerrain": field.terrain === "Psychic" ? field.terrainTurnsRemaining || 0 : 0,
             "mistyTerrain": field.terrain === "Misty" ? field.terrainTurnsRemaining || 0 : 0,
@@ -658,6 +741,10 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "trickRoom": field.isTrickRoom,
             "wonderRoom": field.isWonderRoom, 
             "magicRoom": field.isMagicRoom,
+            "swordOfRuin": !!field.isSwordOfRuin,
+            "vesselOfRuin": !!field.isVesselOfRuin,
+            "beadsOfRuin": !!field.isBeadsOfRuin,
+            "tabletsOfRuin": !!field.isTabletsOfRuin,
         }
     }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));

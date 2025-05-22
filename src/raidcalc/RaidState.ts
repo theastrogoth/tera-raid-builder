@@ -1206,10 +1206,10 @@ export class RaidState implements State.RaidState{
             case "Armor Tail":
                 if (id !== 0) {
                     for (let fid=1; fid<5; fid++) {
-                        this.fields[fid].attackerSide.isDazzling = true;
+                        this.fields[fid].attackerSide.isDazzling = ability;
                     }
                 } else {
-                    this.fields[0].attackerSide.isDazzling = true;
+                    this.fields[0].attackerSide.isDazzling = ability;
                 }
                 break;
             case "Plus":
@@ -1428,14 +1428,14 @@ export class RaidState implements State.RaidState{
             case "Queenly Majesty":
             case "Armor Tail":
                 if (id === 0) {
-                    this.fields[0].attackerSide.isDazzling = false;
+                    this.fields[0].attackerSide.isDazzling = undefined;
                 } else if (
                     !this.raiders.slice(1)
                     .filter(r => r.id !== id && r.originalCurHP !== 0)
                     .some(r => ["Dazzling", "Queenly Majesty", "Armor Tail"].includes(r.ability as AbilityName))
                 ) {
                     for (let field of this.fields.slice(1)) {
-                        field.attackerSide.isDazzling = false;
+                        field.attackerSide.isDazzling = undefined;
                     }
                 }
                 break;

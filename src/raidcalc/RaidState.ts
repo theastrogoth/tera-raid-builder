@@ -823,12 +823,12 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyWeather(weather: Weather | "Cloud Nine" | undefined, turns = 5, ids: number[] = [0,1,2,3,4]) {
-        const setCloudNine = weather === "Cloud Nine";
+    public applyWeather(weather: Weather | "Cloud Nine" | "Air Lock" | undefined, turns = 5, ids: number[] = [0,1,2,3,4]) {
+        const setCloudNine = weather === "Cloud Nine" || weather === "Air Lock";
         for (let id of getSpeedRanking(ids, this.raiders)) {
             const pokemon = this.getPokemon(id);
             if (setCloudNine) {
-                pokemon.field.isCloudNine = true;
+                pokemon.field.isCloudNine = weather;
             } else if (!!weather) {
                 pokemon.field.weather = weather;
                 pokemon.field.weatherTurnsRemaining = turns;
@@ -1206,9 +1206,11 @@ export class RaidState implements State.RaidState{
             case "Armor Tail":
                 if (id !== 0) {
                     for (let fid=1; fid<5; fid++) {
+                        // @ts-ignore
                         this.fields[fid].attackerSide.isDazzling = ability;
                     }
                 } else {
+                    // @ts-ignore
                     this.fields[0].attackerSide.isDazzling = ability;
                 }
                 break;
@@ -1283,7 +1285,7 @@ export class RaidState implements State.RaidState{
                     .some(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName))
                 ) {
                     for (let field of this.fields) {
-                        field.isCloudNine = false;
+                        field.isCloudNine = undefined;
                     }
                     this.applyWeather(undefined);
                 }
@@ -1295,7 +1297,7 @@ export class RaidState implements State.RaidState{
                     .some(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName))
                 ) {
                     for (let field of this.fields) {
-                        field.isCloudNine = false;
+                        field.isCloudNine = undefined;
                     }
                     this.applyWeather(undefined);
                 }

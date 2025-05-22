@@ -18,7 +18,7 @@ export class Field implements State.Field {
   isTabletsOfRuin?: boolean;
   isVesselOfRuin?: boolean;
   isTrickRoom: number;
-  isCloudNine?: boolean;
+  isCloudNine?: 'Cloud Nine' | 'Air Lock';
   isTeraformZero?: boolean;
   attackerSide: Side;
   defenderSide: Side;
@@ -40,7 +40,7 @@ export class Field implements State.Field {
     this.isTabletsOfRuin = field.isTabletsOfRuin || false;
     this.isVesselOfRuin = field.isVesselOfRuin || false;
     this.isTrickRoom = field.isTrickRoom || 0;
-    this.isCloudNine = field.isCloudNine || false;
+    this.isCloudNine = field.isCloudNine || undefined;
     this.isTeraformZero = field.isTeraformZero || false;
 
     this.attackerSide = new Side(field.attackerSide || {});
@@ -108,7 +108,7 @@ export class Side implements State.Side {
   isHelpingHand: boolean;
   isAtkCheered: number;
   isFlowerGift: boolean;
-  isDazzling?: string;
+  isDazzling?: 'Dazzling' | 'Queenly Majesty' | 'Armor Tail';
   isFriendGuard: boolean;
   friendGuards: number;
   isAuroraVeil: number;

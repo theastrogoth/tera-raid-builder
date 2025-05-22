@@ -53,12 +53,20 @@ const SPECIAL_NAMES = {
 const miscImagesProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/misc/"
 const pokemonArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/arts/";
 const shinyArtProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/shiny_arts/";
-const pokemonSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/box_sprites/";
-const itemSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/items/";
-const typeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/type_icons/";
-const teraTypeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/tera_type_icons/";
 const teraTypeBannerProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/tera_banners/";
-const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/move_methods/";
+
+// the following are now in /public
+// const pokemonSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/box_sprites/";
+// const itemSpriteProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/items/";
+// const typeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/type_icons/";
+// const teraTypeIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/tera_type_icons/";
+// const methodIconProlog = "https://raw.githubusercontent.com/theastrogoth/tera-raid-builder/assets/images/move_methods/";
+
+const pokemonSpriteProlog = process.env.PUBLIC_URL + "/box_sprites/";
+const itemSpriteProlog = process.env.PUBLIC_URL + "/items/";
+const typeIconProlog = process.env.PUBLIC_URL + "/type_icons/";
+const teraTypeIconProlog = process.env.PUBLIC_URL + "/tera_type_icons/";
+const methodIconProlog = process.env.PUBLIC_URL + "/move_methods/";
 
 // use the Serebii item dex for item sprites
 export function prepareImageAssetName(name: string) {

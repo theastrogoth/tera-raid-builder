@@ -8,10 +8,10 @@ import { SxProps, Theme } from '@mui/material/styles';
 import { StyledTextField, SetLoadGroupHeader } from "./BuildControls";
 import { lightToFullBuildInfo, serializeInfo } from "./LinkButton";
 
-import { SpeciesName } from "../calc/data/interface";
+import { MoveName, SpeciesName } from "../calc/data/interface";
 import { LightBuildInfo } from "../raidcalc/hashData";
 import { RaidInputProps, BuildInfo } from "../raidcalc/inputs";
-import { SubstituteBuildInfo } from "../raidcalc/interface";
+import { MoveData, SubstituteBuildInfo } from "../raidcalc/interface";
 import { RaidState } from "../raidcalc/RaidState";
 
 import { getPokemonSpriteURL, getTranslation } from "../utils";
@@ -75,9 +75,10 @@ function stratdexToOptions(dex: Object): StratOption[] {
 const stratOptions = stratdexToOptions(STRAT_LIST);
 
 function StratLoadField(
-    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, shortHashRef, longHashRef, placeholder="Load Strategy", sx={ width: 260 }, translationKey}: 
-    {raidInputProps: RaidInputProps, setTitle: (t: string) => void, setCredits: (c: string) => void, 
-     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
+    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, allMoves, shortHashRef, longHashRef, placeholder="Load Strategy", sx={ width: 260 }, translationKey}: 
+    {raidInputProps: RaidInputProps, setTitle: (t: string) => void, setCredits: (c: string) => void, allMoves: Map<MoveName,MoveData> | null,
+     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, 
+     shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
      placeholder?: string, sx?: SxProps<Theme>, translationKey: any
     }) 
 {
@@ -118,7 +119,7 @@ function StratLoadField(
             try {
                 let res: BuildInfo | null = null;
                 if (buildInfo) {
-                    res = await lightToFullBuildInfo(buildInfo);
+                    res = await lightToFullBuildInfo(buildInfo, allMoves);
                 } else {
                     return;
                 }

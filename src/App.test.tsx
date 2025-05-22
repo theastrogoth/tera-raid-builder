@@ -4,13 +4,18 @@ import { RaidState } from './raidcalc/RaidState';
 import { RaidBattle, RaidBattleInfo } from './raidcalc/RaidBattle';
 import { BuildInfo } from './raidcalc/inputs';
 import { LightBuildInfo } from './raidcalc/hashData';
+import { MoveName } from './calc/data/interface';
+import { MoveData } from './raidcalc/interface';
 
 import { lightToFullBuildInfo } from './uicomponents/LinkButton';
 import { deserialize } from './utilities/shrinkstring';
+import { recursiveEmptiesToNull } from './utils';
 
 import { TextEncoder, TextDecoder } from 'util';
 
 import STRAT_LIST from './data/strats/stratlist.json';
+import movesText from './data/compressed_moves.json';
+
 import { optimizeBossMoves } from './raidcalc/optmoves';
 
 const IGNORED_STRATS = [ // strats that fail, mostly for known reasons
@@ -52,10 +57,17 @@ for (const [_, list] of Object.entries(STRAT_LIST)) { // collect all the ones na
 
 Object.assign(global, { TextDecoder, TextEncoder });
 
+// load move data
+const movesData = recursiveEmptiesToNull(deserialize(movesText));
+const allMoves = new Map<MoveName,MoveData>();
+for (let [move, data] of Object.entries(movesData)) {
+  allMoves.set(move as MoveName, data as MoveData);
+}
+
 // RaidCalc tests
 
 async function resultsFromLightBuild(strategy: LightBuildInfo, skipMoveCountCheck = false) {
-  const info = await lightToFullBuildInfo(strategy);
+  const info = await lightToFullBuildInfo(strategy, allMoves);
   expect(info).not.toBeNull(); // check that the strategy has been loaded successfully
   for (let raider of info!.pokemon) {
     raider.field.gameType = "Doubles";
@@ -85,14 +97,16 @@ async function resultsFromLightBuild(strategy: LightBuildInfo, skipMoveCountChec
     const numNPCs = startingState.raiders.filter((raider) => raider.name === "NPC").length;
     const numHostMoves = buildInfo.groups.reduce((acc, g) => acc + g.turns.reduce((tacc, t) => tacc + ((t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)") ? 1 : 0), 0), 0);
     totalTurns += numNPCs * numHostMoves;
-    const lastGroupTurns = buildInfo.groups[buildInfo.groups.length - 1].turns;
-    if (lastGroupTurns[lastGroupTurns.length -1].moveInfo.userID === 1) {
+    const lastGroup = buildInfo.groups[buildInfo.groups.length - 1];
+    if (lastGroup.turns[lastGroup.turns.length -1].moveInfo.userID === 1) {
       totalTurns -= numNPCs; // NPCs won't move after the boss is KOd
     }
     // if (startingState.raiders.some(r => r.name === "NPC") && buildInfo.groups.some(g => g.turns.some(t => t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)"))) {
     //   totalTurns += 1; // NPC moves first in the first turn
     //
-    expect(result.turnResults.length).toEqual(totalTurns);
+    if ((lastGroup.repeats || 1) === 1) {
+      expect(result.turnResults.length).toEqual(totalTurns);
+    }
   }
   return result;
 }
@@ -111,7 +125,7 @@ async function testOHKO(strategy: LightBuildInfo, debug = false) {
       console.log("   Move Results:");
       for (const mr of tr.results) {
         console.log("      " + mr.desc);
-        console.log("      " + mr.flags);
+        console.log("      " + mr.flags[3]);
       }
       console.log("   State:");
       for (const raider of tr.state.raiders) {

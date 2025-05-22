@@ -84,6 +84,7 @@ const TAG_TYPES = {
     "saltCure": "Rock",
     "sand": "Rock",
     "smackDown": "Rock",
+    "wideGuard": "Rock",
     "psn": "Poison",
     "tox": "Poison",
     "armorTail": "Psychic",

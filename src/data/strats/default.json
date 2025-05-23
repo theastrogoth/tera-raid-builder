@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Metagross",
-            "name": "Metagross",
+            "role": "Garchomp",
+            "name": "Garchomp",
             "shiny": false,
-            "ability": "Clear Body",
-            "nature": "Adamant",
+            "ability": "Rough Skin",
+            "nature": "Jolly",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,24 +27,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Steel",
+            "gender": "M",
+            "teraType": "Ground",
             "moves": [
-                "Meteor Mash",
-                "Zen Headbutt",
                 "Earthquake",
-                "Thunder Punch"
+                "Poison Jab",
+                "Liquidation",
+                "Fire Fang"
             ],
             "bossMultiplier": 2500,
             "extraMoves": [
-                "Hone Claws",
-                "Iron Defense",
-                "Light Screen"
+                "Breaking Swipe",
+                "Swords Dance"
             ],
             "shieldData": {
-                "hpTrigger": 100,
-                "timeTrigger": 100,
-                "shieldCancelDamage": 25,
+                "hpTrigger": 95,
+                "timeTrigger": 90,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -52,135 +51,115 @@
         },
         {
             "id": 1,
-            "role": "Skeledirge",
-            "name": "Skeledirge",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Blaze",
-            "item": "Shell Bell",
-            "nature": "Modest",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "teraType": "Fire",
-            "moves": [
-                "Torch Song",
-                "Protect",
-                "Slack Off"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Oinkologne",
-            "name": "Oinkologne",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Lingering Aroma",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Chilling Water",
-                "Mud-Slap",
-                "Helping Hand",
-                "Sunny Day"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Goodra",
-            "name": "Goodra-Hisui",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Shell Armor",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Life Dew",
-                "Chilling Water",
-                "Sunny Day",
-                "Dragon Cheer"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Gouging Fire",
-            "name": "Gouging Fire",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Protosynthesis",
-            "item": "Shuca Berry",
-            "nature": "Impish",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Burning Bulwark",
-                "Breaking Swipe",
-                "Sunny Day",
-                "Psychic Fangs"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -200,7 +179,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Hone Claws",
+                "name": "Breaking Swipe",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

@@ -1,7 +1,7 @@
 {
-    "name": "",
+    "name": "Competitive Goo",
     "notes": "",
-    "credits": "",
+    "credits": "SV Discord",
     "pokemon": [
         {
             "id": 0,
@@ -51,10 +51,10 @@
         },
         {
             "id": 1,
-            "role": "Kyogre",
-            "name": "Kyogre",
+            "role": "Empoleon",
+            "name": "Empoleon",
             "shiny": false,
-            "ability": "Drizzle",
+            "ability": "Competitive",
             "item": "Choice Specs",
             "nature": "Modest",
             "evs": {
@@ -63,7 +63,7 @@
                 "def": 0,
                 "spa": 252,
                 "spd": 0,
-                "spe": 252
+                "spe": 84
             },
             "ivs": {
                 "hp": 31,
@@ -76,7 +76,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Water Spout"
+                "Weather Ball"
             ]
         },
         {
@@ -90,7 +90,7 @@
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -107,18 +107,18 @@
             "gender": "N",
             "moves": [
                 "Entrainment",
-                "Chilling Water",
-                "Reflect",
-                "Rain Dance"
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ]
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Goodra",
+            "name": "Goodra-Hisui",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
+            "ability": "Gooey",
+            "item": "Shuca Berry",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -139,24 +139,20 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Rain Dance",
-                "Tailwind"
+                "Acid Spray"
             ]
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Pelipper",
+            "name": "Pelipper",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "ability": "Drizzle",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -171,12 +167,7 @@
             },
             "level": 100,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Rain Dance",
-                "Tailwind"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -190,8 +181,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -200,11 +191,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -212,14 +203,14 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
+                "name": "Entrainment",
+                "userID": 2,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -228,11 +219,95 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Acid Spray",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Weather Ball",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
@@ -242,10 +317,16 @@
             0
         ],
         [
-            1
+            1,
+            2,
+            3
+        ],
+        [
+            4
         ]
     ],
     "repeats": [
+        1,
         1,
         1
     ],

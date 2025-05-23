@@ -1,4 +1,10 @@
 {
+    "Garchomp": {
+        "Fin-ishing Touch": "garchomp/main",
+        "Fin-ishing Touch (3-person version)": "garchomp/finishing_touch_3",
+        "Competitive Goo": "garchomp/competitive_goo",
+        "Simian Spicy Shuffle": "garchomp/spicy_shuffle"
+    },
     "Metagross": {
         "When Pigs Fry": "metagross/main",
         "A Song in 2 Parts": "metagross/song_in_2_parts",

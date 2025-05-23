@@ -923,11 +923,10 @@ export class RaidMove {
                             }
                             // contact checks
                             if (this.moveData.makesContact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
-                                const target = this._raidState.raiders[this._targetID]; // All contact moves are single-target (?)
                                 // abilities
                                 const attackerIgnoresAbility = (this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") || !target.hasItem("Ability Shield")) && (this._user.hasAbility("Mycelium Might") && this.move.category === "Status");
                                 if (!target.abilityNullified && !attackerIgnoresAbility) {
-                                    switch (this._raidState.raiders[this._targetID].ability) {
+                                    switch (this._raidState.raiders[target.id].ability) {
                                         case "Rough Skin":
                                         case "Iron Barbs":
                                             this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
@@ -953,7 +952,7 @@ export class RaidMove {
                                             if (!target.item && this._user.item) {
                                                 const item = this._user.item;
                                                 this._raidState.loseItem(this.userID);
-                                                this._raidState.receiveItem(this._targetID, item);
+                                                this._raidState.receiveItem(target.id, item);
                                             }
                                             break;
                                         // Guessing NoReceiver
@@ -977,7 +976,7 @@ export class RaidMove {
                                         break;
                                     case "Sticky Barb":
                                         if (!this._user.item) {
-                                            this._raidState.loseItem(this._targetID);
+                                            this._raidState.loseItem(target.id);
                                             this._raidState.receiveItem(this.userID, "Sticky Barb" as ItemName);
                                         }
                                         break;

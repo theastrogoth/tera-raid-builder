@@ -1,6 +1,6 @@
 {
-    "name": "Competitive Goo",
-    "notes": "The speed EVs for Goodra are only necessary to avoid an unlucky flinch after being hit with Fire Fang. Speed EVs are needed on Empoleon, which is otherwise guaranteed to get KOd by Earthquake.",
+    "name": "Kyogre T1",
+    "notes": "The speed EVs for Goodra are only necessary to avoid an unlucky flinch after being hit with Fire Fang.",
     "credits": "SV Discord",
     "pokemon": [
         {
@@ -51,19 +51,19 @@
         },
         {
             "id": 1,
-            "role": "Empoleon",
-            "name": "Empoleon",
+            "role": "Kyogre",
+            "name": "Kyogre",
             "shiny": false,
-            "ability": "Competitive",
+            "ability": "Drizzle",
             "item": "Choice Specs",
             "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 252,
                 "spd": 0,
-                "spe": 84
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -76,7 +76,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Weather Ball"
+                "Water Spout"
             ]
         },
         {
@@ -106,11 +106,44 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Entrainment"
+                "Entrainment",
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ]
         },
         {
             "id": 3,
+            "role": "Alcremie",
+            "name": "Alcremie",
+            "shiny": false,
+            "ability": "Sweet Veil",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "F",
+            "moves": [
+                "Decorate"
+            ]
+        },
+        {
+            "id": 4,
             "role": "Goodra",
             "name": "Goodra-Hisui",
             "shiny": false,
@@ -138,34 +171,6 @@
             "moves": [
                 "Acid Spray"
             ]
-        },
-        {
-            "id": 4,
-            "role": "Pelipper",
-            "name": "Pelipper",
-            "shiny": false,
-            "ability": "Drizzle",
-            "item": "Covert Cloak",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": []
         }
     ],
     "turns": [
@@ -207,20 +212,20 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "allowMiss": false,
                     "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
@@ -229,9 +234,9 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Acid Spray",
+                "name": "Decorate",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -241,7 +246,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -257,9 +262,9 @@
             "id": 3,
             "group": 1,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Acid Spray",
                 "userID": 4,
-                "targetID": 4,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -269,7 +274,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -285,26 +290,26 @@
             "id": 4,
             "group": 2,
             "moveInfo": {
-                "name": "Weather Ball",
+                "name": "Water Spout",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "allowMiss": false,
                     "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }

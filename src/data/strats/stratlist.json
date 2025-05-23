@@ -2,8 +2,11 @@
     "Garchomp": {
         "Fin-ishing Touch": "garchomp/main",
         "Fin-ishing Touch (3-person version)": "garchomp/finishing_touch_3",
+        "Kyogre T1": "garchomp/kyogre",
         "Competitive Goo": "garchomp/competitive_goo",
-        "Simian Spicy Shuffle": "garchomp/spicy_shuffle"
+        "Hydrapple T1": "garchomp/hydrapple",
+        "Simian Spicy Shuffle": "garchomp/spicy_shuffle",
+        "Classic Wave Crash": "garchomp/wave_crash"
     },
     "Metagross": {
         "When Pigs Fry": "metagross/main",

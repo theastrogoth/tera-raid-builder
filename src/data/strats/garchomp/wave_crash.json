@@ -1,6 +1,6 @@
 {
-    "name": "Competitive Goo",
-    "notes": "The speed EVs for Goodra are only necessary to avoid an unlucky flinch after being hit with Fire Fang. Speed EVs are needed on Empoleon, which is otherwise guaranteed to get KOd by Earthquake.",
+    "name": "Classic Wave Crash",
+    "notes": "Honchkrow has a very small chance of fainting (0.06%), but Urshifu can be used as a substitute with guaranteed success.",
     "credits": "SV Discord",
     "pokemon": [
         {
@@ -51,19 +51,49 @@
         },
         {
             "id": 1,
-            "role": "Empoleon",
-            "name": "Empoleon",
+            "role": "Tauros",
+            "name": "Tauros-Paldea-Aqua",
             "shiny": false,
-            "ability": "Competitive",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "ability": "Anger Point",
+            "item": "Choice Band",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "M",
+            "moves": [
+                "Wave Crash"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Honchkrow",
+            "name": "Honchkrow",
+            "shiny": false,
+            "ability": "Super Luck",
+            "item": "Scope Lens",
+            "nature": "Timid",
             "evs": {
                 "hp": 0,
                 "atk": 0,
-                "def": 0,
-                "spa": 252,
+                "def": 252,
+                "spa": 0,
                 "spd": 0,
-                "spe": 84
+                "spe": 252
             },
             "ivs": {
                 "hp": 31,
@@ -76,19 +106,19 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Weather Ball"
+                "Night Slash"
             ]
         },
         {
-            "id": 2,
-            "role": "Araquanid",
-            "name": "Araquanid",
+            "id": 3,
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Water Bubble",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "ability": "Inner Focus",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -106,37 +136,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Entrainment"
-            ]
-        },
-        {
-            "id": 3,
-            "role": "Goodra",
-            "name": "Goodra-Hisui",
-            "shiny": false,
-            "ability": "Gooey",
-            "item": "Shuca Berry",
-            "nature": "Bold",
-            "evs": {
-                "hp": 32,
-                "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 84
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Acid Spray"
+                "Screech"
             ]
         },
         {
@@ -145,8 +145,7 @@
             "name": "Pelipper",
             "shiny": false,
             "ability": "Drizzle",
-            "item": "Covert Cloak",
-            "nature": "Hardy",
+            "nature": "Bold",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -201,15 +200,15 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "Entrainment",
+                "name": "Night Slash",
                 "userID": 2,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -229,7 +228,7 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Acid Spray",
+                "name": "Screech",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
@@ -285,7 +284,7 @@
             "id": 4,
             "group": 2,
             "moveInfo": {
-                "name": "Weather Ball",
+                "name": "Wave Crash",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -330,8 +329,157 @@
     ],
     "substitutes": [
         [],
-        [],
-        [],
-        []
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Urshifu",
+                    "name": "Urshifu",
+                    "shiny": false,
+                    "ability": "Unseen Fist",
+                    "item": "Covert Cloak",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Wicked Blow"
+                    ]
+                },
+                "substituteMoves": [
+                    "Wicked Blow"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Annihilape",
+                    "name": "Annihilape",
+                    "shiny": false,
+                    "ability": "Inner Focus",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Politoed",
+                    "name": "Politoed",
+                    "shiny": false,
+                    "ability": "Drizzle",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    4
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Kyogre",
+                    "name": "Kyogre",
+                    "shiny": false,
+                    "ability": "Drizzle",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    4
+                ]
+            }
+        ]
     ]
 }

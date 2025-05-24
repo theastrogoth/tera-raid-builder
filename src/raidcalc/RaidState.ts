@@ -646,7 +646,8 @@ export class RaidState implements State.RaidState{
                 (id === 0 ? [0] : [1,2,3,4]).map(i => this.getPokemon(i)).some(poke => poke.hasAbility("Sweet Veil"))
             )) { success = false; }
             if (pokemon.field.hasWeather("Sun") && !attackerIgnoresAbility && pokemon.hasAbility("Leaf Guard")) { success = false; }
-            
+            if (!attackerIgnoresAbility && pokemon.field.attackerSide.isFlowerVeil && pokemon.hasType("Grass")) { success = false; }
+
             if (success) {
                 pokemon.status = status;
                 if (status === "slp") { // lasts 1-3 turns

@@ -364,18 +364,9 @@ function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {
                         Object.entries(raiderEffects).every(([key, value]) => !value ) &&
                         Object.entries(bossEffects).every(([key, value]) => !value );
     return ( 
-        <Box>
+        <Box sx={{ paddingBottom: 1 }}>
             <Stack direction="row" spacing={1} width="100%" alignItems="center">
-                <Box sx={{ width: 90 }}>
-                    {/* <Stack direction="row">
-                        <Box flexGrow={1}/>
-                        <Typography fontWeight={600}>
-                            { getTranslation("Field", translationKey) }
-                        </Typography>
-                    </Stack> */}
-                </Box>
-                <Box sx={{ width: 20 }}/>
-                <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap" justifyContent="center" width="358px">
+                <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap" justifyContent="center" width="100%">
                     { Object.entries(fieldEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
                         <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
                     ) : (
@@ -803,7 +794,6 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
     return (
         <>
         <Stack spacing={1} sx={{marginBottom: 2}}>
-            <FieldLine fieldEffects={fieldEffects} raiderEffects={raiderSideEffects} bossEffects={bossSideEffects} translationKey={translationKey}/>
             {[0,1,2,3,4].map((i) => (
                 <HpDisplayLine 
                     key={i} 
@@ -826,6 +816,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
                     translationKey={translationKey} 
                 />
             ))}
+            <FieldLine fieldEffects={fieldEffects} raiderEffects={raiderSideEffects} bossEffects={bossSideEffects} translationKey={translationKey}/>
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true} onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
                     {currentTurnText}

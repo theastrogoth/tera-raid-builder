@@ -1,4 +1,13 @@
 {
+    "Garchomp": {
+        "Fin-ishing Touch": "garchomp/main",
+        "Fin-ishing Touch (3-person version)": "garchomp/finishing_touch_3",
+        "Kyogre T1": "garchomp/kyogre",
+        "Competitive Goo": "garchomp/competitive_goo",
+        "Hydrapple T1": "garchomp/hydrapple",
+        "Simian Spicy Shuffle": "garchomp/spicy_shuffle",
+        "Classic Anger Point": "garchomp/anger_point"
+    },
     "Metagross": {
         "When Pigs Fry": "metagross/main",
         "A Song in 2 Parts": "metagross/song_in_2_parts",
@@ -17,6 +26,7 @@
         "Miraidon T1": "salamence/miraidon",
         "Team Eeveelutions Speeds Up To Shock Salamence!": "salamence/eeveelutions",
         "Godzilla and Friends": "salamence/godzilla",
+        "Zen (and PSY!) Psly-ce and Mince Salamence!": "salamence/zen_and_psy",
         "Rock Band": "salamence/rock_band",
         "Lunar Rock": "salamence/lunar_rock",
         "Ionization": "salamence/ionization",

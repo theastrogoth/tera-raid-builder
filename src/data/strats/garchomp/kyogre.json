@@ -1,7 +1,7 @@
 {
-    "name": "",
-    "notes": "",
-    "credits": "",
+    "name": "Kyogre T1",
+    "notes": "The speed EVs for Goodra are only necessary to avoid an unlucky flinch after being hit with Fire Fang.",
+    "credits": "SV Discord",
     "pokemon": [
         {
             "id": 0,
@@ -60,10 +60,10 @@
             "evs": {
                 "hp": 0,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 252,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -88,9 +88,9 @@
             "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -107,17 +107,17 @@
             "gender": "N",
             "moves": [
                 "Entrainment",
-                "Chilling Water",
-                "Reflect",
-                "Rain Dance"
+                "(No Move)",
+                "(No Move)",
+                "(No Move)"
             ]
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
-            "ability": "(No Ability)",
+            "ability": "Sweet Veil",
             "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {
@@ -137,29 +137,26 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Rain Dance",
-                "Tailwind"
+                "Decorate"
             ]
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Goodra",
+            "name": "Goodra-Hisui",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
+            "ability": "Gooey",
+            "item": "Shuca Berry",
             "nature": "Bold",
             "evs": {
-                "hp": 252,
+                "hp": 32,
                 "atk": 0,
                 "def": 252,
                 "spa": 0,
                 "spd": 0,
-                "spe": 0
+                "spe": 84
             },
             "ivs": {
                 "hp": 31,
@@ -172,10 +169,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Rain Dance",
-                "Tailwind"
+                "Acid Spray"
             ]
         }
     ],
@@ -190,8 +184,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -200,11 +194,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -212,27 +206,111 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
+                "name": "Entrainment",
+                "userID": 2,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Decorate",
+                "userID": 3,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Acid Spray",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Water Spout",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
                 }
             }
         }
@@ -242,10 +320,16 @@
             0
         ],
         [
-            1
+            1,
+            2,
+            3
+        ],
+        [
+            4
         ]
     ],
     "repeats": [
+        1,
         1,
         1
     ],

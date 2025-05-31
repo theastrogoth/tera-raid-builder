@@ -39,26 +39,7 @@ import RAIDER_SETDEX_SV from "../data/sets/raiders.json";
 import { Chip, Divider } from "@mui/material";
 import { findOptionFromPokemonName } from "./BuildControls";
 
-const TYPE_COLORS = {
-    "Bug": "#A2A400",
-    "Dark": "#484848",
-    "Dragon": "#5463E8",
-    "Electric": "#CCAD00",
-    "Fairy": "#CC89CC",
-    "Fighting": "#FF9E00",
-    "Fire": "#FF5715",
-    "Flying": "#6CA2CC",
-    "Ghost": "#733E77",
-    "Grass": "#00C300",
-    "Ground": "#B37531",
-    "Ice": "#00ADCC",
-    "Normal": "#999999",
-    "Poison": "#A44BD6",
-    "Psychic": "#FF4D78",
-    "Rock": "#97996B",
-    "Steel": "#4DB3D8",
-    "Water": "#0095FF",
-};
+import { TYPE_COLORS } from "./typecolors";
 
 const gen = Generations.get(9);
 const genTypes = [...gen.types].map(type => type.name).filter((t) => t !== "Stellar" && t !== "???").sort();
@@ -302,7 +283,7 @@ function checkSpeciesForFilters(species: PokemonData, filters: SearchOption[], t
                         const tokenComponents = token.split(/(===|==|<=|>=|<|>|=)/i).map((item) => item.trim()).filter(Boolean);
                         if (tokenComponents.length === 1) {
                             const [searchToken, searchTokenSelector] = normalizeText(token).match(/^([^:._]*)(?:[:._](.*))?$/)?.slice(1) || [normalizeText(token), null];
-                            if ((!searchTokenSelector || searchTokenSelector === "move") && !(searchToken == "psychic" && !searchTokenSelector)) {
+                            if ((!searchTokenSelector || searchTokenSelector === "move") && !(searchToken === "psychic" && !searchTokenSelector)) {
                                 for (let move of species.moves) {
                                     if (searchToken === normalizeText(getTranslation(move.name, translationKey, "moves"))) {
                                         termMatched = true;

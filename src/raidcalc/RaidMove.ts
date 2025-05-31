@@ -777,7 +777,7 @@ export class RaidMove {
         const moveField = this._raidState.fields[atkID].clone();
         moveField.defenderSide = this._raidState.fields[defID].attackerSide.clone();
         if ((atkID !== defID) && ((atkID * defID) !== 0)) {
-            moveField.defenderSide.isDazzling = false;
+            moveField.defenderSide.isDazzling = undefined;
         }
         return moveField;
     }

@@ -38,7 +38,7 @@ import MoveDisplay from './MoveDisplay';
 
 import { RaidInputProps } from "../raidcalc/inputs";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { Pokemon, StatsTable } from '../calc';
+import { Field, Pokemon, StatsTable } from '../calc';
 import { getPokemonSpriteURL, getStatOrder, getStatusReadableName, getStatReadableName, convertCamelCaseToWords, getItemSpriteURL, getTranslationWithoutCategory } from "../utils";
 import { Raider } from '../raidcalc/Raider';
 import { getTranslation } from '../utils';
@@ -46,8 +46,60 @@ import { MoveData, RaidTurnInfo, TurnGroupInfo } from '../raidcalc/interface';
 import { MoveName } from '../calc/data/interface';
 import { getModifiedSpeed } from '../raidcalc/util';
 
+import { TYPE_COLORS } from './typecolors';
 
 const raidcalcWorker = new Worker(new URL("../workers/raidcalc.worker.ts", import.meta.url));
+
+const TAG_TYPES = {
+    "beadsOfRuin": "Dark",
+    "swordOfRuin": "Dark",
+    "tabletsOfRuin": "Dark",
+    "VesselOfRuin": "Dark",
+    "taunt": "Dark",
+    "throatChop": "Dark",
+    "torment": "Dark",
+    "battery": "Electric",
+    "charged": "Electric",
+    "electricTerrain": "Electric",
+    "prz": "Electric",
+    "aromaVeil": "Fairy",
+    "mistyTerrain": "Fairy",
+    "quickGuard": "Fighting",
+    "brn": "Fire",
+    "flashFireActive": "Fire",
+    "sun": "Fire",
+    "airLock": "Flying",
+    "tailwind": "Flying",
+    "hitsTaken": "Ghost",
+    "timesFainted": "Ghost",
+    "flowerVeil": "Grass",
+    "grassyTerrain": "Grass",
+    "ingrain": "Grass",
+    "queenlyMajesty": "Grass",
+    "auroraVeil": "Ice",
+    "frz": "Ice",
+    "mist": "Ice",
+    "snow": "Ice",
+    "powerSpot": "Rock",
+    "saltCure": "Rock",
+    "sand": "Rock",
+    "smackDown": "Rock",
+    "wideGuard": "Rock",
+    "psn": "Poison",
+    "tox": "Poison",
+    "armorTail": "Psychic",
+    "dazzling": "Psychic",
+    "disable": "Psychic",
+    "gravity": "Psychic",
+    "lightScreen": "Psychic",
+    "magicRoom": "Psychic",
+    "psychicTerrain": "Psychic",
+    "reflect": "Psychic",
+    "trickRoom": "Psychic",
+    "wonderRoom": "Psychic",
+    "steelySpirit": "Steel",
+    "rain": "Water",
+}
 
 type Modifiers = {
     attackCheer?: number,
@@ -95,6 +147,43 @@ type Modifiers = {
     hitsTaken?: number,
     timesFainted?: number,
     minimized?: boolean,
+}
+
+type FieldSideEffects = {
+    reflect: number,
+    lightScreen: number,
+    auroraVeil: number,
+    mist: number,
+    safeguard: number,
+    tailwind: number,
+    wideGuard: boolean,
+    quickGuard: boolean,
+    aromaVeil: boolean,
+    flowerVeil: boolean,
+    dazzling: boolean,
+    queenlyMajesty: boolean,
+    armorTail: boolean
+}
+
+type FieldEffects = {
+    sun: number,
+    rain: number,
+    snow: number,
+    sand: number,
+    cloudNine: boolean,
+    airLock: boolean,
+    grassyTerrain: number,
+    psychicTerrain: number,
+    mistyTerrain: number,
+    electricTerrain: number,
+    gravity: number,
+    trickRoom: number,
+    wonderRoom: number, 
+    magicRoom: number,
+    swordOfRuin: boolean,
+    vesselOfRuin: boolean,
+    beadsOfRuin: boolean,
+    tabletsOfRuin: boolean,
 }
 
 const Icon = styled(Avatar)(({ theme }) => ({
@@ -151,9 +240,10 @@ function StatChanges({statChanges, randomStatBoosts, effectiveSpeed, translation
     );
 }
 
-function ModifierGenericTag({text}: {text: String}) {
+function ModifierGenericTag({text, color=""}: {text: String, color?: String}) {
     return (
-        <Paper elevation={0} variant='outlined'>
+        // @ts-ignore
+        <Paper elevation={0} variant='outlined' sx={{ backgroundColor: color }}>
             <Typography fontSize={10} m={.5}>
                 {text}
             </Typography>
@@ -164,13 +254,15 @@ function ModifierGenericTag({text}: {text: String}) {
 
 function ModifierStatusTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatusReadableName(value),translationKey,"status")}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatusReadableName(value),translationKey,"status")}`} color={TYPE_COLORS[TAG_TYPES[value]]}/>
     );
 }
 
 function ModifierTypeTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(convertCamelCaseToWords(value),translationKey,"types")}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(convertCamelCaseToWords(value),translationKey,"types")}`} color={TYPE_COLORS[value]} />
     );
 }
 
@@ -188,22 +280,25 @@ function ModifierChoiceLockTag({modifier, value, translationKey}: {modifier: str
 
 function ModifierBooleanTag({modifier, translationKey}: {modifier: string, translationKey: any}) {
     return (
-        <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} />
+        // @ts-ignore
+        <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} color={TYPE_COLORS[TAG_TYPES[modifier]]} />
     );
 }
 
 function ModifierNumberTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} color={TYPE_COLORS[TAG_TYPES[modifier]]} />
     );
 }
 function ModifierValueTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ': ' + value : ''}`} />
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ': ' + value : ''}`} color={TYPE_COLORS[TAG_TYPES[modifier]]}/>
     )
 }
 
-function NoModifersTag({modifiers}: {modifiers: Modifiers}) {
+function NoModifersTag() {
     return (
         <ModifierGenericTag text="No Modifiers" />
     );
@@ -241,6 +336,13 @@ function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: str
     }
 }
 
+function FieldTag({modifier, value, boss, translationKey}: {modifier: string, value: number, boss: boolean, translationKey: any}) {
+    return ( value > 0 &&
+        // @ts-ignore
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${boss ? ' (' + getTranslation("boss", translationKey) + ')': ''}${': ' + value + ' ' + getTranslation("turn" + (value > 1 ? "s" : ""), translationKey)}`} color={TYPE_COLORS[TAG_TYPES[modifier]]}/>
+    )
+}
+
 
 
 function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, translationKey: any}) {
@@ -252,9 +354,39 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
             {Object.entries(modifiers).map(([modifier, value]) => (
                 <ModifierTagDispatcher key={modifier} modifier={modifier} value={value} translationKey={translationKey}/>
             ))}
-            {noModifiers && <NoModifersTag modifiers={modifiers}/>}
+            {noModifiers && <NoModifersTag />}
         </Stack>
     );
+}
+
+function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {fieldEffects: FieldEffects, raiderEffects: FieldSideEffects, bossEffects: FieldSideEffects, translationKey: any}) {
+    const noModifiers = Object.entries(fieldEffects).every(([key, value]) => !value ) && 
+                        Object.entries(raiderEffects).every(([key, value]) => !value ) &&
+                        Object.entries(bossEffects).every(([key, value]) => !value );
+    return ( 
+        <Box sx={{ paddingBottom: 1 }}>
+            <Stack direction="row" spacing={1} width="100%" alignItems="center">
+                <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap" justifyContent="center" width="100%">
+                    { Object.entries(fieldEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
+                        <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
+                    ) : (
+                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                    ))})}
+                    { Object.entries(raiderEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
+                        <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
+                    ): (
+                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                    ))})}
+                    { Object.entries(bossEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
+                        <FieldTag modifier={effect} value={value} boss={true} translationKey={translationKey} />
+                    ): (
+                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                    ))})}
+                    { noModifiers && <ModifierGenericTag text={getTranslation("No Field Modifiers", translationKey)}/>}
+                </Stack>
+            </Stack>
+        </Box>
+    )
 }
 
 function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, hasSubstitute, kos, koChance, warnings, statChanges, randomStatBoosts, effectiveSpeed, modifiers, translationKey}: {index: number, role: string, name: string, item?: string, ability?: string, curhp: number, prevhp: number, maxhp: number, hasSubstitute: boolean, kos: number, koChance: number, warnings: string[] | undefined, statChanges: StatsTable, randomStatBoosts: number, effectiveSpeed: number | undefined, modifiers: object, translationKey: any}) {
@@ -570,7 +702,50 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
             "minimized": raider.isMinimize,
         }
     }
+    const getFieldSideEffects = (field: Field): FieldSideEffects => {
+        const atkSide = field.attackerSide;
+        return {
+            "reflect": atkSide.isReflect,
+            "lightScreen": atkSide.isLightScreen,
+            "auroraVeil": atkSide.isAuroraVeil,
+            "mist": atkSide.isMist,
+            "safeguard": atkSide.isSafeguard,
+            "tailwind": atkSide.isTailwind,
+            "wideGuard": atkSide.isWideGuard,
+            "quickGuard": atkSide.isQuickGuard,
+            "aromaVeil": atkSide.isAromaVeil,
+            "flowerVeil": atkSide.isFlowerVeil,
+            "dazzling": atkSide.isDazzling === "Dazzling",
+            "queenlyMajesty": atkSide.isDazzling === "Queenly Majesty",
+            "armorTail": atkSide.isDazzling === "Armor Tail",
+        }
+    }
+    const getFieldEffects = (field: Field): FieldEffects => {
+        return {
+            "sun":  field.weather === "Sun" ? field.weatherTurnsRemaining || 0 : 0,
+            "rain": field.weather === "Rain" ? field.weatherTurnsRemaining || 0 : 0,
+            "snow": field.weather === "Snow" ? field.weatherTurnsRemaining || 0 : 0,
+            "sand": field.weather === "Sand" ? field.weatherTurnsRemaining || 0 : 0,
+            "cloudNine": field.isCloudNine === "Cloud Nine",
+            "airLock": field.isCloudNine === "Air Lock",
+            "grassyTerrain": field.terrain === "Grassy" ? field.terrainTurnsRemaining || 0 : 0,
+            "psychicTerrain": field.terrain === "Psychic" ? field.terrainTurnsRemaining || 0 : 0,
+            "mistyTerrain": field.terrain === "Misty" ? field.terrainTurnsRemaining || 0 : 0,
+            "electricTerrain": field.terrain === "Electric" ? field.terrainTurnsRemaining || 0 : 0,
+            "gravity": field.isGravity,
+            "trickRoom": field.isTrickRoom,
+            "wonderRoom": field.isWonderRoom, 
+            "magicRoom": field.isMagicRoom,
+            "swordOfRuin": !!field.isSwordOfRuin,
+            "vesselOfRuin": !!field.isVesselOfRuin,
+            "beadsOfRuin": !!field.isBeadsOfRuin,
+            "tabletsOfRuin": !!field.isTabletsOfRuin,
+        }
+    }
     const modifiers = turnState.raiders.map((raider) => getModifiers(raider));
+    const fieldEffects = getFieldEffects(turnState.raiders[0].field);
+    const raiderSideEffects = getFieldSideEffects(turnState.raiders[1].field);
+    const bossSideEffects = getFieldSideEffects(turnState.raiders[0].field);
 
     const currentBossRole = turnState.raiders[0].role;
     const currentRaiderIndex = getCurrentRaiderIndex(results, displayedTurn);
@@ -641,6 +816,7 @@ function HpDisplay({results, translationKey}: {results: RaidBattleResults, trans
                     translationKey={translationKey} 
                 />
             ))}
+            <FieldLine fieldEffects={fieldEffects} raiderEffects={raiderSideEffects} bossEffects={bossSideEffects} translationKey={translationKey}/>
             <Stack direction="column" justifyContent="center" alignItems="center">
                 <Typography fontSize={10} noWrap={true} onMouseEnter={handlePopoverOpen} onMouseLeave={handlePopoverClose}>
                     {currentTurnText}

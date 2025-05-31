@@ -88,7 +88,7 @@ export namespace State {
     isTabletsOfRuin?: boolean;
     isVesselOfRuin?: boolean;
     isTrickRoom?: number;       // # turns remaining
-    isCloudNine?: boolean;
+    isCloudNine?: 'Cloud Nine' | 'Air Lock';
     isTeraformZero?: boolean;
     attackerSide: Side;
     defenderSide: Side;
@@ -114,7 +114,7 @@ export namespace State {
     isHelpingHand?: boolean;
     isAtkCheered?: number;      // # turns remaining
     isFlowerGift?: boolean;
-    isDazzling?: boolean;
+    isDazzling?: 'Dazzling' | 'Queenly Majesty' | 'Armor Tail';
     isFriendGuard?: boolean;
     friendGuards?: number;
     isAuroraVeil?: number;      // # turns remaining

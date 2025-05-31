@@ -824,12 +824,12 @@ export class RaidState implements State.RaidState{
         }
     }
 
-    public applyWeather(weather: Weather | "Cloud Nine" | undefined, turns = 5, ids: number[] = [0,1,2,3,4]) {
-        const setCloudNine = weather === "Cloud Nine";
+    public applyWeather(weather: Weather | "Cloud Nine" | "Air Lock" | undefined, turns = 5, ids: number[] = [0,1,2,3,4]) {
+        const setCloudNine = weather === "Cloud Nine" || weather === "Air Lock";
         for (let id of getSpeedRanking(ids, this.raiders)) {
             const pokemon = this.getPokemon(id);
             if (setCloudNine) {
-                pokemon.field.isCloudNine = true;
+                pokemon.field.isCloudNine = weather;
             } else if (!!weather) {
                 pokemon.field.weather = weather;
                 pokemon.field.weatherTurnsRemaining = turns;
@@ -1207,10 +1207,12 @@ export class RaidState implements State.RaidState{
             case "Armor Tail":
                 if (id !== 0) {
                     for (let fid=1; fid<5; fid++) {
-                        this.fields[fid].attackerSide.isDazzling = true;
+                        // @ts-ignore
+                        this.fields[fid].attackerSide.isDazzling = ability;
                     }
                 } else {
-                    this.fields[0].attackerSide.isDazzling = true;
+                    // @ts-ignore
+                    this.fields[0].attackerSide.isDazzling = ability;
                 }
                 break;
             case "Plus":
@@ -1284,7 +1286,7 @@ export class RaidState implements State.RaidState{
                     .some(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName))
                 ) {
                     for (let field of this.fields) {
-                        field.isCloudNine = false;
+                        field.isCloudNine = undefined;
                     }
                     this.applyWeather(undefined);
                 }
@@ -1296,7 +1298,7 @@ export class RaidState implements State.RaidState{
                     .some(r => ["Cloud Nine", "Air Lock", "Teraform Zero"].includes(r.ability as AbilityName))
                 ) {
                     for (let field of this.fields) {
-                        field.isCloudNine = false;
+                        field.isCloudNine = undefined;
                     }
                     this.applyWeather(undefined);
                 }
@@ -1429,14 +1431,14 @@ export class RaidState implements State.RaidState{
             case "Queenly Majesty":
             case "Armor Tail":
                 if (id === 0) {
-                    this.fields[0].attackerSide.isDazzling = false;
+                    this.fields[0].attackerSide.isDazzling = undefined;
                 } else if (
                     !this.raiders.slice(1)
                     .filter(r => r.id !== id && r.originalCurHP !== 0)
                     .some(r => ["Dazzling", "Queenly Majesty", "Armor Tail"].includes(r.ability as AbilityName))
                 ) {
                     for (let field of this.fields.slice(1)) {
-                        field.attackerSide.isDazzling = false;
+                        field.attackerSide.isDazzling = undefined;
                     }
                 }
                 break;

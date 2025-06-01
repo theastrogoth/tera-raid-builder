@@ -1519,9 +1519,10 @@ export class RaidMove {
                     throw new Error("Only the Raid boss can activate its shield!")
                 }
                 if (!this._user.shieldBroken && !this._user.shieldActive && this._user.shieldData?.shieldCancelDamage) {
-                    this._desc[this._targetID] = "The Raid Boss activated its shield!";
+                    this._desc[this._targetID] = "The Raid Boss activated its shield and cleared statuses!";
                     this._user.shieldActive = true;
                     this._user.shieldActivateHP = this._user.originalCurHP;
+                    this._user.status = "";
                 } else {
                     this._desc[this._targetID] = "The Boss Shield is already active. You might need to change the shield's HP activation threshold.";
                 }

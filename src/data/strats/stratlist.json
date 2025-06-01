@@ -2,11 +2,24 @@
     "Garchomp": {
         "Fin-ishing Touch": "garchomp/main",
         "Fin-ishing Touch (3-person version)": "garchomp/finishing_touch_3",
+        "Classic Kyogre T1": "garchomp/classic_kyogre",
         "Kyogre T1": "garchomp/kyogre",
         "Competitive Goo": "garchomp/competitive_goo",
         "Hydrapple T1": "garchomp/hydrapple",
         "Simian Spicy Shuffle": "garchomp/spicy_shuffle",
-        "Classic Anger Point": "garchomp/anger_point"
+        "Classic Anger Point": "garchomp/anger_point",
+        "T1 Milotic Champ": "garchomp/milotic",
+        "Kyurem T1": "garchomp/kyurem",
+        "Team Eeveelutions Douses Garchomp!": "garchomp/eeveelutions",
+        "Godzilla X Kong": "garchomp/godzilla",
+        "Flower Power": "garchomp/flower_power",
+        "Flower Power (Lilligant)": "garchomp/flower_power_2",
+        "Primarina & The Clefairy Squad": "garchomp/primarina",
+        "License to Chill": "garchomp/license_to_chill",
+        "Mythicals": "garchomp/mythicals",
+        "Nukebro": "garchomp/nukebro",
+        "Competitive Play": "garchomp/competitive_play",
+        "Baby Shark": "garchomp/baby_shark"
     },
     "Metagross": {
         "When Pigs Fry": "metagross/main",

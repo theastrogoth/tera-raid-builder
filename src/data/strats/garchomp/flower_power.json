@@ -1,7 +1,7 @@
 {
-    "name": "Competitive Goo",
-    "notes": "The speed EVs for Goodra are only necessary to avoid an unlucky flinch after being hit with Fire Fang. Speed EVs are needed on Empoleon, which is otherwise guaranteed to get KOd by Earthquake.",
-    "credits": "SV Discord",
+    "name": "Flower Power (Meganium)",
+    "notes": "",
+    "credits": "u/Ecksel",
     "pokemon": [
         {
             "id": 0,
@@ -51,46 +51,16 @@
         },
         {
             "id": 1,
-            "role": "Empoleon",
-            "name": "Empoleon",
+            "role": "Meganium",
+            "name": "Meganium",
             "shiny": false,
-            "ability": "Competitive",
-            "item": "Choice Specs",
+            "ability": "(No Ability)",
+            "item": "Weakness Policy",
             "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 84
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Weather Ball"
-            ]
-        },
-        {
-            "id": 2,
-            "role": "Araquanid",
-            "name": "Araquanid",
-            "shiny": false,
-            "ability": "Water Bubble",
-            "item": "Covert Cloak",
-            "nature": "Bold",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -106,24 +76,23 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Entrainment"
+                "Frenzy Plant"
             ]
         },
         {
-            "id": 3,
-            "role": "Goodra",
-            "name": "Goodra-Hisui",
+            "id": 2,
+            "role": "Bellossom",
+            "name": "Bellossom",
             "shiny": false,
-            "ability": "Gooey",
-            "item": "Shuca Berry",
+            "ability": "(No Ability)",
             "nature": "Bold",
             "evs": {
-                "hp": 32,
+                "hp": 252,
                 "atk": 0,
                 "def": 252,
                 "spa": 0,
                 "spd": 0,
-                "spe": 84
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -140,17 +109,47 @@
             ]
         },
         {
-            "id": 4,
-            "role": "Pelipper",
-            "name": "Pelipper",
+            "id": 3,
+            "role": "Florges",
+            "name": "Florges",
             "shiny": false,
-            "ability": "Drizzle",
-            "item": "Covert Cloak",
-            "nature": "Hardy",
+            "ability": "Symbiosis",
+            "item": "Choice Specs",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "F",
+            "moves": [
+                "Helping Hand"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Comfey",
+            "name": "Comfey",
+            "shiny": false,
+            "ability": "Flower Veil",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -165,7 +164,10 @@
             },
             "level": 100,
             "gender": "N",
-            "moves": []
+            "moves": [
+                "Grassy Terrain",
+                "Sweet Scent"
+            ]
         }
     ],
     "turns": [
@@ -198,12 +200,40 @@
             }
         },
         {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "Entrainment",
-                "userID": 2,
-                "targetID": 1,
+                "name": "Grassy Terrain",
+                "userID": 4,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -230,7 +260,7 @@
             "group": 1,
             "moveInfo": {
                 "name": "Acid Spray",
-                "userID": 3,
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -254,12 +284,68 @@
             }
         },
         {
-            "id": 3,
-            "group": 1,
+            "id": 4,
+            "group": 3,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Earthquake",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 4,
+            "moveInfo": {
+                "name": "Sweet Scent",
                 "userID": 4,
-                "targetID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 4,
+            "moveInfo": {
+                "name": "Acid Spray",
+                "userID": 2,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -282,10 +368,38 @@
             }
         },
         {
-            "id": 4,
-            "group": 2,
+            "id": 7,
+            "group": 4,
             "moveInfo": {
-                "name": "Weather Ball",
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 5,
+            "moveInfo": {
+                "name": "Frenzy Plant",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -315,62 +429,34 @@
             0
         ],
         [
-            1,
-            2,
             3
         ],
         [
+            1,
+            2
+        ],
+        [
             4
+        ],
+        [
+            5,
+            6,
+            7
+        ],
+        [
+            8
         ]
     ],
     "repeats": [
         1,
         1,
+        1,
+        1,
+        1,
         1
     ],
     "substitutes": [
-        [
-            {
-                "raider": {
-                    "id": 1,
-                    "role": "Milotic",
-                    "name": "Milotic",
-                    "shiny": false,
-                    "ability": "Competitive",
-                    "item": "Choice Specs",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Weather Ball"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Weather Ball"
-                ],
-                "substituteTargets": [
-                    1,
-                    0
-                ]
-            }
-        ],
+        [],
         [],
         [],
         []

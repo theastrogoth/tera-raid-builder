@@ -1,0 +1,808 @@
+{
+    "name": "Team Eeveelutions Douses Garchomp!",
+    "notes": "- The two Fake Tears in T2 have to get in before the shield goes up. The Hydro Pump in T2 can happen before or after the shield - it doesn't matter.\n- I've used Average case since this is a longer strat & it's probably more accurate than assuming worst case. That said, the team should still survive even if a few crits happen.",
+    "credits": "u/iriomote14",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Garchomp",
+            "name": "Garchomp",
+            "shiny": false,
+            "ability": "Rough Skin",
+            "nature": "Jolly",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "M",
+            "teraType": "Ground",
+            "moves": [
+                "Earthquake",
+                "Poison Jab",
+                "Liquidation",
+                "Fire Fang"
+            ],
+            "bossMultiplier": 2500,
+            "extraMoves": [
+                "Breaking Swipe",
+                "Swords Dance"
+            ],
+            "shieldData": {
+                "hpTrigger": 95,
+                "timeTrigger": 90,
+                "shieldCancelDamage": 30,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Vaporeon",
+            "name": "Vaporeon",
+            "shiny": false,
+            "ability": "Water Absorb",
+            "item": "Metronome",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Water",
+            "moves": [
+                "Hydro Pump"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Umbreon",
+            "name": "Umbreon",
+            "shiny": false,
+            "ability": "Synchronize",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Rain Dance"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Espeon",
+            "name": "Espeon",
+            "shiny": false,
+            "ability": "Synchronize",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Gravity",
+                "Calm Mind",
+                "Power Swap",
+                "Fake Tears"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Leafeon",
+            "name": "Leafeon",
+            "shiny": false,
+            "ability": "Leaf Guard",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Charm",
+                "Fake Tears",
+                "Helping Hand"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Breaking Swipe",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 3,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Gravity",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 2,
+            "moveInfo": {
+                "name": "Charm",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 4,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 5,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 5,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 5,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 5,
+            "moveInfo": {
+                "name": "Hydro Pump",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 6,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Activate Shield",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 12,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 7,
+            "moveInfo": {
+                "name": "Calm Mind",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 7,
+            "moveInfo": {
+                "name": "Hydro Pump",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 17,
+            "group": 8,
+            "moveInfo": {
+                "name": "Rain Dance",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 16,
+            "group": 8,
+            "moveInfo": {
+                "name": "Calm Mind",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 15,
+            "group": 8,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 14,
+            "group": 8,
+            "moveInfo": {
+                "name": "Hydro Pump",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 20,
+            "group": 9,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 21,
+            "group": 9,
+            "moveInfo": {
+                "name": "Power Swap",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 18,
+            "group": 10,
+            "moveInfo": {
+                "name": "Hydro Pump",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1,
+                    "activateTera": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0
+        ],
+        [
+            2
+        ],
+        [
+            3
+        ],
+        [
+            1
+        ],
+        [
+            4
+        ],
+        [
+            6,
+            7,
+            5,
+            8
+        ],
+        [
+            9
+        ],
+        [
+            10
+        ],
+        [
+            12,
+            13
+        ],
+        [
+            17,
+            16,
+            15,
+            14
+        ],
+        [
+            20,
+            21
+        ],
+        [
+            18
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

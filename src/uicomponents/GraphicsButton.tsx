@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 
 import { Generations, Move, toID } from "../calc";
 import { SpeciesName, TypeName, Nature, StatID } from "../calc/data/interface";
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerStickerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
 import { RaidMoveInfo, SubstituteBuildInfo, TurnGroupInfo, ExtraBuildInfo, GraphicBuildInfo } from "../raidcalc/interface";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { Raider } from "../raidcalc/interface";
@@ -703,7 +703,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                             <Box>
                                 <BossWrapper>
                                     <Boss src={getPokemonArtURL(buildInfo[0].raider.species.name, buildInfo[0].raider.shiny)} />
-                                    <BossTera src={getTeraTypeBannerURL(buildInfo[0].raider.teraType || "blank")}></BossTera>
+                                    <BossTera src={getTeraTypeBannerStickerURL(buildInfo[0].raider.teraType || "blank")}></BossTera>
                                 </BossWrapper>
                                 <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
                                 <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(buildInfo[0].raider.species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${buildInfo[0].raider.species.name} Tera Raid Battle`}</Subtitle>

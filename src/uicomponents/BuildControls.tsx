@@ -35,8 +35,8 @@ import { alpha, darken, lighten, styled, SxProps, Theme } from '@mui/material/st
 import { Move, Pokemon, StatsTable, Generations, Field } from '../calc';
 import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName, GenderName } from "../calc/data/interface";
 import { toID } from '../calc/util';
-import { AbilityData, FlavorTexts, ItemData, SetOption } from "../raidcalc/interface";
-
+import { AbilityData, FlavorTexts, ItemData, RaidTurnInfo, SetOption } from "../raidcalc/interface";
+import { RaidTurn, RaidTurnResult } from "../raidcalc/RaidTurn";
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
@@ -52,6 +52,8 @@ import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 import BOSS_SETDEX_ID from "../data/sets/id_raid_bosses.json";
 
 import PokemonLookup from "./PokemonLookup";
+import { RaidBattleResults } from "../raidcalc/RaidBattle";
+import { raidStateFromData } from "../raidcalc/RaidState";
 
 
 // we will always use Gen 9
@@ -281,6 +283,38 @@ function makeSubstituteInfo(pokemon: Raider, groups: TurnGroupInfo[]) {
         substituteTargets: newSubstituteTargets,
     };
     return newSubstitute;
+}
+
+function getMostDamaging(results: RaidBattleResults, displayedTurn: number,  target: number, allMoves: Map<MoveName,MoveData>): [string, string, string, string] {
+    const prevTurnIdx = Math.min(results.turnResults.length, displayedTurn) - 2;
+    const prevTurnState = raidStateFromData(
+        (displayedTurn <= 1) ? results.turnZeroState : 
+        (displayedTurn > results.turnResults.length) ? results.endState :
+        results.turnResults[prevTurnIdx].state
+    ); 
+    const currentTurn = results.turnResults[Math.max(0, prevTurnIdx+1)];
+    const moveResults: RaidTurnResult[] = [];
+    let maxdmg = -Infinity;
+    let maxdmgmove = "";
+    let maxdesc = "";
+    for (const move of prevTurnState.raiders[0].moves) {
+        const info: RaidTurnInfo = {
+            id: currentTurn.id,
+            group: currentTurn.group || -1,
+            moveInfo: {...currentTurn.moveInfo, userID: target, moveData: {name: "Splash" as MoveName}},
+            bossMoveInfo: {...currentTurn.bossMoveInfo, moveData: allMoves.get(move)!, targetID: target},
+        }
+        const res = new RaidTurn(prevTurnState, info, prevTurnIdx + 2).result();
+        const resdmg = res.results[res.raiderMovesFirst ? 1 : 0].damage[target];
+        moveResults.push(res);
+        if (resdmg > maxdmg) {
+            maxdmg = resdmg
+            maxdmgmove = move;
+            maxdesc = res.results[res.raiderMovesFirst ? 1 : 0].desc[target];
+        }
+    }
+    const dmgrange = (maxdesc.match(/\((.+)\)/) || [""])[0]
+    return [prevTurnState.raiders[target].name, maxdmgmove, dmgrange, maxdesc]
 }
 
 const LeftCell = styled(TableCell)(({ theme }) => ({
@@ -2254,8 +2288,8 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
     )
 }
 
-function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, translationKey}: 
-    {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) 
+function BossBuildControls({moveSet, pokemon, setPokemon, results, displayedTurn, allMoves, prettyMode, translationKey}: 
+    {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, results: RaidBattleResults, displayedTurn: number, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) 
 {
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
@@ -2442,6 +2476,25 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                                     /> 
                                 })
                             } 
+                            { !!allMoves && [1,2,3,4].map((index) => {
+                                const [t, m, dmg, desc] = getMostDamaging(results, displayedTurn, index, allMoves);
+                                return (<>
+                                    <TableRow>
+                                        <LeftCell sx={{ paddingTop: index===1 ? 3 : 0.75}}>{index === 1 ? getTranslation("Most Damaging", translationKey) : ""}</LeftCell>
+                                        <RightCell sx={{ paddingTop: index===1 ? 3 : 0.75}}>
+                                            <Stack direction="row" alignItems="center">
+                                                <Box sx={{
+                                                    width: "25px",
+                                                    height: "25px",
+                                                    overflow: 'hidden',
+                                                    background: `url(${getPokemonSpriteURL(t)}) no-repeat center center / contain`,
+                                                }}/>
+                                                <Typography variant="body2" sx={{ paddingLeft: "5px"}}>{ `${getTranslation(m, translationKey, "moves")} ${dmg}` }</Typography>
+                                            </Stack>
+                                        </RightCell>
+                                    </TableRow>
+                                </>)
+                            })}
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -2452,6 +2505,8 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
 export const BossBuildControlsMemo = React.memo(BossBuildControls, 
     (prevProps, nextProps) => 
         JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+        JSON.stringify(prevProps.results) === JSON.stringify(nextProps.results) &&
+        JSON.stringify(prevProps.displayedTurn) === JSON.stringify(nextProps.displayedTurn) &&
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
         arraysEqual(prevProps.pokemon.extraMoves!, nextProps.pokemon.extraMoves!) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&

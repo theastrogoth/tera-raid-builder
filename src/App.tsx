@@ -405,6 +405,8 @@ function App() {
     }
   );
 
+  const [displayedTurn, setDisplayedTurn] = useState<number>(0);
+
   // aggresively check for unsaved changes in a way that will correctly recognize when changes were made and then reverted
   const longHashRef = useRef('');  // these refs are used for both prompting on unload
   const shortHashRef = useRef(''); // and for avoiding the creation of new links for an unchanged strat
@@ -499,10 +501,10 @@ function App() {
             </Stack>
           </Grid> */}
           <Grid item>
-            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+            <BossSummary pokemon={raidBoss} setPokemon={setRaidBoss} results={results} displayedTurn={displayedTurn} allSpecies={allSpecies} allMoves={allMoves} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
           <Grid item>
-            <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} setLoading={setLoading} prettyMode={prettyMode} translationKey={translationKey} />
+            <RaidControls raidInputProps={raidInputProps} results={results} setResults={setResults} displayedTurn={displayedTurn} setDisplayedTurn={setDisplayedTurn} setLoading={setLoading} prettyMode={prettyMode} translationKey={translationKey} />
           </Grid>
         </Grid>
         <Grid container justifyContent="center">

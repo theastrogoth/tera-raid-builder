@@ -620,8 +620,7 @@ function HpDisplayLine({index, role, name, item, ability, curhp, prevhp, maxhp, 
     );
 }
 
-function HpDisplay({results, translationKey}: {results: RaidBattleResults, translationKey: any}) {
-    const [displayedTurn, setDisplayedTurn] = useState<number>(0);
+function HpDisplay({results, displayedTurn, setDisplayedTurn, translationKey}: {results: RaidBattleResults, displayedTurn: number, setDisplayedTurn: (t: number) => void, translationKey: any}) {
     const [snapToEnd, setSnapToEnd] = useState<boolean>(true);
 
     const turnIdx = Math.min(results.turnResults.length, displayedTurn) - 1;
@@ -1633,7 +1632,7 @@ function HelpMenu({translationKey}: {translationKey: any}) {
     )
 }
 
-function RaidControls({raidInputProps, results, setResults, setLoading, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, setLoading: (b: boolean) => void, prettyMode: boolean, translationKey: any}) {
+function RaidControls({raidInputProps, results, setResults, displayedTurn, setDisplayedTurn, setLoading, prettyMode, translationKey}: {raidInputProps: RaidInputProps, results: RaidBattleResults, setResults: (r: RaidBattleResults) => void, displayedTurn: number, setDisplayedTurn: (t: number) => void, setLoading: (b: boolean) => void, prettyMode: boolean, translationKey: any}) {
     const [value, setValue] = useState<number>(1);
     const [rollCase, setRollCase] = useState<"min" | "avg" | "max">("avg");
     const groups = raidInputProps.groups;
@@ -1791,7 +1790,7 @@ function RaidControls({raidInputProps, results, setResults, setLoading, prettyMo
                     }
                 </Stack>
                 <Box hidden={value !== 1}>
-                    <HpDisplay results={results} translationKey={translationKey}/>
+                    <HpDisplay results={results} displayedTurn={displayedTurn} setDisplayedTurn={setDisplayedTurn} translationKey={translationKey}/>
                 </Box>
                 <Box hidden={value !== 1}>
                     <Box sx={{ height: 560, overflowY: "auto" }}>

@@ -93,6 +93,10 @@ export function getTeraTypeIconURL(name: string) {
 }
 
 export function getTeraTypeBannerURL(name: string) {
+    return teraTypeBannerProlog + prepareImageAssetName(name) + "_banner.png";
+}
+
+export function getTeraTypeBannerStickerURL(name: string) {
     return teraTypeBannerProlog + prepareImageAssetName(name) + "_banner_sticker.png";
 }
 

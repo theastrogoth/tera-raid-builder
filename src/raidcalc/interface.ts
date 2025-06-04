@@ -161,6 +161,7 @@ export interface Raider extends Pokemon {
     firstTauntTurn?: boolean; 
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
+    yawnSource?: number;
     isFrozen?: number;      // store number of turns that a Pokemon is frozen
     isCharging?: boolean;   // indicates that a Pokemon is charging a move (e.g. Solar Beam)
     isRecharging?: boolean; // indicates that a Pokemon is recharging from a move (e.g. Hyper Beam)
@@ -168,7 +169,7 @@ export interface Raider extends Pokemon {
     lastTarget?: number;    // stored for Instruct and Copycat
     lastAccuracy?: number;  // stored for accuracy of instructed moves
     moveRepeated?: number;  // stored for boost from Metronome, Fury Cutter, etc
-    usedMoves?: Boolean[];  // stored for Last Resort
+    movesUsed?: boolean[];  // stored for Last Resort
     teraCharge?: number;    // stored for Tera activation check
     cheersLeft?: number;
     isChoiceLocked?: boolean; 
@@ -187,6 +188,7 @@ export interface Raider extends Pokemon {
     preventBelch?: boolean;
     isCudChew?: number;    // store number of "turns" (each made of 4 moves) until Cud Chew activates
     isTransformed?: boolean;
+    isChangedForm?: boolean;
     originalSpecies?: SpeciesName;
     originalMoves?: MoveData[];
     slowStartCounter?: number;

@@ -1,5 +1,5 @@
 import { Field, Generations, Pokemon, StatsTable, toID } from "../calc";
-import { Raider } from "./Raider";
+import { Raider, raiderFromData } from "./Raider";
 import { getModifiedStat, getQPBoostedStat } from "../calc/mechanics/util";
 import * as State from "./interface";
 import { AbilityName, ItemName, SpeciesName, StatIDExceptHP, StatusName, Terrain, TypeName, Weather } from "../calc/data/interface";
@@ -1643,4 +1643,8 @@ export class RaidState implements State.RaidState{
             return false;
         }
     }
+}
+
+export function raidStateFromData(data: State.RaidState) {
+    return new RaidState(data.raiders.map(r => raiderFromData(r)), data.lastMovedID)
 }

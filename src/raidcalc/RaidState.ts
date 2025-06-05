@@ -623,7 +623,7 @@ export class RaidState implements State.RaidState{
         const attackerIgnoresAbility = (!this.getPokemon(source).abilityNullified && !this.getPokemon(source).abilityNullified && ["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield")) || (sourcePoke.hasAbility("Mycelium Might") && !isSecondaryEffect);
         const selfInflicted = id === source;
 
-        if (hasNoStatus(pokemon)) {
+        if (pokemon.originalCurHP > 0 && hasNoStatus(pokemon)) {
             let success = true;
             // Secondary effect blockers
             if (!selfInflicted && isSecondaryEffect && (pokemon.item === "Covert Cloak" || pokemon.hasAbility("Shield Dust"))) { success = false; }
@@ -680,7 +680,7 @@ export class RaidState implements State.RaidState{
         const attackerIgnoresAbility = (["Mold Breaker", "Teravolt", "Turboblaze"].includes(sourceAbility || "") && !pokemon.hasItem("Ability Shield")) || (sourcePoke.hasAbility("Mycelium Might") && !isSecondaryEffect);
         const selfInflicted = id === source;
 
-        if (!pokemon.volatileStatus.includes(ailment)) {
+        if (pokemon.originalCurHP > 0 && !pokemon.volatileStatus.includes(ailment)) {
             let success = true;
             // Any non-volatile status, Electric Terrain, and Safeguard block Yawn
             if (ailment === "yawn" && ((pokemon.status !== "") || field.hasTerrain("Electric") || field.attackerSide.isSafeguard)) { success = false; }

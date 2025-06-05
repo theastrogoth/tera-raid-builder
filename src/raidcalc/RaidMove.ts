@@ -1939,6 +1939,20 @@ export class RaidMove {
                     this._raidState.applyVolatileStatus(this._targetID, "confusion", true, this.userID, this.movesFirst);
                 }
                 break;
+            case "Tri Attack":
+                if (this.options.secondaryEffects) {
+                    this._raidState.applyStatus(this._targetID, "frz", this._user.id, true, false, this.options.roll)
+                    this._raidState.applyStatus(this._targetID, "par", this._user.id, true, false, this.options.roll)
+                    this._raidState.applyStatus(this._targetID, "brn", this._user.id, true, false, this.options.roll)
+                }
+                break;
+            case "Dire Claw":
+                if (this._user.hasAbility("Serene Grace") || this.options.secondaryEffects) {
+                    this._raidState.applyStatus(this._targetID, "slp", this._user.id, true, false, this.options.roll)
+                    this._raidState.applyStatus(this._targetID, "par", this._user.id, true, false, this.options.roll)
+                    this._raidState.applyStatus(this._targetID, "psn", this._user.id, true, false, this.options.roll)
+                }
+                break;
             default: break;
             }
     }

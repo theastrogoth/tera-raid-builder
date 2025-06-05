@@ -587,7 +587,7 @@
                     "item": "Toxic Orb",
                     "nature": "Adamant",
                     "evs": {
-                        "hp": 0,
+                        "hp": 32,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,

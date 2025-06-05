@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Garchomp",
-            "name": "Garchomp",
+            "role": "Porygon2",
+            "name": "Porygon2",
             "shiny": false,
-            "ability": "Rough Skin",
-            "nature": "Jolly",
+            "ability": "Analytic",
+            "nature": "Quiet",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,23 +27,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
-            "teraType": "Ground",
+            "gender": "N",
+            "teraType": "Normal",
             "moves": [
-                "Earthquake",
-                "Poison Jab",
-                "Liquidation",
-                "Fire Fang"
+                "Tri Attack",
+                "Psychic",
+                "Thunderbolt",
+                "Ice Beam"
             ],
-            "bossMultiplier": 2500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Breaking Swipe",
-                "Swords Dance"
+                "Trick Room",
+                "Discharge"
             ],
             "shieldData": {
-                "hpTrigger": 95,
-                "timeTrigger": 90,
-                "shieldCancelDamage": 30,
+                "hpTrigger": 85,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,132 +51,115 @@
         },
         {
             "id": 1,
-            "role": "Kyogre",
-            "name": "Kyogre",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Drizzle",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Water Spout"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Araquanid",
-            "name": "Araquanid",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Water Bubble",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Entrainment",
-                "Chilling Water",
-                "Reflect",
-                "Rain Dance"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Rain Dance",
-                "Tailwind"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Rain Dance",
-                "Tailwind"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -196,7 +179,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Breaking Swipe",
+                "name": "Trick Room",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

@@ -29,12 +29,14 @@ export function calculate(
   defender: Pokemon,
   move: Move,
   field?: Field,
+  movesFirst?: boolean
 ) {
   return MECHANICS[gen.num](
     gen,
     attacker.clone(),
     defender.clone(),
     move.clone(),
-    field ? field.clone() : new Field()
+    field ? field.clone() : new Field(),
+    movesFirst
   ) as Result;
 }

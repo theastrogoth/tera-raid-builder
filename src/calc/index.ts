@@ -53,14 +53,16 @@ export function calculate(
   attacker: A.Pokemon,
   defender: A.Pokemon,
   move: A.Move,
-  field?: A.Field
+  field?: A.Field,
+  movesFirst?: boolean,
 ): A.Result {
   return (A.calculate)(
     typeof gen === 'number' ? Generations.get(gen) : gen,
     attacker,
     defender,
     move,
-    field
+    field,
+    movesFirst
   );
 }
 

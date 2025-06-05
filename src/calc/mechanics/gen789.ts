@@ -51,7 +51,8 @@ export function calculateSMSSSV(
   attacker: Pokemon,
   defender: Pokemon,
   move: Move,
-  field: Field
+  field: Field,
+  movesFirst?: boolean,
 ) {
   // #region Initial
 
@@ -465,7 +466,8 @@ export function calculateSMSSSV(
     move,
     field,
     hasAteAbilityTypeChange,
-    desc
+    desc,
+    movesFirst,
   );
   if (basePower === 0) {
     return result;
@@ -696,10 +698,14 @@ export function calculateBasePowerSMSSSV(
   move: Move,
   field: Field,
   hasAteAbilityTypeChange: boolean,
-  desc: RawDesc
+  desc: RawDesc,
+  movesFirst?: boolean
 ) {
-  let turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
-  turnOrder = field.isTrickRoom ? (turnOrder === 'first' ? 'last' : 'first') : turnOrder;
+  let turnOrder = movesFirst ? 'first' : 'last';
+  if (movesFirst === undefined) {
+    turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
+    turnOrder = field.isTrickRoom ? (turnOrder === 'first' ? 'last' : 'first') : turnOrder;
+  }  
 
   let basePower: number;
   const atkTeraType = attacker.isTera ? attacker.teraType : undefined;

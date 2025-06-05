@@ -861,12 +861,12 @@ export class RaidMove {
                             }
                             // get calc result
                             const moveField = this.getMoveField(this.userID, id);
-                            const result = calculate(9, moveUser, target, calcMove, moveField);
+                            const result = calculate(9, moveUser, target, calcMove, moveField, this.movesFirst);
                             let otherResult = undefined;
                             if (critChance > 0 && critChance < 1) {
                                 const otherCalcMove = calcMove.clone();
                                 otherCalcMove.isCrit = !crit;
-                                otherResult = calculate(9, moveUser, target, otherCalcMove, moveField);
+                                otherResult = calculate(9, moveUser, target, otherCalcMove, moveField, this.movesFirst);
                             }
                             
                             results.push(result);

@@ -1,7 +1,9 @@
 {
     "Porygon2": {
         "Rubber Ducky": "porygon2/main",
+        "Rubber Ducky (Trio)": "porygon2/rubber_ducky_3",
         "Handheld": "porygon2/handheld",
+        "Handheld (Trio)": "porygon2/handheld_3",
         "Last Minute Malware": "porygon2/malware"
     },
     "Garchomp": {

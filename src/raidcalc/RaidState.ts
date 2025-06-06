@@ -414,9 +414,9 @@ export class RaidState implements State.RaidState{
             // Healing Berries (TO DO, other healing berries that confuse depending on nature)
             case "Enigma Berry":
             case "Sitrus Berry":
-                let maxhp = pokemon.maxHP();
-                if (pokemon.originalCurHP < maxhp) {
-                    pokemon.applyDamage(-Math.floor(maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)), undefined, true);
+                const  s_maxhp = pokemon.maxHP();
+                if (pokemon.originalCurHP < s_maxhp) {
+                    pokemon.applyDamage(-Math.floor(s_maxhp / (pokemon.hasAbility("Ripen") ? 2 : 4)), undefined, true);
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
@@ -435,8 +435,8 @@ export class RaidState implements State.RaidState{
             case "Iapapa Berry":
             case "Mago Berry":
             case "Wiki Berry":
-                maxhp = pokemon.maxHP();
-                if (pokemon.originalCurHP < maxhp) {
+                const b_maxhp = pokemon.maxHP();
+                if (pokemon.originalCurHP < b_maxhp) {
                     pokemon.applyDamage(-Math.floor(pokemon.maxHP() * (pokemon.hasAbility("Ripen") ? 2 : 1) / 3), undefined, true);
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;

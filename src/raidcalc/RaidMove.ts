@@ -1303,6 +1303,13 @@ export class RaidMove {
         const gravity = this.move.name === "Gravity";
         // Trick Room
         const trickroom = this.move.name === "Trick Room";
+        if (trickroom) {
+            for (let r of this._raidState.raiders) {
+                if (r.hasItem("Room Service")) {
+                    this._raidState.consumeItem(r.id, r.item!)
+                }
+            }
+        }
         // Magic Room
         const magicroom = this.move.name === "Magic Room";
         // Wonder Room

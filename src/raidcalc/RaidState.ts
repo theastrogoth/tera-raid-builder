@@ -494,6 +494,12 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                 }
                 break;
+            case "Room Service":
+                const rsdiff = this.applyStatChange(id, {spe: -1}, true, id);
+                if (rsdiff.spe){
+                    pokemon.lastConsumedItem = item as ItemName;
+                }
+                break;
             // Other
             case "Mental Herb":
                 const vslen = pokemon.volatileStatus.length;
@@ -508,7 +514,7 @@ export class RaidState implements State.RaidState{
                 if (pokemon.volatileStatus.length < vslen) {
                     pokemon.lastConsumedItem = item as ItemName;
                 }
-                break;
+                break;                
             default: 
                 pokemon.lastConsumedItem = item as ItemName;
                 break;
@@ -1594,6 +1600,11 @@ export class RaidState implements State.RaidState{
         const flags = this.addAbilityFieldEffect(id, ability);
         if (nullifiedByGas && !turnZero) {
             flags[id].push("Ability suppressed by Neutralizing Gas");
+        }
+        this.applyTerrain(undefined, undefined, [id]) // check for item/ability activations
+        this.applyWeather(undefined, undefined, [id])
+        if (pokemon.hasItem("Room Service") && pokemon.field.isTrickRoom) {
+            this.consumeItem(id, pokemon.item!)
         }
 
         // Mew stat boosts for Mewtwo event.

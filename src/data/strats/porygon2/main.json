@@ -450,7 +450,7 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": true,
                     "roll": "max",
                     "allowMiss": false,
@@ -478,7 +478,7 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": true,
                     "roll": "max",
                     "allowMiss": false,
@@ -506,7 +506,7 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
+                    "crit": false,
                     "secondaryEffects": true,
                     "roll": "max",
                     "allowMiss": false,

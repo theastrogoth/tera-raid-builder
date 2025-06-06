@@ -511,7 +511,12 @@ export class RaidTurn {
             // if priority is the same, compare speed
             const raiderMM = this._raider.hasAbility("Mycelium Might") && this._raiderMove.category === "Status";
             const bossMM = this._boss.hasAbility("Mycelium Might") && this._bossMove.category === "Status";
-            if (raiderMM && !bossMM) {
+            const raiderCustap = this._raider.hasItem("Custap Berry") && (this._raider.originalCurHP / this._raider.maxHP() < 0.25);
+            const bossCustap = this._boss.hasItem("Custap Berry") && (this._boss.originalCurHP / this._boss.maxHP() < 0.25);
+            if (raiderCustap && !bossCustap) { // not sure how Mycelium Might and Custap Berry should interact
+                this._raiderMovesFirst = true;
+                this._raidState.consumeItem(this._raider.id, this._raider.item!)
+            } else if (raiderMM && !bossMM) {
                 this._raiderMovesFirst = false;
             } else if (bossMM && !raiderMM) {
                 this._raiderMovesFirst = true;

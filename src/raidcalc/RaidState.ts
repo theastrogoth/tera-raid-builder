@@ -286,6 +286,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName; 
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Chesto Berry":
@@ -295,6 +296,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName; 
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Pecha Berry":
@@ -303,6 +305,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName; 
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Rawst Berry":
@@ -311,6 +314,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName; 
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Aspear Berry":
@@ -320,6 +324,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName; 
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Lum Berry":
@@ -330,12 +335,14 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName; 
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 if (pokemon.volatileStatus.includes("confusion")) { 
                     pokemon.volatileStatus = pokemon.volatileStatus.filter(status => status !== "confusion"); 
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Persim Berry": 
@@ -344,6 +351,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             // Stat-Boosting Berries
@@ -353,6 +361,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Kee Berry":
@@ -362,6 +371,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Petaya Berry":
@@ -370,6 +380,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Maranga Berry":
@@ -379,6 +390,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Salac Berry":
@@ -387,6 +399,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Starf Berry":
@@ -394,12 +407,14 @@ export class RaidState implements State.RaidState{
                 pokemon.lastConsumedItem = item as ItemName;
                 pokemon.preventBelch = false;
                 if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 break;
             case "Lansat Berry":
                 if (!pokemon.isPumped) {
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 pokemon.isPumped = 2;
                 break;
@@ -408,6 +423,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 pokemon.isMicle = true;
                 break;
@@ -420,6 +436,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Oran Berry":
@@ -428,6 +445,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                 }
                 break;
             case "Aguav Berry":
@@ -441,6 +459,7 @@ export class RaidState implements State.RaidState{
                     pokemon.lastConsumedItem = item as ItemName;
                     pokemon.preventBelch = false;
                     if (pokemon.hasAbility("Cud Chew")) { pokemon.isCudChew = 2; }
+                    else if (pokemon.hasAbility("Cheeck Pouch")) { this.applyDamage(id, Math.ceil(-pokemon.maxHP()/3))}
                     const nature = gen.natures.get(toID(pokemon.nature));
                     if ((item === "Aguav Berry"  && (nature!.plus !== "spd" && nature!.minus === "spd")) ||
                         (item === "Figy Berry"   && (nature!.plus !== "atk" && nature!.minus === "atk")) ||

@@ -920,6 +920,8 @@ export class RaidMove {
                             ) {
                                 this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
                                 this._raidState.consumeItem(target.id, target.item!)
+                                if (target.hasAbility("Cud Chew")) { target.isCudChew = 2; }
+                                else if (target.hasAbility("Cheeck Pouch")) { this._raidState.applyDamage(target.id, Math.ceil(-target.maxHP()/3))}
                             }
                             // contact checks
                             if (this.moveData.makesContact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
@@ -1909,6 +1911,15 @@ export class RaidMove {
                 if (this._healing.reduce((a,b) => a + b, 0) > 0) {
                     this._raidState.applyStatChange(this.userID, {def: -this._user.stockpile, spd: -this._user.stockpile}, false, this.userID, false);
                     this._user.stockpile = 0;
+                }
+                break;
+            case "Stuff Cheeks":
+                if (this._user.item && this._user.item.includes("Berry")) {
+                    this._desc[this.userID] = this._user.name + " ate its " + this._user.item + "!";
+                    this._raidState.consumeItem(this.userID, this._user.item);
+                    this._raidState.applyStatChange(this.userID, {"def": 2})
+                } else {
+                    this._desc[this.userID] = this._user.name + " " + this.move.name + " — " + this.move.name + " failed!";
                 }
                 break;
             case "Transform":

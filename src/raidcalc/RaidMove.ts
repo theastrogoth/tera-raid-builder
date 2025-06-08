@@ -921,7 +921,7 @@ export class RaidMove {
                                 this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
                                 this._raidState.consumeItem(target.id, target.item!)
                                 if (target.hasAbility("Cud Chew")) { target.isCudChew = 2; }
-                                else if (target.hasAbility("Cheeck Pouch")) { this._raidState.applyDamage(target.id, Math.ceil(-target.maxHP()/3))}
+                                else if (target.hasAbility("Cheek Pouch")) { this._raidState.applyDamage(target.id, Math.ceil(-target.maxHP()/3))}
                             }
                             // contact checks
                             if (this.moveData.makesContact && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {

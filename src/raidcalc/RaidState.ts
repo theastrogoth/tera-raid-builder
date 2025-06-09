@@ -37,7 +37,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false, blockWhiteHerb: boolean = false, source?: number) {
+    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false, blockWhiteHerb: boolean = false, source?: number, isFalseSwipe?: boolean) {
         const pokemon = this.getPokemon(id);
         const originalHP = pokemon.originalCurHP;
         const originalDamageRolls = pokemon.cumDamageRolls.clone();
@@ -51,7 +51,7 @@ export class RaidState implements State.RaidState{
         if (pokemon.substitute && !bypassSubstitute) {
             pokemon.substitute = pokemon.substitute <= 0 ? undefined : pokemon.substitute - damage;
         } else {
-            pokemon.applyDamage(damage, damageRolls);
+            pokemon.applyDamage(damage, damageRolls, false, isFalseSwipe);
         }
 
         const maxHP = pokemon.maxHP();

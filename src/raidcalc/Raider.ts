@@ -298,7 +298,7 @@ export class Raider extends Pokemon implements State.Raider {
         return getModifiedSpeed(this);
     }
 
-    public applyDamage(damage: number, damageRolls?: Map<number,number>, ignoreForRolls?: boolean): number { 
+    public applyDamage(damage: number, damageRolls?: Map<number,number>, ignoreForRolls?: boolean, willSurvive?: boolean): number { 
         this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
         if (this.isEndure && this.originalCurHP === 0) {
             this.originalCurHP = 1;
@@ -308,7 +308,7 @@ export class Raider extends Pokemon implements State.Raider {
             if (safeDamageRolls.size === 0 && damage !== 0) {
                 safeDamageRolls.set(damage, 1);
             }
-            this.addDamageRoll(safeDamageRolls);
+            this.addDamageRoll(safeDamageRolls, willSurvive);
         }
         return this.originalCurHP;
     }
@@ -451,8 +451,8 @@ export class Raider extends Pokemon implements State.Raider {
         this.moveRepeated = 0;
     }
 
-    public addDamageRoll(damageRolls: Map<number, number>) {
-        this.cumDamageRolls.addRolls(damageRolls, this);
+    public addDamageRoll(damageRolls: Map<number, number>, willSurvive: boolean = !!this.isEndure) {
+        this.cumDamageRolls.addRolls(damageRolls, this, willSurvive ? this.maxHP() -1 : undefined);
         this.koChance = this.cumDamageRolls.getKOChance(this.maxHP());
     }
 }

@@ -186,12 +186,12 @@ export class CumulativeRolls {
         }
     }
 
-    public addRolls(rolls: Map<number, number>, p: Pokemon) {
+    public addRolls(rolls: Map<number, number>, p: Pokemon, max: number = p.maxHP()) {
         const newRolls:Map<number, number>[] = [];
         const seqConditionalRolls: Map<number, number>[] = [];
         for (let i=0; i<this.rolls.length; i++) {
             if (i === 0 || this.rolls[i].size > 0) {
-                const {c, seqRolls} = combineRollCounts(this.rolls[i], rolls, 0, p.maxHP(), p, this.persistentConditions, this.sequentialConditions[i]);
+                const {c, seqRolls} = combineRollCounts(this.rolls[i], rolls, 0, max, p, this.persistentConditions, this.sequentialConditions[i]);
                 newRolls.push(c);
                 if (i < this.rolls.length) {
                     seqConditionalRolls.push(seqRolls);

@@ -4,7 +4,6 @@ import { extend } from '../calc/util';
 import { safeStatStage, getModifiedSpeed } from "./util";
 import * as State from "./interface";
 import { CumulativeRolls, getConditionalRoll } from "./rolls";
-import { domainToASCII } from "url";
 
 const gen = Generations.get(9);
 

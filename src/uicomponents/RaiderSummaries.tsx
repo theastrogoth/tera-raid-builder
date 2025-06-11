@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
 
@@ -72,6 +72,7 @@ function RaiderSummaries(
             setSwapIDs(undefined);
             setGroupsCounter(groupsCounter+1);
         }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [swapIDs]);
 
     return (

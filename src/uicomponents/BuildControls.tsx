@@ -35,8 +35,8 @@ import { alpha, darken, lighten, styled, SxProps, Theme } from '@mui/material/st
 import { Move, Pokemon, StatsTable, Generations, Field } from '../calc';
 import { Nature, MoveName, AbilityName, StatID, SpeciesName, ItemName, GenderName } from "../calc/data/interface";
 import { toID } from '../calc/util';
-import { AbilityData, FlavorTexts, ItemData, RaidTurnInfo, SetOption } from "../raidcalc/interface";
-import { RaidTurn, RaidTurnResult } from "../raidcalc/RaidTurn";
+import { AbilityData, FlavorTexts, ItemData, SetOption } from "../raidcalc/interface";
+import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
 import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
@@ -52,9 +52,14 @@ import BOSS_SETDEX_TM from "../data/sets/tm_raid_bosses.json";
 import BOSS_SETDEX_ID from "../data/sets/id_raid_bosses.json";
 
 import PokemonLookup from "./PokemonLookup";
-import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { raidStateFromData } from "../raidcalc/RaidState";
 
+const mostDamagingWorker = new Worker(new URL("../workers/mostdamaging.worker.ts", import.meta.url));
+type MostDamagingResult = {
+    target: string,
+    move: string,
+    damage: string,
+    desc: string,
+};
 
 // we will always use Gen 9
 const gen = Generations.get(9);
@@ -283,38 +288,6 @@ function makeSubstituteInfo(pokemon: Raider, groups: TurnGroupInfo[]) {
         substituteTargets: newSubstituteTargets,
     };
     return newSubstitute;
-}
-
-function getMostDamaging(results: RaidBattleResults, displayedTurn: number,  target: number, allMoves: Map<MoveName,MoveData>): [string, string, string, string] {
-    const prevTurnIdx = Math.min(results.turnResults.length, displayedTurn) - 2;
-    const prevTurnState = raidStateFromData(
-        (displayedTurn <= 1) ? results.turnZeroState : 
-        (displayedTurn > results.turnResults.length) ? results.endState :
-        results.turnResults[prevTurnIdx].state
-    ); 
-    const currentTurn = results.turnResults[Math.max(0, prevTurnIdx+1)];
-    const moveResults: RaidTurnResult[] = [];
-    let maxdmg = -Infinity;
-    let maxdmgmove = "";
-    let maxdesc = "";
-    for (const move of prevTurnState.raiders[0].moves) {
-        const info: RaidTurnInfo = {
-            id: currentTurn.id,
-            group: currentTurn.group || -1,
-            moveInfo: {...currentTurn.moveInfo, userID: target, moveData: {name: "Splash" as MoveName}},
-            bossMoveInfo: {...currentTurn.bossMoveInfo, moveData: allMoves.get(move)!, targetID: target},
-        }
-        const res = new RaidTurn(prevTurnState, info, prevTurnIdx + 2).result();
-        const resdmg = res.results[res.raiderMovesFirst ? 1 : 0].damage[target];
-        moveResults.push(res);
-        if (resdmg > maxdmg) {
-            maxdmg = resdmg
-            maxdmgmove = move;
-            maxdesc = res.results[res.raiderMovesFirst ? 1 : 0].desc[target];
-        }
-    }
-    const dmgrange = (maxdesc.match(/\((.+)\)/) || [""])[0]
-    return [prevTurnState.raiders[target].name, maxdmgmove, dmgrange, maxdesc]
 }
 
 const LeftCell = styled(TableCell)(({ theme }) => ({
@@ -2392,6 +2365,23 @@ function BossBuildControls({moveSet, pokemon, setPokemon, results, displayedTurn
         setSortedBossOptions(bossSetOptions.sort((a,b) => (getTranslation(a.pokemon, translationKey, "pokemon") + a.name) < (getTranslation(b.pokemon, translationKey, "pokemon") + b.name) ? -1 : 1));
     }, [translationKey])
 
+    const [mostDamagingResults, SetMostDamagingResults] = useState<null | MostDamagingResult[]>(null);
+    useEffect(() => {
+        if (!!allMoves) {
+            mostDamagingWorker.postMessage({results, displayedTurn, allMoves});
+        }
+    
+    }, [displayedTurn, results, allMoves])
+
+    useEffect(() => {
+        mostDamagingWorker.onmessage = (event: MessageEvent<MostDamagingResult[]>) => {
+            if (event && event.data) {
+                SetMostDamagingResults(event.data);
+            }
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <Box justifyContent="center" alignItems="top" width="300px">
             <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 1 }}>
@@ -2476,20 +2466,19 @@ function BossBuildControls({moveSet, pokemon, setPokemon, results, displayedTurn
                                     /> 
                                 })
                             } 
-                            { !!allMoves && [1,2,3,4].map((index) => {
-                                const [t, m, dmg, desc] = getMostDamaging(results, displayedTurn, index, allMoves);
+                            { !!mostDamagingResults && mostDamagingResults.map((r, i) => {
                                 return (<>
                                     <TableRow>
-                                        <LeftCell sx={{ paddingTop: index===1 ? 3 : 0.75}}>{index === 1 ? getTranslation("Most Damaging", translationKey) : ""}</LeftCell>
-                                        <RightCell sx={{ paddingTop: index===1 ? 3 : 0.75}}>
+                                        <LeftCell sx={{ paddingTop: i===0 ? 3 : 0.75}}>{i === 0 ? getTranslation("Most Damaging", translationKey) : ""}</LeftCell>
+                                        <RightCell sx={{ paddingTop: i===0 ? 3 : 0.75}}>
                                             <Stack direction="row" alignItems="center">
                                                 <Box sx={{
                                                     width: "25px",
                                                     height: "25px",
                                                     overflow: 'hidden',
-                                                    background: `url(${getPokemonSpriteURL(t)}) no-repeat center center / contain`,
+                                                    background: `url(${getPokemonSpriteURL(r.target)}) no-repeat center center / contain`,
                                                 }}/>
-                                                <Typography variant="body2" sx={{ paddingLeft: "5px"}}>{ `${getTranslation(m, translationKey, "moves")} ${dmg}` }</Typography>
+                                                <Typography variant="body2" sx={{ paddingLeft: "5px"}}>{ `${getTranslation(r.move, translationKey, "moves")} ${r.damage}` }</Typography>
                                             </Stack>
                                         </RightCell>
                                     </TableRow>

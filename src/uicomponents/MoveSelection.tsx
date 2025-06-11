@@ -341,7 +341,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     if (moveName === "Belch") {
         console.log(raider.preventBelch);
     }
-    const moveSet = ["(No Move)", "(Most Damaging)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])];
+    const moveSet = ["(No Move)", "(Most Damaging)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...((raider.cheersLeft || 0) > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
@@ -417,6 +417,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
         const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID)
         setDisableTarget(newDisableTarget);
         setValidTargets(newValidTargets);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveInfo.userID])
 
     return (

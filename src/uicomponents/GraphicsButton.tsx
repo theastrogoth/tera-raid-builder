@@ -984,44 +984,46 @@ const rotate = (xgrid: number, ygrid: number, text: string, gridSize: number) =>
 };
 
 function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: string, setLoading: (l: boolean) => void) {
-    html2canvas(graphicTop, {
-        allowTaint: true, 
-        useCORS: true,
-        windowWidth: 3600,
-        scale: 1,
-        imageTimeout: 15000,
-    }).then((canvas) => {
-        // Scale post-html2canvas to prevent formatting issues
-        // The image should ideally be under Discord's 10MB Limit
-        const scaledCanvas = document.createElement("canvas");
-        scaledCanvas.width = canvas.width * .5;
-        scaledCanvas.height = canvas.height * .5;
-        const ctx = scaledCanvas.getContext("2d")!;
+    requestAnimationFrame(() => {
+        html2canvas(graphicTop, {
+            allowTaint: true, 
+            useCORS: true,
+            windowWidth: 3600,
+            scale: 1,
+            imageTimeout: 15000,
+        }).then((canvas) => {
+            // Scale post-html2canvas to prevent formatting issues
+            // The image should ideally be under Discord's 10MB Limit
+            const scaledCanvas = document.createElement("canvas");
+            scaledCanvas.width = canvas.width * .5;
+            scaledCanvas.height = canvas.height * .5;
+            const ctx = scaledCanvas.getContext("2d")!;
 
-        ctx.scale(.5, .5);
-        ctx.drawImage(canvas, 0, 0);
+            ctx.scale(.5, .5);
+            ctx.drawImage(canvas, 0, 0);
 
-        const graphicUrl = scaledCanvas.toDataURL("graphic/png");
-        const gridSize = 1.1;
-        const gridSizeFloor = Math.floor(gridSize);
-        if (watermarkText && watermarkText !== "") {
-            let wmark = watermark([graphicUrl]);
-            for (let i = -gridSizeFloor-1; i <= gridSizeFloor+1; i++) {
-                for (let j = -gridSizeFloor; j <= gridSizeFloor+1; j++) {
-                    wmark = wmark.image(rotate(i, j, watermarkText, gridSize)).render();
+            const graphicUrl = scaledCanvas.toDataURL("graphic/png");
+            const gridSize = 1.1;
+            const gridSizeFloor = Math.floor(gridSize);
+            if (watermarkText && watermarkText !== "") {
+                let wmark = watermark([graphicUrl]);
+                for (let i = -gridSizeFloor-1; i <= gridSizeFloor+1; i++) {
+                    for (let j = -gridSizeFloor; j <= gridSizeFloor+1; j++) {
+                        wmark = wmark.image(rotate(i, j, watermarkText, gridSize)).render();
+                    }
                 }
+                wmark.image((target: HTMLCanvasElement) => target)
+                    .then((img: HTMLImageElement) => {
+                        title.endsWith("!PPT") ? void(0) : saveAs(img.src, title + '.png')
+                        setLoading(false);
+                    });
+            } else {
+                title.endsWith("!PPT") ? void(0) : saveAs(graphicUrl, title + '.png')
+                setLoading(false);
             }
-            wmark.image((target: HTMLCanvasElement) => target)
-                .then((img: HTMLImageElement) => {
-                    title.endsWith("!PPT") ? void(0) : saveAs(img.src, title + '.png')
-                    setLoading(false);
-                });
-        } else {
-            title.endsWith("!PPT") ? void(0) : saveAs(graphicUrl, title + '.png')
-            setLoading(false);
-        }
-    });
-    title.endsWith("!PPT") ? void(0) : graphicTop.remove(); // remove the element from the DOM
+        });
+        title.endsWith("!PPT") ? void(0) : graphicTop.remove(); // remove the element from the DOM
+    })
 }
 
 function getNonNPCBuilds(buildInfo: GraphicBuildInfo[][]) {

@@ -38,7 +38,6 @@ import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { getStatRadarPlotPNG } from "./StatRadarPlot";
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
-import { get } from "http";
 
 const gen = Generations.get(9); // we only use gen 9
 
@@ -1213,12 +1212,13 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     }
 
     function createMoveTypeMatrix(pokemonDataMatrix: PokemonData[][], movesMatrix: Move[][][]): TypeName[][][] {
+        console.log(pokemonDataMatrix)
+        console.log(movesMatrix)
         return pokemonDataMatrix.map((slot, slotIndex) =>
             slot.map((data, index) => {
                 const moves = movesMatrix[slotIndex][index];
                 return moves.map((move) => {
-                    const moveData = data.moves.find((moveData) => moveData.name === move.name);
-                    return moveData ? move.type : "???";
+                    return move ? move.type : "???";
                 });
             })
         );

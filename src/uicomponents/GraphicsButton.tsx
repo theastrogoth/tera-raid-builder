@@ -852,11 +852,11 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                             <ExecutionMoveTag>{""}</ExecutionMoveTag>
                                                                             <ExecutionMoveActionWrapper>
                                                                                 <ExecutionMoveTeraIconWrapper>
-                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(buildInfo[move.info.userID].raider.teraType!)} />
+                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(turnRaiders[move.info.userID].teraType!)} />
                                                                                 </ExecutionMoveTeraIconWrapper>
                                                                                 <ExecutionMoveTag>{getTranslation("Terastallize", translationKey)}</ExecutionMoveTag>
                                                                                 <ExecutionMoveTeraIconWrapper>
-                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(buildInfo[move.info.userID].raider.teraType!)} />
+                                                                                    <ExecutionMoveTeraIcon src={getTeraTypeIconURL(turnRaiders[move.info.userID].teraType!)} />
                                                                                 </ExecutionMoveTeraIconWrapper>
                                                                             </ExecutionMoveActionWrapper>
                                                                             <ExecutionMoveTag>{""}</ExecutionMoveTag>
@@ -866,13 +866,13 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                         <ExecutionMove key={moveIndex}>
                                                                             {move.teraActivated ?
                                                                             <ExecutionMovePokemonWrapperShifted>
-                                                                                <ExecutionMovePokemonName>{buildInfo[move.info.userID].raider.role}</ExecutionMovePokemonName>
+                                                                                <ExecutionMovePokemonName>{turnRaiders[move.info.userID].role}</ExecutionMovePokemonName>
                                                                                 <ExecutionMovePokemonIconWrapper>
                                                                                     <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
                                                                                 </ExecutionMovePokemonIconWrapper>
                                                                             </ExecutionMovePokemonWrapperShifted> :
                                                                             <ExecutionMovePokemonWrapper>
-                                                                                <ExecutionMovePokemonName>{buildInfo[move.info.userID].raider.role}</ExecutionMovePokemonName>
+                                                                                <ExecutionMovePokemonName>{turnRaiders[move.info.userID].role}</ExecutionMovePokemonName>
                                                                                 <ExecutionMovePokemonIconWrapper>
                                                                                     <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
                                                                                 </ExecutionMovePokemonIconWrapper>
@@ -897,7 +897,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                                         {
                                                                                             (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
                                                                                             move.move === "Remove Negative Effects" ? buildInfo[0].raider.role :
-                                                                                            buildInfo[move.info.targetID].raider.role
+                                                                                            turnRaiders[move.info.targetID].role
                                                                                         }
                                                                                     </ExecutionMovePokemonName>
                                                                                     { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?

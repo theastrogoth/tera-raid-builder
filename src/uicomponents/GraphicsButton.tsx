@@ -38,6 +38,7 @@ import { RaidBattleResults } from "../raidcalc/RaidBattle";
 import { getStatRadarPlotPNG } from "./StatRadarPlot";
 
 import { DragDropContext, DropResult, Droppable, Draggable } from "react-beautiful-dnd";
+import { get } from "http";
 
 const gen = Generations.get(9); // we only use gen 9
 
@@ -266,7 +267,7 @@ const BuildRole = styled(Typography)({
 const BuildSubstituteSubtitle = styled(Typography)({
     lineHeight: "55px",
     color: "rgba(255, 255, 255, 0.65)",
-    fontSize: "1.75em",
+    fontSize: "1.65em",
     marginTop: "25px",
 });
 
@@ -1026,8 +1027,11 @@ function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: stri
     })
 }
 
-function getNonNPCBuilds(buildInfo: GraphicBuildInfo[][]) {
-    return buildInfo.slice(1).flat().filter(binfo => binfo.raider.species.name !== "NPC");
+function getRelevantBuilds(buildInfo: GraphicBuildInfo[][]) {
+    // only ignore NPCs that are also substitutes
+    const mainBuilds = buildInfo.slice(1).map(slot => slot[0]);
+    const nonNPCSubstituteBuilds = buildInfo.slice(1).flatMap(slot => slot.slice(1)).filter(binfo => binfo.raider.species.name !== "NPC");
+    return [...mainBuilds, ...nonNPCSubstituteBuilds];
 }
 
 function getBuildUniqueness(buildInfo: GraphicBuildInfo[]) {
@@ -1041,6 +1045,15 @@ function getBuildUniqueness(buildInfo: GraphicBuildInfo[]) {
         }
     }
     return [...Array(buildInfo.length).keys()].map(idx => uniqueRaiderIdxs.includes(idx));
+}
+
+function getBuildsOnlyBuildsEnabled(buildInfo: GraphicBuildInfo[]) {
+    const uniqueBuilds = getBuildUniqueness(buildInfo);
+    return uniqueBuilds.map((isUnique, idx) => isUnique && buildInfo[idx].raider.species.name !== "NPC");
+}
+
+function getFullGraphicBuildsEnabled(buildInfo: GraphicBuildInfo[]) {
+    return Array.from({ length: buildInfo.length }, (_, i) => i < 4);
 }
 
 function GraphicsButton({title, notes, credits, raidInputProps, substitutes, results, allSpecies, buildsCount, setLoading, translationKey}: 
@@ -1100,8 +1113,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const handleDownload = async () => {
         setLoading(true);
         try {
-
-            const includedRaidPokemonBuildInfo = buildsOnly ? processBuildsOnlyInfo(buildInfo, pokemonDataMatrix, buildsOrder, buildsEnabled) : processFullGraphicInfo(buildInfo);
+            const includedRaidPokemonBuildInfo = processBuildsInfo(buildInfo, pokemonDataMatrix, buildsOrder, buildsEnabled);
 
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
@@ -1116,7 +1128,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
             }
 
             // generate graphic
-            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemonBuildInfo, results, buildsOnly ? includedRaidPokemonBuildInfo.length - 1 : buildsCount, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, translationKey);
+            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemonBuildInfo, results, includedRaidPokemonBuildInfo.length - 1, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, translationKey);
             saveGraphic(graphicTop, title, watermarkText, setLoading);
         } catch (e) {
             setLoading(false);
@@ -1282,8 +1294,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     }
 
 
-    function processBuildsOnlyInfo(buildInfo: GraphicBuildInfo[][], pokemonDataMatrix: PokemonData[][], buildsOrder: number[], buildsEnabled: boolean[]): GraphicBuildInfo[] {
-        const flatBuildInfo = getNonNPCBuilds(buildInfo);
+    function processBuildsInfo(buildInfo: GraphicBuildInfo[][], pokemonDataMatrix: PokemonData[][], buildsOrder: number[], buildsEnabled: boolean[]): GraphicBuildInfo[] {
+        const flatBuildInfo = getRelevantBuilds(buildInfo);
         const buildsOnlyBuildInfo: GraphicBuildInfo[] = [];
 
         const displayOrder: number[] = [];
@@ -1317,24 +1329,6 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                 checkedRaider.extraBuildInfo.optionalMove = checkedRaider.extraBuildInfo.optionalMove.map((move, index) => move && buildInfo.extraBuildInfo.optionalMove[index]);
             }
         }
-    }
-
-    function processFullGraphicInfo(buildInfo: GraphicBuildInfo[][]): GraphicBuildInfo[] {
-        const fullGraphicBuildInfo: GraphicBuildInfo[] = [];
-        let subsToIncludeCounter = buildsCount - 4;
-        // For now, only support the 4 main raiders in the full graphic
-        buildInfo.map(slot => fullGraphicBuildInfo.push(slot[0])); 
-
-        for (const [, slot] of buildInfo.entries()) {
-            for (const [, sub] of slot.slice(1).entries()) {
-                if (subsToIncludeCounter > 0) {
-                    fullGraphicBuildInfo.push(sub);
-                    subsToIncludeCounter-=1;
-                }
-            }
-        }
-
-        return fullGraphicBuildInfo;
     }
 
     async function getStatPlots(allRaidPokemon: Raider[]): Promise<string[] | undefined> {
@@ -1526,28 +1520,25 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                         </Box>
                     </li>
                     </Stack >
-                    {
-                        buildsOnly &&
-                        <Stack padding={"8px"} alignItems="center" sx={{ height: "350px", marginRight: 1, overflowY: "auto" }}>
-                            <Stack direction="row" spacing={1} alignItems="center" sx={{ width: "100%", marginBottom: 1 }}>
-                                <Box flexGrow={1}/>
-                                <Typography variant="body1" fontWeight={600}>{getTranslation("Order", translationKey)}</Typography>
-                                <Box flexGrow={0.4}/>
-                                <IconButton 
-                                    onClick={() => {
-                                        const builds = getNonNPCBuilds(buildInfo);
-                                        const newOrder = [...Array(builds.length).keys()]
-                                        const newEnabled = getBuildUniqueness(builds);
-                                        setBuildsOrder(newOrder);
-                                        setBuildsEnabled(newEnabled);
-                                    }}
-                                >
-                                    <RefreshIcon />
-                                </IconButton>
-                            </Stack>
-                            <BuildsOrderDnD buildsOrder={buildsOrder} setBuildsOrder={setBuildsOrder} buildsEnabled={buildsEnabled} setBuildsEnabled={setBuildsEnabled} buildInfo={buildInfo} />
+                    <Stack padding={"8px"} alignItems="center" sx={{ height: "350px", marginRight: 1, overflowY: "auto" }}>
+                        <Stack direction="row" spacing={1} alignItems="center" sx={{ width: "100%", marginBottom: 1 }}>
+                            <Box flexGrow={1}/>
+                            <Typography variant="body1" fontWeight={600}>{getTranslation("Order", translationKey)}</Typography>
+                            <Box flexGrow={0.4}/>
+                            <IconButton 
+                                onClick={() => {
+                                    const builds = getRelevantBuilds(buildInfo);
+                                    const newOrder = [...Array(builds.length).keys()]
+                                    const newEnabled = buildsOnly ? getBuildsOnlyBuildsEnabled(builds) : getFullGraphicBuildsEnabled(builds);
+                                    setBuildsOrder(newOrder);
+                                    setBuildsEnabled(newEnabled);
+                                }}
+                            >
+                                <RefreshIcon />
+                            </IconButton>
                         </Stack>
-                    }
+                        <BuildsOrderDnD buildsOrder={buildsOrder} setBuildsOrder={setBuildsOrder} buildsEnabled={buildsEnabled} setBuildsEnabled={setBuildsEnabled} buildsOnly={buildsOnly} buildInfo={buildInfo} />
+                    </Stack>
                 </Stack>
             </Menu>
             { /* Render the stat plots for the graphic*/}
@@ -1556,19 +1547,19 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     );
 };
 
-function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, buildInfo}: { buildsOrder: number[], setBuildsOrder: (o: number[]) => void, buildsEnabled: boolean[], setBuildsEnabled: (o: boolean[]) => void, buildInfo: GraphicBuildInfo[][] }) {
-    const [allBuilds, setAllBuilds] = useState<GraphicBuildInfo[]>(getNonNPCBuilds(buildInfo));
+function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEnabled, buildsOnly, buildInfo}: { buildsOrder: number[], setBuildsOrder: (o: number[]) => void, buildsEnabled: boolean[], setBuildsEnabled: (o: boolean[]) => void, buildsOnly: Boolean, buildInfo: GraphicBuildInfo[][] }) {
+    const [allBuilds, setAllBuilds] = useState<GraphicBuildInfo[]>(getRelevantBuilds(buildInfo));
     const [disableButtons, setDisableButtons] = useState<boolean>(false);
 
     useEffect(() => {
-        const nonNPCBuilds = getNonNPCBuilds(buildInfo);
-        const newBuildsOrder = [...Array(nonNPCBuilds.length).keys()];
-        const newBuildsEnabled = getBuildUniqueness(nonNPCBuilds);
-        setAllBuilds(nonNPCBuilds);
+        const builds = getRelevantBuilds(buildInfo);
+        const newBuildsOrder = [...Array(builds.length).keys()];
+        const newBuildsEnabled = buildsOnly ? getBuildsOnlyBuildsEnabled(builds) : getFullGraphicBuildsEnabled(builds);
+        setAllBuilds(builds);
         setBuildsOrder(newBuildsOrder);
         setBuildsEnabled(newBuildsEnabled);
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [buildInfo])
+    }, [buildInfo, buildsOnly])
 
     const onDragStart = () => { setDisableButtons(true); }
 
@@ -1632,9 +1623,9 @@ function BuildDraggable({ index, build, buildsEnabled, setBuildsEnabled, disable
                     {...provided.draggableProps}
                     {...provided.dragHandleProps}
                 >
-                    <Paper elevation={2} sx={{padding: 0.5, opacity: buildsEnabled[index] ? "100%" : "50%"}}>
+                    <Paper variant="outlined" sx={{padding: 0.5, opacity: buildsEnabled[index] ? "100%" : "50%"}}>
                         <li>
-                            <Stack direction="row" alignItems="center" sx={{width: "175px"}}>
+                            <Stack direction="row" alignItems="center" sx={{width: "200px"}}>
                                 {/* @ts-ignore */}
                                 <DragIndicatorIcon color="subdued" sx={{paddingRight: "5px"}}/>
                                 <Box

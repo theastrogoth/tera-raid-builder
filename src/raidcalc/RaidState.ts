@@ -48,8 +48,11 @@ export class RaidState implements State.RaidState{
             return damage > 0;
         } 
 
+        let substituteHit = false;
         if (pokemon.substitute && !bypassSubstitute) {
-            pokemon.substitute = pokemon.substitute <= 0 ? undefined : pokemon.substitute - damage;
+            const newSubHP = pokemon.substitute - damage;
+            pokemon.substitute = (newSubHP <= 0) ? undefined : newSubHP;
+            substituteHit = true;
         } else {
             pokemon.applyDamage(damage, damageRolls, false, isFalseSwipe);
         }
@@ -264,7 +267,7 @@ export class RaidState implements State.RaidState{
         }
         // Final Check for fainting
         if (fainted) { this.faint(id); }
-        return damage > 0;
+        return fainted || ((damage > 0) && !substituteHit);
     }
 
     public consumeItem(id: number, item: ItemName, lost: boolean = true, blockSymbiosis = false) {

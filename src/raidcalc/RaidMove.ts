@@ -382,7 +382,8 @@ export class RaidMove {
             (this._user.field.isGravity && this.move.named("Bounce", "Fly", "Flying Press", "High Jump Kick", "Jump Kick", "Magnet Rise", "Sky Drop", "Splash", "Telekenesis")) ||
             (this._user.cheersLeft < 1 && this.move.named("Attack Cheer", "Defense Cheer", "Heal Cheer")) ||
             (this.move.named("Last Resort") && !this._user.movesUsed.every((m) => m) && this._user.moves.filter((m) => m !== "Last Resort" && m !== "(No Move)").length > 0) ||
-            (this.move.named("Belch") && this._user.preventBelch)
+            (this.move.named("Belch") && this._user.preventBelch) ||
+            (this.move.named("Focus Punch") && this._damaged[this.userID])
         ) {
             this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
             return true;

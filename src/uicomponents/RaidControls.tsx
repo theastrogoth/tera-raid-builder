@@ -244,7 +244,7 @@ function ModifierGenericTag({text, color=""}: {text: String, color?: String}) {
     return (
         // @ts-ignore
         <Paper elevation={0} variant='outlined' sx={{ backgroundColor: color }}>
-            <Typography fontSize={10} m={.5}>
+            <Typography fontSize={10} m={.5} color={"#000000b8"}>
                 {text}
             </Typography>
         </Paper>

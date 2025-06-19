@@ -419,7 +419,7 @@ function FilterTypeTag({text, color, handleDelete}: {text: String, color: String
         // @ts-ignore
         <Paper elevation={0} variant='outlined' sx={{ borderRadius: 100, backgroundColor: color }}> 
             <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center" sx={{ minWidth: "50px", paddingX: "10px", paddingRight: handleDelete ? "5px" : "10px" }}>
-                <Typography variant="body1" justifyContent="center" alignItems="center" color={"white"} sx={{ paddingY: "5px"}}>
+                <Typography variant="body1" justifyContent="center" alignItems="center" color={"#000000b8"} sx={{ paddingY: "5px"}}>
                     {text}
                 </Typography>
                 { handleDelete &&

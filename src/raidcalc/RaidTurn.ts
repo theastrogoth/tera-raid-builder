@@ -392,8 +392,8 @@ export class RaidTurn {
                 const hits = Math.min(Math.max(this.bossOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
                 testMove.isCrit = this.bossOptions.crit || false;
                 const testField = this._raidState.raiders[0].field;
-                testField.defenderSide = this._raidState.raiders[this.raiderID].field.attackerSide;
-                const result = calculate(9, this._raidState.raiders[0], this._raidState.raiders[this.raiderID], testMove, testField);
+                testField.defenderSide = this.raidState.raiders[this.raiderID].field.attackerSide;
+                const result = calculate(9, this._raidState.raiders[0], this.raidState.raiders[this.raiderID], testMove, testField);
                 let damage: number = 0;
                 if (typeof(result.damage) === "number") {
                     damage = result.damage;

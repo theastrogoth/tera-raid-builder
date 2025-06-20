@@ -26,10 +26,11 @@ const IGNORED_STRATS = [ // strats that fail, mostly for known reasons
   'blastoise/double_trouble',
   'meganium/chandelier',
   'meganium/smashing_success',
-  'pikachu/flower_power', // test takes a long time due to move optimization -- check manually if desired
+  'pikachu/flower_power',           // test takes a long time due to move optimization -- check manually if desired,
+  'baxcalibur/anti_kaiju_armor_3',  // not a OHKO or calced to completion
 ]
 
-const MAIN_STRATS = [ // manually include ones that aren't named "main"
+const MAIN_STRATS = [ // manually include ones that aren't named "main" (mostly trios)
   'walking_wake/charging_wake',
   'walking_wake/shocking_wake',
   'samurott/tauros',
@@ -44,7 +45,13 @@ const MAIN_STRATS = [ // manually include ones that aren't named "main"
   'feraligatr/latr_gatr_3',
   'torterra/cryogre_3',
   'rayquaza/cakey_snakey_3',
-  'meowscarada/catfished_3'
+  'meowscarada/catfished_3',
+  "skeledirge/singing_in_the_rain_3",
+  "quaquaval/ddz_3",
+  "tyranitar/desserted_3",
+  "salamence/lunar_lights_3",
+  "garchomp/finishing_touch_3",
+  "porygon2/rubber_ducky_3",
 ]
 
 for (const [_, list] of Object.entries(STRAT_LIST)) { // collect all the ones named "main"

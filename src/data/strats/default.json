@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Porygon2",
-            "name": "Porygon2",
+            "role": "Baxcalibur",
+            "name": "Baxcalibur",
             "shiny": false,
-            "ability": "Analytic",
-            "nature": "Quiet",
+            "ability": "Thermal Exchange",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,22 +27,21 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Normal",
+            "gender": "M",
+            "teraType": "Ice",
             "moves": [
-                "Tri Attack",
-                "Psychic",
-                "Thunderbolt",
-                "Ice Beam"
+                "Glaive Rush",
+                "Icicle Crash",
+                "Crunch",
+                "Earthquake"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 5500,
             "extraMoves": [
-                "Trick Room",
-                "Discharge"
+                "Swords Dance"
             ],
             "shieldData": {
-                "hpTrigger": 85,
-                "timeTrigger": 85,
+                "hpTrigger": 95,
+                "timeTrigger": 95,
                 "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -51,130 +50,115 @@
         },
         {
             "id": 1,
-            "role": "Koraidon",
-            "name": "Koraidon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Orichalcum Pulse",
-            "item": "Covert Cloak",
-            "nature": "Adamant",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
-                "atk": 252,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Swords Dance",
-                "Collision Course"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Friend Guard",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Tickle",
-                "Helping Hand",
-                "Mud-Slap"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Friend Guard",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Tickle",
-                "Helping Hand",
-                "Mud-Slap"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Maushold",
-            "name": "Maushold",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Friend Guard",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Tickle",
-                "Helping Hand",
-                "Mud-Slap"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -194,7 +178,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Trick Room",
+                "name": "Swords Dance",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

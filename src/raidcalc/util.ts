@@ -108,7 +108,7 @@ export function safeStatStage(value: number) {
 export function getAccuracy(movedata: MoveData, category: "Physical" | "Special" | "Status", attacker: Raider, defender: Raider, movesSecond: boolean = false, attackerIgnoresAbility: boolean = false): [number, string[]] {
     // returns [accuracy (0-100), [...effects]]
 
-    if (attacker.hasAbility("No Guard") || defender.hasAbility("No Guard")) {
+    if (attacker.hasAbility("No Guard") || defender.hasAbility("No Guard") || defender.glaiveRush) {
         return [100,[]];
     }
     

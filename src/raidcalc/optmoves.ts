@@ -148,9 +148,12 @@ function nonHPChanges(caseA: Raider, caseB: Raider): boolean {
         caseA.isMicle !== caseB.isMicle ||
         caseA.randomBoosts !== caseB.randomBoosts ||
         caseA.timesFainted !== caseB.timesFainted ||
+        caseA.isSaltCure !== caseB.isSaltCure ||
         caseA.isTaunt !== caseB.isTaunt ||
         caseA.isEndure !== caseB.isEndure ||
         caseA.isYawn !== caseB.isYawn ||
+        caseA.isCharging !== caseB.isCharging ||
+        caseA.isRecharging !== caseB.isRecharging ||
         caseA.syrupBombDrops !== caseB.syrupBombDrops ||
         (caseA.moves.includes("Rage Fist" as MoveName) && (caseA.hitsTaken !== caseB.hitsTaken)) ||
         caseA.isFrozen !== caseB.isFrozen ||
@@ -158,7 +161,12 @@ function nonHPChanges(caseA: Raider, caseB: Raider): boolean {
         caseA.isEncore !== caseB.isEncore ||
         caseA.isTorment !== caseB.isTorment ||
         caseA.isDisable !== caseB.isDisable ||
+        caseA.isThroatChop !== caseB.isThroatChop ||
+        caseA.isSmackDown !== caseB.isSmackDown ||
+        caseA.isMinimize !== caseB.isMinimize ||
+        caseA.stockpile !== caseB.stockpile ||
         caseA.isIngrain !== caseB.isIngrain ||
+        caseA.glaiveRush !== caseB.glaiveRush ||
         caseA.abilityNullified !== caseB.abilityNullified ||
         caseA.field.terrain !== caseB.field.terrain ||
         caseA.field.weather !== caseB.field.weather ||

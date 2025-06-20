@@ -240,11 +240,11 @@ function StatChanges({statChanges, randomStatBoosts, effectiveSpeed, translation
     );
 }
 
-function ModifierGenericTag({text, color=""}: {text: String, color?: String}) {
+function ModifierGenericTag({text, color="", mode="light"}: {text: String, color?: String, mode?: 'light' | 'dark'}) {
     return (
         // @ts-ignore
         <Paper elevation={0} variant='outlined' sx={{ backgroundColor: color }}>
-            <Typography fontSize={10} m={.5} color={"#000000b8"}>
+            <Typography fontSize={10} m={.5} color={mode === "dark" ? "white" : "#000000b8"}>
                 {text}
             </Typography>
         </Paper>
@@ -252,49 +252,49 @@ function ModifierGenericTag({text, color=""}: {text: String, color?: String}) {
 }
 
 
-function ModifierStatusTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
+function ModifierStatusTag({modifier, value, mode, translationKey}: {modifier: string, value: string, mode: 'light' | 'dark', translationKey: any}) {
     return (
         // @ts-ignore
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatusReadableName(value),translationKey,"status")}`} color={TYPE_COLORS[TAG_TYPES[value]]}/>
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatusReadableName(value),translationKey,"status")}`} color={TYPE_COLORS[mode][TAG_TYPES[value]]} mode={mode}/>
     );
 }
 
-function ModifierTypeTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
+function ModifierTypeTag({modifier, value, mode, translationKey}: {modifier: string, value: string, mode: 'light' | 'dark', translationKey: any}) {
     return (
         // @ts-ignore
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(convertCamelCaseToWords(value),translationKey,"types")}`} color={TYPE_COLORS[value]} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(convertCamelCaseToWords(value),translationKey,"types")}`} color={TYPE_COLORS[mode][value]} mode={mode}/>
     );
 }
 
-function ModifierStatTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
+function ModifierStatTag({modifier, value, mode, translationKey}: {modifier: string, value: string, mode: 'light' | 'dark', translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatReadableName(value),translationKey,"stats")}`} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(getStatReadableName(value),translationKey,"stats")}`} mode={mode}/>
     );
 }
 
-function ModifierChoiceLockTag({modifier, value, translationKey}: {modifier: string, value: string, translationKey: any}) {
+function ModifierChoiceLockTag({modifier, value, mode, translationKey}: {modifier: string, value: string, mode: 'light' | 'dark', translationKey: any}) {
     return (
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(value,translationKey,"moves")}`} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} : ${getTranslation(value,translationKey,"moves")}`} mode={mode}/>
     );
 }
 
-function ModifierBooleanTag({modifier, translationKey}: {modifier: string, translationKey: any}) {
+function ModifierBooleanTag({modifier, mode, translationKey}: {modifier: string, mode: 'light' | 'dark', translationKey: any}) {
     return (
         // @ts-ignore
-        <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} color={TYPE_COLORS[TAG_TYPES[modifier]]} />
+        <ModifierGenericTag text={getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)} color={TYPE_COLORS[mode][TAG_TYPES[modifier]]} mode={mode}/>
     );
 }
 
-function ModifierNumberTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
+function ModifierNumberTag({modifier, value, mode, translationKey}: {modifier: string, value: number, mode: 'light' | 'dark', translationKey: any}) {
     return (
         // @ts-ignore
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} color={TYPE_COLORS[TAG_TYPES[modifier]]} />
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ' ×' + value : ''}`} color={TYPE_COLORS[mode][TAG_TYPES[modifier]]} mode={mode}/>
     );
 }
-function ModifierValueTag({modifier, value, translationKey}: {modifier: string, value: number, translationKey: any}) {
+function ModifierValueTag({modifier, value, mode, translationKey}: {modifier: string, value: number, mode: 'light' | 'dark', translationKey: any}) {
     return (
         // @ts-ignore
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ': ' + value : ''}`} color={TYPE_COLORS[TAG_TYPES[modifier]]}/>
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${value > 1 ? ': ' + value : ''}`} color={TYPE_COLORS[mode][TAG_TYPES[modifier]]} mode={mode}/>
     )
 }
 
@@ -305,41 +305,42 @@ function NoModifersTag() {
 }
 
 function ModifierTagDispatcher({modifier, value, translationKey}: {modifier: string, value: any, translationKey: any}) {
+    const theme = useTheme();
     switch(typeof value) {
         case "string":
             if (modifier === "status") {
-                return value !== "" && <ModifierStatusTag modifier={modifier} value={value} translationKey={translationKey}/>
+                return value !== "" && <ModifierStatusTag modifier={modifier} value={value} mode={theme.palette.mode} translationKey={translationKey}/>
             }
             else if (modifier === "tera") {
-                return value !== "" && <ModifierTypeTag modifier={modifier} value={value} translationKey={translationKey}/>
+                return value !== "" && <ModifierTypeTag modifier={modifier} value={value} mode={theme.palette.mode} translationKey={translationKey}/>
             }
             else if (modifier === "formChanged") {
-                return value !== "" && <ModifierGenericTag text={value}/>
+                return value !== "" && <ModifierGenericTag text={value} mode={theme.palette.mode}/>
             }
             else if (modifier === "boostedStat") {
-                return value !== "" && <ModifierStatTag modifier={modifier} value={value} translationKey={translationKey}/>
+                return value !== "" && <ModifierStatTag modifier={modifier} value={value} mode={theme.palette.mode} translationKey={translationKey}/>
             } 
             else if (modifier === "choiceLocked" || modifier === "encore" || modifier === "disable") {
-                return value !== "" && <ModifierChoiceLockTag modifier={modifier} value={value} translationKey={translationKey}/>
+                return value !== "" && <ModifierChoiceLockTag modifier={modifier} value={value} mode={theme.palette.mode} translationKey={translationKey}/>
             }
             break;
         case "boolean":
-            return value && <ModifierBooleanTag modifier={modifier} translationKey={translationKey}/>;
+            return value && <ModifierBooleanTag modifier={modifier} mode={theme.palette.mode} translationKey={translationKey}/>;
         case "number":
             if (modifier === "substituteHP" || modifier === "timesFainted" || modifier === "hitsTaken") {
-                return value > 0 && <ModifierValueTag modifier={modifier} value={value} translationKey={translationKey}/>;
+                return value > 0 && <ModifierValueTag modifier={modifier} value={value} mode={theme.palette.mode} translationKey={translationKey}/>;
             } else {
-                return value > 0 && <ModifierNumberTag modifier={modifier} value={value} translationKey={translationKey}/>;
+                return value > 0 && <ModifierNumberTag modifier={modifier} value={value} mode={theme.palette.mode} translationKey={translationKey}/>;
             }
         default:
             return undefined;
     }
 }
 
-function FieldTag({modifier, value, boss, translationKey}: {modifier: string, value: number, boss: boolean, translationKey: any}) {
+function FieldTag({modifier, value, boss, mode, translationKey}: {modifier: string, value: number, boss: boolean, mode: "light" | "dark", translationKey: any}) {
     return ( value > 0 &&
         // @ts-ignore
-        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${boss ? ' (' + getTranslation("boss", translationKey) + ')': ''}${': ' + value + ' ' + getTranslation("turn" + (value > 1 ? "s" : ""), translationKey)}`} color={TYPE_COLORS[TAG_TYPES[modifier]]}/>
+        <ModifierGenericTag text={`${getTranslationWithoutCategory(convertCamelCaseToWords(modifier),translationKey)}${boss ? ' (' + getTranslation("boss", translationKey) + ')': ''}${': ' + value + ' ' + getTranslation("turn" + (value > 1 ? "s" : ""), translationKey)}`} color={TYPE_COLORS[mode][TAG_TYPES[modifier]]} mode={mode}/>
     )
 }
 
@@ -360,6 +361,7 @@ function ModifierTags({modifiers, translationKey}: {modifiers: Modifiers, transl
 }
 
 function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {fieldEffects: FieldEffects, raiderEffects: FieldSideEffects, bossEffects: FieldSideEffects, translationKey: any}) {
+    const theme = useTheme();
     const noModifiers = Object.entries(fieldEffects).every(([key, value]) => !value ) && 
                         Object.entries(raiderEffects).every(([key, value]) => !value ) &&
                         Object.entries(bossEffects).every(([key, value]) => !value );
@@ -368,21 +370,21 @@ function FieldLine({fieldEffects, raiderEffects, bossEffects, translationKey}: {
             <Stack direction="row" spacing={1} width="100%" alignItems="center">
                 <Stack direction="row" spacing={0.5} useFlexGap flexWrap="wrap" justifyContent="center" width="100%">
                     { Object.entries(fieldEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
-                        <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
+                        <FieldTag modifier={effect} value={value} boss={false} mode={theme.palette.mode} translationKey={translationKey} />
                     ) : (
-                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                        <ModifierBooleanTag modifier={effect} mode={theme.palette.mode} translationKey={translationKey} />
                     ))})}
                     { Object.entries(raiderEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
-                        <FieldTag modifier={effect} value={value} boss={false} translationKey={translationKey} />
+                        <FieldTag modifier={effect} value={value} boss={false} mode={theme.palette.mode} translationKey={translationKey} />
                     ): (
-                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                        <ModifierBooleanTag modifier={effect} mode={theme.palette.mode} translationKey={translationKey} />
                     ))})}
                     { Object.entries(bossEffects).map(([effect, value]) => { return (value || null) && ( (typeof(value) === "number") ? (
-                        <FieldTag modifier={effect} value={value} boss={true} translationKey={translationKey} />
+                        <FieldTag modifier={effect} value={value} boss={true} mode={theme.palette.mode} translationKey={translationKey} />
                     ): (
-                        <ModifierBooleanTag modifier={effect} translationKey={translationKey} />
+                        <ModifierBooleanTag modifier={effect} mode={theme.palette.mode} translationKey={translationKey} />
                     ))})}
-                    { noModifiers && <ModifierGenericTag text={getTranslation("No Field Modifiers", translationKey)}/>}
+                    { noModifiers && <ModifierGenericTag text={getTranslation("No Field Modifiers", translationKey)} mode={theme.palette.mode}/>}
                 </Stack>
             </Stack>
         </Box>

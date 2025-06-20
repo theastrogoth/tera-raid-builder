@@ -1,4 +1,25 @@
-export const TYPE_COLORS = {
+const DARK_COLORS = {
+    "Bug": "#7D8000",
+    "Dark": "#333333",
+    "Dragon": "#3C47A6",
+    "Electric": "#B39800",
+    "Fairy": "#A66fA6",
+    "Fighting": "#CC7E00",
+    "Fire": "#B33D0E",
+    "Flying": "#5682A3",
+    "Ghost": "#562E59",
+    "Grass": "#008000",
+    "Ground": "#A66B2D",
+    "Ice": "#0098B3",
+    "Normal": "#808080",
+    "Poison": "#8536B3",
+    "Psychic": "#B33653",
+    "Rock": "#727350",
+    "Steel": "#3D8199",
+    "Water": "#0070BF",
+};
+
+const LIGHT_COLORS = {
     "Bug": "#C4E07B",
     "Dark": "#909090",
     "Dragon": "#9CA5FF",
@@ -18,3 +39,8 @@ export const TYPE_COLORS = {
     "Steel": "#8BA9B5",
     "Water": "#7DC9FF",
 };
+
+export const TYPE_COLORS = {
+    dark: DARK_COLORS,
+    light: LIGHT_COLORS,
+}

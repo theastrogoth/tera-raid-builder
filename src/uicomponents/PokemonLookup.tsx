@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTheme } from "@mui/material/styles";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
@@ -415,11 +416,12 @@ function FilterGenericTag({text, handleDelete}: {text: String, handleDelete?: ()
 }
 
 function FilterTypeTag({text, color, handleDelete}: {text: String, color: String, handleDelete?: () => void}) {
+    const theme = useTheme();
     return (
         // @ts-ignore
         <Paper elevation={0} variant='outlined' sx={{ borderRadius: 100, backgroundColor: color }}> 
             <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center" sx={{ minWidth: "50px", paddingX: "10px", paddingRight: handleDelete ? "5px" : "10px" }}>
-                <Typography variant="body1" justifyContent="center" alignItems="center" color={"#000000b8"} sx={{ paddingY: "5px"}}>
+                <Typography variant="body1" justifyContent="center" alignItems="center" color={theme.palette.mode === "dark" ? "white" : "#000000b8"} sx={{ paddingY: "5px"}}>
                     {text}
                 </Typography>
                 { handleDelete &&
@@ -436,14 +438,15 @@ function FilterTypeTag({text, color, handleDelete}: {text: String, color: String
 }
 
 function FilterTagDispatcher({filter, handleDelete, translationKey}: {filter: SearchOption, handleDelete: () => void, translationKey: any}) {
+    const theme = useTheme();
     switch(filter.type) {
         case "Type":
             // @ts-ignore
-            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "types")} color={TYPE_COLORS[filter.name]} handleDelete={handleDelete}/>
+            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "types")} color={TYPE_COLORS[theme.palette.mode][filter.name]} handleDelete={handleDelete}/>
         case "Moves":
             const move = gen.moves.get(toID(filter.name))!;
             // @ts-ignore
-            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "moves")} color={TYPE_COLORS[move.type]} handleDelete={handleDelete}/>
+            return <FilterTypeTag text={getTranslation(filter.name, translationKey, "moves")} color={TYPE_COLORS[theme.palette.mode][move.type]} handleDelete={handleDelete}/>
         case "Ability":
             return <FilterGenericTag text={getTranslation(filter.name, translationKey, "abilities")} handleDelete={handleDelete}/>
         case "Custom":
@@ -1146,6 +1149,7 @@ const modalStyle = {
 function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMoves, translationKey}: 
     {loadSet: (n: SetOption) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (s: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, translationKey: any}) {
 
+    const theme = useTheme();
     // const [moveFilters, setMoveFilters] = useState<MoveName[]>([]);
     // const [abilityFilters, setAbilityFilters] = useState<AbilityName[]>([]);
     // const [typeFilters, setTypeFilters] = useState<TypeName[]>([]);
@@ -1372,7 +1376,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                                                     <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
                                                         <Typography>{`${getTranslation("By Type",translationKey)}:`}</Typography>
                                                         <Box flexGrow={1} sx={{minWidth: "5px"}} />
-                                                        <FilterTypeTag text={getTranslation("Fairy",translationKey,"types")} color={TYPE_COLORS.Fairy} />
+                                                        <FilterTypeTag text={getTranslation("Fairy",translationKey,"types")} color={TYPE_COLORS[theme.palette.mode].Fairy} />
                                                     </Stack>
                                                     <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
                                                         <Typography>{`${getTranslation("By Ability",translationKey)}:`}</Typography>
@@ -1382,7 +1386,7 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                                                     <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
                                                         <Typography>{`${getTranslation("By Move",translationKey)}:`}</Typography>
                                                         <Box flexGrow={1} sx={{minWidth: "5px"}} />
-                                                        <FilterTypeTag text={getTranslation("Helping Hand",translationKey,"moves")} color={TYPE_COLORS.Normal} />
+                                                        <FilterTypeTag text={getTranslation("Helping Hand",translationKey,"moves")} color={TYPE_COLORS[theme.palette.mode].Normal} />
                                                     </Stack>
                                                     <Stack direction="row" paddingLeft="20px" alignItems="center" margin="5px 0px">
                                                         <Typography>{`${getTranslation("By Stat",translationKey)}:`}</Typography>

@@ -84,10 +84,10 @@
             "name": "Perrserker",
             "shiny": false,
             "ability": "Steely Spirit",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "item": "Air Balloon",
+            "nature": "Impish",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -114,10 +114,10 @@
             "name": "Perrserker",
             "shiny": false,
             "ability": "Steely Spirit",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "item": "Air Balloon",
+            "nature": "Impish",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -140,14 +140,14 @@
         },
         {
             "id": 4,
-            "role": "Charjabug",
-            "name": "Charjabug",
+            "role": "Perrserker",
+            "name": "Perrserker",
             "shiny": false,
-            "ability": "Battery",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "Steely Spirit",
+            "item": "Air Balloon",
+            "nature": "Impish",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -164,7 +164,9 @@
             },
             "level": 100,
             "gender": "N",
-            "moves": []
+            "moves": [
+                "Fake Tears"
+            ]
         }
     ],
     "turns": [
@@ -174,12 +176,12 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
                     "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -190,19 +192,19 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
                     "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             }
         },
         {
-            "id": 1,
-            "group": 1,
+            "id": 4,
+            "group": 3,
             "moveInfo": {
-                "name": "Steel Beam",
+                "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -230,7 +232,7 @@
             0
         ],
         [
-            1
+            4
         ]
     ],
     "repeats": [

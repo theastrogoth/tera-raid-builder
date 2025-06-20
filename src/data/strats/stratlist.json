@@ -1,4 +1,9 @@
 {
+    "Baxcalibur": {
+        "Achilles Steel": "baxcalibur/main",
+        "Anti-Kaiju Armor": "baxcalibur/anti_kaiju_armor",
+        "Anti-Kaiju Armor (Trio)": "baxcalibur/anti_kaiju_armor_3"
+    },
     "Porygon2": {
         "Rubber Ducky": "porygon2/main",
         "Rubber Ducky (Trio)": "porygon2/rubber_ducky_3",

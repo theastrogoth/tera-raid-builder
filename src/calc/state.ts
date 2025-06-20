@@ -49,6 +49,7 @@ export namespace State {
     hitsTaken?: number;
     timesFainted?: number;
     hasExtraType?: boolean;
+    glaiveRush?: boolean;
     // lastMoveFailed?: boolean;
     moves?: I.MoveName[];
     abilityNullified?: number;

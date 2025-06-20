@@ -1725,6 +1725,11 @@ export function calculateFinalModsSMSSSV(
     desc.defenderItem = defender.item;
   }
 
+  if (defender.glaiveRush) {
+    finalMods.push(8192);
+    desc.glaiveRush = true;
+  }
+
   return finalMods;
 }
 

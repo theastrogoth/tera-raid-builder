@@ -59,6 +59,7 @@ export interface RawDesc {
   isDefenderDynamaxed?: boolean;
   isCharged?: boolean;
   shieldActive?: boolean;
+  glaiveRush?: boolean;
 }
 
 export function display(
@@ -935,6 +936,9 @@ function buildDescription(description: RawDesc, attacker: Pokemon, defender: Pok
   }
   if (description.isCharged) {
     output += ' charged ';
+  }
+  if (description.glaiveRush) {
+    output += 'Glaive Rush boosted ';
   }
   output += description.moveName + ' ';
   if (description.moveBP && description.moveType) {

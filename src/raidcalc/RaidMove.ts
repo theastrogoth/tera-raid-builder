@@ -1455,6 +1455,10 @@ export class RaidMove {
         if (this.moveData.isSound && this._user.hasItem("Throat Spray")) {
             this._raidState.consumeItem(this.userID, this._user.item!);
         }
+        // Remove Glaive Rush flag (this might be better placed elsewhere)
+        if (this._user.glaiveRush) {
+            this._user.glaiveRush = false;
+        }
     }
 
     private applyUniqueMoveEffects() {
@@ -1971,6 +1975,9 @@ export class RaidMove {
                     this._raidState.applyStatus(this._targetID, "par", this._user.id, true, false, this.options.roll)
                     this._raidState.applyStatus(this._targetID, "psn", this._user.id, true, false, this.options.roll)
                 }
+                break;
+            case "Glaive Rush":
+                this._user.glaiveRush = true;
                 break;
             default: break;
             }

@@ -176,7 +176,7 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -707,6 +707,86 @@
                         "spa": 252,
                         "spd": 0,
                         "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Empoleon",
+                    "name": "Empoleon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Goodra",
+                    "name": "Goodra-Hisui",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
                     },
                     "ivs": {
                         "hp": 31,

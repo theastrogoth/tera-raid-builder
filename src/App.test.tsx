@@ -102,7 +102,7 @@ async function resultsFromLightBuild(strategy: LightBuildInfo, skipMoveCountChec
       totalTurns = strategy.groups!.reduce((a, b, i) => b.length * (strategy.repeats![i] || 1) + a, 0);
     }
     const numNPCs = startingState.raiders.filter((raider) => raider.name === "NPC").length;
-    const numHostMoves = buildInfo.groups.reduce((acc, g) => acc + g.turns.reduce((tacc, t) => tacc + ((t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)") ? 1 : 0), 0), 0);
+    const numHostMoves = buildInfo.groups.reduce((acc, g) => acc + g.turns.reduce((tacc, t) => tacc + (((t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)") ? 1 : 0) * (g.repeats || 1)), 0), 0);
     totalTurns += numNPCs * numHostMoves;
     const lastGroup = buildInfo.groups[buildInfo.groups.length - 1];
     if (lastGroup.turns[lastGroup.turns.length -1].moveInfo.userID === 1) {

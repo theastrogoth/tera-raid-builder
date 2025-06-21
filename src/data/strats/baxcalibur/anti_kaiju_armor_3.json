@@ -356,7 +356,7 @@
                 "targetID": 0,
                 "options": {
                     "crit": false,
-                    "secondaryEffects": false,
+                    "secondaryEffects": true,
                     "roll": "avg",
                     "allowMiss": false,
                     "hits": 1
@@ -384,7 +384,7 @@
                 "targetID": 0,
                 "options": {
                     "crit": false,
-                    "secondaryEffects": false,
+                    "secondaryEffects": true,
                     "roll": "avg",
                     "allowMiss": false,
                     "hits": 1

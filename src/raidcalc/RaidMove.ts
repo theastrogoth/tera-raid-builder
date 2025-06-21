@@ -147,6 +147,7 @@ export class RaidMove {
         this.delayed = delayed || false;
         this.hits = this.move.category === "Status" ? 0 : Math.max(this.moveData.minHits || 1, Math.min(this.moveData.maxHits || 1, this.options.hits || 1));
         this.hits = this.raidState.raiders[this.userID].hasAbility("Skill Link") ? (this.moveData.maxHits || 1) : this.hits;
+        this.hits = this.raidState.raiders[this.userID].hasItem("Loaded Dice") && this.moveData.maxHits ? Math.max(this.moveData.maxHits - 1, this.hits) : this.hits;
     }
 
     public result(): RaidMoveResult {

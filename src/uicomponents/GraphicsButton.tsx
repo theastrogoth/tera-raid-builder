@@ -1212,8 +1212,6 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     }
 
     function createMoveTypeMatrix(pokemonDataMatrix: PokemonData[][], movesMatrix: Move[][][]): TypeName[][][] {
-        console.log(pokemonDataMatrix)
-        console.log(movesMatrix)
         return pokemonDataMatrix.map((slot, slotIndex) =>
             slot.map((data, index) => {
                 const moves = movesMatrix[slotIndex][index];
@@ -1299,9 +1297,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         const buildsOnlyBuildInfo: GraphicBuildInfo[] = [];
 
         const displayOrder: number[] = [];
-        for (const idx of buildsOrder) {
-            if (buildsEnabled[idx]) {
-                displayOrder.push(idx);
+        for (const [index, slot_index] of buildsOrder.entries()) {
+            if (buildsEnabled[index]) {
+                displayOrder.push(slot_index);
             }
         }
 

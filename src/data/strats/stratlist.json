@@ -7,7 +7,9 @@
         "4 Cats": "baxcalibur/cats",
         "Classic Anger Point": "baxcalibur/anger_point",
         "Charizard T1": "baxcalibur/charizard",
-        "Tickle Squad": "baxcalibur/tickle_squad"
+        "Fiery, Foxy and Fishy": "baxcalibur/fiery_foxy_fishy",
+        "Tickle Squad": "baxcalibur/tickle_squad",
+        "Godzilla vs Godzilla: Fire and Ice": "baxcalibur/godzilla"
     },
     "Porygon2": {
         "Rubber Ducky": "porygon2/main",
@@ -34,7 +36,7 @@
     },
     "Garchomp": {
         "Fin-ishing Touch": "garchomp/main",
-        "Fin-ishing Touch (3-person version)": "garchomp/finishing_touch_3",
+        "Fin-ishing Touch (Trio)": "garchomp/finishing_touch_3",
         "Classic Kyogre T1": "garchomp/classic_kyogre",
         "Kyogre T1": "garchomp/kyogre",
         "Competitive Goo": "garchomp/competitive_goo",
@@ -79,7 +81,7 @@
     },
     "Salamence": {
         "Lunar Lights": "salamence/main",
-        "Lunar Lights (3-person version)": "salamence/lunar_lights_3",
+        "Lunar Lights (Trio)": "salamence/lunar_lights_3",
         "Miraidon T1": "salamence/miraidon",
         "Team Eeveelutions Speeds Up To Shock Salamence!": "salamence/eeveelutions",
         "Godzilla and Friends": "salamence/godzilla",
@@ -95,7 +97,7 @@
     },
     "Tyranitar": {
         "Desserted": "tyranitar/main",
-        "Desserted (3-person version)": "tyranitar/desserted_3",
+        "Desserted (Trio)": "tyranitar/desserted_3",
         "Classic Anger Point": "tyranitar/ap",
         "Fooled ;P": "tyranitar/fooled",
         "Growth Pains": "tyranitar/growth_pains",
@@ -128,7 +130,7 @@
     },
     "Quaquaval": {
         "Duck Duck Zeus": "quaquaval/main",
-        "Duck Duck Zeus (3-person version)": "quaquaval/ddz_3",
+        "Duck Duck Zeus (Trio)": "quaquaval/ddz_3",
         "Miraidon T1": "quaquaval/miraidon",
         "Floral Flamenco": "quaquaval/floral_flamenco",
         "Rock the Zone": "quaquaval/rock_the_zone",
@@ -150,7 +152,7 @@
     },
     "Skeledirge": {
         "Singing in the Rain": "skeledirge/main",
-        "Singing in the Rain (3-person version)": "skeledirge/singing_in_the_rain_3",
+        "Singing in the Rain (Trio)": "skeledirge/singing_in_the_rain_3",
         "Kyogre T1": "skeledirge/kyogre",
         "Team Eeveelutions Sink a Singing Crocodile!": "skeledirge/eeveelutions",
         "Godzilla": "skeledirge/godzilla",
@@ -170,7 +172,7 @@
     },
     "Meowscarada": {
         "Catfished": "meowscarada/main",
-        "Catfished (3-person version)": "meowscarada/catfished_3",
+        "Catfished (Trio)": "meowscarada/catfished_3",
         "Trio Carry": "meowscarada/trio_carry",
         "Classic Anger Point": "meowscarada/ap",
         "Squawkabilly T1": "meowscarada/squawkabilly",
@@ -198,7 +200,7 @@
     },
     "Rayquaza": {
         "Cakey Snakey": "rayquaza/main",
-        "Cakey Snakey (3-person version)": "rayquaza/cakey_snakey_3",
+        "Cakey Snakey (Trio)": "rayquaza/cakey_snakey_3",
         "Quick Turnover": "rayquaza/quick_turnover",
         "One and Done": "rayquaza/one_and_done",
         "Gholdengo T1": "rayquaza/gholdengo",
@@ -212,10 +214,10 @@
     },
     "Torterra": {
         "Cryogre": "torterra/main",
-        "Cryogre (3-person version)": "torterra/cryogre_3",
+        "Cryogre (Trio)": "torterra/cryogre_3",
         "Kyogre 3-move": "torterra/kyogre_3_move",
         "Fall Harvest": "torterra/fall_harvest",
-        "Fall Harvest (3-person version)": "torterra/fall_harvest_3",
+        "Fall Harvest (Trio)": "torterra/fall_harvest_3",
         "Espathra T1": "torterra/espathra",
         "Team Eeveelutions Dances in the Sun": "torterra/eeveelutions",
         "Godzilla vs. Ground Tortoise": "torterra/godzilla",
@@ -237,7 +239,7 @@
     },
     "Feraligatr": {
         "Latr, Feraligatr!": "feraligatr/main",
-        "Latr, Feraligatr! (3-person version)": "feraligatr/latr_gatr_3",
+        "Latr, Feraligatr! (Trio)": "feraligatr/latr_gatr_3",
         "Koraidon T1": "feraligatr/koraidon",
         "Anger Point T1": "feraligatr/anger_point",
         "Medicham T1": "feraligatr/medicham",
@@ -267,7 +269,7 @@
     },
     "Infernape": {
         "Rock All Night": "infernape/main",
-        "Rock All Night (3-person version)": "infernape/rock_all_night_3",
+        "Rock All Night (Trio)": "infernape/rock_all_night_3",
         "Steely T1": "infernape/steely",
         "Minimal T1 Anger Point": "infernape/anger_point",
         "Passimian T1": "infernape/passimian",
@@ -301,7 +303,7 @@
     },
     "Serperior": {
         "Cooking With Gas": "serperior/main",
-        "Cooking With Gas (3-person version)": "serperior/cooking_w_gas_3",
+        "Cooking With Gas (Trio)": "serperior/cooking_w_gas_3",
         "Cooking With Gas: Monkey edition": "serperior/cooking_w_monkey",
         "Minimal T1 Anger Point": "serperior/anger_point",
         "Braviary T1": "serperior/braviary",
@@ -478,7 +480,7 @@
     },
     "Swampert": {
         "Tom and Jerry": "swampert/main",
-        "Tom and Jerry (3-person version)": "swampert/tom_and_jerry_3",
+        "Tom and Jerry (Trio)": "swampert/tom_and_jerry_3",
         "A Muddy T1 in Store... (Backup Plan)": "swampert/muddy",
         "Farigiraf T1.5": "swampert/farigiraf",
         "Dessert for Swampert": "swampert/dessert",

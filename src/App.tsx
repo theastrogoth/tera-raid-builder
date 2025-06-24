@@ -68,7 +68,7 @@ const speciesData = recursiveEmptiesToNull(deserialize(speciesText));
 const _allSpecies = new Map<SpeciesName,PokemonData>();
 for (let [specie, data] of Object.entries(speciesData)) {
   if (specie.includes("Flab")) {
-    const flab_species = "Flabebe";
+    const flab_species = "Flabébé";
     const flab_data = {...data as PokemonData, name: "Flabébé" as SpeciesName};
     _allSpecies.set(flab_species as SpeciesName, flab_data as PokemonData);
   } else {

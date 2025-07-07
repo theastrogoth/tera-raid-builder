@@ -5490,7 +5490,7 @@
     "Clanging Scales": {
         "name": "Clanging Scales",
         "moveCategory": "Special",
-        "category": "damage",
+        "category": "damage+raise",
         "target": "all-opponents",
         "type": "Dragon",
         "power": 110,

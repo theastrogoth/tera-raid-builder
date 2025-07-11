@@ -1,5 +1,7 @@
 {
     "Kommo-o": {
+        "Powerhouse Crashout": "kommo-o/main",
+        "Powerhouse Crashout (trio)": "kommo-o/powerhouse_crashout_3",
         "Espathra T2": "kommo-o/espathra",
         "The Power Stored Within": "kommo-o/armarouge"
     },

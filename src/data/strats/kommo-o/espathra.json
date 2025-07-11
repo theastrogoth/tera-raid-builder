@@ -1,7 +1,7 @@
 {
     "name": "Espathra T2 KO Kommo-o the Unrivaled",
-    "notes": "This strat relies on Kommo using CC at least once. Other Guru sets can still work even if Kommo doesn’t use CC, but only if it also avoids using Iron Head. There’s a small chance Kommo might drop below 80% HP(which triggers a scripted move) if Espathra gets lucky and lands multiple crits during the setup phase. This could potentially be avoided by reordering the Decorate to come after the two Instructs, but that’s a bit awkward and ultimately unnecessary.",
-    "credits": "焦糖瑪琪瑪, Nyashiro",
+    "notes": "Espathra is deliberately left untrained to avoid over-damaging the boss during setup, which could happen if it gets lucky with crits and trigger the scripted move.",
+    "credits": "Nyashiro, 焦糖瑪琪瑪",
     "pokemon": [
         {
             "id": 0,
@@ -61,7 +61,7 @@
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,8 +77,8 @@
             "gender": "N",
             "teraType": "Psychic",
             "moves": [
-                "Stored Power",
-                "Lumina Crash"
+                "Lumina Crash",
+                "Stored Power"
             ]
         },
         {
@@ -113,8 +113,8 @@
         },
         {
             "id": 3,
-            "role": "Gyarados",
-            "name": "Gyarados",
+            "role": "Masquerain",
+            "name": "Masquerain",
             "shiny": false,
             "ability": "Intimidate",
             "item": "Covert Cloak",
@@ -122,9 +122,9 @@
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -145,13 +145,14 @@
             "name": "Oranguru",
             "shiny": false,
             "ability": "Inner Focus",
+            "item": "Sitrus Berry",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 136,
                 "spa": 0,
-                "spd": 0,
+                "spd": 122,
                 "spe": 0
             },
             "ivs": {
@@ -199,8 +200,36 @@
             }
         },
         {
-            "id": 1,
-            "group": 1,
+            "id": 9,
+            "group": 9,
+            "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Activate Shield",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 4,
             "moveInfo": {
                 "name": "Defense Cheer",
                 "userID": 3,
@@ -214,7 +243,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -227,8 +256,8 @@
             }
         },
         {
-            "id": 2,
-            "group": 2,
+            "id": 1,
+            "group": 5,
             "moveInfo": {
                 "name": "Lumina Crash",
                 "userID": 1,
@@ -242,7 +271,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -255,7 +284,7 @@
             }
         },
         {
-            "id": 3,
+            "id": 5,
             "group": 3,
             "moveInfo": {
                 "name": "Instruct",
@@ -270,7 +299,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -283,8 +312,8 @@
             }
         },
         {
-            "id": 4,
-            "group": 4,
+            "id": 2,
+            "group": 6,
             "moveInfo": {
                 "name": "Decorate",
                 "userID": 2,
@@ -298,7 +327,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -311,36 +340,8 @@
             }
         },
         {
-            "id": 5,
-            "group": 5,
-            "moveInfo": {
-                "name": "Heal Cheer",
-                "userID": 3,
-                "targetID": 3,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 6,
+            "id": 3,
+            "group": 2,
             "moveInfo": {
                 "name": "Instruct",
                 "userID": 4,
@@ -354,7 +355,35 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 7,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -368,7 +397,7 @@
         },
         {
             "id": 7,
-            "group": 7,
+            "group": 8,
             "moveInfo": {
                 "name": "Decorate",
                 "userID": 2,
@@ -382,7 +411,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -396,7 +425,7 @@
         },
         {
             "id": 8,
-            "group": 8,
+            "group": 1,
             "moveInfo": {
                 "name": "Stored Power",
                 "userID": 1,
@@ -411,7 +440,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -429,19 +458,22 @@
             0
         ],
         [
+            9
+        ],
+        [
+            4
+        ],
+        [
             1
+        ],
+        [
+            5
         ],
         [
             2
         ],
         [
             3
-        ],
-        [
-            4
-        ],
-        [
-            5
         ],
         [
             6
@@ -454,6 +486,7 @@
         ]
     ],
     "repeats": [
+        1,
         1,
         1,
         1,

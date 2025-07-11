@@ -31,7 +31,7 @@ import { getPokemonSpriteURL, arraysEqual, getTranslation, getSelectableTargets 
 import { useTheme } from '@mui/material/styles';
 import { alpha } from "@mui/material";
 import { RaidBattleResults } from "../raidcalc/RaidBattle";
-import { getSelectableMoves, isRegularMove } from "../raidcalc/util";
+import { getSelectableMoves, isRaidAction, isRegularMove } from "../raidcalc/util";
 
 const STRUGGLE_DATA: MoveData = {
     name: "Struggle" as MoveName,
@@ -192,7 +192,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                     <TableContainer>
                         <Table size="small">
                             <TableBody>
-                                { (!isBoss && raider.teraType && !raider.isTera && ((raider.teraCharge || 0) >= 3)) &&
+                                { (!isBoss && raider.teraType && !raider.isTera && ((raider.teraCharge || 0) >= 3) && !isRaidAction(moveInfo.moveData.name) && moveInfo.moveData.name !== "(No Move)") &&
                                     <TableRow>
                                         <TableCell>
                                             {getTranslation("Tera",translationKey)}
@@ -338,9 +338,6 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
 
     // const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
     const raider = raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID];
-    if (moveName === "Belch") {
-        console.log(raider.preventBelch);
-    }
     const moveSet = ["(No Move)", "(Most Damaging)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])];
 
     const [disableTarget, setDisableTarget] = useState<boolean>(
@@ -1116,7 +1113,16 @@ function MoveSelection({raidInputProps, results, rollCase, translationKey}: {rai
                                     )}
                                 </Droppable> */}
                                 {
-                                    raidInputProps.groups.map((group, index) => (
+                                    raidInputProps.groups.map((group, index) => { 
+                                        const firstMoveIndex = raidInputProps.groups.slice(0, index).reduce(
+                                            (acc, g) => acc + (
+                                                // number of regular moves
+                                                g.turns.length +
+                                                // ... plus the number of NPC moves (assumes NPC isn't in the first slot, so maybe we should enforce that)
+                                                g.turns.filter(t => t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)").length * raidInputProps.pokemon.slice(1).filter(p => p.name === "NPC").length    
+                                            ) * (g.repeats || 1), 0
+                                        );
+                                        return (
                                         <Draggable
                                             key={"g"+index}
                                             draggableId={"g"+index}
@@ -1133,7 +1139,7 @@ function MoveSelection({raidInputProps, results, rollCase, translationKey}: {rai
                                                         raidInputProps={raidInputProps} 
                                                         results={results}
                                                         groupIndex={index} 
-                                                        firstMoveIndex={raidInputProps.groups.slice(0, index).reduce((acc, g) => acc + (g.turns.length) * (g.repeats || 1), 0)}
+                                                        firstMoveIndex={firstMoveIndex}
                                                         rollCase={rollCase}
                                                         buttonsVisible={buttonsVisible}
                                                         transitionIn={transitionIn}
@@ -1145,7 +1151,7 @@ function MoveSelection({raidInputProps, results, rollCase, translationKey}: {rai
                                                 </div>
                                             )}
                                         </Draggable>
-                                    ))
+                                    )})
                                 }
                             </Stack>
                         </div>

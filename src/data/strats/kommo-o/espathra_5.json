@@ -1,7 +1,7 @@
 {
-    "name": "The Power Stored Within",
-    "notes": "Turn order is very important!",
-    "credits": "AK |Ash| (tested with Max, Ericka, and Venom)",
+    "name": "Espathra T1.25 KO Kommo-o the Unrivaled",
+    "notes": "",
+    "credits": "Nyashiro",
     "pokemon": [
         {
             "id": 0,
@@ -51,12 +51,12 @@
         },
         {
             "id": 1,
-            "role": "Armarouge",
-            "name": "Armarouge",
+            "role": "Espathra",
+            "name": "Espathra",
             "shiny": false,
-            "ability": "Weak Armor",
-            "item": "Metronome",
-            "nature": "Modest",
+            "ability": "Opportunist",
+            "item": "Mirror Herb",
+            "nature": "Calm",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -77,6 +77,7 @@
             "gender": "N",
             "teraType": "Psychic",
             "moves": [
+                "Lumina Crash",
                 "Stored Power"
             ]
         },
@@ -85,8 +86,38 @@
             "role": "Oranguru",
             "name": "Oranguru",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
+            "ability": "Symbiosis",
+            "item": "Weakness Policy",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 4
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Instruct"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Oranguru",
+            "name": "Oranguru",
+            "shiny": false,
+            "ability": "Symbiosis",
+            "item": "Choice Specs",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -111,43 +142,13 @@
             ]
         },
         {
-            "id": 3,
-            "role": "Alcremie",
-            "name": "Alcremie",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Babiri Berry",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 252,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "F",
-            "moves": [
-                "Decorate"
-            ]
-        },
-        {
             "id": 4,
-            "role": "Weezing",
-            "name": "Weezing",
+            "role": "Landorus",
+            "name": "Landorus-Therian",
             "shiny": false,
-            "ability": "Levitate",
-            "item": "Sitrus Berry",
-            "nature": "Calm",
+            "ability": "Intimidate",
+            "item": "Petaya Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -165,9 +166,9 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "moves": [
-                "Clear Smog"
+                "Fling"
             ]
         }
     ],
@@ -182,8 +183,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -192,129 +193,17 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
         {
-            "id": 1,
-            "group": 1,
-            "moveInfo": {
-                "name": "Clear Smog",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 2,
-            "moveInfo": {
-                "name": "Stored Power",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 3,
-            "group": 3,
-            "moveInfo": {
-                "name": "Instruct",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 3,
-            "moveInfo": {
-                "name": "Decorate",
-                "userID": 3,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 4,
+            "id": 9,
+            "group": 9,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -322,8 +211,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -332,17 +221,45 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
         {
-            "id": 6,
+            "id": 1,
             "group": 5,
+            "moveInfo": {
+                "name": "Lumina Crash",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 3,
             "moveInfo": {
                 "name": "Instruct",
                 "userID": 2,
@@ -350,8 +267,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -360,26 +277,26 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
         {
-            "id": 7,
-            "group": 5,
+            "id": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "Decorate",
+                "name": "Instruct",
                 "userID": 3,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -388,45 +305,45 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Fling",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": true,
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
                 }
             }
         },
         {
             "id": 8,
-            "group": 5,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
-                "targetID": 4,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 9,
-            "group": 6,
+            "group": 1,
             "moveInfo": {
                 "name": "Stored Power",
                 "userID": 1,
@@ -434,8 +351,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1,
                     "activateTera": true
                 }
@@ -445,11 +362,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
@@ -459,29 +376,23 @@
             0
         ],
         [
+            9
+        ],
+        [
             1
         ],
         [
+            5,
             2
         ],
         [
-            3,
-            4
+            3
         ],
         [
-            5
-        ],
-        [
-            6,
-            7,
             8
-        ],
-        [
-            9
         ]
     ],
     "repeats": [
-        1,
         1,
         1,
         1,

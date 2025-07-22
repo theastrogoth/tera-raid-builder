@@ -401,7 +401,7 @@ export function calculateSMSSSV(
 
   desc.HPEVs = `${defender.evs.hp} HP`;
 
-  const fixedDamage = handleFixedDamageMoves(attacker, move);
+  const fixedDamage = handleFixedDamageMoves(attacker, move, defender);
   if (fixedDamage) {
     if (attacker.hasAbility('Parental Bond')) {
       result.damage = [fixedDamage, fixedDamage];

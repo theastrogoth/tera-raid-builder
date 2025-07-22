@@ -43,6 +43,7 @@ export class Pokemon implements State.Pokemon {
   isPumped: number;
   isMicle: boolean;
   isMinimize: boolean;
+  isDefenseCurl: boolean;
   randomBoosts: number;
   stockpile: number;
   rawStats: I.StatsTable;
@@ -114,6 +115,7 @@ export class Pokemon implements State.Pokemon {
     this.isPumped = options.isPumped || 0;
     this.isMicle = !!options.isMicle;
     this.isMinimize = !!options.isMinimize;
+    this.isDefenseCurl = !!options.isDefenseCurl;
     this.randomBoosts = options.randomBoosts || 0;
     this.stockpile = options.stockpile || 0;
 

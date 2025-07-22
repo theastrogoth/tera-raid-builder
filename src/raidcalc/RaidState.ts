@@ -1560,6 +1560,7 @@ export class RaidState implements State.RaidState{
         pokemon.isPumped = 0;
         pokemon.isMicle = false;
         pokemon.isMinimize = false;
+        pokemon.isDefenseCurl = false;
         pokemon.randomBoosts = 0;
         pokemon.alliesFainted = (pokemon.alliesFainted || 0) + 1;
         pokemon.status = "";

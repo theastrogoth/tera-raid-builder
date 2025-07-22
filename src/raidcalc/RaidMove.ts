@@ -201,6 +201,10 @@ export class RaidMove {
                     this._raidState.raiders[this.raiderID].isMicle = false; // in case of Instruct
                 }
             }
+        } else {
+            if (this.moveData.name === "Rollout") {
+                this._user.moveRepeated = 0;
+            }
         }
         // remove isCharged
         if (this.move.hasType("Electric") && !this.move.named("Charge")) {
@@ -386,6 +390,9 @@ export class RaidMove {
             (this.move.named("Belch") && this._user.preventBelch) ||
             (this.move.named("Focus Punch") && this._damaged[this.userID])
         ) {
+            if (this.moveData.name === "Rollout") {
+                this._user.moveRepeated = 0;
+            }
             this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
             return true;
         }
@@ -833,33 +840,39 @@ export class RaidMove {
                 if (this.options.allowMiss ? (accuracy >= 100 || roll !== "min") : (accuracy > 0)) {
                     try {
                         const preDamageItem = target.item;
+                        let moveBP = this.move.bp;
                         // calculate each hit from a multi-hit move
                         for (let i=0; i<this.hits; i++) { 
                             const calcMove = this.move.clone();
                             calcMove.hits = 1;
                             calcMove.isCrit = crit;
                             calcMove.isSpread = !!this._isSpread;
-                            if (calcMove.name === "Beat Up") {
-                                calcMove.bp = Math.floor(moveUser.species.baseStats.atk / 10 + 5);
-                            }
-                            calcMove.bp = calcMove.bp * bpModifier; // from interactions like Dig + Earthquake
-                            calcMove.bp = ((calcMove.name === "Triple Axel" || calcMove.name === "Triple Kick") ? i+1 : 1) * calcMove.bp;
-                            if (calcMove.name === "Pollen Puff" && this.userID !== 0 && this._targetID !== 0) {
-                                break;
-                            }
-                            if (calcMove.named("Endeavor") && (this.userID === 0 || this.targetID === 0)) {
-                                break;
-                            }
                             // handle moves that are affected by repeated use
                             if (this._user.lastMove && (this.moveData.name === this._user.lastMove.name)) {
                                 this._user.moveRepeated = (this._user.moveRepeated || 0) + 1;
                                  // calcMove.timesUsed = this._user.moveRepeated; // THIS CARRIES OUT THE MOVE MULTIPLE TIMES
-                                 // TO DO: Implement boosts for Fury Cutter and Rollout
                             } else {
                                 this._user.moveRepeated = 0;
                             }
                             if (this._user.item === "Metronome") {
                                 calcMove.timesUsedWithMetronome = this._user.moveRepeated || 0; // TO DO: account for Symbiosis, etc
+                            }
+                            // handle BP changes not covered by the smogon calc
+                            if (calcMove.name === "Beat Up") {
+                                moveBP = Math.floor(moveUser.species.baseStats.atk / 10 + 5);
+                            } else if (calcMove.named("Fury Cutter")) {
+                                moveBP = 40 * Math.pow(2, Math.min(2, this._user.moveRepeated || 0))
+                            } else if (calcMove.named("Rollout")) {
+                                moveBP = 30 * Math.pow(2, (this._user.moveRepeated || 0) % 5);
+                            }
+                            moveBP = moveBP * bpModifier; // from interactions like Dig + Earthquake
+                            moveBP = ((calcMove.name === "Triple Axel" || calcMove.name === "Triple Kick") ? i+1 : 1) * moveBP;
+                            calcMove.bp = moveBP;
+                            if (calcMove.name === "Pollen Puff" && this.userID !== 0 && this._targetID !== 0) {
+                                break;
+                            }
+                            if (calcMove.named("Endeavor") && (this.userID === 0 || this.targetID === 0)) {
+                                break;
                             }
                             // get calc result
                             const moveField = this.getMoveField(this.userID, id);
@@ -996,8 +1009,8 @@ export class RaidMove {
                         const result = results[0];
                         result.damage = damageResult as number | number[];
                         result.rawDesc.hits = this.hits > 1 ? this.hits : undefined;
-                        if (bpModifier !== 1) {
-                            result.rawDesc.moveBP = bpModifier * this.move.bp;
+                        if (moveBP !== this.move.bp && !result.rawDesc.moveBP) {
+                            result.rawDesc.moveBP = moveBP;
                         }
                         this._damage[id] = Math.min(totalDamage, this.raidState.raiders[id].originalCurHP);
                         this._desc[id] = result.desc();
@@ -1029,6 +1042,9 @@ export class RaidMove {
                         // this._user.lastMoveFailed = false;
                     }
                 } else {
+                    if (this.moveData.name === "Rollout") {
+                        this._user.moveRepeated = 0;
+                    }
                     const accString = Math.round(accuracy * 10) / 10;
                     const missString = Math.round((100 - accString) * 10) / 10;
                     const accEffectsString = accEffectsList.length ? " with " + accEffectsList.join(", ") : "";
@@ -1614,6 +1630,9 @@ export class RaidMove {
                 break;
             case "Minimize":
                 this._user.isMinimize = true;
+                break;
+            case "Defense Curl":
+                this._user.isDefenseCurl = true;
                 break;
             // Using FailRolePlay/NoReceiver as a guess
             case "Doodle":

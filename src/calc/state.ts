@@ -36,6 +36,7 @@ export namespace State {
     isPumped?: number;
     isMicle?: boolean;
     isMinimize?: boolean;
+    isDefenseCurl?: boolean;
     randomBoosts?: number;
     stockpile?: number;
     originalCurHP?: number;

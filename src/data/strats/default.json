@@ -45,8 +45,8 @@
                 "timeTrigger": 85,
                 "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 75,
-                "shieldDamageRateTeraChange": 35
+                "shieldDamageRateTera": 80,
+                "shieldDamageRateTeraChange": 40
             }
         },
         {

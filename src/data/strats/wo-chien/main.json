@@ -76,7 +76,8 @@
             "level": 100,
             "gender": "M",
             "moves": [
-                "Flare Blitz"
+                "Flare Blitz",
+                "Raging Bull"
             ]
         },
         {
@@ -107,7 +108,9 @@
             "gender": "N",
             "moves": [
                 "Night Slash",
-                "(No Move)"
+                "Screech",
+                "Helping Hand",
+                "Sunny Day"
             ]
         },
         {
@@ -137,7 +140,9 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech"
+                "Screech",
+                "Struggle Bug",
+                "Sunny Day"
             ]
         },
         {
@@ -167,7 +172,9 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech"
+                "Screech",
+                "Struggle Bug",
+                "Sunny Day"
             ]
         }
     ],
@@ -208,11 +215,11 @@
                 "userID": 2,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -236,11 +243,11 @@
                 "userID": 3,
                 "targetID": 0,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
                     "allowMiss": true,
-                    "hits": 10
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -332,7 +339,49 @@
         1
     ],
     "substitutes": [
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Camerupt",
+                    "name": "Camerupt",
+                    "shiny": false,
+                    "ability": "Anger Point",
+                    "item": "Choice Band",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 148,
+                        "def": 204,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 72
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flare Blitz",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "Flare Blitz"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            }
+        ],
         [
             {
                 "raider": {
@@ -340,15 +389,53 @@
                     "role": "Meowscarada",
                     "name": "Meowscarada",
                     "shiny": false,
-                    "ability": "Overgrow",
+                    "ability": "Protean",
                     "item": "Assault Vest",
                     "nature": "Calm",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flower Trick"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flower Trick"
+                ],
+                "substituteTargets": [
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Smeargle",
+                    "name": "Smeargle",
+                    "shiny": false,
+                    "ability": "Own Tempo",
+                    "item": "Assault Vest",
+                    "nature": "Hardy",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
-                        "spd": 252,
+                        "spd": 0,
                         "spe": 0
                     },
                     "ivs": {
@@ -362,14 +449,15 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Flower Trick"
+                        "Flower Trick",
+                        "Wicked Blow"
                     ]
                 },
                 "substituteMoves": [
                     "Flower Trick"
                 ],
                 "substituteTargets": [
-                    0
+                    1
                 ]
             }
         ],

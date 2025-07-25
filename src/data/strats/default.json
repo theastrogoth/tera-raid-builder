@@ -1,7 +1,7 @@
 {
-    "name": "",
-    "notes": "",
-    "credits": "",
+    "name": "Bulls in a China Shop",
+    "notes": "Skill Swap supports must wait to move until after Anger Point is activated.",
+    "credits": "the r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
@@ -76,7 +76,8 @@
             "level": 100,
             "gender": "M",
             "moves": [
-                "Flare Blitz"
+                "Flare Blitz",
+                "Raging Bull"
             ]
         },
         {
@@ -107,7 +108,9 @@
             "gender": "N",
             "moves": [
                 "Night Slash",
-                "(No Move)"
+                "Screech",
+                "Helping Hand",
+                "Sunny Day"
             ]
         },
         {
@@ -137,7 +140,9 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech"
+                "Screech",
+                "Struggle Bug",
+                "Sunny Day"
             ]
         },
         {
@@ -167,7 +172,9 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech"
+                "Screech",
+                "Struggle Bug",
+                "Sunny Day"
             ]
         }
     ],
@@ -182,8 +189,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -192,11 +199,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -206,12 +213,12 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -220,11 +227,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }

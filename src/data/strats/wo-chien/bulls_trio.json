@@ -546,7 +546,6 @@
                     "name": "Scovillain",
                     "shiny": false,
                     "ability": "(No Ability)",
-                    "item": "(No Item)",
                     "nature": "Hardy",
                     "evs": {
                         "hp": 0,
@@ -577,7 +576,7 @@
                     "Spicy Extract"
                 ],
                 "substituteTargets": [
-                    1
+                    0
                 ]
             },
             {
@@ -618,7 +617,7 @@
                     "Spicy Extract"
                 ],
                 "substituteTargets": [
-                    1
+                    0
                 ]
             },
             {
@@ -686,14 +685,14 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Skill Swap"
+                        "Skill Swap",
+                        "Helping Hand",
+                        "Psych Up",
+                        "Power Swap"
                     ]
                 },
                 "substituteMoves": [
-                    "Skill Swap",
-                    "Helping Hand",
-                    "Psych Up",
-                    "Power Swap"
+                    "Skill Swap"
                 ],
                 "substituteTargets": [
                     1

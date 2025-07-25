@@ -107,8 +107,9 @@
             "gender": "N",
             "moves": [
                 "Flower Trick",
+                "Wicked Blow",
                 "Spicy Extract",
-                "Wicked Blow"
+                "Simple Beam"
             ]
         },
         {
@@ -368,7 +369,9 @@
                 },
                 "substituteMoves": [
                     "Night Slash",
-                    "Screech"
+                    "Screech",
+                    "Helping Hand",
+                    "Sunny Day"
                 ],
                 "substituteTargets": [
                     1,

@@ -334,21 +334,27 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     const moveInfo = groups[groupIndex].turns[turnIndex].moveInfo;
     const moveName = moveInfo.moveData.name;
 
+    const userIDRef = useRef(moveInfo.userID);
     const targetRef = useRef(moveInfo.moveData.target);
 
     // const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
     const raider = raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID];
-    const moveSet = ["(No Move)", "(Most Damaging)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])];
-
+    const moveSet = raider.id > 0 ? ["(No Move)", "(Most Damaging)", "(Wait)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])]
+                                  : ["(No Move)", ...raider.moves, ...(raider.extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.name === "(Wait)" ||
             moveInfo.moveData.target === undefined ||
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            // moveInfo.moveData.target === "all-opponents" ||
-            // moveInfo.moveData.target === "all-other-pokemon" ||
-            // moveInfo.moveData.target === "all-pokemon" ||
+            ( moveInfo.userID === 0 && 
+                (
+                    moveInfo.moveData.target === "all-opponents" ||
+                    moveInfo.moveData.target === "all-other-pokemon" ||
+                    moveInfo.moveData.target === "all-pokemon"
+                )
+            ) ||
             moveInfo.moveData.target === "users-field" ||
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
@@ -359,15 +365,29 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
         let newGroups = [...groups];
         newGroups[groupIndex].turns[turnIndex].moveInfo = moveInfo;
 
+        if (moveInfo.userID === 0 || moveInfo.moveData.name === "(Wait)") {
+            newGroups[groupIndex].turns[turnIndex].bossMoveInfo = {
+                moveData: {name: "(No Move)" as MoveName},
+                userID: 0,
+                targetID: 0,
+                options: {...newGroups[groupIndex].turns[turnIndex].bossMoveInfo.options}
+            }
+        }
+
         const newDisableTarget = (
             moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.name === "(Wait)" ||
             moveInfo.moveData.target === undefined ||
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            // moveInfo.moveData.target === "all-opponents" ||
-            // moveInfo.moveData.target === "all-other-pokemon" ||
-            // moveInfo.moveData.target === "all-pokemon" ||
+            ( moveInfo.userID === 0 && 
+                (
+                    moveInfo.moveData.target === "all-opponents" ||
+                    moveInfo.moveData.target === "all-other-pokemon" ||
+                    moveInfo.moveData.target === "all-pokemon"
+                )
+            ) ||
             moveInfo.moveData.target === "users-field" ||
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
@@ -398,15 +418,26 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     }, [moveSet, moveInfo.moveData.target])
 
     useEffect(() => {
+        if (userIDRef.current !== moveInfo.userID) {
+            if (userIDRef.current === 0 || moveInfo.userID === 0) {
+                
+            }
+            userIDRef.current = moveInfo.userID;
+        }
         const newDisableTarget = (
             moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.name === "(Wait)" ||
             moveInfo.moveData.target === undefined ||
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            // moveInfo.moveData.target === "all-opponents" ||
-            // moveInfo.moveData.target === "all-other-pokemon" ||
-            // moveInfo.moveData.target === "all-pokemon" ||
+            ( moveInfo.userID === 0 && 
+                (
+                    moveInfo.moveData.target === "all-opponents" ||
+                    moveInfo.moveData.target === "all-other-pokemon" ||
+                    moveInfo.moveData.target === "all-pokemon"
+                )
+            ) ||
             moveInfo.moveData.target === "users-field" ||
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
@@ -434,11 +465,12 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         }}
                         sx={{ maxWidth : "175px" }}
                     >
-                        {roles.slice(1).map((role, i) => {
-                            const raider = raiders[i+1];
+                        {[...roles.slice(1), roles[0]].map((role, i) => {
+                            const idx = i < 4 ? i + 1 : 0
+                            const raider = raiders[idx];
                             const name = raider.name;
                             return (
-                            <MenuItem key={i} value={i+1}>
+                            <MenuItem key={i} value={idx}>
                                 <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
                                     <Box
                                         sx={{
@@ -484,7 +516,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         onChange={(e) => {
                             const name = e.target.value as MoveName;
                             let mData: MoveData = {name: name};
-                            if (name === "(No Move)") {
+                            if (name === "(No Move)" || name === "(Wait)") {
                             } else if (name === "(Most Damaging)") {
                                 mData = {name: name, target: "selected-pokemon"};
                             } else if (name === "Attack Cheer" || name === "Defense Cheer") {
@@ -493,6 +525,10 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                                 mData = {name: name, priority: 10, category: "heal", target: "user-and-allies"};
                             } else if (name === "Struggle") {
                                 mData = {...STRUGGLE_DATA};
+                            } else if (raiders[moveInfo.userID].id === 0) {
+                                if (isRegularMove(name)) {
+                                    mData = [...raiders[moveInfo.userID].moveData, ...raiders[moveInfo.userID].extraMoveData!].find((m) => m.name === name) as MoveData;
+                                }
                             } else {
                                 mData = raiders[moveInfo.userID].moveData.find((m) => m.name === name) as MoveData;
                             }
@@ -645,8 +681,14 @@ function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGrou
     const turnID = groups[groupIndex].turns[turnIndex].id;
     const collapseIn = transitionOut !== turnID && transitionIn !== turnID;
 
-    const raiderSelectableMoves = getSelectableMoves(raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID]);
-    const bossSelectableMoves = getSelectableMoves(raiders[0], groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)");
+    const bossSelectableMoves = getSelectableMoves(
+        raiders[0], 
+        (
+            groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)" ||
+            groups[groupIndex].turns[turnIndex].moveInfo.userID === 0
+        )
+    );
+    const raiderSelectableMoves = getSelectableMoves(raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID], groups[groupIndex].turns[turnIndex].moveInfo.userID === 0);
 
     useEffect(() => {
         if (transitionIn === turnID) {
@@ -769,7 +811,9 @@ function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, r
                         {/* <Box width="80%">
                             <Divider />
                         </Box> */}
-                        <BossMoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} boss={raiders[0]} groups={groups} setGroups={setGroups} selectableMoves={bossSelectableMoves} translationKey={translationKey} />
+                        { (groups[groupIndex].turns[turnIndex].moveInfo.userID !== 0 && groups[groupIndex].turns[turnIndex].moveInfo.moveData.name !== "(Wait)") && 
+                            <BossMoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} boss={raiders[0]} groups={groups} setGroups={setGroups} selectableMoves={bossSelectableMoves} translationKey={translationKey} />
+                        }
                     </Stack>
                     <Stack alignItems="center" justifyContent={"center"} paddingRight={0.5}>
                         <CloseButton onClick={handleRemoveTurn} visible={true} disabled={!buttonsVisible}/>

@@ -1014,7 +1014,7 @@ function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}:
     const handleClick = () => {
         const newGroups: TurnGroupInfo[] = raidInputProps.groups.map(g => {
             const newTurns: RaidTurnInfo[] = g.turns.map(t => {
-                const [raiderOptions, bossOptions] = getMoveOptionsForRollCase(rollCase, t.moveInfo.targetID, t.moveInfo.moveData, t.bossMoveInfo.moveData);
+                const [raiderOptions, bossOptions] = getMoveOptionsForRollCase(rollCase, t.moveInfo.userID, t.moveInfo.targetID, t.moveInfo.moveData, t.bossMoveInfo.moveData);
                 const newRaiderMoveInfo = {...t.moveInfo};
                 newRaiderMoveInfo.options = {...newRaiderMoveInfo.options, ...raiderOptions}
                 const newBossMoveInfo = {...t.bossMoveInfo};
@@ -1050,11 +1050,14 @@ function RollCaseButton({raidInputProps, rollCase, setRollCase, translationKey}:
     )
 }
 
-function getMoveOptionsForRollCase(rollCase: "max" | "min" | "avg", targetID: number, moveData: MoveData, bossMoveData: MoveData) {
+function getMoveOptionsForRollCase(rollCase: "max" | "min" | "avg", userID: number, targetID: number, moveData: MoveData, bossMoveData: MoveData) {
     const bossRollCase = rollCase === "max" ? "min" : (rollCase === "min" ? "max" : "avg")
-    const raiderRollCase = (targetID !== 0 && moveData.category?.includes("damage")) ? (
-        rollCase === "max" ? "sidemax" : (rollCase === "min" ? "sidemin" : "avg")
-    ) : rollCase;
+    const raiderRollCase = userID === 0 ? bossRollCase : 
+        (
+            (targetID !== 0 && moveData.category?.includes("damage")) ? (
+            rollCase === "max" ? "sidemax" : (rollCase === "min" ? "sidemin" : "avg")
+            ) : rollCase
+        );
     return [rollCaseToOptions(raiderRollCase, moveData), rollCaseToOptions(bossRollCase, bossMoveData)]
 }
 
@@ -1076,7 +1079,8 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
     let matchesCase = true;
     for (let group of groups) {
         for (let turn of group.turns) {
-            const [raiderShouldMatch, bossShouldMatch] = getMoveOptionsForRollCase(rollCase, turn.moveInfo.targetID, turn.moveInfo.moveData, turn.bossMoveInfo.moveData);
+            let [raiderShouldMatch, bossShouldMatch] = getMoveOptionsForRollCase(rollCase, turn.moveInfo.userID, turn.moveInfo.targetID, turn.moveInfo.moveData, turn.bossMoveInfo.moveData);
+            if (turn.moveInfo.userID === 0) { raiderShouldMatch = bossShouldMatch };
             const raiderMatches = !!turn.moveInfo.options &&
                 turn.moveInfo.options.crit === raiderShouldMatch.crit &&
                 turn.moveInfo.options.secondaryEffects === raiderShouldMatch.secondaryEffects &&

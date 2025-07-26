@@ -145,6 +145,8 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                 mdata = {name: name, priority: 10, category: "field-effect", target: "user-and-allies"};
             } else if (name === "Heal Cheer") {
                 mdata = {name: name, priority: 10, category: "heal", target: "user-and-allies"};
+            } else if (t.moveInfo.userID === 0) {
+                mdata = [...pokemon[0].moveData, ...pokemon[0].extraMoveData!].find((m) => m && m.name === t.moveInfo.name) || {name: name};
             } else {
                 mdata = pokemon[t.moveInfo.userID].moveData.find((m) => m && m.name === t.moveInfo.name) || {name: name};
             }

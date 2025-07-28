@@ -1079,6 +1079,9 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
     let matchesCase = true;
     for (let group of groups) {
         for (let turn of group.turns) {
+            // if (turn.moveInfo.moveData.name === "(Wait)" || (turn.moveInfo.moveData.name === "(No Move)" && turn.bossMoveInfo.moveData.name === "(No Move)")) {
+            //     continue;
+            // }
             let [raiderShouldMatch, bossShouldMatch] = getMoveOptionsForRollCase(rollCase, turn.moveInfo.userID, turn.moveInfo.targetID, turn.moveInfo.moveData, turn.bossMoveInfo.moveData);
             if (turn.moveInfo.userID === 0) { raiderShouldMatch = bossShouldMatch };
             const raiderMatches = !!turn.moveInfo.options &&
@@ -1087,7 +1090,7 @@ function rollCaseCheck(rollCase: "max" | "min" | "avg", groups: TurnGroupInfo[])
                 ((turn.moveInfo.moveData.maxHits || 1) > 1 ? turn.moveInfo.options.hits === raiderShouldMatch.hits : true) &&
                 turn.moveInfo.options.allowMiss === raiderShouldMatch.allowMiss &&
                 turn.moveInfo.options.roll === raiderShouldMatch.roll;
-            const bossMatches = !!turn.bossMoveInfo.options &&
+            const bossMatches = turn.moveInfo.userID === 0 || !!turn.bossMoveInfo.options &&
                 turn.bossMoveInfo.options.crit === bossShouldMatch.crit &&
                 turn.bossMoveInfo.options.secondaryEffects === bossShouldMatch.secondaryEffects &&
                 ((turn.bossMoveInfo.moveData.maxHits || 1) > 1 ? turn.bossMoveInfo.options.hits === bossShouldMatch.hits : true) &&

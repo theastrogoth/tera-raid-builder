@@ -44,6 +44,7 @@ self.onmessage = (event: MessageEvent<{raiders: Raider[], groups: TurnGroupInfo[
                 t.moveInfo.targetID = t.moveInfo.userID;
             } else if (t.moveInfo.moveData.name === "(Wait)") {
                 t.moveInfo.moveData.name = "(No Move)" as MoveName;
+                t.bossMoveInfo.moveData.name = "(No Move)" as MoveName;
             }
         }
     }

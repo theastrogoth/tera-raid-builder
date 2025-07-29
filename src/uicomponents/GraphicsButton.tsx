@@ -767,7 +767,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                 <BuildArtWrapper direction="row-reverse" spacing={`${hSpacing}px`}>
                                                     {
                                                         [...Array(copies || 1).keys()].map(i =>
-                                                            <BuildArt src={getPokemonArtURL(info.raider.species.name, info.raider.shiny)} sx={{ transform: `translate(0px, ${vSpacing * (i - (copies || 1))}px)` }}/>
+                                                            <BuildArt src={getPokemonArtURL(info.raider.species.name, info.raider.shiny)} sx={{ transform: `translate(0px, ${vSpacing * (i - (copies) + 1)}px)` }}/>
                                                         )
                                                     }
                                                 </BuildArtWrapper>

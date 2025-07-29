@@ -173,8 +173,8 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
+                "name": "Ruination",
+                "userID": 0,
                 "targetID": 1,
                 "options": {
                     "crit": false,
@@ -185,9 +185,9 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Ruination",
+                "name": "(No Move)",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

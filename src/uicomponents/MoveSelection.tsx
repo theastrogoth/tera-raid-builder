@@ -192,7 +192,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                     <TableContainer>
                         <Table size="small">
                             <TableBody>
-                                { (!isBoss && raider.teraType && !raider.isTera && ((raider.teraCharge || 0) >= 3) && !isRaidAction(moveInfo.moveData.name) && moveInfo.moveData.name !== "(No Move)") &&
+                                { (!isBoss && raider.teraType && !raider.isTera && ((raider.teraCharge || 0) >= 3) && !isRaidAction(moveInfo.moveData.name) && moveInfo.moveData.name !== "(No Move)" && moveInfo.moveData.name !== "(Wait)") &&
                                     <TableRow>
                                         <TableCell>
                                             {getTranslation("Tera",translationKey)}
@@ -338,17 +338,22 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
 
     // const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
     const raider = raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID];
-    const moveSet = ["(No Move)", "(Most Damaging)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])];
-
+    const moveSet = raider.id > 0 ? ["(No Move)", "(Most Damaging)", "(Wait)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])]
+                                  : [...(raider.extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.name === "(Wait)" ||
             moveInfo.moveData.target === undefined ||
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            // moveInfo.moveData.target === "all-opponents" ||
-            // moveInfo.moveData.target === "all-other-pokemon" ||
-            // moveInfo.moveData.target === "all-pokemon" ||
+            ( moveInfo.userID === 0 && 
+                (
+                    moveInfo.moveData.target === "all-opponents" ||
+                    moveInfo.moveData.target === "all-other-pokemon" ||
+                    moveInfo.moveData.target === "all-pokemon"
+                )
+            ) ||
             moveInfo.moveData.target === "users-field" ||
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
@@ -356,18 +361,23 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID));
     
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
-        let newGroups = [...groups];
+        const newGroups = [...groups];
         newGroups[groupIndex].turns[turnIndex].moveInfo = moveInfo;
 
         const newDisableTarget = (
             moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.name === "(Wait)" ||
             moveInfo.moveData.target === undefined ||
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            // moveInfo.moveData.target === "all-opponents" ||
-            // moveInfo.moveData.target === "all-other-pokemon" ||
-            // moveInfo.moveData.target === "all-pokemon" ||
+            ( moveInfo.userID === 0 && 
+                (
+                    moveInfo.moveData.target === "all-opponents" ||
+                    moveInfo.moveData.target === "all-other-pokemon" ||
+                    moveInfo.moveData.target === "all-pokemon"
+                )
+            ) ||
             moveInfo.moveData.target === "users-field" ||
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
@@ -385,6 +395,48 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     const setInfoParam = (param: string) => (val: any) => {
         setMoveInfo({...moveInfo, [param]: val});
     }
+
+    const handleChangeUserID = (userID: number) => {
+        if (userID === moveInfo.userID) { return; }
+        const bossSwap = (userID * moveInfo.userID === 0);
+        const newMoveSet = userID > 0 ? ["(No Move)", "(Most Damaging)", "(Wait)", ...raiders[userID].moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"]
+                                  : [...(raiders[0].extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
+        // attempt to avoid mixing up boss options and raider options
+        const turn = groups[groupIndex].turns[turnIndex];
+        const tempOpts = {...moveInfo.options};
+        const newMoveInfo = {
+            moveData: moveInfo.moveData,
+            userID: userID,
+            targetID: moveInfo.targetID,
+            options: bossSwap ? turn.bossMoveInfo.options : moveInfo.options,
+        }
+        if (userID === 0) {
+            newMoveInfo.moveData = turn.bossMoveInfo.moveData;
+            if (!raiders[0].extraMoves?.includes(newMoveInfo.moveData.name)) {
+                newMoveInfo.moveData = raiders[0].extraMoveData ? raiders[0].extraMoveData[0] : {name: "Remove Negative Effects" as MoveName};
+            }
+        } else if (moveInfo.userID === 0) {
+            newMoveInfo.moveData = turn.bossMoveInfo.moveData;
+            newMoveInfo.moveData = {name: "(No Move)" as MoveName};
+            newMoveInfo.userID = userID;
+            newMoveInfo.targetID = userID;
+        } else {
+            if (!newMoveSet.includes(newMoveInfo.moveData.name)) {
+                newMoveInfo.moveData = {name: "(No Move)" as MoveName};
+                newMoveInfo.userID = userID;
+                newMoveInfo.targetID = userID;
+            } 
+        }
+        if (bossSwap) {
+            turn.bossMoveInfo = {
+                moveData: moveInfo.userID === 0 ? {...moveInfo.moveData} : {name: "(No Move)" as MoveName},
+                userID: 0,
+                targetID: userID,
+                options: tempOpts
+            };
+        }
+        setMoveInfo(newMoveInfo);
+    }
     
     useEffect(() => {
         if (!moveSet.includes(moveName)) {
@@ -398,15 +450,53 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     }, [moveSet, moveInfo.moveData.target])
 
     useEffect(() => {
+        // if (userIDRef.current !== moveInfo.userID && ((userIDRef.current * moveInfo.userID) === 0)) {
+        //     // attempt to avoid mixing up boss options and raider options
+        //     const turn = groups[groupIndex].turns[turnIndex];
+        //     const tempOpts = {...moveInfo.options};
+        //     const newMoveInfo = {
+        //         moveData: moveInfo.moveData,
+        //         userID: moveInfo.userID,
+        //         targetID: moveInfo.targetID,
+        //         options: turn.bossMoveInfo.options,
+        //     }
+        //     if (moveInfo.userID === 0) {
+        //         newMoveInfo.moveData = turn.bossMoveInfo.moveData;
+        //         if (!moveSet.includes(newMoveInfo.moveData.name)) {
+        //             newMoveInfo.moveData = raider.extraMoveData ? raider.extraMoveData[0] : {name: moveSet[0] as MoveName};
+        //         }
+        //     } else {
+        //         newMoveInfo.moveData = turn.bossMoveInfo.moveData;
+        //         if (!moveSet.includes(newMoveInfo.moveData.name)) {
+        //             newMoveInfo.moveData = {name: "(No Move)" as MoveName};
+        //             newMoveInfo.userID = raider.id;
+        //             newMoveInfo.targetID = raider.id;
+        //         } 
+        //     }
+        //     turn.bossMoveInfo = {
+        //         moveData: userIDRef.current === 0 ? {...moveInfo.moveData} : {name: "(No Move)" as MoveName},
+        //         userID: 0,
+        //         targetID: moveInfo.userID,
+        //         options: tempOpts
+        //     };
+
+        //     setMoveInfo(newMoveInfo);
+        // }
+        // userIDRef.current = moveInfo.userID;
         const newDisableTarget = (
             moveInfo.moveData.name === "(No Move)" ||
+            moveInfo.moveData.name === "(Wait)" ||
             moveInfo.moveData.target === undefined ||
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            // moveInfo.moveData.target === "all-opponents" ||
-            // moveInfo.moveData.target === "all-other-pokemon" ||
-            // moveInfo.moveData.target === "all-pokemon" ||
+            ( moveInfo.userID === 0 && 
+                (
+                    moveInfo.moveData.target === "all-opponents" ||
+                    moveInfo.moveData.target === "all-other-pokemon" ||
+                    moveInfo.moveData.target === "all-pokemon"
+                )
+            ) ||
             moveInfo.moveData.target === "users-field" ||
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
@@ -425,7 +515,8 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         size="small"
                         variant="standard"
                         value = {moveInfo.userID}
-                        onChange={(e) => setInfoParam("userID")(e.target.value)}
+                        // onChange={(e) => setInfoParam("userID")(e.target.value)}
+                        onChange={(e) => handleChangeUserID(e.target.value as number)}
                         MenuProps={{
                             anchorOrigin: {
                                 vertical: "bottom",
@@ -434,11 +525,12 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         }}
                         sx={{ maxWidth : "175px" }}
                     >
-                        {roles.slice(1).map((role, i) => {
-                            const raider = raiders[i+1];
+                        {[...roles.slice(1), roles[0]].map((role, i) => {
+                            const idx = i < 4 ? i + 1 : 0
+                            const raider = raiders[idx];
                             const name = raider.name;
                             return (
-                            <MenuItem key={i} value={i+1}>
+                            <MenuItem key={i} value={idx}>
                                 <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
                                     <Box
                                         sx={{
@@ -484,7 +576,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         onChange={(e) => {
                             const name = e.target.value as MoveName;
                             let mData: MoveData = {name: name};
-                            if (name === "(No Move)") {
+                            if (name === "(No Move)" || name === "(Wait)") {
                             } else if (name === "(Most Damaging)") {
                                 mData = {name: name, target: "selected-pokemon"};
                             } else if (name === "Attack Cheer" || name === "Defense Cheer") {
@@ -493,6 +585,10 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                                 mData = {name: name, priority: 10, category: "heal", target: "user-and-allies"};
                             } else if (name === "Struggle") {
                                 mData = {...STRUGGLE_DATA};
+                            } else if (raiders[moveInfo.userID].id === 0) {
+                                if (isRegularMove(name)) {
+                                    mData = [...raiders[moveInfo.userID].moveData, ...raiders[moveInfo.userID].extraMoveData!].find((m) => m.name === name) as MoveData;
+                                }
                             } else {
                                 mData = raiders[moveInfo.userID].moveData.find((m) => m.name === name) as MoveData;
                             }
@@ -561,7 +657,10 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
     {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], translationKey: any}) 
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
-    const moveSet = ["(No Move)", "(Most Damaging)", "(Optimal Move)", ...selectableMoves, "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
+    const moveSet = [
+        "(No Move)", "(Most Damaging)", "(Optimal Move)", ...selectableMoves, 
+        ...(groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)" ? ["Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"] : [])
+    ];
 
     const moveName = moveInfo.moveData.name;
     const [updateCount, setUpdateCount] = useState<number>(0); // just used to trigger rerender
@@ -575,7 +674,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
 
     useEffect(() => {
         if (!moveSet.includes(moveName)) {
-            setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
+            setMoveInfo({...moveInfo, moveData: {name: "(Most Damaging)" as MoveName}});
         } 
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveSet])
@@ -642,11 +741,19 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
 function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGroups, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
     {raiders: Raider[], turnIndex: number, groupIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) 
 {
-    const turnID = groups[groupIndex].turns[turnIndex].id;
+    const turn = groups[groupIndex].turns[turnIndex];
+    const turnID = turn.id;
     const collapseIn = transitionOut !== turnID && transitionIn !== turnID;
 
-    const raiderSelectableMoves = getSelectableMoves(raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID]);
-    const bossSelectableMoves = getSelectableMoves(raiders[0], groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)");
+    const bossSelectableMoves = getSelectableMoves(
+        raiders[0], 
+        (
+            turn.moveInfo.moveData.name === "(No Move)" ||
+            turn.moveInfo.userID === 0
+        )
+    );
+    const raiderSelectableMoves = getSelectableMoves(raiders[turn.moveInfo.userID], turn.moveInfo.userID === 0);
+    const bossVisible = turn.moveInfo.userID !==0 && turn.moveInfo.moveData.name !== "(Wait)";
 
     useEffect(() => {
         if (transitionIn === turnID) {
@@ -678,6 +785,7 @@ function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGrou
                                 raiderSelectableMoves={raiderSelectableMoves}
                                 bossSelectableMoves={bossSelectableMoves}
                                 buttonsVisible={buttonsVisible} 
+                                bossVisible={bossVisible}
                                 setTransitionIn={setTransitionIn} 
                                 setTransitionOut={setTransitionOut} 
                                 translationKey={translationKey}
@@ -731,8 +839,8 @@ function CloseButton({onClick, visible, disabled=false}: {onClick: () => void, v
     )
 }
 
-function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, raiderSelectableMoves, bossSelectableMoves, buttonsVisible, setTransitionIn, setTransitionOut, translationKey}: 
-    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, raiderSelectableMoves: MoveName[], bossSelectableMoves: MoveName[], buttonsVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any}) 
+function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, raiderSelectableMoves, bossSelectableMoves, buttonsVisible, bossVisible, setTransitionIn, setTransitionOut, translationKey}: 
+    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, raiderSelectableMoves: MoveName[], bossSelectableMoves: MoveName[], buttonsVisible: boolean, bossVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any}) 
 {
     const timer = useRef<NodeJS.Timeout | null>(null);
     const handleRemoveTurn = () => {
@@ -769,7 +877,9 @@ function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, r
                         {/* <Box width="80%">
                             <Divider />
                         </Box> */}
-                        <BossMoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} boss={raiders[0]} groups={groups} setGroups={setGroups} selectableMoves={bossSelectableMoves} translationKey={translationKey} />
+                        { bossVisible && 
+                            <BossMoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} boss={raiders[0]} groups={groups} setGroups={setGroups} selectableMoves={bossSelectableMoves} translationKey={translationKey} />
+                        }
                     </Stack>
                     <Stack alignItems="center" justifyContent={"center"} paddingRight={0.5}>
                         <CloseButton onClick={handleRemoveTurn} visible={true} disabled={!buttonsVisible}/>
@@ -821,6 +931,7 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         arraysEqual(prevProps.raiderSelectableMoves, nextProps.raiderSelectableMoves) &&
         arraysEqual(prevProps.bossSelectableMoves, nextProps.bossSelectableMoves) &&
         prevProps.buttonsVisible === nextProps.buttonsVisible &&
+        prevProps.bossVisible === nextProps.bossVisible &&
         prevProps.groups.length === nextProps.groups.length &&
         prevProps.translationKey === nextProps.translationKey
     )
@@ -1119,7 +1230,7 @@ function MoveSelection({raidInputProps, results, rollCase, translationKey}: {rai
                                                 // number of regular moves
                                                 g.turns.length +
                                                 // ... plus the number of NPC moves (assumes NPC isn't in the first slot, so maybe we should enforce that)
-                                                g.turns.filter(t => t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)").length * raidInputProps.pokemon.slice(1).filter(p => p.name === "NPC").length    
+                                                g.turns.filter(t => t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)" && t.moveInfo.moveData.name !== "(Wait)").length * raidInputProps.pokemon.slice(1).filter(p => p.name === "NPC").length    
                                             ) * (g.repeats || 1), 0
                                         );
                                         return (

@@ -1090,9 +1090,7 @@ function getRelevantBuilds(buildInfo: GraphicBuildInfo[][]) {
 function addBuildCopies(buildInfo: GraphicBuildInfo[]) {
     for (let i=2; i<buildInfo.length; i++) {
         for (let j=1; j<i; j++) {
-            console.log(i,j)
             if (buildInfo[i].raider.isIdenticalBuild(buildInfo[j].raider)) {
-                console.log("match")
                 if (!buildInfo[j].extraBuildInfo.copies) {
                     buildInfo[j].extraBuildInfo.copies = 2;
                 } else {

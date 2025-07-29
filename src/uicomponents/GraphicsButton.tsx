@@ -668,7 +668,7 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
 }
 
 // TODO: move this to a more appropriate place (also used in MoveDisplay)
-function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], number[]] {
+function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults, checkForCopies: boolean): [{id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], number[]] {
     const raiders = results.turnZeroState.raiders;
     const [turnGroups, turnNumbers] = sortGroupsIntoTurns(getTurnNumbersFromGroups(groups), groups);
     const tempTurnGroups = turnGroups.map(groups => groups.map((group, groupIndex) => 
@@ -693,7 +693,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
             } 
         })
     ));
-    const preparedTurnGroups = tempTurnGroups.map(tg => 
+    const preparedTurnGroups = !checkForCopies ? tempTurnGroups : tempTurnGroups.map(tg => 
         tg.map(g => {
             const turns = [g[0]];
             for (let i=1; i<g.length; i++) {
@@ -1136,6 +1136,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     // const [plotsEnabled, setPlotsEnable] = useState<boolean[]>([false, false, false, false]);
     const [statDisplay, setStatDisplay] = useState<string>("None");
     // const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
+    const [checkForCopies, setCheckForCopies] = useState(true);
     const [buildInfo, setBuildInfo] = useState([] as GraphicBuildInfo[][]);
     // const [pokemonDataMatrix, setPokemonDataMatrix] = useState([] as PokemonData[][]);
     const [buildsOnly, setBuildsOnly] = useState<boolean>(false);
@@ -1186,7 +1187,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
             const includedRaidPokemonBuildInfo = processBuildsInfo(buildInfo, buildsOrder, buildsEnabled);
 
             // sort moves into groups
-            const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
+            const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results, checkForCopies);
 
             let statDisplayElements: JSX.Element[] = []
             if (statDisplay === "Stat Plot") {
@@ -1363,7 +1364,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     }
 
 
-    function processBuildsInfo(buildInfo: GraphicBuildInfo[][], buildsOrder: number[], buildsEnabled: boolean[], checkForCopies = true): GraphicBuildInfo[] {
+    function processBuildsInfo(buildInfo: GraphicBuildInfo[][], buildsOrder: number[], buildsEnabled: boolean[]): GraphicBuildInfo[] {
         const flatBuildInfo = getRelevantBuilds(buildInfo);
         const buildsOnlyBuildInfo: GraphicBuildInfo[] = [];
 
@@ -1568,6 +1569,20 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                     <MenuItem value="Full Graphic">{getTranslation("Full Graphic", translationKey)}</MenuItem>
                                     <MenuItem value="Builds Only">{getTranslation("Builds Only", translationKey)}</MenuItem>
                                 </Select>
+                            </Stack>
+                        </Box>
+                    </li>
+                    <li>
+                        <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
+                            <Stack direction="row" alignItems="center" justifyContent="center">
+                                <Typography variant="body1" fontWeight={600}>
+                                    {getTranslation("Combine Identical Builds", translationKey) + ":"}
+                                </Typography>
+                                <Box flexGrow={2} />
+                                <Switch
+                                    checked={checkForCopies}
+                                    onChange={(e) => setCheckForCopies(!checkForCopies)}
+                                />
                             </Stack>
                         </Box>
                     </li>

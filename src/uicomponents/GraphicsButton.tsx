@@ -781,7 +781,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                     ))}
                                                     {info.raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                                                 </BuildTypes>
-                                                <BuildRole>{copies > 1 ? `${info.raider.role}  ×${copies}` : info.raider.role}</BuildRole>
+                                                <BuildRole>{copies > 1 ? `${getTranslation(info.raider.name, translationKey, "pokemon")}  ×${copies}` : info.raider.role}</BuildRole>
                                                 { info.extraBuildInfo.subFor &&
                                                     <BuildSubstituteSubtitle>Substitute for {info.extraBuildInfo.subFor}</BuildSubstituteSubtitle>
                                                 }

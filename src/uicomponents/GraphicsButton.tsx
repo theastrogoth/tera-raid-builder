@@ -544,7 +544,7 @@ const ExecutionMovePokemonIcon = styled("img")({
 
 const ExecutionMovePokemonIconWrapper = styled(Stack)({
     height: "140px",
-    width: "140px",
+    width: "245px",
     marginRight: "15px",
     display: "flex",
     alignItems: "center",
@@ -1087,15 +1087,6 @@ function getRelevantBuilds(buildInfo: GraphicBuildInfo[][]) {
     return [...mainBuilds, ...nonNPCSubstituteBuilds];
 }
 
-function getIdenticalBuildIdxs(buildInfo: GraphicBuildInfo[]) {
-    const identicalTo: number[] = [-1,-1];
-    for (let i=2; i<buildInfo.length; i++) {
-        const matchedIdx = buildInfo.slice(0,i).findIndex((b) => b.raider.isIdenticalBuild(buildInfo[i].raider))
-        identicalTo.push!(matchedIdx);
-    }
-    return identicalTo;
-}
-
 function addBuildCopies(buildInfo: GraphicBuildInfo[]) {
     for (let i=2; i<buildInfo.length; i++) {
         for (let j=1; j<i; j++) {
@@ -1146,7 +1137,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const [statDisplay, setStatDisplay] = useState<string>("None");
     // const [plotsEnabled, setPlotsEnable] = useState<boolean>(false);
     const [buildInfo, setBuildInfo] = useState([] as GraphicBuildInfo[][]);
-    const [pokemonDataMatrix, setPokemonDataMatrix] = useState([] as PokemonData[][]);
+    // const [pokemonDataMatrix, setPokemonDataMatrix] = useState([] as PokemonData[][]);
     const [buildsOnly, setBuildsOnly] = useState<boolean>(false);
     const [buildsOrder, setBuildsOrder] = useState<number[]>([]);
     const [buildsEnabled, setBuildsEnabled] = useState<boolean[]>([]);
@@ -1182,7 +1173,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
             // contains all the extra info needed for extra elements on the graphics, ability patch icon, learn method icons, move type icons, optional move boolean
             const extraBuildInfoMatrix = createExtraBuildInfoMatrix(isHiddenAbilityMatrix, learnMethodMatrix, moveTypeMatrix, optionalMoveMatrix);
             const bInfo = zipBuildInfo(allRaidPokemonMatrix, extraBuildInfoMatrix);
-            setPokemonDataMatrix(pDataMatrix);
+            // setPokemonDataMatrix(pDataMatrix);
             setBuildInfo(bInfo);
         } catch (e) {
             console.log(e);

@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 
 import Box from '@mui/material/Box';
 
-import { Generations, Move, toID } from "../calc";
+import { Generations, Move, SPECIES, toID } from "../calc";
 import { SpeciesName, TypeName, Nature, StatID } from "../calc/data/interface";
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getMoveMethodIconURL, getReadableGender, getEVDescription, getIVDescription, getPokemonSpriteURL, getMiscImageURL, getTeraTypeBannerURL, getTranslation, sortGroupsIntoTurns, getTurnNumbersFromGroups } from "../utils";
 import { RaidMoveInfo, SubstituteBuildInfo, TurnGroupInfo, ExtraBuildInfo, GraphicBuildInfo } from "../raidcalc/interface";
@@ -219,11 +219,21 @@ const BuildHeader = styled(Box)({
     position: "relative"
 });
 
-const BuildArt = styled("img")({
+const BuildArtWrapper = styled(Stack)({
     width: "375px",
     position: "absolute",
     top: "-290px",
     right: "0px",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "left"
+});
+
+const BuildArt = styled("img")({
+    width: "375px",
+    // position: "absolute",
+    // top: "-290px",
+    // right: "0px",
     filter: "drop-shadow(0px 0px 15px rgba(0, 0, 0, 0.35))"
 });
 
@@ -658,10 +668,11 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
 }
 
 // TODO: move this to a more appropriate place (also used in MoveDisplay)
-function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], number[]] {
+function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], number[]] {
+    const raiders = results.turnZeroState.raiders;
     const [turnGroups, turnNumbers] = sortGroupsIntoTurns(getTurnNumbersFromGroups(groups), groups);
-    const preparedTurnGroups = turnGroups.map(groups => groups.map((group, groupIndex) => 
-        group.turns.map((t) => { 
+    const tempTurnGroups = turnGroups.map(groups => groups.map((group, groupIndex) => 
+        group.turns.map((t, i) => { 
             const turnResult = results.turnResults.find((r) => t.id === r.id)!;
             let move = turnResult.raiderMoveUsed;
             const wait = move === "(No Move)" && turnResult.bossMoveUsed === "(No Move)";
@@ -677,14 +688,41 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults): [{i
                 isSpread,
                 repeats: group.repeats || 1,
                 teraActivated: !wait && !!(turnResult!.moveInfo.options!.activateTera && (results.turnZeroState.raiders[t.moveInfo.userID].teraType || "???")!== "???" &&
-                                turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated"))
+                                turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated")),
+                raiderIDs: [info.userID],
             } 
         })
     ));
+    const preparedTurnGroups = tempTurnGroups.map(tg => 
+        tg.map(g => {
+            const turns = [g[0]];
+            for (let i=1; i<g.length; i++) {
+                let duplicate = false;
+                for (let j=0; j<turns.length; j++) {
+                    if (
+                        raiders[g[i].info.userID].name === raiders[g[j].info.userID].name &&
+                        g[i].info.moveData.name === g[j].info.moveData.name &&
+                        (
+                            g[i].info.targetID === g[j].info.targetID ||
+                            ((g[i].info.targetID === g[i].info.userID) && (g[j].info.targetID === g[j].info.userID))
+                        )
+                    ) {
+                        duplicate = true;
+                        g[j].raiderIDs.push(g[i].info.userID); 
+                        break;
+                    }
+                }
+                if (!duplicate) {
+                    turns.push!(g[i])
+                }
+            }
+            return turns;
+        })
+    )
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuildInfo[], results: RaidBattleResults, buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], translationKey?: any) {
+function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuildInfo[], results: RaidBattleResults, buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -718,11 +756,21 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                         </Separator> 
                         <BuildsContainer>    
                             {
-                                buildInfo.slice(1, buildsCount + 1).map((info, index) => (
+                                buildInfo.slice(1, buildsCount + 1).map((info, index) => {
+                                  const copies = info.extraBuildInfo.copies || 1;
+                                  const hSpacing = -120 / (Math.max(copies,2) - 1) - 375;
+                                  const vSpacing = 42 / (Math.max(copies,2) - 1);
+                                  return (
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
-                                                <BuildArt src={getPokemonArtURL(info.raider.species.name, info.raider.shiny)}/>
+                                                <BuildArtWrapper direction="row-reverse" spacing={`${hSpacing}px`}>
+                                                    {
+                                                        [...Array(copies || 1).keys()].map(i =>
+                                                            <BuildArt src={getPokemonArtURL(info.raider.species.name, info.raider.shiny)} sx={{ transform: `translate(0px, ${vSpacing * (i - (copies || 1))}px)` }}/>
+                                                        )
+                                                    }
+                                                </BuildArtWrapper>
                                                 {info.raider.item ? 
                                                     <BuildItemArt src={getItemSpriteURL(info.raider.item)} /> : null}
                                                 {(info.raider.teraType || "???") !== "???" ?
@@ -733,7 +781,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                     ))}
                                                     {info.raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                                                 </BuildTypes>
-                                                <BuildRole>{info.raider.role}</BuildRole>
+                                                <BuildRole>{copies > 1 ? `${info.raider.role}  ×${copies}` : info.raider.role}</BuildRole>
                                                 { info.extraBuildInfo.subFor &&
                                                     <BuildSubstituteSubtitle>Substitute for {info.extraBuildInfo.subFor}</BuildSubstituteSubtitle>
                                                 }
@@ -754,7 +802,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                         : null
                                                     }
                                                 </Stack> : null}
-                                                {info.raider.gender && info.raider.gender !== "N" &&
+                                                {info.raider.gender && info.raider.gender !== "N" && (SPECIES[9][info.raider.name].gender === undefined || SPECIES[9][info.raider.name].gender === "N") &&
                                                     <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(info.raider.gender), translationKey) }</BuildInfo>
                                                 }
                                                 <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (info.raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(info.raider.nature, translationKey, "natures")) }</BuildInfo>
@@ -798,7 +846,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                             </BuildMovesSection>
                                         </Build>
                                     </BuildWrapper>
-                                ))
+                                )})
                             }
                         </BuildsContainer>
                         { buildInfo.some(entry => entry.extraBuildInfo.optionalMove.some(move => move)) &&
@@ -871,9 +919,15 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                                 </ExecutionMovePokemonIconWrapper>
                                                                             </ExecutionMovePokemonWrapperShifted> :
                                                                             <ExecutionMovePokemonWrapper>
-                                                                                <ExecutionMovePokemonName>{turnRaiders[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                                <ExecutionMovePokemonName>{moveGroup[moveIndex].raiderIDs.length > 1 ? `${getTranslation(turnRaiders[move.info.userID].name, translationKey, "pokemon")} ×${moveGroup[moveIndex].raiderIDs.length}` : turnRaiders[move.info.userID].role}</ExecutionMovePokemonName>
                                                                                 <ExecutionMovePokemonIconWrapper>
-                                                                                    <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.info.userID].species.name)} />
+                                                                                    <Stack direction="row-reverse" spacing="-175px">
+                                                                                        {
+                                                                                            moveGroup[moveIndex].raiderIDs.map(id => 
+                                                                                                <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[id].species.name)} />
+                                                                                            )
+                                                                                        }
+                                                                                    </Stack>
                                                                                 </ExecutionMovePokemonIconWrapper>
                                                                             </ExecutionMovePokemonWrapper>
                                                                             }
@@ -909,7 +963,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                                             <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[3].species.name)} />
                                                                                             <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[4].species.name)} />
                                                                                         </ExecutionMovePokemonIconWrapper>
-
+ 
                                                                                     }
                                                                                 </ExecutionMovePokemonWrapper>
                                                                                 :
@@ -1033,6 +1087,32 @@ function getRelevantBuilds(buildInfo: GraphicBuildInfo[][]) {
     return [...mainBuilds, ...nonNPCSubstituteBuilds];
 }
 
+function getIdenticalBuildIdxs(buildInfo: GraphicBuildInfo[]) {
+    const identicalTo: number[] = [-1,-1];
+    for (let i=2; i<buildInfo.length; i++) {
+        const matchedIdx = buildInfo.slice(0,i).findIndex((b) => b.raider.isIdenticalBuild(buildInfo[i].raider))
+        identicalTo.push!(matchedIdx);
+    }
+    return identicalTo;
+}
+
+function addBuildCopies(buildInfo: GraphicBuildInfo[]) {
+    for (let i=2; i<buildInfo.length; i++) {
+        for (let j=1; j<i; j++) {
+            console.log(i,j)
+            if (buildInfo[i].raider.isIdenticalBuild(buildInfo[j].raider)) {
+                console.log("match")
+                if (!buildInfo[j].extraBuildInfo.copies) {
+                    buildInfo[j].extraBuildInfo.copies = 2;
+                } else {
+                    buildInfo[j].extraBuildInfo.copies! += 1;
+                }
+                break;
+            }
+        }
+    }
+}
+
 function getBuildUniqueness(buildInfo: GraphicBuildInfo[]) {
     const uniqueRaiderIdxs: number[] = [];
     for (let i=0; i < buildInfo.length; i++) {
@@ -1112,7 +1192,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const handleDownload = async () => {
         setLoading(true);
         try {
-            const includedRaidPokemonBuildInfo = processBuildsInfo(buildInfo, pokemonDataMatrix, buildsOrder, buildsEnabled);
+            const includedRaidPokemonBuildInfo = processBuildsInfo(buildInfo, buildsOrder, buildsEnabled);
 
             // sort moves into groups
             const [turnGroups, turnNumbers] = getTurnGroups(raidInputProps.groups, results);
@@ -1292,21 +1372,20 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     }
 
 
-    function processBuildsInfo(buildInfo: GraphicBuildInfo[][], pokemonDataMatrix: PokemonData[][], buildsOrder: number[], buildsEnabled: boolean[]): GraphicBuildInfo[] {
+    function processBuildsInfo(buildInfo: GraphicBuildInfo[][], buildsOrder: number[], buildsEnabled: boolean[], checkForCopies = true): GraphicBuildInfo[] {
         const flatBuildInfo = getRelevantBuilds(buildInfo);
         const buildsOnlyBuildInfo: GraphicBuildInfo[] = [];
 
-        const displayOrder: number[] = [];
-        for (const [index, slot_index] of buildsOrder.entries()) {
-            if (buildsEnabled[index]) {
-                displayOrder.push(slot_index);
-            }
-        }
+        // check for repeated builds
+        if (checkForCopies) { addBuildCopies(flatBuildInfo); }
+        const buildIsUnique = getBuildUniqueness(flatBuildInfo);
 
         // This adds builds according to the order selected via the drag and drop
         // (doesn't really make use of the slots/matrix setup)
-        for (const idx of displayOrder) {
-            buildsOnlyBuildInfo.push(flatBuildInfo[idx]);
+        for (const [index, slot_index] of buildsOrder.entries()) {
+            if (buildsEnabled[index] && (!checkForCopies || buildIsUnique[slot_index])) {
+                buildsOnlyBuildInfo.push(flatBuildInfo[slot_index]);            
+            }
         }
 
         // Add "required" moves from builds that are not enabled if they're identical with an added build

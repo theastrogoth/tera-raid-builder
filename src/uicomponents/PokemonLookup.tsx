@@ -121,7 +121,8 @@ type SearchOption = {
 
 const allOptions: SearchOption[] = [];
 for (let specie of genSpecies) {
-    allOptions.push({name: specie.includes("Flab") ? "Flabebe" : specie, type: "Pokémon"});
+    // allOptions.push({name: specie.includes("Flab") ? "Flabebe" : specie, type: "Pokémon"});
+    allOptions.push({name: specie, type: "Pokémon"});
 }
 for (let type of genTypes) {
     allOptions.push({name: type, type: "Type"});
@@ -560,17 +561,17 @@ function SortingButton({label, method, sortMethod, sortDirection, handleButtonCl
 
 function SpeciesSearchResult({pokemon, allSpecies, handleSetPokemon, translationKey}: {pokemon: SpeciesName, allSpecies: Map<SpeciesName,PokemonData>, handleSetPokemon: (s: SetOption) => void, translationKey: any}) {
     const [open, setOpen] = useState(false);
-    if (pokemon.includes("Flab")) { // Something odd might be happening with the unicode representaiton of é somewhere
-        pokemon = "Flabebe" as SpeciesName;
-    }
-    const data = allSpecies.get(pokemon)!;
+    // if (pokemon.includes("Flab")) { // Something odd might be happening with the unicode representaiton of é somewhere
+    //     pokemon = "Flabebe" as SpeciesName;
+    // }
+    const data = allSpecies.get(pokemon) || allSpecies.get("NPC" as SpeciesName)!; // fallback to NPC in case of missing data
     const sets = raiderSetMap.get(pokemon) || 
     [{
         name: "Blank Set",
         pokemon: pokemon,
         level: 100,
         nature: "Hardy",
-        ability: data.abilities[0].name,
+        ability: (data && data.abilities) ? data.abilities[0].name : "(No Ability)" as AbilityName,
         item: FORCED_ITEMS.get(pokemon),
     }];
 
@@ -916,8 +917,8 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
             });
         } else if (sortMethod === "bst") {
             sortedSpeciesOptions = [...sortSpeciesOptions].sort((a, b) => {
-                const aData = allSpecies?.get(a.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
-                const bData = allSpecies?.get(b.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
+                const aData = allSpecies?.get(a.name as SpeciesName); 
+                const bData = allSpecies?.get(b.name as SpeciesName); 
                 const aTotal = ["hp","atk","def","spa","spd","spe"].map((stat) => (aData?.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0)
                 const bTotal = ["hp","atk","def","spa","spd","spe"].map((stat) => (bData?.stats[stat as keyof StatsTable] || 0) + 1).reduce((total, current) => total + current, 0)
                 if (sortDirection === 'asc') {
@@ -929,8 +930,8 @@ function SearchResultsTable({inputValue, inputFilteredOptions, handleSetPokemon,
             });
         } else {
             sortedSpeciesOptions = [...sortSpeciesOptions].sort((a, b) => {
-                const aData = allSpecies?.get(a.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
-                const bData = allSpecies?.get(b.name as SpeciesName) || allSpecies?.get('Flabebe' as SpeciesName); 
+                const aData = allSpecies?.get(a.name as SpeciesName); 
+                const bData = allSpecies?.get(b.name as SpeciesName); 
                 const key = sortMethod as keyof StatsTable;
                 const aStat = (aData?.stats[key] || 0) + 1;
                 const bStat = (bData?.stats[key] || 0) + 1;
@@ -1220,18 +1221,18 @@ function PokemonLookup({loadSet, allSpecies, allMoves, setAllSpecies, setAllMove
                 }
                 if (!newAllSpecies) {
                     let species = await PokedexService.getAllSpecies();
-                    if (species) {
-                        newAllSpecies = new Map<SpeciesName,PokemonData>();
-                        for (let [specie, data] of Object.entries(species)) {
-                            if (specie.includes("Flab")) {
-                                const flab_species = "Flabebe";
-                                const flab_data = {...data as PokemonData, name: "Flabébé" as SpeciesName};
-                                newAllSpecies.set(flab_species as SpeciesName, flab_data as PokemonData);
-                            } else {
-                                newAllSpecies.set(specie as SpeciesName, data as PokemonData);
-                            }
-                        }
-                    }
+                    // if (species) {
+                    //     newAllSpecies = new Map<SpeciesName,PokemonData>();
+                    //     for (let [specie, data] of Object.entries(species)) {
+                    //         if (specie.includes("Flab")) {
+                    //             const flab_species = "Flabebe";
+                    //             const flab_data = {...data as PokemonData, name: "Flabébé" as SpeciesName};
+                    //             newAllSpecies.set(flab_species as SpeciesName, flab_data as PokemonData);
+                    //         } else {
+                    //             newAllSpecies.set(specie as SpeciesName, data as PokemonData);
+                    //         }
+                    //     }
+                    // }
                 }
                 if (newAllMoves && newAllSpecies) {
                     setAllMoves(newAllMoves);

@@ -243,6 +243,8 @@ export type ExtraBuildInfo = {
     moveTypes: TypeName[];
     optionalMove: boolean[];
     subFor?: string;
+    copiesShiny?: boolean[];
+    copiesRole?: string,
 }
 
 export type GraphicBuildInfo = {

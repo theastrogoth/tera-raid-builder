@@ -757,17 +757,19 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                         <BuildsContainer>    
                             {
                                 buildInfo.slice(1, buildsCount + 1).map((info, index) => {
-                                  const copies = info.extraBuildInfo.copies || 1;
-                                  const hSpacing = -120 / (Math.max(copies,2) - 1) - 375;
-                                  const vSpacing = 42 / (Math.max(copies,2) - 1);
+                                  const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
+                                  const numcopies = shiny.length;
+                                  const hArtSpacing = -120 / (Math.max(numcopies,2) - 1) - 375;
+                                  const vArtSpacing = 42 / (Math.max(numcopies,2) - 1);
+                                  const role = numcopies > 1 ? `${info.extraBuildInfo.copiesRole} ×${numcopies}` : info.raider.role;
                                   return (
                                     <BuildWrapper key={index}>
                                         <Build>
                                             <BuildHeader>
-                                                <BuildArtWrapper direction="row-reverse" spacing={`${hSpacing}px`}>
+                                                <BuildArtWrapper direction="row-reverse" spacing={`${hArtSpacing}px`}>
                                                     {
-                                                        [...Array(copies || 1).keys()].map(i =>
-                                                            <BuildArt src={getPokemonArtURL(info.raider.species.name, info.raider.shiny)} sx={{ transform: `translate(0px, ${vSpacing * (i - (copies) + 1)}px)` }}/>
+                                                        shiny.map((c,i) =>
+                                                            <BuildArt src={getPokemonArtURL(info.raider.species.name, shiny[i])} sx={{ transform: `translate(0px, ${vArtSpacing * (i - (numcopies) + 1)}px)` }}/>
                                                         )
                                                     }
                                                 </BuildArtWrapper>
@@ -781,7 +783,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                     ))}
                                                     {info.raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                                                 </BuildTypes>
-                                                <BuildRole>{copies > 1 ? `${getTranslation(info.raider.name, translationKey, "pokemon")}  ×${copies}` : info.raider.role}</BuildRole>
+                                                <BuildRole>{role}</BuildRole>
                                                 { info.extraBuildInfo.subFor &&
                                                     <BuildSubstituteSubtitle>Substitute for {info.extraBuildInfo.subFor}</BuildSubstituteSubtitle>
                                                 }
@@ -892,6 +894,15 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                         showTarget = showTarget && (move.move !== "Waits");
                                                                         const turnIndex = results.turnResults.findIndex((t) => t.id === move.id);
                                                                         const turnRaiders = turnIndex > 0 ? results.turnResults[turnIndex-1].state.raiders : results.turnZeroState.raiders;
+                                                                        const raiderIDs = moveGroup[moveIndex].raiderIDs
+                                                                        let role = turnRaiders[move.info.userID].role;
+                                                                        if (raiderIDs.length > 1) {
+                                                                            if (raiderIDs.every(i => turnRaiders[i].role === turnRaiders[raiderIDs[0]].role)) {
+                                                                                role = `${role} ×${raiderIDs.length}`
+                                                                            } else {
+                                                                                role = `${getTranslation(turnRaiders[move.info.userID].name, translationKey, "pokemon")} ×${raiderIDs.length}`;
+                                                                            }
+                                                                        }
                                                                         return ([
                                                                         move.teraActivated ? 
                                                                         <ExecutionMove key={moveIndex - 0.5}>
@@ -919,11 +930,11 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                                 </ExecutionMovePokemonIconWrapper>
                                                                             </ExecutionMovePokemonWrapperShifted> :
                                                                             <ExecutionMovePokemonWrapper>
-                                                                                <ExecutionMovePokemonName>{moveGroup[moveIndex].raiderIDs.length > 1 ? `${getTranslation(turnRaiders[move.info.userID].name, translationKey, "pokemon")} ×${moveGroup[moveIndex].raiderIDs.length}` : turnRaiders[move.info.userID].role}</ExecutionMovePokemonName>
+                                                                                <ExecutionMovePokemonName>{role}</ExecutionMovePokemonName>
                                                                                 <ExecutionMovePokemonIconWrapper>
                                                                                     <Stack direction="row-reverse" spacing="-175px">
                                                                                         {
-                                                                                            moveGroup[moveIndex].raiderIDs.map(id => 
+                                                                                            raiderIDs.map(id => 
                                                                                                 <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[id].species.name)} />
                                                                                             )
                                                                                         }
@@ -1091,10 +1102,13 @@ function addBuildCopies(buildInfo: GraphicBuildInfo[]) {
     for (let i=2; i<buildInfo.length; i++) {
         for (let j=1; j<i; j++) {
             if (buildInfo[i].raider.isIdenticalBuild(buildInfo[j].raider)) {
-                if (!buildInfo[j].extraBuildInfo.copies) {
-                    buildInfo[j].extraBuildInfo.copies = 2;
-                } else {
-                    buildInfo[j].extraBuildInfo.copies! += 1;
+                if (!buildInfo[j].extraBuildInfo.copiesShiny) {
+                    buildInfo[j].extraBuildInfo.copiesShiny = [!!buildInfo[j].raider.shiny];
+                    buildInfo[j].extraBuildInfo.copiesRole = buildInfo[j].raider.role;
+                }
+                buildInfo[j].extraBuildInfo.copiesShiny?.push(!!buildInfo[i].raider.shiny);
+                if (buildInfo[i].raider.role !== buildInfo[j].extraBuildInfo.copiesRole) {
+                    buildInfo[j].extraBuildInfo.copiesRole = buildInfo[j].raider.name;
                 }
                 break;
             }

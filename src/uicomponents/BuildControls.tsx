@@ -280,6 +280,7 @@ function makeSubstituteInfo(pokemon: Raider, groups: TurnGroupInfo[]) {
         substituteMoves: newSubstituteMoves,
         substituteTargets: newSubstituteTargets,
     };
+    console.log(newSubstitute);
     return newSubstitute;
 }
 
@@ -1413,8 +1414,8 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
                             t.moveInfo.moveData = {name: moveName, priority: 10, target: "users-field"} as MoveData;
                         } else if (moveName === "(Most Damaging)") {
                             t.moveInfo.moveData = {name: "(Most Damaging)", target: "selected-pokemon"} as MoveData;
-                        } else if (moveName === "(No Move)") {
-                            t.moveInfo.moveData = {name: "(No Move)", target: "selected-pokemon"} as MoveData;
+                        } else if (moveName === "(No Move)" || moveName === "(Wait)") {
+                            t.moveInfo.moveData = {name: moveName, target: "selected-pokemon"} as MoveData;
                         } else {
                             const moveData = newPokemon.moveData.find(md => md.name === moveName);
                             if (moveData) { 

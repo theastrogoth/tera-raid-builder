@@ -37,7 +37,7 @@ export class RaidState implements State.RaidState{
         return this.raiders[id];
     }
 
-    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false, blockWhiteHerb: boolean = false, source?: number, isFalseSwipe?: boolean) {
+    public applyDamage(id: number, damage: number, damageRolls: Map<number,number> | undefined = undefined, nHits: number = 0, isCrit: boolean = false, isSuperEffective: boolean = false, moveType?: TypeName, moveCategory?: "Physical" | "Special" | "Status" | undefined, blockSymbiosis: boolean = false, isWind: boolean = false, bypassSubstitute: boolean = false, isSheerForceBoosted = false, blockWhiteHerb: boolean = false, source?: number, isFalseSwipe?: boolean, isFixedDamage?: boolean) {
         const pokemon = this.getPokemon(id);
         const originalHP = pokemon.originalCurHP;
         const originalDamageRolls = pokemon.cumDamageRolls.clone();
@@ -99,7 +99,7 @@ export class RaidState implements State.RaidState{
             }
             // Weakness Policy and Super-Effective reducing Berries
             // TO DO - abilities that let users use berries more than once
-            if (isSuperEffective) {
+            if (isSuperEffective && !isFixedDamage) {
                 if (!fainted && pokemon.item === "Weakness Policy") { // weakness policy isn't consumed if the target faints (?)
                     this.consumeItem(id, pokemon.item, true, blockSymbiosis);
                 } else if (!unnerve) {
@@ -180,19 +180,19 @@ export class RaidState implements State.RaidState{
             }
 
             /// Non-super effective items consumed after damage if the target survives
-            if ( (!unnerve && pokemon.item === "Chilan Berry" && moveType === "Normal") ||
+            if ( (!unnerve && !isFixedDamage && pokemon.item === "Chilan Berry" && moveType === "Normal") ||
                  (pokemon.item === "Absorb Bulb" && moveType === "Water") ||
                  (pokemon.item === "Cell Battery" && moveType === "Electric") || 
                  (pokemon.item === "Luminous Moss" && moveType === "Water") ||
                  (pokemon.item === "Snowball" && moveType === "Ice") ||
-                 (pokemon.item === "Kee Berry" && moveCategory === "Physical" && !isSheerForceBoosted) ||
-                 (pokemon.item === "Maranga Berry" && moveCategory === "Special" && !isSheerForceBoosted)
+                 (!unnerve && !isFixedDamage && pokemon.item === "Kee Berry" && moveCategory === "Physical" && !isSheerForceBoosted) ||
+                 (!unnerve && !isFixedDamage && pokemon.item === "Maranga Berry" && moveCategory === "Special" && !isSheerForceBoosted)
                 ) {
                 this.consumeItem(id, pokemon.item, true, blockSymbiosis);
             }
 
             /// abilities triggered by damage if the target survives
-            if (isCrit && pokemon.hasAbility("Anger Point")) { 
+            if (isCrit && !isFixedDamage && pokemon.hasAbility("Anger Point")) { 
                 const boost = {atk: 12};
                 this.applyStatChange(id, boost, true, id);
             } else if ((moveType === "Fire" || moveType === "Water" ) && pokemon.hasAbility("Steam Engine")) {

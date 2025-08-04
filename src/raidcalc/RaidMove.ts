@@ -11,6 +11,7 @@ import chargeMoves from "../data/charge_moves.json";
 import rechargeMoves from "../data/recharge_moves.json";
 import magicBounceMoves from "../data/magicbounce_moves.json";
 import thawUserMoves from "../data/thaw_user_moves.json";
+import fixedDamageMoves from "../data/fixed_damage_moves.json";
 import { getModifiedStat } from "../calc/mechanics/util";
 
 export type RaidMoveResult= {
@@ -919,7 +920,7 @@ export class RaidMove {
                                 hitRoll = catRollCounts(hitRoll, getRollCounts([[0]], 0, target.maxHP(), [1 - accFraction]));
                             }
                             const bypassSubstitute = this.moveData.bypassSub || moveUser.hasAbility("Infiltrator");
-                            this._damaged[id] = this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this._moveType, this.move.category, true, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted, i !== (this.hits - 1), this.userID, calcMove.named("False Swipe")) || this._damaged[id];
+                            this._damaged[id] = this._raidState.applyDamage(id, hitDamage, hitRoll, 1, result.rawDesc.isCritical, superEffective, this._moveType, this.move.category, true, this.moveData.isWind, bypassSubstitute, this._isSheerForceBoosted, i !== (this.hits - 1), this.userID, calcMove.named("False Swipe"), fixedDamageMoves.includes(calcMove.name)) || this._damaged[id];
                             totalDamage += hitDamage;
                             this._damageRolls[id].push(hitRoll);
         

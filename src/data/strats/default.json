@@ -43,7 +43,7 @@
             "shieldData": {
                 "hpTrigger": 85,
                 "timeTrigger": 90,
-                "shieldCancelDamage": 30,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 80,
                 "shieldDamageRateTeraChange": 40

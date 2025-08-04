@@ -280,7 +280,6 @@ function makeSubstituteInfo(pokemon: Raider, groups: TurnGroupInfo[]) {
         substituteMoves: newSubstituteMoves,
         substituteTargets: newSubstituteTargets,
     };
-    console.log(newSubstitute);
     return newSubstitute;
 }
 

@@ -1,5 +1,5 @@
 {
-    "name": "",
+    "name": "Bonk!",
     "notes": "",
     "credits": "",
     "pokemon": [
@@ -51,15 +51,15 @@
         },
         {
             "id": 1,
-            "role": "Gholdengo",
-            "name": "Gholdengo",
+            "role": "Tinkaton",
+            "name": "Tinkaton",
             "shiny": false,
-            "ability": "Good as Gold",
-            "item": "Choice Specs",
-            "nature": "Hardy",
+            "ability": "Own Tempo",
+            "item": "Choice Band",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
@@ -74,10 +74,9 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Make It Rain",
-                "Flash Cannon"
+                "Gigaton Hammer"
             ]
         },
         {
@@ -107,8 +106,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Chilling Water"
+                "Screech"
             ]
         },
         {
@@ -138,40 +136,36 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Chilling Water"
+                "Screech"
             ]
         },
         {
             "id": 4,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Dipplin",
+            "name": "Dipplin",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "Supersweet Syrup",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Chilling Water"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -183,11 +177,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -195,11 +189,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -207,14 +201,14 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 1,
+                "name": "Screech",
+                "userID": 2,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -223,11 +217,67 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Gigaton Hammer",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
@@ -237,10 +287,15 @@
             0
         ],
         [
-            1
+            1,
+            2
+        ],
+        [
+            3
         ]
     ],
     "repeats": [
+        1,
         1,
         1
     ],

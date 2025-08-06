@@ -12,6 +12,7 @@ import rechargeMoves from "../data/recharge_moves.json";
 import magicBounceMoves from "../data/magicbounce_moves.json";
 import thawUserMoves from "../data/thaw_user_moves.json";
 import fixedDamageMoves from "../data/fixed_damage_moves.json";
+// import actionLockMoves from "../data/action_lock_moves.json";
 import { getModifiedStat } from "../calc/mechanics/util";
 
 export type RaidMoveResult= {
@@ -203,9 +204,9 @@ export class RaidMove {
                 }
             }
         } else {
-            if (this.moveData.name === "Rollout") {
-                this._user.moveRepeated = 0;
-            }
+            // if (actionLockMoves.includes(this.moveData.name)) {
+            //     this._user.moveRepeated = 0; // this will be incorrect when interacting with metronome (item)
+            // }
         }
         // remove isCharged
         if (this.move.hasType("Electric") && !this.move.named("Charge")) {
@@ -391,9 +392,9 @@ export class RaidMove {
             (this.move.named("Belch") && this._user.preventBelch) ||
             (this.move.named("Focus Punch") && this._damaged[this.userID])
         ) {
-            if (this.moveData.name === "Rollout") {
-                this._user.moveRepeated = 0;
-            }
+            // if (actionLockMoves.includes(this.moveData.name)) {
+            //     this._user.moveRepeated = 0;
+            // }
             this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
             return true;
         }
@@ -863,7 +864,7 @@ export class RaidMove {
                                 moveBP = Math.floor(moveUser.species.baseStats.atk / 10 + 5);
                             } else if (calcMove.named("Fury Cutter")) {
                                 moveBP = 40 * Math.pow(2, Math.min(2, this._user.moveRepeated || 0))
-                            } else if (calcMove.named("Rollout")) {
+                            } else if (calcMove.named("Rollout", "Ice Ball")) {
                                 moveBP = 30 * Math.pow(2, (this._user.moveRepeated || 0) % 5);
                             }
                             moveBP = moveBP * bpModifier; // from interactions like Dig + Earthquake
@@ -1043,9 +1044,9 @@ export class RaidMove {
                         // this._user.lastMoveFailed = false;
                     }
                 } else {
-                    if (this.moveData.name === "Rollout") {
-                        this._user.moveRepeated = 0;
-                    }
+                    // if (actionLockMoves.includes(this.moveData.name)) {
+                    //     this._user.moveRepeated = 0;
+                    // }
                     const accString = Math.round(accuracy * 10) / 10;
                     const missString = Math.round((100 - accString) * 10) / 10;
                     const accEffectsString = accEffectsList.length ? " with " + accEffectsList.join(", ") : "";
@@ -2010,6 +2011,10 @@ export class RaidMove {
         if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
             this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
             this._user.isChoiceLocked = true;
+        }
+        // confusion from thrash-like moves (assuming 2 turns instead of 3)
+        if (this.move.named("Thrash","Petal Dance","Outrage","Raging Fury") && this._user.moveRepeated && ((this._user.moveRepeated + 1) % 2 === 0)) {
+            this._raidState.applyVolatileStatus(this.userID, "confusion", false, this.userID, this.movesFirst)
         }
     }
 

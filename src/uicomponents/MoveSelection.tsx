@@ -327,8 +327,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
     )
 }
 
-function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, selectableMoves, translationKey}: 
-    {groupIndex: number, turnIndex: number, raiders: Raider[], groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], translationKey: any}) 
+function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, selectableMoves, isActionLocked, translationKey}: 
+    {groupIndex: number, turnIndex: number, raiders: Raider[], groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], isActionLocked: boolean, translationKey: any}) 
 {
     const roles = raiders.map((raider) => raider.role);
     const moveInfo = groups[groupIndex].turns[turnIndex].moveInfo;
@@ -338,7 +338,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
 
     // const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
     const raider = raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID];
-    const moveSet = raider.id > 0 ? ["(No Move)", "(Most Damaging)", "(Wait)", ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...(raider.cheersLeft || 0 > 0 ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])]
+    const moveSet = raider.id > 0 ? ["(No Move)", ...(isActionLocked ? [] : ["(Most Damaging)", "(Wait)"]), ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...((((raider.cheersLeft || 0) > 0) && !isActionLocked) ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])]
                                   : [...(raider.extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
@@ -751,8 +751,8 @@ function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGrou
             turn.moveInfo.moveData.name === "(No Move)" ||
             turn.moveInfo.userID === 0
         )
-    );
-    const raiderSelectableMoves = getSelectableMoves(raiders[turn.moveInfo.userID], turn.moveInfo.userID === 0);
+    )[0];
+    const [raiderSelectableMoves, isActionLocked] = getSelectableMoves(raiders[turn.moveInfo.userID], turn.moveInfo.userID === 0);
     const bossVisible = turn.moveInfo.userID !==0 && turn.moveInfo.moveData.name !== "(Wait)";
 
     useEffect(() => {
@@ -783,6 +783,7 @@ function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGrou
                                 groups={groups} 
                                 setGroups={setGroups} 
                                 raiderSelectableMoves={raiderSelectableMoves}
+                                isActionLocked={isActionLocked}
                                 bossSelectableMoves={bossSelectableMoves}
                                 buttonsVisible={buttonsVisible} 
                                 bossVisible={bossVisible}
@@ -839,8 +840,8 @@ function CloseButton({onClick, visible, disabled=false}: {onClick: () => void, v
     )
 }
 
-function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, raiderSelectableMoves, bossSelectableMoves, buttonsVisible, bossVisible, setTransitionIn, setTransitionOut, translationKey}: 
-    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, raiderSelectableMoves: MoveName[], bossSelectableMoves: MoveName[], buttonsVisible: boolean, bossVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any}) 
+function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, raiderSelectableMoves, isActionLocked, bossSelectableMoves, buttonsVisible, bossVisible, setTransitionIn, setTransitionOut, translationKey}: 
+    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, raiderSelectableMoves: MoveName[], isActionLocked: boolean, bossSelectableMoves: MoveName[], buttonsVisible: boolean, bossVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any}) 
 {
     const timer = useRef<NodeJS.Timeout | null>(null);
     const handleRemoveTurn = () => {
@@ -873,7 +874,7 @@ function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, r
                         alignItems="center"
                         sx={{ p: 0.5 }}
                     >
-                        <MoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} raiders={raiders} groups={groups} setGroups={setGroups} selectableMoves={raiderSelectableMoves} translationKey={translationKey} />
+                        <MoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} raiders={raiders} groups={groups} setGroups={setGroups} selectableMoves={raiderSelectableMoves} isActionLocked={isActionLocked} translationKey={translationKey} />
                         {/* <Box width="80%">
                             <Divider />
                         </Box> */}
@@ -929,6 +930,7 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
         arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
         arraysEqual(prevProps.raiderSelectableMoves, nextProps.raiderSelectableMoves) &&
+        prevProps.isActionLocked === nextProps.isActionLocked && 
         arraysEqual(prevProps.bossSelectableMoves, nextProps.bossSelectableMoves) &&
         prevProps.buttonsVisible === nextProps.buttonsVisible &&
         prevProps.bossVisible === nextProps.bossVisible &&

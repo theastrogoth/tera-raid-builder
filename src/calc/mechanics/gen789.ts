@@ -1056,7 +1056,7 @@ export function calculateBPModsSMSSSV(
   } else if (defender.isMinimize && move.named("Body Slam", "Stomp", "Dragon Rush", "Heat Crash", "Heavy Slam", "Flying Press")) {
     bpMods.push(8192);
     desc.moveBP = basePower * 2;
-  } else if (attacker.isDefenseCurl && move.named("Rollout")) {
+  } else if (attacker.isDefenseCurl && move.named("Rollout", "Ice Ball")) {
     bpMods.push(8192);
     desc.moveBP = basePower * 2;
   }

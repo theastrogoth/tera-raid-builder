@@ -383,7 +383,7 @@ export class RaidTurn {
         }
         // For this option, pick the most damaging move based on the current field.
         if (!this.raidState.raiders[0].isCharging && this._bossMoveData.name === "(Most Damaging)") {
-            const moveOptions = getSelectableMoves(this._raidState.raiders[0], false);
+            const moveOptions = getSelectableMoves(this._raidState.raiders[0], false)[0];
             let bestMove = "(No Move)";
             let bestDamage = 0;
             for (const move of moveOptions) {

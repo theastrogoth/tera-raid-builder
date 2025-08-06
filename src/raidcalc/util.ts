@@ -1,8 +1,9 @@
 import { Move, Field, Pokemon, Generations, toID } from "../calc";
 import { AilmentName, MoveData, Raider, RaidTurnInfo } from "./interface";
-import { AbilityName, ItemName, StatIDExceptHP, TypeName } from "../calc/data/interface";
+import { AbilityName, ItemName, MoveName, StatIDExceptHP, TypeName } from "../calc/data/interface";
 import { getModifiedStat, getMoveEffectiveness, isGrounded } from "../calc/mechanics/util";
 import guaranteedHitMoves from "../data/guaranteed_hit_moves.json";
+import actionLockMoves from "../data/action_lock_moves.json";
 
 const gen = Generations.get(9);
 
@@ -387,9 +388,17 @@ export function isRegularMove(movename: string) {
     return !isRaidAction(movename) && movename !== "(No Move)" && movename !== "(Most Damaging)" && movename !== "(Optimal Move)";
 }
 
-export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = false) {
+export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = false): [MoveName[], boolean] {
     let selectableMoves: MoveData[] = [...pokemon.moveData, ...(isBossAction ? pokemon.extraMoveData || [] : [])].filter(m => m.name !== "(No Move)");
+    let actionLocked = false;
     if (!isBossAction) {
+        if (pokemon.lastMove && actionLockMoves.includes(pokemon.lastMove.name)) {
+            // lasts for 2-3 turns (other than rollout), but we'll ignore this for bosses and assume 2 turns for raiders
+            if (((pokemon.moveRepeated || 0) + 1) % ((pokemon.lastMove.name === "Rollout" || pokemon.lastMove.name === "Ice Ball") ? 5 : 2) !== 0) {
+                selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
+                actionLocked = true;
+            }
+        }
         if ((pokemon.isChoiceLocked || pokemon.isEncore) && pokemon.lastMove) {
             selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
         }
@@ -412,7 +421,7 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
             selectableMoves = selectableMoves.filter(m => m.name !== "Belch");
         }
     }
-    return selectableMoves.map(m => m.name);
+    return [selectableMoves.map(m => m.name), actionLocked];
 }
 
 export function getCritChance(move: Move, attacker: Raider, defender: Raider) {

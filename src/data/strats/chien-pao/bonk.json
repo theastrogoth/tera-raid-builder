@@ -332,7 +332,160 @@
         1
     ],
     "substitutes": [
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Necrozma",
+                    "name": "Necrozma-Dusk-Mane",
+                    "shiny": false,
+                    "ability": "Prism Armor",
+                    "item": "Choice Band",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Sunsteel Strike"
+                    ]
+                },
+                "substituteMoves": [
+                    "Sunsteel Strike"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Zacian",
+                    "name": "Zacian-Crowned",
+                    "shiny": false,
+                    "ability": "Intrepid Sword",
+                    "item": "Rusted Sword",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Behemoth Blade"
+                    ]
+                },
+                "substituteMoves": [
+                    "Behemoth Blade"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Solgaleo",
+                    "name": "Solgaleo",
+                    "shiny": false,
+                    "ability": "Full Metal Body",
+                    "item": "Choice Band",
+                    "nature": "Jolly",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Sunsteel Strike"
+                    ]
+                },
+                "substituteMoves": [
+                    "Sunsteel Strike"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Metagross",
+                    "name": "Metagross",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Band",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Hard Press"
+                    ]
+                },
+                "substituteMoves": [
+                    "Hard Press"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ],
         [],
         [],
         [
@@ -410,6 +563,42 @@
                 ],
                 "substituteTargets": [
                     0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Hydrapple",
+                    "name": "Hydrapple",
+                    "shiny": false,
+                    "isAnyLevel": true,
+                    "ability": "Supersweet Syrup",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "(Wait)"
+                ],
+                "substituteTargets": [
+                    4
                 ]
             }
         ]

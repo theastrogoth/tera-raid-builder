@@ -335,7 +335,2365 @@
         1
     ],
     "substitutes": [
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Kyurem",
+                    "name": "Kyurem-White",
+                    "shiny": false,
+                    "ability": "Turboblaze",
+                    "item": "Choice Specs",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Necrozma",
+                    "name": "Necrozma-Dawn-Wings",
+                    "shiny": false,
+                    "ability": "Prism Armor",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Deoxys",
+                    "name": "Deoxys",
+                    "shiny": false,
+                    "ability": "Pressure",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Dialga",
+                    "name": "Dialga",
+                    "shiny": false,
+                    "ability": "Pressure",
+                    "item": "Wide Lens",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Dialga",
+                    "name": "Dialga-Origin",
+                    "shiny": false,
+                    "ability": "Pressure",
+                    "item": "Adamant Crystal",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Eternatus",
+                    "name": "Eternatus",
+                    "shiny": false,
+                    "ability": "Pressure",
+                    "item": "Choice Specs",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Iron Moth",
+                    "name": "Iron Moth",
+                    "shiny": false,
+                    "ability": "Quark Drive",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Miraidon",
+                    "name": "Miraidon",
+                    "shiny": false,
+                    "ability": "Hadron Engine",
+                    "item": "Choice Specs",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Glimmora",
+                    "name": "Glimmora",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Heatran",
+                    "name": "Heatran",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Kyurem",
+                    "name": "Kyurem",
+                    "shiny": false,
+                    "ability": "Pressure",
+                    "item": "Choice Specs",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Magearna",
+                    "name": "Magearna",
+                    "shiny": false,
+                    "ability": "Soul-Heart",
+                    "item": "Wide Lens",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Magnezone",
+                    "name": "Magnezone",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Scarf",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Volcanion",
+                    "name": "Volcanion",
+                    "shiny": false,
+                    "ability": "Water Absorb",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Necrozma",
+                    "name": "Necrozma",
+                    "shiny": false,
+                    "ability": "Prism Armor",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Archaludon",
+                    "name": "Archaludon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Armarouge",
+                    "name": "Armarouge",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Hydreigon",
+                    "name": "Hydreigon",
+                    "shiny": false,
+                    "ability": "Levitate",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Iron Crown",
+                    "name": "Iron Crown",
+                    "shiny": false,
+                    "ability": "Quark Drive",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Tachyon Cutter"
+                    ]
+                },
+                "substituteMoves": [
+                    "Tachyon Cutter"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Iron Jugulis",
+                    "name": "Iron Jugulis",
+                    "shiny": false,
+                    "ability": "Quark Drive",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Sandy Shocks",
+                    "name": "Sandy Shocks",
+                    "shiny": false,
+                    "ability": "Protosynthesis",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 4,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Arceus",
+                    "name": "Arceus",
+                    "shiny": false,
+                    "ability": "Multitype",
+                    "item": "Wide Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Arceus",
+                    "name": "Arceus-Steel",
+                    "shiny": false,
+                    "ability": "Multitype",
+                    "item": "Iron Plate",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Judgment"
+                    ]
+                },
+                "substituteMoves": [
+                    "Judgment"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Clawitzer",
+                    "name": "Clawitzer",
+                    "shiny": false,
+                    "ability": "Mega Launcher",
+                    "item": "Choice Specs",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Duraludon",
+                    "name": "Duraludon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Kyurem",
+                    "name": "Kyurem-Black",
+                    "shiny": false,
+                    "ability": "Teravolt",
+                    "item": "Choice Specs",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Magneton",
+                    "name": "Magneton",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Zekrom",
+                    "name": "Zekrom",
+                    "shiny": false,
+                    "ability": "Teravolt",
+                    "item": "Choice Specs",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Lucario",
+                    "name": "Lucario",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Necrozma",
+                    "name": "Necrozma-Dusk-Mane",
+                    "shiny": false,
+                    "ability": "Prism Armor",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Solgaleo",
+                    "name": "Solgaleo",
+                    "shiny": false,
+                    "ability": "Full Metal Body",
+                    "item": "Wide Lens",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 4
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Empoleon",
+                    "name": "Empoleon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Scarf",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Goodra",
+                    "name": "Goodra-Hisui",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Scarf",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Terapagos",
+                    "name": "Terapagos-Terastal",
+                    "shiny": false,
+                    "ability": "Tera Shell",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "teraType": "Stellar",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Espathra",
+                    "name": "Espathra",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Jirachi",
+                    "name": "Jirachi",
+                    "shiny": false,
+                    "ability": "Serene Grace",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Mew",
+                    "name": "Mew",
+                    "shiny": false,
+                    "ability": "Synchronize",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Cryogonal",
+                    "name": "Cryogonal",
+                    "shiny": false,
+                    "ability": "Levitate",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Deoxys",
+                    "name": "Deoxys-Speed",
+                    "shiny": false,
+                    "ability": "Pressure",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Kingdra",
+                    "name": "Kingdra",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Magnemite",
+                    "name": "Magnemite",
+                    "shiny": false,
+                    "ability": "Magnet Pull",
+                    "item": "Choice Scarf",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Metagross",
+                    "name": "Metagross",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Seadra",
+                    "name": "Seadra",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Cobalion",
+                    "name": "Cobalion",
+                    "shiny": false,
+                    "ability": "Justified",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Grumpig",
+                    "name": "Grumpig",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Copperajah",
+                    "name": "Copperajah",
+                    "shiny": false,
+                    "ability": "Sheer Force",
+                    "item": "Choice Scarf",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Klefki",
+                    "name": "Klefki",
+                    "shiny": false,
+                    "ability": "Prankster",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Zacian",
+                    "name": "Zacian",
+                    "shiny": false,
+                    "ability": "Intrepid Sword",
+                    "item": "Wide Lens",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Zamazenta",
+                    "name": "Zamazenta",
+                    "shiny": false,
+                    "ability": "Dauntless Shield",
+                    "item": "Wide Lens",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Iron Treads",
+                    "name": "Iron Treads",
+                    "shiny": false,
+                    "ability": "Quark Drive",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Tinkaton",
+                    "name": "Tinkaton",
+                    "shiny": false,
+                    "ability": "Mold Breaker",
+                    "item": "Choice Specs",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "F",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Bisharp",
+                    "name": "Bisharp",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Orthworm",
+                    "name": "Orthworm",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Choice Specs",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Scizor",
+                    "name": "Scizor",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Revavroom",
+                    "name": "Revavroom",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Corviknight",
+                    "name": "Corviknight",
+                    "shiny": false,
+                    "ability": "Pressure",
+                    "item": "Wide Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Dugtrio",
+                    "name": "Dugtrio-Alola",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Excadrill",
+                    "name": "Excadrill",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Perrserker",
+                    "name": "Perrserker",
+                    "shiny": false,
+                    "ability": "Steely Spirit",
+                    "item": "Choice Scarf",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Flash Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Flash Cannon"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Tinkatuff",
+                    "name": "Tinkatuff",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "F",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Pawniard",
+                    "name": "Pawniard",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Skarmory",
+                    "name": "Skarmory",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Wide Lens",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ],
         [],
         [],
         []

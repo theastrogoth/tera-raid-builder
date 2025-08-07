@@ -42,6 +42,7 @@ import StatsControls from "./StatsControls";
 import ImportExportArea from "./ImportExportArea";
 
 import { MoveData, MoveSetItem, ShieldData, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
+import { RaidTurnResult } from "../raidcalc/RaidTurn";
 import { Raider } from "../raidcalc/Raider";
 import PokedexService, { PokemonData } from "../services/getdata";
 import { getItemSpriteURL, getMoveMethodIconURL, getPokemonSpriteURL, getTeraTypeIconURL, getTypeIconURL, getAilmentReadableName, getLearnMethodReadableName, arraysEqual, getTranslation, setdexToOptions } from "../utils";
@@ -823,7 +824,7 @@ export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {
     )
 }
 
-export function MoveWithIcon({move, allMoves, prettyMode, translationKey}: {move: MoveSetItem, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) {
+export function MoveWithIcon({move, optional, allMoves, prettyMode, translationKey}: {move: MoveSetItem, optional: boolean, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) {
     const [showPopper, setShowPopper] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -850,14 +851,14 @@ export function MoveWithIcon({move, allMoves, prettyMode, translationKey}: {move
                     {!prettyMode &&
                         <img src={getTypeIconURL(move.type)} height="25px" alt="" />
                     }
-                <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5 } : {paddingLeft: 0.5, paddingRight: 0.5}}>
+                <Typography variant={prettyMode ? "body1" : "body2"} sx={prettyMode ? {paddingRight: 0.5, opacity: optional ? .5 : 1} : {paddingLeft: 0.5, paddingRight: 0.5}}>
                     {move.name}
                 </Typography>
                     {move.method === "egg" && prettyMode &&
-                        <img src={getMoveMethodIconURL("egg")} height="20px" alt="" />
+                        <img src={getMoveMethodIconURL("egg")} height="20px" alt="" style={{opacity: optional ? .5 : 1}}/>
                     }
                     {move.method === "machine" && prettyMode &&
-                        <img src={getMoveMethodIconURL(move.type)} height="20px" alt="" />
+                        <img src={getMoveMethodIconURL(move.type)} height="20px" alt="" style={{opacity: optional ? .5 : 1}}/>
                     }
             </Stack>
             <MovePopper moveItem={move} showPopper={showPopper} anchorEl={anchorEl} allMoves={allMoves} translationKey={translationKey}/>
@@ -865,7 +866,7 @@ export function MoveWithIcon({move, allMoves, prettyMode, translationKey}: {move
     )
 }
 
-function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, allMoves, disabled, prettyMode,translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], currentMoves: MoveName[], allMoves: Map<MoveName,MoveData> | null, disabled: boolean, prettyMode: boolean, translationKey: any}) {
+function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, allMoves, disabled, optional, prettyMode,translationKey}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], moveSet: MoveSetItem[], currentMoves: MoveName[], allMoves: Map<MoveName,MoveData> | null, disabled: boolean, optional: boolean, prettyMode: boolean, translationKey: any}) {
     const [showPopper, setShowPopper] = useState(false);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const timer = useRef<NodeJS.Timeout | null>(null);
@@ -900,7 +901,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
                 <LeftCell>{ getTranslation(name, translationKey) }</LeftCell>
                 <RightCell colSpan={prettyMode ? 1 : 3} sx={{ width: "165px" }}>
                     {prettyMode &&
-                        <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} />
+                        <MoveWithIcon move={findOptionFromMoveName(value, moveSet, translationKey)} optional={optional} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} />
                     }
                     {!prettyMode &&
                         <Box onMouseOver={handleMouseOver} onMouseLeave={handleMouseLeave}>
@@ -920,7 +921,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
                                     })
                                 }
                                 renderOption={(props, option) => 
-                                    <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
+                                    <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} optional={optional} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
                                 }
                                 getOptionDisabled={(option) => option !== "(No Move)" && option !== value && currentMoves.includes(option as MoveName)}
                                 renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
@@ -1476,9 +1477,9 @@ function GenderSymbol({g}: {g: GenderName | undefined}) {
     )
 }
 
-function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, groupsCounter, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
+function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, groupsCounter, turnResults, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
         {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
-         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, groupsCounter: number,  allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
+         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, groupsCounter: number, turnResults: RaidTurnResult[], allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
          setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey?: any, isBoss?: boolean}
     ) {
     const [teraTypes, setTeraTypes] = useState(genTypes);
@@ -2032,6 +2033,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                             currentMoves={pokemon.moves}
                                             allMoves={allMoves}
                                             disabled={pokemon.moves.length < index}
+                                            optional={turnResults && !turnResults.some((turnResult) => turnResult.moveInfo.userID === pokemon.id && turnResult.moveInfo.moveData.name === pokemon.moves[index])}
                                             prettyMode={prettyMode}
                                             translationKey={translationKey}
                                         /> 
@@ -2437,6 +2439,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                                         currentMoves={pokemon.extraMoves || []}
                                         allMoves={allMoves}
                                         disabled={(pokemon.extraMoves || []).length < index}
+                                        optional={false}
                                         prettyMode={prettyMode}
                                         translationKey={translationKey}
                                     /> 
@@ -2468,6 +2471,7 @@ export default React.memo(BuildControls,
         (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
         prevProps.groupsCounter === nextProps.groupsCounter && 
+        prevProps.turnResults === nextProps.turnResults &&
         prevProps.prettyMode === nextProps.prettyMode &&
         prevProps.translationKey === nextProps.translationKey
     );

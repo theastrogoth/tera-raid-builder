@@ -6,6 +6,7 @@ import PokemonSummary from "./PokemonSummary";
 import { RaidInputProps } from "../raidcalc/inputs";
 import { SubstituteBuildInfo, TurnGroupInfo} from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
+import { RaidTurnResult } from "../raidcalc/RaidTurn";
 
 function swapGroupRaiderIds(groups: TurnGroupInfo[], firstId: number, secondId: number) {
     return groups.map(group => { 
@@ -47,8 +48,8 @@ function replaceSubstituteIds(substitutes: SubstituteBuildInfo[], firstId: numbe
 }
 
 function RaiderSummaries(
-    {raidInputProps, substitutes, groupsCounter, setGroupsCounter, setSubstitutes, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
-    {raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][], setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], groupsCounter: number, setGroupsCounter: (c: number) => void, allSpecies: any, allMoves: any, setAllSpecies: any, setAllMoves: any, prettyMode: boolean, translationKey: any}
+    {raidInputProps, substitutes, groupsCounter, turnResults, setGroupsCounter, setSubstitutes, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
+    {raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][], setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], groupsCounter: number, turnResults: RaidTurnResult[], setGroupsCounter: (c: number) => void, allSpecies: any, allMoves: any, setAllSpecies: any, setAllMoves: any, prettyMode: boolean, translationKey: any}
 ) {
     const [swapIDs, setSwapIDs] = useState<[number, number] | undefined>(undefined);
 
@@ -78,14 +79,14 @@ function RaiderSummaries(
     <>
         <Grid item>
             <Stack direction="row">
-                <PokemonSummary pokemon={raidInputProps.pokemon[1]} setPokemon={raidInputProps.setPokemon[1]} groups={raidInputProps.groups} setGroups={raidInputProps.setGroups} groupsCounter={groupsCounter} substitutes={substitutes[0]} setSubstitutes={setSubstitutes[0]} allSpecies={allSpecies} allMoves={allMoves} swapIDs={swapIDs} setSwapIDs={setSwapIDs} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
-                <PokemonSummary pokemon={raidInputProps.pokemon[2]} setPokemon={raidInputProps.setPokemon[2]} groups={raidInputProps.groups} setGroups={raidInputProps.setGroups} groupsCounter={groupsCounter} substitutes={substitutes[1]} setSubstitutes={setSubstitutes[1]} allSpecies={allSpecies} allMoves={allMoves} swapIDs={swapIDs} setSwapIDs={setSwapIDs} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+                <PokemonSummary pokemon={raidInputProps.pokemon[1]} setPokemon={raidInputProps.setPokemon[1]} groups={raidInputProps.groups} setGroups={raidInputProps.setGroups} groupsCounter={groupsCounter} turnResults={turnResults} substitutes={substitutes[0]} setSubstitutes={setSubstitutes[0]} allSpecies={allSpecies} allMoves={allMoves} swapIDs={swapIDs} setSwapIDs={setSwapIDs} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+                <PokemonSummary pokemon={raidInputProps.pokemon[2]} setPokemon={raidInputProps.setPokemon[2]} groups={raidInputProps.groups} setGroups={raidInputProps.setGroups} groupsCounter={groupsCounter} turnResults={turnResults} substitutes={substitutes[1]} setSubstitutes={setSubstitutes[1]} allSpecies={allSpecies} allMoves={allMoves} swapIDs={swapIDs} setSwapIDs={setSwapIDs} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
             </Stack>
         </Grid>
         <Grid item>
             <Stack direction="row">
-                <PokemonSummary pokemon={raidInputProps.pokemon[3]} setPokemon={raidInputProps.setPokemon[3]} groups={raidInputProps.groups} setGroups={raidInputProps.setGroups} groupsCounter={groupsCounter} substitutes={substitutes[2]} setSubstitutes={setSubstitutes[2]} allSpecies={allSpecies} allMoves={allMoves} swapIDs={swapIDs} setSwapIDs={setSwapIDs} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
-                <PokemonSummary pokemon={raidInputProps.pokemon[4]} setPokemon={raidInputProps.setPokemon[4]} groups={raidInputProps.groups} setGroups={raidInputProps.setGroups} groupsCounter={groupsCounter} substitutes={substitutes[3]} setSubstitutes={setSubstitutes[3]} allSpecies={allSpecies} allMoves={allMoves} swapIDs={swapIDs} setSwapIDs={setSwapIDs} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+                <PokemonSummary pokemon={raidInputProps.pokemon[3]} setPokemon={raidInputProps.setPokemon[3]} groups={raidInputProps.groups} setGroups={raidInputProps.setGroups} groupsCounter={groupsCounter} turnResults={turnResults} substitutes={substitutes[2]} setSubstitutes={setSubstitutes[2]} allSpecies={allSpecies} allMoves={allMoves} swapIDs={swapIDs} setSwapIDs={setSwapIDs} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
+                <PokemonSummary pokemon={raidInputProps.pokemon[4]} setPokemon={raidInputProps.setPokemon[4]} groups={raidInputProps.groups} setGroups={raidInputProps.setGroups} groupsCounter={groupsCounter} turnResults={turnResults} substitutes={substitutes[3]} setSubstitutes={setSubstitutes[3]} allSpecies={allSpecies} allMoves={allMoves} swapIDs={swapIDs} setSwapIDs={setSwapIDs} setAllSpecies={setAllSpecies} setAllMoves={setAllMoves} prettyMode={prettyMode} translationKey={translationKey} />
             </Stack>
         </Grid> 
     </>
@@ -98,6 +99,7 @@ export default React.memo(RaiderSummaries,
                prevProps.substitutes === nextProps.substitutes &&
                prevProps.groupsCounter === nextProps.groupsCounter &&
                prevProps.setGroupsCounter === nextProps.setGroupsCounter &&
+               prevProps.turnResults === nextProps.turnResults &&
                prevProps.setSubstitutes === nextProps.setSubstitutes &&
                prevProps.allSpecies === nextProps.allSpecies &&
                prevProps.allMoves === nextProps.allMoves &&

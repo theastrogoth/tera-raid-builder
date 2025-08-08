@@ -17,6 +17,7 @@ import BuildControls from "./BuildControls";
 import PokedexService, { PokemonData } from '../services/getdata';
 import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getTranslation } from "../utils";
 import { MoveData, MoveSetItem, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
+import { RaidTurnResult } from "../raidcalc/RaidTurn";
 import { MOVES } from "../calc/data/moves";
 import { Raider } from "../raidcalc/Raider";
 import { AbilityName, MoveName, SpeciesName } from "../calc/data/interface";
@@ -75,8 +76,8 @@ export function RoleField({pokemon, setPokemon, translationKey}: {pokemon: Raide
     )
 }
 
-function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, substitutes, setSubstitutes, swapIDs, setSwapIDs, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
-    {pokemon: Raider, setPokemon: (r: Raider) => void, groups: TurnGroupInfo[], setGroups: (g: TurnGroupInfo[]) => void, groupsCounter: number,
+function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, turnResults, substitutes, setSubstitutes, swapIDs, setSwapIDs, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey}: 
+    {pokemon: Raider, setPokemon: (r: Raider) => void, groups: TurnGroupInfo[], setGroups: (g: TurnGroupInfo[]) => void, groupsCounter: number, turnResults: RaidTurnResult[],
      substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void,  swapIDs: [number, number] | undefined, setSwapIDs: (i: [number, number] | undefined) => void,
      allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
 ) {
@@ -106,7 +107,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, 
             [],
         ));
     }
-  
+
     useEffect(() => {
         if (!allSpecies) {
             async function fetchData() {
@@ -274,6 +275,7 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, 
                         groups={groups} 
                         setGroups={setGroups} 
                         groupsCounter={groupsCounter}
+                        turnResults={turnResults}
                         substitutes={substitutes} 
                         setSubstitutes={setSubstitutes} 
                         allSpecies={allSpecies}
@@ -299,6 +301,7 @@ export default React.memo(PokemonSummary,
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
         (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
         prevProps.groupsCounter === nextProps.groupsCounter &&
+        prevProps.turnResults === nextProps.turnResults &&
         (
             prevProps.swapIDs === nextProps.swapIDs || (
                 prevProps.swapIDs !== undefined && nextProps.swapIDs !== undefined &&

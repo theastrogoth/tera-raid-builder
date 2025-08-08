@@ -478,6 +478,7 @@ function App() {
             substitutes={[substitutes1, substitutes2, substitutes3, substitutes4]}
             setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
             groupsCounter={groupsCounter}
+            turnResults={results.turnResults}
             setGroupsCounter={setGroupsCounter}
             allSpecies={allSpecies}
             allMoves={allMoves}

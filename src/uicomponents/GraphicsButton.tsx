@@ -830,8 +830,8 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
     const root = createRoot(graphicTop);
 
     const lastRowCount = buildsCount % rowLength;
-    const overflowCount = (lastRowCount && (lastRowCount <= rowLength / 2)) ? Math.floor((lastRowCount + rowLength - 1)/2) : 0;
-
+    const firstRowCount = (lastRowCount && (lastRowCount <= rowLength / 2)) ? Math.floor((lastRowCount + rowLength - 1)/2) : 0;
+    const secondRowCount = firstRowCount ? (lastRowCount + rowLength) - firstRowCount : 0;
     const ignoreStats = buildInfo.slice(1).map((info) => (info.raider.isAnyLevel) || (Object.entries(info.raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(info.raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
     flushSync(() => {
         root.render(
@@ -871,12 +871,17 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                         }
                         <BuildsContainer>    
                             {
-                                buildInfo.slice(1, buildsCount - overflowCount + 1).map((info, index) => generateGraphicBuild(info, index, statDisplay, ignoreStats, translationKey))
+                                buildInfo.slice(1, firstRowCount + 1).map((info, index) => generateGraphicBuild(info, index, statDisplay, ignoreStats, translationKey))
+                            }
+                        </BuildsContainer>
+                        <BuildsContainer>    
+                            {
+                                buildInfo.slice(firstRowCount + 1, firstRowCount + secondRowCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount, statDisplay, ignoreStats, translationKey))
                             }
                         </BuildsContainer>
                         <BuildsContainer>
                             {
-                                buildInfo.slice(buildsCount - overflowCount + 1).map((info, index) => generateGraphicBuild(info, index + buildsCount - overflowCount, statDisplay, ignoreStats, translationKey))
+                                buildInfo.slice(firstRowCount + secondRowCount + 1, buildsCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount + secondRowCount, statDisplay, ignoreStats, translationKey))
                             }
                         </BuildsContainer>
                         { buildInfo.some(entry => entry.extraBuildInfo.optionalMove.some(move => move)) &&

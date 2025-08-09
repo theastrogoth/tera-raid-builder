@@ -1670,9 +1670,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                     }}
                                     fullWidth={false}
                                     value={rowLength}
-                                    placeholder={getTranslation("Any", translationKey)}
                                     onChange={(e) => {
-                                        const len = Math.max(1, Math.min(12, parseInt(e.target.value)));
+                                        const len = Math.max(1, Math.min(12, parseInt(e.target.value) || 1));
                                         setRowLength(len);
                                     }}
                                     sx={{ width: "35px" }}

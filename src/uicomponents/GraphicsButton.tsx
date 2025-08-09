@@ -637,9 +637,8 @@ const InfoSection = styled(Box)({
     backgroundColor: "rgba(255, 255, 255, .35)",
 });
 
-const CreditsContainer = styled(Box)({
+const CreditsContainer = styled(Stack)({
     display: "flex",
-    flexDirection: "row",
     justifyContent: "space-between"
 });
 
@@ -647,6 +646,13 @@ const Credit = styled(Typography)({
     fontSize: "4.5em",
     color: "white",
     whiteSpace: "pre-wrap",
+});
+
+const CreditURL = styled(Typography)({
+    fontSize: "4.5em",
+    color: "white",
+    whiteSpace: "pre-wrap",
+    overflowWrap: "break-word",
 });
 
 const PPTLogo = styled("img")({
@@ -722,10 +728,109 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults, chec
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuildInfo[], results: RaidBattleResults, buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], translationKey?: any) {
+function generateGraphicBuild(info: GraphicBuildInfo, index: number, statDisplay: (JSX.Element)[] | undefined, ignoreStats: boolean[], translationKey: any) {
+const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
+    const numcopies = shiny.length;
+    const hArtSpacing = -120 / (Math.max(numcopies,2) - 1) - 375;
+    const vArtSpacing = 42 / (Math.max(numcopies,2) - 1);
+    const role = numcopies > 1 ? `${info.extraBuildInfo.copiesRole} ×${numcopies}` : info.raider.role;
+    return (
+        <BuildWrapper key={index}>
+            <Build>
+                <BuildHeader>
+                    <BuildArtWrapper direction="row-reverse" spacing={`${hArtSpacing}px`}>
+                        {
+                            shiny.map((c,i) =>
+                                <BuildArt src={getPokemonArtURL(info.raider.species.name, shiny[i])} sx={{ transform: `translate(0px, ${vArtSpacing * (i - (numcopies) + 1)}px)` }}/>
+                            )
+                        }
+                    </BuildArtWrapper>
+                    {info.raider.item ? 
+                        <BuildItemArt src={getItemSpriteURL(info.raider.item)} /> : null}
+                    {(info.raider.teraType || "???") !== "???" ?
+                        <BuildTeraIcon src={getTeraTypeIconURL(info.raider.teraType!)} /> : null}
+                    <BuildTypes direction="row">
+                        {info.raider.types.map((type, index) => (
+                            <BuildTypeIcon key={index} src={getTypeIconURL(type === "???" ? "None" : type)}/>
+                        ))}
+                        {info.raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
+                    </BuildTypes>
+                    <BuildRole>{role}</BuildRole>
+                    { info.extraBuildInfo.subFor &&
+                        <BuildSubstituteSubtitle>Substitute for {info.extraBuildInfo.subFor}</BuildSubstituteSubtitle>
+                    }
+                    <BuildHeaderSeparator />
+                </BuildHeader>
+                <BuildInfoContainer>
+                    <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (info.raider.isAnyLevel ? getTranslation("Any",translationKey) : info.raider.level) }</BuildInfo>
+                    {(info.raider.teraType || "???") !== "???" &&
+                        <BuildInfo>{ getTranslation("Tera Type", translationKey) + ": " + getTranslation(info.raider.teraType!, translationKey, "types") }</BuildInfo>
+                    }
+                    {info.raider.item ?
+                        <BuildInfo>{ getTranslation("Item", translationKey) + ": " + getTranslation(info.raider.item, translationKey, "items")}</BuildInfo> : null}
+                    {!!info.raider.ability && info.raider.ability !== "(No Ability)" ? 
+                    <Stack direction="row">
+                        <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(info.raider.ability, translationKey, "abilities") }</BuildInfo>
+                        {info.extraBuildInfo.isHiddenAbility ? 
+                            <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
+                            : null
+                        }
+                    </Stack> : null}
+                    {info.raider.gender && info.raider.gender !== "N" && (SPECIES[9][info.raider.name].gender === undefined || SPECIES[9][info.raider.name].gender === "N") &&
+                        <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(info.raider.gender), translationKey) }</BuildInfo>
+                    }
+                    <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (info.raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(info.raider.nature, translationKey, "natures")) }</BuildInfo>
+                    {getEVDescription(info.raider.evs, translationKey) ? 
+                        <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(info.raider.evs, translationKey)}</BuildInfo> : null}
+                    {getIVDescription(info.raider.ivs, translationKey) ? 
+                        <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(info.raider.ivs, translationKey)}</BuildInfo> : null}
+                </BuildInfoContainer>
+                <Box flexGrow={1}/>
+                { statDisplay && !ignoreStats[index] &&
+                    statDisplay[index]
+                }
+                { statDisplay && ignoreStats[index] &&
+                    <>
+                        <AnyStatsMessageContainer>
+                            <AnyStatsMessage>{ getTranslation("Any stats", translationKey) }</AnyStatsMessage>
+                        </AnyStatsMessageContainer>
+                        <Box flexGrow={1}/>
+                    </>
+                }
+                <BuildMovesSection>
+                    <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
+                    <MovesContainer>
+                        {
+                            [...Array(4)].map((moveSlot, moveSlotIndex) => {
+                                const noMove = (info.raider.moves[moveSlotIndex] && info.raider.moves[moveSlotIndex] !== "(No Move)");
+                                return (
+                                    <MoveBox key={"move_box_" + moveSlotIndex}>
+                                        {noMove ? <MoveTypeIcon src={getTypeIconURL(info.extraBuildInfo.moveTypes[moveSlotIndex])} sx={{opacity: `${info.extraBuildInfo.optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
+                                        {noMove ? (
+                                            info.extraBuildInfo.optionalMove[moveSlotIndex] ?
+                                                <OptionalMoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
+                                                <MoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") }</MoveLabel>
+                                        ) : null}
+                                        {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(info.extraBuildInfo.learnMethods[moveSlotIndex], info.extraBuildInfo.moveTypes[moveSlotIndex])} sx={{opacity: `${info.extraBuildInfo.optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
+                                    </MoveBox>
+                                )
+                            })
+                        }
+                    </MovesContainer>
+                </BuildMovesSection>
+            </Build>
+        </BuildWrapper>
+    );
+}
+
+
+function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuildInfo[], results: RaidBattleResults, buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], rowLength: number = 4, translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
+
+    const lastRowCount = buildsCount % rowLength;
+    const overflowCount = (lastRowCount && (lastRowCount <= rowLength / 2)) ? Math.floor((lastRowCount + rowLength - 1)/2) : 0;
 
     const ignoreStats = buildInfo.slice(1).map((info) => (info.raider.isAnyLevel) || (Object.entries(info.raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(info.raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
     flushSync(() => {
@@ -733,6 +838,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
             <ThemeProvider theme={graphicsTheme}>
                 <GraphicsContainer 
                     style={{
+                        width: rowLength ? `${3600 + (rowLength-4) * 875}px` : "3600px",
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(${backgroundImageURL})`,
                     }} 
                 >
@@ -749,106 +855,28 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                         }
                     </Header>
                     <BuildsSection>
-                        <Separator>
-                            <LeftBar />
-                            <SeparatorLabel>{ !translationKey ? "The Crew" : getTranslation("Pokémon", translationKey) }</SeparatorLabel>
-                            <RightBar />
-                        </Separator> 
+                        { (!buildsOnly) &&
+                            <Separator>
+                                <LeftBar />
+                                <SeparatorLabel>{ !translationKey ? "The Crew" : getTranslation("Pokémon", translationKey) }</SeparatorLabel>
+                                <RightBar />
+                            </Separator> 
+                        }
+                        { (buildsOnly && subtitle && buildsCount > 1) &&
+                            <Separator>
+                                <LeftBar />
+                                <SeparatorLabel>{ subtitle }</SeparatorLabel>
+                                <RightBar />
+                            </Separator> 
+                        }
                         <BuildsContainer>    
                             {
-                                buildInfo.slice(1, buildsCount + 1).map((info, index) => {
-                                  const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
-                                  const numcopies = shiny.length;
-                                  const hArtSpacing = -120 / (Math.max(numcopies,2) - 1) - 375;
-                                  const vArtSpacing = 42 / (Math.max(numcopies,2) - 1);
-                                  const role = numcopies > 1 ? `${info.extraBuildInfo.copiesRole} ×${numcopies}` : info.raider.role;
-                                  return (
-                                    <BuildWrapper key={index}>
-                                        <Build>
-                                            <BuildHeader>
-                                                <BuildArtWrapper direction="row-reverse" spacing={`${hArtSpacing}px`}>
-                                                    {
-                                                        shiny.map((c,i) =>
-                                                            <BuildArt src={getPokemonArtURL(info.raider.species.name, shiny[i])} sx={{ transform: `translate(0px, ${vArtSpacing * (i - (numcopies) + 1)}px)` }}/>
-                                                        )
-                                                    }
-                                                </BuildArtWrapper>
-                                                {info.raider.item ? 
-                                                    <BuildItemArt src={getItemSpriteURL(info.raider.item)} /> : null}
-                                                {(info.raider.teraType || "???") !== "???" ?
-                                                    <BuildTeraIcon src={getTeraTypeIconURL(info.raider.teraType!)} /> : null}
-                                                <BuildTypes direction="row">
-                                                    {info.raider.types.map((type, index) => (
-                                                        <BuildTypeIcon key={index} src={getTypeIconURL(type === "???" ? "None" : type)}/>
-                                                    ))}
-                                                    {info.raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
-                                                </BuildTypes>
-                                                <BuildRole>{role}</BuildRole>
-                                                { info.extraBuildInfo.subFor &&
-                                                    <BuildSubstituteSubtitle>Substitute for {info.extraBuildInfo.subFor}</BuildSubstituteSubtitle>
-                                                }
-                                                <BuildHeaderSeparator />
-                                            </BuildHeader>
-                                            <BuildInfoContainer>
-                                                <BuildInfo>{ getTranslation("Level", translationKey) + ": " + (info.raider.isAnyLevel ? getTranslation("Any",translationKey) : info.raider.level) }</BuildInfo>
-                                                {(info.raider.teraType || "???") !== "???" &&
-                                                    <BuildInfo>{ getTranslation("Tera Type", translationKey) + ": " + getTranslation(info.raider.teraType!, translationKey, "types") }</BuildInfo>
-                                                }
-                                                {info.raider.item ?
-                                                    <BuildInfo>{ getTranslation("Item", translationKey) + ": " + getTranslation(info.raider.item, translationKey, "items")}</BuildInfo> : null}
-                                                {!!info.raider.ability && info.raider.ability !== "(No Ability)" ? 
-                                                <Stack direction="row">
-                                                    <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(info.raider.ability, translationKey, "abilities") }</BuildInfo>
-                                                    {info.extraBuildInfo.isHiddenAbility ? 
-                                                        <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
-                                                        : null
-                                                    }
-                                                </Stack> : null}
-                                                {info.raider.gender && info.raider.gender !== "N" && (SPECIES[9][info.raider.name].gender === undefined || SPECIES[9][info.raider.name].gender === "N") &&
-                                                    <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(info.raider.gender), translationKey) }</BuildInfo>
-                                                }
-                                                <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (info.raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(info.raider.nature, translationKey, "natures")) }</BuildInfo>
-                                                {getEVDescription(info.raider.evs, translationKey) ? 
-                                                    <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(info.raider.evs, translationKey)}</BuildInfo> : null}
-                                                {getIVDescription(info.raider.ivs, translationKey) ? 
-                                                    <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(info.raider.ivs, translationKey)}</BuildInfo> : null}
-                                            </BuildInfoContainer>
-                                            <Box flexGrow={1}/>
-                                            { statDisplay && !ignoreStats[index] &&
-                                                statDisplay[index]
-                                            }
-                                            { statDisplay && ignoreStats[index] &&
-                                                <>
-                                                    <AnyStatsMessageContainer>
-                                                        <AnyStatsMessage>{ getTranslation("Any stats", translationKey) }</AnyStatsMessage>
-                                                    </AnyStatsMessageContainer>
-                                                    <Box flexGrow={1}/>
-                                                </>
-                                            }
-                                            <BuildMovesSection>
-                                                <MovesHeader>{ getTranslation("Moves", translationKey) + ":" }</MovesHeader>
-                                                <MovesContainer>
-                                                    {
-                                                        [...Array(4)].map((moveSlot, moveSlotIndex) => {
-                                                            const noMove = (info.raider.moves[moveSlotIndex] && info.raider.moves[moveSlotIndex] !== "(No Move)");
-                                                            return (
-                                                                <MoveBox key={"move_box_" + moveSlotIndex}>
-                                                                    {noMove ? <MoveTypeIcon src={getTypeIconURL(info.extraBuildInfo.moveTypes[moveSlotIndex])} sx={{opacity: `${info.extraBuildInfo.optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
-                                                                    {noMove ? (
-                                                                        info.extraBuildInfo.optionalMove[moveSlotIndex] ?
-                                                                            <OptionalMoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
-                                                                            <MoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") }</MoveLabel>
-                                                                    ) : null}
-                                                                    {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(info.extraBuildInfo.learnMethods[moveSlotIndex], info.extraBuildInfo.moveTypes[moveSlotIndex])} sx={{opacity: `${info.extraBuildInfo.optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
-                                                                </MoveBox>
-                                                            )
-                                                        })
-                                                    }
-                                                </MovesContainer>
-                                            </BuildMovesSection>
-                                        </Build>
-                                    </BuildWrapper>
-                                )})
+                                buildInfo.slice(1, buildsCount - overflowCount + 1).map((info, index) => generateGraphicBuild(info, index, statDisplay, ignoreStats, translationKey))
+                            }
+                        </BuildsContainer>
+                        <BuildsContainer>
+                            {
+                                buildInfo.slice(buildsCount - overflowCount + 1).map((info, index) => generateGraphicBuild(info, index + buildsCount - overflowCount, statDisplay, ignoreStats, translationKey))
                             }
                         </BuildsContainer>
                         { buildInfo.some(entry => entry.extraBuildInfo.optionalMove.some(move => move)) &&
@@ -1007,11 +1035,15 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                             </NotesContainer>
                         </NotesSection>
                     }
-                    <InfoSection>
-                        <CreditsContainer>
-                            <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>
-                            {title && title.endsWith("!PPT") && <PPTLogo src={getMiscImageURL("PPT_logo")}/>}
-                            <Credit>{ getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</Credit>
+                    <InfoSection>      
+                        <CreditsContainer direction={rowLength >= 4 ? "row" : "column"}>
+                            { credits && credits.length > 0 &&
+                                <>
+                                    <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>
+                                    {title && title.endsWith("!PPT") && <PPTLogo src={getMiscImageURL("PPT_logo")}/>}
+                                </>
+                            }
+                            <CreditURL>{ getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</CreditURL>
                         </CreditsContainer>
                     </InfoSection>
                 </GraphicsContainer> 
@@ -1048,12 +1080,12 @@ const rotate = (xgrid: number, ygrid: number, text: string, gridSize: number) =>
     return target;
 };
 
-function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: string, setLoading: (l: boolean) => void) {
+function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: string, rowLength: number, setLoading: (l: boolean) => void) {
     requestAnimationFrame(() => {
         html2canvas(graphicTop, {
             allowTaint: true, 
             useCORS: true,
-            windowWidth: 3600,
+            windowWidth: 3600 + (rowLength - 4) * 875,
             scale: 1,
             imageTimeout: 15000,
         }).then((canvas) => {
@@ -1152,6 +1184,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const [buildInfo, setBuildInfo] = useState([] as GraphicBuildInfo[][]);
     // const [pokemonDataMatrix, setPokemonDataMatrix] = useState([] as PokemonData[][]);
     const [buildsOnly, setBuildsOnly] = useState<boolean>(false);
+    const [rowLength, setRowLength] = useState<number>(4);
     const [buildsOrder, setBuildsOrder] = useState<number[]>([]);
     const [buildsEnabled, setBuildsEnabled] = useState<boolean[]>([]);
 
@@ -1211,8 +1244,10 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
             }
 
             // generate graphic
-            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemonBuildInfo, results, includedRaidPokemonBuildInfo.length - 1, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, translationKey);
-            saveGraphic(graphicTop, title, watermarkText, setLoading);
+            const bCount = includedRaidPokemonBuildInfo.length - 1;
+            const rowLen = Math.min(rowLength, bCount);
+            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemonBuildInfo, results, includedRaidPokemonBuildInfo.length - 1, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, rowLen, translationKey);
+            saveGraphic(graphicTop, title, watermarkText, rowLen, setLoading);
         } catch (e) {
             setLoading(false);
             console.log(e)
@@ -1531,7 +1566,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                 <Box flexGrow={1} />
                                 <TextField 
                                     variant="outlined"
-                                    placeholder={getTranslation("Subtitle", translationKey)}
+                                    placeholder={getTranslation(buildsOnly ? "Header" : "Subtitle", translationKey)}
                                     value={subtitle}
                                     onChange={(e) => setSubtitle(e.target.value)}
                                     sx={{justifyContent: "center", alignItems: "center"}}
@@ -1577,7 +1612,20 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                     {getTranslation("Graphic Type", translationKey) + ":"}
                                 </Typography>
                                 <Box flexGrow={2} />
-                                <Select value={buildsOnly ? getTranslation("Builds Only", translationKey) : getTranslation("Full Graphic", translationKey)} onChange={(e) => setBuildsOnly(e.target.value === "Builds Only") } inputProps={{ 'aria-label': 'Builds Only' }} sx={{ height: "30px", width: "115px", margin: "10px" }} >
+                                <Select 
+                                    value={buildsOnly ? getTranslation("Builds Only", translationKey) : getTranslation("Full Graphic", translationKey)} 
+                                    onChange={(e) => {
+                                        if (e.target.value === "Builds Only") {
+                                            setBuildsOnly(true);
+                                            setCheckForCopies(false);
+                                        } else {
+                                            setBuildsOnly(false);
+                                            setRowLength(4);
+                                            setCheckForCopies(true);
+                                        }
+                                    }} 
+                                    inputProps={{ 'aria-label': 'Builds Only' }} sx={{ height: "30px", width: "115px", margin: "10px" }} 
+                                >
                                     <MenuItem value="Full Graphic">{getTranslation("Full Graphic", translationKey)}</MenuItem>
                                     <MenuItem value="Builds Only">{getTranslation("Builds Only", translationKey)}</MenuItem>
                                 </Select>
@@ -1598,6 +1646,35 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                             </Stack>
                         </Box>
                     </li>
+                    { buildsOnly &&
+                        <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
+                            <Stack direction="row" alignItems="center" justifyContent="center">
+                                <Typography variant="body1" fontWeight={600}>
+                                    {getTranslation("Builds per row", translationKey) + ":"}
+                                </Typography>
+                                <Box flexGrow={2} />
+                                <TextField 
+                                    size="small"
+                                    variant="standard"
+                                    type="number"
+                                    InputProps={{
+                                        inputProps: { 
+                                            max: 12, 
+                                            min: 1
+                                        }
+                                    }}
+                                    fullWidth={false}
+                                    value={rowLength}
+                                    placeholder={getTranslation("Any", translationKey)}
+                                    onChange={(e) => {
+                                        const len = Math.max(1, Math.min(12, parseInt(e.target.value)));
+                                        setRowLength(len);
+                                    }}
+                                    sx={{ width: "35px" }}
+                                />
+                            </Stack>
+                        </Box>
+                    }
                     <li>
                         <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
                             <Stack direction="row">

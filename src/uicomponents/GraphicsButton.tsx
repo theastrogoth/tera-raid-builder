@@ -160,33 +160,37 @@ const BuildsSection = styled(Box)({
 const Separator = styled(Box)({
     height: "150px",
     alignItems: "center",
+    justifyContent: "space-around",
     display: "flex",
-    position: "relative"
+    flexDirection: "row",
+    position: "relative",
+    overflow: "visible",
 });
 
 const LeftBar = styled("hr")({
     border: "4px solid rgba(255, 255, 255, 0.65)",
     margin: "0px 100px",
-    position: "absolute",
-    width: "37%",
-    left: "0"
+    // position: "absolute",
+    width: "100%",
+    // left: "0"
 });
 
 const SeparatorLabel = styled(Typography)({
     color: "white",
     fontSize: "8em",
     margin: "0px",
-    position: "absolute",
+    // position: "absolute",
     textAlign: "center",
+    textWrap: "nowrap",
     width: "100%"
 });
 
 const RightBar = styled("hr")({
     border: "4px solid rgba(255, 255, 255, 0.65)",
     margin: "0px 100px",
-    position: "absolute",
-    width: "37%",
-    right: "0"
+    // position: "absolute",
+    width: "100%",
+    // right: "0"
 });
 
 const BuildsContainer = styled(Box)({
@@ -1250,7 +1254,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
 
             // generate graphic
             const bCount = includedRaidPokemonBuildInfo.length - 1;
-            const rowLen = Math.min(rowLength, bCount);
+            const rowLen = buildsOnly ? Math.min(rowLength, bCount) : 4;
             const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemonBuildInfo, results, includedRaidPokemonBuildInfo.length - 1, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, rowLen, translationKey);
             saveGraphic(graphicTop, title, watermarkText, rowLen, setLoading);
         } catch (e) {

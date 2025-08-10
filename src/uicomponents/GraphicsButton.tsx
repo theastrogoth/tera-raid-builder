@@ -182,7 +182,7 @@ const SeparatorLabel = styled(Typography)({
     // position: "absolute",
     textAlign: "center",
     textWrap: "nowrap",
-    width: "100%"
+    width: "auto"
 });
 
 const RightBar = styled("hr")({
@@ -653,10 +653,10 @@ const Credit = styled(Typography)({
 });
 
 const CreditURL = styled(Typography)({
-    fontSize: "4.5em",
+    fontSize: "2.0em",
     color: "white",
     whiteSpace: "pre-wrap",
-    overflowWrap: "break-word",
+    alignSelf: "center",
 });
 
 const PPTLogo = styled("img")({
@@ -833,7 +833,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
 
-    const lastRowCount = buildsCount % rowLength;
+    const lastRowCount = rowLength <= buildsCount ? buildsCount % rowLength : 0;
     const firstRowCount = (lastRowCount && (lastRowCount <= rowLength / 2)) ? Math.floor((lastRowCount + rowLength - 1)/2) : 0;
     const secondRowCount = firstRowCount ? (lastRowCount + rowLength) - firstRowCount : 0;
     const ignoreStats = buildInfo.slice(1).map((info) => (info.raider.isAnyLevel) || (Object.entries(info.raider.ivs).reduce((acc, val) => val[1] + acc, 0) === 0 && Object.entries(info.raider.evs).reduce((acc, val) => val[1] + acc, 0) === 0));
@@ -846,18 +846,20 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(${backgroundImageURL})`,
                     }} 
                 >
-                    <Header>
-                        { !buildsOnly &&
-                            <Box>
-                                <BossWrapper>
-                                    <Boss src={getPokemonArtURL(buildInfo[0].raider.species.name, buildInfo[0].raider.shiny)} />
-                                    <BossTera src={getTeraTypeBannerURL(buildInfo[0].raider.teraType || "blank")}></BossTera>
-                                </BossWrapper>
-                                <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
-                                <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(buildInfo[0].raider.species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${buildInfo[0].raider.species.name} Tera Raid Battle`}</Subtitle>
-                            </Box>
-                        }
-                    </Header>
+                    { (subtitle || !buildsOnly) &&
+                        <Header>
+                            { !buildsOnly &&
+                                <Box>
+                                    <BossWrapper>
+                                        <Boss src={getPokemonArtURL(buildInfo[0].raider.species.name, buildInfo[0].raider.shiny)} />
+                                        <BossTera src={getTeraTypeBannerURL(buildInfo[0].raider.teraType || "blank")}></BossTera>
+                                    </BossWrapper>
+                                    <Title>{title ? (title.endsWith("!PPT") ? title.slice(0, -4) : title) : "Untitled"}</Title>
+                                    <Subtitle>{subtitle ? subtitle : `A Strategy For ${['a', 'e', 'i', 'o', 'u'].includes(buildInfo[0].raider.species.name.toLowerCase().charAt(0)) ? "An" : "A"} ${buildInfo[0].raider.species.name} Tera Raid Battle`}</Subtitle>
+                                </Box>
+                            }
+                        </Header>
+                    }
                     <BuildsSection>
                         { (!buildsOnly) &&
                             <Separator>
@@ -866,27 +868,25 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                 <RightBar />
                             </Separator> 
                         }
-                        { (buildsOnly && subtitle && buildsCount > 1) &&
+                        { (buildsOnly && subtitle) &&
                             <Separator>
-                                <LeftBar />
+                                { rowLength > 1 && <LeftBar />}
                                 <SeparatorLabel>{ subtitle }</SeparatorLabel>
-                                <RightBar />
+                                { rowLength > 1 && <RightBar />}
                             </Separator> 
                         }
-                        <BuildsContainer>    
-                            {
-                                buildInfo.slice(1, firstRowCount + 1).map((info, index) => generateGraphicBuild(info, index, statDisplay, ignoreStats, translationKey))
-                            }
-                        </BuildsContainer>
-                        <BuildsContainer>    
-                            {
-                                buildInfo.slice(firstRowCount + 1, firstRowCount + secondRowCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount, statDisplay, ignoreStats, translationKey))
-                            }
-                        </BuildsContainer>
+                        { firstRowCount > 0 &&
+                            <BuildsContainer>
+                               { buildInfo.slice(1, firstRowCount + 1).map((info, index) => generateGraphicBuild(info, index, statDisplay, ignoreStats, translationKey)) }
+                            </BuildsContainer>
+                        }
+                        { secondRowCount > 0 &&
+                            <BuildsContainer>    
+                                { buildInfo.slice(firstRowCount + 1, firstRowCount + secondRowCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount, statDisplay, ignoreStats, translationKey)) }
+                            </BuildsContainer>
+                        }
                         <BuildsContainer>
-                            {
-                                buildInfo.slice(firstRowCount + secondRowCount + 1, buildsCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount + secondRowCount, statDisplay, ignoreStats, translationKey))
-                            }
+                            { buildInfo.slice(firstRowCount + secondRowCount + 1, buildsCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount + secondRowCount, statDisplay, ignoreStats, translationKey)) }
                         </BuildsContainer>
                         { buildInfo.some(entry => entry.extraBuildInfo.optionalMove.some(move => move)) &&
                             <FootnoteContainer>
@@ -1045,14 +1045,20 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                         </NotesSection>
                     }
                     <InfoSection>      
-                        <CreditsContainer direction={rowLength >= 4 ? "row" : "column"}>
+                        <CreditsContainer direction={rowLength >= 4 ? "row" : "column"} spacing={rowLength >= 4 ? 0 : 1}>
                             { credits && credits.length > 0 &&
                                 <>
                                     <Credit>{ getTranslation("Credits", translationKey) + ": " + credits }</Credit>
                                     {title && title.endsWith("!PPT") && <PPTLogo src={getMiscImageURL("PPT_logo")}/>}
                                 </>
                             }
-                            <CreditURL>{ getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</CreditURL>
+                            {
+                                rowLength === 1 ? (
+                                    <CreditURL>{ getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</CreditURL>
+                                ) : (
+                                    <Credit>{ getTranslation("Graphic", translationKey) + ": theastrogoth.github.io/tera-raid-builder/" }</Credit>
+                                )
+                            }
                         </CreditsContainer>
                     </InfoSection>
                 </GraphicsContainer> 

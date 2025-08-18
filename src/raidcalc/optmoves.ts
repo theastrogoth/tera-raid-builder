@@ -265,7 +265,6 @@ function pickInterestingMoves(state: RaidState, turn: RaidTurnInfo, turnNumber: 
                 leastDamagingMoveIdx = i;
             }
             moveResults.push(missResult);
-            console.log(result.results[result.raiderMovesFirst ? 1 : 0].desc, i, missDamage);
         }
         turnResults.push(moveResults);
     }

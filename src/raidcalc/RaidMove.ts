@@ -32,7 +32,7 @@ export type RaidMoveResult= {
     warnings?: string[];
 }
 
-const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
+// const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
 const ignoredVolatileStatuses = [
     "banefulbunker",
     "burningbulwark",
@@ -288,13 +288,13 @@ export class RaidMove {
                 if (mon.isSleep) {
                     this._desc[mon.id] = mon.name + " is fast asleep.";
                     mon.isSleep--; // decrement sleep counter
-                    // mon.lastMoveFailed = true;
+                    mon.lastMoveFailed = 2;
                     this._warnings.push(mon.name + " is asleep and skips its move.");
                     return false;
                 } else if (mon.isFrozen && !thawUserMoves.includes(this.move.name)) {
                     this._desc[mon.id] = mon.name + " is frozen solid.";
                     mon.isFrozen--; // decrement frozen counter
-                    // mon.lastMoveFailed = true;
+                    mon.lastMoveFailed = 2;
                     this._warnings.push(mon.name + " is frozen and skips its move.");
                     return false;
                 } else if (
@@ -304,30 +304,30 @@ export class RaidMove {
                 ) {
                     this._desc[mon.id] = mon.name + " can't use status moves due to Taunt!";
                     // mon.isTaunt--; // decrement taunt counter [moved to RaidTurn]
-                    // mon.lastMoveFailed = true;
+                    mon.lastMoveFailed = 2;
                     this._warnings.push(mon.name + " is taunted and can't use " + this.moveData.name + ".");
                     return false;
                 } else if (mon.isDisable && this.move.name === mon.disabledMove) {
                     this._desc[mon.id] = this.move.name + " is disabled!";
-                    // mon.lastMoveFailed = true;
+                    mon.lastMoveFailed = 2;
                     this._warnings.push(this.moveData.name + " is disabled and can't be used.");
                     return false;
                 } else if (mon.isThroatChop && this.moveData.isSound) {
                     this._desc[mon.id] = mon.name + " can't use sound-based moves due to Throat Chop!";
-                    // mon.lastMoveFailed = true;
+                    mon.lastMoveFailed = 2;
                     this._warnings.push("Throat Chop prevents the use of " + this.moveData.name + ".");
                     return false;
                 } else if (mon.status === "par" && this.options.allowMiss && 
                     ((mon.id !== 0 && this.targetID !== 0 && this.moveData.moveCategory !== "Status") ? this.options.roll === "max" : this.options.roll === "min")
                 ) {
                     this._desc[mon.id] = mon.name + " is fully paralyzed and can't move!";
-                    // mon.lastMoveFailed = true;
+                    mon.lastMoveFailed = 2;
                     this._warnings.push(mon.name + " is fully paralyzed and can't move.");
                     return false;
                 } else if (mon.volatileStatus.includes("confusion") && this.options.allowMiss && 
                     ((mon.id !== 0 && this.targetID !== 0 && this.moveData.moveCategory !== "Status") ? this.options.roll === "max" : this.options.roll === "min")
                 ) {
-                    // mon.lastMoveFailed = true;
+                    mon.lastMoveFailed = 2;
                     this.applyConfusionDamage();                
                     return false;
                 } else {
@@ -735,12 +735,12 @@ export class RaidMove {
                 continue;
             }
         }
-        // for (let dne of this._doesNotAffect)  {
-        //     if (dne) {
-        //         // this._user.lastMoveFailed = true;
-        //         break;
-        //     }
-        // }
+        for (let dne of this._doesNotAffect)  {
+            if (dne) {
+                this._user.lastMoveFailed = 2;
+                break;
+            }
+        }
     }
 
     private checkProtection() {
@@ -1040,9 +1040,9 @@ export class RaidMove {
                         this._warnings.push(this.move.name + " has a " + missString + "% chance to miss" + accEffectsString);
                     }
 
-                    if (!nonMoveActions.includes(this.moveData.name)) {
-                        // this._user.lastMoveFailed = false;
-                    }
+                    // if (!nonMoveActions.includes(this.moveData.name)) {
+                    //     this._user.lastMoveFailed = 0;
+                    // }
                 } else {
                     // if (actionLockMoves.includes(this.moveData.name)) {
                     //     this._user.moveRepeated = 0;
@@ -1053,7 +1053,7 @@ export class RaidMove {
                     this._desc[id] = this._user.name + " used " + this.move.name + ", but it missed! (" + accString + "% chance to hit " + accEffectsString + ")";
                     this._warnings.push(this.move.name + " missed (" + missString + "% chance to miss" + accEffectsString + ").");
                     this._doesNotAffect[id] = "missed";
-                    // this._user.lastMoveFailed = true;
+                    this._user.lastMoveFailed = 2;
                 }
             }
             // protection contact checks

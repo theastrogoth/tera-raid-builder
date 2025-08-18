@@ -805,6 +805,10 @@ export class RaidTurn {
                     pokemon.volatileStatus = pokemon.volatileStatus.filter((status) => status !== "yawn");
                 }
             }
+            // failure flag for Stomping Tantrum and Temper Flare
+            if (pokemon.lastMoveFailed) {
+                pokemon.lastMoveFailed--;
+            }
         }
     }
 

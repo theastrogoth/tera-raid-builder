@@ -233,7 +233,7 @@ export class Raider extends Pokemon implements State.Raider {
                 types: this.types,
                 hasExtraType: this.hasExtraType,
                 glaiveRush: this.glaiveRush,
-                // lastMoveFailed: this.lastMoveFailed,
+                lastMoveFailed: this.lastMoveFailed,
                 moves: this.moves.slice(),
                 abilityNullified: this.abilityNullified,
                 permanentAtkCheers: this.permanentAtkCheers,

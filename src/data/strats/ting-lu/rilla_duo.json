@@ -174,7 +174,7 @@
             "moveInfo": {
                 "name": "Ruination",
                 "userID": 0,
-                "targetID": 2,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -212,7 +212,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -240,7 +240,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -268,7 +268,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -296,7 +296,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(Optimal Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

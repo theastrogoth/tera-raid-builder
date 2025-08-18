@@ -51,115 +51,134 @@
         },
         {
             "id": 1,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Tauros",
+            "name": "Tauros-Paldea-Aqua",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Anger Point",
+            "item": "Choice Band",
+            "nature": "Adamant",
             "evs": {
-                "hp": 0,
-                "atk": 0,
+                "hp": 252,
+                "atk": 252,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
-            "gender": "N",
-            "moves": []
+            "level": 100,
+            "gender": "M",
+            "moves": [
+                "Wave Crash",
+                "Close Combat",
+                "Raging Bull"
+            ]
         },
         {
             "id": 2,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Honchkrow",
+            "name": "Honchkrow",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Super Luck",
+            "item": "Scope Lens",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": []
+            "moves": [
+                "Night Slash",
+                "Helping Hand",
+                "Rain Dance",
+                "Chilling Water"
+            ]
         },
         {
-            "id": 3,
-            "role": "NPC",
-            "name": "NPC",
+           "id": 3,
+            "role": "Venonat",
+            "name": "Venonat",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Compound Eyes",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": []
+            "moves": [
+                "Screech",
+                "Acid Spray",
+                "Skill Swap",
+                "Lunge"
+            ]
         },
         {
             "id": 4,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Venonat",
+            "name": "Venonat",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Compound Eyes",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": []
+            "moves": [
+                "Screech",
+                "Acid Spray",
+                "Skill Swap",
+                "Lunge"
+            ]
         }
     ],
     "turns": [

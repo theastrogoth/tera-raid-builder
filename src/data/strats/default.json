@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Chien-Pao",
-            "name": "Chien-Pao",
+            "role": "Ting-Lu",
+            "name": "Ting-Lu",
             "shiny": true,
-            "ability": "Sword of Ruin",
-            "nature": "Adamant",
+            "ability": "Vessel of Ruin",
+            "nature": "Impish",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,22 +28,22 @@
             },
             "level": 75,
             "gender": "N",
-            "teraType": "Ice",
+            "teraType": "Ground",
             "moves": [
-                "Icicle Crash",
-                "Crunch",
-                "Sacred Sword",
-                "Ice Shard"
+                "Stomping Tantrum",
+                "Stone Edge",
+                "Snarl",
+                "Heavy Slam"
             ],
-            "bossMultiplier": 2500,
+            "bossMultiplier": 2000,
             "extraMoves": [
                 "Ruination",
-                "Haze"
+                "Sandstorm"
             ],
             "shieldData": {
                 "hpTrigger": 85,
-                "timeTrigger": 90,
-                "shieldCancelDamage": 35,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 80,
                 "shieldDamageRateTeraChange": 40
@@ -51,11 +51,11 @@
         },
         {
             "id": 1,
-            "role": "Gholdengo",
-            "name": "Gholdengo",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Good as Gold",
-            "item": "Choice Specs",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -63,115 +63,103 @@
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Make It Rain",
-                "Flash Cannon"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Chilling Water"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Chilling Water"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Chilling Water"
-            ]
+            "moves": []
         }
     ],
     "turns": [

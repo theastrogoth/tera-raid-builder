@@ -1,7 +1,7 @@
 {
-    "name": "Bulls in a China Shop",
-    "notes": "",
-    "credits": "the r/PokePortal Team",
+    "name": "Sunflower Power T2 Trio",
+    "notes": "Winning support combinations:\n- Ninetales + Simple Beam Support\n- Alternate Sun Support + Decorate Support\n\nAll Ducks must be Damp!\nRisk of fail if Ninetales gets hit by Ruination and a crit",
+    "credits": "Daisho, Eragon and Rika (subs)",
     "pokemon": [
         {
             "id": 0,
@@ -51,134 +51,123 @@
         },
         {
             "id": 1,
-            "role": "Tauros",
-            "name": "Tauros-Paldea-Aqua",
+            "role": "Sunflora",
+            "name": "Sunflora",
             "shiny": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
-            "nature": "Adamant",
+            "ability": "Solar Power",
+            "item": "Choice Specs",
+            "nature": "Modest",
             "evs": {
                 "hp": 252,
-                "atk": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Solar Beam"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Ninetales",
+            "name": "Ninetales",
+            "shiny": false,
+            "ability": "Drought",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Fake Tears",
+                "Helping Hand"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Golduck",
+            "name": "Golduck",
+            "shiny": false,
+            "ability": "Damp",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Simple Beam",
+                "Helping Hand"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "NPC",
+            "name": "NPC",
+            "shiny": false,
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "M",
-            "moves": [
-                "Wave Crash",
-                "Close Combat",
-                "Raging Bull"
-            ]
-        },
-        {
-            "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
-            "shiny": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Night Slash",
-                "Helping Hand",
-                "Rain Dance",
-                "Chilling Water"
-            ]
-        },
-        {
-            "id": 3,
-            "role": "Venonat",
-            "name": "Venonat",
-            "shiny": false,
-            "ability": "Compound Eyes",
-            "item": "Eviolite",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Screech",
-                "Acid Spray",
-                "Skill Swap",
-                "Lunge"
-            ]
-        },
-        {
-            "id": 4,
-            "role": "Venonat",
-            "name": "Venonat",
-            "shiny": false,
-            "ability": "Compound Eyes",
-            "item": "Eviolite",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Screech",
-                "Acid Spray",
-                "Skill Swap",
-                "Lunge"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -214,15 +203,15 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "Night Slash",
+                "name": "Fake Tears",
                 "userID": 2,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": true,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "min",
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -242,7 +231,7 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Screech",
+                "name": "Simple Beam",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
@@ -268,11 +257,39 @@
         },
         {
             "id": 3,
-            "group": 1,
+            "group": 2,
             "moveInfo": {
-                "name": "Screech",
-                "userID": 4,
+                "name": "Fake Tears",
+                "userID": 2,
                 "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -295,10 +312,10 @@
             }
         },
         {
-            "id": 4,
-            "group": 2,
+            "id": 5,
+            "group": 3,
             "moveInfo": {
-                "name": "Wave Crash",
+                "name": "Solar Beam",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -329,14 +346,18 @@
         ],
         [
             1,
-            2,
-            3
+            2
         ],
         [
+            3,
             4
+        ],
+        [
+            5
         ]
     ],
     "repeats": [
+        1,
         1,
         1,
         1
@@ -347,10 +368,185 @@
             {
                 "raider": {
                     "id": 2,
+                    "role": "Groudon",
+                    "name": "Groudon",
+                    "shiny": false,
+                    "ability": "Drought",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    2,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Torkoal",
+                    "name": "Torkoal",
+                    "shiny": false,
+                    "ability": "Drought",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    2,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Koraidon",
+                    "name": "Koraidon",
+                    "shiny": false,
+                    "ability": "Orichalcum Pulse",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 252,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    2,
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Grumpig",
+                    "name": "Grumpig",
+                    "shiny": false,
+                    "ability": "Thick Fat",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Simple Beam",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Simple Beam",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
                     "role": "Smeargle",
                     "name": "Smeargle",
                     "shiny": false,
                     "ability": "Own Tempo",
+                    "item": "Sitrus Berry",
                     "nature": "Bold",
                     "evs": {
                         "hp": 252,
@@ -371,29 +567,199 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Flower Trick",
-                        "Wicked Blow"
+                        "Simple Beam",
+                        "Helping Hand",
+                        "Fake Tears",
+                        "Decorate"
                     ]
                 },
                 "substituteMoves": [
-                    "Flower Trick",
-                    "(Wait)"
+                    "Simple Beam",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Psyduck",
+                    "name": "Psyduck",
+                    "shiny": false,
+                    "ability": "Damp",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Simple Beam",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Simple Beam",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Spoink",
+                    "name": "Spoink",
+                    "shiny": false,
+                    "ability": "Thick Fat",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Simple Beam",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Simple Beam",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Latios",
+                    "name": "Latios",
+                    "shiny": false,
+                    "ability": "Levitate",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 200,
+                        "spa": 0,
+                        "spd": 56,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Simple Beam",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Simple Beam",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Alcremie",
+                    "name": "Alcremie",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "F",
+                    "moves": [
+                        "Decorate",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Decorate",
+                    "Fake Tears"
                 ],
                 "substituteTargets": [
                     1,
-                    2
+                    0
                 ]
-            }
-        ],
-        [
+            },
             {
                 "raider": {
                     "id": 3,
-                    "role": "Joltik",
-                    "name": "Joltik",
+                    "role": "Smeargle",
+                    "name": "Smeargle",
                     "shiny": false,
-                    "ability": "Compound Eyes",
-                    "item": "Eviolite",
+                    "ability": "Own Tempo",
+                    "item": "Sitrus Berry",
                     "nature": "Bold",
                     "evs": {
                         "hp": 252,
@@ -414,358 +780,22 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Screech"
+                        "Decorate",
+                        "Lumina Crash",
+                        "Acid Spray",
+                        "Simple Beam"
                     ]
                 },
                 "substituteMoves": [
-                    "Screech"
+                    "Decorate",
+                    "Lumina Crash"
                 ],
                 "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Toedscruel",
-                    "name": "Toedscruel",
-                    "shiny": false,
-                    "ability": "Mycelium Might",
-                    "item": "Zoom Lens",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Snorlax",
-                    "name": "Snorlax",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Relaxed",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Munchlax",
-                    "name": "Munchlax",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech"
-                ],
-                "substituteTargets": [
+                    1,
                     0
                 ]
             }
         ],
-        [
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Joltik",
-                    "name": "Joltik",
-                    "shiny": false,
-                    "ability": "Compound Eyes",
-                    "item": "Eviolite",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Toedscruel",
-                    "name": "Toedscruel",
-                    "shiny": false,
-                    "ability": "Mycelium Might",
-                    "item": "Zoom Lens",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Snorlax",
-                    "name": "Snorlax",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Munchlax",
-                    "name": "Munchlax",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Pelipper",
-                    "name": "Pelipper",
-                    "shiny": false,
-                    "ability": "Drizzle",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Helping Hand"
-                    ]
-                },
-                "substituteMoves": [
-                    "(Wait)"
-                ],
-                "substituteTargets": [
-                    4
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Politoed",
-                    "name": "Politoed",
-                    "shiny": false,
-                    "ability": "Drizzle",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Helping Hand"
-                    ]
-                },
-                "substituteMoves": [
-                    "(Wait)"
-                ],
-                "substituteTargets": [
-                    4
-                ]
-            }
-        ]
+        []
     ]
 }

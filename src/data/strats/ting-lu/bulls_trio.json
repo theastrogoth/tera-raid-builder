@@ -211,13 +211,13 @@
             "moveInfo": {
                 "name": "Night Slash",
                 "userID": 2,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {

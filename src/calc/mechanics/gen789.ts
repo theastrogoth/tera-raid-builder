@@ -899,8 +899,8 @@ export function calculateBasePowerSMSSSV(
     break;
   case 'Stomping Tantrum':
   case 'Temper Flare':
-    basePower = attacker.lastMoveFailed ? 150 : 0;
-    if (basePower) {
+    basePower = attacker.lastMoveFailed ? 150 : 75;
+    if (attacker.lastMoveFailed) {
       desc.moveBP = basePower;
     }
     break;

@@ -57,7 +57,7 @@ export class Pokemon implements State.Pokemon {
   timesFainted: number;
   hasExtraType?: boolean;
   glaiveRush?: boolean;
-  // lastMoveFailed: boolean;
+  lastMoveFailed: number;
 
   moves: I.MoveName[];
 
@@ -155,7 +155,7 @@ export class Pokemon implements State.Pokemon {
     this.timesFainted = options.timesFainted || 0;
     this.hasExtraType = !!options.hasExtraType;
     this.glaiveRush = !!options.glaiveRush;
-    // this.lastMoveFailed = !!options.lastMoveFailed;
+    this.lastMoveFailed = options.lastMoveFailed || 0;
     this.moves = options.moves || [];
     this.abilityNullified = options.abilityNullified;
     this.permanentAtkCheers = options.permanentAtkCheers || 0;
@@ -261,7 +261,7 @@ export class Pokemon implements State.Pokemon {
       types: this.types,
       hasExtraType: this.hasExtraType,
       glaiveRush: this.glaiveRush,
-      // lastMoveFailed: this.lastMoveFailed,
+      lastMoveFailed: this.lastMoveFailed,
       moves: this.moves.slice(),
       abilityNullified: this.abilityNullified,
       permanentAtkCheers: this.permanentAtkCheers,

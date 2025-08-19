@@ -1,11 +1,23 @@
 {
+    "Ting-Lu": {
+        "Bulls in a China Shop": "ting-lu/main",
+        "Bulls in a China Shop (Trio)": "ting-lu/bulls_trio",
+        "Bull Duo": "ting-lu/bull_duo",
+        "Rillaboom T1": "ting-lu/rillaboom",
+        "Rillaboom Duo": "ting-lu/rilla_duo",
+        "Sunflower Power": "ting-lu/flower_power",
+        "Sunflower Power (Trio)": "ting-lu/flower_power_trio",
+        "Espathra T1": "ting-lu/espathra",
+        "Kyogre T1": "ting-lu/kyogre"
+    },
     "Chien-Pao": {
         "Financial Ruin": "chien-pao/main",
         "Financial Ruin (Trio)": "chien-pao/financial_ruin_trio",
         "Bonk!": "chien-pao/bonk",
         "Charizard T1": "chien-pao/charizard",
         "Classic Anger Point": "chien-pao/bull",
-        "Maushold T1": "chien-pao/maushold"
+        "Maushold T1": "chien-pao/maushold",
+        "Ice Age: The Meltdown": "chien-pao/ice_age"
     },
     "Wo-Chien": {
         "Bulls in a China Shop": "wo-chien/main",

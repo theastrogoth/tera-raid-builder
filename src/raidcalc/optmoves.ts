@@ -156,6 +156,7 @@ function nonHPChanges(caseA: Raider, caseB: Raider): boolean {
         caseA.isRecharging !== caseB.isRecharging ||
         caseA.syrupBombDrops !== caseB.syrupBombDrops ||
         (caseA.moves.includes("Rage Fist" as MoveName) && (caseA.hitsTaken !== caseB.hitsTaken)) ||
+        ( (caseB.moves.includes("Stomping Tantrum" as MoveName) || (caseB.moves.includes("Temper Flare" as MoveName)) && (!!caseB.lastMoveFailed)) ) || // this one isn't really a comparison, and only checks case B
         caseA.isFrozen !== caseB.isFrozen ||
         caseA.isChoiceLocked !== caseB.isChoiceLocked ||
         caseA.isEncore !== caseB.isEncore ||
@@ -212,12 +213,13 @@ function moveIsInteresting(resultA: RaidTurnResult, resultB: RaidTurnResult): bo
 
 // returns the results from boss moves that have secondary effects or cause the most damage.
 function pickInterestingMoves(state: RaidState, turn: RaidTurnInfo, turnNumber: number, moveData: MoveData[]): RaidTurnResult[] {
-    const turnResults: RaidTurnResult[] = [];
+    const turnResults: RaidTurnResult[][] = [];
     let mostDamage = -Infinity;
     let mostDamagingMoveIdx: number = -1;
     let leastDamage = Infinity;
     let leastDamagingMoveIdx: number = -1;
     for (let i=0; i<moveData.length; i++) {
+        const moveResults: RaidTurnResult[] = [];
         const m = moveData[i];
         const turnInfo: RaidTurnInfo = {
             ...turn,
@@ -238,34 +240,62 @@ function pickInterestingMoves(state: RaidState, turn: RaidTurnInfo, turnNumber: 
             leastDamage = damage;
             leastDamagingMoveIdx = i;
         }
-        turnResults.push(result);
+        moveResults.push(result);
+
+        // if the move has a chance to miss, also check the min roll case
+        if ( result.results[result.raiderMovesFirst ? 1 : 0].desc.some(d => d.includes("chance to hit")) ) {
+            const missTurnInfo: RaidTurnInfo = {
+                ...turnInfo,
+                bossMoveInfo: {
+                    ...turnInfo.bossMoveInfo,
+                    options: {
+                        ...turnInfo.bossMoveInfo.options,
+                        allowMiss: true,
+                        roll: "min",}
+                }
+            };
+            const missResult = new RaidTurn(state, missTurnInfo, turnNumber).result();
+            const missDamage = state.raiders[targetID].originalCurHP - missResult.state.raiders[targetID].originalCurHP;
+            if (missDamage > mostDamage) {
+                mostDamage = missDamage;
+                mostDamagingMoveIdx = i;
+            } 
+            if (missDamage < leastDamage) {
+                leastDamage = missDamage;
+                leastDamagingMoveIdx = i;
+            }
+            moveResults.push(missResult);
+        }
+        turnResults.push(moveResults);
     }
-    const interestingMoveResults: RaidTurnResult[] = [turnResults[mostDamagingMoveIdx]];
+    const interestingMoveResults: RaidTurnResult[] = [turnResults[mostDamagingMoveIdx][0]];
     if (leastDamagingMoveIdx !== mostDamagingMoveIdx) {
-        interestingMoveResults.push(turnResults[leastDamagingMoveIdx]);
+        interestingMoveResults.push(turnResults[leastDamagingMoveIdx][turnResults[leastDamagingMoveIdx].length - 1]);
     }
     let moveidx = 0;
     while (moveidx < moveData.length) {
-        if (moveidx !== mostDamagingMoveIdx && moveidx !== leastDamagingMoveIdx) {
-            let resIsDifferent = true;
-            for (let r of interestingMoveResults) {
-                if (!moveIsInteresting(r, turnResults[moveidx])) {
-                    resIsDifferent = false;
-                    break;
+        for (const testResult of turnResults[moveidx]) {
+            if (moveidx !== mostDamagingMoveIdx && moveidx !== leastDamagingMoveIdx) {
+                let resIsDifferent = true;
+                for (let r of interestingMoveResults) {
+                    if (!moveIsInteresting(r, testResult)) {
+                        resIsDifferent = false;
+                        break;
+                    }
                 }
-            }
-            if (resIsDifferent) {
-                interestingMoveResults.push(turnResults[moveidx]);
+                if (resIsDifferent) {
+                    interestingMoveResults.push(testResult);
+                }
             }
         }
         moveidx++;
     }
     // const interestingMoveResults = turnResults.filter(t => moveIsInteresting(noMoveResult, mostDamagingResult, t));
     if (mostDamagingMoveIdx >= 0 && !interestingMoveResults.some((r) => r.bossMoveInfo.moveData.name === moveData[mostDamagingMoveIdx].name)) {
-        interestingMoveResults.push(turnResults[mostDamagingMoveIdx]);
+        interestingMoveResults.push(turnResults[mostDamagingMoveIdx][0]);
     }
     if (interestingMoveResults.length === 0) { // This probably only happens when the boss faints unavoidably before moving
-        interestingMoveResults.push(turnResults[0]);
+        interestingMoveResults.push(turnResults[0][0]);
     }
     return interestingMoveResults;
 }

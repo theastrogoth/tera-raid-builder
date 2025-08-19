@@ -399,6 +399,10 @@ export function getSelectableMoves(pokemon: Raider, isBossAction: boolean = fals
                 actionLocked = true;
             }
         }
+        if (pokemon.lastMove && (pokemon.isCharging || pokemon.isRecharging)) {
+            selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
+            actionLocked = true;
+        }
         if ((pokemon.isChoiceLocked || pokemon.isEncore) && pokemon.lastMove) {
             selectableMoves = selectableMoves.filter(m => m.name === pokemon.lastMove!.name);
         }

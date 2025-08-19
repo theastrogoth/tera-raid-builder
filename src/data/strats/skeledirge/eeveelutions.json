@@ -8,7 +8,6 @@
             "role": "Skeledirge",
             "name": "Skeledirge",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Unaware",
             "nature": "Rash",
             "evs": {
@@ -56,7 +55,6 @@
             "role": "Vaporeon",
             "name": "Vaporeon",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Sitrus Berry",
             "nature": "Modest",
@@ -81,24 +79,13 @@
             "moves": [
                 "Calm Mind",
                 "Weather Ball"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 2,
             "role": "Umbreon",
             "name": "Umbreon",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Choice Scarf",
             "nature": "Timid",
@@ -122,24 +109,13 @@
             "gender": "N",
             "moves": [
                 "Throat Chop"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 3,
             "role": "Flareon",
             "name": "Flareon",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Flash Fire",
             "item": "Shuca Berry",
             "nature": "Calm",
@@ -164,24 +140,13 @@
             "moves": [
                 "Fake Tears",
                 "Helping Hand"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 4,
             "role": "Sylveon",
             "name": "Sylveon",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "nature": "Bold",
             "evs": {
@@ -206,17 +171,7 @@
                 "Rain Dance",
                 "Fake Tears",
                 "Skill Swap"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         }
     ],
     "turns": [
@@ -230,8 +185,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -240,11 +195,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
                     "allowMiss": false,
-                    "hits": 10
+                    "hits": 1
                 }
             }
         },
@@ -258,8 +213,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -268,11 +223,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
                     "allowMiss": false,
-                    "hits": 10
+                    "hits": 1
                 }
             }
         },
@@ -286,8 +241,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -296,11 +251,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -314,8 +269,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -324,11 +279,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
                     "allowMiss": false,
-                    "hits": 10
+                    "hits": 1
                 }
             }
         },
@@ -342,8 +297,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -352,11 +307,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
                     "allowMiss": false,
-                    "hits": 10
+                    "hits": 1
                 }
             }
         },
@@ -370,8 +325,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -380,11 +335,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -398,8 +353,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -408,11 +363,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -426,8 +381,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -436,11 +391,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
                     "allowMiss": false,
-                    "hits": 10
+                    "hits": 1
                 }
             }
         },
@@ -454,8 +409,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -464,11 +419,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -482,8 +437,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -492,11 +447,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
                     "allowMiss": false,
-                    "hits": 10
+                    "hits": 1
                 }
             }
         },
@@ -510,8 +465,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -520,11 +475,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -538,8 +493,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -548,11 +503,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -566,8 +521,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -576,11 +531,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -594,8 +549,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -604,11 +559,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }
@@ -665,7 +620,6 @@
                     "role": "Eevee",
                     "name": "Eevee",
                     "shiny": false,
-                    "isAnyLevel": false,
                     "ability": "Run Away",
                     "item": "Eviolite",
                     "nature": "Bold",

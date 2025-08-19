@@ -697,13 +697,15 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[1].results[0].state.raiders[2].originalCurHP).toEqual(1 + Math.floor(result.endState.raiders[2].maxHP()/2));
   })
   test('charge-recharge', async() => {
-    const hash = "#H4sIAAAAAAAAA8VWXU/bMBT9K5GfNslIKeX7DQoINHWgFYmHKg8muW28OnZnO4UK8d93r+u0gcFG2WAiMtfXH+fc4+M092zEDlj+3RnNOPPsYDhMOdOiApZxCmVBQYez2oE9P6ZJwo7Bh9BMvTTa0YxNzsbW1FPMVmYG53pkMLwxzvWb7mLD3EqPIw5yowth5yejEeTeYcoapfBfKb2Lc0vaTvgJtgWMaNVUhLYILSynXVk5HoMldrKCVc+VElTREzoHdSwqMYZlctH9JvxzqSuw4oV0rxR6DFEUbTwQ9dxCIUMRUzOBaiFmbTVlgiyhPpiCCJNcfeO89DUtXmiHtROPIHzA1XMq/UYq6SmSHqowjrvSDJjRPjK0CmZAwnlkdzWfQjwC1+hfKy+nSgZB4M5b0Y+jTXlesCzjbMYO7hk6YI8zFp9hSOxzFPmbkEVyhPvhAKKUyjg8+40z6WrJ+EgoB5ydWunwtHStFGd9U4DDsw577OAey7/soUl2O08eHOqkCHcqqc4hO7F1MBmioonAaqGSS2FFQWUOjBI2OQJB2pxh6bGT8W6KmwzZoNZ6nhwLkrAnVJX0pSbvXEulNi42rqWb4uTAZZfvpfR0U76Z8l0KsoeG6D7Hw/5ijZmYQoaTandi8YfoC5tcGqnJ4L3SyBySIxEADws0kW6Lsbm9GeXA6M+CBElRDmF9+aMWE3Ig5YdL+o/0XRFHc/XB3LqcRCNTP+pF6hczsOjTWxw+NXntkoFwJWkqbDFf/wS7Ow3fU2VuURS8kfnktYy7yFGMNVQy3M1WHNkO8BIQrX/CtdNQHeAlhrx8LcstTu4aKRPeFKuw4RiseUnVPyX6N/ei4fqi8X/LPYsXeiukQohitzyFasT8diwkllNJvIGdVf3dx5cvxYVxmbc1LBpWiTtctECO67ZWCLjFI3egUzuvxf7lVbAGgSUM1RDPHD336rpbcq8D223BHnov8knSK4HcsfXu2OinZ49tDeRPX01Cvxuf1wLebQG3ub878B5C/Bfg/Rbwh0pNxm52OIYRaAdvMFjrB3MN7O0W9hngtXwD8BvfJimCf6je+A7Fb85O+GzrYrvDd7Hd4/vYohL0XZhm4etw+UdLMt48Wfbw8BPuj2xddwsAAA==";
+    // const hash = "#H4sIAAAAAAAAA8VWXU/bMBT9K5GfNslIKeX7DQoINHWgFYmHKg8muW28OnZnO4UK8d93r+u0gcFG2WAiMtfXH+fc4+M092zEDlj+3RnNOPPsYDhMOdOiApZxCmVBQYez2oE9P6ZJwo7Bh9BMvTTa0YxNzsbW1FPMVmYG53pkMLwxzvWb7mLD3EqPIw5yowth5yejEeTeYcoapfBfKb2Lc0vaTvgJtgWMaNVUhLYILSynXVk5HoMldrKCVc+VElTREzoHdSwqMYZlctH9JvxzqSuw4oV0rxR6DFEUbTwQ9dxCIUMRUzOBaiFmbTVlgiyhPpiCCJNcfeO89DUtXmiHtROPIHzA1XMq/UYq6SmSHqowjrvSDJjRPjK0CmZAwnlkdzWfQjwC1+hfKy+nSgZB4M5b0Y+jTXlesCzjbMYO7hk6YI8zFp9hSOxzFPmbkEVyhPvhAKKUyjg8+40z6WrJ+EgoB5ydWunwtHStFGd9U4DDsw577OAey7/soUl2O08eHOqkCHcqqc4hO7F1MBmioonAaqGSS2FFQWUOjBI2OQJB2pxh6bGT8W6KmwzZoNZ6nhwLkrAnVJX0pSbvXEulNi42rqWb4uTAZZfvpfR0U76Z8l0KsoeG6D7Hw/5ijZmYQoaTandi8YfoC5tcGqnJ4L3SyBySIxEADws0kW6Lsbm9GeXA6M+CBElRDmF9+aMWE3Ig5YdL+o/0XRFHc/XB3LqcRCNTP+pF6hczsOjTWxw+NXntkoFwJWkqbDFf/wS7Ow3fU2VuURS8kfnktYy7yFGMNVQy3M1WHNkO8BIQrX/CtdNQHeAlhrx8LcstTu4aKRPeFKuw4RiseUnVPyX6N/ei4fqi8X/LPYsXeiukQohitzyFasT8diwkllNJvIGdVf3dx5cvxYVxmbc1LBpWiTtctECO67ZWCLjFI3egUzuvxf7lVbAGgSUM1RDPHD336rpbcq8D223BHnov8knSK4HcsfXu2OinZ49tDeRPX01Cvxuf1wLebQG3ub878B5C/Bfg/Rbwh0pNxm52OIYRaAdvMFjrB3MN7O0W9hngtXwD8BvfJimCf6je+A7Fb85O+GzrYrvDd7Hd4/vYohL0XZhm4etw+UdLMt48Wfbw8BPuj2xddwsAAA==";
+    // changed behavior: more restrictions to UI based on selectable moves, so now there is less automatic replacement of invalid moves
+    const hash = "#H4sIAAAAAAAAA8VW207jMBD9lchPrGSk9ML1DQoItFtAFImHKg8mmSbeOnbXdgoV4t93xk3bgAC1yyLU1LUnts+Z4zNpntiIHbL0tzOacebZ4XAYc6ZFCSzh1JUZdVqcVQ7sxQlNEjYHH7pm4qXRjma0OcutqSYYLc0ULvTIYPfeONdfDOcbplZ6vOMgNToTdnY6GkHqHYasUQp/CuldPbeg7YQfY5vBiFZNRGiz0MJy2q2VeQ6W2MkSViNXSFBZT+gU1IkoRQ7L4Hx4I/xboVuw4p1wrxA6h1oUbTwQ9dRCJkMSEzOGci5mZTVFgiwhP5iACJNcde+89BUtnmuHuROPIHzA1TP8le5Iz37BFEgXcS+V9CHsoQyTEYKmw5Q2laFV9ewcdDYXBDnfziZQH4xbnEqlvJwoGebAo7eiX99dJO0FSxLOpuzwiaEv9jlj9TUMgQOO0t8ImUXHuB/eQJRCGYeO2D6XrpKMj4RywHWlFGdnVjo8yPmgbzJwaIOw0S5utPwkz4tgp/XqwlutGDEvEetMUuZDdmqr4EEMocfAaqGia2FFRvkOjBI2OgZBap2jBvUg4Z0YNxqyQaX1LDoRJGpPqDLqS03WupNKbV9t30k3wcmBzx7fj+nqxLwd8z3qJM8LsgccvfDTGjM2mQwH2Rw0VThC79jo2khNRdArjEwhOhYB9ShDo+mmKu2ddq0L9tZTJsCgLsL64k8lxuTUEFs2K9Louz6YB5eSYOT3F6Mm7aspWPTxAylv0spFA+EKElXYbLb5MXZ2m1zPlHlAUbBq0/EHbDvIT+QaShlKttFvMh1gTRCl/8Kz1aQ5wCKHtPiAYZeTo0bKhIfHqvuCX/DkNWX8muRni2LB813Xv+ad1JXcDSihiyI3rIMC1PGdOol5y0qJFddaFUDnZbHFuLBe5m0F84aV4hEXhbJZrOuuEHCLF0ZAd7bWxd7qG+ej8JyWOv+xEYElDOVQHzF6be28GwpvAttpwB55L9Jx1CuATNHFz9dio43ePLbu+llvXZqI/jA203rvu4D3F5q+Eu3LgQ++C5iM/cYOG5ir8ee4Ae5OA/cc8N94c1f/65MkRvBPumtDaHyA4vtnK7zCdbDd5XvY7vMDbFEKekeMk/CmuPzQEvzWV5I8P/8Fd+CK4YMLAAA=";
     const result = await resultsFromHash(hash);
     // T1: Boss is charging Solar Beam
     expect(result.turnResults[0].results[1].desc[0]).toEqual("Typhlosion-Hisui is charging its attack!");
     expect(result.turnResults[0].bossMoveUsed).toEqual("Solar Beam (Charging)");
     expect(result.turnResults[0].state.raiders[0].isCharging).toEqual(true);
-    // T2: Boss uses Solar Beam even though another move is selected
+    // T2: Boss uses Solar Beam
     expect(result.turnResults[1].results[0].desc[2].includes("Solar Beam")).toEqual(true);
     expect(result.turnResults[1].bossMoveUsed).toEqual("Solar Beam");
     expect(result.turnResults[1].state.raiders[0].isCharging).toEqual(false);
@@ -712,13 +714,13 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].state.raiders[0].isRecharging).toEqual(true);
     // T4: Boss is recharging and doesn't move
     expect(result.turnResults[3].results[1].desc[0]).toEqual("Typhlosion-Hisui is recharging!");
-    expect(result.turnResults[3].bossMoveUsed).toEqual("(Recharging)");
+    expect(result.turnResults[3].bossMoveUsed).toEqual("Hyper Beam (Recharging)");
     expect(result.turnResults[3].state.raiders[0].isRecharging).toEqual(false);
     // T5: Sunflora is charging Solar Beam
     expect(result.turnResults[4].results[1].desc[4]).toEqual("Sunflora is charging its attack!");
     expect(result.turnResults[4].raiderMoveUsed).toEqual("Solar Beam (Charging)");
     expect(result.turnResults[4].state.raiders[4].isCharging).toEqual(true);
-    // T6: Sunflora uses Solar Beam even though another move is selected
+    // T6: Sunflora uses Solar Beam
     expect(result.turnResults[5].results[1].desc[0].includes("Solar Beam")).toEqual(true);
     expect(result.turnResults[5].raiderMoveUsed).toEqual("Solar Beam");
     expect(result.turnResults[5].state.raiders[4].isCharging).toEqual(false);
@@ -727,28 +729,32 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[6].state.raiders[4].isRecharging).toEqual(true);
     // T8: Sunflora is recharging and doesn't move
     expect(result.turnResults[7].results[1].desc[4]).toEqual("Sunflora is recharging!");
-    expect(result.turnResults[7].raiderMoveUsed).toEqual("(Recharging)");
+    expect(result.turnResults[7].raiderMoveUsed).toEqual("Hyper Beam (Recharging)");
     expect(result.turnResults[7].state.raiders[4].isRecharging).toEqual(false);
     // T10: Typhlosion uses Solar Beam in Sun
-    expect(result.turnResults[8].state.raiders[0].field.hasWeather("Sun")).toEqual(true);
+    expect(result.turnResults[9].state.raiders[0].field.hasWeather("Sun")).toEqual(true);
     expect(result.turnResults[9].results[1].desc[4].includes("Solar Beam")).toEqual(true);
-    // T11: Sunflora uses Solar Beam in Sun
+    // T11: Sunflora and Typhlosion use Solar Beam in Sun
+    expect(result.turnResults[10].state.raiders[0].field.hasWeather("Sun")).toEqual(true);
     expect(result.turnResults[10].results[1].desc[0].includes("Solar Beam")).toEqual(true);
+    expect(result.turnResults[10].results[0].desc[4].includes("Solar Beam")).toEqual(true);
   })
   test('power-herb', async() => {
-    const hash = "#H4sIAAAAAAAAA61US0/jMBD+K5FPi2SklLLL47YUEBy6IIrEIcrBTSaNwbEjP7pUqP99Z5ykLQikZVnFcsbj8Ty++ewXVrFTVjw6oxlnnp1mWcqZFg2wnJMoSxJGnAUH9vqcjIRdgI+iab002pHFAWcLa0KL2sYs4VpXBsW5cW46LDuHhZUedxwURpfCri6qCgrvUGWNUvirpXe9bU3uhH/CuYSKTrUizmWcYWN2b+ViAZaykw1sV66WoMqJ0AWoc9GIBWyU3fJO+PdU92DFB+pJLfQCelC08UCpFxZKGYtozRM0HZjBatJEWGJ90IKIRi7MnZc+0OEOO6yd8ojAx7h6RaXPpZKeJOmhifvolSxgSX5knBUsgYDzmN39qoW+BW7APygvWyUjIPDsrZj2u0N5XrA852zJTl8YMuCYM9aPLCpOOIJ8J2SZnKE/3MAotTIOe79/JV2QjFdCOeDs0kqH3dJBKc6mpgSHvY4+fqCPzZevB+V49Gbg1ijFcJeS6szYhQ2RZBgVSQRWC5XcCitKKnNmlLDJGQjC5tIUwSVnSmDMnI9T9JKxWdB6lZwLwnAiVJNMpSbyPEil9m/2H6Rr0Tgmc8SPUxrjlB+k/IiEfD1kesKx2+isUiYyYyv2lX/7ZZKfXbv2cP/W/AabXIGd4+JK2HL1bzhEJLPdQvOoz/K4tU0POXRjkZnBBrYr9unNVs1cYseoe5PayAKSWQuF+x/ZfZDRGFEAJds2Em8rvgtYx5ivA4Us1dhuvO8fAXWIYHijHw1ez5jZq1WfXNe+WWv8hlgz4eovoPU+Vnl/ww6jjyiOX9N6NOi/97n1GTYSr8RoS9Ax3+V6iuf6U94G6CbWiGc8E1k9HDtEw9HGww562L6/DkytpDdl71OBD/D7YsWfC4xgZym92/Tk5vEBx4+0OR9Gnq/XfwCkfvNGFAcAAA==";
+    // const hash = "#H4sIAAAAAAAAA61US0/jMBD+K5FPi2SklLLL47YUEBy6IIrEIcrBTSaNwbEjP7pUqP99Z5ykLQikZVnFcsbj8Ty++ewXVrFTVjw6oxlnnp1mWcqZFg2wnJMoSxJGnAUH9vqcjIRdgI+iab002pHFAWcLa0KL2sYs4VpXBsW5cW46LDuHhZUedxwURpfCri6qCgrvUGWNUvirpXe9bU3uhH/CuYSKTrUizmWcYWN2b+ViAZaykw1sV66WoMqJ0AWoc9GIBWyU3fJO+PdU92DFB+pJLfQCelC08UCpFxZKGYtozRM0HZjBatJEWGJ90IKIRi7MnZc+0OEOO6yd8ojAx7h6RaXPpZKeJOmhifvolSxgSX5knBUsgYDzmN39qoW+BW7APygvWyUjIPDsrZj2u0N5XrA852zJTl8YMuCYM9aPLCpOOIJ8J2SZnKE/3MAotTIOe79/JV2QjFdCOeDs0kqH3dJBKc6mpgSHvY4+fqCPzZevB+V49Gbg1ijFcJeS6szYhQ2RZBgVSQRWC5XcCitKKnNmlLDJGQjC5tIUwSVnSmDMnI9T9JKxWdB6lZwLwnAiVJNMpSbyPEil9m/2H6Rr0Tgmc8SPUxrjlB+k/IiEfD1kesKx2+isUiYyYyv2lX/7ZZKfXbv2cP/W/AabXIGd4+JK2HL1bzhEJLPdQvOoz/K4tU0POXRjkZnBBrYr9unNVs1cYseoe5PayAKSWQuF+x/ZfZDRGFEAJds2Em8rvgtYx5ivA4Us1dhuvO8fAXWIYHijHw1ez5jZq1WfXNe+WWv8hlgz4eovoPU+Vnl/ww6jjyiOX9N6NOi/97n1GTYSr8RoS9Ax3+V6iuf6U94G6CbWiGc8E1k9HDtEw9HGww562L6/DkytpDdl71OBD/D7YsWfC4xgZym92/Tk5vEBx4+0OR9Gnq/XfwCkfvNGFAcAAA==";
+    // changed behavior: boss can't use extra moves if a raider is moving, too
+    const hash = "#H4sIAAAAAAAAA71VbU/bMBD+K5E/bZKRElpexjcoIJBWQBSJD1U+uMklMTh2ZDuFCPW/7+y8NJ0GmjY2xXLPT853j587N28kIyckeTJKEkosOVkuQ0okK4HE1Jk87YxEc4suBhIlU6abiyyDxBqEtBLCOUWU1Ab09bmLxHQO1puqslxJ4zz2Kcm1qitES7WGa5kpNFfKmHm/RK8JJQW3pjOZEOplzo3L1MNIp3BBmH3GOYXMEauYn1M/w+D2oHmeg3aceAnblSk4iHTGZALinJUshwFsl/fM/gp6AM3egWcFkzl0UkhlwXFONKTc61SpZyhbnWstHeLF8BJCBcw7mXplLLe129wqhvI6Hr4mPq9s8JebU9l8hzUIp8OKC249bKH0zpjCucPaBeV+Fp13DjJtBUHOD00FXTlMX4taWF4J7n3g1Wo27972h7aMxDEla3LyRrBlIhSadGPZIhFF7J7xNDhTvnSYpxDKYCfsXXFTc0IzJgxQWQtByaXmBkvZLuYqBYO95iMdY6DhiTc9OIl+GvgqCjHnDea65O7sS3Kha997CGFvgZZMBHdMs9SdeKEE08EZMKfXpUpqE5wJhnljOgkx0pIsaimb4Jw5XWdMlMGcS9ddj1yIvdu9R24qdPaEvtHj0I1JSPdDeuSMeNOzRTGwHzBaJpTvna051uDLjQpO20J+Rac79QI6uAK9wsUV02nz54r4BMvxkeMWG6YRV2y5W42NXOuajM0x10VTrjhW01V2ViieQLCoIDGfRfUDeviXcAeCV5Vvz635vpQt9jkSYktLbAn80/hIwikqZJV8UnjPPc2d1ZhpW+VFpezQhQtmir/Q8UMV4+5+HqCMYRtm2srlrjhqFfXwUUeznQlb5z3xaNvZUzq+JCHu/p29/e4Df54h0Og+DiwOdyOVHO/ybv4R9yH/IbW6hnYiJXvFPeFu4qh3ndJxSVGVyb9NvI/Pfz0xVhy/oqH7JrnPSew/Tvg4PKb9iOPN5gd7raArCwgAAA==";
     const result = await resultsFromHash(hash);
-    // T1: Sunflora uses Solar Beam without charging in Sun
-    expect(result.turnResults[0].results[0].state.raiders[0].field.hasWeather("Sun")).toEqual(true);
-    expect(result.turnResults[0].results[1].desc[0].includes("Solar Beam")).toEqual(true);
-    expect(result.turnResults[0].raiderMoveUsed).toEqual("Solar Beam");
-    expect(result.turnResults[0].state.raiders[1].isCharging).toEqual(false);
-    // T3: Sunflora consumes Power Herb (and gets Specs from Symbiosis) to use Solar Beam without Charging
-    expect(result.turnResults[1].state.raiders[1].field.hasWeather("Rain")).toEqual(true);
-    expect(result.turnResults[2].results[1].desc[0].includes("Solar Beam")).toEqual(true);
-    expect(result.turnResults[2].results[1].desc[0].includes("Choice Specs")).toEqual(false); // Specs are passed after the move is carried out
-    expect(result.turnResults[2].state.raiders[1].item).toEqual("Choice Specs");              // But Sunflora still has the specs after moving
-    expect(result.turnResults[2].state.raiders[1].isCharging).toEqual(false);
+    // T2: Sunflora uses Solar Beam without charging in Sun
+    expect(result.turnResults[1].results[0].state.raiders[0].field.hasWeather("Sun")).toEqual(true);
+    expect(result.turnResults[1].results[1].desc[0].includes("Solar Beam")).toEqual(true);
+    expect(result.turnResults[1].raiderMoveUsed).toEqual("Solar Beam");
+    expect(result.turnResults[1].state.raiders[1].isCharging).toEqual(false);
+    // T4: Sunflora consumes Power Herb (and gets Specs from Symbiosis) to use Solar Beam without Charging
+    expect(result.turnResults[3].state.raiders[1].field.hasWeather("Rain")).toEqual(true);
+    expect(result.turnResults[3].results[1].desc[0].includes("Solar Beam")).toEqual(true);
+    expect(result.turnResults[3].results[1].desc[0].includes("Choice Specs")).toEqual(false); // Specs are passed after the move is carried out
+    expect(result.turnResults[3].state.raiders[1].item).toEqual("Choice Specs");              // But Sunflora still has the specs after moving
+    expect(result.turnResults[3].state.raiders[1].isCharging).toEqual(false);
   })
   test('stockpile-spitup-swallow', async() => {
     const hash = "#H4sIAAAAAAAAA9VWS0/jMBD+K5FPIPnQJ1BuUGCX1cKBFu2hysFNJqm3jh3ZTqFC/PedcZJC2V2JaldUaGLHHo/nm2/8SJ5Yxk5Z8tMZzTjz7HQ263CmRQEs5tSUKTW6nFUO7PUFGQmbgw9NU3pptCOLHme5NVWJ2sKs4FpnBptz49xN260dJlZ6HHGQGJ0Ku77MMki8Q5U1SuFrIb1rbBfkTvgl1ilkNKsUoU5DDRuzqZV5DpaikwW89NxCgkrHQiegLkQhctgo6+6d8H9STcGKv6jHC6FzaJKijQcKPbGQykCiNEso6mRWVpMmpCXwgxJEMHLV3HnpK5pc5w65Uxwh8QFXr/Et3Zlef4cVUF7EXCrpg9pDEYwRgsxhRU5lqFVjnYNO64RgzNN1Cc3CuHZVKuVlqWSwgUdvxU0z2pL2gsUxZyt2+sRwX5xwxppnFhQjjqm/EzKNztEfDlznuVrPqwwXKhPKQVOzg1sTndXBHzKuK6U4+ypsilSCoyN0tJH4uVX2u28eHOp2EPO2cTJjV2IJ0RSEJfhzk66jiRIFppTsZnHt6XjbfQsw4rh+PyTF7EPMW50dCfSGvQYhtHYiMfEmWZYyrP+klD66p10/eRBKmQdsXUAG2kE0rqx6LzXcUd8Cm7Km9rqzRe3KStwo0ZcK6aDd5UoapEmhjIUq/ge/d0bc/3QRDz5NxHFzYgd8iBKa/Tf7Cg9Dpx4ZbgdfSLzLui+8ceLrU9fBic00byuoK1aIR5xUYzfzBnyE0rrY7PMdYA9ujPNRuIylzg93wu60MIT9ct4+CL3bmu4FvYeyP/Q+yv7QSf5pz+HNT9/F3VCPUPbH+QRlg95+RT4I+xjlo7HxdpsNsRrRzyD9ltEfFZY+lgGWIywnWI7j8M/2m9D8mLdPHD8//wLigcdtFQsAAA==";

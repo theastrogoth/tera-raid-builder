@@ -13,6 +13,18 @@ import { getEndOfTurn } from "../calc/desc";
 const gen = Generations.get(9);
 const dummyMove = new Move(gen, "Splash");
 
+const STRUGGLE_DATA: MoveData = { // duplicated in MoveSelection.tsx
+    name: "Struggle" as MoveName, 
+    moveCategory: "Physical",
+    category: "damage",
+    target: "selected-pokemon",
+    type: "Normal",
+    power: 50,
+    accuracy: undefined,
+    priority: 0,
+    selfDamage: 25,
+}
+
 export type RaidTurnResult = {
     state: RaidState;
     results: RaidMoveResult[];
@@ -299,8 +311,8 @@ export class RaidTurn {
             state: this._raidState,
             results: [this._result1, this._result2, ...this._delayedResults],
             raiderMovesFirst: this._raiderMovesFirst,
-            raiderMoveUsed: this._raiderMoveUsed + (this._raidState.raiders[this.raiderID].isCharging ? " (Charging)" : ""),
-            bossMoveUsed: this._bossMoveUsed + (this._raidState.raiders[0].isCharging ? " (Charging)" : ""),
+            raiderMoveUsed: this._raiderMoveUsed + (this._raidState.raiders[this.raiderID].isCharging ? " (Charging)" : "") + (this.raidState.raiders[this.raiderID].isRecharging ? " (Recharging)" : ""),
+            bossMoveUsed: this._bossMoveUsed + (this._raidState.raiders[0].isCharging ? " (Charging)" : "") + (this.raidState.raiders[0].isRecharging ? " (Recharging)" : ""),
             id: this.id,
             group: this.group,
             moveInfo: {
@@ -323,32 +335,41 @@ export class RaidTurn {
     }
 
     private applyChangedMove() {
-        // Charge up moves
-        if (this._raider.isCharging) {
-            this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
-            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
-            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
-            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
-            this._raiderMoveUsed = this._raiderMoveData.name;
+        const raiderSelectableMoves = getSelectableMoves(this.raidState.raiders[this.raiderID], false)[0];
+        const bossSelectableMoves = getSelectableMoves(this.raidState.raiders[0], this._isBossAction)[0];
+        // handle invalid move selection
+        if (isRegularMove(this.raiderMoveData.name) && !raiderSelectableMoves.includes(this.raiderMoveData.name)) {
+            this._raiderMoveData = raiderSelectableMoves.length > 0 ? {name: "(No Move)" as MoveName} : {...STRUGGLE_DATA};
         }
-        if (this._boss.isCharging) {
-            this._bossMoveData = this.raidState.raiders[0].lastMove!;
-            this._bossMove = new Move(9, this._bossMoveData.name, this.bossOptions);
-            if (this.bossOptions.crit) this._bossMove.isCrit = true;
-            if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
-            this._bossMoveUsed = this._bossMoveData.name;
+        if (isRegularMove(this.bossMoveData.name) && !bossSelectableMoves.includes(this.bossMoveData.name)) {
+            this._bossMoveData = bossSelectableMoves.length > 0 ? {name: "(Most Damaging)" as MoveName} : {...STRUGGLE_DATA}
         }
-        // Recharging
-        if (this._raider.isRecharging) {
-            this._raiderMoveData = {name: "(No Move)" as MoveName};
-            this._raiderMove = new Move(9, "(No Move)");
-            this._raiderMoveUsed = "(Recharging)";
-        }
-        if (this._boss.isRecharging) {
-            this._bossMoveData = {name: "(No Move)" as MoveName};
-            this._bossMove = new Move(9, "(No Move)");
-            this._bossMoveUsed = "(Recharging)";
-        }
+        // Charge up moves (should be redundant with the above now)
+        // if (this._raider.isCharging) { 
+        //     this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
+        //     this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+        //     if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+        //     if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        //     this._raiderMoveUsed = this._raiderMoveData.name;
+        // }
+        // if (this._boss.isCharging) {
+        //     this._bossMoveData = this.raidState.raiders[0].lastMove!;
+        //     this._bossMove = new Move(9, this._bossMoveData.name, this.bossOptions);
+        //     if (this.bossOptions.crit) this._bossMove.isCrit = true;
+        //     if (this.bossOptions.hits !== undefined) this._bossMove.hits = this.bossOptions.hits;
+        //     this._bossMoveUsed = this._bossMoveData.name;
+        // }
+        // Recharging (also redundant)
+        // if (this._raider.isRecharging) {
+        //     this._raiderMoveData = {name: "(No Move)" as MoveName};
+        //     this._raiderMove = new Move(9, "(No Move)");
+        //     this._raiderMoveUsed = "(Recharging)";
+        // }
+        // if (this._boss.isRecharging) {
+        //     this._bossMoveData = {name: "(No Move)" as MoveName};
+        //     this._bossMove = new Move(9, "(No Move)");
+        //     this._bossMoveUsed = "(Recharging)";
+        // }
         // pollen puff
         if (this.raiderMoveData.name === "Pollen Puff") {
             if (this.targetID !== 0) { 
@@ -360,96 +381,103 @@ export class RaidTurn {
                 };
             }
         }
-        // disallow status moves if taunted
-        if (this._boss.isTaunt && !this._boss.firstTauntTurn && this._bossMove.name !== "(No Move)") {
-            const testMove = new Move(9, this.bossMoveData.name, this.bossOptions);
-            if (testMove.category === "Status" && !["Clear Boosts / Abilities", "Remove Negative Effects"].includes(testMove.name)) {
-                if (this._isBossAction) {
-                    if (isRegularMove(this._bossMoveData.name)) {
-                        this._bossMoveData = {name: "(No Move)" as MoveName, target: "selected-pokemon", category: "damage"}
-                        this._bossMove = new Move(9, "(No Move)", this.bossOptions);
-                        this._bossMoveUsed = "(No Move)";
-                    }
-                } else {
-                    this._bossMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
-                }
-            }
-        }
-        if (this._raider.isTaunt) {
-            const testMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
-            if (testMove.category === "Status" && !["Attack Cheer", "Defense Cheer", "Heal Cheer", "(No Move)"].includes(testMove.name)) {
-                this._raiderMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
-            }
-        }
+        // disallow status moves if taunted (also redundant)
+        // if (this._boss.isTaunt && !this._boss.firstTauntTurn && this._bossMove.name !== "(No Move)") {
+        //     const testMove = new Move(9, this.bossMoveData.name, this.bossOptions);
+        //     if (testMove.category === "Status" && !["Clear Boosts / Abilities", "Remove Negative Effects"].includes(testMove.name)) {
+        //         if (this._isBossAction) {
+        //             if (isRegularMove(this._bossMoveData.name)) {
+        //                 this._bossMoveData = {name: "(No Move)" as MoveName, target: "selected-pokemon", category: "damage"}
+        //                 this._bossMove = new Move(9, "(No Move)", this.bossOptions);
+        //                 this._bossMoveUsed = "(No Move)";
+        //             }
+        //         } else {
+        //             this._bossMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
+        //         }
+        //     }
+        // }
+        // if (this._raider.isTaunt) {
+        //     const testMove = new Move(9, this.raiderMoveData.name, this.raiderOptions);
+        //     if (testMove.category === "Status" && !["Attack Cheer", "Defense Cheer", "Heal Cheer", "(No Move)"].includes(testMove.name)) {
+        //         this._raiderMoveData = {name: "(Most Damaging)" as MoveName, target: "selected-pokemon", category: "damage"}
+        //     }
+        // }
         // For this option, pick the most damaging move based on the current field.
-        if (!this.raidState.raiders[0].isCharging && this._bossMoveData.name === "(Most Damaging)") {
-            const moveOptions = getSelectableMoves(this._raidState.raiders[0], false)[0];
-            let bestMove = "(No Move)";
-            let bestDamage = 0;
-            for (const move of moveOptions) {
-                const moveData = this._raidState.raiders[0].moveData.find((moveData) => moveData.name === move) || {name: move} as MoveData;
-                const testMove = new Move(9, move, this.bossOptions);
-                const hits = Math.min(Math.max(this.bossOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
-                testMove.isCrit = this.bossOptions.crit || false;
-                const testField = this._raidState.raiders[0].field;
-                testField.defenderSide = this.raidState.raiders[this.raiderID].field.attackerSide;
-                const result = calculate(9, this._raidState.raiders[0], this.raidState.raiders[this.raiderID], testMove, testField);
-                let damage: number = 0;
-                if (typeof(result.damage) === "number") {
-                    damage = result.damage;
-                } else {
-                    damage = (this.bossOptions.roll === "min" ? result.damage[0] :
-                              this.bossOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
-                              result.damage[Math.floor(result.damage.length / 2)]) as number;
+        if (this._bossMoveData.name === "(Most Damaging)") {
+            const moveOptions = getSelectableMoves(this._raidState.raiders[0], false)[0]; // this might be different than bossSelectableMoves above, since it excludes extraMoves
+            if (moveOptions.length === 0) {
+                this._bossMoveData = {...STRUGGLE_DATA};
+            } else {
+                let bestMove = "(No Move)";
+                let bestDamage = 0;
+                for (const move of moveOptions) {
+                    const moveData = this._raidState.raiders[0].moveData.find((moveData) => moveData.name === move) || {name: move} as MoveData;
+                    const testMove = new Move(9, move, this.bossOptions);
+                    const hits = Math.min(Math.max(this.bossOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
+                    testMove.isCrit = this.bossOptions.crit || false;
+                    const testField = this._raidState.raiders[0].field;
+                    testField.defenderSide = this.raidState.raiders[this.raiderID].field.attackerSide;
+                    const result = calculate(9, this._raidState.raiders[0], this.raidState.raiders[this.raiderID], testMove, testField);
+                    let damage: number = 0;
+                    if (typeof(result.damage) === "number") {
+                        damage = result.damage;
+                    } else {
+                        damage = (this.bossOptions.roll === "min" ? result.damage[0] :
+                                this.bossOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
+                                result.damage[Math.floor(result.damage.length / 2)]) as number;
+                    }
+                    damage = damage * hits; // since this isn't being handled by calculate
+                    if (damage > bestDamage) {
+                        bestMove = move;
+                        bestDamage = damage;
+                    }
                 }
-                damage = damage * hits; // since this isn't being handled by calculate
-                if (damage > bestDamage) {
-                    bestMove = move;
-                    bestDamage = damage;
-                }
+                this._bossMoveData = this._raidState.raiders[0].moveData.find((move) => move.name === bestMove) || {name: bestMove} as MoveData;
+                this._bossMove = new Move(9, bestMove, this.bossOptions);
+                this._bossMoveUsed = bestMove;
             }
-            this._bossMoveData = this._raidState.raiders[0].moveData.find((move) => move.name === bestMove) || {name: bestMove} as MoveData;
-            this._bossMove = new Move(9, bestMove, this.bossOptions);
-            this._bossMoveUsed = bestMove;
         }
-        if (!this.raidState.raiders[this.raiderID].isCharging && this._raiderMoveData.name === "(Most Damaging)") {
-            const moveOptions = this._raidState.raiders[this.raiderID].moves;
-            let bestMove = "(No Move)";
-            let bestDamage = 0;
-            for (const move of moveOptions) {
-                const moveData = this._raidState.raiders[this.raiderID].moveData.find((moveData) => moveData.name === move) || {name: move} as MoveData;
-                const testMove = new Move(9, move, this.raiderOptions);
-                const hits = Math.min(Math.max(this.raiderOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
-                testMove.isCrit = this.raiderOptions.crit || false;
-                const testField = this._raidState.raiders[this.raiderID].field;
-                testField.defenderSide = this._raidState.raiders[this.targetID].field.attackerSide;
-                const result = calculate(9, this._raidState.raiders[this.raiderID], this._raidState.raiders[0], testMove, testField);
-                let damage: number = 0;
-                if (typeof(result.damage) === "number") {
-                    damage = result.damage;
-                } else {
-                    damage = (this.raiderOptions.roll === "min" ? result.damage[0] :
-                              this.raiderOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
-                              result.damage[Math.floor(result.damage.length / 2)]) as number;
+        if (this._raiderMoveData.name === "(Most Damaging)") {
+            if (raiderSelectableMoves.length === 0) {
+                this._raiderMoveData = {...STRUGGLE_DATA};
+            } else {
+                let bestMove = "(No Move)";
+                let bestDamage = 0;
+                for (const move of raiderSelectableMoves) {
+                    const moveData = this._raidState.raiders[this.raiderID].moveData.find((moveData) => moveData.name === move) || {name: move} as MoveData;
+                    const testMove = new Move(9, move, this.raiderOptions);
+                    const hits = Math.min(Math.max(this.raiderOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
+                    testMove.isCrit = this.raiderOptions.crit || false;
+                    const testField = this._raidState.raiders[this.raiderID].field;
+                    testField.defenderSide = this._raidState.raiders[this.targetID].field.attackerSide;
+                    const result = calculate(9, this._raidState.raiders[this.raiderID], this._raidState.raiders[0], testMove, testField);
+                    let damage: number = 0;
+                    if (typeof(result.damage) === "number") {
+                        damage = result.damage;
+                    } else {
+                        damage = (this.raiderOptions.roll === "min" ? result.damage[0] :
+                                this.raiderOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
+                                result.damage[Math.floor(result.damage.length / 2)]) as number;
+                    }
+                    damage = damage * hits; // since this isn't being handled by calculate
+                    if (damage > bestDamage && !(testMove.name === "Pollen Puff" && this.targetID !== 0)) {
+                        bestMove = move;
+                        bestDamage = damage;
+                    }
                 }
-                damage = damage * hits; // since this isn't being handled by calculate
-                if (damage > bestDamage && !(testMove.name === "Pollen Puff" && this.targetID !== 0)) {
-                    bestMove = move;
-                    bestDamage = damage;
-                }
+                this._raiderMoveData = this._raidState.raiders[this.raiderID].moveData.find((move) => move.name === bestMove) || {name: bestMove} as MoveData;
+                this._raiderMove = new Move(9, bestMove, this.raiderOptions);
+                this._raiderMoveUsed = bestMove;
             }
-            this._raiderMoveData = this._raidState.raiders[this.raiderID].moveData.find((move) => move.name === bestMove) || {name: bestMove} as MoveData;
-            this._raiderMove = new Move(9, bestMove, this.raiderOptions);
-            this._raiderMoveUsed = bestMove;
         }
-        // Force the move to be the last move used for Choice Lock / Encore
-        if (isRegularMove(this._raiderMove.name) && (this._raider.isChoiceLocked || this._raider.isEncore) && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
-            this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
-            this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
-            if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
-            if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
-            this._raiderMoveUsed = this._raiderMoveData.name;
-        } 
+        // Force the move to be the last move used for Choice Lock / Encore (also redundant)
+        // if (isRegularMove(this._raiderMove.name) && (this._raider.isChoiceLocked || this._raider.isEncore) && this._raider.lastMove !== undefined && this._raider.lastMove.name !== "(No Move)") {
+        //     this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
+        //     this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
+        //     if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
+        //     if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
+        //     this._raiderMoveUsed = this._raiderMoveData.name;
+        // } 
     }
 
     private applyRaiderIndirectMove() {

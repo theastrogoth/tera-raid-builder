@@ -139,7 +139,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
             const name = t.moveInfo.name as MoveName;
             let mdata: MoveData = {name: name};
             if (name === "(No Move)") {
-            } else if (name === "(Most Damaging)") {
+            } else if (name === "(Most Damaging)" || name === "Struggle") {
                 mdata = {name: name, target: "selected-pokemon"};
             } else if (name === "Attack Cheer" || name === "Defense Cheer") {
                 mdata = {name: name, priority: 10, category: "field-effect", target: "user-and-allies"};

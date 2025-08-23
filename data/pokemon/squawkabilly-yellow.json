@@ -1,5 +1,16 @@
 {
-    "name": "Squawkabilly-White-Plumage",
+    "name": "Squawkabilly-Yellow",
+    "category": {
+        "en": "Parrot Pokémon",
+        "ja": "インコポケモン",
+        "fr": "Pokémon Perroquet",
+        "es": "Pokémon Loro",
+        "de": "Sittich-Pokémon",
+        "it": "Pokémon Pappagallo",
+        "ko": "잉꼬포켓몬",
+        "zh-Hant": "鸚鵡寶可夢",
+        "zh-Hans": "鹦鹉宝可梦"
+    },
     "abilities": [
         {
             "name": "Intimidate",
@@ -15,8 +26,8 @@
         }
     ],
     "types": [
-        "normal",
-        "flying"
+        "Normal",
+        "Flying"
     ],
     "stats": {
         "hp": 82,
@@ -26,6 +37,9 @@
         "spd": 51,
         "spe": 92
     },
+    "weightkg": 2.4,
+    "nfe": false,
+    "gender": null,
     "moves": [
         {
             "name": "Aerial Ace",
@@ -49,7 +63,15 @@
         },
         {
             "name": "Double-Edge",
-            "learnMethod": "egg"
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Dual Wingbeat",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Endeavor",
+            "learnMethod": "machine"
         },
         {
             "name": "Endure",
@@ -61,6 +83,10 @@
         },
         {
             "name": "Fake Tears",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Feather Dance",
             "learnMethod": "machine"
         },
         {
@@ -109,6 +135,10 @@
         },
         {
             "name": "Hyper Voice",
+            "learnMethod": "machine"
+        },
+        {
+            "name": "Lash Out",
             "learnMethod": "machine"
         },
         {

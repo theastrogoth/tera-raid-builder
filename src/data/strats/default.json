@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Ting-Lu",
-            "name": "Ting-Lu",
+            "role": "Chi-Yu",
+            "name": "Chi-Yu",
             "shiny": true,
-            "ability": "Vessel of Ruin",
-            "nature": "Impish",
+            "ability": "Beads of Ruin",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -20,165 +20,145 @@
             },
             "ivs": {
                 "hp": 31,
-                "atk": 31,
+                "atk": 20,
                 "def": 31,
-                "spa": 20,
+                "spa": 31,
                 "spd": 31,
                 "spe": 31
             },
             "level": 75,
             "gender": "N",
-            "teraType": "Ground",
+            "teraType": "Fire",
             "moves": [
-                "Stomping Tantrum",
-                "Stone Edge",
+                "Heat Wave",
+                "Dark Pulse",
                 "Snarl",
-                "Heavy Slam"
+                "Flamethrower"
             ],
-            "bossMultiplier": 2000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Ruination",
-                "Sandstorm"
+                "Ruination"
             ],
             "shieldData": {
-                "hpTrigger": 85,
-                "timeTrigger": 85,
+                "hpTrigger": 93,
+                "timeTrigger": 93,
                 "shieldCancelDamage": 30,
-                "shieldDamageRate": 20,
+                "shieldDamageRate": 40,
                 "shieldDamageRateTera": 80,
-                "shieldDamageRateTeraChange": 40
+                "shieldDamageRateTeraChange": 20
             }
         },
         {
             "id": 1,
-            "role": "Tauros",
-            "name": "Tauros-Paldea-Aqua",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
-            "nature": "Adamant",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
-                "atk": 252,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
-            "gender": "M",
-            "moves": [
-                "Wave Crash",
-                "Close Combat",
-                "Raging Bull"
-            ]
+            "level": 1,
+            "gender": "N",
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Night Slash",
-                "Helping Hand",
-                "Rain Dance",
-                "Chilling Water"
-            ]
+            "moves": []
         },
         {
-           "id": 3,
-            "role": "Venonat",
-            "name": "Venonat",
+            "id": 3,
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Compound Eyes",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Acid Spray",
-                "Skill Swap",
-                "Lunge"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Venonat",
-            "name": "Venonat",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Compound Eyes",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Acid Spray",
-                "Skill Swap",
-                "Lunge"
-            ]
+            "moves": []
         }
     ],
     "turns": [

@@ -1,7 +1,7 @@
 {
-    "name": "Bulls in a China Shop",
-    "notes": "Move quickly! There isn't much time before Chi-Yu puts up its shield.\n\nAll abilities and EVs are important. In particular, Honchkrow needs 4 EVs in speed and Umbreon needs Inner Focus to prevent flinching.\n\nThere is a small (~3%) chance for Honchkrow to faint if it is targeted by Ruination.",
-    "credits": "The r/PokePortal Team",
+    "name": "Fish & Furious",
+    "notes": "The Drizzle animation uses up a little bit of time, so it's necessary to move very quickly to beat the shield.\nDrizzle and Power Spot supports don't need any training and should not move.",
+    "credits": "AK|Ash|",
     "pokemon": [
         {
             "id": 0,
@@ -114,69 +114,59 @@
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Pelipper",
+            "name": "Pelipper",
             "shiny": false,
-            "ability": "Inner Focus",
-            "item": "Zoom Lens",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "Drizzle",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Helping Hand",
-                "Rain Dance",
-                "Snarl"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Stonjourner",
+            "name": "Stonjourner",
             "shiny": false,
-            "ability": "Inner Focus",
-            "item": "Zoom Lens",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "Power Spot",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Helping Hand",
-                "Rain Dance",
-                "Snarl"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -188,11 +178,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -200,11 +190,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -216,11 +206,11 @@
                 "userID": 2,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": true,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -228,11 +218,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
@@ -240,14 +230,14 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Screech",
+                "name": "(Wait)",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -256,11 +246,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
                     "allowMiss": false,
-                    "hits": 10
+                    "hits": 1
                 }
             }
         },
@@ -268,14 +258,14 @@
             "id": 3,
             "group": 1,
             "moveInfo": {
-                "name": "Screech",
+                "name": "(Wait)",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -284,11 +274,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "hits": 1
                 }
             }
         },
@@ -302,8 +292,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -312,11 +302,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }
@@ -342,118 +332,44 @@
     "substitutes": [
         [],
         [],
-        [],
         [
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Pelipper",
-                    "name": "Pelipper",
-                    "shiny": false,
-                    "ability": "Drizzle",
-                    "nature": "Calm",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Helping Hand"
-                    ]
-                },
-                "substituteMoves": [
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
+                    "id": 3,
                     "role": "Politoed",
                     "name": "Politoed",
                     "shiny": false,
+                    "isAnyLevel": true,
                     "ability": "Drizzle",
-                    "nature": "Calm",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
-                        "spd": 252,
+                        "spd": 0,
                         "spe": 0
                     },
                     "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Helping Hand"
-                    ]
-                },
-                "substituteMoves": [
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Stonjourner",
-                    "name": "Stonjourner",
-                    "shiny": false,
-                    "ability": "Power Spot",
-                    "item": "Assault Vest",
-                    "nature": "Calm",
-                    "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
-                        "spd": 252,
+                        "spd": 0,
                         "spe": 0
                     },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
+                    "level": 1,
                     "gender": "N",
                     "moves": []
                 },
                 "substituteMoves": [
-                    "Attack Cheer"
+                    "(Wait)"
                 ],
                 "substituteTargets": [
-                    4
+                    3
                 ]
             }
-        ]
+        ],
+        []
     ]
 }

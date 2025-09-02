@@ -191,7 +191,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
         effects.push("Zoom Lens");
     }
     if (defender.hasItem("Bright Powder") || defender.hasItem("Lax Incense")) {
-        accuracy *= 3686/409;
+        accuracy *= 3686/4096;
         effects.push(defender.item!);
     }
 

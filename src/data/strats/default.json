@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Chi-Yu",
-            "name": "Chi-Yu",
-            "shiny": true,
-            "ability": "Beads of Ruin",
-            "nature": "Modest",
+            "role": "Roaring Moon",
+            "name": "Roaring Moon",
+            "shiny": false,
+            "ability": "Protosynthesis",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -20,163 +20,146 @@
             },
             "ivs": {
                 "hp": 31,
-                "atk": 20,
+                "atk": 31,
                 "def": 31,
                 "spa": 31,
                 "spd": 31,
                 "spe": 31
             },
-            "level": 75,
+            "level": 100,
             "gender": "N",
-            "teraType": "Fire",
+            "teraType": "Dragon",
             "moves": [
-                "Heat Wave",
-                "Dark Pulse",
-                "Snarl",
-                "Flamethrower"
+                "Dragon Claw",
+                "Crunch",
+                "Iron Head",
+                "Earthquake"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Ruination"
+                "Sunny Day",
+                "Dragon Dance"
             ],
             "shieldData": {
-                "hpTrigger": 93,
-                "timeTrigger": 93,
-                "shieldCancelDamage": 30,
-                "shieldDamageRate": 40,
-                "shieldDamageRateTera": 80,
-                "shieldDamageRateTeraChange": 20
+                "hpTrigger": 92,
+                "timeTrigger": 92,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
             "id": 1,
-            "role": "Tauros",
-            "name": "Tauros-Paldea-Aqua",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
-            "nature": "Adamant",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
-                "atk": 252,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
-            "gender": "M",
-            "moves": [
-                "Wave Crash",
-                "Raging Bull"
-            ]
+            "level": 1,
+            "gender": "N",
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
-                "spe": 4
+                "spd": 0,
+                "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Night Slash",
-                "Helping Hand",
-                "Rain Dance",
-                "Snarl"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Inner Focus",
-            "item": "Zoom Lens",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Helping Hand",
-                "Rain Dance",
-                "Snarl"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Inner Focus",
-            "item": "Zoom Lens",
-            "nature": "Calm",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Helping Hand",
-                "Rain Dance",
-                "Snarl"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -184,15 +167,15 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Ruination",
+                "name": "Sunny Day",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -200,11 +183,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -218,8 +201,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -228,11 +211,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }

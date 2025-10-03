@@ -1,15 +1,15 @@
 {
-    "name": "Cache Money (Trio)",
-    "notes": "",
+    "name": "Sunrise, Moonset (Trio)",
+    "notes": "Move fast! NPCs may add extra animations.",
     "credits": "The r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
-            "role": "Iron Valiant",
-            "name": "Iron Valiant",
+            "role": "Roaring Moon",
+            "name": "Roaring Moon",
             "shiny": false,
-            "ability": "Quark Drive",
-            "nature": "Naive",
+            "ability": "Protosynthesis",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,21 +28,21 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Fairy",
+            "teraType": "Dragon",
             "moves": [
-                "Spirit Break",
-                "Aura Sphere",
-                "Zen Headbutt",
-                "Shadow Ball"
+                "Dragon Claw",
+                "Crunch",
+                "Iron Head",
+                "Earthquake"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Electric Terrain",
-                "Swords Dance"
+                "Sunny Day",
+                "Dragon Dance"
             ],
             "shieldData": {
-                "hpTrigger": 90,
-                "timeTrigger": 90,
+                "hpTrigger": 92,
+                "timeTrigger": 92,
                 "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -51,17 +51,17 @@
         },
         {
             "id": 1,
-            "role": "Gholdengo",
-            "name": "Gholdengo",
+            "role": "Koraidon",
+            "name": "Koraidon",
             "shiny": false,
-            "ability": "Good as Gold",
-            "item": "Weakness Policy",
-            "nature": "Hardy",
+            "ability": "Orichalcum Pulse",
+            "item": "Focus Sash",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -76,68 +76,68 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Make It Rain"
+                "Swords Dance",
+                "Outrage"
             ]
         },
         {
             "id": 2,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Azumarill",
+            "name": "Azumarill",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Steely Spirit",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "(No Ability)",
+            "item": "Bright Powder",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears"
+                "Helping Hand"
             ]
         },
         {
             "id": 3,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "Mirror Armor",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears"
+                "Screech"
             ]
         },
         {
@@ -174,7 +174,7 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Electric Terrain",
+                "name": "Sunny Day",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
@@ -199,38 +199,10 @@
             }
         },
         {
-            "id": 1,
-            "group": 1,
+            "id": 3,
+            "group": 5,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 1,
-            "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Screech",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
@@ -255,10 +227,122 @@
             }
         },
         {
-            "id": 4,
-            "group": 2,
+            "id": 2,
+            "group": 5,
             "moveInfo": {
-                "name": "Make It Rain",
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 5,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 3,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 3,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 4,
+            "moveInfo": {
+                "name": "Outrage",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -288,14 +372,20 @@
             0
         ],
         [
-            1,
-            2
+            3,
+            2,
+            7
         ],
         [
-            4
+            1,
+            5
+        ],
+        [
+            6
         ]
     ],
     "repeats": [
+        1,
         1,
         1,
         1

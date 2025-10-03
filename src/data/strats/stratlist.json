@@ -1,6 +1,8 @@
 {
     "Roaring Moon": {
-        "Template": "roaring_moon/template"
+        "Template": "roaring_moon/template",
+        "Sunrise, Moonset": "roaring_moon/main",
+        "Sunrise, Moonset (Trio)": "roaring_moon/sunrise_moonset_3"
     },
     "Iron Valiant": {
         "Template": "iron_valiant/template",

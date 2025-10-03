@@ -1,4 +1,10 @@
 {
+    "Roaring Moon": {
+        "Template": "roaring_moon/template"
+    },
+    "Iron Valiant": {
+        "Template": "iron_valiant/template"
+    },
     "Chi-Yu": {
         "Bulls in a China Shop": "chi-yu/main",
         "Bulls in a China Shop (Trio)": "chi-yu/bulls_trio",

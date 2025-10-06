@@ -1,7 +1,7 @@
 {
-    "name": "Cache Money",
-    "notes": "",
-    "credits": "The r/PokePortal Team",
+    "name": "Spicy T1",
+    "notes": "With Simple Beam supports, Scovillain should wait to move until after Simple Beam has been used.",
+    "credits": "SV Discord",
     "pokemon": [
         {
             "id": 0,
@@ -51,17 +51,77 @@
         },
         {
             "id": 1,
-            "role": "Gholdengo",
-            "name": "Gholdengo",
+            "role": "Iron Treads",
+            "name": "Iron Treads",
             "shiny": false,
-            "ability": "Good as Gold",
-            "item": "Weakness Policy",
+            "ability": "Quark Drive",
+            "item": "Mirror Herb",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Steel Roller"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Perrserker",
+            "name": "Perrserker",
+            "shiny": false,
+            "ability": "Steely Spirit",
+            "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Helping Hand"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Scovillain",
+            "name": "Scovillain",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -76,76 +136,15 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Make It Rain"
-            ]
-        },
-        {
-            "id": 2,
-            "role": "Perrserker",
-            "name": "Perrserker",
-            "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Steely Spirit",
-            "item": "Focus Sash",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "level": 1,
-            "gender": "N",
-            "moves": [
-                "Fake Tears"
-            ]
-        },
-        {
-            "id": 3,
-            "role": "Perrserker",
-            "name": "Perrserker",
-            "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Focus Sash",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "level": 1,
-            "gender": "N",
-            "moves": [
-                "Fake Tears"
+                "Spicy Extract"
             ]
         },
         {
             "id": 4,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Stonjourner",
+            "name": "Stonjourner",
             "shiny": false,
-            "ability": "Steely Spirit",
+            "ability": "Power Spot",
             "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {
@@ -164,11 +163,9 @@
                 "spd": 0,
                 "spe": 0
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": [
-                "Fake Tears"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -204,9 +201,9 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Helping Hand",
                 "userID": 2,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -232,7 +229,7 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Spicy Extract",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
@@ -260,9 +257,9 @@
             "id": 3,
             "group": 1,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Attack Cheer",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -288,7 +285,7 @@
             "id": 4,
             "group": 2,
             "moveInfo": {
-                "name": "Make It Rain",
+                "name": "Steel Roller",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -332,23 +329,24 @@
         1
     ],
     "substitutes": [
+        [],
         [
             {
                 "raider": {
-                    "id": 1,
-                    "role": "Dialga",
-                    "name": "Dialga",
+                    "id": 2,
+                    "role": "Golduck",
+                    "name": "Golduck",
                     "shiny": false,
-                    "ability": "Pressure",
-                    "item": "Wide Lens",
-                    "nature": "Timid",
+                    "ability": "Damp",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
-                        "def": 0,
+                        "def": 252,
                         "spa": 0,
                         "spd": 0,
-                        "spe": 252
+                        "spe": 0
                     },
                     "ivs": {
                         "hp": 31,
@@ -361,11 +359,11 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Steel Beam"
+                        "Simple Beam"
                     ]
                 },
                 "substituteMoves": [
-                    "Steel Beam"
+                    "Simple Beam"
                 ],
                 "substituteTargets": [
                     0
@@ -373,7 +371,44 @@
             }
         ],
         [],
-        [],
-        []
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Perrserker",
+                    "name": "Perrserker",
+                    "shiny": false,
+                    "isAnyLevel": true,
+                    "ability": "Steely Spirit",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    4
+                ]
+            }
+        ]
     ]
 }

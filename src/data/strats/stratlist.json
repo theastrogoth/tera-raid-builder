@@ -4,12 +4,14 @@
         "Fast Sunrise, Moonset": "roaring_moon/main",
         "Fast Sunrise, Moonset (Trio)": "roaring_moon/fast_sunrise_moonset_3",
         "Sunrise, Moonset": "roaring_moon/sunrise_moonset",
-        "Sunrise, Moonset (Trio)": "roaring_moon/sunrise_moonset_3"
+        "Sunrise, Moonset (Trio)": "roaring_moon/sunrise_moonset_3",
+        "Spicy T1": "roaring_moon/spicy"
     },
     "Iron Valiant": {
         "Template": "iron_valiant/template",
         "Cache Money": "iron_valiant/main",
-        "Cache Money (Trio)": "iron_valiant/cache_money_3"
+        "Cache Money (Trio)": "iron_valiant/cache_money_3",
+        "Spicy T1": "iron_valiant/spicy"
     },
     "Chi-Yu": {
         "Bulls in a China Shop": "chi-yu/main",

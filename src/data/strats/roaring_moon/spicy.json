@@ -1,15 +1,15 @@
 {
-    "name": "Cache Money",
-    "notes": "",
-    "credits": "The r/PokePortal Team",
+    "name": "Spicy T1",
+    "notes": "Symbiosis supports with a Choice Band can AFK instead of cheering",
+    "credits": "",
     "pokemon": [
         {
             "id": 0,
-            "role": "Iron Valiant",
-            "name": "Iron Valiant",
+            "role": "Roaring Moon",
+            "name": "Roaring Moon",
             "shiny": false,
-            "ability": "Quark Drive",
-            "nature": "Naive",
+            "ability": "Protosynthesis",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,21 +28,21 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Fairy",
+            "teraType": "Dragon",
             "moves": [
-                "Spirit Break",
-                "Aura Sphere",
-                "Zen Headbutt",
-                "Shadow Ball"
+                "Dragon Claw",
+                "Crunch",
+                "Iron Head",
+                "Earthquake"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Electric Terrain",
-                "Swords Dance"
+                "Sunny Day",
+                "Dragon Dance"
             ],
             "shieldData": {
-                "hpTrigger": 90,
-                "timeTrigger": 90,
+                "hpTrigger": 92,
+                "timeTrigger": 92,
                 "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -51,17 +51,17 @@
         },
         {
             "id": 1,
-            "role": "Gholdengo",
-            "name": "Gholdengo",
+            "role": "Koraidon",
+            "name": "Koraidon",
             "shiny": false,
-            "ability": "Good as Gold",
-            "item": "Weakness Policy",
-            "nature": "Hardy",
+            "ability": "Orichalcum Pulse",
+            "item": "Mirror Herb",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -76,76 +76,77 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Make It Rain"
+                "Outrage",
+                "(No Move)"
             ]
         },
         {
             "id": 2,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Golduck",
+            "name": "Golduck",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Steely Spirit",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "Damp",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears"
+                "Simple Beam"
             ]
         },
         {
             "id": 3,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Scovillain",
+            "name": "Scovillain",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "Insomnia",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears"
+                "Spicy Extract"
             ]
         },
         {
             "id": 4,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Carry Slot",
+            "name": "Carry Slot",
             "shiny": false,
-            "ability": "Steely Spirit",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
             "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {
@@ -166,9 +167,7 @@
             },
             "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -176,7 +175,7 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Electric Terrain",
+                "name": "Sunny Day",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
@@ -204,14 +203,14 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Simple Beam",
                 "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -222,8 +221,8 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "allowMiss": false,
                     "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
@@ -232,7 +231,35 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Spicy Extract",
                 "userID": 3,
                 "targetID": 0,
                 "options": {
@@ -257,38 +284,10 @@
             }
         },
         {
-            "id": 3,
-            "group": 1,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 4,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "Make It Rain",
+                "name": "Outrage",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -319,7 +318,9 @@
         ],
         [
             1,
-            2,
+            2
+        ],
+        [
             3
         ],
         [
@@ -329,6 +330,7 @@
     "repeats": [
         1,
         1,
+        1,
         1
     ],
     "substitutes": [
@@ -336,19 +338,19 @@
             {
                 "raider": {
                     "id": 1,
-                    "role": "Dialga",
-                    "name": "Dialga",
+                    "role": "Roaring Moon",
+                    "name": "Roaring Moon",
                     "shiny": false,
-                    "ability": "Pressure",
-                    "item": "Wide Lens",
-                    "nature": "Timid",
+                    "ability": "Protosynthesis",
+                    "item": "Mirror Herb",
+                    "nature": "Adamant",
                     "evs": {
                         "hp": 0,
-                        "atk": 0,
+                        "atk": 252,
                         "def": 0,
                         "spa": 0,
                         "spd": 0,
-                        "spe": 252
+                        "spe": 4
                     },
                     "ivs": {
                         "hp": 31,
@@ -361,11 +363,11 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Steel Beam"
+                        "Outrage"
                     ]
                 },
                 "substituteMoves": [
-                    "Steel Beam"
+                    "Outrage"
                 ],
                 "substituteTargets": [
                     0
@@ -374,6 +376,81 @@
         ],
         [],
         [],
-        []
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Oranguru",
+                    "name": "Oranguru",
+                    "shiny": false,
+                    "isAnyLevel": true,
+                    "ability": "Symbiosis",
+                    "item": "Choice Band",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "(Wait)"
+                ],
+                "substituteTargets": [
+                    4
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Florges",
+                    "name": "Florges",
+                    "shiny": false,
+                    "isAnyLevel": true,
+                    "ability": "Symbiosis",
+                    "item": "Choice Band",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "level": 1,
+                    "gender": "F",
+                    "moves": []
+                },
+                "substituteMoves": [
+                    "(Wait)"
+                ],
+                "substituteTargets": [
+                    4
+                ]
+            }
+        ]
     ]
 }

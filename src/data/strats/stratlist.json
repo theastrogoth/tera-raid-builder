@@ -11,7 +11,8 @@
         "Template": "iron_valiant/template",
         "Cache Money": "iron_valiant/main",
         "Cache Money (Trio)": "iron_valiant/cache_money_3",
-        "Spicy T1": "iron_valiant/spicy"
+        "Spicy T1": "iron_valiant/spicy",
+        "Espathra T1": "iron_valiant/espathra"
     },
     "Chi-Yu": {
         "Bulls in a China Shop": "chi-yu/main",

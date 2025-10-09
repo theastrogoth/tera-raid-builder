@@ -843,12 +843,15 @@ export class RaidMove {
                     try {
                         const preDamageItem = target.item;
                         let moveBP = this.move.bp;
+                        let cumBP = 0;
+                        let changingBP = false;
                         // calculate each hit from a multi-hit move
                         for (let i=0; i<this.hits; i++) { 
                             const calcMove = this.move.clone();
                             calcMove.hits = 1;
                             calcMove.isCrit = crit;
                             calcMove.isSpread = !!this._isSpread;
+                            let hitBP = calcMove.bp;
                             // handle moves that are affected by repeated use
                             if (this._user.lastMove && (this.moveData.name === this._user.lastMove.name)) {
                                 this._user.moveRepeated = (this._user.moveRepeated || 0) + 1;
@@ -861,21 +864,26 @@ export class RaidMove {
                             }
                             // handle BP changes not covered by the smogon calc
                             if (calcMove.name === "Beat Up") {
-                                moveBP = Math.floor(moveUser.species.baseStats.atk / 10 + 5);
+                                hitBP = Math.floor(moveUser.species.baseStats.atk / 10 + 5);
                             } else if (calcMove.named("Fury Cutter")) {
-                                moveBP = 40 * Math.pow(2, Math.min(2, this._user.moveRepeated || 0))
+                                hitBP = 40 * Math.pow(2, Math.min(2, this._user.moveRepeated || 0))
                             } else if (calcMove.named("Rollout", "Ice Ball")) {
-                                moveBP = 30 * Math.pow(2, (this._user.moveRepeated || 0) % 5);
+                                hitBP = 30 * Math.pow(2, (this._user.moveRepeated || 0) % 5);
                             }
-                            moveBP = moveBP * bpModifier; // from interactions like Dig + Earthquake
-                            moveBP = ((calcMove.name === "Triple Axel" || calcMove.name === "Triple Kick") ? i+1 : 1) * moveBP;
-                            calcMove.bp = moveBP;
+                            hitBP = hitBP * bpModifier; // from interactions like Dig + Earthquake
+                            if (calcMove.named("Triple Axel", "Triple Kick")) {
+                                changingBP = true;
+                                hitBP = hitBP * (i+1);
+                            }
+                            calcMove.bp = hitBP;
                             if (calcMove.name === "Pollen Puff" && this.userID !== 0 && this._targetID !== 0) {
                                 break;
                             }
                             if (calcMove.named("Endeavor") && (this.userID === 0 || this.targetID === 0)) {
                                 break;
                             }
+                            moveBP = hitBP;
+                            cumBP += hitBP;
                             // get calc result
                             const moveField = this.getMoveField(this.userID, id);
                             const result = calculate(9, moveUser, target, calcMove, moveField, this.movesFirst);
@@ -885,7 +893,6 @@ export class RaidMove {
                                 otherCalcMove.isCrit = !crit;
                                 otherResult = calculate(9, moveUser, target, otherCalcMove, moveField, this.movesFirst);
                             }
-                            
                             results.push(result);
                             // ignore the possibility that result.damage is [number[], number[]]. When would that come up?
                             if (damageResult === undefined) {
@@ -1003,6 +1010,7 @@ export class RaidMove {
                                 }
                             }
                         }
+                        moveBP = changingBP ? cumBP/(this.hits || 1) : moveBP; // average out BP for moves that change with each hit
                         const postDamageItem = target.item;
                         if ((preDamageItem !== postDamageItem) && (!postDamageItem)) {
                             this._raidState.loseItem(id); // This triggers Symbiosis, which only happens at the end of multi-strike moves

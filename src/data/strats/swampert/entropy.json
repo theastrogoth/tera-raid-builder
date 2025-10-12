@@ -480,6 +480,32 @@
             }
         },
         {
+            "id": 13,
+            "group": 5,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
             "id": 5,
             "group": 5,
             "moveInfo": {
@@ -554,6 +580,7 @@
             4
         ],
         [
+            13,
             5,
             6
         ]

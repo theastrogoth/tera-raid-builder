@@ -56,6 +56,7 @@ export class RaidTurn {
     _isBossAction!:     boolean;
     _isCheer!:          boolean;
     _isEmptyTurn!:      boolean;
+    _turnMoveNumber!:   number;
     _isEndOfFullTurn!:  boolean;
 
     _raiderMovesFirst!: boolean;
@@ -112,9 +113,9 @@ export class RaidTurn {
         this._isCheer = ["Attack Cheer", "Defense Cheer", "Heal Cheer"].includes(this.raiderMoveData.name);
         this._isEmptyTurn = this.raiderMoveData.name === "(No Move)" && this.bossMoveData.name === "(No Move)";
         // check if this marks the end of a 4-move "turn"
-        const turnMoveNumber = this.turnNumber % 4;
+        this._turnMoveNumber = this.turnNumber % 4;
         this._isEndOfFullTurn = !this._isBossAction && !this._isEmptyTurn && (
-            (turnMoveNumber === 3) // || 
+            (this._turnMoveNumber === 3) // || 
             // (this.raiderID === 1 && ((this.numNPCs + turnMoveNumber) >= 3))
         );
         // set up moves
@@ -143,6 +144,7 @@ export class RaidTurn {
                 this.raiderID,
                 this.raiderID,
                 this.raiderID,
+                0,
                 true,
                 ).result();
             this._raidState = moveResult.state;
@@ -215,6 +217,7 @@ export class RaidTurn {
                 this._raiderMoveID, 
                 this._raiderMoveTarget,
                 this.raiderID,
+                this._turnMoveNumber,
                 this._raiderMovesFirst,
                 this.raiderOptions,
                 this._isBossAction,
@@ -234,6 +237,7 @@ export class RaidTurn {
                 0, 
                 ["all-opponents","all-other-pokemon","all-pokemon"].includes(this._bossMoveData.target || "") ? this._raiderMoveID : this.raiderID, // If Instruct is used before the boss moves, spread moves from the boss will hit the target of instruct 
                 this.raiderID,
+                this._turnMoveNumber,
                 !this._raiderMovesFirst,
                 this.bossOptions,
                 this._isBossAction,
@@ -251,6 +255,7 @@ export class RaidTurn {
                 0, 
                 this.raiderID,
                 this.raiderID,
+                this._turnMoveNumber,
                 !this._raiderMovesFirst,
                 this.bossOptions,
                 this._isBossAction
@@ -265,6 +270,7 @@ export class RaidTurn {
                 this._raiderMoveID, 
                 this._raiderMoveTarget,
                 this.raiderID,
+                this._turnMoveNumber,
                 this._raiderMovesFirst,
                 this.raiderOptions,
                 this._isBossAction,
@@ -298,10 +304,8 @@ export class RaidTurn {
                 // other end-of-turn stuff
                 this.applyEndOfTurnMoveEffects();
                 this.applyEndOfTurnStatusEffects();
-                if (!this._isCheer)  {
-                    // delayed moves (Protect doesn't apply)
-                    this.countdownDelayedMoves();
-                } else {
+                this.countdownDelayedMoves(); // delayed moves (Protect doesn't apply)
+                if (this._isCheer)  {
                     this._raidState.raiders[this.raiderID].cheersLeft--;
                 }
             }
@@ -628,6 +632,7 @@ export class RaidTurn {
     }
 
     private countdownDelayedMoves() {
+        if (!this._isEndOfFullTurn) { return; }
         for (let id of [0, this.raiderID]) { // Not worrying about speed order for now
             const pokemon = this._raidState.raiders[id];
             if (pokemon.delayedMoveCounter) {
@@ -641,6 +646,7 @@ export class RaidTurn {
                             pokemon.delayedMoveSource!,
                             pokemon.id,
                             pokemon.delayedMoveSource!,
+                            this._turnMoveNumber,
                             true,
                             pokemon.delayedMoveOptions!,
                             false,

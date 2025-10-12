@@ -169,6 +169,7 @@ export class RaidBattle {
                 id,
                 id,
                 id,
+                0,
                 true,
                 ).result();
             this._state = moveResult.state;

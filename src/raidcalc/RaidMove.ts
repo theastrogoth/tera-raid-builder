@@ -89,6 +89,7 @@ export class RaidMove {
     userID: number;     // the id of the user of this move
     targetID: number;   // the id of the target of this move
     raiderID: number;   // the id of the raider who initiated this round
+    turnMoveNumber: number;
     movesFirst: boolean;
     options: RaidMoveOptions;
     hits: number;
@@ -131,13 +132,14 @@ export class RaidMove {
     _flags!: string[][];
     _warnings!: string[];
 
-    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean[], statLowered?: boolean, statRaised?: boolean[], instructed?: boolean, delayed?: boolean) {
+    constructor(moveData: MoveData, move: Move, raidState: RaidState, userID: number, targetID: number, raiderID: number, turnMoveNumber: number, movesFirst: boolean,  raidMoveOptions?: RaidMoveOptions, isBossAction?: boolean, flinch?: boolean, damaged?: boolean[], statLowered?: boolean, statRaised?: boolean[], instructed?: boolean, delayed?: boolean) {
         this.move = move;
         this.moveData = moveData;
         this.raidState = raidState;
         this.userID = userID;
         this.targetID = targetID;
         this.raiderID = raiderID;
+        this.turnMoveNumber = turnMoveNumber;
         this.movesFirst = movesFirst;
         this.options = raidMoveOptions || {};
         this.isBossAction = isBossAction || false;
@@ -454,7 +456,7 @@ export class RaidMove {
             if (target.delayedMoveCounter) {
                 this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";
             } else {
-                target.delayedMoveCounter = 3;
+                target.delayedMoveCounter = this.turnMoveNumber < 2 ? 1 : 2;
                 target.delayedMoveSource = this.userID;
                 target.delayedMove = this.moveData;
                 if (this.moveData.name === "Future Sight") {

@@ -53,7 +53,7 @@
             "id": 1,
             "role": "Axew",
             "name": "Axew",
-            "shiny": false,
+            "shiny": true,
             "ability": "(No Ability)",
             "item": "Choice Band",
             "nature": "Adamant",
@@ -78,15 +78,14 @@
             "teraType": "Dragon",
             "moves": [
                 "Reversal",
-                "Outrage",
-                "Swords Dance"
+                "Outrage"
             ]
         },
         {
             "id": 2,
             "role": "Drowzee",
             "name": "Drowzee",
-            "shiny": false,
+            "shiny": true,
             "ability": "Inner Focus",
             "item": "Focus Sash",
             "nature": "Hardy",
@@ -109,7 +108,6 @@
             "level": 1,
             "gender": "N",
             "moves": [
-                "Substitute",
                 "Protect",
                 "Trick Room",
                 "Helping Hand"
@@ -119,7 +117,7 @@
             "id": 3,
             "role": "Meditite",
             "name": "Meditite",
-            "shiny": false,
+            "shiny": true,
             "ability": "Pure Power",
             "item": "Focus Sash",
             "nature": "Hardy",
@@ -142,7 +140,6 @@
             "level": 1,
             "gender": "N",
             "moves": [
-                "Substitute",
                 "Protect",
                 "Skill Swap"
             ]
@@ -151,7 +148,7 @@
             "id": 4,
             "role": "Fidough",
             "name": "Fidough",
-            "shiny": false,
+            "shiny": true,
             "ability": "(No Ability)",
             "item": "Focus Sash",
             "nature": "Hardy",
@@ -174,7 +171,6 @@
             "level": 1,
             "gender": "N",
             "moves": [
-                "Substitute",
                 "Protect",
                 "Howl"
             ]
@@ -784,51 +780,6 @@
         [],
         [],
         [],
-        [
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Vulpix",
-                    "name": "Vulpix-Alola",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "gender": "N",
-                    "moves": [
-                        "Substitute",
-                        "Protect",
-                        "Howl"
-                    ]
-                },
-                "substituteMoves": [
-                    "Substitute",
-                    "Howl",
-                    "Howl"
-                ],
-                "substituteTargets": [
-                    4,
-                    4,
-                    4
-                ]
-            }
-        ]
+        []
     ]
 }

@@ -1,18 +1,32 @@
 {
     "Roaring Moon": {
-        "Template": "roaring_moon/template",
         "Fast Sunrise, Moonset": "roaring_moon/main",
         "Fast Sunrise, Moonset (Trio)": "roaring_moon/fast_sunrise_moonset_3",
         "Sunrise, Moonset": "roaring_moon/sunrise_moonset",
         "Sunrise, Moonset (Trio)": "roaring_moon/sunrise_moonset_3",
-        "Spicy T1": "roaring_moon/spicy"
+        "Spicy T1": "roaring_moon/spicy",
+        "Team Eeveelutions is Over the Moon!": "roaring_moon/eeveelutions",
+        "Babiri Berry Bunch": "roaring_moon/babiri",
+        "Godzilla": "roaring_moon/godzilla",
+        "Godzilla 2.0": "roaring_moon/godzilla_2",
+        "Zen (and PSY!) Pshy-ne on the Roaring Moon!": "roaring_moon/zen_and_psy",
+        "Nukebro": "roaring_moon/nukebro",
+        "Goodnight Moon": "roaring_moon/goodnight_moon"
     },
     "Iron Valiant": {
-        "Template": "iron_valiant/template",
         "Cache Money": "iron_valiant/main",
         "Cache Money (Trio)": "iron_valiant/cache_money_3",
         "Spicy T1": "iron_valiant/spicy",
-        "Espathra T1": "iron_valiant/espathra"
+        "Espathra T1": "iron_valiant/espathra",
+        "Team Eeveelutions Roll the Dice!": "iron_valiant/eeveelutions",
+        "Godzilla": "iron_valiant/godzilla",
+        "Mechanical Bunker": "iron_valiant/mechanical_bunker",
+        "Roll Out": "iron_valiant/roll_out",
+        "Zen's (and PSY's!) Psy-rit Breaking Paradox!": "iron_valiant/zen_and_psy",
+        "Spaceballs": "iron_valiant/spaceballs",
+        "Brotherhood of Doom": "iron_valiant/doom_brotherhood",
+        "Nukebro": "iron_valiant/nukebro",
+        "F is for Friends": "iron_valiant/f_is_for_friends"
     },
     "Chi-Yu": {
         "Bulls in a China Shop": "chi-yu/main",

@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tera-raid-builder/static/css/main.e6c13ad2.css",
-    "main.js": "/tera-raid-builder/static/js/main.1896c24c.js",
+    "main.js": "/tera-raid-builder/static/js/main.342f0fb4.js",
     "static/js/56446.c7148a03.chunk.js": "/tera-raid-builder/static/js/56446.c7148a03.chunk.js",
     "static/js/87850.cacd3d1a.chunk.js": "/tera-raid-builder/static/js/87850.cacd3d1a.chunk.js",
     "static/js/68435.182654d2.chunk.js": "/tera-raid-builder/static/js/68435.182654d2.chunk.js",
@@ -300,6 +300,7 @@
     "static/js/4909.ffd28e37.chunk.js": "/tera-raid-builder/static/js/4909.ffd28e37.chunk.js",
     "static/js/27781.10e822c0.chunk.js": "/tera-raid-builder/static/js/27781.10e822c0.chunk.js",
     "static/js/77714.2edcbbcc.chunk.js": "/tera-raid-builder/static/js/77714.2edcbbcc.chunk.js",
+    "static/js/47865.0f545ffd.chunk.js": "/tera-raid-builder/static/js/47865.0f545ffd.chunk.js",
     "static/js/95534.d2681a2a.chunk.js": "/tera-raid-builder/static/js/95534.d2681a2a.chunk.js",
     "static/js/20388.35cf553f.chunk.js": "/tera-raid-builder/static/js/20388.35cf553f.chunk.js",
     "static/js/9439.1c88ee82.chunk.js": "/tera-raid-builder/static/js/9439.1c88ee82.chunk.js",
@@ -822,13 +823,13 @@
     "static/js/8064.10b072bf.chunk.js": "/tera-raid-builder/static/js/8064.10b072bf.chunk.js",
     "index.html": "/tera-raid-builder/index.html",
     "main.e6c13ad2.css.map": "/tera-raid-builder/static/css/main.e6c13ad2.css.map",
-    "main.1896c24c.js.map": "/tera-raid-builder/static/js/main.1896c24c.js.map",
+    "main.342f0fb4.js.map": "/tera-raid-builder/static/js/main.342f0fb4.js.map",
     "56446.c7148a03.chunk.js.map": "/tera-raid-builder/static/js/56446.c7148a03.chunk.js.map",
     "787.f2f3d9e4.chunk.js.map": "/tera-raid-builder/static/js/787.f2f3d9e4.chunk.js.map",
     "8064.10b072bf.chunk.js.map": "/tera-raid-builder/static/js/8064.10b072bf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.1896c24c.js"
+    "static/js/main.342f0fb4.js"
   ]
 }

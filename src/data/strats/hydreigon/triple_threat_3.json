@@ -262,7 +262,7 @@
         },
         {
             "id": 3,
-            "group": 1,
+            "group": 2,
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 1,
@@ -290,7 +290,7 @@
         },
         {
             "id": 4,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
                 "name": "Helping Hand",
                 "userID": 2,
@@ -318,7 +318,7 @@
         },
         {
             "id": 5,
-            "group": 2,
+            "group": 3,
             "moveInfo": {
                 "name": "Screech",
                 "userID": 3,
@@ -346,7 +346,7 @@
         },
         {
             "id": 6,
-            "group": 3,
+            "group": 4,
             "moveInfo": {
                 "name": "Power Trip",
                 "userID": 1,
@@ -379,7 +379,9 @@
         ],
         [
             1,
-            2,
+            2
+        ],
+        [
             3
         ],
         [
@@ -391,6 +393,7 @@
         ]
     ],
     "repeats": [
+        1,
         1,
         1,
         1,

@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Roaring Moon",
-            "name": "Roaring Moon",
+            "role": "Hydreigon",
+            "name": "Hydreigon",
             "shiny": false,
-            "ability": "Protosynthesis",
-            "nature": "Adamant",
+            "ability": "Levitate",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,22 +27,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Dragon",
+            "gender": "M",
+            "teraType": "Poison",
             "moves": [
-                "Dragon Claw",
-                "Crunch",
-                "Iron Head",
-                "Earthquake"
+                "Tera Blast",
+                "Dark Pulse",
+                "Dragon Pulse",
+                "Earth Power"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 2500,
             "extraMoves": [
-                "Sunny Day",
+                "Snarl",
+                "Nasty Plot",
                 "Dragon Dance"
             ],
             "shieldData": {
-                "hpTrigger": 92,
-                "timeTrigger": 92,
+                "hpTrigger": 85,
+                "timeTrigger": 85,
                 "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -51,124 +52,115 @@
         },
         {
             "id": 1,
-            "role": "Koraidon",
-            "name": "Koraidon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Orichalcum Pulse",
-            "item": "Weakness Policy",
-            "nature": "Adamant",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
-                "atk": 252,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Protect",
-                "Outrage"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Krookodile",
-            "name": "Krookodile",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Intimidate",
-            "item": "Choice Scarf",
-            "nature": "Impish",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Helping Hand"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Mirror Armor",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Mirror Armor",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -176,7 +168,7 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Sunny Day",
+                "name": "Snarl",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
@@ -201,12 +193,12 @@
             }
         },
         {
-            "id": 2,
-            "group": 2,
+            "id": 1,
+            "group": 1,
             "moveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -234,7 +226,7 @@
             0
         ],
         [
-            2
+            1
         ]
     ],
     "repeats": [

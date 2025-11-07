@@ -1,7 +1,7 @@
 {
-    "name": "",
+    "name": "The Spicy Bear",
     "notes": "",
-    "credits": "",
+    "credits": "AK |Ash| & Sabu Karma",
     "pokemon": [
         {
             "id": 0,
@@ -52,12 +52,12 @@
         },
         {
             "id": 1,
-            "role": "Krookodile",
-            "name": "Krookodile",
+            "role": "Ursaluna",
+            "name": "Ursaluna",
             "shiny": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
-            "nature": "Jolly",
+            "ability": "Guts",
+            "item": "Mirror Herb",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
                 "atk": 252,
@@ -77,16 +77,15 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Power Trip"
+                "Headlong Rush"
             ]
         },
         {
             "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
+            "role": "Medicham",
+            "name": "Medicham",
             "shiny": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
+            "ability": "Pure Power",
             "nature": "Calm",
             "evs": {
                 "hp": 252,
@@ -107,26 +106,22 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Night Slash",
-                "Helping Hand",
-                "Screech",
-                "Snarl"
+                "Skill Swap"
             ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Golduck",
+            "name": "Golduck",
             "shiny": false,
-            "ability": "Inner Focus",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "(No Ability)",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -140,26 +135,23 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Light Screen",
-                "Taunt"
+                "Simple Beam"
             ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Scovillain",
+            "name": "Scovillain",
             "shiny": false,
-            "ability": "Inner Focus",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "(No Ability)",
+            "item": "Kebia Berry",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -173,10 +165,7 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Light Screen",
-                "Taunt"
+                "Spicy Extract"
             ]
         }
     ],
@@ -189,11 +178,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -201,11 +190,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -213,14 +202,14 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
+                "name": "Skill Swap",
+                "userID": 2,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -229,11 +218,95 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Spicy Extract",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 3,
+            "moveInfo": {
+                "name": "Headlong Rush",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
@@ -243,10 +316,19 @@
             0
         ],
         [
-            1
+            1,
+            2
+        ],
+        [
+            3
+        ],
+        [
+            4
         ]
     ],
     "repeats": [
+        1,
+        1,
         1,
         1
     ],

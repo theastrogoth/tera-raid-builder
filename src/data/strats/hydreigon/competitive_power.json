@@ -1,7 +1,7 @@
 {
-    "name": "",
-    "notes": "",
-    "credits": "",
+    "name": "Competitive Power",
+    "notes": "If Snarl misses Gothitelle, use a Defense Cheer to activate the Weakness Policy before using Stored Power.",
+    "credits": "AK |Ash|",
     "pokemon": [
         {
             "id": 0,
@@ -52,19 +52,19 @@
         },
         {
             "id": 1,
-            "role": "Krookodile",
-            "name": "Krookodile",
+            "role": "Gothitelle",
+            "name": "Gothitelle",
             "shiny": false,
-            "ability": "Anger Point",
-            "item": "Choice Band",
-            "nature": "Jolly",
+            "ability": "Competitive",
+            "item": "Weakness Policy",
+            "nature": "Modest",
             "evs": {
-                "hp": 252,
-                "atk": 252,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
-                "spe": 0
+                "spe": 252
             },
             "ivs": {
                 "hp": 31,
@@ -77,16 +77,46 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Power Trip"
+                "Stored Power"
             ]
         },
         {
             "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
+            "ability": "Sweet Veil",
+            "item": "Kebia Berry",
+            "nature": "Calm",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 252,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "F",
+            "moves": [
+                "Decorate"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Maushold",
+            "name": "Maushold",
+            "shiny": false,
+            "ability": "Friend Guard",
+            "item": "Sitrus Berry",
             "nature": "Calm",
             "evs": {
                 "hp": 252,
@@ -107,59 +137,23 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Night Slash",
-                "Helping Hand",
-                "Screech",
-                "Snarl"
-            ]
-        },
-        {
-            "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
-            "shiny": false,
-            "ability": "Inner Focus",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Screech",
-                "Helping Hand",
-                "Light Screen",
-                "Taunt"
+                "Fake Tears"
             ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Florges",
+            "name": "Florges",
             "shiny": false,
-            "ability": "Inner Focus",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
+            "ability": "Symbiosis",
+            "item": "Choice Specs",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -171,12 +165,9 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Light Screen",
-                "Taunt"
+                "Helping Hand"
             ]
         }
     ],
@@ -213,7 +204,91 @@
             "id": 1,
             "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Decorate",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 3,
+            "moveInfo": {
+                "name": "Stored Power",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -243,10 +318,19 @@
             0
         ],
         [
-            1
+            1,
+            2
+        ],
+        [
+            3
+        ],
+        [
+            4
         ]
     ],
     "repeats": [
+        1,
+        1,
         1,
         1
     ],

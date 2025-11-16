@@ -568,6 +568,7 @@ export class RaidMove {
             // Status Moves blocked by Boss Shield
             if (this.userID !== 0 && pokemon.shieldActive && category === "Status") {
                 this._doesNotAffect[id] = "blocked by " + pokemon.name + "'s shield";
+                this._user.lastMoveFailed = 2;
             }
             // Substitute blocks status
             if (pokemon.substitute && category === "Status" && !this.moveData.isSound && !this.moveData.bypassSub && !this._user.hasAbility("Infiltrator")) {
@@ -2010,6 +2011,21 @@ export class RaidMove {
                 break;
             case "Glaive Rush":
                 this._user.glaiveRush = true;
+                break;
+            case "Sleep Talk":
+                if (!this._user.isSleep) {
+                    this._user.lastMoveFailed = 2;
+                }
+                break;
+            case "Self-Destruct":
+            case "Explosion":
+            case "Misty Explosion":
+            case "Fissure":
+            case "Guillotine":
+            case "Horn Drill":
+            case "Sheer Cold":
+                // OHKO moves fail in raids
+                this._user.lastMoveFailed = 2;
                 break;
             default: break;
             }

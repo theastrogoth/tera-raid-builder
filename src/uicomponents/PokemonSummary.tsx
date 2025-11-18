@@ -15,7 +15,7 @@ import StatRadarPlot from "./StatRadarPlot";
 import BuildControls from "./BuildControls";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getTranslation } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, getTranslation, getArtPlaceholderURL } from "../utils";
 import { MoveData, MoveSetItem, SubstituteBuildInfo, TurnGroupInfo } from "../raidcalc/interface";
 import { RaidTurnResult } from "../raidcalc/RaidTurn";
 import { MOVES } from "../calc/data/moves";
@@ -244,7 +244,8 @@ function PokemonSummary({pokemon, setPokemon, groups, setGroups, groupsCounter, 
                                     src={getPokemonArtURL(pokemon.name, pokemon.shiny)}
                                     onError={({ currentTarget }) => {
                                         currentTarget.onerror = null; // prevents looping
-                                        currentTarget.src=getPokemonArtURL("placeholder");
+                                        // currentTarget.src=getPokemonArtURL("placeholder");
+                                        currentTarget.src=getArtPlaceholderURL();
                                     }}
                                     alt=""
                                 />

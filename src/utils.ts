@@ -107,6 +107,10 @@ export function getPokemonArtURL(name: string, shiny: boolean = false) {
     return pokemonArtProlog + prepareImageAssetName(name) + ".png";
 }
 
+export function getArtPlaceholderURL() {
+    return process.env.PUBLIC_URL + "/placeholder.png";
+}
+
 export function getPokemonSpriteURL(name: string) {
     return pokemonSpriteProlog + prepareImageAssetName(name) + ".png";
 }

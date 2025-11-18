@@ -11,7 +11,7 @@ import BuildControls, { BossBuildControlsMemo } from "./BuildControls";
 import { RoleField } from "./PokemonSummary";
 
 import PokedexService, { PokemonData } from '../services/getdata';
-import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual, getTranslation } from "../utils";
+import { getItemSpriteURL, getPokemonArtURL, getTypeIconURL, getTeraTypeIconURL, arraysEqual, getTranslation, getArtPlaceholderURL } from "../utils";
 import StatRadarPlot from "./StatRadarPlot";
 import { MoveData, MoveSetItem } from "../raidcalc/interface";
 import { Raider } from "../raidcalc/Raider";
@@ -123,7 +123,8 @@ function BossSummary({pokemon, setPokemon, allSpecies, allMoves, setAllSpecies, 
                                     src={getPokemonArtURL(pokemon.name, pokemon.shiny)}
                                     onError={({ currentTarget }) => {
                                         currentTarget.onerror = null; // prevents looping
-                                        currentTarget.src=getPokemonArtURL("placeholder");
+                                        // currentTarget.src=getPokemonArtURL("placeholder");
+                                        currentTarget.src=getArtPlaceholderURL();
                                     }}
                                     alt=""
                                 />

@@ -2119,7 +2119,7 @@
             "ability":"Magic Bounce",
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
-            "moves":["Calm Mind","Moonblast","Psychic","Stored Power"]
+            "moves":["Calm Mind","Dazzling Gleam","Psychic","Stored Power"]
         }
     },
     "Hattrem": {
@@ -3486,7 +3486,7 @@
             "ability":"Levitate",
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
-            "moves":["Nasty Plot","Charge","Thunderbolt","Hurricane"]
+            "moves":["Nasty Plot","Charge","Thunderbolt","Air Slash"]
         }
     },
     "Rotom-Frost": {
@@ -3594,14 +3594,14 @@
             "item":"Sitrus Berry",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Spicy Extract","Fake Tears","Helping Hand","Worry Seed"]
+            "moves":["Spicy Extract","Helping Hand","Worry Seed","Sunny Day"]
         },
         "Spicy Extract Support (SpD)":  {
             "level":100,
             "item":"Sitrus Berry",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Spicy Extract","Fake Tears","Helping Hand","Worry Seed"]
+            "moves":["Spicy Extract","Helping Hand","Worry Seed","Sunny Day"]
         }
     },
     "Scrafty": {

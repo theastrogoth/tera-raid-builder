@@ -1,4 +1,11 @@
 {
+    "Goodra": {
+        "Sweaty Palms": "goodra/main",
+        "Sweaty Palms (Trio)": "goodra/sweaty_palms_3",
+        "Tokyo Drift": "goodra/tokyo_drift",
+        "Tokyo Drift (Trike)": "goodra/tokyo_drift_3",
+        "Poison Sap": "goodra/poison_sap"
+    },
     "Hydreigon": {
         "Trip-le Threat": "hydreigon/main",
         "Trip-le Threat (Trio)": "hydreigon/triple_threat_3",

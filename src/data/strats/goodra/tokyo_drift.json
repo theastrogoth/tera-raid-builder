@@ -55,7 +55,7 @@
             "name": "Miraidon",
             "shiny": false,
             "ability": "Hadron Engine",
-            "item": "Weakness Policy",
+            "item": "Life Orb",
             "nature": "Modest",
             "evs": {
                 "hp": 252,

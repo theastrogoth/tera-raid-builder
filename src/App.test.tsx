@@ -56,6 +56,12 @@ const MAIN_STRATS = [ // manually include ones that aren't named "main" (mostly 
   "kommo-o/powerhouse_crashout_3",
   "wo-chien/bulls_trio",
   "chien-pao/financial_ruin_trio",
+  "ting-lu/bulls_trio",
+  "chi-yu/bulls_trio",
+  "iron_valiant/cache_money_3",
+  "roaring_moon/fast_sunrise_moonset_3",
+  "hydreigon/triple_threat_3",
+  "goodra/sweaty_palms_3"
 ]
 
 for (const [_, list] of Object.entries(STRAT_LIST)) { // collect all the ones named "main"

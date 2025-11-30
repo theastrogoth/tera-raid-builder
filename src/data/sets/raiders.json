@@ -2033,6 +2033,24 @@
             "moves":["Screech","Mud-Slap","Electric Terrain","Smack Down"]
         }
     },
+    "Grafaifai": {
+        "Acid Spray Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Prankster",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Acid Spray","Helping Hand","Mud-Slap","Taunt"]
+        },
+        "Acid Spray Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Prankster",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Acid Spray","Helping Hand","Skitter Smack","Taunt"]
+        }
+    },
     "Grimmsnarl": {
         "General Support (Def)":{
             "level":100,
@@ -3467,6 +3485,16 @@
             "evs":{"hp":252,"df":252},
             "moves":["Reflect","Light Screen","Fake Tears","Helping Hand"],
             "shiny":true
+        }
+    },
+    "Rillaboom": {
+        "Physical DPS": {
+            "level":100,
+            "item":"Life Orb",
+            "ability":"Grassy Surge",
+            "nature":"Adamant",
+            "evs":{"hp":252,"at":252},
+            "moves":["Swords Dance","Wood Hammer","Solar Blade","Screech"]
         }
     },
     "Rotom": {

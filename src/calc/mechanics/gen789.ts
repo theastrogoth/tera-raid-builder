@@ -371,7 +371,7 @@ export function calculateSMSSSV(
       (move.hasType('Electric') &&
         defender.hasAbility('Lightning Rod', 'Motor Drive', 'Volt Absorb')) ||
       (move.hasType('Ground') && 
-        !isGrounded(defender, field) && move.named('Thousand Arrows') &&
+        !isGrounded(defender, field) && !move.named('Thousand Arrows') &&
         defender.hasAbility('Levitate')) ||
       (move.flags.bullet && defender.hasAbility('Bulletproof')) ||
       (move.flags.sound && !move.named('Clangorous Soul') && defender.hasAbility('Soundproof')) ||

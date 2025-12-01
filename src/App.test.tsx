@@ -90,6 +90,22 @@ async function resultsFromLightBuild(strategy: LightBuildInfo, skipMoveCountChec
     raider.field.gameType = "Doubles";
   }
   const buildInfo = info as BuildInfo;
+  // handle alt UI format for scripted boss moves...
+  // ... as well as (Wait) moves from the UI
+  for (const g of buildInfo.groups) {
+      for (const t of g.turns) {
+          if (t.moveInfo.userID === 0) {
+              const tempMoveInfo = t.moveInfo;
+              t.moveInfo = t.bossMoveInfo;
+              t.bossMoveInfo = tempMoveInfo;
+              t.moveInfo.userID = t.bossMoveInfo.targetID;
+              t.moveInfo.targetID = t.moveInfo.userID;
+          } else if (t.moveInfo.moveData.name === "(Wait)") {
+              t.moveInfo.moveData.name = "(No Move)" as MoveName;
+              t.bossMoveInfo.moveData.name = "(No Move)" as MoveName;
+          }
+      }
+  }
   const startingState = new RaidState(buildInfo.pokemon);
   const battleInfo: RaidBattleInfo = {
     name: buildInfo.name,

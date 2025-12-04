@@ -2677,6 +2677,24 @@
             "moves":["Charge","Thunderbolt","Lock-On","Steel Beam"]
         }
     },
+    "Malamar": {
+        "Topsy-Turvy Support (Def)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Contrary",
+            "nature":"Bold",
+            "evs":{"hp":252,"df":252},
+            "moves":["Fake Tears","Gravity","Skill Swap","Topsy-Turvy"]
+        },
+        "Topsy-Turvy Support (SpD)": {
+            "level":100,
+            "item":"Sitrus Berry",
+            "ability":"Contrary",
+            "nature":"Calm",
+            "evs":{"hp":252,"sd":252},
+            "moves":["Fake Tears","Gravity","Skill Swap","Topsy-Turvy"]
+        }
+    },
     "Mamoswine": {
         "Physical DPS": {
             "level":100,

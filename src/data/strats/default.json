@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Goodra",
-            "name": "Goodra",
+            "role": "Dragapult",
+            "name": "Dragapult",
             "shiny": false,
-            "ability": "Sap Sipper",
-            "nature": "Modest",
+            "ability": "Cursed Body",
+            "nature": "Mild",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,23 +27,22 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
-            "teraType": "Water",
+            "gender": "M",
+            "teraType": "Dragon",
             "moves": [
-                "Scald",
-                "Dragon Pulse",
-                "Sludge Bomb",
-                "Earthquake"
+                "Dragon Darts",
+                "Shadow Ball",
+                "Acrobatics",
+                "Flamethrower"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Sludge Wave",
-                "Surf",
-                "Earthquake"
+                "Dragon Dance",
+                "Breaking Swipe"
             ],
             "shieldData": {
-                "hpTrigger": 90,
-                "timeTrigger": 90,
+                "hpTrigger": 92,
+                "timeTrigger": 92,
                 "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -52,47 +51,42 @@
         },
         {
             "id": 1,
-            "role": "Iron Hands",
-            "name": "Iron Hands",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Quark Drive",
-            "item": "Magnet",
-            "nature": "Careful",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
-                "atk": 252,
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Swords Dance",
-                "Wild Charge",
-                "Thunder Punch",
-                "Drain Punch"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Haban Berry",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -100,32 +94,27 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Helping Hand",
-                "Electric Terrain",
-                "Light Screen",
-                "Reflect"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
             "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -133,53 +122,44 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Screech",
-                "Light Screen",
-                "Reflect"
-            ]
-        },
-        {
-            "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
-            "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": []
+        },
+        {
+            "id": 4,
+            "role": "NPC",
+            "name": "NPC",
+            "shiny": false,
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Screech",
-                "Snarl",
-                "Mud-Slap",
-                "Reflect"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -187,7 +167,7 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Sludge Wave",
+                "name": "Dragon Dance",
                 "userID": 0,
                 "targetID": 0,
                 "options": {

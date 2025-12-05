@@ -419,9 +419,10 @@ export class RaidTurn {
                     const testMove = new Move(9, move, this.bossOptions);
                     const hits = Math.min(Math.max(this.bossOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
                     testMove.isCrit = this.bossOptions.crit || false;
+                    testMove.hits = hits;
                     const testField = this._raidState.raiders[0].field;
                     testField.defenderSide = this.raidState.raiders[this.raiderID].field.attackerSide;
-                    const result = calculate(9, this._raidState.raiders[0], this.raidState.raiders[this.raiderID], testMove, testField);
+                    const result = calculate(9, this._raidState.raiders[0], this.raidState.raiders[this.raiderID], testMove, testField, !this._raiderMovesFirst, true);
                     let damage: number = 0;
                     if (typeof(result.damage) === "number") {
                         damage = result.damage;
@@ -452,9 +453,10 @@ export class RaidTurn {
                     const testMove = new Move(9, move, this.raiderOptions);
                     const hits = Math.min(Math.max(this.raiderOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
                     testMove.isCrit = this.raiderOptions.crit || false;
+                    testMove.hits = hits;
                     const testField = this._raidState.raiders[this.raiderID].field;
                     testField.defenderSide = this._raidState.raiders[this.targetID].field.attackerSide;
-                    const result = calculate(9, this._raidState.raiders[this.raiderID], this._raidState.raiders[0], testMove, testField);
+                    const result = calculate(9, this._raidState.raiders[this.raiderID], this._raidState.raiders[0], testMove, testField, this._raiderMovesFirst, true);
                     let damage: number = 0;
                     if (typeof(result.damage) === "number") {
                         damage = result.damage;

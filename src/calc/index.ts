@@ -55,6 +55,7 @@ export function calculate(
   move: A.Move,
   field?: A.Field,
   movesFirst?: boolean,
+  singleHit?: boolean
 ): A.Result {
   return (A.calculate)(
     typeof gen === 'number' ? Generations.get(gen) : gen,
@@ -62,7 +63,8 @@ export function calculate(
     defender,
     move,
     field,
-    movesFirst
+    movesFirst,
+    singleHit
   );
 }
 

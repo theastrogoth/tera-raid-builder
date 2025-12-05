@@ -53,6 +53,7 @@ export function calculateSMSSSV(
   move: Move,
   field: Field,
   movesFirst?: boolean,
+  singleHit?: boolean,
 ) {
   // #region Initial
 
@@ -450,7 +451,7 @@ export function calculateSMSSSV(
     }
   }
 
-  if (move.hits > 1) {
+  if (move.hits > 1 && !singleHit) {
     desc.hits = move.hits;
   }
 
@@ -686,6 +687,11 @@ export function calculateSMSSSV(
     desc.shieldActive = true;
   }
 
+  // hack for appropriate multi-hit behavior when calculating one hit at a time
+  if (singleHit) {
+    move.hits = 1
+  }
+
   // #endregion
 
   return result;
@@ -699,7 +705,7 @@ export function calculateBasePowerSMSSSV(
   field: Field,
   hasAteAbilityTypeChange: boolean,
   desc: RawDesc,
-  movesFirst?: boolean
+  movesFirst?: boolean,
 ) {
   let turnOrder = movesFirst ? 'first' : 'last';
   if (movesFirst === undefined) {

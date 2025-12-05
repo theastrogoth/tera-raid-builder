@@ -849,9 +849,9 @@ export class RaidMove {
                         let cumBP = 0;
                         let changingBP = false;
                         // calculate each hit from a multi-hit move
+                        this.move.hits = this.hits;
                         for (let i=0; i<this.hits; i++) { 
                             const calcMove = this.move.clone();
-                            calcMove.hits = 1;
                             calcMove.isCrit = crit;
                             calcMove.isSpread = !!this._isSpread;
                             let hitBP = calcMove.bp;
@@ -889,12 +889,12 @@ export class RaidMove {
                             cumBP += hitBP;
                             // get calc result
                             const moveField = this.getMoveField(this.userID, id);
-                            const result = calculate(9, moveUser, target, calcMove, moveField, this.movesFirst);
+                            const result = calculate(9, moveUser, target, calcMove, moveField, this.movesFirst, true);
                             let otherResult = undefined;
                             if (critChance > 0 && critChance < 1) {
                                 const otherCalcMove = calcMove.clone();
                                 otherCalcMove.isCrit = !crit;
-                                otherResult = calculate(9, moveUser, target, otherCalcMove, moveField, this.movesFirst);
+                                otherResult = calculate(9, moveUser, target, otherCalcMove, moveField, this.movesFirst, true);
                             }
                             results.push(result);
                             // ignore the possibility that result.damage is [number[], number[]]. When would that come up?

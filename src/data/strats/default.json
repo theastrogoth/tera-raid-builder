@@ -51,115 +51,136 @@
         },
         {
             "id": 1,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Primarina",
+            "name": "Primarina",
             "shiny": false,
-            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "item": "Metronome",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": []
+            "teraType": "Fairy",
+            "moves": [
+                "Baby-Doll Eyes",
+                "Moonblast",
+                "Draining Kiss",
+                "Chilling Water"
+            ]
         },
         {
             "id": 2,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Aroma Veil",
+            "item": "Ability Shield",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
-            "gender": "N",
-            "moves": []
+            "level": 100,
+            "gender": "F",
+            "moves": [
+                "Fake Tears",
+                "Decorate",
+                "Helping Hand",
+                "Light Screen"
+            ]
         },
         {
             "id": 3,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": []
+            "moves": [
+                "Fake Tears",
+                "Life Dew",
+                "Helping Hand",
+                "Chilling Water"
+            ]
         },
         {
             "id": 4,
-            "role": "NPC",
-            "name": "NPC",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": []
+            "moves": [
+                "Fake Tears",
+                "Life Dew",
+                "Helping Hand",
+                "Chilling Water"
+            ]
         }
     ],
     "turns": [

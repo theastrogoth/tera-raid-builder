@@ -27,25 +27,26 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "teraType": "Dragon",
             "moves": [
-                "Acrobatics",
                 "Dragon Darts",
-                "Flamethrower",
-                "Shadow Ball"
+                "Shadow Ball",
+                "Acrobatics",
+                "Flamethrower"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Dragon Dance"
+                "Dragon Dance",
+                "Breaking Swipe"
             ],
             "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
+                "hpTrigger": 92,
+                "timeTrigger": 92,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
@@ -459,9 +460,134 @@
         1
     ],
     "substitutes": [
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Magearna",
+                    "name": "Magearna",
+                    "shiny": false,
+                    "ability": "Soul-Heart",
+                    "item": "Choice Specs",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fleur Cannon"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer",
+                    "Fleur Cannon"
+                ],
+                "substituteTargets": [
+                    1,
+                    0
+                ]
+            }
+        ],
         [],
-        [],
-        [],
-        []
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Jigglypuff",
+                    "name": "Jigglypuff",
+                    "shiny": false,
+                    "ability": "Friend Guard",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fake Tears",
+                        "Gravity"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fake Tears",
+                    "Gravity"
+                ],
+                "substituteTargets": [
+                    0,
+                    3
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Jigglypuff",
+                    "name": "Jigglypuff",
+                    "shiny": false,
+                    "ability": "Friend Guard",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fake Tears",
+                        "Gravity"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fake Tears",
+                    "Gravity"
+                ],
+                "substituteTargets": [
+                    0,
+                    4
+                ]
+            }
+        ]
     ]
 }

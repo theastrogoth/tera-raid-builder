@@ -308,7 +308,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Flamethrower",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {

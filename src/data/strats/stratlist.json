@@ -1,4 +1,13 @@
 {
+    "Walking Wake": {
+        "Drifting Wake": "walking_wake/main",
+        "Drifting Duo": "walking_wake/drifting_duo"
+    },
+    "Iron Leaves": {
+        "AP Krook": "iron_leaves/main",
+        "AP Duo": "iron_leaves/krook_duo",
+        "Kingambit": "iron_leaves/kingambit"
+    },
     "Dragapult": {
         "Cry Me to the Moon": "dragapult/main",
         "Cry Me to the Moon (Trio)": "dragapult/to_the_moon_3",
@@ -639,7 +648,7 @@
         "Gastrosire Redux": "swampert/gastrosire_redux",
         "Psychic Party": "swampert/psychic_party",
         "Espeon T1.25": "swampert/espeon",
-        "Golurk T1.25": "swampert/golurk", 
+        "Golurk T1.25": "swampert/golurk",
         "Idk Man, I'm Doing My Best": "swampert/idk",
         "Battle in the Pond": "swampert/pond_battle",
         "Darwinism in the Modern Age": "swampert/darwinism",
@@ -678,16 +687,6 @@
         "Ladies' Night": "primarina/ladies_night",
         "Nukebro vs. Primarina": "primarina/nukebro",
         "A Very Mice Tea Party": "primarina/mice_tea_party"
-    },
-    "Walking Wake": {
-        "Drifting Wake": "walking_wake/main",
-        "Charging Wake": "walking_wake/charging_wake",
-        "Shocking Wake": "walking_wake/shocking_wake",
-        "Metro Express": "walking_wake/metro_express"
-    },
-    "Iron Leaves": {
-        "Kingambit": "iron_leaves/main",
-        "AP Krook": "iron_leaves/krook"
     },
     "Meganium": {
         "Angry Krok vs. Happy Dino": "meganium/main",

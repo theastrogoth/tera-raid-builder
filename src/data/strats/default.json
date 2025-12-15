@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Dragapult",
-            "name": "Dragapult",
+            "role": "Walking Wake",
+            "name": "Walking Wake",
             "shiny": false,
-            "ability": "Cursed Body",
-            "nature": "Naive",
+            "ability": "Protosynthesis",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -26,36 +26,34 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 100,
-            "gender": "M",
-            "teraType": "Dragon",
+            "level": 75,
+            "gender": "N",
+            "teraType": "Water",
             "moves": [
-                "Dragon Darts",
-                "Shadow Ball",
-                "Acrobatics",
+                "Hydro Steam",
+                "Dragon Pulse",
+                "Noble Roar",
                 "Flamethrower"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 2000,
             "extraMoves": [
-                "Dragon Dance",
-                "Breaking Swipe"
+                "Sunny Day"
             ],
             "shieldData": {
-                "hpTrigger": 92,
-                "timeTrigger": 92,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 55,
+                "timeTrigger": 40,
+                "shieldCancelDamage": 25,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "shieldDamageRateTera": 80,
+                "shieldDamageRateTeraChange": 40
             }
         },
         {
             "id": 1,
-            "role": "Primarina",
-            "name": "Primarina",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Metronome",
+            "ability": "Hadron Engine",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -75,28 +73,26 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Fairy",
             "moves": [
-                "Baby-Doll Eyes",
-                "Moonblast",
-                "Draining Kiss",
-                "Chilling Water"
+                "Electro Drift",
+                "Charge",
+                "Parabolic Charge"
             ]
         },
         {
             "id": 2,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Aroma Veil",
-            "item": "Ability Shield",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -108,28 +104,28 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
                 "Fake Tears",
-                "Decorate",
+                "Screech",
                 "Helping Hand",
-                "Light Screen"
+                "Snarl"
             ]
         },
         {
             "id": 3,
-            "role": "Clefairy",
-            "name": "Clefairy",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -144,25 +140,25 @@
             "gender": "N",
             "moves": [
                 "Fake Tears",
-                "Life Dew",
+                "Screech",
                 "Helping Hand",
-                "Chilling Water"
+                "Snarl"
             ]
         },
         {
             "id": 4,
-            "role": "Clefairy",
-            "name": "Clefairy",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Friend Guard",
-            "item": "Eviolite",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -177,9 +173,9 @@
             "gender": "N",
             "moves": [
                 "Fake Tears",
-                "Life Dew",
+                "Screech",
                 "Helping Hand",
-                "Chilling Water"
+                "Snarl"
             ]
         }
     ],
@@ -188,15 +184,15 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Dragon Dance",
+                "name": "Sunny Day",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -204,11 +200,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -222,8 +218,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -232,11 +228,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }

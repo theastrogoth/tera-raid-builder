@@ -1,6 +1,6 @@
 {
     "name": "AP Krook",
-    "notes": "",
+    "notes": "Only one carry is needed. Don't forget the Focus Sash!",
     "credits": "r/PokemonScarletViolet Event Raid Support Team",
     "pokemon": [
         {
@@ -27,6 +27,7 @@
                 "spe": 31
             },
             "level": 75,
+            "gender": "N",
             "teraType": "Psychic",
             "moves": [
                 "Leaf Blade",
@@ -36,10 +37,7 @@
             ],
             "bossMultiplier": 2000,
             "extraMoves": [
-                "(No Move)",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
+                "Electric Terrain"
             ],
             "shieldData": {
                 "hpTrigger": 55,
@@ -57,7 +55,7 @@
             "shiny": false,
             "ability": "Anger Point",
             "item": "Choice Band",
-            "nature": "Adamant",
+            "nature": "Jolly",
             "evs": {
                 "hp": 0,
                 "atk": 252,
@@ -75,11 +73,10 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
                 "Power Trip"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            ]
         },
         {
             "id": 2,
@@ -106,17 +103,17 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
                 "Night Slash"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            ]
         },
         {
             "id": 3,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Carry Slot",
+            "name": "Carry Slot",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
             "item": "Focus Sash",
             "nature": "Hardy",
@@ -129,23 +126,23 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
             "level": 1,
-            "moves": [],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            "gender": "N",
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Pikachu",
-            "name": "Pikachu",
+            "role": "Carry Slot",
+            "name": "Carry Slot",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
             "item": "Focus Sash",
             "nature": "Hardy",
@@ -158,17 +155,16 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
             "level": 1,
-            "moves": [],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            "gender": "N",
+            "moves": []
         }
     ],
     "turns": [
@@ -176,23 +172,25 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Night Slash",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "Electric Terrain",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
                     "roll": "max",
                     "hits": 10
                 }
@@ -200,16 +198,17 @@
         },
         {
             "id": 1,
-            "group": 0,
+            "group": 1,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 3,
-                "targetID": 0,
+                "name": "Night Slash",
+                "userID": 2,
+                "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -220,13 +219,70 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
             "id": 2,
             "group": 1,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 1,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
             "moveInfo": {
                 "name": "Power Trip",
                 "userID": 1,
@@ -235,7 +291,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -246,21 +303,27 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         }
     ],
     "groups": [
         [
-            0,
-            1
+            0
         ],
         [
-            2
+            1,
+            2,
+            3
+        ],
+        [
+            4
         ]
     ],
     "repeats": [
+        1,
         1,
         1
     ],

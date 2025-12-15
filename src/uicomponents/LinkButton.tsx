@@ -23,7 +23,8 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import STRAT_LIST from "../data/strats/stratlist.json";
 
 const gen = Generations.get(9);
-const JSON_HASHES = Object.entries(STRAT_LIST).map(([boss, strats]) => Object.entries(strats as Object).map(([name, h]) => h as string)).flat();
+const LEGACY_HASHES = ["iron_leaves/krook", "walking_wake/charging_wake", "walking_wake/shocking_wake", "walking_wake/metro_express"]
+const JSON_HASHES = [...LEGACY_HASHES, ...Object.entries(STRAT_LIST).map(([boss, strats]) => Object.entries(strats as Object).map(([name, h]) => h as string)).flat()];
 
 async function getFullHashFromShortHash(hash: string, longHashRef: React.MutableRefObject<string>, shortHashRef: React.MutableRefObject<string>): Promise<string | null> {
     let cleanHash = hash;
@@ -101,16 +102,16 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
         const pokemon = await Promise.all((obj.pokemon as LightPokemon[]).map(async (r, i) => {
             const moves = r.moves ? r.moves.filter((m) => m !== "(No Move)") as MoveName[] : [];
             const extraMoves = i > 0 ? undefined : r.extraMoves ? r.extraMoves.filter((m) => m !== "(No Move)") as MoveName[] : [];
-            const moveData = (moves ? (allMoves ? 
+            const moveData = (moves ? (allMoves ?
                 (moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
                 (await Promise.all(moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
             ) as MoveData[] : []);
-            const extraMoveData = i > 0 ? undefined : (r.extraMoves ? (allMoves ? 
+            const extraMoveData = i > 0 ? undefined : (r.extraMoves ? (allMoves ?
                 (r.extraMoves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
                 (await Promise.all(r.extraMoves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
             ) as MoveData[] : []);
             return (
-                new Raider(i, r.role, r.shiny, r.isAnyLevel, new Field(), 
+                new Raider(i, r.role, r.shiny, r.isAnyLevel, new Field(),
                     new Pokemon(gen, r.name, {
                         ability: r.ability || undefined,
                         item: r.item || undefined,
@@ -124,7 +125,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                         bossMultiplier: i === 0 ? r.bossMultiplier || 100 : undefined,
                         moves: moves,
                         shieldData: i === 0 ? r.shieldData || {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0} : undefined,
-                    }), 
+                    }),
                     moveData,
                     extraMoves,
                     extraMoveData,
@@ -150,7 +151,7 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
             } else {
                 mdata = pokemon[t.moveInfo.userID].moveData.find((m) => m && m.name === t.moveInfo.name) || {name: name};
             }
-            
+
             const bname = t.bossMoveInfo.name as MoveName;
             let bmdata: MoveData = {name: bname};
             if (bname === "(No Move)") {
@@ -176,9 +177,9 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                 id: t.id,
                 group: t.group,
                 moveInfo: {
-                    userID: t.moveInfo.userID, 
-                    targetID: selfTargeting ? t.moveInfo.userID : t.moveInfo.targetID, 
-                    options: t.moveInfo.options, 
+                    userID: t.moveInfo.userID,
+                    targetID: selfTargeting ? t.moveInfo.userID : t.moveInfo.targetID,
+                    options: t.moveInfo.options,
                     moveData: mdata || {name: t.moveInfo.name as MoveName}
                 },
                 bossMoveInfo: {
@@ -225,11 +226,11 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
         const notes = obj.notes || "";
         const credits = obj.credits || "";
 
-        const substitutes: SubstituteBuildInfo[][] = await Promise.all((obj.substitutes || [[],[],[],[]]).map(async (subsList,i) => 
-            await Promise.all(subsList.map(async s => 
+        const substitutes: SubstituteBuildInfo[][] = await Promise.all((obj.substitutes || [[],[],[],[]]).map(async (subsList,i) =>
+            await Promise.all(subsList.map(async s =>
                     {
                         const r = s.raider;
-                        const subPoke = new Raider(i+1, r.role, r.shiny, r.isAnyLevel, new Field(), 
+                        const subPoke = new Raider(i+1, r.role, r.shiny, r.isAnyLevel, new Field(),
                             new Pokemon(gen, r.name, {
                                 ability: r.ability || undefined,
                                 item: r.item || undefined,
@@ -243,9 +244,9 @@ export async function lightToFullBuildInfo(obj: LightBuildInfo, allMoves?: Map<M
                                 bossMultiplier: undefined,
                                 moves: r.moves || [],
                                 shieldData: undefined,
-                            }), 
+                            }),
                             (r.moves ? (
-                                allMoves ? 
+                                allMoves ?
                                 (r.moves.map((m) => allMoves.get(m as MoveName) || {name: m as MoveName, target: "user"})) :
                                 (await Promise.all(r.moves.map((m) => PokedexService.getMoveByName(m) || {name: m, target: "user"})))
                             ) as MoveData[] : []),
@@ -345,8 +346,8 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(
   ) {
     return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
-  
-function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, allMoves, shortHashRef, longHashRef, translationKey}: 
+
+function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitle, setNotes, setCredits, setPrettyMode, setSubstitutes, setLoading, allMoves, shortHashRef, longHashRef, translationKey}:
     { title: string, notes: string, credits: string, raidInputProps: RaidInputProps, substitutes: SubstituteBuildInfo[][],
       setTitle: (t: string) => void, setNotes: (t: string) => void, setCredits: (t: string) => void, allMoves: Map<MoveName,MoveData> | null,shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
       setPrettyMode: (p: boolean) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, translationKey: any}) {
@@ -367,7 +368,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
     const handleClick = () => {
       setSnackOpen(true);
     };
-  
+
     const handleClose = (event?: React.SyntheticEvent | Event, reason?: string) => {
       if (reason === 'clickaway') {
         return;
@@ -465,7 +466,7 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
                             groups: groups,
                         },
                         substitutes,
-                    );   
+                    );
                 }
             } catch (e) {
                 setLoading(false);
@@ -565,8 +566,8 @@ function LinkButton({title, notes, credits, raidInputProps, substitutes, setTitl
         <Snackbar open={snackOpen} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity={snackSeverity} sx={{ width: '100%' }}>
                 {
-                    (snackSeverity === "success") ? ("Link copied to clipboard!") : 
-                    (snackSeverity === "warning") ? ("Link failed to save to database. A long link has been copied to your clipboard instead.") : 
+                    (snackSeverity === "success") ? ("Link copied to clipboard!") :
+                    (snackSeverity === "warning") ? ("Link failed to save to database. A long link has been copied to your clipboard instead.") :
                     "Failed to copy link to clipboard. You can copy the link manually from here:\n\n " + copiedLink
                 }
             </Alert>

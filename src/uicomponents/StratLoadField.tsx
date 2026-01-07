@@ -29,6 +29,8 @@ type StratOption = {
     credits?: string,
 }
 
+const SHOW_BOSSES_FIRST: SpeciesName[] = ["Venusaur"] as SpeciesName[];
+
 function stratDexEntryToOption(options: StratOption[], index: number, boss: string, stratname: string, stratpath: string) {
     import(`../data/strats/${stratpath}.json`)
     .then((module) => {
@@ -57,16 +59,26 @@ function stratDexEntryToOption(options: StratOption[], index: number, boss: stri
     })
 }
 
-function stratdexToOptions(dex: Object): StratOption[] {
+function stratdexToOptions(dex: Object, showFirst: SpeciesName[] = SHOW_BOSSES_FIRST): StratOption[] {
     const options: StratOption[] = [];
     let index = 0;
-    for (let boss of (Object.keys(dex) as SpeciesName[])) {
+    for (let boss of showFirst) {
         // @ts-ignore
         for (let stratname of (Object.keys(dex[boss]))) {
             // @ts-ignore
             const stratpath = dex[boss][stratname];
-            stratDexEntryToOption(options, index, boss, stratname, stratpath);   
-            index++;    
+            stratDexEntryToOption(options, index, boss, stratname, stratpath);
+            index++;
+        }
+    }
+    for (let boss of (Object.keys(dex) as SpeciesName[])) {
+        if (showFirst.includes(boss)) { continue; }
+        // @ts-ignore
+        for (let stratname of (Object.keys(dex[boss]))) {
+            // @ts-ignore
+            const stratpath = dex[boss][stratname];
+            stratDexEntryToOption(options, index, boss, stratname, stratpath);
+            index++;
         }
     }
     return options;
@@ -75,20 +87,20 @@ function stratdexToOptions(dex: Object): StratOption[] {
 const stratOptions = stratdexToOptions(STRAT_LIST);
 
 function StratLoadField(
-    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, allMoves, shortHashRef, longHashRef, placeholder="Load Strategy", sx={ width: 260 }, translationKey}: 
+    {raidInputProps, setTitle, setCredits, setNotes, setSubstitutes, setLoading, allMoves, shortHashRef, longHashRef, placeholder="Load Strategy", sx={ width: 260 }, translationKey}:
     {raidInputProps: RaidInputProps, setTitle: (t: string) => void, setCredits: (c: string) => void, allMoves: Map<MoveName,MoveData> | null,
-     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void, 
+     setNotes: (n: string) => void, setSubstitutes: ((s: SubstituteBuildInfo[]) => void)[], setLoading: (l: boolean) => void,
      shortHashRef: React.MutableRefObject<string>, longHashRef: React.MutableRefObject<string>,
      placeholder?: string, sx?: SxProps<Theme>, translationKey: any
-    }) 
+    })
 {
     const filterStratOptions = createFilterOptions({
-        stringify: (option: StratOption) => getTranslation(option.boss, translationKey, "pokemon") + " " + option.name + " " + 
+        stringify: (option: StratOption) => getTranslation(option.boss, translationKey, "pokemon") + " " + option.name + " " +
                                             option.raiders.map(r => getTranslation(r,translationKey,"pokemon")).join(" ") +
                                             option.substitutes.map(s => getTranslation(s,translationKey,"pokemon")).join(" ") +
                                             option.abilities.map(s => getTranslation(s,translationKey,"ability")).join(" ") +
                                             option.moves.map(s => getTranslation(s,translationKey,"move")).join(" ") +
-                                            option.items.map(s => getTranslation(s,translationKey,"item")).join(" ") + 
+                                            option.items.map(s => getTranslation(s,translationKey,"item")).join(" ") +
                                             (option.credits || "")
 
     });
@@ -148,7 +160,7 @@ function StratLoadField(
                             groups: groups,
                         },
                         substitutes,
-                    );  
+                    );
                 }
             } catch (e) {
                 setLoading(false);
@@ -158,13 +170,13 @@ function StratLoadField(
         loadInfo().catch((e) => console.log(e));
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [buildInfo]);
-    
+
     return (
-        <Autocomplete 
+        <Autocomplete
             disablePortal
             disableClearable
-            autoHighlight={true}  
-            fullWidth={true}  
+            autoHighlight={true}
+            fullWidth={true}
             size="medium"
             value={{name:"", boss: "Pikachu" as SpeciesName, path: "", raiders: ["Pikachu", "Pikachu", "Pikachu", "Pikachu"], substitutes: [], abilities: [], moves: [], items: []}}
             sx={sx}
@@ -178,7 +190,7 @@ function StratLoadField(
                         <Box flexGrow={1} sx={{ minWidth: "20px"}} />
                         <Stack direction="row" spacing={-0.25}>
                             {
-                                option.raiders.map((r, i) => 
+                                option.raiders.map((r, i) =>
                                     <Box
                                         key={i}
                                         sx={{
@@ -195,7 +207,7 @@ function StratLoadField(
                     </Stack>
                 </li>
             )}
-            
+
             renderGroup={(params) => {
                 let group = params.group;
                 if (group.includes("Rerun")) {
@@ -209,8 +221,8 @@ function StratLoadField(
                 );
             }}
             getOptionLabel={(option: StratOption) => option.name}
-            renderInput={(params) => 
-                <StyledTextField 
+            renderInput={(params) =>
+                <StyledTextField
                     {...params} variant="outlined" placeholder={placeholder} size="medium"
                     sx={{
                         "& .MuiInputBase-input": {

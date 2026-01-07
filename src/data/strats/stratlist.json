@@ -1,13 +1,5 @@
 {
-    "Walking Wake": {
-        "Drifting Wake": "walking_wake/main",
-        "Drifting Duo": "walking_wake/drifting_duo"
-    },
-    "Iron Leaves": {
-        "AP Krook": "iron_leaves/main",
-        "AP Duo": "iron_leaves/krook_duo",
-        "Kingambit": "iron_leaves/kingambit"
-    },
+
     "Dragapult": {
         "Cry Me to the Moon": "dragapult/main",
         "Cry Me to the Moon (Trio)": "dragapult/to_the_moon_3",
@@ -721,18 +713,6 @@
         "Not Enough Buff": "meganium/not_enough_buff",
         "Not Enough Fluff": "meganium/not_enough_fluff"
     },
-    "Charizard": {
-        "Whipping Up a Storm": "charizard/main",
-        "Sweet Dreams": "charizard/sweet_dreams",
-        "Team Eeveelutions Takes Down a Mighty Dragon": "charizard/eeveelutions",
-        "Blubber Bubble": "charizard/blubber_bubble",
-        "Blizzard Warning": "charizard/blizzard_warning",
-        "Godzilla vs. Rodan": "charizard/godzilla_vs_rodan",
-        "Zen (and PSY's) Pixilated Impact on the World!": "charizard/zen_and_psy",
-        "King Ghidorah vs. Rodan": "charizard/king_ghidorah",
-        "Nukebro vs. Charizard": "charizard/nukebro",
-        "Toddzilla vs. Rodan": "charizard/toddzilla_vs_rodan"
-    },
     "Blastoise": {
         "Firefox Forecast": "blastoise/main",
         "Gastroporeon": "blastoise/gastroporeon",
@@ -753,10 +733,14 @@
         "The Hocus-Pokids": "blastoise/hocus_pokids"
     },
     "Venusaur": {
-        "Cloud Nine, Hammer Time": "venusaur/main",
+        "Cloud Nine, Hammer Time!": "venusaur/main",
+        "Cloud Nine, Hammer Time! (Trio)": "venusaur/hammer_time_3",
+        "Winter Migration": "venusaur/winter_migration_4",
+        "Winter Migration (Trio)": "venusaur/winter_migration_3",
+        "Basculegion T2": "venusaur/basculegion",
+        "Flashy Duck": "venusaur/flashy_duck",
         "Team Eeveelutions Dance in the Sun": "venusaur/eeveelutions",
         "Giraffic Bark": "venusaur/giraffic_bark",
-        "Winter Migration": "venusaur/winter_migration",
         "Faceplant": "venusaur/faceplant",
         "Godzilla vs. Biollante": "venusaur/godzilla_vs_biollante",
         "Mirrored": "venusaur/mirrored",
@@ -963,11 +947,32 @@
         "Rotom-tisserie Owl": "decidueye/rotom",
         "Nukebro vs. Decidueye": "decidueye/nukebro"
     },
+    "Walking Wake": {
+        "Drifting Wake": "walking_wake/main",
+        "Drifting Duo": "walking_wake/drifting_duo"
+    },
+    "Iron Leaves": {
+        "AP Krook": "iron_leaves/main",
+        "AP Duo": "iron_leaves/krook_duo",
+        "Kingambit": "iron_leaves/kingambit"
+    },
     "Pikachu": {
         "Terantis": "pikachu/terantis",
         "Nukebro vs. Pikachu": "pikachu/nukebro"
     },
     "Cinderace": {
         "Nukebro vs. Cinderace": "cinderace/nukebro"
+    },
+    "Charizard": {
+        "Whipping Up a Storm": "charizard/main",
+        "Sweet Dreams": "charizard/sweet_dreams",
+        "Team Eeveelutions Takes Down a Mighty Dragon": "charizard/eeveelutions",
+        "Blubber Bubble": "charizard/blubber_bubble",
+        "Blizzard Warning": "charizard/blizzard_warning",
+        "Godzilla vs. Rodan": "charizard/godzilla_vs_rodan",
+        "Zen (and PSY's) Pixilated Impact on the World!": "charizard/zen_and_psy",
+        "King Ghidorah vs. Rodan": "charizard/king_ghidorah",
+        "Nukebro vs. Charizard": "charizard/nukebro",
+        "Toddzilla vs. Rodan": "charizard/toddzilla_vs_rodan"
     }
 }

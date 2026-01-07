@@ -23,7 +23,7 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import STRAT_LIST from "../data/strats/stratlist.json";
 
 const gen = Generations.get(9);
-const LEGACY_HASHES = ["iron_leaves/krook", "walking_wake/charging_wake", "walking_wake/shocking_wake", "walking_wake/metro_express"]
+const LEGACY_HASHES = ["venusaur/winter_migration", "iron_leaves/krook", "walking_wake/charging_wake", "walking_wake/shocking_wake", "walking_wake/metro_express"]
 const JSON_HASHES = [...LEGACY_HASHES, ...Object.entries(STRAT_LIST).map(([boss, strats]) => Object.entries(strats as Object).map(([name, h]) => h as string)).flat()];
 
 async function getFullHashFromShortHash(hash: string, longHashRef: React.MutableRefObject<string>, shortHashRef: React.MutableRefObject<string>): Promise<string | null> {

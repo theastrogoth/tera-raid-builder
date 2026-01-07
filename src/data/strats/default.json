@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Walking Wake",
-            "name": "Walking Wake",
+            "role": "Venusaur",
+            "name": "Venusaur",
             "shiny": false,
-            "ability": "Protosynthesis",
-            "nature": "Hardy",
+            "ability": "Chlorophyll",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -26,40 +26,76 @@
                 "spd": 31,
                 "spe": 31
             },
-            "level": 75,
-            "gender": "N",
-            "teraType": "Water",
+            "level": 100,
+            "gender": "M",
+            "teraType": "Ground",
             "moves": [
-                "Hydro Steam",
-                "Dragon Pulse",
-                "Noble Roar",
-                "Flamethrower"
+                "Earth Power",
+                "Giga Drain",
+                "Sludge Bomb",
+                "Amnesia"
             ],
-            "bossMultiplier": 2000,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Sunny Day"
+                "Sunny Day",
+                "Growth",
+                "Petal Blizzard"
             ],
             "shieldData": {
-                "hpTrigger": 55,
-                "timeTrigger": 40,
-                "shieldCancelDamage": 25,
+                "hpTrigger": 85,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
-                "shieldDamageRateTera": 80,
-                "shieldDamageRateTeraChange": 40
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
             }
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Chesnaught",
+            "name": "Chesnaught",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "nature": "Modest",
+            "ability": "Bulletproof",
+            "item": "Miracle Seed",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Belly Drum",
+                "Wood Hammer",
+                "Swords Dance",
+                "Seed Bomb"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Altaria",
+            "name": "Altaria",
+            "shiny": false,
+            "ability": "Cloud Nine",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -74,58 +110,26 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Electro Drift",
-                "Charge",
-                "Parabolic Charge"
-            ]
-        },
-        {
-            "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Sassy",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 252,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Screech",
+                "Dragon Cheer",
                 "Helping Hand",
-                "Snarl"
+                "Mist",
+                "Dragon Breath"
             ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
             "nature": "Sassy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -139,26 +143,26 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
                 "Screech",
-                "Helping Hand",
-                "Snarl"
+                "Light Screen",
+                "Rock Smash",
+                "Body Slam"
             ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
             "nature": "Sassy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -172,10 +176,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
                 "Screech",
-                "Helping Hand",
-                "Snarl"
+                "Light Screen",
+                "Rock Smash",
+                "Body Slam"
             ]
         }
     ],
@@ -188,11 +192,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -200,26 +204,82 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
         {
             "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Growth",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Petal Blizzard",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 3,
             "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
+                    "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -228,21 +288,23 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }
     ],
     "groups": [
         [
-            0
+            0,
+            1,
+            2
         ],
         [
-            1
+            3
         ]
     ],
     "repeats": [

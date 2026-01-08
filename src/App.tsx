@@ -549,14 +549,14 @@ function App() {
               </Stack>
               <Stack direction="row" spacing={5} sx={{ p: 1 }}>
                 <Box flexGrow={1} />
-                <Link href="https://discord.gg/KtSQh34yB2" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
-                  <img src={process.env.PUBLIC_URL + "/LZA_discord.png"} alt="Pokémon Legends Z-A" width="96" height="96" style={{borderRadius: "16"}} />
+                <Link href="https://discord.gg/KtSQh34yB2" target="_blank" sx={{ transform: "translate(0px, 2px)" }}>
+                  <img src={process.env.PUBLIC_URL + "/LZA_discord.png"} alt="Pokémon Legends Z-A" width="96px" height="96px" style={{borderRadius: "32px"}} />
                 </Link>
-                <Link href="https://discord.gg/YcTd6M8rQb" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
-                  <img src={process.env.PUBLIC_URL + "/TRB_discord.png"} alt="Team Rocket Base" width="96" height="96" style={{borderRadius: "16"}} />
+                <Link href="https://discord.gg/YcTd6M8rQb" target="_blank" sx={{ transform: "translate(0px, 2px)" }}>
+                  <img src={process.env.PUBLIC_URL + "/TRB_discord.png"} alt="Team Rocket Base" width="96px" height="96px" style={{borderRadius: "32px"}} />
                 </Link>
-                <Link href="https://discord.gg/naTzV7YTnh" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
-                  <img src={process.env.PUBLIC_URL + "/SV_discord.png"} alt="Pokémon Legends Z-A" width="96" height="96" style={{borderRadius: "16"}} />
+                <Link href="https://discord.gg/naTzV7YTnh" target="_blank" sx={{ transform: "translate(0px, 2px)" }}>
+                  <img src={process.env.PUBLIC_URL + "/SV_discord.png"} alt="Pokémon Legends Z-A" width="96px" height="96px" style={{borderRadius: "32px"}} />
                 </Link>
                 <Box flexGrow={1} />
               </Stack>

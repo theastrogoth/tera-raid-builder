@@ -81,11 +81,11 @@ const arceusPlates = [
 const genNatures = [...gen.natures].sort();
 
 const UNSELECTABLE_FORMS = [
-    "Mimikyu-Busted", 
-    "Minior-Meteor", 
-    "Eiscue-Noice", 
-    "Morpeko-Hangry", 
-    "Terapagos-Stellar", 
+    "Mimikyu-Busted",
+    "Minior-Meteor",
+    "Eiscue-Noice",
+    "Morpeko-Hangry",
+    "Terapagos-Stellar",
     "Meloetta-Pirouette",
     "Zacian-Crowned",
     "Zamazenta-Crowned",
@@ -174,7 +174,7 @@ function findOptionFromItemName(name: string | undefined, translationKey: any): 
 }
 
 function findOptionFromNature(name: string, natures: Nature[], translationKey: any): Nature {
-    let option = natures.find((nature) => nature.name === name); 
+    let option = natures.find((nature) => nature.name === name);
     option = option || {name: "Hardy", plus: "atk", minus: "atk", kind: "Nature", id: toID("Hardy")};
     if (translationKey) {
         option = {...option, name: translationKey["natures"][name] || name};
@@ -250,7 +250,7 @@ function evsToString(pokemon: Pokemon, translationKey: any) {
             const natureEffect = (nature && (nature.plus !== nature.minus)) ? (keyval[0] === nature.minus ? '-' : (keyval[0] === nature.plus ? '+' : '')) : '';
             str = str + statAbbr + ' ' + keyval[1] + natureEffect;
         }
-    } 
+    }
     if (str.length === 0) { return getTranslation("none", translationKey); }
     return str;
 }
@@ -294,18 +294,18 @@ const LeftCell = styled(TableCell)(({ theme }) => ({
     paddingRight: '8px',
     borderBottom: 0,
 }));
-  
+
 const RightCell = styled(TableCell)(({ theme }) => ({
     fontWeight: theme.typography.fontWeightMedium,
     textAlign: 'left',
     padding: '0px',
     borderBottom: 0,
-})); 
+}));
 
 const Icon = styled(Avatar)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'light' ? "#bebebe" : "#7e7e7e",
 }));
-  
+
 export function SummaryRow({name, value, setValue, options, prettyMode, optionFinder = (option: any) => option, translationKey, translationCategory}: {name: string, value: string, setValue: React.Dispatch<React.SetStateAction<string | null>> | Function, options: (string | undefined)[], prettyMode: boolean, optionFinder?: Function, translationKey: any, translationCategory: string}) {
 return (
     <>
@@ -320,9 +320,9 @@ return (
                     <Autocomplete
                         disablePortal
                         disableClearable
-                        autoHighlight={true}    
+                        autoHighlight={true}
                         size="small"
-                        value={value ? getTranslation(value, translationKey, translationCategory) : undefined}                        
+                        value={value ? getTranslation(value, translationKey, translationCategory) : undefined}
                         options={options}
                         filterOptions={
                             createFilterOptions({
@@ -330,7 +330,7 @@ return (
                             })
                         }
                         renderOption={(props, option) => <li {...props}><Typography variant="body2" style={{ whiteSpace: "pre-wrap"}}>{optionFinder(option)}</Typography></li>}
-                        renderInput={(params) => 
+                        renderInput={(params) =>
                             <TextField {...params} variant="standard" size="small" />}
                         onChange={(event: any, newValue: string) => {
                             setValue(newValue);
@@ -348,7 +348,7 @@ return (
 }
 
 function ModalRow({name, value, getString = (val: any) => val, show = true, iconURLs = null}: {name: string, value: any, getString?: (val: any) => string, show?: boolean, iconURLs?: string[] | null}) {
-    return (show ? 
+    return (show ?
         <TableRow>
             <LeftCell>
                 {name}
@@ -371,7 +371,7 @@ function ModalRow({name, value, getString = (val: any) => val, show = true, icon
             </RightCell>
         </TableRow>
         : <></>
-    )   
+    )
 }
 
 function StatsDisplayTable({stats, translationKey}: {stats: StatsTable, translationKey: any}) {
@@ -440,7 +440,7 @@ function StatsDisplayTable({stats, translationKey}: {stats: StatsTable, translat
 }
 
 export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translationKey}: {name: string, showPopper: boolean, anchorEl: HTMLElement | null, allSpecies: Map<SpeciesName,PokemonData> | null, translationKey: any}) {
-    
+
     const [pokemon, setPokemon] = useState<PokemonData | null>(null);
 
     useEffect(() => {
@@ -465,7 +465,7 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
 
     const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
     const category = pokemon ? (pokemon.category ? pokemon.category[lang] : null) : null;
-    
+
     return (
         <Popper
             open={showPopper}
@@ -474,7 +474,7 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
             disablePortal={false}
             sx={{ position: "relative", width: "230px", translate: "-20px 0px", zIndex: 1000000 }}
         >
-        { pokemon && pokemon.name && 
+        { pokemon && pokemon.name &&
             <Paper sx={{ p: 2, backgroundColor: "modal.main" }} >
                 <Stack direction="column" spacing={.5}>
                     <Stack direction="row" spacing={1} alignItems="center">
@@ -525,11 +525,11 @@ export function PokemonPopper({name, showPopper, anchorEl, allSpecies, translati
                                         />
                                         <Typography fontSize={10} m={.5}>{getTranslation(ability.name, translationKey, "abilities")}</Typography>
                                     </Stack>
-                                </Paper>     
+                                </Paper>
                             ))}
                         </Stack>
                         <Divider textAlign="left">{getTranslation("Stats", translationKey, "ui")}</Divider>
-                        <StatsDisplayTable stats={pokemon.stats} translationKey={translationKey} />             
+                        <StatsDisplayTable stats={pokemon.stats} translationKey={translationKey} />
                     </Stack>
                 </Stack>
             </Paper>
@@ -563,9 +563,9 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveItem, moveData, showPopper])
 
-    const spriteURL = 
+    const spriteURL =
         moveItem.method === "level-up" ? [getMoveMethodIconURL("rare_candy")] :
-        moveItem.method === "machine" ? [getMoveMethodIconURL(moveItem.type)] : 
+        moveItem.method === "machine" ? [getMoveMethodIconURL(moveItem.type)] :
         moveItem.method === "egg" ? [getMoveMethodIconURL("egg")] : null;
 
     const categoryURL = [getTypeIconURL(moveData?.moveCategory || "")];
@@ -574,10 +574,10 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
     const flavorText = moveData ? ( moveData.flavorText ? moveData.flavorText[lang] : null ) : null;
 
     return (
-        
-        <Popper 
-            open={showPopper} 
-            anchorEl={anchorEl} 
+
+        <Popper
+            open={showPopper}
+            anchorEl={anchorEl}
             placement="right-start"
             disablePortal={false}
             sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
@@ -609,18 +609,18 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                             <TableContainer sx={{ padding: 1 }}>
                                 <Table size="small" style={{ width: "fit-content" }}>
                                     <TableBody>
-                                        {/* <ModalRow 
+                                        {/* <ModalRow
                                             name={getTranslation("Type", translationKey)}
                                             value={getTranslation(move.type, translationKey, "types")}
                                             show={move.type !== undefined}
                                         /> */}
-                                        <ModalRow 
+                                        <ModalRow
                                             name={getTranslation("Category", translationKey)}
                                             value={getTranslation(move.category, translationKey, "ui")}
                                             show={move.category !== undefined}
                                             iconURLs={categoryURL}
                                         />
-                                        <ModalRow 
+                                        <ModalRow
                                             name={getTranslation("Power", translationKey)}
                                             value={move.bp}
                                             show={move.bp !== undefined && move.bp > 0}
@@ -684,7 +684,7 @@ function MovePopper({moveItem, showPopper, anchorEl, allMoves, translationKey}: 
                                             getString={(v: number): string => v.toString() + "% " + getTranslation("Flinch", translationKey) + " " + getTranslation("Chance", translationKey)}
                                             show={moveData.flinchChance !== null && moveData.flinchChance! > 0}
                                         /> */}
-                                        { moveItem.method && 
+                                        { moveItem.method &&
                                             <ModalRow
                                                 name={getTranslation("Learn Method", translationKey)}
                                                 value={getTranslation(getLearnMethodReadableName(moveItem.method), translationKey)}
@@ -724,14 +724,14 @@ export function ItemPopper({name, showPopper, anchorEl, translationKey}: {name: 
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [name, showPopper])
-    
+
     const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
     const flavorText = itemData ? itemData.flavorText[lang] : null;
 
     return (
-        <Popper 
-            open={showPopper} 
-            anchorEl={anchorEl} 
+        <Popper
+            open={showPopper}
+            anchorEl={anchorEl}
             placement="right-start"
             disablePortal={false}
             sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
@@ -781,14 +781,14 @@ export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [ability, showPopper])
-    
+
     const lang = translationKey ? translationKey["lang"] as keyof(FlavorTexts) : "en";
     const flavorText = abilityData ? abilityData.flavorText[lang] : null;
 
     return (
-        <Popper 
-            open={showPopper} 
-            anchorEl={anchorEl} 
+        <Popper
+            open={showPopper}
+            anchorEl={anchorEl}
             placement="right-start"
             disablePortal={false}
             sx={{ position: "relative", translate: "-20px 0px", zIndex: 1000000 }}
@@ -816,7 +816,7 @@ export function AbilityPopper({ability, showPopper, anchorEl, translationKey}: {
                             <Box padding={1}>
                                 <Typography fontSize={10}>{flavorText}</Typography>
                             </Box>
-                        </Paper>                        
+                        </Paper>
                     </Stack>
                 </Paper>
             }
@@ -893,7 +893,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
         setOpen(true);
         handleMouseLeave();
     }
-    
+
     return (
         <>
         {((prettyMode && !checkSetValueIsDefault(value)) || !prettyMode) &&
@@ -909,7 +909,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
                                 disablePortal
                                 disableClearable
                                 disabled={disabled}
-                                autoHighlight={true}    
+                                autoHighlight={true}
                                 onOpen={handleDropdownOpen}
                                 onClose={() => setOpen(false)}
                                 size="small"
@@ -920,7 +920,7 @@ function MoveSummaryRow({name, value, setValue, options, moveSet, currentMoves, 
                                         stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "moves")
                                     })
                                 }
-                                renderOption={(props, option) => 
+                                renderOption={(props, option) =>
                                     <li {...props}><MoveWithIcon move={findOptionFromMoveName(option || "(No Move)", moveSet, translationKey)} optional={optional} allMoves={allMoves} prettyMode={prettyMode} translationKey={translationKey} /></li>
                                 }
                                 getOptionDisabled={(option) => option !== "(No Move)" && option !== value && currentMoves.includes(option as MoveName)}
@@ -1020,8 +1020,8 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
                             <Autocomplete
                                 disablePortal
                                 disableClearable
-                                autoHighlight={true}   
-                                onOpen={handleDropdownOpen} 
+                                autoHighlight={true}
+                                onOpen={handleDropdownOpen}
                                 onClose={() => setOpen(false)}
                                 size="small"
                                 value={value ? getTranslation(value, translationKey, "abilities") : undefined}
@@ -1031,7 +1031,7 @@ function AbilitySummaryRow({name, value, setValue, options, abilities, prettyMod
                                         stringify: (option: string | undefined) => getTranslation(option || "", translationKey, "abilities")
                                     })
                                 }
-                                renderOption={(props, option) => 
+                                renderOption={(props, option) =>
                                     <li {...props}><AbilityWithIcon ability={findOptionFromAbilityName(option || "(No Ability)", abilities, translationKey)} prettyMode={prettyMode} translationKey={translationKey} /></li>
                                 }
                                 renderInput={(params) => <TextField {...params} variant="standard" size="small" />}
@@ -1140,12 +1140,12 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                             <Autocomplete
                                 disablePortal
                                 disableClearable
-                                autoHighlight={true}    
+                                autoHighlight={true}
                                 onOpen={handleDropdownOpen}
                                 onClose={() => setOpen(false)}
                                 size="small"
                                 value={value ? (
-                                        translationCategory === "pokemon" ? findOptionFromPokemonName(value, translationKey) : getTranslation(value, translationKey, translationCategory) 
+                                        translationCategory === "pokemon" ? findOptionFromPokemonName(value, translationKey) : getTranslation(value, translationKey, translationCategory)
                                     ) : undefined
                                 }
                                 options={options}
@@ -1156,10 +1156,10 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                                         )
                                     })
                                 }
-                                renderOption={(props, option) => 
+                                renderOption={(props, option) =>
                                     <li {...props}><GenericWithIcon name={optionFinder(option, translationKey)} engName={optionFinder(option, null)} spriteFetcher={spriteFetcher} prettyMode={prettyMode} ModalComponent={ModalComponent} modalProps={{...modalProps, name: option}} /></li>
                                 }
-                                renderInput={(params) => 
+                                renderInput={(params) =>
                                     <TextField {...params} variant="standard" size="small" />}
                                 onChange={(event: any, newValue: string) => {
                                     //@ts-ignore
@@ -1168,7 +1168,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
                                 componentsProps={{ popper: { style: { width: 'fit-content' } } }}
                                 sx = {{width: '85%'}}
                             />
-                            { !!(ModalComponent) && 
+                            { !!(ModalComponent) &&
                                 <ModalComponent name={value} showPopper={showPopper} anchorEl={anchorEl} {...modalProps} />
                             }
                         </Box>
@@ -1180,7 +1180,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
     )
 }
 
-// function PokemonSummaryRow({pokemon, setPokemon, allSpecies,  allMoves, setAllMoves, setAllSpecies, prettyMode, translationKey}: 
+// function PokemonSummaryRow({pokemon, setPokemon, allSpecies,  allMoves, setAllMoves, setAllSpecies, prettyMode, translationKey}:
 //     {pokemon: Raider, setPokemon: (n: string) => void, allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey: any}
 // ) {
 //     const name = pokemon.name;
@@ -1194,7 +1194,7 @@ function GenericIconSummaryRow({name, value, setValue, options, optionFinder, sp
 //                         <GenericWithIcon name={findOptionFromPokemonName(name, translationKey)} engName={name} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} />
 //                     }
 //                     {!prettyMode &&
-//                         <PokemonLookup 
+//                         <PokemonLookup
 //                             pokemon={name}
 //                             setPokemon={setPokemon}
 //                             allSpecies={allSpecies}
@@ -1262,7 +1262,7 @@ export function SetLoadGroupHeader({pokemon, translationKey}: {pokemon: SpeciesN
                     {findOptionFromPokemonName(pokemon, translationKey)}
                 </Typography>
             </Stack>
-        </GroupHeader> 
+        </GroupHeader>
     )
 }
 
@@ -1271,10 +1271,10 @@ function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 1
         stringify: (option: SetOption) => getTranslation(option.pokemon, translationKey, "pokemon") + " " + option.name
     });
     return (
-        <Autocomplete 
+        <Autocomplete
             disablePortal
             disableClearable
-            autoHighlight={true}    
+            autoHighlight={true}
             size="small"
             value={{name:"", pokemon:"Umbreon" as SpeciesName}}
             sx={sx}
@@ -1291,8 +1291,8 @@ function SetLoadField({setOptions, loadSet, placeholder="Load Set", sx={width: 1
                 );
             }}
             getOptionLabel={(option: SetOption) => option.name}
-            renderInput={(params) => 
-                <StyledTextField 
+            renderInput={(params) =>
+                <StyledTextField
                     {...params} variant="outlined" placeholder={placeholder} size="small"
                     sx={{
                         "& .MuiInputBase-input": {
@@ -1326,7 +1326,7 @@ function ShinySwitch({pokemon, setShiny, translationKey}: {pokemon: Raider, setS
                     size='small'
                     checked={pokemon.shiny || false}
                     onChange={(e) => setShiny(!pokemon.shiny)}
-            
+
                 />
             </Stack>
         </Box>
@@ -1347,7 +1347,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
             <Button
                 variant="outlined"
                 size="small"
-                sx={{ textTransform: "none" }} 
+                sx={{ textTransform: "none" }}
                 onClick={(e) => handleClick(e)}
                 endIcon={<MenuIcon/>}
             >
@@ -1360,7 +1360,7 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
             >
                 <Stack direction="column" spacing={1}>
                 {substitutes.map((sub, idx) => (
-                    <SubstituteMenuItem 
+                    <SubstituteMenuItem
                         idx={idx}
                         key={idx}
                         pokemon={pokemon}
@@ -1379,8 +1379,8 @@ function SubstitutesMenuButton({pokemon, setPokemon, substitutes, setSubstitutes
     )
 }
 
-function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitutes, groups, setGroups, handleClose, translationKey }: 
-    {idx: number, pokemon: Raider, setPokemon: (r: Raider) => void, substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, handleClose: () => void, translationKey: any }) 
+function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitutes, groups, setGroups, handleClose, translationKey }:
+    {idx: number, pokemon: Raider, setPokemon: (r: Raider) => void, substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, handleClose: () => void, translationKey: any })
 {
     const sub = substitutes[idx];
 
@@ -1391,14 +1391,14 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
         const newGroups = [...groups];
         const pokemonInfo = removedSubstitute.raider;
         const newPokemon = new Raider(
-            pokemon.id, 
-            pokemonInfo.role, 
-            pokemonInfo.shiny, 
+            pokemon.id,
+            pokemonInfo.role,
+            pokemonInfo.shiny,
             pokemonInfo.isAnyLevel,
-            new Field(), 
+            new Field(),
             new Pokemon(
-                gen, 
-                pokemonInfo.name, 
+                gen,
+                pokemonInfo.name,
                 {...pokemonInfo},
             ),
             pokemonInfo.moveData,
@@ -1418,8 +1418,8 @@ function SubstituteMenuItem({ idx, pokemon, setPokemon, substitutes, setSubstitu
                             t.moveInfo.moveData = {name: moveName, target: "selected-pokemon"} as MoveData;
                         } else {
                             const moveData = newPokemon.moveData.find(md => md.name === moveName);
-                            if (moveData) { 
-                                t.moveInfo.moveData = moveData; 
+                            if (moveData) {
+                                t.moveInfo.moveData = moveData;
                             } else {
                                 t.moveInfo.moveData = {name: "(No Move)", target: "user"} as MoveData;
                             }
@@ -1477,14 +1477,14 @@ function GenderSymbol({g}: {g: GenderName | undefined}) {
     )
 }
 
-function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, groupsCounter, turnResults, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}: 
-        {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, 
-         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, groupsCounter: number, turnResults: RaidTurnResult[], allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null, 
+function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, setSubstitutes, groups, setGroups, groupsCounter, turnResults, allSpecies, allMoves, setAllSpecies, setAllMoves, prettyMode, translationKey, isBoss = false}:
+        {pokemon: Raider, abilities: {name: AbilityName, hidden: boolean}[], moveSet: MoveSetItem[], setPokemon: (r: Raider) => void,
+         substitutes: SubstituteBuildInfo[], setSubstitutes: (s: SubstituteBuildInfo[]) => void, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, groupsCounter: number, turnResults: RaidTurnResult[], allSpecies: Map<SpeciesName,PokemonData> | null, allMoves: Map<MoveName,MoveData> | null,
          setAllSpecies: (m: Map<SpeciesName,PokemonData> | null) => void, setAllMoves: (m: Map<MoveName,MoveData> | null) => void, prettyMode: boolean, translationKey?: any, isBoss?: boolean}
     ) {
     const [teraTypes, setTeraTypes] = useState(genTypes);
     const [items, setItems] = useState(genItems);
-    
+
     const [editStatsOpen, setEditStatsOpen] = useState(false);
     const [importExportOpen, setImportExportOpen] = useState(false);
 
@@ -1628,7 +1628,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     case "Mind Plate":     form = "Arceus-Psychic";    break;
                     case "Stone Plate":    form = "Arceus-Rock";       break;
                     case "Iron Plate":     form = "Arceus-Steel";      break;
-                    case "Splash Plate":   form = "Arceus-Water";      break;                 
+                    case "Splash Plate":   form = "Arceus-Water";      break;
                 }
                 setItems(["(No Item)", ...arceusPlates]);
                 const poke = pokemon.clone();
@@ -1659,13 +1659,13 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         return (val: any) => {
             const newProps = {...pokemon, [propName]: val};
             setPokemon(new Raider(
-                newProps.id, 
-                newProps.role, 
-                newProps.shiny, 
+                newProps.id,
+                newProps.role,
+                newProps.shiny,
                 newProps.isAnyLevel,
-                newProps.field, 
+                newProps.field,
                 new Pokemon(gen, newProps.name, {
-                    nature: newProps.nature, 
+                    nature: newProps.nature,
                     level: newProps.level,
                     ability: newProps.ability,
                     teraType: newProps.teraType,
@@ -1676,7 +1676,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     moves: newProps.moves,
                     bossMultiplier: newProps.bossMultiplier,
                     shieldData: newProps.shieldData,
-                }), 
+                }),
                 newProps.moveData,
                 newProps.extraMoves,
                 newProps.extraMoveData
@@ -1688,13 +1688,13 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         return (vals: any[]) => {
             const newProps = {...pokemon, ...Object.fromEntries(propNames.map((prop, idx) => [prop, vals[idx]]))};
             setPokemon(new Raider(
-                newProps.id, 
-                newProps.role, 
-                newProps.shiny, 
+                newProps.id,
+                newProps.role,
+                newProps.shiny,
                 newProps.isAnyLevel,
-                newProps.field, 
+                newProps.field,
                 new Pokemon(gen, newProps.name, {
-                    nature: newProps.nature, 
+                    nature: newProps.nature,
                     level: newProps.level,
                     ability: newProps.ability,
                     teraType: newProps.teraType,
@@ -1705,7 +1705,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     moves: newProps.moves,
                     bossMultiplier: newProps.bossMultiplier,
                     shieldData: newProps.shieldData,
-                }), 
+                }),
                 newProps.moveData,
                 newProps.extraMoves,
                 newProps.extraMoveData
@@ -1713,8 +1713,8 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         }
     }
 
-    const loadSet = async (set: SetOption) => { 
-        const moveData = allMoves ? 
+    const loadSet = async (set: SetOption) => {
+        const moveData = allMoves ?
             (set.moves || []).map(
                 (move) => allMoves.get(move) || {name: move, target: "user"} as MoveData
             ) :
@@ -1728,7 +1728,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             level: set.level || 100,
             gender: set.gender,
             bossMultiplier: undefined,
-            teraType: undefined,
+            teraType: set.teraType || undefined,
             ability: set.ability || "(No Ability)" as AbilityName,
             item: set.item || undefined,
             nature: (set.nature || "Hardy"),
@@ -1744,19 +1744,18 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 shieldDamageRateTeraChange: 0,
             },
         });
-
         setPokemon(new Raider(pokemon.id, poke.species.baseSpecies || poke.name, set.shiny, set.isAnyLevel, new Field(), poke, moveData));
     }
 
     const handleChangeSpecies = (val: string) => {
         setPokemon(new Raider(
-            pokemon.id, 
-            pokemon.role, 
-            pokemon.shiny, 
+            pokemon.id,
+            pokemon.role,
+            pokemon.shiny,
             (val === "Carry Slot" || val === "NPC"),
-            pokemon.field, 
+            pokemon.field,
             new Pokemon(gen, val, {
-                nature: "Hardy", 
+                nature: "Hardy",
                 level: (val === "Carry Slot" || val === "NPC") ? 1 : 100,
                 // ability: "(No Ability)",
                 ivs: (val === "Carry Slot" || val === "NPC") ? {
@@ -1775,20 +1774,20 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     shieldDamageRateTera: 0,
                     shieldDamageRateTeraChange: 0,
                 },
-            }), 
+            }),
             [],
         ));
     }
 
     const handleForcedChangeSpecies = (val: string, poke: Raider) => {
         setPokemon(new Raider(
-            poke.id, 
-            poke.role, 
-            poke.shiny, 
+            poke.id,
+            poke.role,
+            poke.shiny,
             poke.isAnyLevel,
-            poke.field, 
+            poke.field,
             new Pokemon(gen, val, {
-                nature: poke.nature, 
+                nature: poke.nature,
                 level: poke.level,
                 ability: poke.ability,
                 teraType: poke.teraType,
@@ -1797,7 +1796,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 ivs: poke.ivs,
                 moves: poke.moves,
                 shieldData: poke.shieldData,
-            }), 
+            }),
             poke.moveData,
             poke.extraMoves,
             poke.extraMoveData,
@@ -1808,18 +1807,18 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
         const newSubstitute = makeSubstituteInfo(pokemon, groups);
         setSubstitutes([...substitutes, newSubstitute]);
         setPokemon(new Raider(
-            pokemon.id, 
-            pokemon.role, 
-            pokemon.shiny, 
+            pokemon.id,
+            pokemon.role,
+            pokemon.shiny,
             false,
-            pokemon.field, 
+            pokemon.field,
             new Pokemon(gen, "Carry Slot", {
-                nature: "Hardy", 
+                nature: "Hardy",
                 level: 100,
                 // ability: "(No Ability)",
                 ivs: undefined,
                 shieldData: undefined
-            }), 
+            }),
             [],
         ));
     }
@@ -1830,7 +1829,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                 <Stack direction="column" alignItems="center" sx={{ width: "100%" }}>
                     {!isBoss &&
                         <Stack direction="row" spacing={1.25} justifyContent="left" alignItems="center" sx={{ paddingLeft: "32px", paddingRight: "18px", width: "100%" }}>
-                            <ShinySwitch 
+                            <ShinySwitch
                                 pokemon={pokemon}
                                 setShiny={setPokemonProperty("shiny")}
                                 translationKey={translationKey}
@@ -1848,20 +1847,20 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         </Stack>
                     }
                     <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ maxWidth: "280px", marginTop: 1, marginBottom: isBoss ? 2 : 0 }}>
-                        <Button 
-                            variant="outlined" 
-                            size="small" 
-                            sx={{ textTransform: "none" }} 
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            sx={{ textTransform: "none" }}
                             disabled={importExportOpen}
                             onClick={(e) => setEditStatsOpen(!editStatsOpen)}
                             startIcon={editStatsOpen ? <ConstructionIcon/> : <TuneIcon/>}
                         >
                             {editStatsOpen ? getTranslation("Edit Build",translationKey) : getTranslation("Edit EVs/IVs",translationKey)}
                         </Button>
-                        <Button 
-                            variant="outlined" 
-                            size="small" 
-                            sx={{ textTransform: "none" }} 
+                        <Button
+                            variant="outlined"
+                            size="small"
+                            sx={{ textTransform: "none" }}
                             onClick={(e) => setImportExportOpen(!importExportOpen)}
                             endIcon={importExportOpen ? <ConstructionIcon/> : <ImportExportIcon/>}
                         >
@@ -1870,13 +1869,13 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                     </Stack>
                 </Stack>
             }
-            { !isBoss && (!prettyMode || substitutes.length > 0) && 
+            { !isBoss && (!prettyMode || substitutes.length > 0) &&
                 <Stack direction="row" justifyContent="center" alignItems="center" spacing={1} sx={{ marginTop: 1, marginBottom: 2 }}>
                     { !prettyMode &&
                         <Button
                             variant="outlined"
                             size="small"
-                            sx={{ textTransform: "none" }} 
+                            sx={{ textTransform: "none" }}
                             onClick={(e) => handleAddSubstitute()}
                             startIcon={<AddIcon/>}
                         >
@@ -1884,7 +1883,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                         </Button>
                     }
                     { substitutes.length > 0 &&
-                        <SubstitutesMenuButton 
+                        <SubstitutesMenuButton
                             pokemon={pokemon}
                             setPokemon={setPokemon}
                             substitutes={substitutes}
@@ -1901,7 +1900,7 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
             }
             {(!prettyMode && editStatsOpen && !importExportOpen) &&
                 <Stack alignItems={'right'} justifyContent="center" spacing={1} sx={{ margin: 0 }}>
-                    <StatsControls pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />    
+                    <StatsControls pokemon={pokemon} setPokemon={setPokemon} translationKey={translationKey} />
                 </Stack>
             }
             {(prettyMode || (!editStatsOpen && !importExportOpen)) &&
@@ -1911,15 +1910,15 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                             <TableBody>
                                 <GenericIconSummaryRow name="Pokémon" value={pokemon.species.name} setValue={handleChangeSpecies} options={genSpecies} optionFinder={findOptionFromPokemonName} spriteFetcher={getPokemonSpriteURL} prettyMode={prettyMode} ModalComponent={PokemonPopper} modalProps={{translationKey: translationKey}} translationKey={translationKey} translationCategory="pokemon"/>
                                 <GenericIconSummaryRow name="Tera Type" value={pokemon.teraType || "???"} setValue={setPokemonProperty("teraType")} options={teraTypes} optionFinder={findOptionFromTeraTypeName} spriteFetcher={getTeraTypeIconURL} prettyMode={prettyMode} translationKey={translationKey} translationCategory="types"/>
-                                <AbilitySummaryRow 
+                                <AbilitySummaryRow
                                             name="Ability"
-                                            value={pokemon.ability || "(No Move)" as AbilityName} 
+                                            value={pokemon.ability || "(No Move)" as AbilityName}
                                             setValue={setPokemonProperty("ability")}
                                             options={createAbilityOptions(abilities)}
                                             abilities={abilities}
                                             prettyMode={prettyMode}
                                             translationKey={translationKey}
-                                        /> 
+                                        />
                                 <SummaryRow name="Nature" value={pokemon.nature === undefined ? "Hardy" : pokemon.nature} setValue={setPokemonProperty("nature")} options={genNatures.map((n) => n.name)} optionFinder={(name: string) => natureToOption(findOptionFromNature(name, genNatures, translationKey), translationKey)} prettyMode={prettyMode} translationKey={translationKey} translationCategory="natures"/>
                                 { prettyMode && pokemon.gender && pokemon.gender !== "N" &&
                                     <TableRow>
@@ -1938,13 +1937,13 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                             </Typography>
                                         }
                                         {!prettyMode &&
-                                            <TextField 
+                                            <TextField
                                                 size="small"
                                                 variant="standard"
                                                 type="number"
                                                 InputProps={{
-                                                    inputProps: { 
-                                                        max: 100, min: isBoss ? 1 : 0 
+                                                    inputProps: {
+                                                        max: 100, min: isBoss ? 1 : 0
                                                     }
                                                 }}
                                                 fullWidth={false}
@@ -1979,9 +1978,9 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                                 onChange={(o) => setPokemonProperty("gender")(o.target.value)}
                                                 sx={{ width: "32px" }}
                                             >
-                                                { [...(pokemon.species.gender ? [pokemon.species.gender] : ["N","F","M"] as GenderName[])].map((g) => 
-                                                    <MenuItem 
-                                                        key={g} 
+                                                { [...(pokemon.species.gender ? [pokemon.species.gender] : ["N","F","M"] as GenderName[])].map((g) =>
+                                                    <MenuItem
+                                                        key={g}
                                                         value={g}
                                                     >
                                                         <GenderSymbol g={g} />
@@ -2015,16 +2014,16 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                 </TableRow>
                                 {
                                     [0,1,2,3].map((index) => {
-                                        return <MoveSummaryRow 
+                                        return <MoveSummaryRow
                                             key={index}
                                             name={index === 0 ? "Moves" : ""}
-                                            value={pokemon.moves[index] || "(No Move)"} 
+                                            value={pokemon.moves[index] || "(No Move)"}
                                             setValue={async (moveOption: string) => {
                                                 const newMoves = [...pokemon.moves as string[]];
                                                 newMoves[index] = moveOption;
                                                 const newMoveData = [...pokemon.moveData];
                                                 newMoveData[index] = (
-                                                    allMoves ?  allMoves.get(moveOption as MoveName) : (await PokedexService.getMoveByName(moveOption)) 
+                                                    allMoves ?  allMoves.get(moveOption as MoveName) : (await PokedexService.getMoveByName(moveOption))
                                                 ) || {name: "(No Move)" as MoveName, target: "user"};
                                                 setPokemonProperties(["moves", "moveData"])([newMoves, newMoveData]);
                                             }}
@@ -2036,9 +2035,9 @@ function BuildControls({pokemon, abilities, moveSet, setPokemon, substitutes, se
                                             optional={turnResults && !turnResults.some((turnResult) => turnResult.moveInfo.userID === pokemon.id && turnResult.moveInfo.moveData.name === pokemon.moves[index])}
                                             prettyMode={prettyMode}
                                             translationKey={translationKey}
-                                        /> 
+                                        />
                                     })
-                                } 
+                                }
                             </TableBody>
                         </Table>
                     </TableContainer>
@@ -2113,7 +2112,7 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
 
     return (
         <Box>
-            <IconButton 
+            <IconButton
                 onClick={handleClick}
             >
                 <MenuIcon />
@@ -2136,12 +2135,12 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
                     { getTranslation("HP Trigger", translationKey) + " (%)" }
                     </TableCell>
                     <TableCell sx={{width: "70px"}}>
-                        <TextField 
+                        <TextField
                             size="small"
                             variant="standard"
                             type="number"
                             InputProps={{
-                                inputProps: { 
+                                inputProps: {
                                     step: 1,
                                 }
                             }}
@@ -2156,12 +2155,12 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
                         { getTranslation("Time Trigger", translationKey) + " (%)" }
                     </TableCell>
                     <TableCell sx={{width: "70px"}}>
-                        <TextField 
+                        <TextField
                             size="small"
                             variant="standard"
                             type="number"
                             InputProps={{
-                                inputProps: { 
+                                inputProps: {
                                     step: 1,
                                 }
                             }}
@@ -2176,12 +2175,12 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
                         { getTranslation("Bar Size", translationKey) + " (%)" }
                     </TableCell>
                     <TableCell sx={{width: "70px"}}>
-                        <TextField 
+                        <TextField
                             size="small"
                             variant="standard"
                             type="number"
                             InputProps={{
-                                inputProps: { 
+                                inputProps: {
                                     step: 1,
                                 }
                             }}
@@ -2196,12 +2195,12 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
                     { getTranslation("Damage Rate", translationKey) + " (%)" }
                     </TableCell>
                     <TableCell sx={{width: "70px"}}>
-                    <TextField 
+                    <TextField
                             size="small"
                             variant="standard"
                             type="number"
                             InputProps={{
-                                inputProps: { 
+                                inputProps: {
                                     step: 1,
                                 }
                             }}
@@ -2216,12 +2215,12 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
                        { getTranslation("Tera Damage Rate", translationKey) + " (%)" }
                     </TableCell>
                     <TableCell sx={{width: "70px"}}>
-                        <TextField 
+                        <TextField
                             size="small"
                             variant="standard"
                             type="number"
                             InputProps={{
-                                inputProps: { 
+                                inputProps: {
                                     step: 1,
                                 }
                             }}
@@ -2236,12 +2235,12 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
                         { getTranslation("Mismatched Tera Damage Rate", translationKey) + " (%)" }
                     </TableCell>
                     <TableCell sx={{width: "70px"}}>
-                        <TextField 
+                        <TextField
                             size="small"
                             variant="standard"
                             type="number"
                             InputProps={{
-                                inputProps: { 
+                                inputProps: {
                                     step: 1,
                                 }
                             }}
@@ -2256,20 +2255,20 @@ function ShieldOptions({pokemon, setPokemon, translationKey}: {pokemon: Raider, 
     )
 }
 
-function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, translationKey}: 
-    {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any}) 
+function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, translationKey}:
+    {pokemon: Raider, moveSet: MoveSetItem[], setPokemon: (r: Raider) => void, allMoves: Map<MoveName,MoveData> | null, prettyMode: boolean, translationKey: any})
 {
     const setPokemonProperty = (propName: string) => {
         return (val: any) => {
             const newProps = {...pokemon, [propName]: val};
             setPokemon(new Raider(
-                newProps.id, 
-                newProps.role, 
-                newProps.shiny, 
+                newProps.id,
+                newProps.role,
+                newProps.shiny,
                 newProps.isAnyLevel,
-                newProps.field, 
+                newProps.field,
                 new Pokemon(gen, newProps.name, {
-                    nature: newProps.nature, 
+                    nature: newProps.nature,
                     level: newProps.level,
                     ability: newProps.ability,
                     teraType: newProps.teraType,
@@ -2280,7 +2279,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                     moves: newProps.moves,
                     bossMultiplier: newProps.bossMultiplier,
                     shieldData: newProps.shieldData,
-                }), 
+                }),
                 newProps.moveData,
                 newProps.extraMoves,
                 newProps.extraMoveData
@@ -2293,7 +2292,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
     //     if (val < 1) val = 1;
     //     const newPokemon = pokemon.clone();
     //     newPokemon.bossMultiplier = val;
-    //     setPokemon(newPokemon.clone())        
+    //     setPokemon(newPokemon.clone())
     // }
 
     const setBMove = (index: number) => async (move: MoveName) => {
@@ -2307,8 +2306,8 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
         setPokemon(newPoke);
     }
 
-    const loadSet = async (set: SetOption) => { 
-        const moveData = allMoves ? 
+    const loadSet = async (set: SetOption) => {
+        const moveData = allMoves ?
             (set.moves || []).map(
                 (move) => allMoves.get(move) || {name: move, target: "user"} as MoveData
             ) :
@@ -2318,7 +2317,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                 )
             ) as MoveData[];
 
-        const extraMoveData = allMoves ? 
+        const extraMoveData = allMoves ?
             (set.extraMoves || []).map(
                 (move) => allMoves.get(move) || {name: move, target: "user"} as MoveData
             ) :
@@ -2341,14 +2340,14 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
             evs: set.evs || {},
             shieldData: set.shieldData,
         });
-    
+
         setPokemon(new Raider(
-            pokemon.id, 
-            poke.species.baseSpecies || poke.name, 
-            set.shiny, 
+            pokemon.id,
+            poke.species.baseSpecies || poke.name,
+            set.shiny,
             set.isAnyLevel,
-            new Field(), 
-            poke, 
+            new Field(),
+            poke,
             moveData,
             set.extraMoves || ["(No Move)","(No Move)","(No Move)","(No Move)"] as MoveName[],
             extraMoveData,
@@ -2399,12 +2398,12 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                                         </Typography>
                                     }
                                     {!prettyMode &&
-                                        <TextField 
+                                        <TextField
                                             size="small"
                                             variant="standard"
                                             type="number"
                                             InputProps={{
-                                                inputProps: { 
+                                                inputProps: {
                                                     step: 100,
                                                 }
                                             }}
@@ -2428,7 +2427,7 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                             }
                             {
                                 [0,1,2,3].map((index) => {
-                                    return <MoveSummaryRow 
+                                    return <MoveSummaryRow
                                         key={index}
                                         name={index === 0 ? "Extra Moves" : ""}
                                         // @ts-ignore
@@ -2442,9 +2441,9 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
                                         optional={false}
                                         prettyMode={prettyMode}
                                         translationKey={translationKey}
-                                    /> 
+                                    />
                                 })
-                            } 
+                            }
                         </TableBody>
                     </Table>
                 </TableContainer>
@@ -2452,9 +2451,9 @@ function BossBuildControls({moveSet, pokemon, setPokemon, allMoves, prettyMode, 
         </Box>
     )
 }
-export const BossBuildControlsMemo = React.memo(BossBuildControls, 
-    (prevProps, nextProps) => 
-        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+export const BossBuildControlsMemo = React.memo(BossBuildControls,
+    (prevProps, nextProps) =>
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) &&
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
         arraysEqual(prevProps.pokemon.extraMoves!, nextProps.pokemon.extraMoves!) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
@@ -2462,15 +2461,15 @@ export const BossBuildControlsMemo = React.memo(BossBuildControls,
         prevProps.translationKey === nextProps.translationKey
     );
 
-export default React.memo(BuildControls, 
-    (prevProps, nextProps) => 
-        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) && 
+export default React.memo(BuildControls,
+    (prevProps, nextProps) =>
+        JSON.stringify(prevProps.pokemon) === JSON.stringify(nextProps.pokemon) &&
         JSON.stringify(prevProps.substitutes) === JSON.stringify(nextProps.substitutes) &&
         arraysEqual(prevProps.abilities, nextProps.abilities) &&
         arraysEqual(prevProps.moveSet, nextProps.moveSet) &&
         (!!prevProps.allSpecies === !!nextProps.allSpecies) &&
         (!!prevProps.allMoves === !!nextProps.allMoves) &&
-        prevProps.groupsCounter === nextProps.groupsCounter && 
+        prevProps.groupsCounter === nextProps.groupsCounter &&
         prevProps.turnResults === nextProps.turnResults &&
         prevProps.prettyMode === nextProps.prettyMode &&
         prevProps.translationKey === nextProps.translationKey

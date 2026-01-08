@@ -814,7 +814,7 @@
             "ability":"Sand Veil",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
-            "moves":["Growth","Power Trip","Seed Bomb","Swords Dance"] 
+            "moves":["Growth","Power Trip","Seed Bomb","Swords Dance"]
         },
         "Special DPS": {
             "level":100,
@@ -822,7 +822,7 @@
             "ability":"Sand Veil",
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
-            "moves":["Growth","Solar Beam","Grass Knot","Energy Ball"] 
+            "moves":["Growth","Solar Beam","Grass Knot","Energy Ball"]
         }
     },
     "Calyrex-Ice": {
@@ -832,7 +832,7 @@
             "ability":"As One (Glastrier)",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
-            "moves":["Swords Dance","Glacial Lance","Trick Room","Agility"] 
+            "moves":["Swords Dance","Glacial Lance","Trick Room","Agility"]
         },
         "Support (Def)": {
             "level":100,
@@ -840,7 +840,7 @@
             "ability":"As One (Glastrier)",
             "nature":"Impish",
             "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand","Taunt","Trick Room","Gravity"] 
+            "moves":["Helping Hand","Taunt","Trick Room","Gravity"]
         },
         "Support (SpD)": {
             "level":100,
@@ -848,7 +848,7 @@
             "ability":"As One (Glastrier)",
             "nature":"Careful",
             "evs":{"hp":252,"sd":252},
-            "moves":["Helping Hand","Taunt","Trick Room","Gravity"] 
+            "moves":["Helping Hand","Taunt","Trick Room","Gravity"]
         }
     },
     "Calyrex-Shadow": {
@@ -858,7 +858,7 @@
             "ability":"As One (Spectrier)",
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
-            "moves":["Nasty Plot","Astral Barrage","Expanding Force","Psyshock"] 
+            "moves":["Nasty Plot","Astral Barrage","Expanding Force","Psyshock"]
         }
     },
     "Camerupt": {
@@ -868,7 +868,7 @@
             "ability":"Anger Point",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
-            "moves":["Flare Blitz","Earthquake","Stomping Tantrum","Temper Flare"] 
+            "moves":["Flare Blitz","Earthquake","Stomping Tantrum","Temper Flare"]
         }
     },
     "Carbink": {
@@ -878,7 +878,7 @@
             "ability":"Clear Body",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Gravity","Trick Room","Misty Terrain","Sunny Day"] 
+            "moves":["Gravity","Trick Room","Misty Terrain","Sunny Day"]
         },
         "Field Support (SpD)": {
             "level":100,
@@ -886,7 +886,7 @@
             "ability":"Clear Body",
             "nature":"Calm",
             "evs":{"hp":252,"sd":252},
-            "moves":["Gravity","Trick Room","Misty Terrain","Sunny Day"] 
+            "moves":["Gravity","Trick Room","Misty Terrain","Sunny Day"]
         }
     },
     "Ceruledge": {
@@ -896,7 +896,7 @@
             "ability":"Flash Fire",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
-            "moves":["Swords Dance","Flare Blitz","Bitter Blade","Shadow Claw"] 
+            "moves":["Swords Dance","Flare Blitz","Bitter Blade","Shadow Claw"]
         },
         "Weak Armor DPS": {
             "level":100,
@@ -904,7 +904,7 @@
             "ability":"Weak Armor",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
-            "moves":["Swords Dance","Flare Blitz","Bitter Blade","Shadow Claw"] 
+            "moves":["Swords Dance","Flare Blitz","Bitter Blade","Shadow Claw"]
         },
         "Support (Def)": {
             "level":100,
@@ -912,7 +912,7 @@
             "ability":"Flash Fire",
             "nature":"Impish",
             "evs":{"hp":252,"df":252},
-            "moves":["Helping Hand","Taunt","Clear Smog","Sunny Day"] 
+            "moves":["Helping Hand","Taunt","Clear Smog","Sunny Day"]
         },
         "Support (SpD)": {
             "level":100,
@@ -920,7 +920,7 @@
             "ability":"Flash Fire",
             "nature":"Careful",
             "evs":{"hp":252,"sd":252},
-            "moves":["Helping Hand","Taunt","Clear Smog","Sunny Day"] 
+            "moves":["Helping Hand","Taunt","Clear Smog","Sunny Day"]
         }
     },
     "Cetitan": {
@@ -930,7 +930,7 @@
             "ability":"Sheer Force",
             "nature":"Adamant",
             "evs":{"at":252,"df":252},
-            "moves":["Belly Drum","Ice Spinner","Avalanche","Icicle Crash"] 
+            "moves":["Belly Drum","Ice Spinner","Avalanche","Icicle Crash"]
         },
         "Belly Drum DPS (SpD)": {
             "level":100,
@@ -938,7 +938,7 @@
             "ability":"Sheer Force",
             "nature":"Adamant",
             "evs":{"at":252,"sd":252},
-            "moves":["Belly Drum","Ice Spinner","Avalanche","Icicle Crash"] 
+            "moves":["Belly Drum","Ice Spinner","Avalanche","Icicle Crash"]
         },
         "Fast Belly Drum DPS": {
             "level":100,
@@ -946,7 +946,7 @@
             "ability":"Slush Rush",
             "nature":"Adamant",
             "evs":{"at":252,"sp":252},
-            "moves":["Belly Drum","Ice Spinner","Avalanche","Icicle Crash"] 
+            "moves":["Belly Drum","Ice Spinner","Avalanche","Icicle Crash"]
         },
         "Sheer Force Entrainment (Def)": {
             "level":100,
@@ -954,7 +954,7 @@
             "ability":"Sheer Force",
             "nature":"Impish",
             "evs":{"hp":252,"df":252},
-            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"] 
+            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"]
         },
         "Sheer Force Entrainment (SpD)": {
             "level":100,
@@ -962,7 +962,7 @@
             "ability":"Sheer Force",
             "nature":"Careful",
             "evs":{"hp":252,"sd":252},
-            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"] 
+            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"]
         }
     },
     "Cetoddle": {
@@ -972,7 +972,7 @@
             "ability":"Sheer Force",
             "nature":"Impish",
             "evs":{"hp":252,"df":252},
-            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"] 
+            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"]
         },
         "Sheer Force Entrainment (SpD)": {
             "level":100,
@@ -980,7 +980,7 @@
             "ability":"Sheer Force",
             "nature":"Careful",
             "evs":{"hp":252,"sd":252},
-            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"] 
+            "moves":["Entrainment","Helping Hand","Snowscape","Ice Spinner"]
         }
     },
     "Chandelure": {
@@ -1080,7 +1080,7 @@
             "ability":"Beads of Ruin",
             "nature":"Modest",
             "evs":{"hp":252,"sa":252},
-            "moves":["Nasty Plot","Overheat","Flamethrower","Dark Pulse"]  
+            "moves":["Nasty Plot","Overheat","Flamethrower","Dark Pulse"]
         },
         "Ruin Support": {
             "level":100,
@@ -1096,7 +1096,7 @@
             "ability":"Sword of Ruin",
             "nature":"Adamant",
             "evs":{"hp":252,"at":252},
-            "moves":["Swords Dance","Ice Spinner","Crunch","Avalanche"]  
+            "moves":["Swords Dance","Ice Spinner","Crunch","Avalanche"]
         },
         "Ruin Support": {
             "level":100,
@@ -3107,7 +3107,7 @@
             "ivs":{"at":0, "sp":0},
             "moves":["Screech","Acid Spray","Helping Hand","Mud-Slap"]
         }
-    }, 
+    },
     "Munkidori": {
         "Special DPS": {
             "level":100,
@@ -3481,7 +3481,7 @@
             "ability":"Intimidate",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Acid Spray","Chilling Water","Acupressure","Taunt"] 
+            "moves":["Acid Spray","Chilling Water","Acupressure","Taunt"]
         }
     },
     "Qwilfish-Hisui":{
@@ -3491,7 +3491,18 @@
             "ability":"Intimidate",
             "nature":"Bold",
             "evs":{"hp":252,"df":252},
-            "moves":["Acid Spray","Chilling Water","Acupressure","Taunt"] 
+            "moves":["Acid Spray","Chilling Water","Acupressure","Taunt"]
+        }
+    },
+    "Regirock": {
+        "Body Press DPS": {
+            "level":100,
+            "teraType":"Fighting",
+            "item":"Life Orb",
+            "ability":"Clear Body",
+            "nature":"Impish",
+            "evs":{"hp":252,"df":252},
+            "moves":["Iron Defense","Body Press","Drain Punch","Substitute"]
         }
     },
     "Ribombee": {
@@ -4439,7 +4450,7 @@
             "ability":"Skill Link",
             "nature":"Relaxed",
             "evs":{"hp":252,"df":252},
-            "moves":["Bullet Seed","Helping Hand","Screech","Feather Dance"] 
+            "moves":["Bullet Seed","Helping Hand","Screech","Feather Dance"]
         },
         "Skill Link Support (SpD)": {
             "level":100,
@@ -4447,7 +4458,7 @@
             "ability":"Skill Link",
             "nature":"Sassy",
             "evs":{"hp":252,"sd":252},
-            "moves":["Bullet Seed","Helping Hand","Screech","Tailwind"] 
+            "moves":["Bullet Seed","Helping Hand","Screech","Tailwind"]
         }
     },
     "Toxapex": {

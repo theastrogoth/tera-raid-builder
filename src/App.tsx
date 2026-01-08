@@ -54,7 +54,7 @@ type LanguageOption = 'en' | 'ja' | 'fr' | 'es' | 'de' | 'it' | 'ko' | 'zh-Hant'
 //     console.log(message)
 //     const str = shrinkstr.serialize(obj);
 //     console.log(str)
-//   } 
+//   }
 //   async function compressMovesSpecies() {
 //     const fetchedAllSpecies = await PokedexService.getAllSpecies();
 //     compressAndLog(fetchedAllSpecies, "species")
@@ -75,7 +75,7 @@ for (let [specie, data] of Object.entries(speciesData)) {
     _allSpecies.set(specie as SpeciesName, data as PokemonData);
   }
 }
-  
+
 const movesData = recursiveEmptiesToNull(deserialize(movesText));
 const _allMoves = new Map<MoveName,MoveData>();
 for (let [move, data] of Object.entries(movesData)) {
@@ -95,7 +95,7 @@ function App() {
 
   const location = useLocation();
   const hash = location.hash
-  
+
   const [theme, setTheme] = useState(createTheme({
     breakpoints: {
       values: {
@@ -186,7 +186,7 @@ function App() {
         }
       }
     }
-  }));  
+  }));
 
   useEffect(() => {
     setTheme(createTheme(
@@ -310,30 +310,30 @@ function App() {
     }
   }, [language])
 
-  const gen = Generations.get(9); 
+  const gen = Generations.get(9);
 
   const [raidBoss, setRaidBoss] = useState(
     new Raider(0, "Raid Boss", false, false, new Field(), new Pokemon(gen, "Pikachu", {
       shieldData: {hpTrigger: 0, timeTrigger: 0, shieldCancelDamage: 0, shieldDamageRate: 0, shieldDamageRateTera: 0, shieldDamageRateTeraChange: 0}
-    }), 
-    [], 
-    [], 
+    }),
+    [],
+    [],
     [])
   );
   const [raider1, setRaider1] = useState(
-    new Raider(1, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(1, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"),
     [])
   );
   const [raider2, setRaider2] = useState(
-    new Raider(2, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(2, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"),
     [])
   );
   const [raider3, setRaider3] = useState(
-    new Raider(3, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(3, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"),
     [])
   );
   const [raider4, setRaider4] = useState(
-    new Raider(4, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"), 
+    new Raider(4, "Loading...", false, false, new Field(), new Pokemon(gen, "Pikachu"),
     [])
   );
 
@@ -360,13 +360,13 @@ function App() {
   const [credits, setCredits] = useState<string>("");
   const [groups, setGroups] = useState<TurnGroupInfo[]>([
     {
-      id: 0, 
+      id: 0,
       repeats: 1,
       turns: [
         {
           id: 0,
           group: 0,
-          moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "avg", hits: 1}, moveData: {name: "(No Move)" as MoveName}}, 
+          moveInfo: {userID: 1, targetID: 0, options: {crit: false, secondaryEffects: false, roll: "avg", hits: 1}, moveData: {name: "(No Move)" as MoveName}},
           bossMoveInfo: {userID: 0, targetID: 1, options: {crit: false, secondaryEffects: false, roll: "avg", hits: 1}, moveData: {name: "(Most Damaging)" as MoveName}},
         }
       ]
@@ -432,7 +432,7 @@ function App() {
   }, [title, notes, credits, results, substitutes1, substitutes2, substitutes3, substitutes4]);
 
   return (
-  <ThemeProvider theme={theme}> 
+  <ThemeProvider theme={theme}>
     <CssBaseline />
     <Backdrop
       sx={{ color: theme.palette.primary.main, zIndex: (theme) => theme.zIndex.drawer + 1 }}
@@ -440,7 +440,7 @@ function App() {
     >
       <CircularProgress color="inherit" />
     </Backdrop>
-    <Box>  
+    <Box>
       <Navbar lightMode={lightMode} setLightMode={setLightMode} prettyMode={prettyMode} setPrettyMode={setPrettyMode} language={language} setLanguage={setLanguage} translationKey={translationKey} />
     </Box>
     <Stack direction="row">
@@ -450,9 +450,9 @@ function App() {
             <Box width="575px">
               <StratLoadField
                 raidInputProps={raidInputProps}
-                setTitle={setTitle} 
-                setCredits={setCredits} 
-                setNotes={setNotes} 
+                setTitle={setTitle}
+                setCredits={setCredits}
+                setNotes={setNotes}
                 setSubstitutes={[setSubstitutes1, setSubstitutes2, setSubstitutes3, setSubstitutes4]}
                 setLoading={setLoading}
                 allMoves={allMoves}
@@ -514,7 +514,7 @@ function App() {
             <Stack>
               <Stack direction="row" sx={{ p: 2 }}>
                 <Box flexGrow={1} />
-                  <LinkButton 
+                  <LinkButton
                     title={title} notes={notes} credits={credits}
                     raidInputProps={raidInputProps}
                     setTitle={setTitle} setNotes={setNotes} setCredits={setCredits}
@@ -543,14 +543,20 @@ function App() {
               <Stack direction="row" sx={{ paddingTop: 2 }}>
                 <Box flexGrow={1} />
                 <Typography variant="body1">
-                  Looking for raid buddies? Want to share your raid strategies? Check out the <Link href="https://www.reddit.com/r/PokePortal/" target="_blank">r/PokePortal</Link> community on Reddit!
+                  Looking for raid buddies? Want to share your raid strategies? Check out these Pokémon Discord communities:
                 </Typography>
                 <Box flexGrow={1} />
               </Stack>
-              <Stack direction="row" sx={{ p: 1 }}>
+              <Stack direction="row" spacing={5} sx={{ p: 1 }}>
                 <Box flexGrow={1} />
-                <Link href="https://www.reddit.com/r/PokePortal/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
-                  <img src={process.env.PUBLIC_URL + "/pokeportal.png"} alt="PokePortal" width="400px" height="80px" />
+                <Link href="https://discord.gg/KtSQh34yB2" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                  <img src={process.env.PUBLIC_URL + "/LZA_discord.png"} alt="Pokémon Legends Z-A" width="96" height="96" style={{borderRadius: "16"}} />
+                </Link>
+                <Link href="https://discord.gg/YcTd6M8rQb" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                  <img src={process.env.PUBLIC_URL + "/TRB_discord.png"} alt="Team Rocket Base" width="96" height="96" style={{borderRadius: "16"}} />
+                </Link>
+                <Link href="https://discord.gg/naTzV7YTnh" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                  <img src={process.env.PUBLIC_URL + "/SV_discord.png"} alt="Pokémon Legends Z-A" width="96" height="96" style={{borderRadius: "16"}} />
                 </Link>
                 <Box flexGrow={1} />
               </Stack>

@@ -42,8 +42,8 @@ function PrettyEditModeButton({prettyMode, setPrettyMode, translationKey}: {pret
             onClick={() => setPrettyMode(!prettyMode)}
             startIcon={prettyMode ? <EditIcon /> :  <ImageIcon />}
         >
-            {prettyMode ? 
-                getTranslation("Edit Mode", translationKey) : 
+            {prettyMode ?
+                getTranslation("Edit Mode", translationKey) :
                 getTranslation("Pretty Mode", translationKey)
             }
         </Button>
@@ -53,7 +53,7 @@ function PrettyEditModeButton({prettyMode, setPrettyMode, translationKey}: {pret
 function LanguageMenuButton({language, setLanguage, anchorEl, handleClick, handleClose}: {language: LanguageOption, setLanguage: (l: LanguageOption) => void, anchorEl: HTMLElement | null, handleClick: (event: React.MouseEvent<HTMLButtonElement>) => void, handleClose: () => void}) {
     return (
     <>
-        <Button 
+        <Button
             color="inherit"
             onClick={handleClick}
             startIcon={<LanguageIcon />}
@@ -85,7 +85,7 @@ function LanguageMenuButton({language, setLanguage, anchorEl, handleClick, handl
     )
 }
 
-function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, setLanguage, translationKey}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>, language: LanguageOption, setLanguage: (l: LanguageOption) => void, translationKey: any}) {  
+function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, setLanguage, translationKey}: {lightMode: 'light' | 'dark', setLightMode: React.Dispatch<React.SetStateAction<'light' | 'dark'>>, prettyMode: boolean, setPrettyMode: React.Dispatch<React.SetStateAction<boolean>>, language: LanguageOption, setLanguage: (l: LanguageOption) => void, translationKey: any}) {
     const [langAnchorEl, setLangAnchorEl] = useState<null | HTMLElement>(null);
     const handleLangClick = (event: React.MouseEvent<HTMLButtonElement>) => {
         setLangAnchorEl(event.currentTarget);
@@ -108,7 +108,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                     <Box paddingRight={2} sx={{ transform: "translate(0px, 2px)"}}>
                         <img src={process.env.PUBLIC_URL + "/logo192.png"} height={60} alt="" />
                     </Box>
-                    <Typography 
+                    <Typography
                         variant="h4"
                         sx={{
                             mr: 1,
@@ -121,7 +121,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                         Tera Raid Builder
                     </Typography>
                     <Box sx = {{ transform: "translate(-3px, 8px)"}}>
-                        <Typography 
+                        <Typography
                             variant="body2"
                             sx={{
                                 mr: 1,
@@ -141,7 +141,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                         <LanguageMenuButton language={language} setLanguage={setLanguage} anchorEl={langAnchorEl} handleClick={handleLangClick} handleClose={handleLangClose} />
                     </Box>
                     <Box component="div" sx={{ display: {xs: "none", md: "flex"} }}>
-                        <Button 
+                        <Button
                             color="inherit"
                             onClick={() => setShowHelp(!showHelp)}
                             startIcon={<HelpOutline />}
@@ -173,7 +173,7 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                                 <Box component="div" sx={{ display: {xs: 'flex', sm: 'none'} }}>
                                     <LanguageMenuButton language={language} setLanguage={setLanguage} anchorEl={langAnchorEl} handleClick={handleLangClick} handleClose={handleLangClose} />
                                 </Box>
-                                <Button 
+                                <Button
                                     color="inherit"
                                     onClick={() => setShowHelp(!showHelp)}
                                     startIcon={<HelpOutline />}
@@ -186,8 +186,8 @@ function Navbar({lightMode, setLightMode, prettyMode, setPrettyMode, language, s
                     </Box>
                     <Box component="div" sx={{ width: "20px", display: {xs: "none", lg: "flex"} }} />
                     <Box component="div" sx={{ display: {xs: "none", lg: "flex"} }}>
-                        <Link href="https://www.reddit.com/r/PokePortal/" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
-                            <img src={process.env.PUBLIC_URL + "/pp_icon.png"} alt="PokePortal" width="50px" height="50px" />
+                        <Link href="https://github.com/theastrogoth/tera-raid-builder" target="_blank" sx={{ transform: "translate(0px, 2px)"}}>
+                            <img src={process.env.PUBLIC_URL + "/github-mark-white.png"} alt="Github" width="40px" height="40px" />
                         </Link>
                     </Box>
                 </Toolbar>

@@ -416,6 +416,7 @@
     "Infernape": {
         "Rock All Night": "infernape/main",
         "Rock All Night (Trio)": "infernape/rock_all_night_3",
+        "Kyogre T0.75": "infernape/kyogre",
         "Steely T1": "infernape/steely",
         "Minimal T1 Anger Point": "infernape/anger_point",
         "Passimian T1": "infernape/passimian",
@@ -608,6 +609,7 @@
     },
     "Emboar": {
         "Care Bear Carnage": "emboar/main",
+        "Ursaluna Semi-T1": "emboar/ursaluna",
         "Great Tusk T1.25": "emboar/great_tusk",
         "Avalugg OHKO": "emboar/avalugg",
         "Sandy Shocks OHKO": "emboar/sandy_shocks",
@@ -639,6 +641,7 @@
         "Zen and Psy Psy-cle into the Swamp": "swampert/zen_and_psy",
         "Gastrosire Redux": "swampert/gastrosire_redux",
         "Psychic Party": "swampert/psychic_party",
+        "Armarouge T1.25": "swampert/armarouge",
         "Espeon T1.25": "swampert/espeon",
         "Golurk T1.25": "swampert/golurk",
         "Idk Man, I'm Doing My Best": "swampert/idk",
@@ -718,6 +721,8 @@
         "Gastroporeon": "blastoise/gastroporeon",
         "Soak Up the Sun": "blastoise/soak_up_the_sun",
         "Topsy-Turvying Up the Heat": "blastoise/topsy_turvying_up_the_heat",
+        "Charizard T1.75": "blastoise/charizard",
+        "Epathra T1.75": "blastoise/espathra",
         "Mechamothra Overcooks Gamera": "blastoise/mechamothra",
         "Godzilla vs. Gamera": "blastoise/godzilla_vs_gamera",
         "Zen (and PSY) Turn Blastoise into a Sacred Turtle Soup!": "blastoise/zen_and_psy",
@@ -774,6 +779,7 @@
     },
     "Blaziken": {
         "Mifrydon": "blaziken/main",
+        "Calyrex T0.75": "blaziken/calyrex",
         "Bellibolt T1": "blaziken/bellibolt",
         "Eeveelutions Celebrate the New Year": "blaziken/eevee_new_year",
         "Eeveelutions: Every Eevee Edition": "blaziken/every_eevee",
@@ -821,6 +827,7 @@
     },
     "Samurott-Hisui": {
         "Micrydon": "h_samurott/main",
+        "Miraidon T1": "h_samurott/miraidon",
         "Team Eeveelution": "h_samurott/eeveelution",
         "Stolen Sharpness": "h_samurott/stolen_sharpness",
         "Hamurott on Ice": "h_samurott/hamurott_on_ice",
@@ -857,6 +864,7 @@
         "Aura 101": "eevee/aura101",
         "Ostrich Carries Two": "eevee/espathra",
         "Glimmana Duo": "eevee/glimmana",
+        "Tauros T2": "eevee/tauros",
         "Eevee vs. Eevee": "eevee/eevee_vs_eevee",
         "The Cat Coven": "eevee/cat_coven",
         "Diamonds Are A Raider's Best Friend": "eevee/diamonds",
@@ -867,6 +875,7 @@
     "Typhlosion-Hisui": {
         "Big Wave": "h_typhlosion/main",
         "Soggy Sushi": "h_typhlosion/sushi",
+        "Dondozo T1": "h_typhlosion/dondozo",
         "T1 OHKO": "h_typhlosion/t1",
         "Vafoureon": "h_typhlosion/vafoureon",
         "Puppies of Past & Present": "h_typhlosion/puppies",
@@ -888,6 +897,8 @@
     },
     "Decidueye-Hisui": {
         "Seeing Red": "h_decidueye/main",
+        "Tauros T1": "h_decidueye/tauros",
+        "Charizard T1": "h_decidueye/charizard",
         "Certified Bug Moment": "h_decidueye/bug_moment",
         "Ready the Cannon": "h_decidueye/ready_the_cannon",
         "Tickle Squad: Charizard Edition": "h_decidueye/tickle_squad_charizard",
@@ -904,6 +915,7 @@
     "Rillaboom": {
         "Korzilla vs. Rilla Kong": "rillaboom/main",
         "Oops! All Koraidon": "rillaboom/all_koraidon",
+        "Tauros T1": "rillaboom/tauros",
         "Tickle Squad": "rillaboom/tickle_squad",
         "Shrimpiosis": "rillaboom/shrimpiosis",
         "Pump Up the Cham!": "rillaboom/pump_up_the_cham",
@@ -916,6 +928,7 @@
     "Delphox": {
         "Bonk!": "delphox/main",
         "Rain & Sustain": "delphox/rain&sustain",
+        "Iron Treads T1": "delphox/iron_treads",
         "Nukebro vs. Delphox": "delphox/nukebro",
         "Nukebro vs. Delphox Again": "delphox/nukebro_2",
         "Nuke Baby": "delphox/nuke_baby"
@@ -923,6 +936,7 @@
     "Chesnaught": {
         "Flower Power": "chesnaught/main",
         "Go For Ghold": "chesnaught/ghold",
+        "Gholdengo T1": "chesnaught/gholdengo",
         "Nukebro vs. Chesnaught": "chesnaught/nukebro",
         "Simple as That, Baby!": "chesnaught/simple"
     },
@@ -934,16 +948,19 @@
     },
     "Typhlosion": {
         "AP Krook": "typhlosion/main",
+        "Krookodile T0.75": "typhlosion/krookodile",
         "Hydriggly": "typhlosion/hydriggly",
         "Nukebro vs. Typhlosion": "typhlosion/nukebro"
     },
     "Samurott": {
         "Koraidon": "samurott/main",
         "AP Fire Bull": "samurott/tauros",
+        "Tauros T1": "samurott/tauros_1",
         "Nukebro vs. Samurott": "samurott/nukebro"
     },
     "Decidueye": {
         "Miraidon": "decidueye/main",
+        "Miraidon T1": "decidueye/miraidon",
         "Rotom-tisserie Owl": "decidueye/rotom",
         "Nukebro vs. Decidueye": "decidueye/nukebro"
     },
@@ -958,9 +975,14 @@
     },
     "Pikachu": {
         "Terantis": "pikachu/terantis",
+        "Lurantis T2.5": "pikachu/lurantis",
         "Nukebro vs. Pikachu": "pikachu/nukebro"
     },
+    "Greninja": {
+        "Great Tusk T1.25": "greninja/great_tusk"
+    },
     "Cinderace": {
+        "Espathra T1": "cinderace/espathra",
         "Nukebro vs. Cinderace": "cinderace/nukebro"
     },
     "Charizard": {
@@ -968,6 +990,7 @@
         "Meteor Shower (Trio)": "charizard/meteor_shower_3",
         "Whipping Up a Storm": "charizard/main",
         "Sweet Dreams": "charizard/sweet_dreams",
+        "Haxorus T0.75": "charizard/haxorus",
         "Team Eeveelutions Takes Down a Mighty Dragon": "charizard/eeveelutions",
         "Blubber Bubble": "charizard/blubber_bubble",
         "Blizzard Warning": "charizard/blizzard_warning",

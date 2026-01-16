@@ -964,6 +964,8 @@
         "Nukebro vs. Cinderace": "cinderace/nukebro"
     },
     "Charizard": {
+        "Meteor Shower": "charizard/meteor_shower",
+        "Meteor Shower (Trio)": "charizard/meteor_shower_3",
         "Whipping Up a Storm": "charizard/main",
         "Sweet Dreams": "charizard/sweet_dreams",
         "Team Eeveelutions Takes Down a Mighty Dragon": "charizard/eeveelutions",

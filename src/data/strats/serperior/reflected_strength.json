@@ -186,7 +186,7 @@
             "item": "Eviolite",
             "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 4,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,

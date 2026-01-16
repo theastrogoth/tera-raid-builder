@@ -1309,12 +1309,6 @@ export function calculateAttackSMSSSV(
     desc.attackBoost = attackSource.boosts[attackStat];
   }
 
-  // unlike all other attack modifiers, Hustle gets applied directly
-  if (attacker.hasAbility('Hustle') && move.category === 'Physical') {
-    attack = pokeRound((attack * 3) / 2);
-    desc.attackerAbility = attacker.ability;
-  }
-
   const attackerAtkCheerStack = getAtkCheerStack(attacker, field.attackerSide);
   const attackerDefCheerStack = getDefCheerStack(attacker, field.attackerSide);
   const defenderAtkCheerStack = getDefCheerStack(defender, field.defenderSide);
@@ -1329,6 +1323,12 @@ export function calculateAttackSMSSSV(
   if (move.named('Body Press') && attackerDefCheerStack) {
     attack = Math.floor(attack * (1 + attackerDefCheerStack/2));
     desc.isDefCheeredBodyPress = attackerDefCheerStack;
+  }
+
+  // unlike all other attack modifiers, Hustle gets applied directly
+  if (attacker.hasAbility('Hustle') && move.category === 'Physical') {
+    attack = pokeRound((attack * 3) / 2);
+    desc.attackerAbility = attacker.ability;
   }
 
   const atMods = calculateAtModsSMSSSV(gen, attacker, defender, move, field, desc);
@@ -1505,6 +1505,12 @@ export function calculateDefenseSMSSSV(
     desc.defenseBoost = defender.boosts[defenseStat];
   }
 
+  const defenderDefCheerStack = getDefCheerStack(defender, field.defenderSide);
+  if (defenderDefCheerStack){
+    defense = Math.floor(defense * (1 + defenderDefCheerStack/2));
+    desc.isDefCheered = defenderDefCheerStack;
+  }
+
   // unlike all other defense modifiers, Sandstorm SpD boost gets applied directly
   if (field.hasWeather('Sand') && defender.hasType('Rock') && !hitsPhysical) {
     defense = pokeRound((defense * 3) / 2);
@@ -1513,12 +1519,6 @@ export function calculateDefenseSMSSSV(
   if (field.hasWeather('Snow') && defender.hasType('Ice') && hitsPhysical) {
     defense = pokeRound((defense * 3) / 2);
     desc.weather = field.weather;
-  }
-
-  const defenderDefCheerStack = getDefCheerStack(defender, field.defenderSide);
-  if (defenderDefCheerStack){
-    defense = Math.floor(defense * (1 + defenderDefCheerStack/2));
-    desc.isDefCheered = defenderDefCheerStack;
   }
 
   const dfMods = calculateDfModsSMSSSV(

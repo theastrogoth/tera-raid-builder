@@ -44,6 +44,8 @@ import {
   OF16, OF32,
   pokeRound,
   isQPActive,
+  getAtkCheerStack,
+  getDefCheerStack,
 } from './util';
 
 export function calculateSMSSSV(
@@ -371,7 +373,7 @@ export function calculateSMSSSV(
       (move.hasType('Water') && defender.hasAbility('Dry Skin', 'Storm Drain', 'Water Absorb')) ||
       (move.hasType('Electric') &&
         defender.hasAbility('Lightning Rod', 'Motor Drive', 'Volt Absorb')) ||
-      (move.hasType('Ground') && 
+      (move.hasType('Ground') &&
         !isGrounded(defender, field) && !move.named('Thousand Arrows') &&
         defender.hasAbility('Levitate')) ||
       (move.flags.bullet && defender.hasAbility('Bulletproof')) ||
@@ -569,7 +571,7 @@ export function calculateSMSSSV(
   }
 
   // In Raids, stellar moves are always boosted
-  const isStellarBoosted = teraType === 'Stellar'; 
+  const isStellarBoosted = teraType === 'Stellar';
   if (isStellarBoosted) {
     if (attacker.hasOriginalType(move.type)) {
       stabMod += 2048;
@@ -627,7 +629,7 @@ export function calculateSMSSSV(
     let usedWhiteHerb = false;
     let dropCount = attacker.boosts[attackStat];
     for (let times = 0; times < move.timesUsed!; times++) {
-      const newAttack = getModifiedStat(attack, dropCount);
+      const newAttack = getModifiedStat(attack, dropCount, gen);
       let damageMultiplier = 0;
       damage = damage.map(affectedAmount => {
         if (times) {
@@ -674,13 +676,13 @@ export function calculateSMSSSV(
   // Tera Raid Shield
   if (defender.shieldData && defender.shieldActive) {
     // TODO: Handle case when attacker tera and move type do not match
-    let damageCoef = atkTeraType === move.type 
-      ? defender.shieldData.shieldDamageRateTera / 100 
-      : atkTeraType ? 
-        defender.shieldData.shieldDamageRateTeraChange / 100 
+    let damageCoef = atkTeraType === move.type
+      ? defender.shieldData.shieldDamageRateTera / 100
+      : atkTeraType ?
+        defender.shieldData.shieldDamageRateTeraChange / 100
         : defender.shieldData.shieldDamageRate / 100;
     damageCoef = damageCoef || 1;
-    result.damage = result.damage.map((dmg) => typeof(dmg) === "number" 
+    result.damage = result.damage.map((dmg) => typeof(dmg) === "number"
       ? Math.max(dmg > 0 ? 1 : 0, pokeRound(dmg * damageCoef))
       : dmg.map((dmg2) => Math.max(dmg2 > 0 ? 1 : 0, pokeRound(dmg2 * damageCoef))
     )) as number[] | [number[], number[]];
@@ -711,7 +713,7 @@ export function calculateBasePowerSMSSSV(
   if (movesFirst === undefined) {
     turnOrder = attacker.stats.spe > defender.stats.spe ? 'first' : 'last';
     turnOrder = field.isTrickRoom ? (turnOrder === 'first' ? 'last' : 'first') : turnOrder;
-  }  
+  }
 
   let basePower: number;
   const atkTeraType = attacker.isTera ? attacker.teraType : undefined;
@@ -1307,6 +1309,22 @@ export function calculateAttackSMSSSV(
     desc.attackBoost = attackSource.boosts[attackStat];
   }
 
+  const attackerAtkCheerStack = getAtkCheerStack(attacker, field.attackerSide);
+  const attackerDefCheerStack = getDefCheerStack(attacker, field.attackerSide);
+  const defenderAtkCheerStack = getDefCheerStack(defender, field.defenderSide);
+  if (attackerAtkCheerStack && !move.named('Body Press') && !move.named('Foul Play')) {
+    attack = Math.floor(attack * (1 + attackerAtkCheerStack/2));
+    desc.isAtkCheered = attackerAtkCheerStack;
+  }
+  if (move.named('Foul Play') && defenderAtkCheerStack) {
+    attack = Math.floor(attack * (1 + defenderAtkCheerStack/2));
+    desc.isAtkCheered = defenderAtkCheerStack;
+  }
+  if (move.named('Body Press') && attackerDefCheerStack) {
+    attack = Math.floor(attack * (1 + attackerDefCheerStack/2));
+    desc.isDefCheeredBodyPress = attackerDefCheerStack;
+  }
+
   // unlike all other attack modifiers, Hustle gets applied directly
   if (attacker.hasAbility('Hustle') && move.category === 'Physical') {
     attack = pokeRound((attack * 3) / 2);
@@ -1416,8 +1434,8 @@ export function calculateAtModsSMSSSV(
     (isQPActive(attacker, field))
   ) {
     if (
-      (move.category === 'Physical' && getQPBoostedStat(attacker) === 'atk') ||
-      (move.category === 'Special' && getQPBoostedStat(attacker) === 'spa')
+      (move.category === 'Physical' && getQPBoostedStat(attacker, getAtkCheerStack(attacker, field.attackerSide), getDefCheerStack(attacker, field.attackerSide)) === 'atk') ||
+      (move.category === 'Special'  && getQPBoostedStat(attacker, getAtkCheerStack(attacker, field.attackerSide), getDefCheerStack(attacker, field.attackerSide)) === 'spa')
     ) {
       atMods.push(5325);
       desc.attackerAbility = attacker.ability;
@@ -1453,25 +1471,6 @@ export function calculateAtModsSMSSSV(
     desc.attackerItem = attacker.item;
   }
 
-  const attackerAtkCheerStack = (field.attackerSide.isAtkCheered ? 1 : 0) + attacker.permanentAtkCheers;
-  const attackerDefCheerStack = (field.attackerSide.isDefCheered ? 1 : 0) + attacker.permanentDefCheers;
-  const defenderAtkCheerStack = (field.defenderSide.isAtkCheered ? 1 : 0) + defender.permanentAtkCheers;
-
-  if (attackerAtkCheerStack && !move.named('Body Press') && !move.named('Foul Play')) {
-    atMods.push(4096 * (1 + attackerAtkCheerStack/2));
-    desc.isAtkCheered = attackerAtkCheerStack;
-  }
-
-  if (move.named('Foul Play') && defenderAtkCheerStack) {
-    atMods.push(4096 * (1 + defenderAtkCheerStack/2));
-    desc.isAtkCheered = defenderAtkCheerStack;
-  }
-
-  if (move.named('Body Press') && attackerDefCheerStack) {
-    atMods.push(4096 * (1 + attackerDefCheerStack/2));
-    desc.isDefCheeredBodyPress = attackerDefCheerStack;
-  }
-
   return atMods;
 }
 
@@ -1504,6 +1503,12 @@ export function calculateDefenseSMSSSV(
   } else {
     defense = defender.stats[defenseStat];
     desc.defenseBoost = defender.boosts[defenseStat];
+  }
+
+  const defenderDefCheerStack = getDefCheerStack(defender, field.defenderSide);
+  if (defenderDefCheerStack){
+    defense = Math.floor(defense * (1 + defenderDefCheerStack/2));
+    desc.isDefCheered = defenderDefCheerStack;
   }
 
   // unlike all other defense modifiers, Sandstorm SpD boost gets applied directly
@@ -1590,8 +1595,8 @@ export function calculateDfModsSMSSSV(
     (isQPActive(defender, field))
   ) {
     if (
-      (hitsPhysical && getQPBoostedStat(defender, !!field.isWonderRoom) === 'def') ||
-      (!hitsPhysical && getQPBoostedStat(defender, !!field.isWonderRoom) === 'spd')
+      (hitsPhysical && getQPBoostedStat(defender, field.defenderSide.isAtkCheered, field.defenderSide.isDefCheered, !!field.isWonderRoom) === 'def') ||
+      (!hitsPhysical && getQPBoostedStat(defender, field.defenderSide.isAtkCheered, field.defenderSide.isDefCheered, !!field.isWonderRoom) === 'spd')
     ) {
       desc.defenderAbility = defender.ability;
       dfMods.push(5324);
@@ -1608,12 +1613,6 @@ export function calculateDfModsSMSSSV(
   ) {
     dfMods.push(8192);
     desc.defenderItem = defender.item;
-  }
-
-  const defenderDefCheerStack = (field.defenderSide.isDefCheered ? 1 : 0) + defender.permanentDefCheers;
-  if (defenderDefCheerStack){
-    dfMods.push(4096 * (1 + defenderDefCheerStack/2));
-    desc.isDefCheered = defenderDefCheerStack;
   }
 
   return dfMods;

@@ -60,8 +60,8 @@
             "item": "Eviolite",
             "nature": "Brave",
             "evs": {
-                "hp": 0,
-                "atk": 252,
+                "hp": 12,
+                "atk": 244,
                 "def": 0,
                 "spa": 0,
                 "spd": 252,

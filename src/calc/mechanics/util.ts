@@ -111,7 +111,7 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
     speedMods.push(6144);
   } else if (pokemon.hasAbility('Slow Start') && pokemon.abilityOn) {
     speedMods.push(2048);
-  } else if (isQPActive(pokemon, field) && getQPBoostedStat(pokemon, !!field.isWonderRoom, gen) === 'spe') {
+  } else if (isQPActive(pokemon, field) && getQPBoostedStat(pokemon, getAtkCheerStack(pokemon, side), getDefCheerStack(pokemon, side), !!field.isWonderRoom, gen) === 'spe') {
     speedMods.push(6144);
   }
 
@@ -130,6 +130,20 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
 
   speed = Math.min(gen.num <= 2 ? 999 : 10000, speed);
   return Math.max(0, speed);
+}
+
+export function getAtkCheerStack(
+  pokemon: Pokemon,
+  side: Side
+) {
+  return pokemon.permanentAtkCheers + (side.isAtkCheered ? 1 : 0);
+}
+
+export function getDefCheerStack(
+  pokemon: Pokemon,
+  side: Side
+) {
+  return pokemon.permanentDefCheers + (side.isDefCheered ? 1 : 0);
 }
 
 export function getMoveEffectiveness(
@@ -417,6 +431,8 @@ export function getBaseDamage(level: number, basePower: number, attack: number, 
  */
 export function getQPBoostedStat(
   pokemon: Pokemon,
+  atkCheers?: number,
+  defCheers?: number,
   isWonderRoom?: boolean,
   gen?: Generation
 ): StatID {
@@ -428,13 +444,15 @@ export function getQPBoostedStat(
     return pokemon.boostedStat; // override.
   }
   let bestStat: StatID = 'atk';
+  let bestCheers = atkCheers || 0;
   for (const stat of ['def', 'spa', 'spd', 'spe'] as StatID[]) {
+    const cheers = (stat === 'spa') ? (atkCheers || 0) : (stat === 'def' || stat === 'spd') ? (defCheers || 0) : 0
     if (
-      // proto/quark ignore boosts when considering their boost
-      getModifiedStat(pokemon.rawStats[stat]!, pokemon.boosts[stat]!, gen) >
-      getModifiedStat(pokemon.rawStats[bestStat]!, pokemon.boosts[bestStat]!, gen)
+      Math.floor(getModifiedStat(pokemon.rawStats[stat]!, pokemon.boosts[stat]!, gen) * (1 + cheers/2)) >
+      Math.floor(getModifiedStat(pokemon.rawStats[bestStat]!, pokemon.boosts[bestStat]!, gen) * (1 + bestCheers/2))
     ) {
       bestStat = stat;
+      bestCheers = cheers;
     }
   }
   if (isWonderRoom) {

@@ -10,17 +10,17 @@ import { RaidBattleResults } from "../raidcalc/RaidBattle";
 
 function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], turn: RaidTurnInfo, result: RaidTurnResult, translationKey: any}) {
 
-    let name = raiders[turn.moveInfo.userID].name;
-    let user = raiders[turn.moveInfo.userID].role;
+    let name = raiders[turn.moveInfo.userID]?.name;
+    let user = raiders[turn.moveInfo.userID]?.role;
 
-    let target = raiders[turn.moveInfo.targetID].role;
-    if (turn.moveInfo.userID === turn.moveInfo.targetID) { 
+    let target = raiders[turn.moveInfo.targetID]?.role;
+    if (turn.moveInfo.userID === turn.moveInfo.targetID) {
         target = ""
     }
     if ([undefined, "user", "user-and-allies", "all-allies", "users-field", "opponents-field", "entire-field", ].includes(turn.moveInfo.moveData.target)) {
         target = "";
     }
-    let targetName = raiders[turn.moveInfo.targetID].name;
+    let targetName = raiders[turn.moveInfo.targetID]?.name;
 
     let move: string = result ? result.raiderMoveUsed : "";
     if (move ==="(No Move)") {
@@ -32,7 +32,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
         name = raiders[0].name;
         user = raiders[0].role;
         target = raiders[turn.moveInfo.userID].role;
-        if (turn.bossMoveInfo.targetID === turn.bossMoveInfo.userID) { 
+        if (turn.bossMoveInfo.targetID === turn.bossMoveInfo.userID) {
             target = ""
         }
         if ([undefined, "user", "user-and-allies", "all-allies", "users-field", "opponents-field", "entire-field", "all-opponents", "all-pokemon", "all-other-pokemon"].includes(turn.bossMoveInfo.moveData.target)) {
@@ -69,7 +69,7 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
                     { move === "Waits" ? "" : getTranslation("uses", translationKey) }
                 </Typography>
                 <Stack direction="row" spacing={0} alignItems="center" justifyContent="center">
-                    {teraActivated && 
+                    {teraActivated &&
                         <Box
                             sx={{
                                 width: "25px",
@@ -118,7 +118,7 @@ function MoveGroup({group, results, raiders, index, max, translationKey}: {group
             <Stack direction="row" alignItems="center" justifyContent="center">
                 <Stack direction="column" spacing={1}>
                     {
-                        turns.map((t, i) => { 
+                        turns.map((t, i) => {
                             const turnIndex = results.turnResults.findIndex((r) => r.id === t.id)!;
                             const turnRaiders = turnIndex > 0 ? results.turnResults[turnIndex-1].state.raiders : results.turnZeroState.raiders;
                             return (
@@ -126,14 +126,14 @@ function MoveGroup({group, results, raiders, index, max, translationKey}: {group
                             )
                         })
                     }
-                </Stack>                    
-                { (group.repeats && group.repeats > 1) && 
+                </Stack>
+                { (group.repeats && group.repeats > 1) &&
                     <Typography variant="h6" fontWeight="bold" margin="15px">
                         {"×"+group.repeats}
                     </Typography>
                 }
             </Stack>
-            {index !== max - 1  && 
+            {index !== max - 1  &&
                 <Typography align="center" variant="h5" fontWeight="bold" sx={{ my: 0.5}}>
                     ↓
                 </Typography>
@@ -166,7 +166,7 @@ function MoveTurn({turnNumber, groups, raiders, results, index, translationKey}:
     )
 }
 
-function MoveDisplay({groups, raiders, results, translationKey}: {groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults, translationKey: any}) { 
+function MoveDisplay({groups, raiders, results, translationKey}: {groups: TurnGroupInfo[], raiders: Raider[], results: RaidBattleResults, translationKey: any}) {
     const turnNumbers = getTurnNumbersFromGroups(groups);
     const [turnGroups, turnLabels] = sortGroupsIntoTurns(turnNumbers, groups);
     const resultsLen = results.turnResults.length;

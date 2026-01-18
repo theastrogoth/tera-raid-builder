@@ -67,7 +67,7 @@ const handleAddGroup = (groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[])
         }
     }
     let newGroups = [...groups];
-    const newGroup: TurnGroupInfo = 
+    const newGroup: TurnGroupInfo =
     {   id: uniqueGroupId,
         repeats: 1,
         turns: [
@@ -75,27 +75,27 @@ const handleAddGroup = (groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[])
                 id: uniqueTurnId,
                 group: uniqueGroupId,
                 moveInfo: {
-                    userID: 1, 
-                    targetID: 0, 
-                    moveData: {name: "(No Move)" as MoveName}, 
+                    userID: 1,
+                    targetID: 0,
+                    moveData: {name: "(No Move)" as MoveName},
                     options: {
-                        crit: rollCase === "max", 
-                        secondaryEffects: rollCase === "max", 
+                        crit: rollCase === "max",
+                        secondaryEffects: rollCase === "max",
                         allowMiss: rollCase === "min",
-                        roll: rollCase, 
+                        roll: rollCase,
                         hits: rollCase === "max" ? 10 : 1,
                     }
                 },
                 bossMoveInfo: {
-                    userID: 0, 
+                    userID: 0,
                     targetID: 1,
-                    moveData: {name: "(Most Damaging)" as MoveName}, 
+                    moveData: {name: "(Most Damaging)" as MoveName},
                     options: {
-                        crit: rollCase === "min", 
-                        secondaryEffects: rollCase === "min", 
+                        crit: rollCase === "min",
+                        secondaryEffects: rollCase === "min",
                         allowMiss: rollCase === "max",
-                        roll: rollCase === "max" ? "min" : (rollCase === "min" ? "max" : rollCase), 
-                        hits: rollCase === "min" ? 10 : 1, 
+                        roll: rollCase === "max" ? "min" : (rollCase === "min" ? "max" : rollCase),
+                        hits: rollCase === "min" ? 10 : 1,
                     }
                 },
             }
@@ -120,27 +120,27 @@ const handleAddTurn = (groupIndex: number, groups: TurnGroupInfo[], setGroups: (
         id: uniqueId,
         group: newGroups[groupIndex].id,
         moveInfo: {
-            userID: 1, 
-            targetID: 0, 
-            moveData: {name: "(No Move)" as MoveName}, 
+            userID: 1,
+            targetID: 0,
+            moveData: {name: "(No Move)" as MoveName},
             options: {
-                crit: rollCase === "max", 
-                secondaryEffects: rollCase === "max", 
-                roll: rollCase, 
+                crit: rollCase === "max",
+                secondaryEffects: rollCase === "max",
+                roll: rollCase,
                 allowMiss: rollCase === "min",
                 hits: rollCase === "max" ? 10 : 1,
             }
         },
         bossMoveInfo: {
-            userID: 0, 
+            userID: 0,
             targetID: 1,
-            moveData: {name: "(Most Damaging)" as MoveName}, 
+            moveData: {name: "(Most Damaging)" as MoveName},
             options: {
-                crit: rollCase === "min", 
-                secondaryEffects: rollCase === "min", 
-                roll: rollCase === "max" ? "min" : (rollCase === "min" ? "max" : rollCase), 
+                crit: rollCase === "min",
+                secondaryEffects: rollCase === "min",
+                roll: rollCase === "max" ? "min" : (rollCase === "min" ? "max" : rollCase),
                 allowMiss: rollCase === "max",
-                hits: rollCase === "min" ? 10 : 1, 
+                hits: rollCase === "min" ? 10 : 1,
             }
         },
     };
@@ -158,8 +158,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
     const handleClose = () => {
       setAnchorEl(null);
     };
-    
-    const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false; 
+
+    const critChecked = moveInfo.options ? (moveInfo.options.crit || false) : false;
     const effectChecked = moveInfo.options ? (moveInfo.options.secondaryEffects || false) : false;
     const allowMissChecked = moveInfo.options ? (moveInfo.options.allowMiss || false) : false;
     const roll = moveInfo.options ? (moveInfo.options.roll) || "avg" : "avg";
@@ -167,7 +167,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
 
     return (
         <Box>
-            <IconButton 
+            <IconButton
                 onClick={handleClick}
             >
                 <MenuIcon />
@@ -198,8 +198,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                                             {getTranslation("Tera",translationKey)}
                                         </TableCell>
                                         <TableCell>
-                                            <Switch 
-                                                size="small" 
+                                            <Switch
+                                                size="small"
                                                 style={{ padding: "4px"}}
                                                 checked={activateTeraChecked}
                                                 onChange={
@@ -216,8 +216,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                                         {getTranslation("Crit",translationKey)}
                                     </TableCell>
                                     <TableCell>
-                                        <Switch 
-                                            size="small" 
+                                        <Switch
+                                            size="small"
                                             style={{ padding: "4px"}}
                                             checked={critChecked}
                                             onChange={
@@ -233,8 +233,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                                         {getTranslation("Effect",translationKey)}
                                     </TableCell>
                                     <TableCell>
-                                        <Switch 
-                                            size="small" 
+                                        <Switch
+                                            size="small"
                                             style={{ padding: "4px"}}
                                             checked={effectChecked}
                                             onChange={
@@ -250,8 +250,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                                         {getTranslation("Allow Miss",translationKey)}
                                     </TableCell>
                                     <TableCell>
-                                        <Switch 
-                                            size="small" 
+                                        <Switch
+                                            size="small"
                                             style={{ padding: "4px"}}
                                             checked={allowMissChecked}
                                             onChange={
@@ -305,8 +305,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
                                             {getTranslation("Steal Tera Charge", translationKey)}
                                         </TableCell>
                                         <TableCell sx={{ borderBottom: 0 }}>
-                                            <Switch 
-                                                size="small" 
+                                            <Switch
+                                                size="small"
                                                 style={{ padding: "4px"}}
                                                 checked={moveInfo.options?.stealTeraCharge || false}
                                                 onChange={
@@ -327,8 +327,8 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
     )
 }
 
-function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, selectableMoves, isActionLocked, translationKey}: 
-    {groupIndex: number, turnIndex: number, raiders: Raider[], groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], isActionLocked: boolean, translationKey: any}) 
+function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, selectableMoves, isActionLocked, translationKey}:
+    {groupIndex: number, turnIndex: number, raiders: Raider[], groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], isActionLocked: boolean, translationKey: any})
 {
     const roles = raiders.map((raider) => raider.role);
     const moveInfo = groups[groupIndex].turns[turnIndex].moveInfo;
@@ -347,7 +347,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            ( moveInfo.userID === 0 && 
+            ( moveInfo.userID === 0 &&
                 (
                     moveInfo.moveData.target === "all-opponents" ||
                     moveInfo.moveData.target === "all-other-pokemon" ||
@@ -358,8 +358,8 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
     );
-    const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID));
-    
+    const [validTargets, setValidTargets] = useState<number[]>(disableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.userID, moveInfo.moveData.target, moveInfo.userID === 0));
+
     const setMoveInfo = (moveInfo: RaidMoveInfo) => {
         const newGroups = [...groups];
         newGroups[groupIndex].turns[turnIndex].moveInfo = moveInfo;
@@ -371,7 +371,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            ( moveInfo.userID === 0 && 
+            ( moveInfo.userID === 0 &&
                 (
                     moveInfo.moveData.target === "all-opponents" ||
                     moveInfo.moveData.target === "all-other-pokemon" ||
@@ -382,8 +382,8 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
         );
-        const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID)
-    
+        const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.userID, moveInfo.moveData.target, moveInfo.userID === 0);
+
         setDisableTarget(newDisableTarget);
         setValidTargets(newValidTargets);
         if (!newValidTargets.includes(moveInfo.targetID)) {
@@ -414,6 +414,8 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             newMoveInfo.moveData = turn.bossMoveInfo.moveData;
             if (!raiders[0].extraMoves?.includes(newMoveInfo.moveData.name)) {
                 newMoveInfo.moveData = raiders[0].extraMoveData ? raiders[0].extraMoveData[0] : {name: "Remove Negative Effects" as MoveName};
+            } else {
+                newMoveInfo.targetID = 5;
             }
         } else if (moveInfo.userID === 0) {
             newMoveInfo.moveData = turn.bossMoveInfo.moveData;
@@ -425,7 +427,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                 newMoveInfo.moveData = {name: "(No Move)" as MoveName};
                 newMoveInfo.userID = userID;
                 newMoveInfo.targetID = userID;
-            } 
+            }
         }
         if (bossSwap) {
             turn.bossMoveInfo = {
@@ -437,7 +439,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
         }
         setMoveInfo(newMoveInfo);
     }
-    
+
     useEffect(() => {
         if (!moveSet.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {name: "(No Move)" as MoveName}});
@@ -471,7 +473,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
         //             newMoveInfo.moveData = {name: "(No Move)" as MoveName};
         //             newMoveInfo.userID = raider.id;
         //             newMoveInfo.targetID = raider.id;
-        //         } 
+        //         }
         //     }
         //     turn.bossMoveInfo = {
         //         moveData: userIDRef.current === 0 ? {...moveInfo.moveData} : {name: "(No Move)" as MoveName},
@@ -490,7 +492,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "user" ||
             moveInfo.moveData.target === "user-and-allies" ||
             moveInfo.moveData.target === "all-allies" ||
-            ( moveInfo.userID === 0 && 
+            ( moveInfo.userID === 0 &&
                 (
                     moveInfo.moveData.target === "all-opponents" ||
                     moveInfo.moveData.target === "all-other-pokemon" ||
@@ -501,9 +503,10 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
             moveInfo.moveData.target === "opponents-field" ||
             moveInfo.moveData.target === "entire-field"
         );
-        const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.moveData.target).filter((id) => id !== moveInfo.userID)
+        const newValidTargets = newDisableTarget ? [moveInfo.userID] : getSelectableTargets(moveInfo.userID, moveInfo.moveData.target, moveInfo.userID === 0);
         setDisableTarget(newDisableTarget);
         setValidTargets(newValidTargets);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveInfo.userID])
 
     return (
@@ -564,7 +567,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         />
 
                     } */}
-                    <Select 
+                    <Select
                         size="small"
                         variant="standard"
                         value = {moveInfo.moveData.name}
@@ -596,12 +599,12 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         }
                         sx={{ maxWidth : "130px" }}
                     >
-                        {moveSet.map((move, i) => 
-                        <MenuItem 
-                            key={i} 
+                        {moveSet.map((move, i) =>
+                        <MenuItem
+                            key={i}
                             value={move}
                         >
-                            <Typography 
+                            <Typography
                                 variant="body2"
                             >
                                 { getTranslation(move, translationKey, "moves") }
@@ -625,6 +628,15 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         sx={{ maxWidth : "175px"}}
                     >
                         {validTargets.map((id, i) => {
+                            if (id === 5) {
+                                return (
+                                <MenuItem key={i} value={id}>
+                                    <Stack direction="row" spacing={0.5} justifyContent="center" alignItems="center">
+                                        <Typography variant="body2">{getTranslation("(Random Target)", translationKey)}</Typography>
+                                    </Stack>
+                                </MenuItem>
+                                )
+                            }
                             const raider = disableTarget ? raiders[moveInfo.userID] : raiders[id];
                             const role = raider.role;
                             const name = raider.name;
@@ -653,12 +665,12 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     )
 }
 
-function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selectableMoves, translationKey}: 
-    {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], translationKey: any}) 
+function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selectableMoves, translationKey}:
+    {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], translationKey: any})
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
     const moveSet = [
-        "(No Move)", "(Most Damaging)", "(Optimal Move)", ...selectableMoves, 
+        "(No Move)", "(Most Damaging)", "(Optimal Move)", ...selectableMoves,
         ...(groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)" ? ["Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"] : [])
     ];
 
@@ -675,7 +687,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
     useEffect(() => {
         if (!moveSet.includes(moveName)) {
             setMoveInfo({...moveInfo, moveData: {name: "(Most Damaging)" as MoveName}});
-        } 
+        }
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [moveSet])
 
@@ -699,7 +711,7 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
                     {getTranslation("uses", translationKey)}
                 </Typography>
                 <Box flexGrow={1} />
-                <Select 
+                <Select
                     size="small"
                     variant="standard"
                     value = {moveName}
@@ -718,12 +730,12 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
                     }
                     sx={{ maxWidth : "150px"}}
                 >
-                    {moveSet.map((move, i) => 
-                        <MenuItem 
-                            key={i} 
+                    {moveSet.map((move, i) =>
+                        <MenuItem
+                            key={i}
                             value={move}
                         >
-                            <Typography 
+                            <Typography
                                 variant="body2"
                             >
                                 { getTranslation(move, translationKey, "moves") }
@@ -738,15 +750,15 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
     )
 }
 
-function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGroups, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
-    {raiders: Raider[], turnIndex: number, groupIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) 
+function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGroups, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}:
+    {raiders: Raider[], turnIndex: number, groupIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any})
 {
     const turn = groups[groupIndex].turns[turnIndex];
     const turnID = turn.id;
     const collapseIn = transitionOut !== turnID && transitionIn !== turnID;
 
     const bossSelectableMoves = getSelectableMoves(
-        raiders[0], 
+        raiders[0],
         (
             turn.moveInfo.moveData.name === "(No Move)" ||
             turn.moveInfo.userID === 0
@@ -776,19 +788,19 @@ function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGrou
                         {...provided.dragHandleProps}
                     >
                         <Collapse in={collapseIn} timeout={250}>
-                            <MoveSelectionCardMemo 
-                                raiders={raiders} 
-                                groupIndex={groupIndex} 
-                                turnIndex={turnIndex} 
-                                groups={groups} 
-                                setGroups={setGroups} 
+                            <MoveSelectionCardMemo
+                                raiders={raiders}
+                                groupIndex={groupIndex}
+                                turnIndex={turnIndex}
+                                groups={groups}
+                                setGroups={setGroups}
                                 raiderSelectableMoves={raiderSelectableMoves}
                                 isActionLocked={isActionLocked}
                                 bossSelectableMoves={bossSelectableMoves}
-                                buttonsVisible={buttonsVisible} 
+                                buttonsVisible={buttonsVisible}
                                 bossVisible={bossVisible}
-                                setTransitionIn={setTransitionIn} 
-                                setTransitionOut={setTransitionOut} 
+                                setTransitionIn={setTransitionIn}
+                                setTransitionOut={setTransitionOut}
                                 translationKey={translationKey}
                             />
                         </Collapse>
@@ -799,8 +811,8 @@ function MoveSelectionContainer({raiders, turnIndex, groupIndex, groups, setGrou
     )
 }
 
-function AddButton({label, onClick, visible, disabled=false, size="small"}: 
-    {label: string, onClick: () => void, visible: boolean, disabled?: boolean, size?: "small" | "medium" | "large"}) 
+function AddButton({label, onClick, visible, disabled=false, size="small"}:
+    {label: string, onClick: () => void, visible: boolean, disabled?: boolean, size?: "small" | "medium" | "large"})
 {
     const [color, setColor] = useState<"inherit" | "primary">("inherit");
     return (
@@ -840,8 +852,8 @@ function CloseButton({onClick, visible, disabled=false}: {onClick: () => void, v
     )
 }
 
-function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, raiderSelectableMoves, isActionLocked, bossSelectableMoves, buttonsVisible, bossVisible, setTransitionIn, setTransitionOut, translationKey}: 
-    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, raiderSelectableMoves: MoveName[], isActionLocked: boolean, bossSelectableMoves: MoveName[], buttonsVisible: boolean, bossVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any}) 
+function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, raiderSelectableMoves, isActionLocked, bossSelectableMoves, buttonsVisible, bossVisible, setTransitionIn, setTransitionOut, translationKey}:
+    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, raiderSelectableMoves: MoveName[], isActionLocked: boolean, bossSelectableMoves: MoveName[], buttonsVisible: boolean, bossVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any})
 {
     const timer = useRef<NodeJS.Timeout | null>(null);
     const handleRemoveTurn = () => {
@@ -858,10 +870,10 @@ function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, r
     const theme = useTheme();
     const color = alpha(theme.palette.background.paper, 0.5);
 
-    return (        
+    return (
         <Stack direction="column" spacing={0}>
-            <Paper 
-                sx={{ width: "550px", backgroundColor: color }} 
+            <Paper
+                sx={{ width: "550px", backgroundColor: color }}
             >
                 <Stack direction="row">
                     <Stack alignItems="center" justifyContent={"center"} paddingLeft={0.5}>
@@ -878,7 +890,7 @@ function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, r
                         {/* <Box width="80%">
                             <Divider />
                         </Box> */}
-                        { bossVisible && 
+                        { bossVisible &&
                             <BossMoveDropdown groupIndex={groupIndex} turnIndex={turnIndex} boss={raiders[0]} groups={groups} setGroups={setGroups} selectableMoves={bossSelectableMoves} translationKey={translationKey} />
                         }
                     </Stack>
@@ -899,7 +911,7 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     const nRaider = nTurn ? nextProps.raiders[nTurn.moveInfo.userID] : undefined;
     return (
         prevProps.groupIndex === nextProps.groupIndex &&
-        prevProps.turnIndex === nextProps.turnIndex && 
+        prevProps.turnIndex === nextProps.turnIndex &&
         pGroup.id === nGroup.id &&
         pGroup.repeats === nGroup.repeats &&
         (!!pTurn && !!nTurn) &&
@@ -930,7 +942,7 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
         arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
         arraysEqual(prevProps.raiderSelectableMoves, nextProps.raiderSelectableMoves) &&
-        prevProps.isActionLocked === nextProps.isActionLocked && 
+        prevProps.isActionLocked === nextProps.isActionLocked &&
         arraysEqual(prevProps.bossSelectableMoves, nextProps.bossSelectableMoves) &&
         prevProps.buttonsVisible === nextProps.buttonsVisible &&
         prevProps.bossVisible === nextProps.bossVisible &&
@@ -939,9 +951,9 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
     )
 });
 
-function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex, rollCase, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
+function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex, rollCase, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}:
     {raidInputProps: RaidInputProps, results: RaidBattleResults, groupIndex: number, firstMoveIndex: number, rollCase: "min" | "avg" | "max", buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) {
-    
+
     const color = "group" + raidInputProps.groups[groupIndex].id.toString().slice(-1) + ".main";
     const timer = useRef<NodeJS.Timeout | null>(null);
 
@@ -980,7 +992,7 @@ function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex
                                 <Box
                                     ref={provided.innerRef}
                                     {...provided.droppableProps}
-                                    // sx={{ minHeight: "60px" }} 
+                                    // sx={{ minHeight: "60px" }}
                                 >
                                     <MoveGroupCard raidInputProps={raidInputProps} results={results} groupIndex={groupIndex} firstMoveIndex={firstMoveIndex} buttonsVisible={buttonsVisible} transitionIn={transitionIn} setTransitionIn={setTransitionIn} transitionOut={transitionOut} setTransitionOut={setTransitionOut} translationKey={translationKey} />
                                     {provided.placeholder}
@@ -994,9 +1006,9 @@ function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex
                                 }
                             </Typography>
                             <Box flexGrow={5} />
-                            <AddButton 
+                            <AddButton
                                 label={ getTranslation("Add Move", translationKey) }
-                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(raidInputProps.groups[groupIndex].turns.length)} 
+                                onClick={handleAddTurn(groupIndex, raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(raidInputProps.groups[groupIndex].turns.length)}
                                 visible={buttonsVisible}
                             />
                             <Box flexGrow={2} />
@@ -1006,14 +1018,14 @@ function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex
                                 }
                             </Typography>
                             <RepeatsInput
-                                value={(raidInputProps.groups[groupIndex].repeats || 1).toString()} 
+                                value={(raidInputProps.groups[groupIndex].repeats || 1).toString()}
                                 onChange={(e) => {
                                     let val = e.target.value ? parseInt(e.target.value) : 1;
                                     val = Math.max(1, Math.min(20, val));
                                     const newGroups = [...raidInputProps.groups];
                                     newGroups[groupIndex].repeats = val;
                                     raidInputProps.setGroups(newGroups);
-                                }} 
+                                }}
                                 inputProps={{
                                     step: 0,
                                     min: 1,
@@ -1039,16 +1051,16 @@ function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex
                 {(provided) => (
                     <div
                         ref={provided.innerRef}
-                        {...provided.droppableProps} 
+                        {...provided.droppableProps}
                     > */}
             <Stack
                 direction="row"
                 sx = {{ width: "100%"}}
-            >   
+            >
                 <Box flexGrow={1} />
-                <AddButton 
+                <AddButton
                     label={ getTranslation("Add Group", translationKey) }
-                    onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(groupIndex+1)} 
+                    onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(groupIndex+1)}
                     visible={buttonsVisible}
                 />
                 <Box flexGrow={1} />
@@ -1060,10 +1072,10 @@ function MoveGroupContainer({raidInputProps, results, groupIndex, firstMoveIndex
         </Stack>
     )
 }
-   
-   
-function MoveGroupCard({raidInputProps, results, groupIndex, firstMoveIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}: 
-    {raidInputProps: RaidInputProps, results: RaidBattleResults, groupIndex: number, firstMoveIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any}) 
+
+
+function MoveGroupCard({raidInputProps, results, groupIndex, firstMoveIndex, buttonsVisible, transitionIn, setTransitionIn, transitionOut, setTransitionOut, translationKey}:
+    {raidInputProps: RaidInputProps, results: RaidBattleResults, groupIndex: number, firstMoveIndex: number, buttonsVisible: boolean, transitionIn: number, setTransitionIn: (i: number) => void, transitionOut: number, setTransitionOut: (i: number) => void, translationKey: any})
 {
     return  (
         <Stack direction="column" spacing={0.5} sx={{ minHeight: "1px" }}>
@@ -1079,10 +1091,10 @@ function MoveGroupCard({raidInputProps, results, groupIndex, firstMoveIndex, but
                         }
                     }
                     return (
-                        <MoveSelectionContainer 
+                        <MoveSelectionContainer
                             key={turn.id}
-                            raiders={raiders}    
-                            turnIndex={turnIndex} 
+                            raiders={raiders}
+                            turnIndex={turnIndex}
                             groupIndex={groupIndex}
                             groups={raidInputProps.groups}
                             setGroups={raidInputProps.setGroups}
@@ -1100,15 +1112,15 @@ function MoveGroupCard({raidInputProps, results, groupIndex, firstMoveIndex, but
    }
 
 
- 
+
 const reorder = (list: RaidTurnInfo[] | TurnGroupInfo[], startIndex: number, endIdex: number) => {
    const result = [...list];
    const [removed] = result.splice(startIndex, 1);
    result.splice(endIdex, 0, removed);
- 
+
    return result;
 };
- 
+
 const move = (source: TurnGroupInfo, destination: TurnGroupInfo, sourceIndex: number, destIndex: number) => {
     const sourceClone = {
         id: source.id,
@@ -1138,10 +1150,10 @@ function MoveSelection({raidInputProps, results, rollCase, translationKey}: {rai
     const onDragEnd = (result: DropResult) => {
         setButtonsVisible(true);
         const {destination, source, type} = result;
-        if (!destination) { 
+        if (!destination) {
             return;
         }
-        if (destination.droppableId === source.droppableId && 
+        if (destination.droppableId === source.droppableId &&
             destination.index === source.index
         ) {
             return;
@@ -1196,27 +1208,27 @@ function MoveSelection({raidInputProps, results, rollCase, translationKey}: {rai
                     {(provided) => (
                         <div
                             ref={provided.innerRef}
-                            {...provided.droppableProps} 
+                            {...provided.droppableProps}
                         >
-                            <Stack 
-                                direction="column" 
-                                spacing={0.25} 
+                            <Stack
+                                direction="column"
+                                spacing={0.25}
                                 sx={{ marginTop: 0.25 }}
                             >
                                 {/* <Droppable droppableId={`${-0.5}`} type="turn">
                                     {(provided) => (
                                         <div
                                             ref={provided.innerRef}
-                                            {...provided.droppableProps} 
+                                            {...provided.droppableProps}
                                         > */}
                                 <Stack
                                     direction="row"
                                     sx={{ width: "100%" }}
                                 >
                                     <Box flexGrow={1} />
-                                    <AddButton 
+                                    <AddButton
                                         label={ getTranslation("Add Group", translationKey) }
-                                        onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(0)} 
+                                        onClick={handleAddGroup(raidInputProps.groups, raidInputProps.setGroups, rollCase, setTransitionIn)(0)}
                                         visible={buttonsVisible}
                                     />
                                     <Box flexGrow={1} />
@@ -1226,13 +1238,13 @@ function MoveSelection({raidInputProps, results, rollCase, translationKey}: {rai
                                     )}
                                 </Droppable> */}
                                 {
-                                    raidInputProps.groups.map((group, index) => { 
+                                    raidInputProps.groups.map((group, index) => {
                                         const firstMoveIndex = raidInputProps.groups.slice(0, index).reduce(
                                             (acc, g) => acc + (
                                                 // number of regular moves
                                                 g.turns.length +
                                                 // ... plus the number of NPC moves (assumes NPC isn't in the first slot, so maybe we should enforce that)
-                                                g.turns.filter(t => t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)" && t.moveInfo.moveData.name !== "(Wait)").length * raidInputProps.pokemon.slice(1).filter(p => p.name === "NPC").length    
+                                                g.turns.filter(t => t.moveInfo.userID === 1 && t.moveInfo.moveData.name !== "(No Move)" && t.moveInfo.moveData.name !== "(Wait)").length * raidInputProps.pokemon.slice(1).filter(p => p.name === "NPC").length
                                             ) * (g.repeats || 1), 0
                                         );
                                         return (
@@ -1247,11 +1259,11 @@ function MoveSelection({raidInputProps, results, rollCase, translationKey}: {rai
                                                     {...provided.draggableProps}
                                                     {...provided.dragHandleProps}
                                                 >
-                                                    <MoveGroupContainer 
+                                                    <MoveGroupContainer
                                                         key={index}
-                                                        raidInputProps={raidInputProps} 
+                                                        raidInputProps={raidInputProps}
                                                         results={results}
-                                                        groupIndex={index} 
+                                                        groupIndex={index}
                                                         firstMoveIndex={firstMoveIndex}
                                                         rollCase={rollCase}
                                                         buttonsVisible={buttonsVisible}

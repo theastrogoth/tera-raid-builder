@@ -139,7 +139,7 @@ export function getAilmentReadableName(ailment?: string) {
 
 export function getLearnMethodReadableName(learnMethod: string) {
     return (
-        learnMethod === "level-up" ? "Level Up" : 
+        learnMethod === "level-up" ? "Level Up" :
         learnMethod === "machine" ? "TM" :
         learnMethod === "egg" ? "Egg" :
         "Special"
@@ -151,8 +151,8 @@ export function getStatusReadableName(status: string) {
         status === "slp" ? "Asleep" :
         status === "psn" ? "Poisoned" :
         status === "brn" ? "Burned" :
-        status === "frz" ? "Frozen" : 
-        status === "par" ? "Paralyzed" : 
+        status === "frz" ? "Frozen" :
+        status === "par" ? "Paralyzed" :
         status === "tox" ? "Toxic" :
         "???"
     )
@@ -218,7 +218,7 @@ export function getIVDescription(ivs: StatsTable, translationKey: any) {
     for (let stat in ivs) {
         const statid = stat as StatID;
         displayedIVs.push(`${ivs[statid]}`);
-    } 
+    }
     return displayedIVs.join(' / ');
 }
 
@@ -253,7 +253,7 @@ export function getTurnNumbersFromGroups(groups: TurnGroupInfo[]) {
         }
         for (let i=0; i<4; i++) {
             // Attempt to handle weird situations where a raider falls behind in move count,
-            // then moves several times in a row. 
+            // then moves several times in a row.
             if (g.turns.find(t => (t.moveInfo.userID === i+1) && (t.moveInfo.moveData.name !== "(No Move)"))) {
                 moveCounters[i] = currentTurn;
             } else if (moveCounters[i] < currentTurn - 1) {
@@ -280,7 +280,7 @@ export function sortGroupsIntoTurns(turnNumbers: number[], groups: TurnGroupInfo
             turns[turns.length-1].push(groups[currentGroupIndex]);
             currentGroupIndex += 1;
             if ( tn === 0 ) { break; }
-        } 
+        }
     }
     return [turns, labels];
 }
@@ -348,16 +348,24 @@ export function setdexToOptions(dex: Object): SetOption[] {
     return options.sort((a,b) => (a.pokemon + a.name) < (b.pokemon + b.name) ? -1 : 1);
 }
 
-export function getSelectableTargets(moveTarget?: MoveTarget): number[] {
+export function getSelectableTargets(userID: number, moveTarget?: MoveTarget, isBossAction?: boolean): number[] {
     switch (moveTarget) {
+        case "user":
+        case "user-and-allies":
+        case "all-allies":
+            return [userID];
         case "ally":
-            return [1,2,3,4];
+            return [1,2,3,4].filter((id) => id !== userID);
         case "opponent":
         case "all-opponents":
         case "all-other-pokemon":
             return [0];
         default:
-            return [0,1,2,3,4]
+            if (isBossAction) {
+                return [1,2,3,4,5];
+            } else {
+                return [0,1,2,3,4].filter((id) => id !== userID);;
+            }
     }
 }
 
@@ -378,7 +386,7 @@ export function getTranslationWithoutCategory(word: string, translationKey: any)
 }
 
 export function convertCamelCaseToWords(input: string): string {
-    const words = input.replace(/([a-z])([A-Z])/g, '$1 $2');  
+    const words = input.replace(/([a-z])([A-Z])/g, '$1 $2');
     const capitalizedWords = words.replace(/\b\w/g, (match) => match.toUpperCase());
     return capitalizedWords;
 }
@@ -387,12 +395,12 @@ export function arraysEqual(a: any[], b: any[]) {
     if (a === b) return true;
     if (a === null || b === null) return false;
     if (a.length !== b.length) return false;
-  
+
     // If you don't care about the order of the elements inside
     // the array, you should sort both arrays here.
     // Please note that calling sort on an array will modify that array.
     // you might want to clone your array first.
-  
+
     for (var i = 0; i < a.length; ++i) {
       if (a[i] !== b[i]) return false;
     }
@@ -411,10 +419,10 @@ export function deepEqual(a: any, b: any) {
     if ((typeof a == "object" && a !== null) && (typeof b === "object" && b !== null)) {
         if (Object.keys(a).length !== Object.keys(b).length) { return false; }
         for (var prop in a) {
-            if (b.hasOwnProperty(prop)) {  
+            if (b.hasOwnProperty(prop)) {
                 if (!deepEqual(a[prop], b[prop])) { return false; }
-            } else { 
-                return false; 
+            } else {
+                return false;
             }
         }
         return true;
@@ -430,7 +438,7 @@ export function recursiveEmptiesToNull(obj: any) {
         for (let key in obj) {
             obj[key] = recursiveEmptiesToNull(obj[key]) as any;
         }
-    } 
+    }
     return obj as any;
 }
 

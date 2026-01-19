@@ -124,7 +124,7 @@ async function resultsFromLightBuild(strategy: LightBuildInfo, skipMoveCountChec
     result = battle.result();
   }
   if (!skipMoveCountCheck) {
-    let totalTurns = strategy.turns.length; 
+    let totalTurns = strategy.turns.length;
     if (strategy.repeats) {
       totalTurns = strategy.groups!.reduce((a, b, i) => b.length * (strategy.repeats![i] || 1) + a, 0);
     }
@@ -205,7 +205,7 @@ describe('Specific Test Cases', () => {
     const hash: string = "#H4sIAAAAAAAAA8VUUU/bMBD+K5H3skme1NACXd/oAI1JbAx4q/Jgkkvw4trR2anIEP99ZyehTcue1m5KZJ3Pd9/35e7iZ5azGUt/WqMZZ47NFosRZ1osgSXcmzLrjBSloxALqdGZwOYizyF1llxolPJBMWe1Bbw690gCC3DBNJWTRlsfccRZgaauyLs0K7jSuSHzwVh73W9bHG0ceOgUIZOBpDIlLFuRNWrvCUi2U/foMYUrac0g9zorEdYsrNCxk1Rg3fdR/INU0jVkSQfL4CdwfwIrzyDDqmAFyvMCivumgk687ZXXyslKSUCf9+RQXIfTJOFsxWbPjGp6whnr3kVwTDlpvhUyi+YEQQe3UEhQUEqy338z0Vkr7QPjulaKsy8CMxIakk8p+fVJXnrnON566SgejVqARRLsRdLHT3ncKgCM3sXEeoVGR/NaZ6FCP2qBZXSOcuV3nx9NpSCaA6Kv1l+LYZcI8As+nge4s6Jtw67Eo7XEIwq8kTqtMX2UfgwuFI0fyjS6q2nU9lanNe49fa0gql1Z47WsMSn5jkIXNdZk3jXLB2ms9C2dG2NpZqILDVjsp2xz0lVGcwRRviFrspY1IbqvsihUU9V5vjNT7AacaMQeG3otrWteS8bZpZK62NCYdIN/zLuUsJu0wvwPQ6piOgvuMc+FstCtbOmb8NJLGeaMKOvNHPEUcvqsY5qlAe9mKamhf0DZC/N4yNyWhrp1SM6TLc6N/+2wZZ4MibfmYnJQ7uP/9dGnQ+L+Qjsw63TIunNx0cgfkv7Tv652Em6Sl98TYWNjswgAAA==";
     const build = deserialize(hash) as LightBuildInfo;
     build.pokemon[0].bossMultiplier = 1000; // ensure the boss isn't KOd early and mess up move counts
-    const result = await resultsFromLightBuild(build); 
+    const result = await resultsFromLightBuild(build);
     // T1 Electric terrain -> QP boost is spe, hasn't used booster
     expect(result.turnResults[0].state.raiders[1].abilityOn).toEqual(true);
     expect(result.turnResults[0].state.raiders[1].boostedStat).toEqual("spe");
@@ -336,7 +336,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[4].state.raiders[1].originalCurHP).toEqual(0); // KO
   })
   test('most_damaging', async() => {
-    const hash = "#H4sIAAAAAAAAA8VUwW7bMAz9FYOnDdAhcZI2yy1rN6zAvMPaXWb4oNh0okWWDEnOEhT591GyjbRbAhTLssIGQVF8fI8S7UcoYQb5D6sVMHAwS9MBA8UrhIx5VxSdkxvhKMVirlXBze5DWWLuLIWMltInDRk0Fs3dra/EzRJdcHXthFbWZ8QMlkY3NUUrvcE7VWpyF9rapF+2dZR26EvnBgsRSGq9xqoV2RjlI6GS7dStfE3u1mQLLL3OmgdbBIsdO0lF6Pqj/IWQwu3IEw6rEKfifgc3nkEEK3GD0vOi4Q+7GjvxtlfeSCdqKdB43NYZnoTdLGOwgdkj0JleMYDuTUNgykhzgj+ht2++6GjeynkLTDVSMvjErRcXANcE6J94Emf7Pjwa/vbS1nAwaEuk8JGvMXpAbrzc97rYRfeS+1bnaASX0Tz3/cyFiW4aRx3SOXl0mvUMUzb0ShrlQoMH77hiUxxTPHip3j/Z6dISvlRY0RXBc/8/KRgxuM93bhW6PnjH2G+4wbKR/5Z/zOBbtTAYhv/gPeeH71pX0WcMX8ZXlHyLxTkyqFGDmK+ezEPWze6EdUlhNW6V+JknGUPaC+ERK7m02FmohAKqsD9gEm1ddMsrvhRqScgBYTukMw22Biq+DbgeOaGsU9zxxbnjk9yji3OPTnKPL849Pf++n/6HXkr77hXH7Or8q/6blq9fYcKy8HXvfwEyTpKzCggAAA==";  
+    const hash = "#H4sIAAAAAAAAA8VUwW7bMAz9FYOnDdAhcZI2yy1rN6zAvMPaXWb4oNh0okWWDEnOEhT591GyjbRbAhTLssIGQVF8fI8S7UcoYQb5D6sVMHAwS9MBA8UrhIx5VxSdkxvhKMVirlXBze5DWWLuLIWMltInDRk0Fs3dra/EzRJdcHXthFbWZ8QMlkY3NUUrvcE7VWpyF9rapF+2dZR26EvnBgsRSGq9xqoV2RjlI6GS7dStfE3u1mQLLL3OmgdbBIsdO0lF6Pqj/IWQwu3IEw6rEKfifgc3nkEEK3GD0vOi4Q+7GjvxtlfeSCdqKdB43NYZnoTdLGOwgdkj0JleMYDuTUNgykhzgj+ht2++6GjeynkLTDVSMvjErRcXANcE6J94Emf7Pjwa/vbS1nAwaEuk8JGvMXpAbrzc97rYRfeS+1bnaASX0Tz3/cyFiW4aRx3SOXl0mvUMUzb0ShrlQoMH77hiUxxTPHip3j/Z6dISvlRY0RXBc/8/KRgxuM93bhW6PnjH2G+4wbKR/5Z/zOBbtTAYhv/gPeeH71pX0WcMX8ZXlHyLxTkyqFGDmK+ezEPWze6EdUlhNW6V+JknGUPaC+ERK7m02FmohAKqsD9gEm1ddMsrvhRqScgBYTukMw22Biq+DbgeOaGsU9zxxbnjk9yji3OPTnKPL849Pf++n/6HXkr77hXH7Or8q/6blq9fYcKy8HXvfwEyTpKzCggAAA==";
     const result = await resultsFromHash(hash);
     // T1 Haunter is damaged most by Aerial Ace (Immune to Body Slam, SpD > Def)
     expect(result.turnResults[0].results[0].desc[1].includes("Aerial Ace")).toEqual(true);
@@ -407,7 +407,7 @@ describe('Specific Test Cases', () => {
     // T1: Annihilape has attacked 1 time, can't activate Tera
     expect(result.turnResults[0].state.raiders[1].teraCharge).toEqual(1);
     expect(result.turnResults[0].state.raiders[1].isTera).toEqual(false);
-    expect(result.turnResults[0].flags[1].length).toEqual(0); // No flag for tera activation 
+    expect(result.turnResults[0].flags[1].length).toEqual(0); // No flag for tera activation
     expect(result.turnResults[0].results[1].desc.includes("Tera Ghost")).toEqual(false); // No Tera in the desc
     // T2: Annihilape has attacked 2 times, can't activate Tera
     expect(result.turnResults[1].state.raiders[1].teraCharge).toEqual(2);
@@ -437,7 +437,7 @@ describe('Specific Test Cases', () => {
     // T2: Seed Sower activates, Grassy Seed consumed
     expect(result.turnResults[1].results[0].flags[3].includes("Grassy Seed lost")).toEqual(true);
     expect(result.turnResults[1].state.raiders[3].item).toEqual(undefined);
-    
+
   })
   test('multi-hit-weak-armor', async() => {
     const hash = "#H4sIAAAAAAAAA61US2/bMAz+K4ZOG+BDnt3aW9quWLelKJoOOwQ5qBZjq5ZFQ5KTGkX/+yhFzqPo1gwYEsgkRZEfP1J6Zkt2xrJHi5qlzLGz+byXMs0rYIvUi1J4oZ+yxoK5vvRO3OTggoi1k6it9xikLDfY1GStcAXXeokkPqC1007dBMyMdLRjIUMtuGm/LJeQOUsmg0rRp5DORt/Ch+OupFXA0p+qeVhFWGHrdm9knoPx6GQFO80WEpS44DoDdckrnsPWuFHvuHvLdA+G/8F8UXCdQyRFowMPPTMgZCiixhKqDZmN0d4SaAn1QQ3cdWxRtT5zoDpk0q0v9kEq6bwkHVRhn+J4D1j5GDKsClbgqXKE576tIZJuO8Yb5WStZKAAnpzh07jbFeQ4WyxStmJnz4x6/jllLP7nwXCaEq13XIrknOLRxhTWbk0dXXJlIWU/tQazory6UYp2UYClroazJ3R2+1u8dMZh/9Wftvo9SnNr26yQGaX2onVGlr6grZnNCi5wnZzzMB6TxvBkVhdgfBOGYwoxZzfcuja5VehHa5J3HMYYCfXNcKnJP4D5dIiww3iaUke/G8QShQzN2Vdi5RNqvkluUWqf6qJAmQFB034iv9EAt3ssDMaDmIWk95kIXBIJuKYMNMM14fX2+XuwB74/uLYZN1xw9kqLwD/cYDLZTNdHcrnCrLHJjNuClK/ciPbf2zc86TBfqQ50Vh6Lekj9QeWA7pb0w3OoRdS/gJfJxFRo/hPmPaJnpVQqma350USPaBgd6kekqx0u14H2NtE/kAsQySXNiZ9NQY+J3l0VPyK7MTke+x1mZXKuaOzfw76IV3oUTEEk5vdqp0ZE+ziWEAup6Mak/V39dOzDFK1LwoModU7l9ejOxLPONLBZWMWf6OQmfTw8Isf+Ns4e/HT0t/Tjw/RErX/KjktMlc97/p1ehMeaPi8vvwHUuEnv8AYAAA==";
@@ -507,7 +507,7 @@ describe('Specific Test Cases', () => {
     // T3: Meowscarada faints
     expect(result.turnResults[2].state.raiders[1].originalCurHP).toEqual(0);
     expect(result.turnResults[2].state.raiders[1].abilityOn).toEqual(false); // ability resets
-    expect(result.turnResults[2].results[1].flags[1].includes("Meowscarada fainted!")).toEqual(true);
+    expect(result.turnResults[2].results[0].flags[1].includes("Meowscarada fainted!")).toEqual(true);
     // T4: Meowscarada switches in, Protean activates (flying)
     expect(result.turnResults[3].state.raiders[1].abilityOn).toEqual(true);
     expect(result.turnResults[3].state.raiders[1].types[0]).toEqual("Flying");
@@ -612,9 +612,9 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[2].state.raiders[0].isTaunt).toBeGreaterThan(0);
     expect(result.turnResults[2].results[1].flags[0][0]).toEqual(" fell for the taunt!");
     // T4: taunt doesn't effect special actions
-    expect(result.turnResults[3].results[1].desc[1]).toEqual("The Raid Boss nullified all stat boosts and abilities!");
+    expect(result.turnResults[3].results[0].desc[1]).toEqual("The Raid Boss nullified all stat boosts and abilities!");
     // T5: taunt prevents use of Bulk Up
-    expect(result.turnResults[4].results[1].desc[0]).toEqual("Decidueye-Hisui can't use status moves due to Taunt!");
+    expect(result.turnResults[4].results[0].desc[0]).toEqual("Decidueye-Hisui can't use status moves due to Taunt!");
   })
   test('friendguard-counters', async() => {
     const hash = "#H4sIAAAAAAAAA8VWW0/bMBT+K5GfQLK0phegvEEZjGndEGXaQ5UHNzlNvTp2ZjuFDvHfd+w4bTbtAgI6JXWPj8/lOxef9p7MyTFJvxolCSWWHE+nHUokK4Ak1JE8c0RMSWVAX545IaZzsJ5UpeVKGifRpSTXqiqRW6gVXMq5QnKmjBk329pgqrnFEwOpkhnT67fzOaTWIEsrIfBrwa0JsgtnjtklrhnMnVbJ/Jr5FTZiN5rnOWiHjhew3ZkFB5GNmExBnLGC5bBh1ttrZn/HugHN/sAeLZjMISRFKgsOeqoh4z6IUi2hqJNZaek4Pi0+PiiBeSFTzYzltnLKde4wdofDJ977lWsX+owLbh3FLRT+HK06CVg5O9yvAlbgEmcR3c26hFAC0+S/EpaXgvuEwJ3VbBxOm/AsI0lCyYoc3xPsgCNKSHinnjGkmORRZTnMhQOzJedMGKBk76OKTmqs+4TKSghK3jGdoYQ3cIAGNk/y0DB78S8vHsXdWn9KTmZG6Rm6O2dcr6MvXLqqT2wlo0mpfBYmtwA2mqQgLeZx0OmgGtZHF7jzPg5/dty4HlKs3RhLli6YS+uWDAFdYZajK3Xrcva8cBBTiGey5EJEk1vmmvq0Esvoc4k4ncT0X3C7LlYmlCVbIkD9wL9VPIs+qe/wclgvmLEaa5r66/8oiD1KzkCUC3VHWlQAeSrYS8K7xtsSXQnmmvEkr+/II2H2KXmP00Gsy2ruJkp7E8Ceaw4yiy4qxPlymJu+/CvKJNy4vmd5srdtFuzawBwErAFxwXHgxNswUae5PR1UCipWV1AvpGBYm7h2GXT6KBhv1N2NdmNi/0lORwKYjk6VMtZEb8JI4G7WPAFGH7v9OZHvjdF95Ic2l/n+k3x3W77rgtH+bjwPW56blsY7tRPfPXz+V8YHmODGTntCxg3/dd0ftNzvtuCHGHpjpzXPelsLr+n9qOV9t3HHHUx6Y6j9O4MXoLcTAHELwK7aHQf7tOP+M+LHjZkhfvfwM6AHuB7SI3eGduLE/7FsPU4zoc2bJA8PPwBwl796tAsAAA==";
@@ -785,7 +785,7 @@ describe('Specific Test Cases', () => {
     build.pokemon[0].bossMultiplier = 1000; // ensure the boss isn't KOd early and mess up move counts
     build.turns[8].bossMoveInfo.name = "(No Move)";
     build.turns[9].bossMoveInfo.name = "(No Move)";
-    const result = await resultsFromLightBuild(build);     
+    const result = await resultsFromLightBuild(build);
     // T2: Spit-Up should not do any damage
     expect(result.turnResults[1].state.raiders[1].stockpile).toEqual(0);
     expect(result.turnResults[1].results[0].state.raiders[0].originalCurHP).toEqual(Math.floor(result.endState.raiders[0].maxHP()));
@@ -912,7 +912,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[6].results[0].desc[0].includes("does not affect")).toEqual(true);
     // T7: Toedscruel moves first with Mud-Slap, which works normally
     expect(result.turnResults[7].raiderMovesFirst).toEqual(true);
-    expect(result.turnResults[7].state.raiders[0].boosts.acc).toEqual(-1); 
+    expect(result.turnResults[7].state.raiders[0].boosts.acc).toEqual(-1);
   })
   test('multistrike-symbiosis', async() => {
     const hash = "#H4sIAAAAAAAAA9VVUU/bMBD+K5GfNskPbUPH4I1SGEiAEO3EQ5QHN7kmXh07s51u1cTD/t9+1O6cNFDEEGzSpsmJcz6f77777pJ8Y0t2yLJPzmjGmWeHSTLgTIsKWMpJlDkJQ84aB/Z8SkbCFuCDaGovjXZkMeKssKapUVuZNZzrpUFxYZy73C5bh5mVHnccZEbnwm5OlkvIvEOVNUrho5TedbYluRN+hXMOSzpVizDnYYbebG5lUYAldLKC+5UrJaj8WOgM1FRUooBe2S5vhH9KNQcrfqE+LoUuoCNFGw8EPbOQy5BEbVZQtWQ2VpMm0BLygxpEMHLNwnnpGzrccoe5E45AfIirN/iU7khvLmANxItYSCV9UHuogjGGIHNYk1MZZtVZF6DzlhDEPN/U0BXGbavSKC9rJYMNfPVWXHa726S9YGnK2ZodfmPYF+85Y92VBMUBR+pvhMyjCfrDjVkG2A+Ux1IoB93MPupFY3NASnSjFGdnwlEWwcc79NGP9G6rjIePLtwaDjDcJYaZWlEQwQm7ALGMJkrklNzEglhJXUSzLzJk29pFUyo+LudlQ4xE143OSmQ9HqPDzsfMG0uMngjry8+NWFF9A5Z9vj/g+2M+HvDRgOQYYW6BHnBsgSNbCaxw6KwH8g4Fp0q4MjqVoVq3iFODc9G1UTKjek6MyntCRuMRktHOLyPlqmM2ScM66aHvcHsPGtvttim8lfSG9tIO4A/GACG7lTlEFxD6eAfl68rWI2T4atYKoqlcE8UvghsH/hbw4zvd7NFqB/ZsUy2kcdI9SfOZsPnvNt7pKzne+59Ap90bvRdUQUTSH5YKe2bYbox3wYt1wXh8nzmee3NlIvqWvGXo7JlTwxC6O7eHlsN/FTp+EPoMhIqOS6DvYozjeR9/GnmE4y8njcVOBuHvFdOvJw0iDtKnfHul6d3dT+zSthwcCAAA"
@@ -943,7 +943,7 @@ describe('Specific Test Cases', () => {
     expect(result.turnResults[3].results[0].state.raiders[1].boosts.def).toEqual(-1); // White Herb removes -2, Weak Armor applies -1
     // T4: Psych Up copies boosts, White Herb removes debuffs
     expect(result.turnResults[4].results[0].state.raiders[4].boosts.spe).toEqual(6);
-    expect (result.turnResults[4].results[0].state.raiders[4].boosts.def).toEqual(0); 
+    expect (result.turnResults[4].results[0].state.raiders[4].boosts.def).toEqual(0);
   })
   test('white-herb-gooey-npc', async() => {
     const hash = "#H4sIAAAAAAAAA81VTW/bMAz9K4ZOHaCD4zT9unXJ2hRoiqIJ0EPgg2IzjhZZMiQ5XVDkv4+U7aQZVqzbYRts0NQTRfKRtP3KluyKZV+d0Ywzz67m85gzLUpgKSdV5qT0OKsd2LsRGQlbgA+qqbw02pFFwllhTV0hWpoN3OmlQXVhnJt0y8ZhZqXHHQeZ0bmw2y/LJWTeISSUMi8T6Ui3Ril8rKR37bkVuRZ+jTKHJXmoRJB5kLA3m1lZFGApU1nCYeVWElQ+FDoDNRKlKGAPNssn4X8GzcCKd+DhSugC2gJp44FSzyzkMhCqzBrKprC11YSEEgV+UIEIRq5eOC99TYebOiJ3yiM0IcTVW3xKd62397ABqotYSCV9gD2UwRhDkDlsyKkMUrXWBei8KQjmPNtW0DbJdR2qlZeVksEGvnkrJu1uR9oLlqacbdjVK8MZueCMtfc8AJccS39rTB5K1SlLoRy0kkDAhHWtFGdjYXNchLNneDbmveSik+mu2+j3frhx6xIjPbR+5mxkRWF09FhjDIw8rS2NxlTVeQHRZ1MucPVoXsBGzytZYYGTQRzjuSchdTSiWUAsRDvnZzHd/ZgnMT8f8P4g3XWpXHJs8LWsDNW6fR6xm66lUtG91DSfGMpDNAZL0e/KSrrVnmsySJBnI+Nfce3FR2SnOFqQoS82BlVJXURjoWn8ZzJbh5m5qe02mr7IKgwTHZ/v6cWH6y0xHLihgqWQlsbpoB7Ru7ESZyi6rbFv7/cw/gNOt1ZsaJL32RJ+yK6Pto9D1somG29rTOnkwUTXzWvw6TdSOgZ7b1L5YL1O/5uM0vblOw1QULFcXUGxsUkDDo562XZUbArGewdiePJkYpyPwhcOZwsp4Pv4IQ+dj1O07+3dvZ1FhOO/nsy+AP8yGWzSPKYfBH3b0/CnwIvQlHd3mu523wGz2q28iQcAAA==";
@@ -982,7 +982,7 @@ describe('Specific Test Cases', () => {
   })
   test('stomping-tantrum-non-doubled', async() => {
     const hash = "#H4sIAAAAAAAAA8VU32/aMBD+VyI/bZInJRS2ljdGO61aqaqC9oLyYOIjeDh2ZDt0qOr/vjsnobRbu/VpwjrO5/P5++5H7tmajVnxw1vDOAtsvFymnBlRAcs5qUqSknHWeHCX5+QkXAkhqrYOyhpPHgPOSmebGq2V3cGlWVtUV9b7Wb9tAxZOBTzxUFgjhdtfrNdQBI8mobW9mylPurNa499GBd/d21BoEbYoJawpQi2ilFHCwW3hVFmCI6Sqgsed3yjQcipMAfpcVKKEg7Hd3orwJ9MCnHjBPN0IU0KXIGMDEPTCgVSRUG23ULWJbZwhS0xR5Ac1iOjkm5UPKjR0uc0jciccsQjxXbPHf+UnZn8FO6C8iJXSKkRzgCo64xPkDjsKqqLUnXcJRrYJQcyLfQ1dkXxfoUYHVWsVfeBncGLWnfakg2B5ztmOje8Z9sgpZ9fWfJC2WWmg/Me1jGdnHKtwtS+EcbZgx+paaA/cNFpz9g3AJBd7RNLuvwonkU6M8BEjHH75Q288yZ4tPBqOEAk+8kXvlSkRAru1xTaZayWJ5NQ1ptigMimw6IAoqH0WojEBc50N0hRvzIWRPlhXoSk+9YmPUlqDuE5TPkQUPY4zjqWmKyoW6aAdk5tgU7jkxipDnX6DXZCct/38lOZgNOBZ2lPNRqevkyVXYhsfQdzBVjWyThbCBNcQ/HhyEI+Qsam+g7HYJOxIO4Y8xVi2MZJqQoW/2CmLHUYUP1stn0BOO/nX6jwHjJMBXTmUTOa1E9TB863SOpnfCRrwq6YdqJeYnGDAmynrZMsAyQNn765tMmnH4v0buuqpMTvC+zKI4f8EkXdzNoz+UcWk/NYMGKU7HXUIjyUTO5yW7LGtT1rsNPcIHJvxn+72t4fon72KZfBGLDPrQxI/thjoTYgwP8uUvsh5/CxntM95v/L84eEXjaqq6PQGAAA=";
-    const result = await resultsFromHash(hash);  
+    const result = await resultsFromHash(hash);
     // T1: Stomping Tantrum doesn't affect flying type
     expect(result.turnResults[0].results[0].desc[0].includes("does not affect")).toEqual(true);
     // T2-T3: NPC Turns

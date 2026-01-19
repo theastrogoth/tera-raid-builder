@@ -14,7 +14,7 @@ const gen = Generations.get(9);
 const dummyMove = new Move(gen, "Splash");
 
 const STRUGGLE_DATA: MoveData = { // duplicated in MoveSelection.tsx
-    name: "Struggle" as MoveName, 
+    name: "Struggle" as MoveName,
     moveCategory: "Physical",
     category: "damage",
     target: "selected-pokemon",
@@ -61,7 +61,7 @@ export class RaidTurn {
 
     _raiderMovesFirst!: boolean;
     _raider!:           Raider;
-    _boss!:             Raider;  
+    _boss!:             Raider;
     _raiderMove!:       Move;
     _bossMove!:         Move;
     _raiderMoveData!:   MoveData;
@@ -80,7 +80,7 @@ export class RaidTurn {
     _delayedResults!:   RaidMoveResult[];
     _raidState!:        RaidState; // This tracks changes during this turn
 
-    _flags!:            string[][]; 
+    _flags!:            string[][];
     _endFlags!:         string[];
 
 
@@ -89,7 +89,7 @@ export class RaidTurn {
         this.raiderID = info.moveInfo.userID;
         this.targetID = info.moveInfo.targetID;
         this.raiderMoveData = {...info.moveInfo.moveData};  // prevent mutating the original data
-        if (Object.keys(info.moveInfo.moveData).length === 1) { // Transform or Mimic can cause issues with loading full movedata from hashes
+        if (this.raiderID < 5 && Object.keys(info.moveInfo.moveData).length === 1) { // Transform or Mimic can cause issues with loading full movedata from hashes
             const raiderMoveData = this.raidState.raiders[this.raiderID].moveData.find((move) => move.name === info.moveInfo.moveData.name) || {name: info.moveInfo.moveData.name} as MoveData;
             this.raiderMoveData = {...raiderMoveData};
         }
@@ -115,7 +115,7 @@ export class RaidTurn {
         // check if this marks the end of a 4-move "turn"
         this._turnMoveNumber = this.turnNumber % 4;
         this._isEndOfFullTurn = !this._isBossAction && !this._isEmptyTurn && (
-            (this._turnMoveNumber === 3) // || 
+            (this._turnMoveNumber === 3) // ||
             // (this.raiderID === 1 && ((this.numNPCs + turnMoveNumber) >= 3))
         );
         // set up moves
@@ -133,13 +133,13 @@ export class RaidTurn {
         this._endFlags = [];
 
         // switch-in if previously fainted
-        if (this._raidState.raiders[this.raiderID].originalCurHP === 0) {
+        if (this.raiderID < 5 && this._raidState.raiders[this.raiderID].originalCurHP === 0) {
             this._flags[this.raiderID].push("Switched in");
             this._raidState.switchIn(this.raiderID);
             // use dummy move to activate conditional items/abilities
             const moveResult = new RaidMove(
-                {name: "(No Move)" as MoveName, target: "user"}, 
-                new Move(gen, "(No Move)"), 
+                {name: "(No Move)" as MoveName, target: "user"},
+                new Move(gen, "(No Move)"),
                 this._raidState,
                 this.raiderID,
                 this.raiderID,
@@ -171,9 +171,9 @@ export class RaidTurn {
 
         if (!this._isEmptyTurn) {
             this.applyChangedMove();
-        }        
+        }
 
-        // steal tera charge 
+        // steal tera charge
         // deprecated, kept for compaitiblity of old links
         if (this.bossOptions.stealTeraCharge) {
             this._flags[0].push("The Raid Boss stole a Tera charge!");
@@ -212,9 +212,9 @@ export class RaidTurn {
             this.applyRaiderIndirectMove();
             this._raidMove1 = new RaidMove(
                 this._raiderMoveData,
-                this._raiderMove, 
-                this._raidState, 
-                this._raiderMoveID, 
+                this._raiderMove,
+                this._raidState,
+                this._raiderMoveID,
                 this._raiderMoveTarget,
                 this.raiderID,
                 this._turnMoveNumber,
@@ -232,10 +232,10 @@ export class RaidTurn {
             this.applyBossIndirectMove();
             this._raidMove2 = new RaidMove(
                 this._bossMoveData,
-                this._bossMove, 
-                this._raidState, 
-                0, 
-                ["all-opponents","all-other-pokemon","all-pokemon"].includes(this._bossMoveData.target || "") ? this._raiderMoveID : this.raiderID, // If Instruct is used before the boss moves, spread moves from the boss will hit the target of instruct 
+                this._bossMove,
+                this._raidState,
+                0,
+                ["all-opponents","all-other-pokemon","all-pokemon"].includes(this._bossMoveData.target || "") ? this._raiderMoveID : this.raiderID, // If Instruct is used before the boss moves, spread moves from the boss will hit the target of instruct
                 this.raiderID,
                 this._turnMoveNumber,
                 !this._raiderMovesFirst,
@@ -249,10 +249,10 @@ export class RaidTurn {
         } else {
             this.applyBossIndirectMove();
             this._raidMove1 = new RaidMove(
-                this._bossMoveData, 
-                this._bossMove, 
-                this._raidState, 
-                0, 
+                this._bossMoveData,
+                this._bossMove,
+                this._raidState,
+                0,
                 this.raiderID,
                 this.raiderID,
                 this._turnMoveNumber,
@@ -264,10 +264,10 @@ export class RaidTurn {
             this._raidState = this._result1.state;
             this.applyRaiderIndirectMove();
             this._raidMove2 = new RaidMove(
-                this._raiderMoveData, 
-                this._raiderMove, 
-                this._raidState, 
-                this._raiderMoveID, 
+                this._raiderMoveData,
+                this._raiderMove,
+                this._raidState,
+                this._raiderMoveID,
                 this._raiderMoveTarget,
                 this.raiderID,
                 this._turnMoveNumber,
@@ -315,7 +315,7 @@ export class RaidTurn {
             state: this._raidState,
             results: [this._result1, this._result2, ...this._delayedResults],
             raiderMovesFirst: this._raiderMovesFirst,
-            raiderMoveUsed: this._raiderMoveUsed + (this._raidState.raiders[this.raiderID].isCharging ? " (Charging)" : "") + (this.raidState.raiders[this.raiderID].isRecharging ? " (Recharging)" : ""),
+            raiderMoveUsed: this._raiderMoveUsed + (this.raiderID < 5 && this._raidState.raiders[this.raiderID].isCharging ? " (Charging)" : "") + (this.raiderID < 5 && this.raidState.raiders[this.raiderID].isRecharging ? " (Recharging)" : ""),
             bossMoveUsed: this._bossMoveUsed + (this._raidState.raiders[0].isCharging ? " (Charging)" : "") + (this.raidState.raiders[0].isRecharging ? " (Recharging)" : ""),
             id: this.id,
             group: this.group,
@@ -339,7 +339,7 @@ export class RaidTurn {
     }
 
     private applyChangedMove() {
-        const raiderSelectableMoves = getSelectableMoves(this.raidState.raiders[this.raiderID], false)[0];
+        const raiderSelectableMoves = this.raiderID === 5 ? ["(No Move)"] : getSelectableMoves(this.raidState.raiders[this.raiderID], false)[0];
         const bossSelectableMoves = getSelectableMoves(this.raidState.raiders[0], this._isBossAction)[0];
         // handle invalid move selection
         if (isRegularMove(this.raiderMoveData.name) && !raiderSelectableMoves.includes(this.raiderMoveData.name)) {
@@ -349,7 +349,7 @@ export class RaidTurn {
             this._bossMoveData = bossSelectableMoves.length > 0 ? {name: "(Most Damaging)" as MoveName} : {...STRUGGLE_DATA}
         }
         // Charge up moves (should be redundant with the above now)
-        // if (this._raider.isCharging) { 
+        // if (this._raider.isCharging) {
         //     this._raiderMoveData = this.raidState.raiders[this.raiderID].lastMove!;
         //     this._raiderMove = new Move(9, this._raiderMoveData.name, this.raiderOptions);
         //     if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
@@ -376,7 +376,7 @@ export class RaidTurn {
         // }
         // pollen puff
         if (this.raiderMoveData.name === "Pollen Puff") {
-            if (this.targetID !== 0) { 
+            if (this.targetID !== 0) {
                 this._raiderMoveData = {
                     ...this.raiderMoveData,
                     power: 0,
@@ -428,7 +428,7 @@ export class RaidTurn {
                         damage = result.damage;
                     } else {
                         damage = (this.bossOptions.roll === "min" ? result.damage[0] :
-                                this.bossOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
+                                this.bossOptions.roll === "max" ? result.damage[result.damage.length - 1] :
                                 result.damage[Math.floor(result.damage.length / 2)]) as number;
                     }
                     damage = damage * hits; // since this isn't being handled by calculate
@@ -462,7 +462,7 @@ export class RaidTurn {
                         damage = result.damage;
                     } else {
                         damage = (this.raiderOptions.roll === "min" ? result.damage[0] :
-                                this.raiderOptions.roll === "max" ? result.damage[result.damage.length - 1] : 
+                                this.raiderOptions.roll === "max" ? result.damage[result.damage.length - 1] :
                                 result.damage[Math.floor(result.damage.length / 2)]) as number;
                     }
                     damage = damage * hits; // since this isn't being handled by calculate
@@ -483,7 +483,7 @@ export class RaidTurn {
         //     if (this.raiderOptions.crit) this._raiderMove.isCrit = true;
         //     if (this.raiderOptions.hits !== undefined) this._raiderMove.hits = this.raiderOptions.hits;
         //     this._raiderMoveUsed = this._raiderMoveData.name;
-        // } 
+        // }
     }
 
     private applyRaiderIndirectMove() {
@@ -528,6 +528,10 @@ export class RaidTurn {
     }
 
     private setTurnOrder() {
+        if (this._isBossAction || this.targetID === 5) {
+            this._raiderMovesFirst = false;
+            return;
+        }
         this._raider = this._raidState.raiders[this.raiderID];
         this._boss = this._raidState.raiders[0];
 
@@ -557,7 +561,7 @@ export class RaidTurn {
             } else {
                 const raiderSpeed = this._raider.effectiveSpeed;
                 const bossSpeed = this._boss.effectiveSpeed;
-    
+
                 const bossField = this._raidState.fields[0];
                 this._raiderMovesFirst = bossField.isTrickRoom ? (raiderSpeed < bossSpeed) : (raiderSpeed > bossSpeed);
             }
@@ -677,7 +681,7 @@ export class RaidTurn {
             const pokemon =  this._raidState.raiders[id];
             if (!pokemon.abilityNullified && (pokemon.id !== 0 || this._isEndOfFullTurn) && (pokemon.originalCurHP > 0)) {
                 switch (pokemon.ability) {
-                    case "Slow Start": 
+                    case "Slow Start":
                         if (pokemon.slowStartCounter) {
                             pokemon.slowStartCounter--;
                             if (pokemon.slowStartCounter === 0) {
@@ -724,7 +728,7 @@ export class RaidTurn {
                             pokemon.status = "";
                         }
                         break;
-                    case "Harvest": 
+                    case "Harvest":
                         if (pokemon.field.hasWeather("Sun") && !pokemon.item && (pokemon.lastConsumedItem || "").includes("Berry")) {
                             this._raidState.receiveItem(pokemon.id, pokemon.lastConsumedItem!);
                             this._endFlags.push(pokemon.role + ` — ${pokemon.lastConsumedItem} restored (Harvest)`);
@@ -752,7 +756,9 @@ export class RaidTurn {
 
     private removeProtection() {
         const fields = this._raidState.fields;
-        fields[this.raiderID].attackerSide.isProtected = false;
+        if (this.raiderID < 5) {
+            fields[this.raiderID].attackerSide.isProtected = false;
+        }
         fields[0].attackerSide.isProtected = false;
         for (let field of fields) {
             if (this._isEndOfFullTurn) {
@@ -831,7 +837,7 @@ export class RaidTurn {
             if (pokemon.isYawn && this._isEndOfFullTurn) {
                 pokemon.isYawn--;
                 if (pokemon.isYawn === 0) {
-                    const sleepTurns = pokemon.id === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) : 
+                    const sleepTurns = pokemon.id === 0 ? (this.bossOptions.roll === "max" ? 1 : (this.bossOptions.roll === "min" ? 3 : 2)) :
                                                 (this.raiderOptions.roll === "max" ? 1 : (this.raiderOptions.roll === "min" ? 3 : 2));
                     this._raidState.applyStatus(pokemon.id, "slp", pokemon.id, false);
                     if (pokemon.status === "slp") {

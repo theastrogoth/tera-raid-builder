@@ -1041,7 +1041,9 @@ export class RaidMove {
                         }
                     }
                     catch {
-                        this._desc[id] = this._user.name + " used " + this.move.name + " on " + this.getPokemon(id).name + "!";
+                        if (!this.move.named("(No Move)", "(Wait)")) {
+                            this._desc[id] = this._user.name + " used " + this.move.name + " on " + this.getPokemon(id).name + "!";
+                        }
                     }
 
                     // add accuracy to desc if there is a chance to miss

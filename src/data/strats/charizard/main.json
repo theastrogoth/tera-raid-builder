@@ -8,7 +8,6 @@
             "role": "Charizard",
             "name": "Charizard",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Solar Power",
             "nature": "Modest",
             "evs": {
@@ -28,7 +27,7 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "teraType": "Dragon",
             "moves": [
                 "Dragon Pulse",
@@ -57,7 +56,6 @@
             "role": "Sylveon",
             "name": "Sylveon",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Pixilate",
             "item": "Covert Cloak",
             "nature": "Modest",
@@ -84,24 +82,13 @@
                 "Calm Mind",
                 "Draining Kiss",
                 "Fake Tears"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 2,
             "role": "Pelipper",
             "name": "Pelipper",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Drizzle",
             "item": "Sitrus Berry",
             "nature": "Calm",
@@ -127,24 +114,13 @@
                 "Helping Hand",
                 "Rain Dance",
                 "Tailwind"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 3,
             "role": "Alcremie",
             "name": "Alcremie",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Covert Cloak",
             "nature": "Calm",
@@ -171,24 +147,13 @@
                 "Fake Tears",
                 "Helping Hand",
                 "Light Screen"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 4,
             "role": "Alcremie",
             "name": "Alcremie",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Covert Cloak",
             "nature": "Calm",
@@ -215,17 +180,7 @@
                 "Fake Tears",
                 "Helping Hand",
                 "Light Screen"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         }
     ],
     "turns": [
@@ -233,25 +188,27 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
                 "name": "Overheat",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 5,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -259,181 +216,27 @@
             "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
                 "name": "Remove Negative Effects",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
+                    "hits": 10,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
-                "name": "Overheat",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 3,
-            "group": 0,
-            "moveInfo": {
                 "name": "(No Move)",
-                "userID": 2,
+                "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Remove Negative Effects",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Overheat",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Remove Negative Effects",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Overheat",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Remove Negative Effects",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -443,12 +246,13 @@
             "moveInfo": {
                 "name": "Defense Cheer",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -459,7 +263,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -474,7 +279,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -485,7 +291,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -500,7 +307,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -511,7 +319,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -526,7 +335,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -537,7 +347,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -547,12 +358,13 @@
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 2,
-                "targetID": 1,
+                "targetID": 2,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -563,7 +375,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -578,7 +391,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -589,7 +403,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -604,7 +419,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -615,7 +431,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -630,7 +447,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -641,7 +459,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         }
@@ -649,13 +468,7 @@
     "groups": [
         [
             0,
-            1,
-            2,
-            3,
-            4,
-            5,
-            6,
-            7
+            1
         ],
         [
             8
@@ -717,21 +530,17 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Defense Cheer",
                     "Moonblast"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
                     0,
                     0
                 ]
             },
             {
                 "raider": {
-                    "id": 2,
+                    "id": 1,
                     "role": "Miraidon",
                     "name": "Miraidon",
                     "shiny": false,
@@ -764,21 +573,17 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Defense Cheer",
                     "Dragon Pulse"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
                     0,
                     0
                 ]
             },
             {
                 "raider": {
-                    "id": 3,
+                    "id": 1,
                     "role": "Primarina",
                     "name": "Primarina",
                     "shiny": false,
@@ -811,14 +616,10 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Defense Cheer",
                     "Moonblast"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
                     0,
                     0
                 ]
@@ -827,7 +628,7 @@
         [
             {
                 "raider": {
-                    "id": 1,
+                    "id": 2,
                     "role": "Politoed",
                     "name": "Politoed",
                     "shiny": false,
@@ -859,14 +660,10 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Helping Hand",
                     "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
                     1,
                     1
                 ]
@@ -904,14 +701,10 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
-                    "(No Move)",
+                    "Helping Hand",
                     "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    0,
-                    0,
                     1,
                     1
                 ]

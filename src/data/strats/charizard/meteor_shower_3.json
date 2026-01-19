@@ -500,14 +500,10 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Helping Hand",
                     "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    2,
-                    2,
                     1,
                     2
                 ]
@@ -546,14 +542,10 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Helping Hand",
                     "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    2,
-                    2,
                     1,
                     2
                 ]
@@ -595,15 +587,11 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Sweet Scent",
                     "Fake Tears",
                     "Fake Tears"
                 ],
                 "substituteTargets": [
-                    3,
-                    3,
                     0,
                     0,
                     0
@@ -644,15 +632,11 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Gravity",
                     "Acid Spray",
                     "Acid Spray"
                 ],
                 "substituteTargets": [
-                    3,
-                    3,
                     3,
                     0,
                     0
@@ -693,15 +677,11 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
-                    "(No Move)",
                     "Gravity",
                     "Fake Tears",
                     "Fake Tears"
                 ],
                 "substituteTargets": [
-                    3,
-                    3,
                     3,
                     0,
                     0

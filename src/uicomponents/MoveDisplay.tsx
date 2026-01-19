@@ -84,12 +84,12 @@ function MoveText({raiders, turn, result, translationKey}: {raiders: Raider[], t
                         {move}
                     </Typography>
                 </Stack>
-                {target !== "" &&
+                {target && target !== "" &&
                     <Typography variant="body1">
                         { getTranslation("on", translationKey) }
                     </Typography>
                 }
-                {target !== "" &&
+                {target && target !== "" &&
                     <Stack direction="row" spacing={1} alignItems="center" justifyContent="center">
                         <Box
                             sx={{

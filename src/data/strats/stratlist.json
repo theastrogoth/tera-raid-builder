@@ -717,6 +717,10 @@
         "Not Enough Fluff": "meganium/not_enough_fluff"
     },
     "Blastoise": {
+        "Blast Respects": "blastoise/blast_respects",
+        "Blast Respects (Trio)": "blastoise/blast_respects_3",
+        "Blazing Blastoise Barrage": "blastoise/blazing_blastoise_barrage",
+        "Blazing Blastoise Barrage (Trio)": "blastoise/blazing_blastoise_barrage_3",
         "Firefox Forecast": "blastoise/main",
         "Gastroporeon": "blastoise/gastroporeon",
         "Soak Up the Sun": "blastoise/soak_up_the_sun",

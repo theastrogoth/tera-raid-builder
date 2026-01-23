@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Charizard",
-            "name": "Charizard",
+            "role": "Blastoise",
+            "name": "Blastoise",
             "shiny": false,
-            "ability": "Solar Power",
-            "nature": "Modest",
+            "ability": "Rain Dish",
+            "nature": "Naive",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,24 +28,23 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Dragon",
+            "teraType": "Steel",
             "moves": [
-                "Dragon Pulse",
-                "Fire Blast",
-                "Hurricane",
-                "Focus Blast"
+                "Hydro Pump",
+                "Flash Cannon",
+                "Aura Sphere",
+                "Iron Defense"
             ],
-            "bossMultiplier": 2500,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Overheat",
-                "Tera Blast",
-                "Sunny Day",
-                "Inferno"
+                "Withdraw",
+                "Shell Smash",
+                "Rain Dance"
             ],
             "shieldData": {
-                "hpTrigger": 65,
-                "timeTrigger": 65,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 100,
+                "timeTrigger": 100,
+                "shieldCancelDamage": 25,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -53,12 +52,12 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Skeledirge",
+            "name": "Skeledirge",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "ability": "Blaze",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -77,21 +76,24 @@
             },
             "level": 100,
             "gender": "N",
+            "teraType": "Fire",
             "moves": [
-                "Draco Meteor",
-                "Dragon Pulse"
+                "Torch Song",
+                "Blast Burn",
+                "Slack Off",
+                "Sunny Day"
             ]
         },
         {
             "id": 2,
-            "role": "Kyogre",
-            "name": "Kyogre",
+            "role": "Blissey",
+            "name": "Blissey",
             "shiny": false,
-            "ability": "Drizzle",
+            "ability": "(No Ability)",
             "item": "Covert Cloak",
             "nature": "Calm",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -107,20 +109,20 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Helping Hand",
-                "Rain Dance",
-                "Calm Mind",
-                "Thunder Wave"
+                "Sunny Day",
+                "Gravity",
+                "Heal Pulse",
+                "Light Screen"
             ]
         },
         {
             "id": 3,
-            "role": "Bronzong",
-            "name": "Bronzong",
+            "role": "Espathra",
+            "name": "Espathra",
             "shiny": false,
-            "ability": "Heatproof",
+            "ability": "Frisk",
             "item": "Covert Cloak",
             "nature": "Calm",
             "evs": {
@@ -142,18 +144,18 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Gravity",
-                "Metal Sound",
-                "Light Screen",
+                "Lumina Crash",
+                "Sunny Day",
+                "Mud-Slap",
                 "Helping Hand"
             ]
         },
         {
             "id": 4,
-            "role": "Bronzong",
-            "name": "Bronzong",
+            "role": "Espathra",
+            "name": "Espathra",
             "shiny": false,
-            "ability": "Heatproof",
+            "ability": "Frisk",
             "item": "Covert Cloak",
             "nature": "Calm",
             "evs": {
@@ -175,26 +177,26 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Gravity",
-                "Metal Sound",
-                "Light Screen",
+                "Lumina Crash",
+                "Sunny Day",
+                "Mud-Slap",
                 "Helping Hand"
             ]
         }
     ],
     "turns": [
         {
-            "id": 3,
-            "group": 1,
+            "id": 0,
+            "group": 0,
             "moveInfo": {
-                "name": "Overheat",
+                "name": "Withdraw",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -205,17 +207,17 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             }
         },
         {
             "id": 1,
-            "group": 1,
+            "group": 0,
             "moveInfo": {
-                "name": "Remove Negative Effects",
+                "name": "Activate Shield",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
@@ -240,10 +242,10 @@
             }
         },
         {
-            "id": 5,
-            "group": 3,
+            "id": 2,
+            "group": 1,
             "moveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(No Move)",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -270,11 +272,11 @@
     ],
     "groups": [
         [
-            3,
+            0,
             1
         ],
         [
-            5
+            2
         ]
     ],
     "repeats": [

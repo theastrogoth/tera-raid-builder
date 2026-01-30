@@ -684,7 +684,9 @@
         "A Very Mice Tea Party": "primarina/mice_tea_party"
     },
     "Meganium": {
-        "Angry Krok vs. Happy Dino": "meganium/main",
+        "Angry Krok vs. Happy Dino": "meganium/angry_krok",
+        "Angry Krok vs. Happy Dino (Trio)": "meganium/angry_krok_3",
+        "Angry Krok vs. Happy Dino (Original)": "meganium/main",
         "Furious Ape vs. Happy Dino": "meganium/furious_ape",
         "Gaining a Mega Amount of Rage": "meganium/mega_rage",
         "Kritikal Krook": "meganium/kritikal_krook",

@@ -730,13 +730,17 @@
         "Mechamothra Overcooks Gamera": "blastoise/mechamothra",
         "Godzilla vs. Gamera": "blastoise/godzilla_vs_gamera",
         "Zen (and PSY) Turn Blastoise into a Sacred Turtle Soup!": "blastoise/zen_and_psy",
+        "Zen (and PSY) Bulldoze the Bumbling Blastoise!": "blastoise/zen_and_psy_2",
+        "PSY(???) Rides the Tides Low!": "blastoise/psy_tide",
         "Edgelord T3": "blastoise/edgelord",
         "Gallade's Sacred Slash!": "blastoise/gallades_sacred_slash",
         "Armada!": "blastoise/armada",
+        "Armada! 2.0": "blastoise/armada_2",
         "Fiery Entertainment": "blastoise/fiery_entertainment",
         "An All Aquatic Showdown": "blastoise/all_aquatic_showdown",
         "One Trick Pony": "blastoise/one_trick_pony",
         "Double Trouble": "blastoise/double_trouble",
+        "Pardon the Int-Eruption!": "blastoise/interuption",
         "Mythicals Heat Things Up": "blastoise/mythicals",
         "Nukebro vs. Blastoise": "blastoise/nukebro",
         "The Hocus-Pokids": "blastoise/hocus_pokids"
@@ -752,6 +756,7 @@
         "Giraffic Bark": "venusaur/giraffic_bark",
         "Faceplant": "venusaur/faceplant",
         "Godzilla vs. Biollante": "venusaur/godzilla_vs_biollante",
+        "Godzilla vs. Biollante Rematch": "venusaur/godzilla_rematch",
         "Mirrored": "venusaur/mirrored",
         "Sir Clod Joins a Fight Club": "venusaur/sir_clod",
         "Tumbleweed Whipping": "venusaur/tumbleweed_whipping",
@@ -761,6 +766,7 @@
         "Dozing off to Venus...": "venusaur/dozing_off_to_venus",
         "Giving Zen and PSY Their Flowers": "venusaur/giving_zen_their_flowers",
         "Nukebro vs. Venusaur": "venusaur/nukebro",
+        "Nukebro vs. Venusaur 2.0": "venusaur/nukebro_2",
         "Lost in a Froggy Forest": "venusaur/froggy_forest"
     },
     "Empoleon": {

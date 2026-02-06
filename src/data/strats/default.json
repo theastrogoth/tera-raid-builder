@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Meganium",
-            "name": "Meganium",
+            "role": "Typhlosion",
+            "name": "Typhlosion",
             "shiny": false,
-            "ability": "Leaf Guard",
-            "nature": "Impish",
+            "ability": "Flash Fire",
+            "nature": "Mild",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,24 +27,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
-            "teraType": "Psychic",
+            "gender": "M",
+            "teraType": "Ghost",
             "moves": [
-                "Seed Bomb",
-                "Zen Headbutt",
-                "Body Press",
-                "Curse"
+                "Eruption",
+                "Shadow Ball",
+                "Play Rough",
+                "Earthquake"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Reflect",
-                "Light Screen",
-                "Bulldoze"
+                "Sunny Day",
+                "Eruption"
             ],
             "shieldData": {
-                "hpTrigger": 85,
+                "hpTrigger": 80,
                 "timeTrigger": 80,
-                "shieldCancelDamage": 35,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -57,7 +56,7 @@
             "shiny": false,
             "ability": "Anger Point",
             "item": "Life Orb",
-            "nature": "Impish",
+            "nature": "Jolly",
             "evs": {
                 "hp": 252,
                 "atk": 252,
@@ -77,10 +76,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Taunt",
-                "Protect",
                 "Power Trip",
-                "Bulk Up"
+                "Bulk Up",
+                "Crunch",
+                "Protect"
             ]
         },
         {
@@ -90,13 +89,13 @@
             "shiny": false,
             "ability": "Super Luck",
             "item": "Scope Lens",
-            "nature": "Bold",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -112,22 +111,22 @@
             "moves": [
                 "Night Slash",
                 "Helping Hand",
-                "Taunt",
-                "Chilling Water"
+                "Snarl",
+                "Screech"
             ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Screecher",
+            "name": "Snorlax",
             "shiny": false,
-            "ability": "(No Ability)",
+            "ability": "Thick Fat",
             "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "nature": "Sassy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -144,25 +143,25 @@
             "gender": "N",
             "moves": [
                 "Screech",
-                "Reflect",
-                "Mud-Slap",
-                "Helping Hand"
+                "Helping Hand",
+                "Rain Dance",
+                "Chilling Water"
             ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
+            "role": "Screecher",
             "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -177,9 +176,9 @@
             "gender": "N",
             "moves": [
                 "Screech",
-                "Reflect",
-                "Mud-Slap",
-                "Helping Hand"
+                "Helping Hand",
+                "Snarl",
+                "Reflect"
             ]
         }
     ],
@@ -190,69 +189,13 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Reflect",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Light Screen",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 9,
-            "group": 4,
-            "moveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -262,24 +205,19 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "hits": 1
                 }
             }
         }
     ],
     "groups": [
         [
-            0,
-            1
-        ],
-        [
-            9
+            0
         ]
     ],
     "repeats": [
-        1,
         1
     ],
     "substitutes": [

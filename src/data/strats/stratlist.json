@@ -960,8 +960,11 @@
         "Burn Baby Burn!": "inteleon/burn_baby_burn"
     },
     "Typhlosion": {
-        "AP Krook": "typhlosion/main",
+        "Fiery Fury": "typhlosion/fiery_fury",
+        "Fiery Fury (Trio)": "typhlosion/fiery_fury_3",
+        "AP Krook (Original)": "typhlosion/main",
         "Krookodile T0.75": "typhlosion/krookodile",
+        "Team Normal": "typhlosion/team_normal",
         "Hydriggly": "typhlosion/hydriggly",
         "Nukebro vs. Typhlosion": "typhlosion/nukebro"
     },

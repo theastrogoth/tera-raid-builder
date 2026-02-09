@@ -962,11 +962,22 @@
     "Typhlosion": {
         "Fiery Fury": "typhlosion/fiery_fury",
         "Fiery Fury (Trio)": "typhlosion/fiery_fury_3",
+        "Fiery Fury (Duo)": "typhlosion/fiery_fury_2",
         "AP Krook (Original)": "typhlosion/main",
         "Krookodile T0.75": "typhlosion/krookodile",
+        "Annihilape T1": "typhlosion/annihilape",
+        "Team Eeveelutions Fight Fire With Fire!": "typhlosion/eeveelutions",
+        "Team Eeveelutions Int-Erupts Typhlosion’s Ball!": "typhlosion/eevees_int-erupt",
         "Team Normal": "typhlosion/team_normal",
+        "Team Smeargle": "typhlosion/team_smeargle",
+        "Godzilla": "typhlosion/godzilla",
+        "Mareep's Thunder-ing Explosion!": "typhlosion/mareep",
         "Hydriggly": "typhlosion/hydriggly",
-        "Nukebro vs. Typhlosion": "typhlosion/nukebro"
+        "Zen’s (and PSY!)’s Aquatic Incur-psy-ion!": "typhlosion/zen_and_psy",
+        "PSY???": "typhlosion/psy",
+        "Nukebro vs. Typhlosion": "typhlosion/nukebro",
+        "Nukebro 2.0": "typhlosion/nukebro_2",
+        "Star-bucks": "typhlosion/star-bucks"
     },
     "Samurott": {
         "Koraidon": "samurott/main",

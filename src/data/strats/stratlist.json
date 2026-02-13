@@ -384,9 +384,12 @@
         "Growing Pains": "torterra/growing_pains"
     },
     "Feraligatr": {
-        "Latr, Feraligatr!": "feraligatr/main",
-        "Latr, Feraligatr! (Trio)": "feraligatr/latr_gatr_3",
+        "Latr, Feraligatr!": "feraligatr/latr_feraligatr",
+        "Latr, Feraligatr! (Trio)": "feraligatr/latr_feraligatr_3",
+        "Latr, Feraligatr! (Original)": "feraligatr/main",
         "Koraidon T1": "feraligatr/koraidon",
+        "Boot Scute Boogie": "feraligatr/boot_scute_boogie",
+        "Boot Scute Boogie (Trio)": "feraligatr/boot_scute_boogie_3",
         "Anger Point T1": "feraligatr/anger_point",
         "Medicham T1": "feraligatr/medicham",
         "Collision Course: Express Route": "feraligatr/collision_course",

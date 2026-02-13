@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Typhlosion",
-            "name": "Typhlosion",
+            "role": "Feraligatr",
+            "name": "Feraligatr",
             "shiny": false,
-            "ability": "Flash Fire",
-            "nature": "Mild",
+            "ability": "Sheer Force",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,22 +28,23 @@
             },
             "level": 100,
             "gender": "M",
-            "teraType": "Ghost",
+            "teraType": "Dark",
             "moves": [
-                "Eruption",
-                "Shadow Ball",
-                "Play Rough",
-                "Earthquake"
+                "Crunch",
+                "Liquidation",
+                "Psychic Fangs",
+                "Ice Punch"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Sunny Day",
-                "Eruption"
+                "Swords Dance",
+                "Earthquake",
+                "Dragon Dance"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 80,
-                "shieldCancelDamage": 30,
+                "hpTrigger": 75,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 45,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,12 +52,12 @@
         },
         {
             "id": 1,
-            "role": "Krookodile",
-            "name": "Krookodile",
+            "role": "Koraidon",
+            "name": "Koraidon",
             "shiny": false,
-            "ability": "Anger Point",
+            "ability": "Orichalcum Pulse",
             "item": "Life Orb",
-            "nature": "Jolly",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
                 "atk": 252,
@@ -76,26 +77,26 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Power Trip",
-                "Bulk Up",
-                "Crunch",
-                "Protect"
+                "Swords Dance",
+                "Collision Course",
+                "Drain Punch",
+                "Sunny Day"
             ]
         },
         {
             "id": 2,
-            "role": "Honchkrow",
-            "name": "Honchkrow",
+            "role": "Intimidate",
+            "name": "Scrafty",
             "shiny": false,
-            "ability": "Super Luck",
-            "item": "Scope Lens",
-            "nature": "Calm",
+            "ability": "Intimidate",
+            "item": "Leftovers",
+            "nature": "Impish",
             "evs": {
                 "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -109,22 +110,22 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Night Slash",
                 "Helping Hand",
-                "Snarl",
-                "Screech"
+                "Coaching",
+                "Low Sweep",
+                "Sunny Day"
             ]
         },
         {
             "id": 3,
-            "role": "Screecher",
-            "name": "Snorlax",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Thick Fat",
+            "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Sassy",
+            "nature": "Relaxed",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -144,24 +145,24 @@
             "moves": [
                 "Screech",
                 "Helping Hand",
-                "Rain Dance",
-                "Chilling Water"
+                "Mud-Slap",
+                "Sunny Day"
             ]
         },
         {
             "id": 4,
-            "role": "Screecher",
+            "role": "Umbreon",
             "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Sassy",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -177,8 +178,8 @@
             "moves": [
                 "Screech",
                 "Helping Hand",
-                "Snarl",
-                "Reflect"
+                "Mud-Slap",
+                "Sunny Day"
             ]
         }
     ],
@@ -186,6 +187,34 @@
         {
             "id": 0,
             "group": 0,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -215,9 +244,13 @@
     "groups": [
         [
             0
+        ],
+        [
+            1
         ]
     ],
     "repeats": [
+        1,
         1
     ],
     "substitutes": [

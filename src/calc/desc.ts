@@ -5,7 +5,7 @@ import {Pokemon} from './pokemon';
 import {Damage, damageRange} from './result';
 import {error} from './util';
 // NOTE: This needs to come last to simplify bundling
-import {isGrounded} from './mechanics/util';
+import {getUnscaledMaxHP, isGrounded} from './mechanics/util';
 
 export interface RawDesc {
   HPEVs?: string;
@@ -519,15 +519,15 @@ export function getEndOfTurn(
 
   if (field.hasWeather('Sun', 'Harsh Sunshine')) {
     if (defender.hasAbility('Dry Skin', 'Solar Power')) {
-      damage -= Math.max(1, Math.floor(defender.maxHP() / 8));
+      damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 8));
       texts.push(defender.ability + ' damage');
     }
   } else if (field.hasWeather('Rain', 'Heavy Rain')) {
     if (defender.hasAbility('Dry Skin')) {
-      damage += Math.max(1, Math.floor(defender.maxHP() / 8));
+      damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 8));
       texts.push('Dry Skin recovery');
     } else if (defender.hasAbility('Rain Dish')) {
-      damage += Math.max(1, Math.floor(defender.maxHP() / 16));
+      damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 16));
       texts.push('Rain Dish recovery');
     }
   } else if (field.hasWeather('Sand')) {
@@ -536,12 +536,12 @@ export function getEndOfTurn(
       !defender.hasAbility('Magic Guard', 'Overcoat', 'Sand Force', 'Sand Rush', 'Sand Veil') &&
       !defender.hasItem('Safety Goggles')
     ) {
-      damage -= Math.max(1, Math.floor(defender.maxHP() / (gen.num === 2 ? 8 : 16)));
+      damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / (gen.num === 2 ? 8 : 16)));
       texts.push('sandstorm damage');
     }
   } else if (field.hasWeather('Hail', 'Snow')) {
     if (defender.hasAbility('Ice Body')) {
-      damage += Math.max(1, Math.floor(defender.maxHP() / 16));
+      damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 16));
       texts.push('Ice Body recovery');
     } else if (
       !defender.hasType('Ice') &&
@@ -549,38 +549,38 @@ export function getEndOfTurn(
       !defender.hasItem('Safety Goggles') &&
       field.hasWeather('Hail')
     ) {
-      damage -= Math.max(1, Math.floor(defender.maxHP() / 16));
+      damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 16));
       texts.push('hail damage');
     }
   }
 
   const loseItem = move.named('Knock Off') && !defender.hasAbility('Sticky Hold');
   if (defender.hasItem('Leftovers') && !loseItem) {
-    damage += Math.max(1, Math.floor(defender.maxHP() / 16));
+    damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 16));
     texts.push('Leftovers recovery');
   } else if (defender.hasItem('Black Sludge') && !loseItem) {
     if (defender.hasType('Poison')) {
-      damage += Math.max(1, Math.floor(defender.maxHP() / 16));
+      damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 16));
       texts.push('Black Sludge recovery');
     } else if (!defender.hasAbility('Magic Guard', 'Klutz')) {
-      damage -= Math.max(1, Math.floor(defender.maxHP() / 8));
+      damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 8));
       texts.push('Black Sludge damage');
     }
   } else if (defender.hasItem('Sticky Barb')) {
-    damage -= Math.max(1, Math.floor(defender.maxHP() / 8));
+    damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 8));
     texts.push('Sticky Barb damage');
   }
 
   if (field.defenderSide.isSeeded) {
     if (!defender.hasAbility('Magic Guard')) {
       // 1/16 in gen 1, 1/8 in gen 2 onwards
-      damage -= Math.max(1, Math.floor(defender.maxHP() / (gen.num >= 2 ? 8 : 16)));
+      damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / (gen.num >= 2 ? 8 : 16)));
       texts.push('Leech Seed damage');
     }
   }
 
   if (field.attackerSide.isSeeded && !attacker.hasAbility('Magic Guard')) {
-    let recovery = Math.max(1, Math.floor(attacker.maxHP() / (gen.num >= 2 ? 8 : 16)));
+    let recovery = Math.max(1, Math.floor(getUnscaledMaxHP(attacker) / (gen.num >= 2 ? 8 : 16)));
     if (defender.hasItem('Big Root')) recovery = Math.trunc(recovery * 5324 / 4096);
     if (attacker.hasAbility('Liquid Ooze')) {
       damage -= recovery;
@@ -593,32 +593,32 @@ export function getEndOfTurn(
 
   if (field.hasTerrain('Grassy')) {
     if (isGrounded(defender, field)) {
-      damage += Math.max(1, Math.floor(defender.maxHP() / 16));
+      damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 16));
       texts.push('Grassy Terrain recovery');
     }
   }
 
   if (defender.hasStatus('psn')) {
     if (defender.hasAbility('Poison Heal')) {
-      damage += Math.max(1, Math.floor(defender.maxHP() / 8));
+      damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 8));
       texts.push('Poison Heal');
     } else if (!defender.hasAbility('Magic Guard')) {
-      damage -= Math.max(1, Math.floor(defender.maxHP() / (gen.num === 1 ? 16 : 8)));
+      damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / (gen.num === 1 ? 16 : 8)));
       texts.push('poison damage');
     }
   } else if (defender.hasStatus('tox')) {
     if (defender.hasAbility('Poison Heal')) {
-      damage += Math.max(1, Math.floor(defender.maxHP() / 8));
+      damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 8));
       texts.push('Poison Heal');
     } else if (!defender.hasAbility('Magic Guard')) {
       texts.push('toxic damage');
     }
   } else if (defender.hasStatus('brn')) {
     if (defender.hasAbility('Heatproof')) {
-      damage -= Math.max(1, Math.floor(defender.maxHP() / (gen.num > 6 ? 32 : 16)));
+      damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / (gen.num > 6 ? 32 : 16)));
       texts.push('reduced burn damage');
     } else if (!defender.hasAbility('Magic Guard')) {
-      damage -= Math.max(1,Math.floor(defender.maxHP() / (gen.num === 1 || gen.num > 6 ? 16 : 8)));
+      damage -= Math.max(1,Math.floor(getUnscaledMaxHP(defender) / (gen.num === 1 || gen.num > 6 ? 16 : 8)));
       texts.push('burn damage');
     }
   } else if (
@@ -626,57 +626,57 @@ export function getEndOfTurn(
     attacker.hasAbility('isBadDreams') &&
     !defender.hasAbility('Magic Guard')
   ) {
-    damage -= Math.max(1, Math.floor(defender.maxHP() / 8));
+    damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 8));
     texts.push('Bad Dreams');
   }
 
   if (!defender.hasAbility('Magic Guard') && TRAPPING.includes(move.name)) {
     if (attacker.hasItem('Binding Band')) {
-      damage -= Math.max(1, gen.num > 5 ? Math.floor(defender.maxHP() / 6) : Math.floor(defender.maxHP() / 8));
+      damage -= Math.max(1, gen.num > 5 ? Math.floor(getUnscaledMaxHP(defender) / 6) : Math.floor(getUnscaledMaxHP(defender) / 8));
       texts.push('trapping damage');
     } else {
-      damage -= Math.max(1, gen.num > 5 ? Math.floor(defender.maxHP() / 8) : Math.floor(defender.maxHP() / 16));
+      damage -= Math.max(1, gen.num > 5 ? Math.floor(getUnscaledMaxHP(defender) / 8) : Math.floor(getUnscaledMaxHP(defender) / 16));
       texts.push('trapping damage');
     }
   }
   if (defender.isSaltCure && !defender.hasAbility('Magic Guard')) {
     const isWaterOrSteel = defender.hasType('Water', 'Steel') ||
       (defender.teraType && ['Water', 'Steel'].includes(defender.teraType));
-    damage -= Math.max(1, Math.floor(defender.maxHP() / (isWaterOrSteel ? 4 : 8)));
+    damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / (isWaterOrSteel ? 4 : 8)));
     texts.push('Salt Cure');
   }
   if (!defender.hasType('Fire') && !defender.hasAbility('Magic Guard') &&
       (move.named('Fire Pledge (Grass Pledge Boosted)', 'Grass Pledge (Fire Pledge Boosted)'))) {
-    damage -= Math.max(1, Math.floor(defender.maxHP() / 8));
+    damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 8));
     texts.push('Sea of Fire damage');
   }
 
   if (!defender.hasAbility('Magic Guard') && !defender.hasType('Grass') &&
       (field.defenderSide.vinelash || move.named('G-Max Vine Lash'))) {
-    damage -= Math.max(1, Math.floor(defender.maxHP() / 6));
+    damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 6));
     texts.push('Vine Lash damage');
   }
 
   if (!defender.hasAbility('Magic Guard') && !defender.hasType('Fire') &&
       (field.defenderSide.wildfire || move.named('G-Max Wildfire'))) {
-    damage -= Math.max(1, Math.floor(defender.maxHP() / 6));
+    damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 6));
     texts.push('Wildfire damage');
   }
 
   if (!defender.hasAbility('Magic Guard') && !defender.hasType('Water') &&
       (field.defenderSide.cannonade || move.named('G-Max Cannonade'))) {
-    damage -= Math.max(1, Math.floor(defender.maxHP() / 6));
+    damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 6));
     texts.push('Cannonade damage');
   }
 
   if (!defender.hasAbility('Magic Guard') && !defender.hasType('Rock') &&
       (field.defenderSide.volcalith || move.named('G-Max Volcalith'))) {
-    damage -= Math.max(1, Math.floor(defender.maxHP() / 6));
+    damage -= Math.max(1, Math.floor(getUnscaledMaxHP(defender) / 6));
     texts.push('Volcalith damage');
   }
 
   if (defender.isIngrain)  {
-    damage += Math.max(1, Math.floor(defender.maxHP() * (defender.item === "Big Root" ? 1.3/16 : 1/16)));
+    damage += Math.max(1, Math.floor(getUnscaledMaxHP(defender) * (defender.item === "Big Root" ? 1.3/16 : 1/16)));
     texts.push('Ingrain recovery');
   }
 

@@ -14,7 +14,7 @@ export type MoveCategory =   "net-good-stats" |         // stat changes (e.g. Sc
                              "damage" |                 // (e.g. Tackle)
                              "unique" |                 // lots of things that don't neatly fit into other categories
                              "damage+lower" |           // damage + stat changes to target (e.g. Play Rough)
-                             "ailment" |                // status condition (e.g. Thunder Wave) 
+                             "ailment" |                // status condition (e.g. Thunder Wave)
                              "damage+raise" |           // damage + stat changes to user (e.g. Close Combat)
                              "heal" |                   // restore HP (e.g. Recover, Heal Pulse)
                              "ohko" |                   // not going to implement for Tera Raids
@@ -24,25 +24,25 @@ export type MoveCategory =   "net-good-stats" |         // stat changes (e.g. Sc
                              "force-switch";            // not going to implement for Tera Raids
 
 export type MoveTarget = "all-opponents" |              // Target
-                         "entire-field" |               
+                         "entire-field" |
                          "selected-pokemon" |           // Target
                          "user" |                       // Self
                          "random-opponent" |            // Target
                          "all-other-pokemon" |          // Target (Allies aren't affected in raids)
-                         "all-pokemon" |                
-                         "selected-pokemon-me-first" |  
-                         "all-allies" |                 
-                         "users-field" |    
+                         "all-pokemon" |
+                         "selected-pokemon-me-first" |
+                         "all-allies" |
+                         "users-field" |
                          "specific-move" |
                          "opponents-field" |
                          "user-and-allies" |            // Some healing moves, Heal Cheer
                          "ally" |
-                         "opponent" | 
+                         "opponent" |
                          "user-or-ally" |
                          "fainting-pokemon";
 
 export type AilmentName =   "confusion" |               // many of these are not implemented by smogon/calcs
-                            "torment" |                 
+                            "torment" |
                             "psn" |
                             "frz" |
                             "brn" |
@@ -158,7 +158,7 @@ export interface Raider extends Pokemon {
     koChance: number;
     isEndure?: boolean;     // store that a Pokemon can't faint until its next move
     isTaunt?: number;       // store number of turns that a Pokemon can't use status moves
-    firstTauntTurn?: boolean; 
+    firstTauntTurn?: boolean;
     isSleep?: number;       // store number of turns that a Pokemon is asleep
     isYawn?: number;        // turn countdown until yawn takes effect
     isFrozen?: number;      // store number of turns that a Pokemon is frozen
@@ -171,8 +171,8 @@ export interface Raider extends Pokemon {
     usedMoves?: Boolean[];  // stored for Last Resort
     teraCharge?: number;    // stored for Tera activation check
     cheersLeft?: number;
-    isChoiceLocked?: boolean; 
-    isEncore?: number;      // store number of turns that a Pokemon is encored    
+    isChoiceLocked?: boolean;
+    isEncore?: number;      // store number of turns that a Pokemon is encored
     isTorment?: boolean;
     isDisable?: number;     // store number of turns that a Pokemon is disabled
     disabledMove?: MoveName;// store the move that is disabled
@@ -194,6 +194,7 @@ export interface Raider extends Pokemon {
     delayedMoveSource?: number;
     delayedMoveOptions?: RaidMoveOptions;
     delayedMove?: MoveData;
+    seededSource?: number;
 }
 
 export interface RaidState {
@@ -206,7 +207,7 @@ export type RaidMoveOptions = {
     secondaryEffects?: boolean;
     hits?: number;
     roll?: "max" | "min" | "avg";
-    allowMiss?: boolean;    
+    allowMiss?: boolean;
     activateTera?: boolean;
     stealTeraCharge?: boolean; // deprecated
 }

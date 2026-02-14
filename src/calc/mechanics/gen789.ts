@@ -46,6 +46,7 @@ import {
   isQPActive,
   getAtkCheerStack,
   getDefCheerStack,
+  getUnscaledHP,
 } from './util';
 
 export function calculateSMSSSV(
@@ -416,7 +417,8 @@ export function calculateSMSSSV(
   }
 
   if (move.named('Endeavor')) {
-    result.damage = Math.max(0, defender.originalCurHP - attacker.originalCurHP);
+    const unscaledDefenderHP = getUnscaledHP(defender);
+    result.damage = Math.max(0, unscaledDefenderHP - attacker.originalCurHP);
     return result;
   }
 

@@ -7,7 +7,7 @@ import pranksterMoves from "../data/prankster_moves.json";
 import triageMoves from "../data/triage_moves.json";
 import chargeMoves from "../data/charge_moves.json";
 import { MoveName, SpeciesName, StatusName } from "../calc/data/interface";
-import { absoluteFloor, getSelectableMoves, isRegularMove, rankBySpeed } from "./util";
+import { getSelectableMoves, isRegularMove, rankBySpeed } from "./util";
 import { getEndOfTurn } from "../calc/desc";
 
 const gen = Generations.get(9);
@@ -598,14 +598,19 @@ export class RaidTurn {
             for (const pokemon of this._raidState.raiders) {
                 if (pokemon.originalCurHP > 0) {
                     const moveField = pokemon.field.clone();
-                    moveField.defenderSide = pokemon.field.attackerSide;
+                    const testOpponent = pokemon.id === 0 ? this._raidState.raiders[1] : this._raidState.raiders[0];
+                    moveField.defenderSide = moveField.attackerSide;
+                    moveField.attackerSide = testOpponent.field.attackerSide.clone();
+                    if (moveField.attackerSide.isSeeded && !(testOpponent.seededSource! === pokemon.id)) {
+                        moveField.attackerSide.isSeeded = false;
+                    }
                     const eot = getEndOfTurn(gen, this._raidState.raiders[0], pokemon, dummyMove, moveField);
                     if (eot.damage) {
-                        eot.damage = absoluteFloor(eot.damage / ((pokemon.bossMultiplier || 100) / 100));
+                        // eot.damage = absoluteFloor(eot.damage / ((pokemon.bossMultiplier || 100) / 100));
                         const initialHP = pokemon.originalCurHP;
                         this._raidState.applyDamage(pokemon.id, -eot.damage);
                         const finalHP = pokemon.originalCurHP;
-                        const initialPercent = Math.floor(initialHP / pokemon.maxHP() * 1000)/10;;
+                        const initialPercent = Math.floor(initialHP / pokemon.maxHP() * 1000)/10;
                         const finalPercent = Math.floor(finalHP / pokemon.maxHP() * 1000)/10;
                         this._endFlags.push(pokemon.role + " —  HP: " + initialPercent + "% → " + finalPercent + "% after " + eot.texts.join(", "));
                     }

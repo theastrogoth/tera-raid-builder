@@ -884,9 +884,9 @@ export class RaidMove {
                             if (calcMove.name === "Pollen Puff" && this.userID !== 0 && this._targetID !== 0) {
                                 break;
                             }
-                            if (calcMove.named("Endeavor") && (this.userID === 0 || this.targetID === 0)) {
-                                break;
-                            }
+                            // if (calcMove.named("Endeavor") && (this.userID === 0 || this.targetID === 0)) {
+                            //     break;
+                            // }
                             moveBP = hitBP;
                             cumBP += hitBP;
                             // get calc result
@@ -947,7 +947,7 @@ export class RaidMove {
                                 (this.moveData.moveCategory === "Physical" && target.hasItem("Jaboca Berry")) ||
                                 (this.moveData.moveCategory === "Special" && target.hasItem("Rowap Berry"))
                             ) {
-                                this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
+                                this._damaged[this.userID] = this._raidState.applyDamage(this.userID, this._user.getFractionHP(1/8)) || this._damaged[this.userID];
                                 this._raidState.consumeItem(target.id, target.item!)
                                 if (target.hasAbility("Cud Chew")) { target.isCudChew = 2; }
                                 else if (target.hasAbility("Cheek Pouch")) { this._raidState.applyDamage(target.id, Math.ceil(-target.maxHP()/3))}
@@ -960,11 +960,11 @@ export class RaidMove {
                                     switch (this._raidState.raiders[target.id].ability) {
                                         case "Rough Skin":
                                         case "Iron Barbs":
-                                            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
+                                            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, this._user.getFractionHP(1/8)) || this._damaged[this.userID];
                                             break;
                                         case "Aftermath":
                                             if (target.originalCurHP === 0) {
-                                                this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 4 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
+                                                this._damaged[this.userID] = this._raidState.applyDamage(this.userID, this._user.getFractionHP(1/4)) || this._damaged[this.userID];
                                             }
                                             break;
                                         case "Gooey":
@@ -1003,7 +1003,7 @@ export class RaidMove {
                                 // items
                                 switch (target.item) {
                                     case "Rocky Helmet":
-                                        this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 6 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
+                                        this._damaged[this.userID] = this._raidState.applyDamage(this.userID, this._user.getFractionHP(1/6)) || this._damaged[this.userID];
                                         break;
                                     case "Sticky Barb":
                                         if (!this._user.item) {
@@ -1076,7 +1076,7 @@ export class RaidMove {
                 if (this.moveData.makesContact && this._blockedBy[id] && target.lastMove && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
                     switch (target.lastMove.name) {
                         case "Spiky Shield":
-                            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, Math.floor(this._user.maxHP() / 8 / ((this._user.bossMultiplier || 100) / 100))) || this._damaged[this.userID];
+                            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, this._user.getFractionHP(1/8)) || this._damaged[this.userID];
                             break;
                         case "Baneful Bunker":
                             this._raidState.applyStatus(this.userID, "psn", target.id, false, false, this.options.roll);
@@ -1208,7 +1208,7 @@ export class RaidMove {
                     default:
                         break;
                 }
-                const healAmount = Math.floor(target.maxHP() * (healingPercent || 0)/100 / ((target.bossMultiplier || 100) / 100));
+                const healAmount = target.getFractionHP((healingPercent || 0) / 100);
                 this._healing[id] += healAmount;
             }
         }
@@ -1311,7 +1311,7 @@ export class RaidMove {
 
     private applySelfDamage() {
         if (this._user.hasAbility("Magic Guard")) { return; }
-        const selfDamage = Math.floor((this._user.maxHP() * (this.moveData.selfDamage || 0) / 100) / ((this._user.bossMultiplier || 100) / 100));
+        const selfDamage = this._user.getFractionHP((this.moveData.selfDamage || 0) / 100);
         const lifeOrbDamage = (this._user.item === "Life Orb" && !this._isSheerForceBoosted && this._damage.reduce((a,b) => a + b, 0) > 0) ? Math.floor(this._user.maxHP() * 0.1) : 0;
         if (selfDamage !== 0) {
             const selfDamagePercent = this.moveData.selfDamage;
@@ -1896,6 +1896,15 @@ export class RaidMove {
                     this._raidState.applyStatus(this.userID, "slp", this.userID, false, false, this.options.roll);
                 }
                 break;
+            case "Pain Split":
+                const unscaledUserHP = Math.floor(this._user.unscaledHP);
+                const unscaledTargetHP = Math.floor(target.unscaledHP);
+                const avgHP = Math.floor((unscaledUserHP + unscaledTargetHP) / 2 );
+                const userDiff = unscaledUserHP - avgHP;
+                const targetDiff = unscaledTargetHP - avgHP;
+                this._raidState.applyDamage(this.userID, userDiff);
+                this._raidState.applyDamage(target.id, targetDiff);
+                break;
             case "Ingrain":
                 this._user.isIngrain = true;
                 break;
@@ -2100,7 +2109,7 @@ export class RaidMove {
                     } else if (vStat === "aquaring") {
                         // TO DO
                     } else if (vStat === "leech-seed") {
-                        // TO DO
+                        this._flags[i].push(" was seeded!")
                     } else if (vStat === "magnetrise") {
                         // TO DO
                     } else if (vStat === "tarshot") {

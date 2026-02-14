@@ -34,6 +34,18 @@ export function isGrounded(pokemon: Pokemon, field: Field) {
       !pokemon.hasItem('Air Balloon')));
 }
 
+export function getUnscaledHP(pokemon: Pokemon) {
+  return pokemon.bossMultiplier ? pokemon.originalCurHP / (pokemon.bossMultiplier / 100) : pokemon.originalCurHP;
+}
+
+export function getUnscaledMaxHP(pokemon: Pokemon) {
+  return pokemon.bossMultiplier ? pokemon.maxHP() / (pokemon.bossMultiplier / 100) : pokemon.maxHP();
+}
+
+export function getUnscaledHPFraction(pokemon: Pokemon, scale: number) {
+    return Math.floor(scale * getUnscaledMaxHP(pokemon));
+}
+
 export function getModifiedStat(stat: number, mod: number, gen?: Generation) {
   if (gen && gen.num < 3) {
     if (mod >= 0) {
@@ -568,7 +580,7 @@ export function handleFixedDamageMoves(attacker: Pokemon, move: Move, defender?:
     return attacker.level;
   } else  if (move.named("Super Fang", "Nature's Madness", "Ruination")) {
     if (!defender) { return 1; }
-    return Math.max(1, Math.floor(defender.originalCurHP / 2 / ((defender.bossMultiplier || 100) / 100)))
+    return Math.max(1, getUnscaledHPFraction(defender, 1/2));
   } else if (move.named('Dragon Rage')) {
     return 40;
   } else if (move.named('Sonic Boom')) {

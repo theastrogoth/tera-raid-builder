@@ -746,6 +746,10 @@ export class RaidState implements State.RaidState{
                     pokemon.isYawn = 2;
                 } else if (ailment === "ingrain") {
                     pokemon.isIngrain = true;
+                } else if (ailment === "leech-seed") {
+                    pokemon.field.attackerSide.isSeeded = true;
+                    pokemon.seededSource = source;
+                    console.log("here", pokemon.seededSource)
                 }
             }
         }

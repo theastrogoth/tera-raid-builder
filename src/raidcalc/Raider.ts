@@ -1,9 +1,10 @@
 import { Field, Pokemon, Generations } from "../calc";
 import { MoveName, StatsTable, StatIDExceptHP, AbilityName, ItemName, TypeName, SpeciesName } from "../calc/data/interface";
 import { extend } from '../calc/util';
-import { safeStatStage, getModifiedSpeed } from "./util";
+import { safeStatStage, getModifiedSpeed, absoluteFloor } from "./util";
 import * as State from "./interface";
 import { CumulativeRolls } from "./rolls";
+import { getUnscaledHP, getUnscaledMaxHP } from "../calc/mechanics/util";
 
 const gen = Generations.get(9);
 
@@ -13,7 +14,7 @@ export class Raider extends Pokemon implements State.Raider {
     shiny: boolean;
     isAnyLevel: boolean;        // keeps track of whether or not the Raider should be displayed as having "Any" level for display/graphic purposes
     field: Field;               // each pokemon gets its own field to deal with things like Helping Hand and Protect
-    moveData: State.MoveData[];   
+    moveData: State.MoveData[];
     extraMoves?: MoveName[];    // for special boss actions
     extraMoveData?: State.MoveData[];
 
@@ -42,10 +43,10 @@ export class Raider extends Pokemon implements State.Raider {
 
     isChoiceLocked?: boolean;   // indicates that a Pokemon is locked into a move
     isEncore?: number;          // store number of turns that a Pokemon is encored
-    isTorment?: boolean;        
+    isTorment?: boolean;
     isDisable?: number;         // store number of turns that a Pokemon is disabled
     disabledMove?: MoveName;    // store the move that is disabled
-    isThroatChop?: number;     
+    isThroatChop?: number;
 
     shieldActivateHP?: number;
     shieldBroken?: boolean;
@@ -73,19 +74,21 @@ export class Raider extends Pokemon implements State.Raider {
     delayedMoveOptions?: State.RaidMoveOptions;
     delayedMove?: State.MoveData;
 
+    seededSource?: number;
+
     constructor(
-        id: number, 
-        role: string, 
+        id: number,
+        role: string,
         shiny: boolean | undefined,
         isAnyLevel: boolean | undefined,
-        field: Field, 
-        pokemon: Pokemon, 
-        moveData: State.MoveData[], 
-        extraMoves: MoveName[] = [], 
+        field: Field,
+        pokemon: Pokemon,
+        moveData: State.MoveData[],
+        extraMoves: MoveName[] = [],
         extraMoveData: State.MoveData[] = [],
         cumDamageRolls: CumulativeRolls | undefined = undefined,
         koChance: number = 0,
-        isEndure: boolean = false, 
+        isEndure: boolean = false,
         isTaunt: number = 0,
         firstTauntTurn: boolean = false,
         isSleep: number = 0,
@@ -94,12 +97,12 @@ export class Raider extends Pokemon implements State.Raider {
         isFrozen: number = 0,
         isCharging: boolean = false,
         isRecharging: boolean = false,
-        lastMove: State.MoveData | undefined = undefined, 
-        lastTarget: number | undefined = undefined, 
+        lastMove: State.MoveData | undefined = undefined,
+        lastTarget: number | undefined = undefined,
         lastAccuracy: number | undefined = undefined,
         moveRepeated: number | undefined = undefined,
         movesUsed: boolean[] | undefined = undefined,
-        teraCharge: number | undefined = 0, 
+        teraCharge: number | undefined = 0,
         cheersLeft: number = 3,
         choiceLocked: boolean = false,
         isEncore: number | undefined = 0,
@@ -107,8 +110,8 @@ export class Raider extends Pokemon implements State.Raider {
         isDisable: number | undefined = 0,
         disabledMove: MoveName | undefined = undefined,
         isThroatChop: number | undefined = 0,
-        shieldActivateHP: number | undefined = undefined, 
-        shieldBroken: boolean | undefined = undefined, 
+        shieldActivateHP: number | undefined = undefined,
+        shieldBroken: boolean | undefined = undefined,
         shieldBreakStun: boolean[] | undefined = undefined,
         substitute: number | undefined = undefined,
         originalAbility: AbilityName | "(No Ability)" | undefined = undefined,
@@ -126,6 +129,7 @@ export class Raider extends Pokemon implements State.Raider {
         delayedMoveSource: number | undefined = undefined,
         delayedMoveOptions: State.RaidMoveOptions | undefined = undefined,
         delayedMove: State.MoveData | undefined = undefined,
+        seededSource: number | undefined = undefined
     ) {
         super(pokemon.gen, pokemon.name, {...pokemon})
         this.id = id;
@@ -183,12 +187,13 @@ export class Raider extends Pokemon implements State.Raider {
         this.delayedMoveSource = delayedMoveSource;
         this.delayedMoveOptions = delayedMoveOptions;
         this.delayedMove = delayedMove;
+        this.seededSource = seededSource;
     }
 
     clone(): Raider {
         return new Raider(
-            this.id, 
-            this.role, 
+            this.id,
+            this.role,
             this.shiny,
             this.isAnyLevel,
             this.field.clone(),
@@ -286,6 +291,7 @@ export class Raider extends Pokemon implements State.Raider {
             this.delayedMoveSource,
             this.delayedMoveOptions,
             this.delayedMove,
+            this.seededSource,
         )
     }
 
@@ -300,7 +306,19 @@ export class Raider extends Pokemon implements State.Raider {
         return getModifiedSpeed(this);
     }
 
-    public applyDamage(damage: number, damageRolls?: Map<number,number>, ignoreForRolls?: boolean, willSurvive?: boolean): number { 
+    public get unscaledHP(): number {
+        return getUnscaledHP(this)
+    }
+
+    public get unscaledMaxHP(): number {
+        return getUnscaledMaxHP(this)
+    }
+
+    public getFractionHP(scale: number): number {
+        return absoluteFloor(this.unscaledMaxHP * scale)
+    }
+
+    public applyDamage(damage: number, damageRolls?: Map<number,number>, ignoreForRolls?: boolean, willSurvive?: boolean): number {
         this.originalCurHP = Math.min(this.maxHP(), Math.max(0, this.originalCurHP - damage));
         if (this.isEndure && this.originalCurHP === 0) {
             this.originalCurHP = 1;

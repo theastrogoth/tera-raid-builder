@@ -42,7 +42,7 @@ function stratDexEntryToOption(options: StratOption[], index: number, boss: stri
             raiders: info.pokemon.slice(1).map(p => p.name) as [string, string, string, string],
             substitutes: info.substitutes ? info.substitutes.map(sl => sl.map(s => s.raider.name)).flat() : [],
             moves: [
-                    ...info.turns.map(t => t.moveInfo.name),
+                    ...info.turns.filter(t => t.moveInfo.userID !== 0).map(t => t.moveInfo.name),
                     ...(info.substitutes ? info.substitutes.map(sl => sl.map(s => s.substituteMoves).flat()).flat() : [])
                 ].filter(m => m !== undefined && m !== "(No Move)") as string[],
             abilities: [

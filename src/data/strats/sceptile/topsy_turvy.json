@@ -1,6 +1,6 @@
 {
     "name": "Topsy-Turvy Reshiram",
-    "notes": "",
+    "notes": "Waiting for the scripted \"Clear Boosts / Abilities\" before executing moves 12–14 is the slow and steady approach. However, these moves can all be used beforehand if the strategy is executed quickly and smoothly enough. \nReshiram’s speed investment plus the 2 Heal Cheers negate any paralysis risk from Thunder Punch; a bulky set is also viable here.",
     "credits": "Sabu Karma",
     "pokemon": [
         {
@@ -110,8 +110,8 @@
             "gender": "N",
             "moves": [
                 "Gravity",
-                "Topsy-Turvy",
-                "Fake Tears"
+                "Fake Tears",
+                "Topsy-Turvy"
             ]
         },
         {
@@ -119,7 +119,7 @@
             "role": "Oranguru",
             "name": "Oranguru",
             "shiny": false,
-            "ability": "(No Ability)",
+            "ability": "Inner Focus",
             "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {

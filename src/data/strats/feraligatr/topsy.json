@@ -1,6 +1,6 @@
 {
     "name": "Topsy-Turvy Arceus",
-    "notes": "",
+    "notes": "Arceus-Fighting with Focus Blast will KO without tera, meaning the 1st Overheat/Draco Meteor doesn't have to wait for \"Steal Tera Charge\" and can save a few seconds.\nUsing Tera-Stellar can be more convenient if switching between Fist, Insect, and Pixie plates, but not a necessity.",
     "credits": "Sabu Karma",
     "pokemon": [
         {
@@ -59,7 +59,7 @@
             "item": "Fist Plate",
             "nature": "Modest",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
@@ -93,7 +93,7 @@
             "item": "Flame Orb",
             "nature": "Bold",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 252,
                 "spa": 0,
@@ -121,11 +121,12 @@
             "name": "Malamar",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Timid",
+            "item": "Choice Scarf",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -141,7 +142,6 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
                 "Topsy-Turvy"
             ]
         },
@@ -349,9 +349,9 @@
             "id": 8,
             "group": 6,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Attack Cheer",
                 "userID": 3,
-                "targetID": 0,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -461,9 +461,9 @@
             "id": 2,
             "group": 4,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Fake Tears",
                 "userID": 2,
-                "targetID": 2,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -681,8 +681,100 @@
                 ]
             }
         ],
-        [],
-        [],
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Feraligatr",
+                    "name": "Feraligatr",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Flame Orb",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 6
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Malamar",
+                    "name": "Malamar",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Topsy-Turvy",
+                        "Fake Tears",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Topsy-Turvy",
+                    "Attack Cheer",
+                    "Topsy-Turvy"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            }
+        ],
         []
     ]
 }

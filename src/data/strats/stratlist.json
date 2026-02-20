@@ -580,7 +580,10 @@
         "Boy Sprouts": "pikachu/boy_sprouts"
     },
     "Sceptile": {
-        "Running Amuk": "sceptile/main",
+        "Running Amuk": "sceptile/running_amuk",
+        "Running Amuk (Trio)": "sceptile/running_amuk_3",
+        "Running Amuk (Original)": "sceptile/main",
+        "Cosmic Crisp": "sceptile/cosmic_crisp",
         "Koraidon T1": "sceptile/koraidon_t1",
         "Sledding Amuk": "sceptile/sledding_amuk",
         "Angry Crab": "sceptile/angry_crab",
@@ -606,6 +609,7 @@
         "Hot and Cold": "sceptile/hot_and_cold",
         "Family Affairs": "sceptile/family_affairs",
         "Metal and Magic": "sceptile/metal_and_magic",
+        "Topsy-Turvy Reshiram": "sceptile/topsy_turvy",
         "Mythicals": "sceptile/mythicals",
         "Nukebro: Across the Nukeverse 1": "sceptile/nukebro_1",
         "Nukebro: Across the Nukeverse 2": "sceptile/nukebro_2",

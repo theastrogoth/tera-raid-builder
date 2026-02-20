@@ -1,0 +1,1207 @@
+{
+    "name": "Running Amuk",
+    "notes": "- Koraidon and Screechers MUST wait for Taunt before selecting their own moves.\n- Missing a raider? Make it a trio! Only 1 Screecher is needed.\n- Screecher uses Screech 3x if playing as a trio.",
+    "credits": "The r/PokePortal Team",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Sceptile",
+            "name": "Sceptile",
+            "shiny": false,
+            "ability": "Unburden",
+            "nature": "Hasty",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "M",
+            "teraType": "Dragon",
+            "moves": [
+                "Leaf Blade",
+                "Breaking Swipe",
+                "Dragon Dance",
+                "Thunder Punch"
+            ],
+            "bossMultiplier": 3500,
+            "extraMoves": [
+                "Leaf Storm",
+                "Earthquake"
+            ],
+            "shieldData": {
+                "hpTrigger": 70,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 50,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Koraidon",
+            "name": "Koraidon",
+            "shiny": false,
+            "ability": "Orichalcum Pulse",
+            "item": "Covert Cloak",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Swords Dance",
+                "Outrage",
+                "Breaking Swipe",
+                "Drain Punch"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Whimsicott",
+            "name": "Whimsicott",
+            "shiny": false,
+            "ability": "Prankster",
+            "item": "Sitrus Berry",
+            "nature": "Impish",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Taunt",
+                "Helping Hand",
+                "Sunny Day",
+                "Trick Room"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Muk",
+            "name": "Muk",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech",
+                "Helping Hand",
+                "Lunge",
+                "Mud-Slap"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Muk",
+            "name": "Muk",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech",
+                "Helping Hand",
+                "Lunge",
+                "Mud-Slap"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Leaf Storm",
+                "userID": 0,
+                "targetID": 5,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 2,
+            "moveInfo": {
+                "name": "Taunt",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 5,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 5,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 5,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 3,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 3,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 3,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 4,
+            "moveInfo": {
+                "name": "Outrage",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0
+        ],
+        [
+            5
+        ],
+        [
+            6,
+            2,
+            4
+        ],
+        [
+            8,
+            9,
+            1
+        ],
+        [
+            11
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Volbeat",
+                    "name": "Volbeat",
+                    "shiny": false,
+                    "ability": "Prankster",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Taunt",
+                        "Helping Hand",
+                        "Chilling Water",
+                        "Mud-Slap"
+                    ]
+                },
+                "substituteMoves": [
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Grafaiai",
+                    "name": "Grafaiai",
+                    "shiny": false,
+                    "ability": "Prankster",
+                    "item": "Sitrus Berry",
+                    "nature": "Impish",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Helping Hand",
+                        "Mud-Slap",
+                        "Sunny Day"
+                    ]
+                },
+                "substituteMoves": [
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "H-Electrode",
+                    "name": "Electrode-Hisui",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Reflect",
+                        "Discharge",
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Meowscarada",
+                    "name": "Meowscarada",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Jolly",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Helping Hand",
+                        "Chilling Water",
+                        "Trick Room"
+                    ]
+                },
+                "substituteMoves": [
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    2
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Talonflame",
+                    "name": "Talonflame",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Jolly",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Taunt",
+                        "Tailwind",
+                        "Sunny Day",
+                        "Roost"
+                    ]
+                },
+                "substituteMoves": [
+                    "Taunt",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    2
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Alolan Muk",
+                    "name": "Muk-Alola",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Mud-Slap",
+                        "Sunny Day"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Umbreon",
+                    "name": "Umbreon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Reflect",
+                        "Mud-Slap"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Magnezone",
+                    "name": "Magnezone",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Reflect",
+                        "Discharge"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Venonat",
+                    "name": "Venonat",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Lunge",
+                        "Sunny Day",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Galvantula",
+                    "name": "Galvantula",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Discharge"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Iron Moth",
+                    "name": "Iron Moth",
+                    "shiny": false,
+                    "ability": "Quark Drive",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Sunny Day"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Alolan Muk",
+                    "name": "Muk-Alola",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Mud-Slap",
+                        "Sunny Day"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Umbreon",
+                    "name": "Umbreon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Reflect",
+                        "Mud-Slap"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Magnezone",
+                    "name": "Magnezone",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Reflect",
+                        "Discharge"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Venonat",
+                    "name": "Venonat",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Eviolite",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Lunge",
+                        "Sunny Day",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Galvantula",
+                    "name": "Galvantula",
+                    "shiny": false,
+                    "ability": "Compound Eyes",
+                    "item": "Sitrus Berry",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Discharge"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Iron Moth",
+                    "name": "Iron Moth",
+                    "shiny": false,
+                    "ability": "Quark Drive",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Helping Hand",
+                        "Lunge",
+                        "Sunny Day"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ]
+    ]
+}

@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Feraligatr",
-            "name": "Feraligatr",
+            "role": "Sceptile",
+            "name": "Sceptile",
             "shiny": false,
-            "ability": "Sheer Force",
-            "nature": "Adamant",
+            "ability": "Unburden",
+            "nature": "Hasty",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,23 +28,22 @@
             },
             "level": 100,
             "gender": "M",
-            "teraType": "Dark",
+            "teraType": "Dragon",
             "moves": [
-                "Crunch",
-                "Liquidation",
-                "Psychic Fangs",
-                "Ice Punch"
+                "Leaf Blade",
+                "Breaking Swipe",
+                "Dragon Dance",
+                "Thunder Punch"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Swords Dance",
-                "Earthquake",
-                "Dragon Dance"
+                "Leaf Storm",
+                "Earthquake"
             ],
             "shieldData": {
-                "hpTrigger": 75,
+                "hpTrigger": 70,
                 "timeTrigger": 75,
-                "shieldCancelDamage": 45,
+                "shieldCancelDamage": 50,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -56,10 +55,10 @@
             "name": "Koraidon",
             "shiny": false,
             "ability": "Orichalcum Pulse",
-            "item": "Life Orb",
+            "item": "Covert Cloak",
             "nature": "Adamant",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 252,
                 "def": 0,
                 "spa": 0,
@@ -78,21 +77,21 @@
             "gender": "N",
             "moves": [
                 "Swords Dance",
-                "Collision Course",
-                "Drain Punch",
-                "Sunny Day"
+                "Outrage",
+                "Breaking Swipe",
+                "Drain Punch"
             ]
         },
         {
             "id": 2,
-            "role": "Intimidate",
-            "name": "Scrafty",
+            "role": "Whimsicott",
+            "name": "Whimsicott",
             "shiny": false,
-            "ability": "Intimidate",
-            "item": "Leftovers",
+            "ability": "Prankster",
+            "item": "Sitrus Berry",
             "nature": "Impish",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -110,16 +109,16 @@
             "level": 100,
             "gender": "N",
             "moves": [
+                "Taunt",
                 "Helping Hand",
-                "Coaching",
-                "Low Sweep",
-                "Sunny Day"
+                "Sunny Day",
+                "Trick Room"
             ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Muk",
+            "name": "Muk",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
@@ -145,14 +144,14 @@
             "moves": [
                 "Screech",
                 "Helping Hand",
-                "Mud-Slap",
-                "Sunny Day"
+                "Lunge",
+                "Mud-Slap"
             ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Muk",
+            "name": "Muk",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
@@ -178,8 +177,8 @@
             "moves": [
                 "Screech",
                 "Helping Hand",
-                "Mud-Slap",
-                "Sunny Day"
+                "Lunge",
+                "Mud-Slap"
             ]
         }
     ],
@@ -188,15 +187,15 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Swords Dance",
+                "name": "Leaf Storm",
                 "userID": 0,
-                "targetID": 0,
+                "targetID": 5,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -206,25 +205,25 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
         {
-            "id": 1,
-            "group": 1,
+            "id": 5,
+            "group": 2,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -234,9 +233,9 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         }
@@ -246,7 +245,7 @@
             0
         ],
         [
-            1
+            5
         ]
     ],
     "repeats": [

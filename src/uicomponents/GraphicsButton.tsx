@@ -193,6 +193,11 @@ const RightBar = styled("hr")({
     // right: "0"
 });
 
+const Spacer = styled(Box)({
+    height: "150px",
+    position: "relative"
+})
+
 const BuildsContainer = styled(Box)({
     width: "auto",
     display: "flex",
@@ -250,7 +255,7 @@ const BuildItemArt = styled("img")({
 });
 
 const BuildTypes = styled(Stack)({
-    
+
 });
 
 const BuildTypeIcon = styled("img")({
@@ -681,8 +686,8 @@ function getMoveMethodIcon(moveMethod: string, moveType: TypeName) {
 function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults, checkForCopies: boolean): [{id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], number[]] {
     const raiders = results.turnZeroState.raiders;
     const [turnGroups, turnNumbers] = sortGroupsIntoTurns(getTurnNumbersFromGroups(groups), groups);
-    const tempTurnGroups = turnGroups.map(groups => groups.map((group, groupIndex) => 
-        group.turns.map((t, i) => { 
+    const tempTurnGroups = turnGroups.map(groups => groups.map((group, groupIndex) =>
+        group.turns.map((t, i) => {
             const turnResult = results.turnResults.find((r) => t.id === r.id)!;
             let move = turnResult.raiderMoveUsed;
             const wait = move === "(No Move)" && turnResult.bossMoveUsed === "(No Move)";
@@ -700,10 +705,10 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults, chec
                 teraActivated: !wait && !!(turnResult!.moveInfo.options!.activateTera && (results.turnZeroState.raiders[t.moveInfo.userID].teraType || "???")!== "???" &&
                                 turnResult.flags[turnResult.moveInfo.userID].includes("Tera activated")),
                 raiderIDs: [info.userID],
-            } 
+            }
         })
     ));
-    const preparedTurnGroups = !checkForCopies ? tempTurnGroups : tempTurnGroups.map(tg => 
+    const preparedTurnGroups = !checkForCopies ? tempTurnGroups : tempTurnGroups.map(tg =>
         tg.map(g => {
             const turns = [g[0]];
             for (let i=1; i<g.length; i++) {
@@ -718,7 +723,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults, chec
                         )
                     ) {
                         duplicate = true;
-                        g[j].raiderIDs.push(g[i].info.userID); 
+                        g[j].raiderIDs.push(g[i].info.userID);
                         break;
                     }
                 }
@@ -732,7 +737,7 @@ function getTurnGroups(groups: TurnGroupInfo[], results: RaidBattleResults, chec
     return [preparedTurnGroups, turnNumbers];
 }
 
-function generateGraphicBuild(info: GraphicBuildInfo, index: number, statDisplay: (JSX.Element)[] | undefined, ignoreStats: boolean[], translationKey: any) {
+function generateGraphicBuild(info: GraphicBuildInfo, index: number, statDisplay: (JSX.Element)[] | undefined, ignoreStats: boolean[], showSubFor: boolean, translationKey: any) {
 const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
     const numcopies = shiny.length;
     const hArtSpacing = -120 / (Math.max(numcopies,2) - 1) - 375;
@@ -749,7 +754,7 @@ const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
                             )
                         }
                     </BuildArtWrapper>
-                    {info.raider.item ? 
+                    {info.raider.item ?
                         <BuildItemArt src={getItemSpriteURL(info.raider.item)} /> : null}
                     {(info.raider.teraType || "???") !== "???" ?
                         <BuildTeraIcon src={getTeraTypeIconURL(info.raider.teraType!)} /> : null}
@@ -760,8 +765,8 @@ const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
                         {info.raider.types.length === 1 && <BuildTypeIcon key={1} src={getTypeIconURL("none")}/>}
                     </BuildTypes>
                     <BuildRole>{role}</BuildRole>
-                    { info.extraBuildInfo.subFor &&
-                        <BuildSubstituteSubtitle>Substitute for {info.extraBuildInfo.subFor}</BuildSubstituteSubtitle>
+                    { showSubFor && info.extraBuildInfo.subFor &&
+                        <BuildSubstituteSubtitle>{getTranslation("Substitute for", translationKey) + " " + info.extraBuildInfo.subFor}</BuildSubstituteSubtitle>
                     }
                     <BuildHeaderSeparator />
                 </BuildHeader>
@@ -772,11 +777,11 @@ const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
                     }
                     {info.raider.item ?
                         <BuildInfo>{ getTranslation("Item", translationKey) + ": " + getTranslation(info.raider.item, translationKey, "items")}</BuildInfo> : null}
-                    {!!info.raider.ability && info.raider.ability !== "(No Ability)" ? 
+                    {!!info.raider.ability && info.raider.ability !== "(No Ability)" ?
                     <Stack direction="row">
                         <BuildInfo>{ getTranslation("Ability", translationKey) + ": " + getTranslation(info.raider.ability, translationKey, "abilities") }</BuildInfo>
-                        {info.extraBuildInfo.isHiddenAbility ? 
-                            <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} /> 
+                        {info.extraBuildInfo.isHiddenAbility ?
+                            <AbilityPatchIcon src={getMoveMethodIconURL("ability_patch")} />
                             : null
                         }
                     </Stack> : null}
@@ -784,9 +789,9 @@ const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
                         <BuildInfo>{ getTranslation("Gender", translationKey) + ": " + getTranslation(getReadableGender(info.raider.gender), translationKey) }</BuildInfo>
                     }
                     <BuildInfo>{ getTranslation("Nature", translationKey) + ": " + (info.raider.nature === "Hardy" ? getTranslation("Any", translationKey) : getTranslation(info.raider.nature, translationKey, "natures")) }</BuildInfo>
-                    {getEVDescription(info.raider.evs, translationKey) ? 
+                    {getEVDescription(info.raider.evs, translationKey) ?
                         <BuildInfo>{ getTranslation("EVs", translationKey) + ": " + getEVDescription(info.raider.evs, translationKey)}</BuildInfo> : null}
-                    {getIVDescription(info.raider.ivs, translationKey) ? 
+                    {getIVDescription(info.raider.ivs, translationKey) ?
                         <BuildInfo>{ getTranslation("IVs", translationKey) + ": " + getIVDescription(info.raider.ivs, translationKey)}</BuildInfo> : null}
                 </BuildInfoContainer>
                 <Box flexGrow={1}/>
@@ -812,7 +817,7 @@ const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
                                         {noMove ? <MoveTypeIcon src={getTypeIconURL(info.extraBuildInfo.moveTypes[moveSlotIndex])} sx={{opacity: `${info.extraBuildInfo.optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
                                         {noMove ? (
                                             info.extraBuildInfo.optionalMove[moveSlotIndex] ?
-                                                <OptionalMoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") + "*" }</OptionalMoveLabel> : 
+                                                <OptionalMoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") + "*" }</OptionalMoveLabel> :
                                                 <MoveLabel>{ getTranslation(info.raider.moves[moveSlotIndex], translationKey, "moves") }</MoveLabel>
                                         ) : null}
                                         {noMove ? <MoveLearnMethodIcon src={getMoveMethodIcon(info.extraBuildInfo.learnMethods[moveSlotIndex], info.extraBuildInfo.moveTypes[moveSlotIndex])} sx={{opacity: `${info.extraBuildInfo.optionalMove[moveSlotIndex] ? '50%' : '100%'}`}}/> : null}
@@ -828,7 +833,7 @@ const shiny = info.extraBuildInfo.copiesShiny || [!!info.raider.shiny];
 }
 
 
-function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuildInfo[], results: RaidBattleResults, buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], rowLength: number = 4, translationKey?: any) {
+function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuildInfo[], results: RaidBattleResults, buildsCount: number, turnGroups: {id: number, move: string, info: RaidMoveInfo, isSpread: boolean, repeats: number, teraActivated: boolean, raiderIDs: number[]}[][][], turnNumbers: number[], backgroundImageURL: string, title?: string, subtitle?: string, notes?: string, credits?: string, statDisplay?: (JSX.Element)[], rowLength: number = 4, showSubFor: boolean = true, translationKey?: any) {
     const graphicTop = document.createElement('graphic_top');
     graphicTop.setAttribute("style", "width: 3600px");
     const root = createRoot(graphicTop);
@@ -840,11 +845,11 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
     flushSync(() => {
         root.render(
             <ThemeProvider theme={graphicsTheme}>
-                <GraphicsContainer 
+                <GraphicsContainer
                     style={{
                         width: rowLength ? `${3600 + (rowLength-4) * 875}px` : "3600px",
                         backgroundImage: `linear-gradient(rgba(0, 0, 0, .85), rgba(0, 0, 0, .85)), url(${backgroundImageURL})`,
-                    }} 
+                    }}
                 >
                     { (subtitle || !buildsOnly) &&
                         <Header>
@@ -866,27 +871,30 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                 <LeftBar />
                                 <SeparatorLabel>{ !translationKey ? "The Crew" : getTranslation("Pokémon", translationKey) }</SeparatorLabel>
                                 <RightBar />
-                            </Separator> 
+                            </Separator>
                         }
                         { (buildsOnly && subtitle) &&
                             <Separator>
                                 { rowLength > 1 && <LeftBar />}
                                 <SeparatorLabel>{ subtitle }</SeparatorLabel>
                                 { rowLength > 1 && <RightBar />}
-                            </Separator> 
+                            </Separator>
+                        }
+                        { (buildsOnly && !subtitle) &&
+                            <Spacer/>
                         }
                         { firstRowCount > 0 &&
                             <BuildsContainer>
-                               { buildInfo.slice(1, firstRowCount + 1).map((info, index) => generateGraphicBuild(info, index, statDisplay, ignoreStats, translationKey)) }
+                               { buildInfo.slice(1, firstRowCount + 1).map((info, index) => generateGraphicBuild(info, index, statDisplay, ignoreStats, showSubFor, translationKey)) }
                             </BuildsContainer>
                         }
                         { secondRowCount > 0 &&
-                            <BuildsContainer>    
-                                { buildInfo.slice(firstRowCount + 1, firstRowCount + secondRowCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount, statDisplay, ignoreStats, translationKey)) }
+                            <BuildsContainer>
+                                { buildInfo.slice(firstRowCount + 1, firstRowCount + secondRowCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount, statDisplay, ignoreStats, showSubFor, translationKey)) }
                             </BuildsContainer>
                         }
                         <BuildsContainer>
-                            { buildInfo.slice(firstRowCount + secondRowCount + 1, buildsCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount + secondRowCount, statDisplay, ignoreStats, translationKey)) }
+                            { buildInfo.slice(firstRowCount + secondRowCount + 1, buildsCount + 1).map((info, index) => generateGraphicBuild(info, index + firstRowCount + secondRowCount, statDisplay, ignoreStats, showSubFor, translationKey)) }
                         </BuildsContainer>
                         { buildInfo.some(entry => entry.extraBuildInfo.optionalMove.some(move => move)) &&
                             <FootnoteContainer>
@@ -902,7 +910,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                 <LeftBar />
                                 <SeparatorLabel>{!translationKey ? "Execution" : getTranslation("Moves", translationKey)}</SeparatorLabel>
                                 <RightBar />
-                            </Separator> 
+                            </Separator>
                             { turnGroups.map((moveGroups, turnIndex) => (
                                 <ExecutionContainer direction="row">
                                     <ExecutionTable>
@@ -924,7 +932,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                             <ExecutionMoveNumber>{moveGroups.length > 1 ? (index + 1) : null}</ExecutionMoveNumber>
                                                             <ExecutionMoveContainer>
                                                                 {
-                                                                    moveGroup.map((move, moveIndex) => { 
+                                                                    moveGroup.map((move, moveIndex) => {
                                                                         let showTarget = move.info.userID === 0 ?
                                                                             ( move.isSpread || move.move === "Remove Negative Effects" ) :
                                                                             !["user", "user-and-allies", "all-allies", "users-field", "opponents-field", "entire-field"].includes(move.info.moveData.target!);
@@ -941,7 +949,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                             }
                                                                         }
                                                                         return ([
-                                                                        move.teraActivated ? 
+                                                                        move.teraActivated ?
                                                                         <ExecutionMove key={moveIndex - 0.5}>
                                                                             <ExecutionMovePokemonWrapperEmpty/>
                                                                             <ExecutionMoveTag>{""}</ExecutionMoveTag>
@@ -971,7 +979,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                                 <ExecutionMovePokemonIconWrapper>
                                                                                     <Stack direction="row-reverse" spacing="-175px">
                                                                                         {
-                                                                                            raiderIDs.map(id => 
+                                                                                            raiderIDs.map(id =>
                                                                                                 <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[id].species.name)} />
                                                                                             )
                                                                                         }
@@ -996,7 +1004,7 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                                 <ExecutionMovePokemonWrapper>
                                                                                     <ExecutionMovePokemonName>
                                                                                         {
-                                                                                            (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) : 
+                                                                                            (move.move === "Clear Boosts / Abilities" || move.isSpread) ? getTranslation("Raiders", translationKey) :
                                                                                             move.move === "Remove Negative Effects" ? buildInfo[0].raider.role :
                                                                                             turnRaiders[move.info.targetID].role
                                                                                         }
@@ -1004,14 +1012,14 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                                                                                     { (move.move !== "Clear Boosts / Abilities" && !move.isSpread) ?
                                                                                         <ExecutionMovePokemonIconWrapper>
                                                                                             <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[move.move === "Remove Negative Effects" ? 0 : move.info.targetID].species.name)} />
-                                                                                        </ExecutionMovePokemonIconWrapper> : 
+                                                                                        </ExecutionMovePokemonIconWrapper> :
                                                                                         <ExecutionMovePokemonIconWrapper direction="row" spacing="-50px">
                                                                                             <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[1].species.name)} />
                                                                                             <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[2].species.name)} />
                                                                                             <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[3].species.name)} />
                                                                                             <ExecutionMovePokemonIcon src={getPokemonSpriteURL(turnRaiders[4].species.name)} />
                                                                                         </ExecutionMovePokemonIconWrapper>
- 
+
                                                                                     }
                                                                                 </ExecutionMovePokemonWrapper>
                                                                                 :
@@ -1032,19 +1040,19 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                             ))}
                         </ExecutionSection>
                     }
-                    {notes && 
+                    {notes &&
                         <NotesSection>
                             <Separator>
                                 <LeftBar />
                                     <SeparatorLabel>{ getTranslation("Notes", translationKey) }</SeparatorLabel>
                                     <RightBar />
-                                </Separator> 
+                                </Separator>
                             <NotesContainer>
                                 <Notes>{notes}</Notes>
                             </NotesContainer>
                         </NotesSection>
                     }
-                    <InfoSection>      
+                    <InfoSection>
                         <CreditsContainer direction={rowLength >= 4 ? "row" : "column"} spacing={rowLength >= 4 ? 0 : 1}>
                             { credits && credits.length > 0 &&
                                 <>
@@ -1061,11 +1069,11 @@ function generateGraphic(theme: any, buildsOnly: boolean, buildInfo: GraphicBuil
                             }
                         </CreditsContainer>
                     </InfoSection>
-                </GraphicsContainer> 
-            </ThemeProvider>     
+                </GraphicsContainer>
+            </ThemeProvider>
         );
     });
-    
+
     document.body.appendChild(graphicTop); // this makes the element findable for html2canvas
     return graphicTop;
 }
@@ -1085,7 +1093,7 @@ const rotate = (xgrid: number, ygrid: number, text: string, gridSize: number) =>
     const y = target.height * (1/2 + (ygrid_rot / gridSize / 2));
     const x_s = x - shift;
     const y_s = y + shift;
-  
+
     context.translate(x_s, y_s);
     context.globalAlpha = 0.25;
     context.fillStyle = '#fff';
@@ -1098,7 +1106,7 @@ const rotate = (xgrid: number, ygrid: number, text: string, gridSize: number) =>
 function saveGraphic(graphicTop: HTMLElement, title: string, watermarkText: string, rowLength: number, setLoading: (l: boolean) => void) {
     requestAnimationFrame(() => {
         html2canvas(graphicTop, {
-            allowTaint: true, 
+            allowTaint: true,
             useCORS: true,
             windowWidth: 3600 + (rowLength - 4) * 875,
             scale: 1,
@@ -1185,7 +1193,7 @@ function getFullGraphicBuildsEnabled(buildInfo: GraphicBuildInfo[]) {
     return Array.from({ length: buildInfo.length }, (_, i) => i < 4);
 }
 
-function GraphicsButton({title, notes, credits, raidInputProps, substitutes, results, allSpecies, buildsCount, setLoading, translationKey}: 
+function GraphicsButton({title, notes, credits, raidInputProps, substitutes, results, allSpecies, buildsCount, setLoading, translationKey}:
     { title: string, notes: string, credits: string, substitutes: SubstituteBuildInfo[][], raidInputProps: RaidInputProps, results: RaidBattleResults, allSpecies: Map<SpeciesName, PokemonData> | null, buildsCount: number, setLoading: (l: boolean) => void, translationKey: any}) {
 
     const theme = useTheme();
@@ -1202,6 +1210,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
     const [rowLength, setRowLength] = useState<number>(4);
     const [buildsOrder, setBuildsOrder] = useState<number[]>([]);
     const [buildsEnabled, setBuildsEnabled] = useState<boolean[]>([]);
+    const [showSubFor, setShowSubFor] = useState<boolean>(true);
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
@@ -1220,9 +1229,9 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
 
     const createBuildInfo = async () => {
         try {
-            // all raiders including the raid boss and substitutes            
+            // all raiders including the raid boss and substitutes
             const allRaidPokemonMatrix = getAllRaidPokemonMatrix();
-                        
+
             const pDataMatrix = await createPokemonDataMatrix();
             const isHiddenAbilityMatrix = createIsHiddenAbilityMatrix(pDataMatrix);
 
@@ -1261,7 +1270,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
             // generate graphic
             const bCount = includedRaidPokemonBuildInfo.length - 1;
             const rowLen = buildsOnly ? Math.min(rowLength, bCount) : 4;
-            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemonBuildInfo, results, includedRaidPokemonBuildInfo.length - 1, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, rowLen, translationKey);
+            const graphicTop = generateGraphic(theme, buildsOnly, includedRaidPokemonBuildInfo, results, includedRaidPokemonBuildInfo.length - 1, turnGroups, turnNumbers, loadedImageURLRef.current, title, subtitle, notes, credits, statDisplayElements, rowLen, showSubFor, translationKey);
             saveGraphic(graphicTop, title, watermarkText, rowLen, setLoading);
         } catch (e) {
             setLoading(false);
@@ -1393,7 +1402,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                     subFor: index === 0 ? undefined : raidInputProps.pokemon[slotIndex + 1].role,
                 };
             })
-        );   
+        );
     }
 
     function zipBuildInfo(allRaidPokemonMatrix: Raider[][], extraBuildInfoMatrix: ExtraBuildInfo[][]): GraphicBuildInfo[][] {
@@ -1438,7 +1447,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
         // (doesn't really make use of the slots/matrix setup)
         for (const [index, slot_index] of buildsOrder.entries()) {
             if (buildsEnabled[index] && (!checkForCopies || buildIsUnique[slot_index])) {
-                buildsOnlyBuildInfo.push(flatBuildInfo[slot_index]);            
+                buildsOnlyBuildInfo.push(flatBuildInfo[slot_index]);
             }
         }
 
@@ -1531,7 +1540,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
 
     return (
         <Box>
-            <Button 
+            <Button
                 variant="outlined"
                 onClick={handleClick}
             >
@@ -1579,7 +1588,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                         <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
                             <Stack direction="row">
                                 <Box flexGrow={1} />
-                                <TextField 
+                                <TextField
                                     variant="outlined"
                                     placeholder={getTranslation(buildsOnly ? "Header" : "Subtitle", translationKey)}
                                     value={subtitle}
@@ -1594,7 +1603,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                         <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px", py: "6px" }}>
                             <Stack direction="row">
                                 <Box flexGrow={1} />
-                                <TextField 
+                                <TextField
                                     variant="outlined"
                                     placeholder={getTranslation("Watermark text", translationKey)}
                                     value={watermarkText}
@@ -1627,8 +1636,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                     {getTranslation("Graphic Type", translationKey) + ":"}
                                 </Typography>
                                 <Box flexGrow={2} />
-                                <Select 
-                                    value={buildsOnly ? getTranslation("Builds Only", translationKey) : getTranslation("Full Graphic", translationKey)} 
+                                <Select
+                                    value={buildsOnly ? getTranslation("Builds Only", translationKey) : getTranslation("Full Graphic", translationKey)}
                                     onChange={(e) => {
                                         if (e.target.value === "Builds Only") {
                                             setBuildsOnly(true);
@@ -1638,8 +1647,8 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                             setRowLength(4);
                                             setCheckForCopies(true);
                                         }
-                                    }} 
-                                    inputProps={{ 'aria-label': 'Builds Only' }} sx={{ height: "30px", width: "115px", margin: "10px" }} 
+                                    }}
+                                    inputProps={{ 'aria-label': 'Builds Only' }} sx={{ height: "30px", width: "115px", margin: "10px" }}
                                 >
                                     <MenuItem value="Full Graphic">{getTranslation("Full Graphic", translationKey)}</MenuItem>
                                     <MenuItem value="Builds Only">{getTranslation("Builds Only", translationKey)}</MenuItem>
@@ -1661,6 +1670,22 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                             </Stack>
                         </Box>
                     </li>
+                    { buildsEnabled.some((e,i) => e && (i >= 4)) &&
+                        <li>
+                            <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
+                                <Stack direction="row" alignItems="center" justifyContent="center">
+                                    <Typography variant="body1" fontWeight={600}>
+                                        {getTranslation("Label Substitute Builds", translationKey) + ":"}
+                                    </Typography>
+                                    <Box flexGrow={2} />
+                                    <Switch
+                                        checked={showSubFor}
+                                        onChange={(e) => setShowSubFor(!showSubFor)}
+                                    />
+                                </Stack>
+                            </Box>
+                        </li>
+                    }
                     { buildsOnly &&
                         <Box width="100%" alignItems="center" justifyContent="center" sx={{ px: "12px" }}>
                             <Stack direction="row" alignItems="center" justifyContent="center">
@@ -1668,13 +1693,13 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                                     {getTranslation("Builds per row", translationKey) + ":"}
                                 </Typography>
                                 <Box flexGrow={2} />
-                                <TextField 
+                                <TextField
                                     size="small"
                                     variant="standard"
                                     type="number"
                                     InputProps={{
-                                        inputProps: { 
-                                            max: 12, 
+                                        inputProps: {
+                                            max: 12,
                                             min: 1
                                         }
                                     }}
@@ -1711,7 +1736,7 @@ function GraphicsButton({title, notes, credits, raidInputProps, substitutes, res
                             <Box flexGrow={1}/>
                             <Typography variant="body1" fontWeight={600}>{getTranslation("Order", translationKey)}</Typography>
                             <Box flexGrow={0.4}/>
-                            <IconButton 
+                            <IconButton
                                 onClick={() => {
                                     const builds = getRelevantBuilds(buildInfo);
                                     const newOrder = [...Array(builds.length).keys()]
@@ -1752,7 +1777,7 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEn
     const onDragEnd = (result: DropResult) => {
         setDisableButtons(false);
         const {destination, source} = result;
-        if (!destination || destination.index === source.index) { 
+        if (!destination || destination.index === source.index) {
             return;
         }
         const newBuildsOrder = [...buildsOrder];
@@ -1775,7 +1800,7 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEn
                 {(provided) => (
                     <div
                         ref={provided.innerRef}
-                        {...provided.droppableProps} 
+                        {...provided.droppableProps}
                     >
                         <Stack spacing={1}>
                             {
@@ -1793,14 +1818,14 @@ function BuildsOrderDnD({buildsOrder, setBuildsOrder, buildsEnabled, setBuildsEn
 function BuildDraggable({ index, build, buildsEnabled, setBuildsEnabled, disableButtons }: { index: number, build: GraphicBuildInfo, buildsEnabled: boolean[], setBuildsEnabled: (d: boolean[]) => void, disableButtons: boolean }) {
     const handleToggleOff = () => {
         const newbd = [...buildsEnabled];
-        newbd[index] = !buildsEnabled[index]; 
+        newbd[index] = !buildsEnabled[index];
         setBuildsEnabled(newbd)
     }
 
     return (
-        <Draggable 
+        <Draggable
             key={index}
-            draggableId={index.toString()} 
+            draggableId={index.toString()}
             index={index}
         >
             {(provided) => (

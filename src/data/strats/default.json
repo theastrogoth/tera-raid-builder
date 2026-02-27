@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Sceptile",
-            "name": "Sceptile",
+            "role": "Blaziken",
+            "name": "Blaziken",
             "shiny": false,
-            "ability": "Unburden",
-            "nature": "Hasty",
+            "ability": "Speed Boost",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,22 +28,24 @@
             },
             "level": 100,
             "gender": "M",
-            "teraType": "Dragon",
+            "teraType": "Flying",
             "moves": [
-                "Leaf Blade",
-                "Breaking Swipe",
-                "Dragon Dance",
-                "Thunder Punch"
+                "Blaze Kick",
+                "Brave Bird",
+                "Earthquake",
+                "Low Kick"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Leaf Storm",
-                "Earthquake"
+                "Overheat",
+                "Rock Slide",
+                "Swords Dance",
+                "Bulk Up"
             ],
             "shieldData": {
-                "hpTrigger": 70,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 50,
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,17 +53,17 @@
         },
         {
             "id": 1,
-            "role": "Koraidon",
-            "name": "Koraidon",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
-            "ability": "Orichalcum Pulse",
-            "item": "Covert Cloak",
-            "nature": "Adamant",
+            "ability": "Hadron Engine",
+            "item": "Life Orb",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
-                "atk": 252,
+                "hp": 252,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -76,24 +78,23 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Swords Dance",
-                "Outrage",
-                "Breaking Swipe",
-                "Drain Punch"
+                "Charge",
+                "Electro Drift",
+                "Parabolic Charge"
             ]
         },
         {
             "id": 2,
-            "role": "Whimsicott",
-            "name": "Whimsicott",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Prankster",
-            "item": "Sitrus Berry",
-            "nature": "Impish",
+            "ability": "(No Ability)",
+            "item": "Rocky Helmet",
+            "nature": "Bold",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -109,24 +110,24 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Taunt",
+                "Fake Tears",
                 "Helping Hand",
-                "Sunny Day",
-                "Trick Room"
+                "Reflect",
+                "Charm"
             ]
         },
         {
             "id": 3,
-            "role": "Muk",
-            "name": "Muk",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "item": "Rocky Helmet",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -142,24 +143,24 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
+                "Fake Tears",
                 "Helping Hand",
-                "Lunge",
-                "Mud-Slap"
+                "Reflect",
+                "Charm"
             ]
         },
         {
             "id": 4,
-            "role": "Muk",
-            "name": "Muk",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "item": "Rocky Helmet",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -175,10 +176,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
+                "Fake Tears",
                 "Helping Hand",
-                "Lunge",
-                "Mud-Slap"
+                "Reflect",
+                "Charm"
             ]
         }
     ],
@@ -187,34 +188,6 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Leaf Storm",
-                "userID": 0,
-                "targetID": 5,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 2,
-            "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
                 "targetID": 1,
@@ -222,8 +195,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "allowMiss": false,
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -234,8 +207,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "allowMiss": false,
+                    "hits": 1
                 }
             }
         }
@@ -243,13 +216,9 @@
     "groups": [
         [
             0
-        ],
-        [
-            5
         ]
     ],
     "repeats": [
-        1,
         1
     ],
     "substitutes": [

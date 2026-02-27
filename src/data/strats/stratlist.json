@@ -800,6 +800,9 @@
         "Creepy Crawlies": "empoleon/creepy_crawlies"
     },
     "Blaziken": {
+        "Rocky Road": "blaziken/rocky_road",
+        "Rocky Road (Trio)": "blaziken/rocky_road_3",
+        "Rocky Road (Duo)": "blaziken/rocky_road_2",
         "Mifrydon": "blaziken/main",
         "Calyrex T0.75": "blaziken/calyrex",
         "Bellibolt T1": "blaziken/bellibolt",

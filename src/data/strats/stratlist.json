@@ -636,6 +636,10 @@
         "Juvenile Reptiles": "emboar/juvenile_reptiles"
     },
     "Swampert": {
+        "Sunny Side Up": "swampert/sunny_side_up",
+        "Sunny Side Up (Trio)": "swampert/sunny_side_up_3",
+        "Sweet Serenity": "swampert/sweet_serenity",
+        "Sweet Serenity (Trio)": "swampert/sweet_serenity_3",
         "Tom and Jerry": "swampert/main",
         "Tom and Jerry (Trio)": "swampert/tom_and_jerry_3",
         "A Muddy T1 in Store... (Backup Plan)": "swampert/muddy",
@@ -806,9 +810,12 @@
         "Mifrydon": "blaziken/main",
         "Calyrex T0.75": "blaziken/calyrex",
         "Bellibolt T1": "blaziken/bellibolt",
+        "Golem T1": "blaziken/golem",
         "Eeveelutions Celebrate the New Year": "blaziken/eevee_new_year",
         "Eeveelutions: Every Eevee Edition": "blaziken/every_eevee",
         "Spooky Puppies": "blaziken/spooky_puppies",
+        "Topsy-Turvy Miraidon": "blaziken/topsy",
+        "Topsy-Turvy Rotom-Mow": "blaziken/topsy_mow",
         "Double Paradox": "blaziken/double_paradox",
         "Barbechu Chicken": "blaziken/barbechu_chicken",
         "Iceberg": "blaziken/iceberg",

@@ -1,15 +1,15 @@
 {
-    "name": "Topsy-Turvy Reshiram",
-    "notes": "Waiting for the scripted \"Clear Boosts / Abilities\" before executing moves 12–14 is the slow and steady approach. However, these moves can all be used beforehand if the strategy is executed quickly and smoothly enough.\nReshiram’s speed investment plus the 2 Heal Cheers negate any paralysis risk from Thunder Punch; a bulky set is also viable here.",
+    "name": "Topsy-Turvy Rotom-Mow",
+    "notes": "Blaziken only clear boosts / abilities due to 90% HP, if it doesn't happen after T2, just move on to T3 as usual.\nRotom-Mow can either Protect or idle on T2.",
     "credits": "Sabu Karma",
     "pokemon": [
         {
             "id": 0,
-            "role": "Sceptile",
-            "name": "Sceptile",
+            "role": "Blaziken",
+            "name": "Blaziken",
             "shiny": false,
-            "ability": "Unburden",
-            "nature": "Hasty",
+            "ability": "Speed Boost",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,23 +27,25 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
-            "teraType": "Dragon",
+            "gender": "N",
+            "teraType": "Flying",
             "moves": [
-                "Leaf Blade",
-                "Breaking Swipe",
-                "Dragon Dance",
-                "Thunder Punch"
+                "Blaze Kick",
+                "Brave Bird",
+                "Earthquake",
+                "Low Kick"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Leaf Storm",
-                "Earthquake"
+                "Overheat",
+                "Rock Slide",
+                "Swords Dance",
+                "Bulk Up"
             ],
             "shieldData": {
-                "hpTrigger": 70,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 50,
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,19 +53,19 @@
         },
         {
             "id": 1,
-            "role": "Reshiram",
-            "name": "Reshiram",
+            "role": "Rotom",
+            "name": "Rotom-Mow",
             "shiny": false,
-            "ability": "Turboblaze",
-            "item": "Flame Orb",
-            "nature": "Timid",
+            "ability": "Levitate",
+            "item": "Occa Berry",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -75,11 +77,12 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Dragon",
+            "teraType": "Electric",
             "moves": [
-                "Fling",
-                "Overheat",
-                "Draco Meteor"
+                "Leaf Storm",
+                "Protect",
+                "Thunderbolt",
+                "Thunder"
             ]
         },
         {
@@ -88,14 +91,13 @@
             "name": "Malamar",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -110,8 +112,8 @@
             "gender": "N",
             "moves": [
                 "Gravity",
-                "Topsy-Turvy",
-                "Fake Tears"
+                "Taunt",
+                "Topsy-Turvy"
             ]
         },
         {
@@ -120,7 +122,6 @@
             "name": "Oranguru",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -146,12 +147,12 @@
         },
         {
             "id": 4,
-            "role": "Meowscarada",
-            "name": "Meowscarada",
+            "role": "Scream Tail",
+            "name": "Scream Tail",
             "shiny": false,
-            "ability": "Overgrow",
-            "item": "Covert Cloak",
-            "nature": "Timid",
+            "ability": "Protosynthesis",
+            "item": "Flame Orb",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -171,80 +172,25 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Taunt",
-                "Fake Tears"
+                "Fling",
+                "Fake Tears",
+                "Helping Hand"
             ]
         }
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 0,
+            "id": 1,
+            "group": 1,
             "moveInfo": {
-                "name": "Leaf Storm",
-                "userID": 0,
-                "targetID": 5,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 2,
-            "moveInfo": {
-                "name": "Taunt",
+                "name": "Fling",
                 "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1,
-                    "allowMiss": true
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 1,
-            "moveInfo": {
-                "name": "Fling",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
                     "allowMiss": true,
-                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -255,15 +201,15 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "allowMiss": false,
                     "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
         },
         {
-            "id": 14,
-            "group": 10,
+            "id": 6,
+            "group": 5,
             "moveInfo": {
                 "name": "Gravity",
                 "userID": 2,
@@ -290,18 +236,18 @@
             }
         },
         {
-            "id": 19,
-            "group": 13,
+            "id": 2,
+            "group": 7,
             "moveInfo": {
-                "name": "Heal Cheer",
-                "userID": 3,
-                "targetID": 3,
+                "name": "Leaf Storm",
+                "userID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -311,18 +257,46 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "allowMiss": false,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
-            "id": 10,
-            "group": 8,
+            "id": 0,
+            "group": 6,
             "moveInfo": {
-                "name": "Overheat",
-                "userID": 1,
+                "name": "Instruct",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "hits": 1,
+                    "allowMiss": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 4,
+            "moveInfo": {
+                "name": "Taunt",
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -346,8 +320,8 @@
             }
         },
         {
-            "id": 3,
-            "group": 8,
+            "id": 7,
+            "group": 4,
             "moveInfo": {
                 "name": "Fake Tears",
                 "userID": 4,
@@ -355,41 +329,13 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 9,
-            "group": 8,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
                     "roll": "min",
                     "allowMiss": true,
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(Optimal Move)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -403,35 +349,7 @@
         },
         {
             "id": 5,
-            "group": 6,
-            "moveInfo": {
-                "name": "Heal Cheer",
-                "userID": 3,
-                "targetID": 3,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 5,
+            "group": 4,
             "moveInfo": {
                 "name": "Instruct",
                 "userID": 3,
@@ -458,40 +376,12 @@
             }
         },
         {
-            "id": 2,
-            "group": 7,
+            "id": 10,
+            "group": 4,
             "moveInfo": {
-                "name": "Clear Boosts / Abilities",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 3,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
-                "targetID": 4,
+                "name": "(Wait)",
+                "userID": 1,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -514,18 +404,130 @@
             }
         },
         {
-            "id": 8,
+            "id": 12,
             "group": 3,
             "moveInfo": {
-                "name": "Topsy-Turvy",
-                "userID": 2,
+                "name": "Clear Boosts / Abilities",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 3,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 0,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 4,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 0,
+            "moveInfo": {
+                "name": "Topsy-Turvy",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 0,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1,
-                    "allowMiss": true
+                    "allowMiss": true,
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -536,16 +538,16 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10,
-                    "allowMiss": false
+                    "allowMiss": false,
+                    "hits": 10
                 }
             }
         },
         {
-            "id": 11,
-            "group": 4,
+            "id": 3,
+            "group": 2,
             "moveInfo": {
-                "name": "Draco Meteor",
+                "name": "Thunderbolt",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -573,27 +575,7 @@
     ],
     "groups": [
         [
-            0
-        ],
-        [
-            7
-        ],
-        [
             1
-        ],
-        [
-            14
-        ],
-        [
-            19
-        ],
-        [
-            10,
-            3,
-            9
-        ],
-        [
-            5
         ],
         [
             6
@@ -602,11 +584,25 @@
             2
         ],
         [
-            4,
-            8
+            0
         ],
         [
+            4,
+            7,
+            5,
+            10
+        ],
+        [
+            12,
+            13
+        ],
+        [
+            9,
+            8,
             11
+        ],
+        [
+            3
         ]
     ],
     "repeats": [
@@ -617,30 +613,24 @@
         1,
         1,
         1,
-        1,
-        1,
-        1,
         1
     ],
     "substitutes": [
-        [],
-        [],
-        [],
         [
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Grafaiai",
-                    "name": "Grafaiai",
+                    "id": 1,
+                    "role": "Rotom",
+                    "name": "Rotom-Mow",
                     "shiny": false,
-                    "ability": "Prankster",
-                    "item": "Covert Cloak",
-                    "nature": "Hardy",
+                    "ability": "Levitate",
+                    "item": "Occa Berry",
+                    "nature": "Modest",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
                         "def": 0,
-                        "spa": 0,
+                        "spa": 252,
                         "spd": 0,
                         "spe": 0
                     },
@@ -654,114 +644,28 @@
                     },
                     "level": 100,
                     "gender": "N",
+                    "teraType": "Stellar",
                     "moves": [
-                        "Taunt",
-                        "Acid Spray",
-                        "(No Move)",
-                        "(No Move)"
+                        "Leaf Storm",
+                        "Protect",
+                        "Thunderbolt",
+                        "Thunder"
                     ]
                 },
                 "substituteMoves": [
-                    "Taunt",
-                    "Acid Spray",
-                    "Attack Cheer"
+                    "Leaf Storm",
+                    "Protect",
+                    "Thunderbolt"
                 ],
                 "substituteTargets": [
                     0,
-                    0,
-                    4
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Whimsicott",
-                    "name": "Whimsicott",
-                    "shiny": false,
-                    "ability": "Prankster",
-                    "item": "Covert Cloak",
-                    "nature": "Bashful",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Taunt",
-                        "Fake Tears",
-                        "(No Move)",
-                        "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "Taunt",
-                    "Fake Tears",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    0,
-                    4
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Cottonee",
-                    "name": "Cottonee",
-                    "shiny": false,
-                    "ability": "Prankster",
-                    "item": "Covert Cloak",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Taunt",
-                        "Fake Tears",
-                        "(No Move)",
-                        "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "Taunt",
-                    "Fake Tears",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    0,
-                    4
+                    1,
+                    0
                 ]
             }
-        ]
+        ],
+        [],
+        [],
+        []
     ]
 }

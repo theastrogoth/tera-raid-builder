@@ -1,15 +1,15 @@
 {
-    "name": "",
+    "name": "Golem T1",
     "notes": "",
-    "credits": "",
+    "credits": "Sabu Karma",
     "pokemon": [
         {
             "id": 0,
-            "role": "Swampert",
-            "name": "Swampert",
+            "role": "Blaziken",
+            "name": "Blaziken",
             "shiny": false,
-            "ability": "Damp",
-            "nature": "Relaxed",
+            "ability": "Speed Boost",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,22 +28,24 @@
             },
             "level": 100,
             "gender": "M",
-            "teraType": "Poison",
+            "teraType": "Flying",
             "moves": [
+                "Blaze Kick",
+                "Brave Bird",
                 "Earthquake",
-                "Hydro Pump",
-                "Sludge Wave",
-                "Liquidation"
+                "Low Kick"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Muddy Water",
-                "Yawn"
+                "Overheat",
+                "Rock Slide",
+                "Swords Dance",
+                "Bulk Up"
             ],
             "shieldData": {
-                "hpTrigger": 85,
+                "hpTrigger": 80,
                 "timeTrigger": 80,
-                "shieldCancelDamage": 45,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,18 +53,18 @@
         },
         {
             "id": 1,
-            "role": "Exeggutor",
-            "name": "Exeggutor",
+            "role": "Golem",
+            "name": "Golem-Alola",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Weakness Policy",
-            "nature": "Calm",
+            "ability": "Galvanize",
+            "item": "Mirror Herb",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -76,19 +78,16 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Growth",
-                "Stored Power",
-                "Synthesis",
-                "Grassy Terrain"
+                "Double-Edge"
             ]
         },
         {
             "id": 2,
-            "role": "Koraidon",
-            "name": "Koraidon",
+            "role": "Oranguru",
+            "name": "Oranguru",
             "shiny": false,
-            "ability": "Orichalcum Pulse",
-            "item": "Sitrus Berry",
+            "ability": "Symbiosis",
+            "item": "Choice Band",
             "nature": "Hardy",
             "evs": {
                 "hp": 252,
@@ -109,22 +108,19 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Helping Hand",
-                "Sunny Day",
-                "Snarl",
-                "Mud-Slap"
+                "Trick Room"
             ]
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Latios",
+            "name": "Latios",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Careful",
+            "ability": "Levitate",
+            "item": "Rocky Helmet",
+            "nature": "Hardy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -140,24 +136,21 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "moves": [
-                "Defog",
-                "Fake Tears",
-                "Light Screen",
-                "Reflect"
+                "Simple Beam"
             ]
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Scovillain",
+            "name": "Scovillain",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Careful",
+            "item": "Focus Sash",
+            "nature": "Hardy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -175,54 +168,23 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Defog",
-                "Fake Tears",
-                "Light Screen",
-                "Reflect"
+                "Spicy Extract"
             ]
         }
     ],
     "turns": [
         {
-            "id": 0,
+            "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Muddy Water",
-                "userID": 0,
-                "targetID": 0,
+                "name": "Trick Room",
+                "userID": 2,
+                "targetID": 2,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 1,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -231,24 +193,113 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Spicy Extract",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Double-Edge",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
                 }
             }
         }
     ],
     "groups": [
         [
+            1,
             0
         ],
         [
-            1
+            2
+        ],
+        [
+            3
         ]
     ],
     "repeats": [
+        1,
         1,
         1
     ],

@@ -1,14 +1,13 @@
 {
-    "name": "Cryogre (3-person version)",
-    "notes": "To get the benefit of the NPC's Defense Cheer, it is important to use Protect on the first turn if Kyogre is the host.",
-    "credits": "the r/PokePortal Team",
+    "name": "Cryogre (Trio)",
+    "notes": "- Kyogre uses Protect before using Water Spout to force the NPC's Defense Cheer.\n- Stonjourner MUST NOT MOVE after doing its Attack Cheer.",
+    "credits": "Presented by the r/PokePortal Team and Team Rocket Base",
     "pokemon": [
         {
             "id": 0,
             "role": "Torterra",
             "name": "Torterra",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Shell Armor",
             "nature": "Brave",
             "evs": {
@@ -55,7 +54,6 @@
             "role": "Kyogre",
             "name": "Kyogre",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Drizzle",
             "item": "Mirror Herb",
             "nature": "Modest",
@@ -78,11 +76,9 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Water Spout",
-                "Protect"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+                "Protect",
+                "Water Spout"
+            ]
         },
         {
             "id": 2,
@@ -113,24 +109,13 @@
             "gender": "N",
             "moves": [
                 "Protect"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 3,
             "role": "Corviknight",
             "name": "Corviknight",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Shuca Berry",
             "nature": "Relaxed",
@@ -157,9 +142,7 @@
                 "Reflect",
                 "Light Screen",
                 "Tailwind"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            ]
         },
         {
             "id": 4,
@@ -187,9 +170,7 @@
             },
             "level": 1,
             "gender": "N",
-            "moves": [],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            "moves": []
         }
     ],
     "turns": [
@@ -250,34 +231,6 @@
             }
         },
         {
-            "id": 2,
-            "group": 1,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 2,
-                "targetID": 2,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 3,
             "group": 1,
             "moveInfo": {
@@ -301,6 +254,34 @@
                     "secondaryEffects": true,
                     "roll": "max",
                     "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
                     "hits": 10
                 }
             }
@@ -362,34 +343,6 @@
             }
         },
         {
-            "id": 5,
-            "group": 2,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 2,
-                "targetID": 2,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 7,
             "group": 3,
             "moveInfo": {
@@ -424,13 +377,12 @@
             1
         ],
         [
-            2,
             3,
+            2,
             4
         ],
         [
-            6,
-            5
+            6
         ],
         [
             7
@@ -451,6 +403,7 @@
                     "role": "Charjabug",
                     "name": "Charjabug",
                     "shiny": false,
+                    "isAnyLevel": true,
                     "ability": "Battery",
                     "item": "Focus Sash",
                     "nature": "Hardy",
@@ -471,57 +424,15 @@
                         "spe": 0
                     },
                     "level": 1,
-                    "isAnyLevel": true,
-                    "gender": "N",
-                    "moves": []
-                },
-                "substituteMoves": [
-                    "Attack Cheer",
-                    "(No Move)"
-                ],
-                "substituteTargets": [
-                    2,
-                    2
-                ]
-            },
-            {
-                "raider": {
-                    "id": 2,
-                    "role": "Dewpider",
-                    "name": "Dewpider",
-                    "shiny": false,
-                    "ability": "Water Bubble",
-                    "item": "Focus Sash",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "level": 1,
-                    "isAnyLevel": true,
                     "gender": "N",
                     "moves": [
-                        "Entrainment"
+                        "Protect"
                     ]
                 },
                 "substituteMoves": [
-                    "Entrainment",
-                    "(No Move)"
+                    "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    1,
                     2
                 ]
             }
@@ -559,86 +470,6 @@
                         "Helping Hand",
                         "Mud-Slap",
                         "Charm"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears",
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Bellossom",
-                    "name": "Bellossom",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Meganium",
-                    "name": "Meganium",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Fake Tears"
                     ]
                 },
                 "substituteMoves": [
@@ -693,10 +524,10 @@
             {
                 "raider": {
                     "id": 3,
-                    "role": "Weezing",
-                    "name": "Weezing",
+                    "role": "Meganium",
+                    "name": "Meganium",
                     "shiny": false,
-                    "ability": "Levitate",
+                    "ability": "(No Ability)",
                     "item": "Sitrus Berry",
                     "nature": "Bold",
                     "evs": {
@@ -718,12 +549,12 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Acid Spray"
+                        "Fake Tears"
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray",
-                    "Acid Spray"
+                    "Fake Tears",
+                    "Fake Tears"
                 ],
                 "substituteTargets": [
                     0,
@@ -733,10 +564,10 @@
             {
                 "raider": {
                     "id": 3,
-                    "role": "Weezing",
-                    "name": "Weezing-Galar",
+                    "role": "Bellossom",
+                    "name": "Bellossom",
                     "shiny": false,
-                    "ability": "Levitate",
+                    "ability": "(No Ability)",
                     "item": "Sitrus Berry",
                     "nature": "Bold",
                     "evs": {
@@ -804,6 +635,46 @@
                 "substituteMoves": [
                     "Acid Spray",
                     "Acid Spray"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Orthworm",
+                    "name": "Orthworm",
+                    "shiny": false,
+                    "ability": "Earth Eater",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Metal Sound"
+                    ]
+                },
+                "substituteMoves": [
+                    "Metal Sound",
+                    "Metal Sound"
                 ],
                 "substituteTargets": [
                     0,

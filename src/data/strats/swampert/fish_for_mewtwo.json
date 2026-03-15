@@ -1,11 +1,11 @@
 {
-    "name": "A Muddy T1 in Store... (Revised)",
-    "notes": "- If Muddy Water misses DPS or accuracy change, Let Quagsire fling its White Herb to activate WP and regain accuracy T2\n- It is recommended that Oranguru has lower speed than Swampert due to a glitch with Instruct in regards to spread moves",
-    "credits": "@Hydracinth",
+    "name": "Fish for (Mew)two",
+    "notes": "- Mewtwo might get ahead of Umbreon due to the long Heal Cheer animation on Umbreon's side. Mewtwo should watch for Attack Cheer before using Stored Power.",
+    "credits": "u/Suicidal-Lysosome",
     "pokemon": [
         {
             "id": 0,
-            "role": "Raid Boss",
+            "role": "Swampert",
             "name": "Swampert",
             "shiny": false,
             "ability": "Damp",
@@ -27,7 +27,7 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "teraType": "Poison",
             "moves": [
                 "Earthquake",
@@ -41,9 +41,9 @@
                 "Yawn"
             ],
             "shieldData": {
-                "hpTrigger": 50,
-                "timeTrigger": 85,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 85,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 45,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,14 +51,14 @@
         },
         {
             "id": 1,
-            "role": "Delphox",
-            "name": "Delphox",
+            "role": "Mewtwo",
+            "name": "Mewtwo",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Weakness Policy",
+            "item": "Covert Cloak",
             "nature": "Modest",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
@@ -76,23 +76,24 @@
             "level": 100,
             "gender": "N",
             "moves": [
+                "Nasty Plot",
                 "Stored Power"
             ]
         },
         {
             "id": 2,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Covert Cloak",
-            "nature": "Bold",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -104,71 +105,66 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Decorate"
+                "Fake Tears"
             ]
         },
         {
             "id": 3,
-            "role": "Oranguru",
-            "name": "Oranguru",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Symbiosis",
-            "item": "Choice Specs",
-            "nature": "Relaxed",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Instruct"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Quagsire",
-            "name": "Quagsire",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Water Absorb",
-            "item": "White Herb",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Acid Spray",
-                "Fling"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -176,55 +172,27 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
                 "name": "Muddy Water",
                 "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 1,
-            "moveInfo": {
-                "name": "Acid Spray",
-                "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "(Most Damaging)",
+                "name": "(No Move)",
                 "userID": 0,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "hits": 1
                 }
             }
         },
@@ -232,15 +200,15 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Decorate",
+                "name": "Fake Tears",
                 "userID": 2,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "allowMiss": false,
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -251,17 +219,45 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 1,
+            "moveInfo": {
+                "name": "Nasty Plot",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         },
         {
             "id": 3,
-            "group": 3,
+            "group": 6,
             "moveInfo": {
-                "name": "Instruct",
-                "userID": 3,
+                "name": "Heal Cheer",
+                "userID": 2,
                 "targetID": 2,
                 "options": {
                     "crit": false,
@@ -288,15 +284,15 @@
             "id": 4,
             "group": 2,
             "moveInfo": {
-                "name": "Stored Power",
+                "name": "Nasty Plot",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "allowMiss": false,
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -307,8 +303,120 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 3,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 3,
+            "moveInfo": {
+                "name": "Nasty Plot",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 4,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 5,
+            "moveInfo": {
+                "name": "Stored Power",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
                 }
             }
         }
@@ -318,68 +426,37 @@
             0
         ],
         [
-            1,
-            2
+            2,
+            1
         ],
         [
             3
         ],
         [
             4
+        ],
+        [
+            5,
+            6
+        ],
+        [
+            7
+        ],
+        [
+            9
         ]
     ],
     "repeats": [
         1,
         1,
         1,
+        1,
+        1,
+        1,
         1
     ],
     "substitutes": [
-        [
-            {
-                "raider": {
-                    "id": 1,
-                    "role": "Armarouge",
-                    "name": "Armarouge",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Weakness Policy",
-                    "nature": "Modest",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 252,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Stored Power",
-                        "(No Move)",
-                        "(No Move)",
-                        "(No Move)"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Stored Power"
-                ],
-                "substituteTargets": [
-                    1,
-                    0
-                ]
-            }
-        ],
+        [],
         [],
         [],
         []

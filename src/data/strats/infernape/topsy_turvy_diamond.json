@@ -1,7 +1,7 @@
 {
-    "name": "Swedish Fish",
-    "notes": "- Missing a raider? Make it a trio! Only 2 Alcremie are needed.\n- No strategy adjustments are needed while playing as a trio. (2 Fake Tears + 2 Decorates total are enough for the OHKO)",
-    "credits": "Presented by the r/PokePortal Team",
+    "name": "Topsy-Turvy Diamond Clan",
+    "notes": "",
+    "credits": "Sabu Karma",
     "pokemon": [
         {
             "id": 0,
@@ -27,7 +27,7 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
+            "gender": "N",
             "teraType": "Rock",
             "moves": [
                 "Flare Blitz",
@@ -52,17 +52,48 @@
         },
         {
             "id": 1,
-            "role": "Kyogre",
-            "name": "Kyogre",
+            "role": "Dialga",
+            "name": "Dialga",
             "shiny": false,
-            "ability": "Drizzle",
-            "item": "Choice Specs",
+            "ability": "(No Ability)",
+            "item": "Expert Belt",
             "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
+                "spd": 0,
+                "spe": 148
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Steel",
+            "moves": [
+                "Overheat",
+                "Steel Beam"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Malamar",
+            "name": "Malamar",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,54 +108,22 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Surf"
-            ]
-        },
-        {
-            "id": 2,
-            "role": "Alcremie",
-            "name": "Alcremie",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "F",
-            "moves": [
                 "Fake Tears",
-                "Decorate",
-                "Helping Hand",
-                "Light Screen"
+                "Gravity",
+                "Topsy-Turvy"
             ]
         },
         {
             "id": 3,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Oranguru",
+            "name": "Oranguru",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "nature": "Hardy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -138,26 +137,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Decorate",
-                "Helping Hand",
-                "Light Screen"
+                "Instruct"
             ]
         },
         {
             "id": 4,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
+            "ability": "Friend Guard",
+            "item": "Eviolite",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -171,23 +167,21 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
                 "Fake Tears",
-                "Decorate",
-                "Helping Hand",
-                "Light Screen"
+                "Gravity"
             ]
         }
     ],
     "turns": [
         {
-            "id": 8,
-            "group": 3,
+            "id": 15,
+            "group": 10,
             "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 1,
-                "targetID": 1,
+                "name": "Fake Tears",
+                "userID": 4,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -200,6 +194,62 @@
                 "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 14,
+            "group": 10,
+            "moveInfo": {
+                "name": "Gravity",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 23,
+            "group": 9,
+            "moveInfo": {
+                "name": "Steal Tera Charge",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
@@ -213,8 +263,8 @@
             "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 3,
+                "name": "Overheat",
+                "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -238,12 +288,12 @@
             }
         },
         {
-            "id": 0,
-            "group": 0,
+            "id": 16,
+            "group": 20,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 2,
-                "targetID": 0,
+                "name": "Instruct",
+                "userID": 3,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -267,16 +317,16 @@
         },
         {
             "id": 2,
-            "group": 0,
+            "group": 12,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Heal Cheer",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "min",
                     "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -287,17 +337,73 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
                     "allowMiss": false,
+                    "roll": "max",
                     "hits": 10
                 }
             }
         },
         {
-            "id": 4,
-            "group": 1,
+            "id": 6,
+            "group": 12,
             "moveInfo": {
-                "name": "Decorate",
+                "name": "Instruct",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 24,
+            "group": 19,
+            "moveInfo": {
+                "name": "Clear Boosts / Abilities",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 17,
+            "group": 2,
+            "moveInfo": {
+                "name": "Topsy-Turvy",
                 "userID": 2,
                 "targetID": 1,
                 "options": {
@@ -322,74 +428,19 @@
             }
         },
         {
-            "id": 5,
-            "group": 1,
+            "id": 0,
+            "group": 22,
             "moveInfo": {
-                "name": "Decorate",
-                "userID": 3,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 1,
-            "moveInfo": {
-                "name": "Decorate",
-                "userID": 4,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 2,
-            "moveInfo": {
-                "name": "Surf",
+                "name": "Steel Beam",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": true,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true,
+                    "activateTera": true
                 }
             },
             "bossMoveInfo": {
@@ -399,39 +450,138 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "allowMiss": false,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         }
     ],
     "groups": [
         [
-            8
+            15,
+            14
         ],
         [
-            1,
-            0,
-            2
+            23
         ],
         [
-            4,
-            5,
+            1
+        ],
+        [
+            16
+        ],
+        [
+            2,
             6
         ],
         [
-            7
+            24
+        ],
+        [
+            17
+        ],
+        [
+            0
         ]
     ],
     "repeats": [
         1,
         1,
         1,
+        1,
+        1,
+        1,
+        1,
         1
     ],
     "substitutes": [
-        [],
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Dialga",
+                    "name": "Dialga-Origin",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Adamant Crystal",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 148
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "teraType": "Steel",
+                    "moves": [
+                        "Overheat",
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Overheat",
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Heatran",
+                    "name": "Heatran",
+                    "shiny": false,
+                    "ability": "Flash Fire",
+                    "item": "Expert Belt",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "teraType": "Steel",
+                    "moves": [
+                        "Overheat",
+                        "Steel Beam"
+                    ]
+                },
+                "substituteMoves": [
+                    "Overheat",
+                    "Steel Beam"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ],
         [],
         [],
         []

@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Torterra",
-            "name": "Torterra",
+            "role": "Empoleon",
+            "name": "Empoleon",
             "shiny": false,
-            "ability": "Shell Armor",
-            "nature": "Brave",
+            "ability": "Competitive",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,23 +27,24 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
-            "teraType": "Ground",
+            "gender": "N",
+            "teraType": "Ice",
             "moves": [
-                "Earthquake",
-                "Wood Hammer",
-                "Smack Down",
-                "Earth Power"
+                "Ice Beam",
+                "Surf",
+                "Flash Cannon",
+                "Grass Knot"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Shell Smash",
-                "Earthquake"
+                "Snowscape",
+                "Blizzard",
+                "Iron Defense"
             ],
             "shieldData": {
-                "hpTrigger": 75,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,14 +52,14 @@
         },
         {
             "id": 1,
-            "role": "Kyogre",
-            "name": "Kyogre",
+            "role": "Chi-Yu",
+            "name": "Chi-Yu",
             "shiny": false,
-            "ability": "Drizzle",
-            "item": "Mirror Herb",
-            "nature": "Modest",
+            "ability": "Beads of Ruin",
+            "item": "Weakness Policy",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
@@ -76,19 +77,20 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Water Spout",
-                "Protect"
+                "Sunny Day",
+                "Nasty Plot",
+                "Flamethrower",
+                "Light Screen"
             ]
         },
         {
             "id": 2,
-            "role": "Stonjourner",
-            "name": "Stonjourner",
+            "role": "Blissey",
+            "name": "Blissey",
             "shiny": false,
-            "isAnyLevel": true,
-            "ability": "Power Spot",
-            "item": "Focus Sash",
-            "nature": "Hardy",
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -98,33 +100,36 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
-            "gender": "N",
+            "level": 100,
+            "gender": "F",
             "moves": [
-                "Protect"
+                "Skill Swap",
+                "Helping Hand",
+                "Life Dew",
+                "Sunny Day"
             ]
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Shuca Berry",
-            "nature": "Relaxed",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -139,25 +144,25 @@
             "gender": "N",
             "moves": [
                 "Fake Tears",
-                "Reflect",
-                "Light Screen",
-                "Tailwind"
+                "Helping Hand",
+                "Snarl",
+                "Mud-Slap"
             ]
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Shuca Berry",
-            "nature": "Relaxed",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -172,9 +177,9 @@
             "gender": "N",
             "moves": [
                 "Fake Tears",
-                "Reflect",
-                "Light Screen",
-                "Tailwind"
+                "Helping Hand",
+                "Snarl",
+                "Mud-Slap"
             ]
         }
     ],
@@ -183,7 +188,7 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Shell Smash",
+                "name": "Snowscape",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
@@ -211,7 +216,7 @@
             "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Remove Negative Effects",
+                "name": "Blizzard",
                 "userID": 0,
                 "targetID": 0,
                 "options": {

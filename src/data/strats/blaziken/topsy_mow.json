@@ -423,11 +423,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -439,11 +439,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -451,11 +451,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -469,8 +469,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -479,11 +479,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
@@ -493,12 +493,12 @@
             "moveInfo": {
                 "name": "Topsy-Turvy",
                 "userID": 2,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -507,11 +507,11 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },

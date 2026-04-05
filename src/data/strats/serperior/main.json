@@ -1,14 +1,13 @@
 {
-    "name": "Cooking With Gas",
-    "notes": "",
-    "credits": "the r/PokePortal Team",
+    "name": "Cooking with Gas",
+    "notes": "- Missing a raider? Make it a trio! Only 1 Corviknight is needed.\n- Corviknight uses Screech x2 when playing as a trio.",
+    "credits": "Presented by the r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
             "role": "Serperior",
             "name": "Serperior",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Contrary",
             "nature": "Modest",
             "evs": {
@@ -32,9 +31,9 @@
             "teraType": "Grass",
             "moves": [
                 "Leaf Storm",
-                "Gastro Acid",
                 "Dragon Pulse",
-                "Iron Tail"
+                "Iron Tail",
+                "Gastro Acid"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
@@ -56,7 +55,6 @@
             "role": "Charizard",
             "name": "Charizard",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Sitrus Berry",
             "nature": "Adamant",
@@ -83,33 +81,22 @@
                 "Flare Blitz",
                 "Swords Dance",
                 "Acrobatics"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 2,
             "role": "Weezing",
             "name": "Weezing",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Neutralizing Gas",
             "item": "Ability Shield",
-            "nature": "Hardy",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -124,32 +111,20 @@
             "gender": "N",
             "moves": [
                 "Sunny Day",
-                "Body Slam",
-                "Gunk Shot",
+                "Acid Spray",
                 "Sludge Bomb"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Sassy",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -168,32 +143,21 @@
             "gender": "N",
             "moves": [
                 "Screech",
-                "Helping Hand",
                 "Light Screen",
-                "Mud-Slap"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+                "Rock Smash",
+                "Tailwind"
+            ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Sassy",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -212,30 +176,48 @@
             "gender": "N",
             "moves": [
                 "Screech",
-                "Helping Hand",
                 "Light Screen",
-                "Mud-Slap"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+                "Rock Smash",
+                "Tailwind"
+            ]
         }
     ],
     "turns": [
         {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Sweet Scent",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 1,
+                "name": "Sunny Day",
+                "userID": 2,
+                "targetID": 2,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -245,7 +227,7 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "Sweet Scent",
+                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -259,151 +241,11 @@
         },
         {
             "id": 1,
-            "group": 1,
-            "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 2,
-                "targetID": 2,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 1,
+            "group": 0,
             "moveInfo": {
                 "name": "Screech",
                 "userID": 3,
                 "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 3,
-            "group": 1,
-            "moveInfo": {
-                "name": "Screech",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 1,
-            "moveInfo": {
-                "name": "Belly Drum",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 2,
-            "moveInfo": {
-                "name": "Sunny Day",
-                "userID": 2,
-                "targetID": 2,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 2,
-            "moveInfo": {
-                "name": "Helping Hand",
-                "userID": 3,
-                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -427,16 +269,16 @@
         },
         {
             "id": 7,
-            "group": 2,
+            "group": 0,
             "moveInfo": {
-                "name": "Helping Hand",
+                "name": "Screech",
                 "userID": 4,
-                "targetID": 1,
+                "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -445,16 +287,72 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
         {
-            "id": 8,
+            "id": 3,
+            "group": 0,
+            "moveInfo": {
+                "name": "Belly Drum",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
             "group": 3,
             "moveInfo": {
                 "name": "Flare Blitz",
@@ -484,21 +382,19 @@
     ],
     "groups": [
         [
-            0
+            2
         ],
         [
+            0,
             1,
-            2,
-            3,
+            7,
+            3
+        ],
+        [
             4
         ],
         [
-            5,
-            6,
-            7
-        ],
-        [
-            8
+            6
         ]
     ],
     "repeats": [
@@ -516,15 +412,15 @@
                     "name": "Magmortar",
                     "shiny": false,
                     "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Adamant",
+                    "item": "Expert Belt",
+                    "nature": "Careful",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 252,
                         "def": 0,
                         "spa": 0,
                         "spd": 0,
-                        "spe": 0
+                        "spe": 252
                     },
                     "ivs": {
                         "hp": 31,
@@ -544,12 +440,10 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
                     "Belly Drum",
                     "Flare Blitz"
                 ],
                 "substituteTargets": [
-                    1,
                     1,
                     0
                 ]
@@ -561,15 +455,15 @@
                     "name": "Magmar",
                     "shiny": false,
                     "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Careful",
+                    "item": "Eviolite",
+                    "nature": "Adamant",
                     "evs": {
                         "hp": 0,
                         "atk": 252,
                         "def": 0,
                         "spa": 0,
-                        "spd": 252,
-                        "spe": 0
+                        "spd": 0,
+                        "spe": 252
                     },
                     "ivs": {
                         "hp": 31,
@@ -589,72 +483,26 @@
                     ]
                 },
                 "substituteMoves": [
-                    "(No Move)",
                     "Belly Drum",
                     "Flare Blitz"
                 ],
                 "substituteTargets": [
-                    1,
-                    1,
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 1,
-                    "role": "Magby",
-                    "name": "Magby",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Life Orb",
-                    "nature": "Adamant",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 60,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 200,
-                        "spe": 250
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Belly Drum",
-                        "Flare Blitz",
-                        "Fire Punch",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "(No Move)",
-                    "Belly Drum",
-                    "Flare Blitz"
-                ],
-                "substituteTargets": [
-                    1,
                     1,
                     0
                 ]
             }
         ],
+        [],
         [
             {
                 "raider": {
-                    "id": 2,
-                    "role": "Weezing",
-                    "name": "Weezing-Galar",
+                    "id": 3,
+                    "role": "Umbreon",
+                    "name": "Umbreon",
                     "shiny": false,
-                    "ability": "Neutralizing Gas",
-                    "item": "Ability Shield",
-                    "nature": "Hardy",
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -674,66 +522,21 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Sunny Day",
-                        "Body Slam",
-                        "Gunk Shot",
-                        "Aromatic Mist"
+                        "Screech",
+                        "Light Screen",
+                        "Mud-Slap",
+                        "Helping Hand"
                     ]
                 },
                 "substituteMoves": [
-                    "Defense Cheer",
-                    "Sunny Day"
+                    "Screech",
+                    "Screech"
                 ],
                 "substituteTargets": [
-                    2,
-                    2
+                    0,
+                    0
                 ]
             },
-            {
-                "raider": {
-                    "id": 2,
-                    "role": "Koffing",
-                    "name": "Koffing",
-                    "shiny": false,
-                    "ability": "Neutralizing Gas",
-                    "item": "Ability Shield",
-                    "nature": "Calm",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Sunny Day",
-                        "Body Slam",
-                        "Gunk Shot",
-                        "Sludge Bomb"
-                    ]
-                },
-                "substituteMoves": [
-                    "Defense Cheer",
-                    "Sunny Day"
-                ],
-                "substituteTargets": [
-                    2,
-                    2
-                ]
-            }
-        ],
-        [
             {
                 "raider": {
                     "id": 3,
@@ -742,9 +545,9 @@
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Sassy",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -763,74 +566,31 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Helping Hand",
                         "Mud-Slap",
-                        "Gunk Shot"
+                        "Helping Hand",
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 3,
-                    "role": "Grimer",
-                    "name": "Grimer",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Mud-Slap",
-                        "Gunk Shot"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Muk",
+                    "role": "Alolan Muk",
                     "name": "Muk-Alola",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Sassy",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -849,61 +609,18 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Helping Hand",
                         "Mud-Slap",
-                        "Gunk Shot"
+                        "Helping Hand",
+                        "Snarl"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Grimer",
-                    "name": "Grimer-Alola",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Mud-Slap",
-                        "Gunk Shot"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
+                    0
                 ]
             },
             {
@@ -936,28 +653,27 @@
                     "moves": [
                         "Screech",
                         "Helping Hand",
-                        "Sunny Day",
-                        "Body Slam"
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 3,
-                    "role": "Corviknight",
-                    "name": "Corviknight",
+                    "role": "Honchkrow",
+                    "name": "Honchkrow",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Sassy",
+                    "nature": "Calm",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -978,158 +694,27 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Light Screen",
-                        "Rock Smash",
-                        "Sunny Day"
+                        "Mud-Slap",
+                        "Snarl",
+                        "Helping Hand"
                     ]
                 },
                 "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
+                    "Screech"
                 ],
                 "substituteTargets": [
-                    0,
-                    3
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 3,
-                    "role": "Corviknight",
-                    "name": "Corviknight",
-                    "shiny": false,
-                    "ability": "Mirror Armor",
-                    "item": "Ability Shield",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Light Screen",
-                        "Rock Smash",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Bastiodon",
-                    "name": "Bastiodon",
-                    "shiny": false,
-                    "ability": "Sturdy",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Sunny Day",
-                        "Body Slam",
-                        "Mud-Slap"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Revavroom",
-                    "name": "Revavroom",
+                    "role": "Kommo-o",
+                    "name": "Kommo-o",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Body Slam",
-                        "Gunk Shot",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Magnezone",
-                    "name": "Magnezone",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
+                    "nature": "Sassy",
                     "evs": {
                         "hp": 0,
                         "atk": 0,
@@ -1151,17 +736,99 @@
                     "moves": [
                         "Screech",
                         "Helping Hand",
-                        "Light Screen",
-                        "Body Slam"
+                        "Bulldoze"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Snorlax",
+                    "name": "Snorlax",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Mud-Slap",
+                        "Helping Hand",
+                        "Bulldoze"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Venonat",
+                    "name": "Venonat",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Impish",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Struggle Bug",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
                 ]
             },
             {
@@ -1172,9 +839,9 @@
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Hardy",
+                    "nature": "Sassy",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -1194,71 +861,28 @@
                     "moves": [
                         "Screech",
                         "Helping Hand",
-                        "Heal Pulse",
-                        "Rock Smash"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Sneasler",
-                    "name": "Sneasler",
-                    "shiny": false,
-                    "ability": "Pressure",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Coaching",
                         "Rock Smash",
-                        "Dire Claw"
+                        "Life Dew"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Attack Cheer"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    3
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 3,
-                    "role": "Toxtricity",
-                    "name": "Toxtricity",
+                    "role": "Leavanny",
+                    "name": "Leavanny",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Hardy",
+                    "nature": "Relaxed",
                     "evs": {
                         "hp": 0,
                         "atk": 0,
@@ -1279,154 +903,23 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Snarl",
+                        "Struggle Bug",
                         "Helping Hand",
-                        "Nuzzle"
+                        "Pollen Puff"
                     ]
                 },
                 "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
-                    0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 3,
-                    "role": "Electivire",
-                    "name": "Electivire",
-                    "shiny": false,
-                    "ability": "Motor Drive",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Light Screen",
-                        "Body Slam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Skuntank",
-                    "name": "Skuntank",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Snarl",
-                        "Haze"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Arbok",
-                    "name": "Arbok",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Breaking Swipe",
-                        "Mud-Slap",
-                        "Poison Jab"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Seviper",
-                    "name": "Seviper",
+                    "role": "Toucannon",
+                    "name": "Toucannon",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
@@ -1452,103 +945,17 @@
                     "moves": [
                         "Screech",
                         "Helping Hand",
-                        "Body Slam",
-                        "Breaking Swipe"
+                        "Rock Smash",
+                        "Tailwind"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Tentacruel",
-                    "name": "Tentacruel",
-                    "shiny": false,
-                    "ability": "Clear Body",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Aqua Ring",
-                        "Acupressure",
-                        "Muddy Water"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Toedscruel",
-                    "name": "Toedscruel",
-                    "shiny": false,
-                    "ability": "Mycelium Might",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Light Screen",
-                        "Mud-Slap",
-                        "Acupressure"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
+                    0
                 ]
             },
             {
@@ -1557,7 +964,7 @@
                     "role": "Sceptile",
                     "name": "Sceptile",
                     "shiny": false,
-                    "ability": "Overgrow",
+                    "ability": "(No Ability)",
                     "item": "Zoom Lens",
                     "nature": "Sassy",
                     "evs": {
@@ -1582,195 +989,23 @@
                         "Screech",
                         "Helping Hand",
                         "Dragon Cheer",
-                        "Breaking Swipe"
+                        "Bulldoze"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 3,
-                    "role": "Leavanny",
-                    "name": "Leavanny",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Light Screen",
-                        "Struggle Bug"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Yanma",
-                    "name": "Yanma",
-                    "shiny": false,
-                    "ability": "Compound Eyes",
-                    "item": "Ability Shield",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Tailwind",
-                        "Lunge",
-                        "Struggle Bug"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Venonat",
-                    "name": "Venonat",
-                    "shiny": false,
-                    "ability": "Compound Eyes",
-                    "item": "Ability Shield",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Skill Swap",
-                        "Pounce",
-                        "Struggle Bug"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Venomoth",
-                    "name": "Venomoth",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Lunge",
-                        "Morning Sun",
-                        "Struggle Bug"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Lokix",
-                    "name": "Lokix",
+                    "role": "Rillaboom",
+                    "name": "Rillaboom",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
@@ -1795,377 +1030,73 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Struggle Bug",
-                        "Lunge",
-                        "Sunny Day"
+                        "Snarl",
+                        "Drum Beating"
                     ]
                 },
                 "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
+                    "Screech"
                 ],
                 "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Kricketune",
-                    "name": "Kricketune",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Lunge",
-                        "Skitter Smack"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Volcarona",
-                    "name": "Volcarona",
-                    "shiny": false,
-                    "ability": "Flame Body",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Light Screen",
-                        "Fiery Dance",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Iron Moth",
-                    "name": "Iron Moth",
-                    "shiny": false,
-                    "ability": "Quark Drive",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Light Screen",
-                        "Discharge"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Noivern",
-                    "name": "Noivern",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Body Slam",
-                        "Tailwind",
-                        "Dragon Cheer"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Kommo-o",
-                    "name": "Kommo-o",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Breaking Swipe",
-                        "Body Slam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Mismagius",
-                    "name": "Mismagius",
-                    "shiny": false,
-                    "ability": "Levitate",
-                    "item": "Zoom Lens",
-                    "nature": "Calm",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Icy Wind",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Snorlax",
-                    "name": "Snorlax",
-                    "shiny": false,
-                    "ability": "Immunity",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Mud-Slap",
-                        "Body Slam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Dudunsparce",
-                    "name": "Dudunsparce",
-                    "shiny": false,
-                    "ability": "Serene Grace",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Body Slam",
-                        "Tailwind",
-                        "Mud-Slap"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
+                    0
                 ]
             }
         ],
         [
             {
                 "raider": {
-                    "id": 4,
+                    "id": 3,
+                    "role": "Umbreon",
+                    "name": "Umbreon",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Light Screen",
+                        "Mud-Slap",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
                     "role": "Muk",
                     "name": "Muk",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Sassy",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -2184,74 +1115,31 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Helping Hand",
                         "Mud-Slap",
-                        "Gunk Shot"
+                        "Helping Hand",
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Grimer",
-                    "name": "Grimer",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Mud-Slap",
-                        "Gunk Shot"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Muk",
+                    "id": 3,
+                    "role": "Alolan Muk",
                     "name": "Muk-Alola",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Sassy",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -2270,66 +1158,23 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Helping Hand",
                         "Mud-Slap",
-                        "Gunk Shot"
+                        "Helping Hand",
+                        "Snarl"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Grimer",
-                    "name": "Grimer-Alola",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Mud-Slap",
-                        "Gunk Shot"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
+                    "id": 3,
                     "role": "Perrserker",
                     "name": "Perrserker",
                     "shiny": false,
@@ -2357,28 +1202,27 @@
                     "moves": [
                         "Screech",
                         "Helping Hand",
-                        "Sunny Day",
-                        "Body Slam"
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Corviknight",
-                    "name": "Corviknight",
+                    "id": 3,
+                    "role": "Honchkrow",
+                    "name": "Honchkrow",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Sassy",
+                    "nature": "Calm",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -2399,158 +1243,27 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Light Screen",
-                        "Rock Smash",
-                        "Sunny Day"
+                        "Mud-Slap",
+                        "Snarl",
+                        "Helping Hand"
                     ]
                 },
                 "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
+                    "Screech"
                 ],
                 "substituteTargets": [
-                    0,
-                    3
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Corviknight",
-                    "name": "Corviknight",
-                    "shiny": false,
-                    "ability": "Mirror Armor",
-                    "item": "Ability Shield",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Light Screen",
-                        "Rock Smash",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Bastiodon",
-                    "name": "Bastiodon",
-                    "shiny": false,
-                    "ability": "Sturdy",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Sunny Day",
-                        "Body Slam",
-                        "Mud-Slap"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Revavroom",
-                    "name": "Revavroom",
+                    "id": 3,
+                    "role": "Kommo-o",
+                    "name": "Kommo-o",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Body Slam",
-                        "Gunk Shot",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Magnezone",
-                    "name": "Magnezone",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
+                    "nature": "Sassy",
                     "evs": {
                         "hp": 0,
                         "atk": 0,
@@ -2572,30 +1285,112 @@
                     "moves": [
                         "Screech",
                         "Helping Hand",
-                        "Light Screen",
-                        "Body Slam"
+                        "Bulldoze"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
+                    "id": 3,
+                    "role": "Snorlax",
+                    "name": "Snorlax",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Sassy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Mud-Slap",
+                        "Helping Hand",
+                        "Bulldoze"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Venonat",
+                    "name": "Venonat",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Impish",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "Struggle Bug",
+                        "Pounce"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
                     "role": "Lucario",
                     "name": "Lucario",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Hardy",
+                    "nature": "Sassy",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
                         "def": 0,
                         "spa": 0,
@@ -2615,71 +1410,28 @@
                     "moves": [
                         "Screech",
                         "Helping Hand",
-                        "Heal Pulse",
-                        "Rock Smash"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Sneasler",
-                    "name": "Sneasler",
-                    "shiny": false,
-                    "ability": "Pressure",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Coaching",
                         "Rock Smash",
-                        "Dire Claw"
+                        "Life Dew"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Attack Cheer"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    3
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Toxtricity",
-                    "name": "Toxtricity",
+                    "id": 3,
+                    "role": "Leavanny",
+                    "name": "Leavanny",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
-                    "nature": "Hardy",
+                    "nature": "Relaxed",
                     "evs": {
                         "hp": 0,
                         "atk": 0,
@@ -2700,154 +1452,23 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Snarl",
+                        "Struggle Bug",
                         "Helping Hand",
-                        "Nuzzle"
+                        "Pollen Puff"
                     ]
                 },
                 "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
-                    0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Electivire",
-                    "name": "Electivire",
-                    "shiny": false,
-                    "ability": "Motor Drive",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Light Screen",
-                        "Body Slam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Skuntank",
-                    "name": "Skuntank",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Snarl",
-                        "Haze"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Arbok",
-                    "name": "Arbok",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Breaking Swipe",
-                        "Mud-Slap",
-                        "Poison Jab"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Seviper",
-                    "name": "Seviper",
+                    "id": 3,
+                    "role": "Toucannon",
+                    "name": "Toucannon",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
@@ -2873,112 +1494,26 @@
                     "moves": [
                         "Screech",
                         "Helping Hand",
-                        "Body Slam",
-                        "Breaking Swipe"
+                        "Rock Smash",
+                        "Tailwind"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Tentacruel",
-                    "name": "Tentacruel",
-                    "shiny": false,
-                    "ability": "Clear Body",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Aqua Ring",
-                        "Acupressure",
-                        "Muddy Water"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Toedscruel",
-                    "name": "Toedscruel",
-                    "shiny": false,
-                    "ability": "Mycelium Might",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Light Screen",
-                        "Mud-Slap",
-                        "Acupressure"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
+                    "id": 3,
                     "role": "Sceptile",
                     "name": "Sceptile",
                     "shiny": false,
-                    "ability": "Overgrow",
+                    "ability": "(No Ability)",
                     "item": "Zoom Lens",
                     "nature": "Sassy",
                     "evs": {
@@ -3003,195 +1538,23 @@
                         "Screech",
                         "Helping Hand",
                         "Dragon Cheer",
-                        "Breaking Swipe"
+                        "Bulldoze"
                     ]
                 },
                 "substituteMoves": [
                     "Screech",
-                    "Helping Hand"
+                    "Screech"
                 ],
                 "substituteTargets": [
                     0,
-                    1
+                    0
                 ]
             },
             {
                 "raider": {
-                    "id": 4,
-                    "role": "Leavanny",
-                    "name": "Leavanny",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Light Screen",
-                        "Struggle Bug"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Yanma",
-                    "name": "Yanma",
-                    "shiny": false,
-                    "ability": "Compound Eyes",
-                    "item": "Ability Shield",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Tailwind",
-                        "Lunge",
-                        "Struggle Bug"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Venonat",
-                    "name": "Venonat",
-                    "shiny": false,
-                    "ability": "Compound Eyes",
-                    "item": "Ability Shield",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Skill Swap",
-                        "Pounce",
-                        "Struggle Bug"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Venomoth",
-                    "name": "Venomoth",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Lunge",
-                        "Morning Sun",
-                        "Struggle Bug"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Lokix",
-                    "name": "Lokix",
+                    "id": 3,
+                    "role": "Rillaboom",
+                    "name": "Rillaboom",
                     "shiny": false,
                     "ability": "(No Ability)",
                     "item": "Zoom Lens",
@@ -3216,362 +1579,15 @@
                     "gender": "N",
                     "moves": [
                         "Screech",
-                        "Struggle Bug",
-                        "Lunge",
-                        "Sunny Day"
+                        "Snarl",
+                        "Drum Beating"
                     ]
                 },
                 "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
+                    "Screech"
                 ],
                 "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Kricketune",
-                    "name": "Kricketune",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Lunge",
-                        "Skitter Smack"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Volcarona",
-                    "name": "Volcarona",
-                    "shiny": false,
-                    "ability": "Flame Body",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Light Screen",
-                        "Fiery Dance",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Iron Moth",
-                    "name": "Iron Moth",
-                    "shiny": false,
-                    "ability": "Quark Drive",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Light Screen",
-                        "Discharge"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Noivern",
-                    "name": "Noivern",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Body Slam",
-                        "Tailwind",
-                        "Dragon Cheer"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Kommo-o",
-                    "name": "Kommo-o",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Breaking Swipe",
-                        "Body Slam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Mismagius",
-                    "name": "Mismagius",
-                    "shiny": false,
-                    "ability": "Levitate",
-                    "item": "Zoom Lens",
-                    "nature": "Calm",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 252,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Icy Wind",
-                        "Sunny Day"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Snorlax",
-                    "name": "Snorlax",
-                    "shiny": false,
-                    "ability": "Immunity",
-                    "item": "Zoom Lens",
-                    "nature": "Hardy",
-                    "evs": {
-                        "hp": 0,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Helping Hand",
-                        "Mud-Slap",
-                        "Body Slam"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Helping Hand"
-                ],
-                "substituteTargets": [
-                    0,
-                    1
-                ]
-            },
-            {
-                "raider": {
-                    "id": 4,
-                    "role": "Dudunsparce",
-                    "name": "Dudunsparce",
-                    "shiny": false,
-                    "ability": "Serene Grace",
-                    "item": "Zoom Lens",
-                    "nature": "Sassy",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Screech",
-                        "Body Slam",
-                        "Tailwind",
-                        "Mud-Slap"
-                    ]
-                },
-                "substituteMoves": [
-                    "Screech",
-                    "Attack Cheer"
-                ],
-                "substituteTargets": [
-                    0,
-                    3
+                    0
                 ]
             }
         ]

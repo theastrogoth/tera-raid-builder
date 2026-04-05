@@ -5,10 +5,10 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Empoleon",
-            "name": "Empoleon",
+            "role": "Serperior",
+            "name": "Serperior",
             "shiny": false,
-            "ability": "Competitive",
+            "ability": "Contrary",
             "nature": "Modest",
             "evs": {
                 "hp": 0,
@@ -28,23 +28,23 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Ice",
+            "teraType": "Grass",
             "moves": [
-                "Ice Beam",
-                "Surf",
-                "Flash Cannon",
-                "Grass Knot"
+                "Leaf Storm",
+                "Dragon Pulse",
+                "Iron Tail",
+                "Gastro Acid"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Snowscape",
-                "Blizzard",
-                "Iron Defense"
+                "Sweet Scent",
+                "Breaking Swipe",
+                "Glare"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 80,
-                "shieldCancelDamage": 30,
+                "hpTrigger": 75,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 60,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -52,17 +52,17 @@
         },
         {
             "id": 1,
-            "role": "Chi-Yu",
-            "name": "Chi-Yu",
+            "role": "Charizard",
+            "name": "Charizard",
             "shiny": false,
-            "ability": "Beads of Ruin",
-            "item": "Weakness Policy",
-            "nature": "Calm",
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Adamant",
             "evs": {
-                "hp": 252,
-                "atk": 0,
+                "hp": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,20 +77,52 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Sunny Day",
-                "Nasty Plot",
-                "Flamethrower",
-                "Light Screen"
+                "Belly Drum",
+                "Flare Blitz",
+                "Swords Dance",
+                "Acrobatics"
             ]
         },
         {
             "id": 2,
-            "role": "Blissey",
-            "name": "Blissey",
+            "role": "Weezing",
+            "name": "Weezing",
+            "shiny": false,
+            "ability": "Neutralizing Gas",
+            "item": "Ability Shield",
+            "nature": "Calm",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 252,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Sunny Day",
+                "Acid Spray",
+                "Sludge Bomb"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "item": "Zoom Lens",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -108,61 +140,28 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
-            "moves": [
-                "Skill Swap",
-                "Helping Hand",
-                "Life Dew",
-                "Sunny Day"
-            ]
-        },
-        {
-            "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Calm",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 252,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Snarl",
-                "Mud-Slap"
+                "Screech",
+                "Light Screen",
+                "Rock Smash",
+                "Tailwind"
             ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "item": "Zoom Lens",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -176,73 +175,45 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Helping Hand",
-                "Snarl",
-                "Mud-Slap"
+                "Screech",
+                "Light Screen",
+                "Rock Smash",
+                "Tailwind"
             ]
         }
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 0,
-            "moveInfo": {
-                "name": "Snowscape",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 0,
-            "moveInfo": {
-                "name": "Blizzard",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
             "id": 2,
             "group": 1,
+            "moveInfo": {
+                "name": "Sweet Scent",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 0,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -271,11 +242,10 @@
     ],
     "groups": [
         [
-            0,
-            1
+            2
         ],
         [
-            2
+            0
         ]
     ],
     "repeats": [

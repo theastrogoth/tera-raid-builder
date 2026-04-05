@@ -1,0 +1,564 @@
+{
+    "name": "Cooking without Gas (Duo)",
+    "notes": "- Leavanny should have an ability other than Chlorophyll.\n- Charizard should have Blaze as its ability to not take damage from Solar Power.\n- Attacker uses Sunny Day AFTER Leavanny uses Entrainment.\n- Attacker uses Belly Drum AFTER Leavanny uses Pollen Puff.",
+    "credits": "u/Suicidal-Lysosome",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Serperior",
+            "name": "Serperior",
+            "shiny": false,
+            "ability": "Contrary",
+            "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Grass",
+            "moves": [
+                "Leaf Storm",
+                "Dragon Pulse",
+                "Iron Tail",
+                "Gastro Acid"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Sweet Scent",
+                "Breaking Swipe",
+                "Glare"
+            ],
+            "shieldData": {
+                "hpTrigger": 75,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 60,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Charizard",
+            "name": "Charizard",
+            "shiny": false,
+            "ability": "Blaze",
+            "item": "Sitrus Berry",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Sunny Day",
+                "Belly Drum",
+                "Flare Blitz"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Leavanny",
+            "name": "Leavanny",
+            "shiny": false,
+            "ability": "Swarm",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Entrainment",
+                "Screech",
+                "Pollen Puff"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "NPC",
+            "name": "NPC",
+            "shiny": false,
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": []
+        },
+        {
+            "id": 4,
+            "role": "NPC",
+            "name": "NPC",
+            "shiny": false,
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "level": 1,
+            "gender": "N",
+            "moves": []
+        }
+    ],
+    "turns": [
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Sweet Scent",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 7,
+            "moveInfo": {
+                "name": "Entrainment",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Sunny Day",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 6,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 6,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 2,
+            "moveInfo": {
+                "name": "Pollen Puff",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 8,
+            "moveInfo": {
+                "name": "Belly Drum",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 4,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 5,
+            "moveInfo": {
+                "name": "Flare Blitz",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            2
+        ],
+        [
+            5
+        ],
+        [
+            1
+        ],
+        [
+            9,
+            6
+        ],
+        [
+            0
+        ],
+        [
+            4
+        ],
+        [
+            7
+        ],
+        [
+            8
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Magmar",
+                    "name": "Magmar",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Eviolite",
+                    "nature": "Adamant",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Sunny Day",
+                        "Belly Drum",
+                        "Flare Blitz"
+                    ]
+                },
+                "substituteMoves": [
+                    "Sunny Day",
+                    "Attack Cheer",
+                    "Belly Drum",
+                    "Flare Blitz"
+                ],
+                "substituteTargets": [
+                    1,
+                    1,
+                    1,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Magmortar",
+                    "name": "Magmortar",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Sitrus Berry",
+                    "nature": "Careful",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 252,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 252
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Sunny Day",
+                        "Belly Drum",
+                        "Flare Blitz"
+                    ]
+                },
+                "substituteMoves": [
+                    "Sunny Day",
+                    "Attack Cheer",
+                    "Belly Drum",
+                    "Flare Blitz"
+                ],
+                "substituteTargets": [
+                    1,
+                    1,
+                    1,
+                    0
+                ]
+            }
+        ],
+        [],
+        [],
+        []
+    ]
+}

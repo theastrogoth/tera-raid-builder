@@ -662,6 +662,8 @@
     "Emboar": {
         "Goo-d Vibrations": "emboar/good_vibrations",
         "Goo-d Vibrations (Trio)": "emboar/good_vibrations_3",
+        "Boar's Bane": "emboar/boars_bane",
+        "Boar's Bane (Trio)": "emboar/boars_bane_3",
         "Care Bear Carnage": "emboar/main",
         "Ursaluna Semi-T1": "emboar/ursaluna",
         "Great Tusk T1.25": "emboar/great_tusk",
@@ -1085,6 +1087,8 @@
         "Star-bucks": "typhlosion/star-bucks"
     },
     "Samurott": {
+        "Burning Blades": "samurott/burning_blades",
+        "Burning Blades (Trio)": "samurott/burning_blades_3",
         "Koraidon": "samurott/main",
         "AP Fire Bull": "samurott/tauros",
         "Tauros T1": "samurott/tauros_1",

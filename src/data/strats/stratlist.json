@@ -1,5 +1,4 @@
 {
-
     "Dragapult": {
         "Cry Me to the Moon": "dragapult/main",
         "Cry Me to the Moon (Trio)": "dragapult/to_the_moon_3",
@@ -1092,7 +1091,27 @@
         "Koraidon": "samurott/main",
         "AP Fire Bull": "samurott/tauros",
         "Tauros T1": "samurott/tauros_1",
-        "Nukebro vs. Samurott": "samurott/nukebro"
+        "Fireworks Festival (T1)": "samurott/fireworks_festival",
+        "Eerie Eruption (T1)": "samurott/eerie_eruption",
+        "Angry + Bird (Duo)": "samurott/angry_bird",
+        "Team Eeveelutions Whip an Ornery Otter!": "samurott/eeveelutions",
+        "Godzilla vs. Samurott": "samurott/godzilla",
+        "Topsy-Turvy Team Normal": "samurott/topsy_turvy",
+        "Zen’s (and PSY’s!) Psy-ronic Edge!": "samurott/zen_and_psy",
+        "PSY(???)'s Proven Com-man-d": "samurott/psy",
+        "Angrily Alone": "samurott/angrily_alone",
+        "Belly-Burning Bonfire!": "samurott/belly_burning_bonfire",
+        "Frooty Loopy Loops!": "samurott/frooty_loopy_loops",
+        "Shell-Smashing Success": "samurott/shell_smashing_success",
+        "Butterfly Effect": "samurott/butterfly_effect",
+        "Icy Spicy": "samurott/icy_spicy",
+        "Intergenerational Conflict": "samurott/intergenerational_conflict",
+        "Fire, Water, and Cake": "samurott/fire_water_cake",
+        "Renegade Ronin": "samurott/renegade_ronin",
+        "Phanpy's Sweet Smashburgner!": "samurott/phanpy",
+        "Nukebro vs. Samurott": "samurott/nukebro",
+        "Nukebro vs. Samurott 2": "samurott/nukebro_2",
+        "Heads Up, 7 Up!": "samurott/heads_up_7_up"
     },
     "Decidueye": {
         "Miraidon": "decidueye/main",

@@ -1,7 +1,7 @@
 {
-    "name": "",
+    "name": "Money in a Nutshell (Trio)",
     "notes": "",
-    "credits": "",
+    "credits": "Presented by the r/PokePortal Team",
     "pokemon": [
         {
             "id": 0,
@@ -148,35 +148,31 @@
         },
         {
             "id": 4,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Chople Berry",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Chilling Water",
-                "Flash Cannon"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -188,11 +184,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -200,11 +196,11 @@
                 "userID": 0,
                 "targetID": 0,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
@@ -212,14 +208,14 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
+                "name": "Fake Tears",
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -228,11 +224,151 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 0,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 3,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 3,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Make It Rain",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
@@ -242,10 +378,21 @@
             2
         ],
         [
-            0
+            0,
+            1,
+            3
+        ],
+        [
+            5,
+            6
+        ],
+        [
+            4
         ]
     ],
     "repeats": [
+        1,
+        1,
         1,
         1
     ],

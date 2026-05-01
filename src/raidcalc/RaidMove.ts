@@ -978,14 +978,6 @@ export class RaidMove {
                                                 this._user.ability = "Wandering Spirit" as AbilityName;
                                             }
                                             break;
-                                        case "Magician":
-                                        case "Pickpocket":
-                                            if (!target.item && this._user.item) {
-                                                const item = this._user.item;
-                                                this._raidState.loseItem(this.userID);
-                                                this._raidState.receiveItem(target.id, item);
-                                            }
-                                            break;
                                         // Guessing NoReceiver
                                         case "Mummy":
                                         case "Lingering Aroma":

@@ -1043,7 +1043,11 @@
         "Lil' Timmy's Revenge": "rillaboom/timmys_revenge"
     },
     "Delphox": {
-        "Bonk!": "delphox/main",
+        "Bonk!": "delphox/bonk",
+        "Bonk! (Trio)": "delphox/bonk_3",
+        "Sweet Sorcery": "delphox/sweet_sorcery",
+        "Sweet Sorcery (Trio)": "delphox/sweet_sorcery_3",
+        "Bonk! (Original)": "delphox/main",
         "Rain & Sustain": "delphox/rain&sustain",
         "Iron Treads T1": "delphox/iron_treads",
         "Nukebro vs. Delphox": "delphox/nukebro",

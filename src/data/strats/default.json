@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Chesnaught",
-            "name": "Chesnaught",
+            "role": "Delphox",
+            "name": "Delphox",
             "shiny": false,
-            "ability": "Bulletproof",
-            "nature": "Impish",
+            "ability": "Magician",
+            "nature": "Timid",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,44 +28,43 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Rock",
+            "teraType": "Fairy",
             "moves": [
-                "Earthquake",
-                "Hammer Arm",
-                "Stone Edge",
-                "Wood Hammer"
+                "Fire Blast",
+                "Psychic",
+                "Dazzling Gleam",
+                "Will-O-Wisp"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 3000,
             "extraMoves": [
-                "Iron Defense",
-                "Earthquake",
-                "Bulk Up",
-                "Curse"
+                "Dazzling Gleam",
+                "Magic Room",
+                "Nasty Plot"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 80,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 85,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "shieldDamageRateTeraChange": 35
             }
         },
         {
             "id": 1,
-            "role": "Gholdengo",
-            "name": "Gholdengo",
+            "role": "Tinkaton",
+            "name": "Tinkaton",
             "shiny": false,
-            "ability": "Good as Gold",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "ability": "(No Ability)",
+            "item": "Life Orb",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
-                "spe": 0
+                "spe": 252
             },
             "ivs": {
                 "hp": 31,
@@ -76,24 +75,26 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "F",
             "moves": [
-                "Make It Rain",
-                "Flash Cannon"
+                "Swords Dance",
+                "Gigaton Hammer",
+                "Protect",
+                "Metal Claw"
             ]
         },
         {
             "id": 2,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Kyogre",
+            "name": "Kyogre",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Chople Berry",
-            "nature": "Bold",
+            "ability": "Drizzle",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -109,25 +110,25 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Chilling Water",
-                "Flash Cannon"
+                "Helping Hand",
+                "Rain Dance",
+                "Muddy Water"
             ]
         },
         {
             "id": 3,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Chople Berry",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -141,25 +142,26 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Chilling Water",
-                "Flash Cannon"
+                "Screech",
+                "Light Screen",
+                "Rock Smash",
+                "Rain Dance"
             ]
         },
         {
             "id": 4,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
-            "ability": "Steely Spirit",
-            "item": "Chople Berry",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -173,9 +175,10 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Chilling Water",
-                "Flash Cannon"
+                "Screech",
+                "Light Screen",
+                "Rock Smash",
+                "Rain Dance"
             ]
         }
     ],
@@ -184,7 +187,7 @@
             "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Iron Defense",
+                "name": "Dazzling Gleam",
                 "userID": 0,
                 "targetID": 0,
                 "options": {

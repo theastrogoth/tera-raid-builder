@@ -266,7 +266,7 @@
             "id": 10,
             "group": 10,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Gravity",
                 "userID": 2,
                 "targetID": 2,
                 "options": {
@@ -350,9 +350,9 @@
             "id": 1,
             "group": 31,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Instruct",
                 "userID": 2,
-                "targetID": 2,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,

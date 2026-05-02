@@ -980,11 +980,12 @@ export class RaidMove {
                                             break;
                                         case "Magician":
                                         case "Pickpocket":
-                                            if (!target.item && this._user.item) {
-                                                const item = this._user.item;
-                                                this._raidState.loseItem(this.userID);
-                                                this._raidState.receiveItem(target.id, item);
-                                            }
+                                            // These are disabled in raids, probably to prevent a sneaky way to give the boss an item
+                                            // if (!target.item && this._user.item) {
+                                            //     const item = this._user.item;
+                                            //     this._raidState.loseItem(this.userID);
+                                            //     this._raidState.receiveItem(target.id, item);
+                                            // }
                                             break;
                                         // Guessing NoReceiver
                                         case "Mummy":

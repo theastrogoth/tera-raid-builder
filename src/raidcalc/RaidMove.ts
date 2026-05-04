@@ -1206,6 +1206,9 @@ export class RaidMove {
                     case "Shore Up":
                         healingPercent = this._user.field.hasWeather("Sand") ? 66.66 : 50;
                         break;
+                    case "Rest":
+                        healingPercent = 100;
+                        break;
                     default:
                         break;
                 }
@@ -1892,7 +1895,6 @@ export class RaidMove {
                     && (this._user.abilityNullified || !["Insomnia", "Purifying Salt", "Vital Spirit"].includes(this._user.ability as string))
                     && !(this._user.field.hasWeather("Sun") && this._user.hasAbility("Leaf Guard"))
                 ) {
-                    this._user.originalCurHP = this._user.maxHP();
                     this._user.isSleep = this.options.roll === "max" ? 1 : this.options.roll === "min" ? 3 : 2;
                     this._raidState.applyStatus(this.userID, "slp", this.userID, false, false, this.options.roll);
                 }

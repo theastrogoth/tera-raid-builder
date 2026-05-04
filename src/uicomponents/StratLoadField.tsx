@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from "@mui/material/Typography";
 import Autocomplete, { createFilterOptions } from '@mui/material/Autocomplete';
+import IconButton from '@mui/material/IconButton';
+import CasinoIcon from '@mui/icons-material/Casino';
 import { SxProps, Theme } from '@mui/material/styles';
 
 import { StyledTextField, SetLoadGroupHeader } from "./BuildControls";
@@ -171,82 +173,110 @@ function StratLoadField(
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [buildInfo]);
 
-    return (
-        <Autocomplete
-            disablePortal
-            disableClearable
-            autoHighlight={true}
-            fullWidth={true}
-            size="medium"
-            value={{name:"", boss: "Pikachu" as SpeciesName, path: "", raiders: ["Pikachu", "Pikachu", "Pikachu", "Pikachu"], substitutes: [], abilities: [], moves: [], items: []}}
-            sx={sx}
-            options={stratOptions}
-            filterOptions={filterStratOptions}
-            groupBy={(option: StratOption) => option.boss}
-            renderOption={(props, option) => (
-                <li {...props}>
-                    <Stack direction="row" alignItems="center" spacing={0.25} sx={{ height: "25px", width: "100%"}}>
-                        <Typography variant="body2" style={{ whiteSpace: "pre-wrap" }} sx={{ maxWidth: "175px" }}>{option.name}</Typography>
-                        <Box flexGrow={1} sx={{ minWidth: "20px"}} />
-                        <Stack direction="row" spacing={-0.25}>
-                            {
-                                option.raiders.map((r, i) =>
-                                    <Box
-                                        key={i}
-                                        sx={{
-                                            width: "25px",
-                                            height: "25px",
-                                            zIndex: 10000 - i,
-                                            overflow: 'hidden',
-                                            background: `url(${getPokemonSpriteURL(r)}) no-repeat center center / contain`,
-                                        }}
-                                    />
-                                )
-                            }
-                        </Stack>
-                    </Stack>
-                </li>
-            )}
+    const loadRandomStrat = () => {
+        const randomOption = stratOptions[Math.floor(Math.random() * stratOptions.length)];
+        setStratPath(randomOption.path);
+        let prettyHash = randomOption.path;
+        if (prettyHash.slice(-5) === "/main") {
+            prettyHash = prettyHash.slice(0, -5);
+        }
+        shortHashRef.current = prettyHash;
+    };
 
-            renderGroup={(params) => {
-                let group = params.group;
-                if (group.includes("Rerun")) {
-                    group = group.slice(0,-6);
-                }
-                return  (
-                    <li>
-                        <SetLoadGroupHeader pokemon={group as SpeciesName} translationKey={translationKey}/>
-                        {params.children}
+    return (
+        <Stack direction="row" alignItems="center" spacing={0.5}>
+            <Autocomplete
+                disablePortal
+                disableClearable
+                autoHighlight={true}
+                fullWidth={true}
+                size="medium"
+                value={{name:"", boss: "Pikachu" as SpeciesName, path: "", raiders: ["Pikachu", "Pikachu", "Pikachu", "Pikachu"], substitutes: [], abilities: [], moves: [], items: []}}
+                sx={sx}
+                options={stratOptions}
+                filterOptions={filterStratOptions}
+                groupBy={(option: StratOption) => option.boss}
+                renderOption={(props, option) => (
+                    <li {...props}>
+                        <Stack direction="row" alignItems="center" spacing={0.25} sx={{ height: "25px", width: "100%"}}>
+                            <Typography variant="body2" style={{ whiteSpace: "pre-wrap" }} sx={{ maxWidth: "175px" }}>{option.name}</Typography>
+                            <Box flexGrow={1} sx={{ minWidth: "20px"}} />
+                            <Stack direction="row" spacing={-0.25}>
+                                {
+                                    option.raiders.map((r, i) =>
+                                        <Box
+                                            key={i}
+                                            sx={{
+                                                width: "25px",
+                                                height: "25px",
+                                                zIndex: 10000 - i,
+                                                overflow: 'hidden',
+                                                background: `url(${getPokemonSpriteURL(r)}) no-repeat center center / contain`,
+                                            }}
+                                        />
+                                    )
+                                }
+                            </Stack>
+                        </Stack>
                     </li>
-                );
-            }}
-            getOptionLabel={(option: StratOption) => option.name}
-            renderInput={(params) =>
-                <StyledTextField
-                    {...params} variant="outlined" placeholder={placeholder} size="medium"
-                    sx={{
-                        "& .MuiInputBase-input": {
-                            overflow: "hidden",
-                            textOverflow: "clip",
-                        },
-                    }}
-                />}
-            onChange={(event: any, newValue: StratOption) => {
-                if (!newValue) return;
-                try {
-                    setStratPath(newValue.path);
-                    let prettyHash = newValue.path;
-                    if (prettyHash.slice(-5) === "/main") {
-                        prettyHash = prettyHash.slice(0,-5);
+                )}
+
+                renderGroup={(params) => {
+                    let group = params.group;
+                    if (group.includes("Rerun")) {
+                        group = group.slice(0,-6);
                     }
-                    shortHashRef.current = prettyHash;
-                } catch (e) {
-                    console.log(e)
-                }
-            }}
-            componentsProps={{ popper: { placement: "bottom-start", style: { width: 'fit-content', minWidth: 225 } } }}
-            style={{ whiteSpace: "pre-wrap" }}
-        />
+                    return  (
+                        <li>
+                            <SetLoadGroupHeader pokemon={group as SpeciesName} translationKey={translationKey}/>
+                            {params.children}
+                        </li>
+                    );
+                }}
+                getOptionLabel={(option: StratOption) => option.name}
+                renderInput={(params) =>
+                    <StyledTextField
+                        {...params} variant="outlined" placeholder={placeholder} size="medium"
+                        sx={{
+                            "& .MuiInputBase-input": {
+                                overflow: "hidden",
+                                textOverflow: "clip",
+                            },
+                        }}
+                    />}
+                onChange={(event: any, newValue: StratOption) => {
+                    if (!newValue) return;
+                    try {
+                        setStratPath(newValue.path);
+                        let prettyHash = newValue.path;
+                        if (prettyHash.slice(-5) === "/main") {
+                            prettyHash = prettyHash.slice(0,-5);
+                        }
+                        shortHashRef.current = prettyHash;
+                    } catch (e) {
+                        console.log(e)
+                    }
+                }}
+                componentsProps={{ popper: { placement: "bottom-start", style: { width: 'fit-content', minWidth: 225 } } }}
+                style={{ whiteSpace: "pre-wrap" }}
+            />
+            <IconButton
+                onClick={loadRandomStrat}
+                sx={{
+                    border: "1px solid",
+                    borderColor: "primary.main",
+                    borderRadius: 1,
+                    color: "primary.main",
+                    height: 50,
+                    flexShrink: 0,
+                    "&:hover": {
+                        borderWidth: "1.5px",
+                    },
+                }}
+            >
+                <CasinoIcon sx={{ fontSize: "24px" }}/>
+            </IconButton>
+        </Stack>
     )
 }
 

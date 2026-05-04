@@ -320,6 +320,34 @@
             }
         },
         {
+            "id": 7,
+            "group": 4,
+            "moveInfo": {
+                "name": "Pound",
+                "userID": 1,
+                "targetID": 3,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": true,
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
             "id": 19,
             "group": 4,
             "moveInfo": {
@@ -360,34 +388,6 @@
                     "roll": "min",
                     "allowMiss": true,
                     "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 4,
-            "moveInfo": {
-                "name": "Pound",
-                "userID": 1,
-                "targetID": 3,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": true,
-                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -516,18 +516,18 @@
             }
         },
         {
-            "id": 11,
+            "id": 10,
             "group": 10,
             "moveInfo": {
-                "name": "Simple Beam",
-                "userID": 4,
-                "targetID": 1,
+                "name": "Pound",
+                "userID": 1,
+                "targetID": 3,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             },
             "bossMoveInfo": {
@@ -544,18 +544,18 @@
             }
         },
         {
-            "id": 10,
-            "group": 9,
+            "id": 11,
+            "group": 10,
             "moveInfo": {
-                "name": "Pound",
-                "userID": 1,
-                "targetID": 3,
+                "name": "Simple Beam",
+                "userID": 4,
+                "targetID": 1,
                 "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "crit": false,
+                    "secondaryEffects": false,
                     "allowMiss": true,
-                    "roll": "max",
-                    "hits": 10
+                    "roll": "min",
+                    "hits": 1
                 }
             },
             "bossMoveInfo": {
@@ -684,34 +684,6 @@
             }
         },
         {
-            "id": 15,
-            "group": 14,
-            "moveInfo": {
-                "name": "Heal Cheer",
-                "userID": 3,
-                "targetID": 3,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 16,
             "group": 15,
             "moveInfo": {
@@ -786,9 +758,9 @@
             3
         ],
         [
+            7,
             19,
-            4,
-            7
+            4
         ],
         [
             6
@@ -801,10 +773,8 @@
             9
         ],
         [
+            10,
             11
-        ],
-        [
-            10
         ],
         [
             12
@@ -816,8 +786,7 @@
             14
         ],
         [
-            17,
-            15
+            17
         ],
         [
             16
@@ -827,7 +796,6 @@
         ]
     ],
     "repeats": [
-        1,
         1,
         1,
         1,

@@ -1199,8 +1199,20 @@
     "Greninja": {
         "By Leaps and Grounds": "greninja/main",
         "By Leaps and Grounds (Trio)": "greninja/leaps_and_grounds_3",
-        "Scarlet Supremacy": "greninja/scarlet_supremacy",
-        "Great Tusk T1.25": "greninja/great_tusk"
+        "Scarlet Supremacy (T1)": "greninja/scarlet_supremacy",
+        "Stored Power T1": "greninja/stored_power",
+        "Great Tusk T1.25": "greninja/great_tusk",
+        "Heavy Cream (Trio)": "greninja/heavy_cream",
+        "Team Eeveelutions Croak a Slippery Frog!": "greninja/eeveelutions",
+        "Godzilla": "greninja/godzilla",
+        "Absolute Cinema": "greninja/absolute_cinema",
+        "Playing in the Mud": "greninja/playing_in_the_mud",
+        "Extra Crispy Frog Legs": "greninja/crispy_frog_legs",
+        "Big Fish": "greninja/big_fish",
+        "Debt Payment": "greninja/debt_payment",
+        "Psychic Circus": "greninja/psychic_circus",
+        "Nukebro": "greninja/nukebro",
+        "The Awkward Phase": "greninja/awkward_phase"
     },
     "Cinderace": {
         "Espathra T1": "cinderace/espathra",

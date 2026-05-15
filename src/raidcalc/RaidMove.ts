@@ -817,6 +817,10 @@ export class RaidMove {
         if (this.moveData.name === "Electro Shot" && !moveUser.isCharging) {
             this._raidState.applyStatChange(this.userID, {spa: 1});
         }
+        // Meteor Beam boost check (with Power Herb)
+        if (this.moveData.name === "Meteor Beam" && !this._isSheerForceBoosted && !moveUser.isCharging) {
+            this._raidState.applyStatChange(this.userID, {spa: 1});
+        }
         // Spit Up / Stockpile check
         if (this.moveData.name === "Spit Up" && !this._user.stockpile) {
             this._desc[this.userID] = this._user.name + " " + this.move.name + " vs. " + this._raidState.getPokemon(this._targetID).name + " — " + this.move.name + " failed!";

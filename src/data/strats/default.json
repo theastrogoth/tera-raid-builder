@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Greninja",
-            "name": "Greninja",
+            "role": "Decidueye",
+            "name": "Decidueye",
             "shiny": false,
-            "ability": "Protean",
-            "nature": "Sassy",
+            "ability": "Long Reach",
+            "nature": "Brave",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,23 +27,24 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
-            "teraType": "Poison",
+            "gender": "N",
+            "teraType": "Flying",
             "moves": [
-                "Gunk Shot",
-                "Hydro Pump",
-                "Ice Beam",
-                "Night Slash"
+                "Spirit Shackle",
+                "Brave Bird",
+                "Low Kick",
+                "Leaf Blade"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Toxic Spikes",
-                "Double Team"
+                "Feather Dance",
+                "Swords Dance",
+                "Air Cutter"
             ],
             "shieldData": {
-                "hpTrigger": 65,
-                "timeTrigger": 65,
-                "shieldCancelDamage": 30,
+                "hpTrigger": 60,
+                "timeTrigger": 60,
+                "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,19 +52,19 @@
         },
         {
             "id": 1,
-            "role": "Groudon",
-            "name": "Groudon",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
-            "ability": "Drought",
+            "ability": "Hadron Engine",
             "item": "Life Orb",
-            "nature": "Adamant",
+            "nature": "Modest",
             "evs": {
-                "hp": 0,
-                "atk": 252,
+                "hp": 252,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -76,18 +77,18 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Swords Dance",
-                "Precipice Blades",
-                "Protect",
-                "Earthquake"
+                "Charge",
+                "Electro Drift",
+                "Parabolic Charge",
+                "Electric Terrain"
             ]
         },
         {
             "id": 2,
-            "role": "Medicham",
-            "name": "Medicham",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
-            "ability": "Pure Power",
+            "ability": "(No Ability)",
             "item": "Sitrus Berry",
             "nature": "Bold",
             "evs": {
@@ -109,24 +110,24 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Gravity",
-                "Skill Swap",
-                "Light Screen",
-                "Reflect"
+                "Helping Hand",
+                "Fake Tears",
+                "Reflect",
+                "Moonlight"
             ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Relaxed",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -142,24 +143,23 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Snarl",
-                "Sunny Day"
+                "Fake Tears",
+                "Reflect",
+                "Roost"
             ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Relaxed",
+            "item": "Sitrus Berry",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -175,72 +175,15 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Helping Hand",
-                "Snarl",
-                "Sunny Day"
+                "Fake Tears",
+                "Reflect",
+                "Roost"
             ]
         }
     ],
     "turns": [
         {
-            "id": 1,
-            "group": 0,
-            "moveInfo": {
-                "name": "Double Team",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
             "id": 0,
-            "group": 0,
-            "moveInfo": {
-                "name": "Toxic Spikes",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 2,
             "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
@@ -266,15 +209,71 @@
                     "hits": 1
                 }
             }
+        },
+        {
+            "id": 4,
+            "group": 0,
+            "moveInfo": {
+                "name": "Clear Boosts / Abilities",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 0,
+            "moveInfo": {
+                "name": "Feather Dance",
+                "userID": 0,
+                "targetID": 5,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
         }
     ],
     "groups": [
         [
-            1,
             0
         ],
         [
-            2
+            4,
+            5
         ]
     ],
     "repeats": [

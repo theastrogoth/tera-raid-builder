@@ -1,7 +1,7 @@
 {
-    "name": "Rotom-tisserie Owl",
+    "name": "Skybridge",
     "notes": "",
-    "credits": "u/Allons-yAl0nso & u/ChrisReturns",
+    "credits": "Vikram aka u/Tacitus2389b4h5ii405",
     "pokemon": [
         {
             "id": 0,
@@ -27,6 +27,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "teraType": "Flying",
             "moves": [
                 "Spirit Shackle",
@@ -51,11 +52,11 @@
         },
         {
             "id": 1,
-            "role": "Rotom",
-            "name": "Rotom-Heat",
-            "shiny": false,
-            "ability": "Levitate",
-            "item": "Life Orb",
+            "role": "Archaludon",
+            "name": "Archaludon",
+            "shiny": true,
+            "ability": "(No Ability)",
+            "item": "Choice Specs",
             "nature": "Modest",
             "evs": {
                 "hp": 252,
@@ -74,20 +75,18 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Charge",
-                "Thunder"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+                "Electro Shot"
+            ]
         },
         {
             "id": 2,
             "role": "Pelipper",
             "name": "Pelipper",
-            "shiny": false,
+            "shiny": true,
             "ability": "Drizzle",
-            "item": "Petaya Berry",
+            "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -106,23 +105,23 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Fling"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+                "Helping Hand"
+            ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "nature": "Bold",
+            "role": "Corviknight",
+            "name": "Corviknight",
+            "shiny": true,
+            "ability": "Pressure",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -136,18 +135,18 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
                 "Fake Tears"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+            ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Minun",
+            "name": "Minun",
             "shiny": true,
-            "ability": "(No Ability)",
+            "ability": "Minus",
+            "item": "Covert Cloak",
             "nature": "Bold",
             "evs": {
                 "hp": 252,
@@ -166,25 +165,26 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Helping Hand"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+                "Fake Tears",
+                "Entrainment"
+            ]
         }
     ],
     "turns": [
         {
             "id": 0,
-            "group": 0,
+            "group": 1,
             "moveInfo": {
-                "name": "Charge",
+                "name": "Defense Cheer",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -196,6 +196,91 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 3,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 3,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 3,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
@@ -204,25 +289,27 @@
             "id": 1,
             "group": 0,
             "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 2,
+                "name": "Clear Boosts / Abilities",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": true,
                     "roll": "min",
                     "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
                 }
             }
         },
@@ -230,38 +317,41 @@
             "id": 2,
             "group": 0,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 3,
+                "name": "Feather Dance",
+                "userID": 0,
+                "targetID": 5,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
                 }
             }
         },
         {
-            "id": 3,
-            "group": 0,
+            "id": 10,
+            "group": 5,
             "moveInfo": {
-                "name": "Helping Hand",
-                "userID": 4,
+                "name": "Defense Cheer",
+                "userID": 1,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": true,
                     "roll": "min",
                     "hits": 1
                 }
@@ -273,32 +363,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 1,
-            "moveInfo": {
-                "name": "Fling",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "allowMiss": false,
                     "roll": "max",
                     "hits": 10
                 }
@@ -306,7 +371,35 @@
         },
         {
             "id": 5,
-            "group": 1,
+            "group": 4,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 4,
             "moveInfo": {
                 "name": "Fake Tears",
                 "userID": 3,
@@ -315,6 +408,7 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -326,21 +420,23 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
         },
         {
-            "id": 6,
-            "group": 1,
+            "id": 9,
+            "group": 4,
             "moveInfo": {
-                "name": "Attack Cheer",
+                "name": "Entrainment",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -352,20 +448,22 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
         },
         {
-            "id": 7,
+            "id": 3,
             "group": 2,
             "moveInfo": {
-                "name": "Thunder",
+                "name": "Electro Shot",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": true,
                     "roll": "min",
                     "hits": 1
                 }
@@ -377,6 +475,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
+                    "allowMiss": false,
                     "roll": "max",
                     "hits": 10
                 }
@@ -385,21 +484,33 @@
     ],
     "groups": [
         [
-            0,
-            1,
-            2,
-            3
+            0
         ],
         [
             4,
-            5,
-            6
+            6,
+            8
         ],
         [
-            7
+            1,
+            2
+        ],
+        [
+            10
+        ],
+        [
+            5,
+            7,
+            9
+        ],
+        [
+            3
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
         1,
         1,
         1

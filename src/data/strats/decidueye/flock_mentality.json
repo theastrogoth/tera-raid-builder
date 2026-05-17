@@ -1,7 +1,7 @@
 {
-    "name": "Late Night Drive",
-    "notes": "- Missing a raider? Make it a trio! Only 1 Corviknight is needed.\n- Corviknight uses Fake Tears x2 if playing as a trio.",
-    "credits": "Presented by the r/PokePortal Team and Team Rocket Base",
+    "name": "+Flock+ Mentality",
+    "notes": "Zoroaks, Froslass, Wigglytuff, Weavile, Ursaluna Regular and Grimmsnarl have a slight chance of dying",
+    "credits": "Mareep",
     "pokemon": [
         {
             "id": 0,
@@ -52,14 +52,14 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Mareep",
+            "name": "Mareep",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Life Orb",
+            "ability": "Plus",
+            "item": "Eviolite",
             "nature": "Modest",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 252,
@@ -78,21 +78,52 @@
             "gender": "N",
             "moves": [
                 "Charge",
-                "Electro Drift",
-                "Parabolic Charge",
-                "Electric Terrain"
+                "Thunder",
+                "Electric Terrain",
+                "Protect"
             ]
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Tinkaton",
+            "name": "Tinkaton",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
+            "ability": "Mold Breaker",
+            "item": "Flame Orb",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "F",
+            "moves": [
+                "Fake Tears",
+                "Fling"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "OtherMareep1",
+            "name": "Mareep",
+            "shiny": false,
+            "ability": "Plus",
+            "item": "Eviolite",
             "nature": "Bold",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 252,
                 "spa": 0,
@@ -110,56 +141,22 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Helping Hand",
-                "Fake Tears",
-                "Reflect",
-                "Moonlight"
-            ]
-        },
-        {
-            "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Roost"
+                "Flatter",
+                "Rain Dance"
             ]
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "OtherMareep2",
+            "name": "Mareep",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "ability": "Plus",
+            "item": "Eviolite",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -175,20 +172,47 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Roost"
+                "Flatter",
+                "Electric Terrain"
             ]
         }
     ],
     "turns": [
         {
-            "id": 1,
+            "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "Helping Hand",
+                "name": "Fling",
                 "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
                 "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 4,
+            "moveInfo": {
+                "name": "Rain Dance",
+                "userID": 3,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -211,12 +235,12 @@
             }
         },
         {
-            "id": 0,
-            "group": 1,
+            "id": 1,
+            "group": 4,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 3,
-                "targetID": 0,
+                "name": "Electric Terrain",
+                "userID": 4,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -229,6 +253,90 @@
                 "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 4,
+            "moveInfo": {
+                "name": "Protect",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 0,
+            "moveInfo": {
+                "name": "Clear Boosts / Abilities",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 0,
+            "moveInfo": {
+                "name": "Feather Dance",
+                "userID": 0,
+                "targetID": 5,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
@@ -240,10 +348,10 @@
         },
         {
             "id": 8,
-            "group": 1,
+            "group": 2,
             "moveInfo": {
                 "name": "Fake Tears",
-                "userID": 4,
+                "userID": 2,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -268,7 +376,7 @@
         },
         {
             "id": 3,
-            "group": 1,
+            "group": 2,
             "moveInfo": {
                 "name": "Charge",
                 "userID": 1,
@@ -295,68 +403,12 @@
             }
         },
         {
-            "id": 4,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": true,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Clear Boosts / Abilities",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "allowMiss": false,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 0,
-            "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "Feather Dance",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
             "id": 6,
-            "group": 2,
+            "group": 5,
             "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 2,
-                "targetID": 2,
+                "name": "Flatter",
+                "userID": 3,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -380,9 +432,121 @@
         },
         {
             "id": 7,
+            "group": 5,
+            "moveInfo": {
+                "name": "Flatter",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
             "group": 3,
             "moveInfo": {
-                "name": "Electro Drift",
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 3,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 3,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 6,
+            "moveInfo": {
+                "name": "Thunder",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -409,23 +573,38 @@
     ],
     "groups": [
         [
-            1,
+            2
+        ],
+        [
             0,
-            8,
-            3
+            1,
+            9
         ],
         [
             4,
             5
         ],
         [
-            6
+            8,
+            3
         ],
         [
+            6,
             7
+        ],
+        [
+            10,
+            11,
+            12
+        ],
+        [
+            13
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
         1,
         1,
         1,
@@ -437,16 +616,16 @@
             {
                 "raider": {
                     "id": 2,
-                    "role": "Dragonite",
-                    "name": "Dragonite",
+                    "role": "Froslass",
+                    "name": "Froslass",
                     "shiny": false,
-                    "ability": "Multiscale",
-                    "item": "Sitrus Berry",
+                    "ability": "Snow Cloak",
+                    "item": "Flame Orb",
                     "nature": "Bold",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
-                        "def": 0,
+                        "def": 252,
                         "spa": 0,
                         "spd": 0,
                         "spe": 0
@@ -460,36 +639,36 @@
                         "spe": 31
                     },
                     "level": 100,
-                    "gender": "N",
+                    "gender": "F",
                     "moves": [
-                        "Helping Hand",
-                        "Chilling Water",
-                        "Roost",
-                        "Dragon Cheer"
+                        "Fling",
+                        "Fake Tears"
                     ]
                 },
                 "substituteMoves": [
-                    "Helping Hand",
-                    "Attack Cheer"
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
                 ],
                 "substituteTargets": [
-                    1,
-                    2
+                    0,
+                    0,
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 2,
-                    "role": "Magearna",
-                    "name": "Magearna",
+                    "role": "Pachirisu",
+                    "name": "Pachirisu",
                     "shiny": false,
-                    "ability": "Soul-Heart",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
+                    "ability": "Run Away",
+                    "item": "Flame Orb",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
-                        "def": 0,
+                        "def": 252,
                         "spa": 0,
                         "spd": 0,
                         "spe": 0
@@ -505,32 +684,34 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Helping Hand",
-                        "Reflect"
+                        "Fake Tears",
+                        "Fling"
                     ]
                 },
                 "substituteMoves": [
-                    "Helping Hand",
-                    "Attack Cheer"
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
                 ],
                 "substituteTargets": [
-                    1,
-                    2
+                    0,
+                    0,
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 2,
-                    "role": "Zacian",
-                    "name": "Zacian-Crowned",
+                    "role": "Raichu",
+                    "name": "Raichu",
                     "shiny": false,
-                    "ability": "Intrepid Sword",
-                    "item": "Rusted Sword",
-                    "nature": "Impish",
+                    "ability": "Static",
+                    "item": "Flame Orb",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 0,
+                        "hp": 252,
                         "atk": 0,
-                        "def": 0,
+                        "def": 252,
                         "spa": 0,
                         "spd": 0,
                         "spe": 0
@@ -546,28 +727,75 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Helping Hand",
-                        "Noble Roar"
+                        "Fling",
+                        "Fake Tears",
+                        "(No Move)",
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [
-                    "Helping Hand",
-                    "Attack Cheer"
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
                 ],
                 "substituteTargets": [
-                    1,
-                    2
+                    0,
+                    0,
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 2,
-                    "role": "Torkoal",
-                    "name": "Torkoal",
+                    "role": "Scream Tail",
+                    "name": "Scream Tail",
+                    "shiny": false,
+                    "ability": "Protosynthesis",
+                    "item": "Flame Orb",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Morpeko",
+                    "name": "Morpeko",
                     "shiny": false,
                     "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
+                    "item": "Flame Orb",
+                    "nature": "Hardy",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -587,27 +815,29 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Helping Hand",
-                        "Inferno"
+                        "Fake Tears",
+                        "Fling"
                     ]
                 },
                 "substituteMoves": [
-                    "Helping Hand",
-                    "Attack Cheer"
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
                 ],
                 "substituteTargets": [
-                    1,
-                    2
+                    0,
+                    0,
+                    0
                 ]
             },
             {
                 "raider": {
                     "id": 2,
-                    "role": "Girafarig",
-                    "name": "Girafarig",
+                    "role": "Gothitelle",
+                    "name": "Gothitelle",
                     "shiny": false,
-                    "ability": "Sap Sipper",
-                    "item": "Eviolite",
+                    "ability": "Frisk",
+                    "item": "Flame Orb",
                     "nature": "Bold",
                     "evs": {
                         "hp": 252,
@@ -628,19 +858,678 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Helping Hand",
-                        "Reflect",
-                        "Nasty Plot",
-                        "Power Swap"
+                        "Fling",
+                        "Fake Tears"
                     ]
                 },
                 "substituteMoves": [
-                    "Helping Hand",
-                    "Attack Cheer"
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
                 ],
                 "substituteTargets": [
-                    1,
-                    2
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Cinccino",
+                    "name": "Cinccino",
+                    "shiny": false,
+                    "ability": "Skill Link",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fake Tears",
+                        "Fling",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Zoroark",
+                    "name": "Zoroark-Hisui",
+                    "shiny": false,
+                    "ability": "Illusion",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Plusle",
+                    "name": "Plusle",
+                    "shiny": false,
+                    "ability": "Plus",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Zoroark",
+                    "name": "Zoroark",
+                    "shiny": false,
+                    "ability": "Illusion",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Jirachi",
+                    "name": "Jirachi",
+                    "shiny": false,
+                    "ability": "Serene Grace",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Meloetta",
+                    "name": "Meloetta",
+                    "shiny": false,
+                    "ability": "Serene Grace",
+                    "item": "Flame Orb",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Malamar",
+                    "name": "Malamar",
+                    "shiny": false,
+                    "ability": "Contrary",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fake Tears",
+                        "Fling",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Mew",
+                    "name": "Mew",
+                    "shiny": false,
+                    "ability": "Synchronize",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fake Tears",
+                        "Fling",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Ursaluna",
+                    "name": "Ursaluna-Bloodmoon",
+                    "shiny": false,
+                    "ability": "Mind's Eye",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Ursaluna",
+                    "name": "Ursaluna",
+                    "shiny": false,
+                    "ability": "Guts",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Salazzle",
+                    "name": "Salazzle",
+                    "shiny": false,
+                    "ability": "Corrosion",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "F",
+                    "moves": [
+                        "Fake Tears",
+                        "Fling",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Weavile",
+                    "name": "Weavile",
+                    "shiny": false,
+                    "ability": "Pressure",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Wigglytuff",
+                    "name": "Wigglytuff",
+                    "shiny": false,
+                    "ability": "Cute Charm",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fake Tears",
+                        "Fling",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Grimmsnarl",
+                    "name": "Grimmsnarl",
+                    "shiny": false,
+                    "ability": "Prankster",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Fling",
+                        "Fake Tears"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 2,
+                    "role": "Perrserker",
+                    "name": "Perrserker",
+                    "shiny": false,
+                    "ability": "(No Ability)",
+                    "item": "Flame Orb",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Fake Tears",
+                        "Fling",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Fling",
+                    "Fake Tears",
+                    "Fake Tears"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    0
                 ]
             }
         ],
@@ -648,12 +1537,12 @@
             {
                 "raider": {
                     "id": 3,
-                    "role": "Perrserker",
-                    "name": "Perrserker",
+                    "role": "Ampharos",
+                    "name": "Ampharos",
                     "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
+                    "ability": "Plus",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -673,67 +1562,30 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Fake Tears",
-                        "Helping Hand",
-                        "Chilling Water"
+                        "Rain Dance",
+                        "Flatter"
                     ]
                 },
                 "substituteMoves": [
-                    "Fake Tears"
+                    "Rain Dance",
+                    "Flatter",
+                    "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    0
+                    3,
+                    1,
+                    3
                 ]
             },
             {
                 "raider": {
                     "id": 3,
-                    "role": "Qwilfish",
-                    "name": "Qwilfish-Hisui",
+                    "role": "Flaaffy",
+                    "name": "Flaaffy",
                     "shiny": false,
-                    "ability": "Intimidate",
+                    "ability": "Plus",
                     "item": "Eviolite",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "Chilling Water",
-                        "Acupressure"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Bellibolt",
-                    "name": "Bellibolt",
-                    "shiny": false,
-                    "ability": "Electromorphosis",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
+                    "nature": "Hardy",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -753,228 +1605,34 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Acid Spray",
-                        "Chilling Water",
-                        "Electric Terrain",
-                        "Parabolic Charge"
+                        "Flatter",
+                        "Rain Dance",
+                        "(No Move)",
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray"
+                    "Rain Dance",
+                    "Flatter",
+                    "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Toxtricity",
-                    "name": "Toxtricity",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "Helping Hand",
-                        "Electric Terrain",
-                        "Nuzzle"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Goodra",
-                    "name": "Goodra-Hisui",
-                    "shiny": false,
-                    "ability": "Shell Armor",
-                    "item": "Float Stone",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "Chilling Water",
-                        "Life Dew"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Mandibuzz",
-                    "name": "Mandibuzz",
-                    "shiny": false,
-                    "ability": "Big Pecks",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "F",
-                    "moves": [
-                        "Fake Tears",
-                        "Feather Dance",
-                        "Roost"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Revavroom",
-                    "name": "Revavroom",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Toxapex",
-                    "name": "Toxapex",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "Chilling Water"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
+                    3,
+                    1,
+                    3
                 ]
             }
         ],
-                [
+        [
             {
                 "raider": {
-                    "id": 3,
-                    "role": "Perrserker",
-                    "name": "Perrserker",
+                    "id": 4,
+                    "role": "Ampharos",
+                    "name": "Ampharos",
                     "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
+                    "ability": "Plus",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -994,67 +1652,30 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Fake Tears",
-                        "Helping Hand",
-                        "Chilling Water"
+                        "Electric Terrain",
+                        "Flatter"
                     ]
                 },
                 "substituteMoves": [
-                    "Fake Tears"
+                    "Electric Terrain",
+                    "Flatter",
+                    "Heal Cheer"
                 ],
                 "substituteTargets": [
-                    0
+                    4,
+                    1,
+                    4
                 ]
             },
             {
                 "raider": {
-                    "id": 3,
-                    "role": "Qwilfish",
-                    "name": "Qwilfish-Hisui",
+                    "id": 4,
+                    "role": "Flaaffy ",
+                    "name": "Flaaffy",
                     "shiny": false,
-                    "ability": "Intimidate",
+                    "ability": "Plus",
                     "item": "Eviolite",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "Chilling Water",
-                        "Acupressure"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Bellibolt",
-                    "name": "Bellibolt",
-                    "shiny": false,
-                    "ability": "Electromorphosis",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
+                    "nature": "Hardy",
                     "evs": {
                         "hp": 252,
                         "atk": 0,
@@ -1074,215 +1695,19 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Acid Spray",
-                        "Chilling Water",
-                        "Electric Terrain",
-                        "Parabolic Charge"
+                        "Flatter",
+                        "Electric Terrain"
                     ]
                 },
                 "substituteMoves": [
-                    "Acid Spray"
+                    "Electric Terrain",
+                    "Flatter",
+                    "Heal Cheer"
                 ],
                 "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Toxtricity",
-                    "name": "Toxtricity",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "Helping Hand",
-                        "Electric Terrain",
-                        "Nuzzle"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Goodra",
-                    "name": "Goodra-Hisui",
-                    "shiny": false,
-                    "ability": "Shell Armor",
-                    "item": "Float Stone",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "Chilling Water",
-                        "Life Dew"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Mandibuzz",
-                    "name": "Mandibuzz",
-                    "shiny": false,
-                    "ability": "Big Pecks",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "F",
-                    "moves": [
-                        "Fake Tears",
-                        "Feather Dance",
-                        "Roost"
-                    ]
-                },
-                "substituteMoves": [
-                    "Fake Tears"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Revavroom",
-                    "name": "Revavroom",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Impish",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 0,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
-                ]
-            },
-            {
-                "raider": {
-                    "id": 3,
-                    "role": "Toxapex",
-                    "name": "Toxapex",
-                    "shiny": false,
-                    "ability": "(No Ability)",
-                    "item": "Sitrus Berry",
-                    "nature": "Bold",
-                    "evs": {
-                        "hp": 252,
-                        "atk": 0,
-                        "def": 252,
-                        "spa": 0,
-                        "spd": 0,
-                        "spe": 0
-                    },
-                    "ivs": {
-                        "hp": 31,
-                        "atk": 31,
-                        "def": 31,
-                        "spa": 31,
-                        "spd": 31,
-                        "spe": 31
-                    },
-                    "level": 100,
-                    "gender": "N",
-                    "moves": [
-                        "Acid Spray",
-                        "Chilling Water"
-                    ]
-                },
-                "substituteMoves": [
-                    "Acid Spray"
-                ],
-                "substituteTargets": [
-                    0
+                    4,
+                    1,
+                    4
                 ]
             }
         ]

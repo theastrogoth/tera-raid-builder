@@ -73,7 +73,7 @@
         "extraMoves": [],
         "shieldData": {
             "hpTrigger": 60,
-            "timeTrigger": 60,
+            "timeTrigger": 80,
             "shieldCancelDamage": 40,
             "shieldDamageRate": 20,
             "shieldDamageRateTera": 70,

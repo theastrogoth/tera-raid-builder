@@ -1,7 +1,7 @@
 {
-    "name": "",
-    "notes": "",
-    "credits": "",
+    "name": "Zekrom T1",
+    "notes": "Decidueye needs to take a bit of Brave Bird recoil for this strategy to work in all cases, so make sure the Focus Sash Supports are level 100\nAlso, time is tight so use Spicy Extract as soon as Simple Beam is done",
+    "credits": "Vikram aka u/Tacitus2389b4h5ii405",
     "pokemon": [
         {
             "id": 0,
@@ -52,17 +52,17 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Zekrom",
+            "name": "Zekrom",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Life Orb",
-            "nature": "Modest",
+            "ability": "Teravolt",
+            "item": "Mirror Herb",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,24 +77,21 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Charge",
-                "Electro Drift",
-                "Parabolic Charge",
-                "Electric Terrain"
+                "Fusion Bolt"
             ]
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "ability": "Hadron Engine",
+            "item": "Focus Sash",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -109,23 +106,18 @@
             },
             "level": 100,
             "gender": "N",
-            "moves": [
-                "Helping Hand",
-                "Fake Tears",
-                "Reflect",
-                "Moonlight"
-            ]
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "role": "Psyduck",
+            "name": "Psyduck",
+            "shiny": true,
+            "ability": "Damp",
+            "item": "Focus Sash",
+            "nature": "Bashful",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -143,21 +135,19 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Roost"
+                "Simple Beam"
             ]
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
-            "shiny": false,
+            "role": "Scovillain",
+            "name": "Scovillain",
+            "shiny": true,
             "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "item": "Focus Sash",
+            "nature": "Bashful",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -175,25 +165,26 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Roost"
+                "Spicy Extract",
+                "Helping Hand",
+                "Worry Seed",
+                "Sunny Day"
             ]
         }
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 1,
+            "id": 2,
+            "group": 3,
             "moveInfo": {
-                "name": "(No Move)",
-                "userID": 1,
-                "targetID": 0,
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
                 }
             },
@@ -202,81 +193,113 @@
                 "userID": 0,
                 "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         },
         {
-            "id": 4,
-            "group": 0,
+            "id": 0,
+            "group": 3,
             "moveInfo": {
-                "name": "Clear Boosts / Abilities",
-                "userID": 0,
+                "name": "Simple Beam",
+                "userID": 3,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
+                    "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
                     "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
+                    "hits": 10
                 }
             }
         },
         {
-            "id": 5,
-            "group": 0,
+            "id": 3,
+            "group": 1,
             "moveInfo": {
-                "name": "Feather Dance",
-                "userID": 0,
-                "targetID": 5,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
+                "name": "Spicy Extract",
+                "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
+                    "allowMiss": true,
+                    "roll": "min",
                     "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 2,
+            "moveInfo": {
+                "name": "Fusion Bolt",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
                 }
             }
         }
     ],
     "groups": [
         [
+            2,
             0
         ],
         [
-            4,
-            5
+            3
+        ],
+        [
+            1
         ]
     ],
     "repeats": [
+        1,
         1,
         1
     ],

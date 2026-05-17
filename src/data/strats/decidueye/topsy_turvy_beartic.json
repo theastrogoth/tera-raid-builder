@@ -1,7 +1,7 @@
 {
-    "name": "Rotom-tisserie Owl",
-    "notes": "",
-    "credits": "u/Allons-yAl0nso & u/ChrisReturns",
+    "name": "Topsy-Turvy Beartic",
+    "notes": "If Feather Dance hits Beartic, Corviknight can Screech just twice. (in other words, Beartic can go for Avalance earlier.)",
+    "credits": "Sabu Karma",
     "pokemon": [
         {
             "id": 0,
@@ -27,6 +27,7 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "teraType": "Flying",
             "moves": [
                 "Spirit Shackle",
@@ -51,17 +52,17 @@
         },
         {
             "id": 1,
-            "role": "Rotom",
-            "name": "Rotom-Heat",
+            "role": "Beartic",
+            "name": "Beartic",
             "shiny": false,
-            "ability": "Levitate",
-            "item": "Life Orb",
-            "nature": "Modest",
+            "ability": "(No Ability)",
+            "item": "Expert Belt",
+            "nature": "Adamant",
             "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
+                "hp": 0,
+                "atk": 252,
+                "def": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -74,25 +75,25 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
+            "teraType": "Ice",
             "moves": [
-                "Charge",
-                "Thunder"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+                "Superpower",
+                "Avalanche"
+            ]
         },
         {
             "id": 2,
-            "role": "Pelipper",
-            "name": "Pelipper",
+            "role": "Malamar",
+            "name": "Malamar",
             "shiny": false,
-            "ability": "Drizzle",
-            "item": "Petaya Berry",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Flame Orb",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -106,23 +107,23 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Fling"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+                "Fling",
+                "Topsy-Turvy"
+            ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Oranguru",
+            "name": "Oranguru",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Bold",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -136,23 +137,23 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Fake Tears"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+                "Instruct"
+            ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
-            "shiny": true,
+            "role": "Corviknight",
+            "name": "Corviknight",
+            "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Bold",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -166,24 +167,80 @@
                 "spe": 31
             },
             "level": 100,
+            "gender": "N",
             "moves": [
-                "Helping Hand"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": []
+                "Screech"
+            ]
         }
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 0,
+            "id": 33,
+            "group": 10,
             "moveInfo": {
-                "name": "Charge",
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 10,
+            "moveInfo": {
+                "name": "Fling",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 30,
+            "group": 20,
+            "moveInfo": {
+                "name": "Superpower",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": true,
                     "roll": "min",
                     "hits": 1
                 }
@@ -195,162 +252,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 0,
-            "moveInfo": {
-                "name": "Defense Cheer",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 2,
-            "group": 0,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 3,
-            "group": 0,
-            "moveInfo": {
-                "name": "Helping Hand",
-                "userID": 4,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 4,
-            "group": 1,
-            "moveInfo": {
-                "name": "Fling",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 1,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 3,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 1,
-            "moveInfo": {
-                "name": "Attack Cheer",
-                "userID": 4,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
+                    "allowMiss": false,
                     "roll": "max",
                     "hits": 10
                 }
@@ -358,15 +260,16 @@
         },
         {
             "id": 7,
-            "group": 2,
+            "group": 0,
             "moveInfo": {
-                "name": "Thunder",
-                "userID": 1,
-                "targetID": 0,
+                "name": "Instruct",
+                "userID": 3,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
+                    "allowMiss": true,
                     "hits": 1
                 }
             },
@@ -378,6 +281,204 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 3,
+            "moveInfo": {
+                "name": "Clear Boosts / Abilities",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 3,
+            "moveInfo": {
+                "name": "Feather Dance",
+                "userID": 0,
+                "targetID": 2,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 21,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 21,
+            "moveInfo": {
+                "name": "Instruct",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 21,
+            "group": 1,
+            "moveInfo": {
+                "name": "Topsy-Turvy",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 12,
+            "moveInfo": {
+                "name": "Avalanche",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1,
+                    "activateTera": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
                     "hits": 10
                 }
             }
@@ -385,21 +486,39 @@
     ],
     "groups": [
         [
-            0,
-            1,
-            2,
-            3
+            33,
+            0
         ],
         [
-            4,
-            5,
-            6
+            30
         ],
         [
             7
+        ],
+        [
+            6,
+            8
+        ],
+        [
+            2,
+            1
+        ],
+        [
+            21
+        ],
+        [
+            3
+        ],
+        [
+            5
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
         1,
         1,
         1

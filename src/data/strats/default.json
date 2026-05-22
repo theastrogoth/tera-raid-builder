@@ -5,10 +5,10 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Decidueye",
-            "name": "Decidueye",
+            "role": "Incineroar",
+            "name": "Incineroar",
             "shiny": false,
-            "ability": "Long Reach",
+            "ability": "Intimidate",
             "nature": "Brave",
             "evs": {
                 "hp": 0,
@@ -27,23 +27,23 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Flying",
+            "gender": "M",
+            "teraType": "Dark",
             "moves": [
-                "Spirit Shackle",
-                "Brave Bird",
-                "Low Kick",
-                "Leaf Blade"
+                "Flare Blitz",
+                "Darkest Lariat",
+                "Bulk Up",
+                "Iron Head"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Feather Dance",
-                "Swords Dance",
-                "Air Cutter"
+                "Snarl",
+                "Taunt",
+                "Earthquake"
             ],
             "shieldData": {
-                "hpTrigger": 60,
-                "timeTrigger": 80,
+                "hpTrigger": 65,
+                "timeTrigger": 60,
                 "shieldCancelDamage": 40,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -52,17 +52,17 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "Kommo-o",
+            "name": "Kommo-o",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Life Orb",
-            "nature": "Modest",
+            "ability": "Soundproof",
+            "item": "Covert Cloak",
+            "nature": "Adamant",
             "evs": {
                 "hp": 252,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -77,20 +77,53 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Charge",
-                "Electro Drift",
-                "Parabolic Charge",
-                "Electric Terrain"
+                "Taunt",
+                "Belly Drum",
+                "Close Combat",
+                "Drain Punch"
             ]
         },
         {
             "id": 2,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
+            "ability": "Aroma Veil",
+            "item": "Flame Orb",
             "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "F",
+            "moves": [
+                "Fling",
+                "Helping Hand",
+                "Decorate",
+                "Acid Armor"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Snorlax",
+            "name": "Snorlax",
+            "shiny": false,
+            "ability": "Thick Fat",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -110,56 +143,24 @@
             "level": 100,
             "gender": "N",
             "moves": [
+                "Screech",
                 "Helping Hand",
-                "Fake Tears",
-                "Reflect",
-                "Moonlight"
-            ]
-        },
-        {
-            "id": 3,
-            "role": "Corviknight",
-            "name": "Corviknight",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Roost"
+                "Chilling Water",
+                "Mud-Slap"
             ]
         },
         {
             "id": 4,
-            "role": "Corviknight",
-            "name": "Corviknight",
+            "role": "Snorlax",
+            "name": "Snorlax",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Sitrus Berry",
-            "nature": "Bold",
+            "ability": "Thick Fat",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -175,15 +176,72 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Fake Tears",
-                "Reflect",
-                "Roost"
+                "Screech",
+                "Helping Hand",
+                "Chilling Water",
+                "Mud-Slap"
             ]
         }
     ],
     "turns": [
         {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Snarl",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
             "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Taunt",
+                "userID": 0,
+                "targetID": 5,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 2,
             "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
@@ -209,71 +267,15 @@
                     "hits": 1
                 }
             }
-        },
-        {
-            "id": 4,
-            "group": 0,
-            "moveInfo": {
-                "name": "Clear Boosts / Abilities",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 0,
-            "moveInfo": {
-                "name": "Feather Dance",
-                "userID": 0,
-                "targetID": 5,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
         }
     ],
     "groups": [
         [
+            1,
             0
         ],
         [
-            4,
-            5
+            2
         ]
     ],
     "repeats": [

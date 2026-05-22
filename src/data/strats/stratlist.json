@@ -534,7 +534,9 @@
         "Ironworking Infants": "serperior/ironworking_infants"
     },
     "Incineroar": {
-        "One-Hit Kommo-O": "incineroar/main",
+        "One-Hit Kommo-O": "incineroar/one_hit_kommo_o",
+        "One-Hit Kommo-O (Trio)": "incineroar/one_hit_kommo_o_3",
+        "One-Hit Kommo-O (Original)": "incineroar/main",
         "Winged King T1.5": "incineroar/winged_king",
         "Iron Hands T1.75": "incineroar/iron_hands",
         "Angry Bull": "incineroar/angry_bull",

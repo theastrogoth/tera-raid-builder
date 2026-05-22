@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/tera-raid-builder/static/css/main.e6c13ad2.css",
-    "main.js": "/tera-raid-builder/static/js/main.b77da239.js",
+    "main.js": "/tera-raid-builder/static/js/main.6c353b97.js",
     "static/js/56446.f035f71f.chunk.js": "/tera-raid-builder/static/js/56446.f035f71f.chunk.js",
     "static/js/87850.cacd3d1a.chunk.js": "/tera-raid-builder/static/js/87850.cacd3d1a.chunk.js",
     "static/js/68435.182654d2.chunk.js": "/tera-raid-builder/static/js/68435.182654d2.chunk.js",
@@ -573,6 +573,8 @@
     "static/js/73210.1cbebac7.chunk.js": "/tera-raid-builder/static/js/73210.1cbebac7.chunk.js",
     "static/js/87434.35792642.chunk.js": "/tera-raid-builder/static/js/87434.35792642.chunk.js",
     "static/js/72787.8a2e3dd4.chunk.js": "/tera-raid-builder/static/js/72787.8a2e3dd4.chunk.js",
+    "static/js/27894.f7a85f21.chunk.js": "/tera-raid-builder/static/js/27894.f7a85f21.chunk.js",
+    "static/js/69372.6d29194d.chunk.js": "/tera-raid-builder/static/js/69372.6d29194d.chunk.js",
     "static/js/10986.87784b1f.chunk.js": "/tera-raid-builder/static/js/10986.87784b1f.chunk.js",
     "static/js/50560.9ad53633.chunk.js": "/tera-raid-builder/static/js/50560.9ad53633.chunk.js",
     "static/js/11351.6aa3eeb4.chunk.js": "/tera-raid-builder/static/js/11351.6aa3eeb4.chunk.js",
@@ -1198,13 +1200,13 @@
     "static/js/8064.10b072bf.chunk.js": "/tera-raid-builder/static/js/8064.10b072bf.chunk.js",
     "index.html": "/tera-raid-builder/index.html",
     "main.e6c13ad2.css.map": "/tera-raid-builder/static/css/main.e6c13ad2.css.map",
-    "main.b77da239.js.map": "/tera-raid-builder/static/js/main.b77da239.js.map",
+    "main.6c353b97.js.map": "/tera-raid-builder/static/js/main.6c353b97.js.map",
     "56446.f035f71f.chunk.js.map": "/tera-raid-builder/static/js/56446.f035f71f.chunk.js.map",
     "787.f2f3d9e4.chunk.js.map": "/tera-raid-builder/static/js/787.f2f3d9e4.chunk.js.map",
     "8064.10b072bf.chunk.js.map": "/tera-raid-builder/static/js/8064.10b072bf.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.e6c13ad2.css",
-    "static/js/main.b77da239.js"
+    "static/js/main.6c353b97.js"
   ]
 }

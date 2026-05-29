@@ -31,7 +31,7 @@ type StratOption = {
     credits?: string,
 }
 
-const SHOW_BOSSES_FIRST: SpeciesName[] = ["Incineroar"] as SpeciesName[];
+const SHOW_BOSSES_FIRST: SpeciesName[] = ["Primarina"] as SpeciesName[];
 
 function stratDexEntryToOption(options: StratOption[], index: number, boss: string, stratname: string, stratpath: string) {
     import(`../data/strats/${stratpath}.json`)

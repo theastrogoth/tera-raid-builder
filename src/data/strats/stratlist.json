@@ -756,7 +756,9 @@
         "Born on the Bayou": "swampert/born_on_the_bayou"
     },
     "Primarina": {
-        "Steel the Show": "primarina/main",
+        "Steel the Show": "primarina/steel_the_show", 
+        "Steel the Show (Trio)": "primarina/steel_the_show_3",
+        "Steel the Show (Original)": "primarina/main",
         "Roll Out the Yellow Carpet": "primarina/yellow_carpet",
         "Team Eeveelutions Fires up the Stage": "primarina/eeveelutions",
         "Godzilla vs. Ebirah": "primarina/godzilla",

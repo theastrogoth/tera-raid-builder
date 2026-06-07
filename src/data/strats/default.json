@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Primarina",
-            "name": "Primarina",
+            "role": "Rillaboom",
+            "name": "Rillaboom",
             "shiny": false,
-            "ability": "Liquid Voice",
-            "nature": "Modest",
+            "ability": "Grassy Surge",
+            "nature": "Jolly",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,22 +28,23 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Fairy",
+            "teraType": "Normal",
             "moves": [
-                "Moonblast",
-                "Sparkling Aria",
-                "Sing",
-                "Psychic"
+                "Drum Beating",
+                "Acrobatics",
+                "Body Slam",
+                "Low Kick"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Encore",
-                "Surf"
+                "Growth",
+                "Boomburst",
+                "Bulk Up"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 50,
+                "hpTrigger": 85,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,14 +52,14 @@
         },
         {
             "id": 1,
-            "role": "Copperajah",
-            "name": "Copperajah",
+            "role": "Koraidon",
+            "name": "Koraidon",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Choice Band",
+            "ability": "Orichalcum Pulse",
+            "item": "Mirror Herb",
             "nature": "Adamant",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 252,
                 "def": 0,
                 "spa": 0,
@@ -76,23 +77,26 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Heavy Slam"
+                "Collision Course",
+                "Bulk Up",
+                "Drain Punch",
+                "Breaking Swipe"
             ]
         },
         {
             "id": 2,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Arcanine",
+            "name": "Arcanine",
             "shiny": false,
-            "ability": "Sweet Veil",
-            "item": "Sitrus Berry",
-            "nature": "Calm",
+            "ability": "Intimidate",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -104,28 +108,28 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Decorate",
                 "Helping Hand",
-                "Light Screen",
-                "Misty Terrain"
+                "Howl",
+                "Sunny Day",
+                "Charm"
             ]
         },
         {
             "id": 3,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
-            "ability": "Steely Spirit",
+            "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Sassy",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -140,25 +144,25 @@
             "gender": "N",
             "moves": [
                 "Screech",
-                "Helping Hand",
-                "Throat Chop",
-                "Iron Head"
+                "Rock Smash",
+                "Reflect",
+                "Sunny Day"
             ]
         },
         {
             "id": 4,
-            "role": "Perrserker",
-            "name": "Perrserker",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
-            "ability": "Steely Spirit",
+            "ability": "(No Ability)",
             "item": "Zoom Lens",
-            "nature": "Sassy",
+            "nature": "Relaxed",
             "evs": {
                 "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 252,
+                "spd": 0,
                 "spe": 0
             },
             "ivs": {
@@ -173,15 +177,43 @@
             "gender": "N",
             "moves": [
                 "Screech",
-                "Helping Hand",
-                "Throat Chop",
-                "Iron Head"
+                "Rock Smash",
+                "Reflect",
+                "Sunny Day"
             ]
         }
     ],
     "turns": [
         {
-            "id": 3,
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Growth",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 0,
             "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
@@ -211,10 +243,14 @@
     ],
     "groups": [
         [
-            3
+            1
+        ],
+        [
+            0
         ]
     ],
     "repeats": [
+        1,
         1
     ],
     "substitutes": [

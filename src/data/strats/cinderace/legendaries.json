@@ -1,0 +1,812 @@
+{
+    "name": "Legendaries vs Bunny",
+    "notes": "",
+    "credits": "Vikram aka u/Tacitus2389b4h5ii405",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Cinderace",
+            "name": "Cinderace",
+            "shiny": false,
+            "ability": "Libero",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Fighting",
+            "moves": [
+                "High Jump Kick",
+                "Pyro Ball",
+                "Acrobatics",
+                "Iron Head"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Bulk Up"
+            ],
+            "shieldData": {
+                "hpTrigger": 70,
+                "timeTrigger": 70,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Eternatus",
+            "name": "Eternatus",
+            "shiny": true,
+            "ability": "Pressure",
+            "item": "Life Orb",
+            "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Toxic",
+                "Venoshock"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Manaphy",
+            "name": "Manaphy",
+            "shiny": true,
+            "ability": "Hydration",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Tail Glow",
+                "Heart Swap"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Rayquaza",
+            "name": "Rayquaza",
+            "shiny": true,
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Breaking Swipe",
+                "Helping Hand"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Pecharunt",
+            "name": "Pecharunt",
+            "shiny": false,
+            "ability": "Poison Puppeteer",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Acid Spray"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 1,
+            "moveInfo": {
+                "name": "Bulk Up",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 3,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Breaking Swipe",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Tail Glow",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Acid Spray",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 4,
+            "moveInfo": {
+                "name": "Toxic",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 4,
+            "moveInfo": {
+                "name": "Tail Glow",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 4,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 4,
+            "moveInfo": {
+                "name": "Acid Spray",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 7,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 6,
+            "moveInfo": {
+                "name": "Heart Swap",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 6,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 5,
+            "moveInfo": {
+                "name": "Venoshock",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0
+        ],
+        [
+            2
+        ],
+        [
+            1
+        ],
+        [
+            3,
+            4
+        ],
+        [
+            5,
+            6,
+            7,
+            8
+        ],
+        [
+            11
+        ],
+        [
+            10,
+            12
+        ],
+        [
+            9
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Latios",
+                    "name": "Latios",
+                    "shiny": true,
+                    "ability": "Levitate",
+                    "item": "Covert Cloak",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "M",
+                    "moves": [
+                        "Chilling Water",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Chilling Water",
+                    "Helping Hand",
+                    "Heal Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    1,
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Latias",
+                    "name": "Latias",
+                    "shiny": true,
+                    "ability": "Levitate",
+                    "item": "Covert Cloak",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "F",
+                    "moves": [
+                        "Chilling Water",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Chilling Water",
+                    "Helping Hand",
+                    "Heal Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    1,
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Mewtwo",
+                    "name": "Mewtwo",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Chilling Water",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Chilling Water",
+                    "Helping Hand",
+                    "Heal Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    1,
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Lugia",
+                    "name": "Lugia",
+                    "shiny": true,
+                    "ability": "Multiscale",
+                    "item": "Covert Cloak",
+                    "nature": "Timid",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Chilling Water",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Chilling Water",
+                    "Helping Hand",
+                    "Heal Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    1,
+                    3
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Mew",
+                    "name": "Mew",
+                    "shiny": true,
+                    "ability": "Synchronize",
+                    "item": "Covert Cloak",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Acid Spray"
+                    ]
+                },
+                "substituteMoves": [
+                    "Acid Spray",
+                    "Acid Spray",
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    0,
+                    0,
+                    4
+                ]
+            }
+        ]
+    ]
+}

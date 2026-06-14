@@ -1,0 +1,427 @@
+{
+    "name": "Stored Power T1",
+    "notes": "",
+    "credits": "Vikram aka u/Tacitus2389b4h5ii405",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Cinderace",
+            "name": "Cinderace",
+            "shiny": false,
+            "ability": "Libero",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Fighting",
+            "moves": [
+                "High Jump Kick",
+                "Pyro Ball",
+                "Acrobatics",
+                "Iron Head"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Bulk Up"
+            ],
+            "shieldData": {
+                "hpTrigger": 70,
+                "timeTrigger": 70,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Deoxys",
+            "name": "Deoxys-Attack",
+            "shiny": true,
+            "ability": "Pressure",
+            "item": "Weakness Policy",
+            "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Stored Power"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Scream Tail",
+            "name": "Scream Tail",
+            "shiny": true,
+            "ability": "Protosynthesis",
+            "item": "Petaya Berry",
+            "nature": "Timid",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Fling"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Psyduck",
+            "name": "Psyduck",
+            "shiny": true,
+            "ability": "(No Ability)",
+            "item": "Eviolite",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Simple Beam"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Qwilfish",
+            "name": "Qwilfish",
+            "shiny": true,
+            "ability": "Intimidate",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Acid Spray"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 1,
+            "moveInfo": {
+                "name": "Bulk Up",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 2,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Fling",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": true,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 4,
+            "moveInfo": {
+                "name": "Acid Spray",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 3,
+            "moveInfo": {
+                "name": "Stored Power",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0
+        ],
+        [
+            2
+        ],
+        [
+            1
+        ],
+        [
+            4
+        ],
+        [
+            3
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Mewtwo",
+                    "name": "Mewtwo",
+                    "shiny": true,
+                    "ability": "Pressure",
+                    "item": "Weakness Policy",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Stored Power",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Stored Power"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 1,
+                    "role": "Necrozma",
+                    "name": "Necrozma-Dawn-Wings",
+                    "shiny": false,
+                    "ability": "Prism Armor",
+                    "item": "Weakness Policy",
+                    "nature": "Modest",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 252,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Stored Power",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Stored Power"
+                ],
+                "substituteTargets": [
+                    0
+                ]
+            }
+        ],
+        [],
+        [],
+        []
+    ]
+}

@@ -115,7 +115,7 @@
         },
         {
             "id": 3,
-            "role": "Blissey 1",
+            "role": "Blissey",
             "name": "Blissey",
             "shiny": false,
             "ability": "(No Ability)",
@@ -148,7 +148,7 @@
         },
         {
             "id": 4,
-            "role": "Blissey 2",
+            "role": "Blissey",
             "name": "Blissey",
             "shiny": false,
             "ability": "(No Ability)",

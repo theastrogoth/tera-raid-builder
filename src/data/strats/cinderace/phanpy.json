@@ -1,0 +1,749 @@
+{
+    "name": "Phanpy's Pedalada!",
+    "notes": "- Make sure Phanpy has these 3 moves in order for Last Resort to work!",
+    "credits": "@Hydracinth (in honor of my friend Walt's favorite Pokemon Phanpy!)",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Cinderace",
+            "name": "Cinderace",
+            "shiny": false,
+            "ability": "Libero",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Fighting",
+            "moves": [
+                "High Jump Kick",
+                "Pyro Ball",
+                "Acrobatics",
+                "Iron Head"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Bulk Up"
+            ],
+            "shieldData": {
+                "hpTrigger": 70,
+                "timeTrigger": 70,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Phanpy",
+            "name": "Phanpy",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Mirror Herb",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 252,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Rain Dance",
+                "Curse",
+                "Last Resort"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Incineroar",
+            "name": "Incineroar",
+            "shiny": false,
+            "ability": "Intimidate",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Will-O-Wisp",
+                "Helping Hand",
+                "Swagger"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Sylveon",
+            "name": "Sylveon",
+            "shiny": false,
+            "ability": "Pixilate",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Skill Swap",
+                "Tail Whip"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Oranguru",
+            "name": "Oranguru",
+            "shiny": false,
+            "ability": "Symbiosis",
+            "item": "Life Orb",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Gravity",
+                "Trick Room",
+                "Instruct"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Bulk Up",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 3,
+            "moveInfo": {
+                "name": "Gravity",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 2,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 2,
+            "moveInfo": {
+                "name": "Will-O-Wisp",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Acrobatics",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 0,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 8,
+            "moveInfo": {
+                "name": "Rain Dance",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Pyro Ball",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 11,
+            "moveInfo": {
+                "name": "Trick Room",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 4,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Acrobatics",
+                "userID": 0,
+                "targetID": 2,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 4,
+            "moveInfo": {
+                "name": "Skill Swap",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 2,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 4,
+            "moveInfo": {
+                "name": "Curse",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Acrobatics",
+                "userID": 0,
+                "targetID": 2,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 5,
+            "moveInfo": {
+                "name": "Swagger",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Acrobatics",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 6,
+            "moveInfo": {
+                "name": "Instruct",
+                "userID": 4,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 6,
+            "moveInfo": {
+                "name": "Tail Whip",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 6,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Acrobatics",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 7,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "Acrobatics",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 16,
+            "group": 7,
+            "moveInfo": {
+                "name": "Instruct",
+                "userID": 4,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 14,
+            "group": 7,
+            "moveInfo": {
+                "name": "Tail Whip",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 15,
+            "group": 10,
+            "moveInfo": {
+                "name": "Instruct",
+                "userID": 4,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 17,
+            "group": 9,
+            "moveInfo": {
+                "name": "Last Resort",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            2
+        ],
+        [
+            4
+        ],
+        [
+            1
+        ],
+        [
+            7
+        ],
+        [
+            10
+        ],
+        [
+            6
+        ],
+        [
+            0,
+            5,
+            12
+        ],
+        [
+            9
+        ],
+        [
+            11,
+            3,
+            8
+        ],
+        [
+            13,
+            16,
+            14
+        ],
+        [
+            15
+        ],
+        [
+            17
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

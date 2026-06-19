@@ -1,0 +1,526 @@
+{
+    "name": "Bru Lock",
+    "notes": "- Inspired by my friend, Froid!",
+    "credits": "@Hydracinth",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Cinderace",
+            "name": "Cinderace",
+            "shiny": false,
+            "ability": "Libero",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Fighting",
+            "moves": [
+                "High Jump Kick",
+                "Pyro Ball",
+                "Acrobatics",
+                "Iron Head"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Bulk Up"
+            ],
+            "shieldData": {
+                "hpTrigger": 70,
+                "timeTrigger": 70,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Fishagi",
+            "name": "Bruxish",
+            "shiny": true,
+            "ability": "Strong Jaw",
+            "item": "Life Orb",
+            "nature": "Impish",
+            "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Swords Dance",
+                "Psychic Fangs"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Bass-chira",
+            "name": "Bruxish",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Sitrus Berry",
+            "nature": "Relaxed",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Chilling Water",
+                "Psychic Terrain"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Nagill",
+            "name": "Bruxish",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Tunagami",
+            "name": "Bruxish",
+            "shiny": false,
+            "ability": "(No Ability)",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Bulk Up",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 4,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 6,
+            "moveInfo": {
+                "name": "Chilling Water",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 0,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 3,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 3,
+            "moveInfo": {
+                "name": "Psychic Terrain",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 3,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 2,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 5,
+            "moveInfo": {
+                "name": "Psychic Fangs",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            2
+        ],
+        [
+            3
+        ],
+        [
+            4
+        ],
+        [
+            6,
+            0
+        ],
+        [
+            10,
+            8,
+            7
+        ],
+        [
+            11,
+            9
+        ],
+        [
+            5
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

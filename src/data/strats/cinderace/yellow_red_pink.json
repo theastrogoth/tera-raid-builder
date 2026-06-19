@@ -1,0 +1,557 @@
+{
+    "name": "Yellow. Red, and Pink",
+    "notes": "",
+    "credits": "Vikram aka u/Tacitus2389b4h5ii405",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Cinderace",
+            "name": "Cinderace",
+            "shiny": false,
+            "ability": "Libero",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Fighting",
+            "moves": [
+                "High Jump Kick",
+                "Pyro Ball",
+                "Acrobatics",
+                "Iron Head"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Bulk Up"
+            ],
+            "shieldData": {
+                "hpTrigger": 70,
+                "timeTrigger": 70,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Oricorio",
+            "name": "Oricorio-Pa'u",
+            "shiny": true,
+            "ability": "Dancer",
+            "nature": "Modest",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Revelation Dance",
+                "Quiver Dance"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Grumpig",
+            "name": "Grumpig",
+            "shiny": true,
+            "ability": "Thick Fat",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Simple Beam"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Armarouge",
+            "name": "Armarouge",
+            "shiny": true,
+            "ability": "Flash Fire",
+            "item": "Zoom Lens",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Acid Spray",
+                "Will-O-Wisp"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Gyarados",
+            "name": "Gyarados",
+            "shiny": true,
+            "ability": "Intimidate",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Helping Hand"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Bulk Up",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 2,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Will-O-Wisp",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 3,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 7,
+            "moveInfo": {
+                "name": "Quiver Dance",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 4,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 4,
+            "moveInfo": {
+                "name": "Acid Spray",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 4,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 4,
+            "moveInfo": {
+                "name": "Quiver Dance",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 6,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 6,
+            "moveInfo": {
+                "name": "Acid Spray",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 5,
+            "moveInfo": {
+                "name": "Revelation Dance",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            2
+        ],
+        [
+            1
+        ],
+        [
+            0
+        ],
+        [
+            3
+        ],
+        [
+            12
+        ],
+        [
+            5,
+            6,
+            7,
+            8
+        ],
+        [
+            10,
+            11
+        ],
+        [
+            9
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

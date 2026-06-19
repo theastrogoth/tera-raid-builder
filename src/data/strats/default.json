@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Cinderace",
-            "name": "Cinderace",
+            "role": "Inteleon",
+            "name": "Inteleon",
             "shiny": false,
-            "ability": "Libero",
-            "nature": "Adamant",
+            "ability": "Sniper",
+            "nature": "Quiet",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,21 +28,22 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Fighting",
+            "teraType": "Ice",
             "moves": [
-                "High Jump Kick",
-                "Pyro Ball",
-                "Acrobatics",
-                "Iron Head"
+                "Blizzard",
+                "Snipe Shot",
+                "Dark Pulse",
+                "Tearful Look"
             ],
             "bossMultiplier": 3000,
             "extraMoves": [
-                "Bulk Up"
+                "Mist",
+                "Snowscape"
             ],
             "shieldData": {
-                "hpTrigger": 70,
-                "timeTrigger": 70,
-                "shieldCancelDamage": 40,
+                "hpTrigger": 85,
+                "timeTrigger": 85,
+                "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -50,17 +51,17 @@
         },
         {
             "id": 1,
-            "role": "Slowbro",
-            "name": "Slowbro",
+            "role": "Tauros",
+            "name": "Tauros-Paldea-Blaze",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Choice Specs",
-            "nature": "Modest",
+            "ability": "Anger Point",
+            "item": "Life Orb",
+            "nature": "Jolly",
             "evs": {
-                "hp": 0,
-                "atk": 0,
+                "hp": 252,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -73,19 +74,22 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
+            "gender": "M",
             "moves": [
-                "Stored Power"
+                "Protect",
+                "Flare Blitz",
+                "Raging Bull",
+                "Sunny Day"
             ]
         },
         {
             "id": 2,
-            "role": "Qwilfish",
-            "name": "Qwilfish",
+            "role": "Meowscarada",
+            "name": "Meowscarada",
             "shiny": false,
-            "ability": "Intimidate",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "ability": "(No Ability)",
+            "item": "Focus Sash",
+            "nature": "Hardy",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -105,24 +109,22 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Acid Spray",
-                "Chilling Water",
-                "Acupressure",
-                "Rain Dance"
+                "Protect",
+                "Flower Trick"
             ]
         },
         {
             "id": 3,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Blissey 1",
+            "name": "Blissey",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Covert Cloak",
-            "nature": "Bold",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -138,24 +140,24 @@
             "level": 100,
             "gender": "F",
             "moves": [
-                "Decorate",
-                "Fake Tears",
+                "Sunny Day",
                 "Helping Hand",
-                "Charm"
+                "Light Screen",
+                "Heal Pulse"
             ]
         },
         {
             "id": 4,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Blissey 2",
+            "name": "Blissey",
             "shiny": false,
             "ability": "(No Ability)",
             "item": "Covert Cloak",
-            "nature": "Bold",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -171,27 +173,27 @@
             "level": 100,
             "gender": "F",
             "moves": [
-                "Decorate",
-                "Fake Tears",
+                "Sunny Day",
                 "Helping Hand",
-                "Charm"
+                "Light Screen",
+                "Heal Pulse"
             ]
         }
     ],
     "turns": [
         {
-            "id": 2,
-            "group": 1,
+            "id": 7,
+            "group": 0,
             "moveInfo": {
-                "name": "Bulk Up",
+                "name": "Mist",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": false
                 }
             },
             "bossMoveInfo": {
@@ -201,15 +203,43 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 0,
+            "moveInfo": {
+                "name": "Snowscape",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
                 }
             }
         },
         {
             "id": 0,
-            "group": 0,
+            "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -238,7 +268,8 @@
     ],
     "groups": [
         [
-            2
+            7,
+            6
         ],
         [
             0

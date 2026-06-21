@@ -90,7 +90,7 @@ export class RaidState implements State.RaidState{
             if (pokemon.item === "Focus Sash" || pokemon.hasAbility("Sturdy")) {
                 if (pokemon.originalCurHP <= 0 && originalHP === maxHP) {
                     pokemon.originalCurHP = 1;
-                    if (pokemon.ability !== "Sturdy") { this.consumeItem(id, pokemon.item!, true, blockSymbiosis); }
+                    if (!pokemon.hasAbility("Sturdy")) { this.consumeItem(id, pokemon.item!, true, blockSymbiosis); }
                     fainted = false;
                 }
             }

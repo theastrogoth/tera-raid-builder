@@ -1596,8 +1596,17 @@ export class RaidMove {
                     !persistentAbilities["FailSkillSwap"].includes(target_ability)
                 ) {
                     const tempUserAbility = user_ability;
-                    this._raidState.changeAbility(this.userID, target_ability, true);
-                    this._raidState.changeAbility(targetID, tempUserAbility, true);
+                    // both abilities need to be changed *before* new ability effects kick in
+                    // e.g. for Intimidate and Contrary
+                    this._raidState.removeAbilityFieldEffect(this.userID, user_ability);
+                    this._user.ability = target_ability;
+                    this._user.abilityOn = false;
+                    this._raidState.removeAbilityFieldEffect(targetID, target.ability);
+                    target.ability = tempUserAbility;
+                    target.abilityOn = false;
+                    // now effects can be triggered
+                    this._raidState.addAbilityFieldEffect(this.userID, this._user.ability);
+                    this._raidState.addAbilityFieldEffect(targetID, target.ability);
                 } else {
                     this._desc[targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }

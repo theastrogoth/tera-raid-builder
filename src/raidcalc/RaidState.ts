@@ -901,10 +901,10 @@ export class RaidState implements State.RaidState{
         return terastalized
     }
 
-    public changeAbility(id: number, ability: AbilityName | "(No Ability)", isSkillSwap: boolean = false) {
+    public changeAbility(id: number, ability: AbilityName | "(No Ability)") {
         const pokemon = this.getPokemon(id);
         if (pokemon.hasItem("Ability Shield")) { return; }
-        if (!isSkillSwap && persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
+        if (persistentAbilities["CantSuppress"].includes(pokemon.ability || "")) { return; }
         const oldAbility = pokemon.ability;
         pokemon.ability = ability as AbilityName;
         pokemon.abilityOn = false;
@@ -1509,7 +1509,7 @@ export class RaidState implements State.RaidState{
             const ally = this.getPokemon(i);
             if (ally.hasAbility("Receiver","Power of Alchemy","Power Of Alchemy") && ally.originalCurHP !== 0) {
                 if (ability && !persistentAbilities["NoReceiver"].includes(ability)) {
-                    this.changeAbility(i, ability, false);
+                    this.changeAbility(i, ability);
                 }
             }
         }

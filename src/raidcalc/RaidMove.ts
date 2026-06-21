@@ -1273,7 +1273,7 @@ export class RaidMove {
                         change = statChange.value;
                     }
                     if (Number.isNaN(change)) { console.log("Stat change info for " + this.moveData.name + " is missing."); continue; }
-                    if (change < 0 && id !== this.userID && (field.attackerSide.isProtected || (field.attackerSide.isMist && !this._user.hasAbility("Infiltrator")))) {
+                    if (change < 0 && id !== this.userID && (field.attackerSide.isMist && !this._user.hasAbility("Infiltrator"))) {
                         continue;
                     }
                     boost[stat] = change;

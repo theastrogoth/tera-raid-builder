@@ -1,14 +1,13 @@
 {
     "name": "Nukebro vs. Hamurott",
     "notes": "",
-    "credits": "",
+    "credits": "Vikram aka u/Tacitus2389b4h5ii405",
     "pokemon": [
         {
             "id": 0,
             "role": "Raid Boss",
             "name": "Samurott-Hisui",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Sharpness",
             "nature": "Adamant",
             "evs": {
@@ -57,7 +56,6 @@
             "role": "Slowbro",
             "name": "Slowbro-Galar",
             "shiny": false,
-            "isAnyLevel": false,
             "ability": "Own Tempo",
             "item": "Choice Specs",
             "nature": "Modest",
@@ -80,28 +78,14 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Stored Power",
-                "(No Move)",
-                "(No Move)",
-                "(No Move)"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+                "Stored Power"
+            ]
         },
         {
             "id": 2,
             "role": "Psyduck",
             "name": "Psyduck",
             "shiny": true,
-            "isAnyLevel": false,
             "ability": "Cloud Nine",
             "item": "Eviolite",
             "nature": "Bold",
@@ -126,24 +110,13 @@
             "moves": [
                 "Simple Beam",
                 "Helping Hand"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 3,
             "role": "Marill",
             "name": "Marill",
             "shiny": true,
-            "isAnyLevel": false,
             "ability": "(No Ability)",
             "item": "Eviolite",
             "nature": "Bold",
@@ -168,24 +141,13 @@
             "moves": [
                 "Charm",
                 "Fake Tears"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+            ]
         },
         {
             "id": 4,
             "role": "PlotBot",
             "name": "Manaphy",
             "shiny": true,
-            "isAnyLevel": false,
             "ability": "Hydration",
             "nature": "Bold",
             "evs": {
@@ -208,19 +170,8 @@
             "gender": "N",
             "moves": [
                 "Tail Glow",
-                "Heart Swap",
-                "(No Move)"
-            ],
-            "bossMultiplier": 100,
-            "extraMoves": [],
-            "shieldData": {
-                "hpTrigger": 0,
-                "timeTrigger": 0,
-                "shieldCancelDamage": 0,
-                "shieldDamageRate": 0,
-                "shieldDamageRateTera": 0,
-                "shieldDamageRateTeraChange": 0
-            }
+                "Heart Swap"
+            ]
         }
     ],
     "turns": [
@@ -230,12 +181,13 @@
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -246,13 +198,14 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
-            "id": 1,
-            "group": 1,
+            "id": 2,
+            "group": 4,
             "moveInfo": {
                 "name": "Charm",
                 "userID": 3,
@@ -260,6 +213,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": true,
                     "roll": "min",
                     "hits": 1
                 }
@@ -271,21 +225,23 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
+                    "allowMiss": false,
                     "roll": "max",
                     "hits": 10
                 }
             }
         },
         {
-            "id": 5,
-            "group": 1,
+            "id": 1,
+            "group": 5,
             "moveInfo": {
                 "name": "Defense Cheer",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": true,
                     "roll": "min",
                     "hits": 1
                 }
@@ -297,6 +253,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
+                    "allowMiss": false,
                     "roll": "max",
                     "hits": 10
                 }
@@ -313,7 +270,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -324,7 +282,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -334,12 +293,13 @@
             "moveInfo": {
                 "name": "Attack Cheer",
                 "userID": 1,
-                "targetID": 3,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -350,13 +310,14 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
-            "id": 10,
-            "group": 2,
+            "id": 3,
+            "group": 6,
             "moveInfo": {
                 "name": "Simple Beam",
                 "userID": 2,
@@ -364,6 +325,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": true,
                     "roll": "min",
                     "hits": 1
                 }
@@ -375,6 +337,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
+                    "allowMiss": false,
                     "roll": "max",
                     "hits": 10
                 }
@@ -386,12 +349,13 @@
             "moveInfo": {
                 "name": "Tail Glow",
                 "userID": 4,
-                "targetID": 0,
+                "targetID": 4,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -402,7 +366,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -417,7 +382,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -428,7 +394,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -443,7 +410,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -454,7 +422,8 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
@@ -469,7 +438,8 @@
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "min",
-                    "hits": 1
+                    "hits": 1,
+                    "allowMiss": true
                 }
             },
             "bossMoveInfo": {
@@ -480,13 +450,14 @@
                     "crit": true,
                     "secondaryEffects": true,
                     "roll": "max",
-                    "hits": 10
+                    "hits": 10,
+                    "allowMiss": false
                 }
             }
         },
         {
-            "id": 14,
-            "group": 3,
+            "id": 5,
+            "group": 7,
             "moveInfo": {
                 "name": "Stored Power",
                 "userID": 1,
@@ -494,6 +465,7 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
+                    "allowMiss": true,
                     "roll": "min",
                     "hits": 1
                 }
@@ -505,6 +477,7 @@
                 "options": {
                     "crit": true,
                     "secondaryEffects": true,
+                    "allowMiss": false,
                     "roll": "max",
                     "hits": 10
                 }
@@ -516,23 +489,35 @@
             6
         ],
         [
-            1,
-            5,
+            2
+        ],
+        [
+            1
+        ],
+        [
             0,
             4
         ],
         [
-            10,
+            3
+        ],
+        [
             8,
             9
         ],
         [
             11,
-            12,
-            14
+            12
+        ],
+        [
+            5
         ]
     ],
     "repeats": [
+        1,
+        1,
+        1,
+        1,
         1,
         1,
         1,

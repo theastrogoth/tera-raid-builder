@@ -724,9 +724,11 @@ export class RaidTurn {
                         }
                         break;
                     case "Hydration":
-                        pokemon.status = "";
-                        pokemon.isSleep = 0;
-                        pokemon.isFrozen = 0;
+                        if (pokemon.field.hasWeather("Rain")) {
+                            pokemon.status = "";
+                            pokemon.isSleep = 0;
+                            pokemon.isFrozen = 0;
+                        }
                         break;
                     case "Water Bubble":
                         if (pokemon.status === "brn") {

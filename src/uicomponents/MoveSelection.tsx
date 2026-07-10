@@ -339,7 +339,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
     // const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
     const raider = raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID];
     const moveSet = raider.id > 0 ? ["(No Move)", ...(isActionLocked ? [] : ["(Most Damaging)", "(Wait)"]), ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...((((raider.cheersLeft || 0) > 0) && !isActionLocked) ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])]
-                                  : [...(raider.extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
+                                  : ["(No Move)", ...(raider.extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
             moveInfo.moveData.name === "(Wait)" ||
@@ -400,7 +400,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
         if (userID === moveInfo.userID) { return; }
         const bossSwap = (userID * moveInfo.userID === 0);
         const newMoveSet = userID > 0 ? ["(No Move)", "(Most Damaging)", "(Wait)", ...raiders[userID].moves, "Attack Cheer", "Defense Cheer", "Heal Cheer"]
-                                  : [...(raiders[0].extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
+                                  : ["(No Move)", ...(raiders[0].extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
         // attempt to avoid mixing up boss options and raider options
         const turn = groups[groupIndex].turns[turnIndex];
         const tempOpts = {...moveInfo.options};

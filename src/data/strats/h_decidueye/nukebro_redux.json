@@ -1,0 +1,1700 @@
+{
+    "name": "Nukebro vs. Hecidueye Redux",
+    "notes": "There are more options for the Will-O-Wisp and Screech supports, but if I include any more subs you can't see them all on mobile",
+    "credits": "Vikram aka u/Tacitus2389b4h5ii405",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Decidueye",
+            "name": "Decidueye-Hisui",
+            "shiny": false,
+            "ability": "Scrappy",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Grass",
+            "moves": [
+                "Triple Arrows",
+                "Brave Bird",
+                "Shadow Claw",
+                "Leaf Blade"
+            ],
+            "bossMultiplier": 3000,
+            "extraMoves": [
+                "Bulk Up",
+                "Swords Dance",
+                "Grassy Terrain",
+                "Leaf Storm"
+            ],
+            "shieldData": {
+                "hpTrigger": 60,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "Nukebro",
+            "name": "Slowbro-Galar",
+            "shiny": true,
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 252,
+                "atk": 252,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Belly Drum",
+                "Gunk Shot",
+                "Protect"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Hydrapple",
+            "name": "Hydrapple",
+            "shiny": true,
+            "ability": "Supersweet Syrup",
+            "item": "Covert Cloak",
+            "nature": "Bashful",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Breaking Swipe"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Dragapult",
+            "name": "Dragapult",
+            "shiny": true,
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Will-O-Wisp",
+                "Helping Hand"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Seviper",
+            "name": "Seviper",
+            "shiny": true,
+            "ability": "(No Ability)",
+            "item": "Covert Cloak",
+            "nature": "Hardy",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Will-O-Wisp",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 1,
+            "moveInfo": {
+                "name": "Protect",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 1,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 1,
+            "moveInfo": {
+                "name": "Breaking Swipe",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Clear Boosts / Abilities",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 2,
+            "moveInfo": {
+                "name": "Bulk Up",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "hits": 10,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 4,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 3,
+            "moveInfo": {
+                "name": "Belly Drum",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 3,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 4,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 3,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 6,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 5,
+            "moveInfo": {
+                "name": "Gunk Shot",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": true,
+                    "roll": "min",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "allowMiss": false,
+                    "roll": "max",
+                    "hits": 10
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            0
+        ],
+        [
+            1,
+            2,
+            5
+        ],
+        [
+            3,
+            4
+        ],
+        [
+            8
+        ],
+        [
+            6,
+            7,
+            10
+        ],
+        [
+            11
+        ],
+        [
+            9
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Altaria",
+                    "name": "Altaria",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Bashful",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Torkoal",
+                    "name": "Torkoal",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Skeledirge",
+                    "name": "Skeledirge",
+                    "shiny": true,
+                    "ability": "Blaze",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Armarouge",
+                    "name": "Armarouge",
+                    "shiny": true,
+                    "ability": "Flash Fire",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Houndstone",
+                    "name": "Houndstone",
+                    "shiny": true,
+                    "ability": "Fluffy",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Charizard",
+                    "name": "Charizard",
+                    "shiny": true,
+                    "ability": "Blaze",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Arcanine",
+                    "name": "Arcanine",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Typhlosion",
+                    "name": "Typhlosion",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Mew",
+                    "name": "Mew",
+                    "shiny": true,
+                    "ability": "Synchronize",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Drifblim",
+                    "name": "Drifblim",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Salandit",
+                    "name": "Salandit",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Salazzle",
+                    "name": "Salazzle",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "F",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Cinderace",
+                    "name": "Cinderace",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Will-O-Wisp",
+                        "Helping Hand",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Will-O-Wisp",
+                    "Defense Cheer",
+                    "Helping Hand"
+                ],
+                "substituteTargets": [
+                    0,
+                    3,
+                    1
+                ]
+            }
+        ],
+        [
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Toxtricity",
+                    "name": "Toxtricity",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Noivern",
+                    "name": "Noivern",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Corviknight",
+                    "name": "Corviknight",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Muk",
+                    "name": "Muk",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "(No Move)",
+                    "(No Move)"
+                ],
+                "substituteTargets": [
+                    4,
+                    4
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Muk",
+                    "name": "Muk-Alola",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Revavroom",
+                    "name": "Revavroom",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Skuntank",
+                    "name": "Skuntank",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Gliscor",
+                    "name": "Gliscor",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Toucannon",
+                    "name": "Toucannon",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Iron Moth",
+                    "name": "Iron Moth",
+                    "shiny": true,
+                    "ability": "Quark Drive",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Persian",
+                    "name": "Persian-Alola",
+                    "shiny": true,
+                    "ability": "Fur Coat",
+                    "item": "Covert Cloak",
+                    "nature": "Bold",
+                    "evs": {
+                        "hp": 252,
+                        "atk": 0,
+                        "def": 252,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Zebstrika",
+                    "name": "Zebstrika",
+                    "shiny": true,
+                    "ability": "Sap Sipper",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            },
+            {
+                "raider": {
+                    "id": 4,
+                    "role": "Electrode",
+                    "name": "Electrode-Hisui",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Covert Cloak",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 100,
+                    "gender": "N",
+                    "moves": [
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Screech",
+                    "Screech"
+                ],
+                "substituteTargets": [
+                    0,
+                    0
+                ]
+            }
+        ]
+    ]
+}

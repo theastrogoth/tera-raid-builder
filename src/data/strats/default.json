@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Inteleon",
-            "name": "Inteleon",
+            "role": "Raid Boss",
+            "name": "Samurott-Hisui",
             "shiny": false,
-            "ability": "Sniper",
-            "nature": "Quiet",
+            "ability": "Sharpness",
+            "nature": "Adamant",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,21 +28,22 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Ice",
+            "teraType": "Water",
             "moves": [
-                "Blizzard",
-                "Snipe Shot",
-                "Dark Pulse",
-                "Tearful Look"
+                "Ceaseless Edge",
+                "Razor Shell",
+                "X-Scissor",
+                "Sacred Sword"
             ],
-            "bossMultiplier": 3000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Mist",
-                "Snowscape"
+                "Swords Dance",
+                "Focus Energy",
+                "Bulldoze"
             ],
             "shieldData": {
-                "hpTrigger": 85,
-                "timeTrigger": 85,
+                "hpTrigger": 80,
+                "timeTrigger": 87,
                 "shieldCancelDamage": 30,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
@@ -51,17 +52,17 @@
         },
         {
             "id": 1,
-            "role": "Tauros",
-            "name": "Tauros-Paldea-Blaze",
+            "role": "Miraidon",
+            "name": "Miraidon",
             "shiny": false,
-            "ability": "Anger Point",
+            "ability": "Hadron Engine",
             "item": "Life Orb",
-            "nature": "Jolly",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
-                "atk": 252,
+                "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
                 "spe": 0
             },
@@ -74,19 +75,18 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "M",
+            "gender": "N",
             "moves": [
-                "Protect",
-                "Flare Blitz",
-                "Raging Bull",
-                "Sunny Day"
+                "Charge",
+                "Electro Drift"
             ]
         },
         {
             "id": 2,
-            "role": "Meowscarada",
-            "name": "Meowscarada",
+            "role": "Alcremie",
+            "name": "Alcremie",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
             "item": "Focus Sash",
             "nature": "Hardy",
@@ -99,30 +99,30 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
-            "gender": "N",
+            "level": 1,
+            "gender": "F",
             "moves": [
-                "Protect",
-                "Flower Trick"
+                "Decorate"
             ]
         },
         {
             "id": 3,
-            "role": "Blissey",
-            "name": "Blissey",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "item": "Focus Sash",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -130,32 +130,30 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
-            "gender": "F",
+            "level": 1,
+            "gender": "N",
             "moves": [
-                "Sunny Day",
-                "Helping Hand",
-                "Light Screen",
-                "Heal Pulse"
+                "Fake Tears"
             ]
         },
         {
             "id": 4,
-            "role": "Blissey",
-            "name": "Blissey",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
+            "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Calm",
+            "item": "Focus Sash",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -163,82 +161,51 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
-            "gender": "F",
+            "level": 1,
+            "gender": "N",
             "moves": [
-                "Sunny Day",
-                "Helping Hand",
-                "Light Screen",
-                "Heal Pulse"
+                "Fake Tears"
             ]
         }
     ],
     "turns": [
         {
-            "id": 7,
-            "group": 0,
-            "moveInfo": {
-                "name": "Mist",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 0,
-            "moveInfo": {
-                "name": "Snowscape",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
             "id": 0,
+            "group": 0,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 1,
             "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
@@ -268,11 +235,10 @@
     ],
     "groups": [
         [
-            7,
-            6
+            0
         ],
         [
-            0
+            1
         ]
     ],
     "repeats": [

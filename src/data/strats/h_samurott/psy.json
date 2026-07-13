@@ -1,0 +1,1096 @@
+{
+    "name": "PSY(???) Man-ding Melancholy!",
+    "notes": "- Turn order is very important",
+    "credits": "@Hydracinth",
+    "pokemon": [
+        {
+            "id": 0,
+            "role": "Samurott",
+            "name": "Samurott-Hisui",
+            "shiny": false,
+            "ability": "Sharpness",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Water",
+            "moves": [
+                "Ceaseless Edge",
+                "Razor Shell",
+                "X-Scissor",
+                "Sacred Sword"
+            ],
+            "bossMultiplier": 3500,
+            "extraMoves": [
+                "Swords Dance",
+                "Focus Energy",
+                "Bulldoze"
+            ],
+            "shieldData": {
+                "hpTrigger": 80,
+                "timeTrigger": 87,
+                "shieldCancelDamage": 30,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
+        },
+        {
+            "id": 1,
+            "role": "PSY(???)",
+            "name": "Psyduck",
+            "shiny": true,
+            "ability": "Swift Swim",
+            "item": "Metronome",
+            "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
+                "def": 252,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "teraType": "Water",
+            "moves": [
+                "Simple Beam",
+                "Surf"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Araquanid",
+            "name": "Araquanid",
+            "shiny": true,
+            "ability": "Water Bubble",
+            "item": "Covert Cloak",
+            "nature": "Impish",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Scary Face",
+                "Entrainment",
+                "Rain Dance"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Manaphy",
+            "name": "Manaphy",
+            "shiny": true,
+            "ability": "Hydration",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Haze",
+                "Fake Tears",
+                "Tail Glow",
+                "Heart Swap"
+            ]
+        },
+        {
+            "id": 4,
+            "role": "Clawitzer",
+            "name": "Clawitzer",
+            "shiny": false,
+            "ability": "Mega Launcher",
+            "item": "Covert Cloak",
+            "nature": "Bold",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 252,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Heal Pulse",
+                "Helping Hand"
+            ]
+        }
+    ],
+    "turns": [
+        {
+            "id": 3,
+            "group": 0,
+            "moveInfo": {
+                "name": "Swords Dance",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "allowMiss": false
+                }
+            }
+        },
+        {
+            "id": 27,
+            "group": 18,
+            "moveInfo": {
+                "name": "Haze",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 0,
+            "group": 1,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 2,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 2,
+            "group": 3,
+            "moveInfo": {
+                "name": "Heal Pulse",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 5,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 4,
+            "group": 5,
+            "moveInfo": {
+                "name": "Scary Face",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 6,
+            "group": 5,
+            "moveInfo": {
+                "name": "Heal Pulse",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 22,
+            "group": 17,
+            "moveInfo": {
+                "name": "Simple Beam",
+                "userID": 1,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 7,
+            "group": 6,
+            "moveInfo": {
+                "name": "Fake Tears",
+                "userID": 3,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 9,
+            "group": 6,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 8,
+            "group": 6,
+            "moveInfo": {
+                "name": "Heal Pulse",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 24,
+            "group": 7,
+            "moveInfo": {
+                "name": "Surf",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 28,
+            "group": 16,
+            "moveInfo": {
+                "name": "Bulldoze",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 8,
+            "moveInfo": {
+                "name": "Clear Boosts / Abilities",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 11,
+            "group": 8,
+            "moveInfo": {
+                "name": "Activate Shield",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 13,
+            "group": 10,
+            "moveInfo": {
+                "name": "Defense Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 14,
+            "group": 9,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 15,
+            "group": 9,
+            "moveInfo": {
+                "name": "Heal Pulse",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 12,
+            "group": 19,
+            "moveInfo": {
+                "name": "Surf",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 19,
+            "group": 12,
+            "moveInfo": {
+                "name": "Tail Glow",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 20,
+            "group": 12,
+            "moveInfo": {
+                "name": "Entrainment",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 16,
+            "group": 12,
+            "moveInfo": {
+                "name": "Heal Cheer",
+                "userID": 4,
+                "targetID": 4,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 18,
+            "group": 11,
+            "moveInfo": {
+                "name": "Surf",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 21,
+            "group": 14,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 23,
+            "group": 14,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 4,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 17,
+            "group": 20,
+            "moveInfo": {
+                "name": "Heart Swap",
+                "userID": 3,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 26,
+            "group": 21,
+            "moveInfo": {
+                "name": "Rain Dance",
+                "userID": 2,
+                "targetID": 2,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 25,
+            "group": 15,
+            "moveInfo": {
+                "name": "Surf",
+                "userID": 1,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1,
+                    "activateTera": true
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        }
+    ],
+    "groups": [
+        [
+            3
+        ],
+        [
+            27
+        ],
+        [
+            0
+        ],
+        [
+            1
+        ],
+        [
+            2
+        ],
+        [
+            5,
+            4,
+            6
+        ],
+        [
+            22
+        ],
+        [
+            7,
+            9,
+            8
+        ],
+        [
+            24
+        ],
+        [
+            28
+        ],
+        [
+            10,
+            11
+        ],
+        [
+            13
+        ],
+        [
+            14,
+            15
+        ],
+        [
+            12
+        ],
+        [
+            19,
+            20,
+            16
+        ],
+        [
+            18
+        ],
+        [
+            21,
+            23
+        ],
+        [
+            17
+        ],
+        [
+            26
+        ],
+        [
+            25
+        ]
+    ],
+    "repeats": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+    ],
+    "substitutes": [
+        [],
+        [],
+        [],
+        []
+    ]
+}

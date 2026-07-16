@@ -413,7 +413,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
         if (userID === 0) {
             newMoveInfo.moveData = turn.bossMoveInfo.moveData;
             if (!raiders[0].extraMoves?.includes(newMoveInfo.moveData.name) && !["Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"].includes(newMoveInfo.moveData.name)) {
-                newMoveInfo.moveData = raiders[0].extraMoveData ? raiders[0].extraMoveData[0] : {name: "Remove Negative Effects" as MoveName};
+                newMoveInfo.moveData = (raiders[0].extraMoveData && raiders[0].extraMoveData[0]) ? raiders[0].extraMoveData[0] : {name: "Remove Negative Effects" as MoveName};
             }
             newMoveInfo.targetID = 5;
         } else if (moveInfo.userID === 0) {

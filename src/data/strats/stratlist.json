@@ -1,6 +1,9 @@
 {
     "Magikarp": {
-        
+        "Magikarp Builds": "magikarp/main",
+        "Saving Some Splashes": "magikarp/saving_some_splashes",
+        "Saving Some Splashes (Trio)": "magikarp/saving_some_splashes_3",
+        "Saving Some Splashes (Duo)": "magikarp/saving_some_splashes_2"
     },
     "Dragapult": {
         "Cry Me to the Moon": "dragapult/main",

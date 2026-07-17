@@ -6,9 +6,9 @@
         {
             "id": 0,
             "role": "Raid Boss",
-            "name": "Samurott-Hisui",
+            "name": "Magikarp",
             "shiny": false,
-            "ability": "Sharpness",
+            "ability": "Rattled",
             "nature": "Adamant",
             "evs": {
                 "hp": 0,
@@ -28,23 +28,20 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Water",
+            "teraType": "Dragon",
             "moves": [
-                "Ceaseless Edge",
-                "Razor Shell",
-                "X-Scissor",
-                "Sacred Sword"
+                "Splash",
+                "Tackle",
+                "Flail"
             ],
-            "bossMultiplier": 3500,
+            "bossMultiplier": 6000,
             "extraMoves": [
-                "Swords Dance",
-                "Focus Energy",
-                "Bulldoze"
+                "Splash"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 87,
-                "shieldCancelDamage": 30,
+                "hpTrigger": 100,
+                "timeTrigger": 100,
+                "shieldCancelDamage": 100,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -52,43 +49,39 @@
         },
         {
             "id": 1,
-            "role": "Miraidon",
-            "name": "Miraidon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
-            "ability": "Hadron Engine",
-            "item": "Life Orb",
-            "nature": "Bold",
+            "isAnyLevel": true,
+            "ability": "(No Ability)",
+            "nature": "Hardy",
             "evs": {
-                "hp": 252,
+                "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
+                "hp": 0,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
             },
-            "level": 100,
+            "level": 1,
             "gender": "N",
-            "moves": [
-                "Charge",
-                "Electro Drift"
-            ]
+            "moves": []
         },
         {
             "id": 2,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -107,19 +100,16 @@
                 "spe": 0
             },
             "level": 1,
-            "gender": "F",
-            "moves": [
-                "Decorate"
-            ]
+            "gender": "N",
+            "moves": []
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -139,18 +129,15 @@
             },
             "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears"
-            ]
+            "moves": []
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "NPC",
+            "name": "NPC",
             "shiny": false,
             "isAnyLevel": true,
             "ability": "(No Ability)",
-            "item": "Focus Sash",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -170,9 +157,7 @@
             },
             "level": 1,
             "gender": "N",
-            "moves": [
-                "Fake Tears"
-            ]
+            "moves": []
         }
     ],
     "turns": [
@@ -180,7 +165,7 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Swords Dance",
+                "name": "Splash",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
@@ -206,6 +191,34 @@
         },
         {
             "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Splash",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 2,
             "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
@@ -235,10 +248,11 @@
     ],
     "groups": [
         [
-            0
+            0,
+            1
         ],
         [
-            1
+            2
         ]
     ],
     "repeats": [

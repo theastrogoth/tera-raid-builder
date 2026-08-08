@@ -29,7 +29,8 @@ const IGNORED_STRATS = [ // strats that fail, mostly for known reasons
   'pikachu/flower_power',           // test takes a long time due to move optimization -- check manually if desired,
   'baxcalibur/anti_kaiju_armor_3',  // not a OHKO or calced to completion
   'chien-pao/ice_age',              // not sure why this is failing to OHKO only in tests
-  'samurott/angry_bird'             // low roll is not an OHKO without NPC damage
+  'samurott/angry_bird',            // low roll is not an OHKO without NPC damage
+  'magikarp/main'                   // not a structured strat
 ]
 
 const MAIN_STRATS = [ // manually include ones that aren't named "main" (mostly trios)

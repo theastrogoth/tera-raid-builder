@@ -1,4 +1,8 @@
 {
+    "Glimmora": {
+        "Fiery Flora": "glimmora/main",
+        "Fiery Flora (Trio)": "glimmora/fiery_flora_3"
+    },
     "Magikarp": {
         "Magikarp Builds": "magikarp/main",
         "Saving Some Splashes": "magikarp/saving_some_splashes",

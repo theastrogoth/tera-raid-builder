@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Raid Boss",
-            "name": "Magikarp",
+            "role": "Glimmora",
+            "name": "Glimmora",
             "shiny": false,
-            "ability": "Rattled",
-            "nature": "Adamant",
+            "ability": "Toxic Debris",
+            "nature": "Modest",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -28,20 +28,24 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Dragon",
+            "teraType": "Grass",
             "moves": [
-                "Splash",
-                "Tackle",
-                "Flail"
+                "Mortal Spin",
+                "Sludge Bomb",
+                "Power Gem",
+                "Energy Ball"
             ],
-            "bossMultiplier": 6000,
+            "bossMultiplier": 3500,
             "extraMoves": [
-                "Splash"
+                "Mortal Spin",
+                "Rock Polish",
+                "Dazzling Gleam",
+                "Sludge Wave"
             ],
             "shieldData": {
-                "hpTrigger": 100,
-                "timeTrigger": 100,
-                "shieldCancelDamage": 100,
+                "hpTrigger": 80,
+                "timeTrigger": 80,
+                "shieldCancelDamage": 20,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -49,17 +53,17 @@
         },
         {
             "id": 1,
-            "role": "Goodra",
-            "name": "Goodra-Hisui",
+            "role": "Koraidon",
+            "name": "Koraidon",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Expert Belt",
-            "nature": "Modest",
+            "ability": "Orichalcum Pulse",
+            "item": "Life Orb",
+            "nature": "Adamant",
             "evs": {
-                "hp": 0,
-                "atk": 0,
+                "hp": 252,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
@@ -73,21 +77,23 @@
             },
             "level": 100,
             "gender": "N",
-            "teraType": "Dragon",
             "moves": [
-                "Acid Spray",
-                "Dragon Pulse"
+                "Swords Dance",
+                "Flare Blitz",
+                "Heat Crash",
+                "Drain Punch"
             ]
         },
         {
             "id": 2,
-            "role": "Oranguru",
-            "name": "Oranguru",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "item": "Covert Cloak",
+            "nature": "Calm",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
@@ -105,22 +111,26 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Instruct"
+                "Helping Hand",
+                "Screech",
+                "Snarl",
+                "Mud-Slap"
             ]
         },
         {
             "id": 3,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -132,24 +142,28 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Decorate"
+                "Screech",
+                "Light Screen",
+                "Rock Smash",
+                "Sunny Day"
             ]
         },
         {
             "id": 4,
-            "role": "Alcremie",
-            "name": "Alcremie",
+            "role": "Corviknight",
+            "name": "Corviknight",
             "shiny": false,
             "ability": "(No Ability)",
-            "nature": "Hardy",
+            "item": "Zoom Lens",
+            "nature": "Sassy",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -161,74 +175,21 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "moves": [
-                "Decorate"
+                "Screech",
+                "Light Screen",
+                "Rock Smash",
+                "Sunny Day"
             ]
         }
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 0,
+            "id": 4,
+            "group": 2,
             "moveInfo": {
-                "name": "Splash",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "hits": 1,
-                    "allowMiss": false
-                }
-            }
-        },
-        {
-            "id": 7,
-            "group": 0,
-            "moveInfo": {
-                "name": "Splash",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(No Move)",
-                "userID": 0,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 1,
-            "moveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -255,15 +216,10 @@
     ],
     "groups": [
         [
-            0,
-            7
-        ],
-        [
-            1
+            4
         ]
     ],
     "repeats": [
-        1,
         1
     ],
     "substitutes": [

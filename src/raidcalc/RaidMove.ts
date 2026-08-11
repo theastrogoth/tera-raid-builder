@@ -2069,8 +2069,13 @@ export class RaidMove {
         /// Item-related effects that occur at the end of a successful move
         // Choice-locking items
         if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
-            this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
+            this.raidState.raiders[this.userID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
             this._user.isChoiceLocked = true;
+        }
+        if (this.instructed &&      // check the instruct user, too
+            this._raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
+            this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
+            this._raidState.raiders[this.raiderID].isChoiceLocked = true;
         }
         // confusion from thrash-like moves (assuming 2 turns instead of 3)
         if (this.move.named("Thrash","Petal Dance","Outrage","Raging Fury") && this._user.moveRepeated && ((this._user.moveRepeated + 1) % 2 === 0)) {

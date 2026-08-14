@@ -197,6 +197,8 @@ export class RaidMove {
                 this.applyPostMoveEffects();
                 this.storeLastMove();
             }
+            // Mirror Herb / Opportunist copy stat raises accumulated over the course of the move
+            this._raidState.copyStatChanges();
             this._raidState.raiders[0].checkShield(); // check for shield breaking
             this.setFlags();
             // store move data and target
@@ -216,6 +218,8 @@ export class RaidMove {
         if (this.move.hasType("Electric") && !this.move.named("Charge")) {
             this._user.field.attackerSide.isCharged = false;
         }
+        // stat raises accumulated on any path through the move must not leak into the next action
+        this._raidState.copyStatChanges();
         return this.output;
     }
 
@@ -1273,7 +1277,7 @@ export class RaidMove {
                         change = statChange.value;
                     }
                     if (Number.isNaN(change)) { console.log("Stat change info for " + this.moveData.name + " is missing."); continue; }
-                    if (change < 0 && id !== this.userID && (field.attackerSide.isMist && !this._user.hasAbility("Infiltrator"))) {
+                    if (change < 0 && id !== this.userID && (field.attackerSide.isProtected || (field.attackerSide.isMist && this._user.ability !== "Infiltrator"))) {
                         continue;
                     }
                     boost[stat] = change;
@@ -1596,17 +1600,8 @@ export class RaidMove {
                     !persistentAbilities["FailSkillSwap"].includes(target_ability)
                 ) {
                     const tempUserAbility = user_ability;
-                    // both abilities need to be changed *before* new ability effects kick in
-                    // e.g. for Intimidate and Contrary
-                    this._raidState.removeAbilityFieldEffect(this.userID, user_ability);
-                    this._user.ability = target_ability;
-                    this._user.abilityOn = false;
-                    this._raidState.removeAbilityFieldEffect(targetID, target.ability);
-                    target.ability = tempUserAbility;
-                    target.abilityOn = false;
-                    // now effects can be triggered
-                    this._raidState.addAbilityFieldEffect(this.userID, this._user.ability);
-                    this._raidState.addAbilityFieldEffect(targetID, target.ability);
+                    this._raidState.changeAbility(this.userID, target_ability, true);
+                    this._raidState.changeAbility(targetID, tempUserAbility, true);
                 } else {
                     this._desc[targetID] = this._user.name + " " + this.move.name + " vs. " + target.name + " — " + this.move.name + " failed!";
                 }
@@ -2069,13 +2064,8 @@ export class RaidMove {
         /// Item-related effects that occur at the end of a successful move
         // Choice-locking items
         if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
-            this.raidState.raiders[this.userID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
-            this._user.isChoiceLocked = true;
-        }
-        if (this.instructed &&      // check the instruct user, too
-            this._raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
             this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
-            this._raidState.raiders[this.raiderID].isChoiceLocked = true;
+            this._user.isChoiceLocked = true;
         }
         // confusion from thrash-like moves (assuming 2 turns instead of 3)
         if (this.move.named("Thrash","Petal Dance","Outrage","Raging Fury") && this._user.moveRepeated && ((this._user.moveRepeated + 1) % 2 === 0)) {

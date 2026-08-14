@@ -160,6 +160,12 @@ export class RaidBattle {
                 }
             }
         }
+        // switch-ins are simultaneous, so Mirror Herb / Opportunist copy stat raises
+        // accumulated across all of them (e.g. Defiant boosts from multiple Intimidates)
+        const copyFlags = this._state.copyStatChanges();
+        for (let i=0; i<5; i++) {
+            this._turnZeroFlags[i] = this._turnZeroFlags[i].concat(copyFlags[i]);
+        }
         // check for item/ability activation by executing dummy moves
         for (let id of speedOrder) {
             const moveResult = new RaidMove(

@@ -12,16 +12,19 @@ const gen = Generations.get(9);
 export class RaidState implements State.RaidState{
     raiders: Raider[];      // raiders[0] is the boss, while raiders 1-5 are the players
     lastMovedID?: number;   // id of the last Pokemon to move
+    pendingCopyBoosts: Partial<StatsTable>[];   // stat raises not yet seen by opposing Mirror Herb / Opportunist holders
 
-    constructor(raiders: Raider[], lastMovedID?: number) {
+    constructor(raiders: Raider[], lastMovedID?: number, pendingCopyBoosts?: Partial<StatsTable>[]) {
         this.raiders = raiders;
         this.lastMovedID = lastMovedID;
+        this.pendingCopyBoosts = pendingCopyBoosts || [{},{},{},{},{}];
     }
 
     clone(): RaidState {
         return new RaidState(
             this.raiders.map(raider => raider.clone()),
             this.lastMovedID,
+            this.pendingCopyBoosts.map(boosts => ({...boosts})),
         )
     }
 
@@ -601,32 +604,12 @@ export class RaidState implements State.RaidState{
         }
         // Mirror Herb and Opportunist
         if (copyable) { // Stat changes that are being copied shouldn't be copied in turn
-            const opponentIds = id === 0 ? [1,2,3,4] : [0];
-            for (const opponentId of getSpeedRanking(opponentIds, this.raiders)) {
-                const opponent = this.getPokemon(opponentId);
-                const mirrorHerb = opponent.item === "Mirror Herb";
-                const opportunist = opponent.hasAbility("Opportunist");
-                if (mirrorHerb || opportunist)  {
-                    const both = mirrorHerb && opportunist;
-                    const positiveDiff = {...diff};
-                    let hasPositiveBoost = false;
-                    for (const stat in positiveDiff) {
-                        const statId = stat as StatIDExceptHP;
-                        if (both) {
-                            positiveDiff[statId] *= 2;
-                        }
-                        if ((positiveDiff[statId] || 0) <= 0) {
-                            positiveDiff[statId] = 0;
-                        } else {
-                            hasPositiveBoost = true;
-                        }
-                    }
-                    if (hasPositiveBoost) {
-                        const changes = this.applyStatChange(opponentId, positiveDiff, false, id);
-                        if (Object.values(changes).some(val => val > 0) && opponent.item === "Mirror Herb") {
-                            this.consumeItem(opponentId, opponent.item);
-                        }
-                    }
+            // accumulate boosts for eventual copying by Mirror Herb or Opportunist
+            const pending = this.pendingCopyBoosts[id];
+            for (const stat in diff) {
+                const statId = stat as StatIDExceptHP;
+                if ((diff[statId] || 0) > 0) {
+                    pending[statId] = (pending[statId] || 0) + diff[statId]!;
                 }
             }
         }
@@ -641,6 +624,50 @@ export class RaidState implements State.RaidState{
         }
 
         return diff;
+    }
+
+    // Copies stat raises accumulated in pendingCopyBoosts to opposing Mirror Herb / Opportunist holders
+    // and returns flags
+    public copyStatChanges(): string[][] {
+        const flags: string[][] = [[],[],[],[],[]];
+        const statAbbreviations: {[stat in StatIDExceptHP]: string} = {atk: "Atk", def: "Def", spa: "SpA", spd: "SpD", spe: "Spe", acc: "Acc", eva: "Eva"};
+        const displayBoost = (val: number | undefined) => ((val || 0) > 0 ? "+" : "") + (val || 0);
+        for (let id = 0; id < 5; id++) {
+            const pending = this.pendingCopyBoosts[id];
+            this.pendingCopyBoosts[id] = {};
+            if (!Object.values(pending).some(val => (val || 0) > 0)) { continue; }
+            const opponentIds = id === 0 ? [1,2,3,4] : [0];
+            for (const opponentId of getSpeedRanking(opponentIds, this.raiders)) {
+                const opponent = this.getPokemon(opponentId);
+                if (opponent.originalCurHP === 0) { continue; }
+                const mirrorHerb = opponent.item === "Mirror Herb";
+                const opportunist = opponent.hasAbility("Opportunist");
+                if (mirrorHerb || opportunist) {
+                    const copiedBoosts: Partial<StatsTable> = {};
+                    for (const stat in pending) {
+                        const statId = stat as StatIDExceptHP;
+                        if ((pending[statId] || 0) > 0) {
+                            // a Pokemon with both Mirror Herb and Opportunist copies each raise twice
+                            copiedBoosts[statId] = pending[statId]! * (mirrorHerb && opportunist ? 2 : 1);
+                        }
+                    }
+                    const origBoosts = {...opponent.boosts};
+                    const changes = this.applyStatChange(opponentId, copiedBoosts, false, id);
+                    const changedStats = Object.keys(changes).filter(stat => changes[stat as StatIDExceptHP] !== 0) as StatIDExceptHP[];
+                    if (changedStats.length > 0) {
+                        const source = mirrorHerb && opportunist ? "Mirror Herb + Opportunist" : (mirrorHerb ? "Mirror Herb" : "Opportunist");
+                        const boostStrs = changedStats.map(statId =>
+                            statAbbreviations[statId] + ": " + displayBoost(origBoosts[statId]) + " → " + displayBoost(opponent.boosts[statId])
+                        );
+                        flags[opponentId].push(boostStrs.join(", ") + " (" + source + ")");
+                    }
+                    if (Object.values(changes).some(val => val > 0) && opponent.item === "Mirror Herb") {
+                        this.consumeItem(opponentId, opponent.item);
+                    }
+                }
+            }
+        }
+        return flags;
     }
 
     public applyStatus(id: number, status: StatusName, source: number, isSecondaryEffect: boolean = false, fromHeldItem: boolean | undefined = false, roll: "max" | "min" | "avg" | undefined = "avg") {

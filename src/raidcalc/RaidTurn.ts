@@ -311,6 +311,14 @@ export class RaidTurn {
             }
         }
 
+        // Mirror Herb / Opportunist copy stat raises accumulated during end-of-turn effects (e.g. Speed Boost)
+        const copyFlags = this._raidState.copyStatChanges();
+        for (let i=0; i<5; i++) {
+            for (const flag of copyFlags[i]) {
+                this._endFlags.push(this._raidState.raiders[i].role + " — " + flag);
+            }
+        }
+
         return {
             state: this._raidState,
             results: [this._result1, this._result2, ...this._delayedResults],

@@ -1008,6 +1008,28 @@ describe('Specific Test Cases', () => {
     // T4: Stomping Tantrum does not have doubled BP
     expect(result.turnResults[3].results[0].desc[2].includes("(150 BP)")).toEqual(false);
   })
+  test('mirror-herb-opportunist-defiant', async() => {
+    // Spicy Extract (+2 Atk, -2 Def) against a Defiant boss; raiders hold Mirror Herb / have Opportunist
+    const hash = "#H4sIAAAAAAAAA61U32/TMBD+VyI/geSHpt0Y9G2sA/awgVjfqj64ySU56tiR7QSiif+dOydtwxjSQFNd9+58P7777OuDKMRSZN+8NUKKIJabzUwKo2oQW8ki5iykUrQe3M2KnZQrIUTRNgGt8ewxl6J0tm3IWtsObkxhSdxZ728P6uDlrAYxlpDCV2h6+lU71Bj6sWjmMPAhZNbkyvXXRQFZ8Oyntf1+i55lyqTpp8Lgx7iKy6uwpz2HgjM0Ku553OHotnZYluC4G6zhpBEc0PmVMhnolapVCUfjoH5V4SnTGpz6i/mqUqaEkURjAzD0zEGOsaHG7qEeyG+dYUukMfYHDajo5NudDxhaDqZE50wfuTMS6NgB466hA2akBJNTO1xyNlzHIQwD1OJ50ZNAzhKolXXfwNE+Xm6rAzYaJ+ytVFBiu5WiE8sHQS/qnRTvrfUhyWzTL5P7BrM+uf4RnMpC0vlkBQUqwxce1yYGpQtJVS+NwQq1inWnSqG0BylOoZc5sc5SjL6g4ONn+/NgXKSPFh2lM6pzRxk+YFkFNCUhEPeNVr6i3hfndByj38Zk87guZnJBaQ+J01TS3X50qlCoUEzFEecXp8zeh8jSGmsaqgOk+fn8X5EyvAmFxPUBx1zSgF1Z1+HecDfikTaieXVnk8th4F6Tyy06Z13yCdyOtHvlff8EvCg9H+DA34ShhRTXNI6hipNyEkdMn5vGutAa9OGlOPoDwtl/kPPCdGzH530Wk0SRiPn9PukxjUdvRlDTXaiOnmh6en2LATP/zRLgGUU/JzZC2cy2PN4s0XdchPLnL6o0U6QXBgAA";
+    const result = await resultsFromHash(hash);
+    const state = result.turnResults[0].state;
+    // T1: boss gets +2 Atk from Spicy Extract and +2 Atk from Defiant (triggered by the -2 Def drop)
+    expect(state.raiders[0].boosts.atk).toEqual(4);
+    expect(state.raiders[0].boosts.def).toEqual(-2);
+    // Mirror Herb and Opportunist copy the accumulated +4, not just the raise from a single source
+    expect(state.raiders[2].boosts.atk).toEqual(4);
+    expect(state.raiders[2].item).toEqual(undefined); // Mirror Herb consumed
+    expect(state.raiders[3].boosts.atk).toEqual(4);
+
+    // Three Intimidate raiders against a Defiant boss; a fourth raider holds Mirror Herb
+    const hash2 = "#H4sIAAAAAAAAA71US2/bMAz+K4ZOG6BDnDTrlluW7BEM6WHtLchBsWmbiywZkuLBKPrfR8rOo0UGtJciikRS/MiPlORHUYiZyP54a4QUQcw2m5EURtUgtpJFzFlIpTh4cKslOylXQoiibQJa49ljLEXp7KEha21bWJnCkriz3q+Pau/lrAYxpJDCV2g6WtUONYZuSJo5DLwJmTW5ct23ooAsePbT2v5do2eZImlaKgx+wFWcXoU9zTkUHKFRcc7jDCe3B4dlCY6rwRrOGtEBnS+UyUAvVa1KOBl79bcK10wP4NR/zItKmRKGJhobgKlnDnKMBTV2D3Xf/IMzbIltjPVBAyo6+cPOBwwHBlOgKbeP3JkJtOyAcdbQAnekBJNTOZxy1B/HEYYBavE69AWQowQq5aFr4GQfDvegAzYaL7q3VEGJ7VaKVsweBd2oL1J8tdaHJLNNN0uCIwAkK0Otx5y6lLQ+WUKByvChx7GJwHQiKfPcGKxQq5j7UimU9iDFGTrPqfMsRfQtgU+/7dPROElfDNpKR5TnjiJ8x7IKaEpiIO4brXxF9U+mtB3Rn2OwcRy3IzmhsMfAaSrpfH85a/c2x3jFL5WB67noK3TH0/FbCZ9ZXvCgR/ajU07llk/pLL4nhwmFdjvLL3FY3y/7WN5IsbCuxb3h8xQvtIHJhzubzPvPzkdyWaNz1iU/we1Iu1fed1d4RentzLbDjb6JQaI46Rnw15HSp0fzp4He5SxUSzcyPV+259gRoV+DjTQ2oy2/aJboPwxi+PQPwjUYxwoGAAA=";
+    const result2 = await resultsFromHash(hash2);
+    // T0: each Intimidate (-1 Atk) triggers Defiant (+2 Atk) on the boss
+    expect(result2.turnZeroState.raiders[0].boosts.atk).toEqual(3);
+    // Mirror Herb copies all the raises accumulated across the simultaneous switch-ins
+    expect(result2.turnZeroState.raiders[4].boosts.atk).toEqual(6);
+    expect(result2.turnZeroState.raiders[4].item).toEqual(undefined); // Mirror Herb consumed
+  })
 })
 
 

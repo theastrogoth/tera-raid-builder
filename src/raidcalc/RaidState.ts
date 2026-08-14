@@ -798,7 +798,7 @@ export class RaidState implements State.RaidState{
         if (id > 0 && !blockSymbiosis) {
             const symbiosisIds: number[] = []
             for (let sid=1; sid<5; sid++) {
-                if (sid !== id && this.getPokemon(sid).hasAbility("Symbiosis") && this.getPokemon(sid).item !== undefined) {
+                if (sid !== id && this.getPokemon(sid).hasAbility("Symbiosis") && this.getPokemon(sid).item !== undefined && this.getPokemon(sid).originalCurHP > 0) {
                     symbiosisIds.push(sid);
                 }
             }

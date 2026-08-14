@@ -1,4 +1,8 @@
 {
+    "Annihilape": {
+        "Anger Management": "annihilape/anger_management",
+        "Anger Management (Trio)": "annihilape/anger_management_3"
+    },
     "Glimmora": {
         "Fiery Flora": "glimmora/main",
         "Fiery Flora (Trio)": "glimmora/fiery_flora_3"
@@ -782,7 +786,7 @@
         "Born on the Bayou": "swampert/born_on_the_bayou"
     },
     "Primarina": {
-        "Steel the Show": "primarina/steel_the_show", 
+        "Steel the Show": "primarina/steel_the_show",
         "Steel the Show (Trio)": "primarina/steel_the_show_3",
         "Steel the Show (Original)": "primarina/main",
         "Roll Out the Yellow Carpet": "primarina/yellow_carpet",

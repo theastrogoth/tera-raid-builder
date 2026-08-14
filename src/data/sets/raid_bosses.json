@@ -249,6 +249,40 @@
                 "shieldDamageRateTera": 75,
                 "shieldDamageRateTeraChange": 35
             }
+        },
+        "7\u2b50 event": {
+            "level": 100,
+            "bossMultiplier": 4000,
+            "teraType": "Ghost",
+            "ability": "Defiant",
+            "nature": "Adamant",
+            "evs": {
+                "hp": 0,
+                "at": 0,
+                "df": 0,
+                "sa": 0,
+                "sd": 0,
+                "sp": 0
+            },
+            "moves": [
+                "Rage Fist",
+                "Close Combat",
+                "Ice Punch",
+                "Thunder Punch"
+            ],
+            "extraMoves": [
+                "Earthquake",
+                "Rock Slide",
+                "Bulldoze"
+            ],
+            "shieldData": {
+                "hpTrigger": 90,
+                "timeTrigger": 90,
+                "shieldCancelDamage": 20,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
         }
     },
     "Appletun": {

@@ -4604,6 +4604,40 @@
                 "shieldDamageRateTera": 75,
                 "shieldDamageRateTeraChange": 35
             }
+        },
+        "7\u2b50 event": {
+            "level": 100,
+            "bossMultiplier": 4500,
+            "teraType": "Fairy",
+            "ability": "Armor Tail",
+            "nature": "Modest",
+            "evs": {
+                "hp": 0,
+                "at": 0,
+                "df": 0,
+                "sa": 0,
+                "sd": 0,
+                "sp": 0
+            },
+            "moves": [
+                "Twin Beam",
+                "Dazzling Gleam",
+                "Shadow Ball",
+                "Thunderbolt"
+            ],
+            "extraMoves": [
+                "Nasty Plot",
+                "Trick Room",
+                "Dazzling Gleam"
+            ],
+            "shieldData": {
+                "hpTrigger": 90,
+                "timeTrigger": 90,
+                "shieldCancelDamage": 40,
+                "shieldDamageRate": 20,
+                "shieldDamageRateTera": 70,
+                "shieldDamageRateTeraChange": 30
+            }
         }
     },
     "Feraligatr": {

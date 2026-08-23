@@ -1,7 +1,17 @@
 {
     "Farigiraf": {
         "A Rain in the Neck": "farigiraf/main",
-        "A Rain in the Neck (Trio)": "farigiraf/rain_in_the_neck_3"
+        "A Rain in the Neck (Trio)": "farigiraf/rain_in_the_neck_3",
+        "Gholdengo T1.25": "farigiraf/gholdengo",
+        "Slower the Better (T1)": "farigiraf/slower_the_better",
+        "Dialga T1": "farigiraf/dialga",
+        "Gholdengo Duo": "farigiraf/gholdengo_duo",
+        "Team Eeveelutions Go Long!": "farigiraf/eeveelutions",
+        "Thorn in the Neck": "farigiraf/thorn_in_the_neck",
+        "Rising Vengeance": "farigiraf/rising_vengeance",
+        "Flattening Farigiraf": "farigiraf/flattening_farigiraf",
+        "Sweet Toxin": "farigiraf/sweet_toxin",
+        "Topsy baby spoT": "farigiraf/topsy_baby_spot"
     },
     "Annihilape": {
         "Anger Management": "annihilape/anger_management",
@@ -66,7 +76,7 @@
         "Mareep's Mining Mission!": "glimmora/mareep",
         "Nukebro: Purple Power": "glimmora/nukebro",
         "Leaving the Nest": "glimmora/leaving_the_nest",
-        "Lead Poisoned": "glimmora/lead_poisoned"
+        "Lead Poisoning": "glimmora/lead_poisoning"
     },
     "Magikarp": {
         "Magikarp Builds": "magikarp/main",

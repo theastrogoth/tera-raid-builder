@@ -1,6 +1,6 @@
 {
     "name": "Topsy baby spoT",
-    "notes": "Idle for 15-20 seconds after shield activation\nProtect should be in the top move slot for Magnemite so the game automatically uses it after idling",
+    "notes": "Protect should be in the top move slot for Magnemite so the game automatically uses it after idling",
     "credits": "u/Gimikyu_",
     "pokemon": [
         {
@@ -71,7 +71,7 @@
                 "atk": 31,
                 "def": 31,
                 "spa": 31,
-                "spd": 31,
+                "spd": 0,
                 "spe": 31
             },
             "level": 100,
@@ -853,6 +853,34 @@
             }
         },
         {
+            "id": 21,
+            "group": 10,
+            "moveInfo": {
+                "name": "Helping Hand",
+                "userID": 2,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "min",
+                    "allowMiss": true,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": true,
+                    "secondaryEffects": true,
+                    "roll": "max",
+                    "allowMiss": false,
+                    "hits": 10
+                }
+            }
+        },
+        {
             "id": 19,
             "group": 10,
             "moveInfo": {
@@ -897,34 +925,6 @@
             },
             "bossMoveInfo": {
                 "name": "Twin Beam",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": true,
-                    "secondaryEffects": true,
-                    "roll": "max",
-                    "allowMiss": false,
-                    "hits": 10
-                }
-            }
-        },
-        {
-            "id": 21,
-            "group": 10,
-            "moveInfo": {
-                "name": "Helping Hand",
-                "userID": 2,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "min",
-                    "allowMiss": true,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
                 "userID": 0,
                 "targetID": 1,
                 "options": {
@@ -1070,9 +1070,9 @@
             18
         ],
         [
+            21,
             19,
-            20,
-            21
+            20
         ],
         [
             22

@@ -1,4 +1,8 @@
 {
+    "Kingambit": {
+        "Rule with an Iron Fist": "kingambit/main",
+        "Rule with an Iron Fist (Trio)": "kingambit/rule_with_an_iron_fist_3"
+    },
     "Farigiraf": {
         "A Rain in the Neck": "farigiraf/main",
         "A Rain in the Neck (Trio)": "farigiraf/rain_in_the_neck_3",

@@ -1288,7 +1288,10 @@ export class RaidMove {
                     }
                     boost[stat] = change;
                 }
-                const diff = this._raidState.applyStatChange(id, boost, true, this.userID, (this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield")) || (this._user.hasAbility("Mycelium Might") && this.move.category === "Status"))
+                // handle flipped source for Magic Bounce
+                const source = (this._targetID === this.userID && this._targetID !== this.targetID) ? this.targetID : this.userID;
+                // apply changes
+                const diff = this._raidState.applyStatChange(id, boost, true, source, (this._user.hasAbility("Mold Breaker", "Teravolt", "Turboblaze") && !pokemon.hasItem("Ability Shield")) || (this._user.hasAbility("Mycelium Might") && this.move.category === "Status"))
                 // check for stat drops after application
                 for (let stat in diff) {
                     const statId = stat as StatIDExceptHP;

@@ -1082,33 +1082,39 @@ export class RaidMove {
             }
             // protection contact checks
             if (this._affectedIDs.includes(id)) {
-                if (this.moveData.makesContact && this._blockedBy[id] && target.lastMove && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
-                    switch (target.lastMove.name) {
-                        case "Spiky Shield":
-                            this._damaged[this.userID] = this._raidState.applyDamage(this.userID, this._user.getFractionHP(1/8)) || this._damaged[this.userID];
-                            break;
-                        case "Baneful Bunker":
-                            this._raidState.applyStatus(this.userID, "psn", target.id, false, false, this.options.roll);
-                            break;
-                        case "Burning Bulwark":
-                            this._raidState.applyStatus(this.userID, "brn", target.id, false, false, this.options.roll);
-                            break;
-                        case "Beak Blast":
-                            if (target.isCharging) {
+                if (this.moveData.makesContact && target.lastMove && !this._user.hasAbility("Long Reach") && !this._user.hasItem("Protective Pads")) {
+                    if (this._blockedBy[id]) {
+                        switch (target.lastMove.name) {
+                            case "Spiky Shield":
+                                this._damaged[this.userID] = this._raidState.applyDamage(this.userID, this._user.getFractionHP(1/8)) || this._damaged[this.userID];
+                                break;
+                            case "Baneful Bunker":
+                                this._raidState.applyStatus(this.userID, "psn", target.id, false, false, this.options.roll);
+                                break;
+                            case "Burning Bulwark":
                                 this._raidState.applyStatus(this.userID, "brn", target.id, false, false, this.options.roll);
+                                break;
+                            case "King's Shield":
+                                this._raidState.applyStatChange(this.userID, {atk: -1});
+                                break;
+                            case "Obstruct":
+                                this._raidState.applyStatChange(this.userID, {def: -2});
+                                break;
+                            case "Silk Trap": {
+                                this._raidState.applyStatChange(this.userID, {spe: -1});
+                                break;
                             }
-                            break;
-                        case "King's Shield":
-                            this._raidState.applyStatChange(this.userID, {atk: -1});
-                            break;
-                        case "Obstruct":
-                            this._raidState.applyStatChange(this.userID, {def: -2});
-                            break;
-                        case "Silk Trap": {
-                            this._raidState.applyStatChange(this.userID, {spe: -1});
-                            break;
+                            default: break;
                         }
-                        default: break;
+                    } else {
+                        switch (target.lastMove.name) {
+                            case "Beak Blast":
+                                if (target.isCharging) {
+                                    this._raidState.applyStatus(this.userID, "brn", target.id, false, false, this.options.roll);
+                                }
+                                break;
+                            default: break;
+                        }
                     }
                 }
             }

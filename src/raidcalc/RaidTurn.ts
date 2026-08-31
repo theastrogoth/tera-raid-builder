@@ -169,6 +169,15 @@ export class RaidTurn {
         this._raiderMoveUsed = this._raiderMoveData.name;
         this._bossMoveUsed = this._bossMoveData.name;
 
+        // handle moves that have start-of-turn effects
+        for (const [user, move] of ([[this._raider, this._raiderMove], [this._boss, this._bossMove]] as [Raider, Move][])) {
+            switch (move.name){
+            case ("Beak Blast"):
+                user.lastMove = this._raiderMoveData; // used for applying burn on contact
+                user.isCharging = true;
+            }
+        }
+
         if (!this._isEmptyTurn) {
             this.applyChangedMove();
         }

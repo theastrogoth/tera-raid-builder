@@ -397,6 +397,7 @@ export class Raider extends Pokemon implements State.Raider {
             if (this.originalCurHP <= activationHP) {
                 this.shieldActive = true;
                 this.shieldActivateHP = this.originalCurHP;
+                this.status = "";
             }
         } else { // check for shield breaking by damage
             const breakHP = this.shieldActivateHP - (this.shieldData.shieldCancelDamage / 100 * this.maxHP());

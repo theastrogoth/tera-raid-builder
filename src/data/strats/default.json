@@ -5,10 +5,10 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Kingambit",
-            "name": "Kingambit",
+            "role": "Meowscarada",
+            "name": "Meowscarada",
             "shiny": false,
-            "ability": "Supreme Overlord",
+            "ability": "Protean",
             "nature": "Adamant",
             "evs": {
                 "hp": 0,
@@ -27,23 +27,24 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "N",
-            "teraType": "Dark",
+            "gender": "F",
+            "teraType": "Grass",
             "moves": [
-                "Kowtow Cleave",
-                "Iron Head",
-                "Brick Break",
-                "Stone Edge"
+                "Flower Trick",
+                "Night Slash",
+                "Acrobatics",
+                "Play Rough"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Snarl",
-                "Swords Dance"
+                "Hone Claws",
+                "Petal Blizzard",
+                "Grassy Terrain"
             ],
             "shieldData": {
-                "hpTrigger": 90,
-                "timeTrigger": 90,
-                "shieldCancelDamage": 30,
+                "hpTrigger": 80,
+                "timeTrigger": 75,
+                "shieldCancelDamage": 35,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -51,15 +52,48 @@
         },
         {
             "id": 1,
-            "role": "Iron Hands",
-            "name": "Iron Hands",
+            "role": "Chi-Yu",
+            "name": "Chi-Yu",
             "shiny": false,
-            "ability": "Quark Drive",
+            "ability": "Beads of Ruin",
             "item": "Life Orb",
-            "nature": "Jolly",
+            "nature": "Modest",
             "evs": {
                 "hp": 252,
-                "atk": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 252,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Nasty Plot",
+                "Flamethrower",
+                "Lava Plume",
+                "Sunny Day"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Torkoal",
+            "name": "Torkoal",
+            "shiny": false,
+            "ability": "Drought",
+            "item": "Zoom Lens",
+            "nature": "Relaxed",
+            "evs": {
+                "hp": 0,
+                "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
@@ -76,14 +110,14 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Belly Drum",
-                "Close Combat",
-                "Drain Punch",
-                "Swords Dance"
+                "Will-O-Wisp",
+                "Helping Hand",
+                "Inferno",
+                "Sunny Day"
             ]
         },
         {
-            "id": 2,
+            "id": 3,
             "role": "Umbreon",
             "name": "Umbreon",
             "shiny": false,
@@ -109,53 +143,20 @@
             "level": 100,
             "gender": "N",
             "moves": [
+                "Fake Tears",
                 "Helping Hand",
-                "Mud-Slap",
-                "Charm",
-                "Screech"
-            ]
-        },
-        {
-            "id": 3,
-            "role": "Snorlax",
-            "name": "Snorlax",
-            "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Screech",
-                "Chilling Water",
-                "Mud-Slap",
-                "Helping Hand"
+                "Reflect",
+                "Sunny Day"
             ]
         },
         {
             "id": 4,
-            "role": "Snorlax",
-            "name": "Snorlax",
+            "role": "Umbreon",
+            "name": "Umbreon",
             "shiny": false,
             "ability": "(No Ability)",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
+            "item": "Covert Cloak",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -175,17 +176,45 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Screech",
-                "Chilling Water",
-                "Mud-Slap",
-                "Helping Hand"
+                "Fake Tears",
+                "Helping Hand",
+                "Reflect",
+                "Sunny Day"
             ]
         }
     ],
     "turns": [
         {
             "id": 0,
-            "group": 2,
+            "group": 0,
+            "moveInfo": {
+                "name": "Hone Claws",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 1,
+            "group": 1,
             "moveInfo": {
                 "name": "(No Move)",
                 "userID": 1,
@@ -193,8 +222,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
                     "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -205,8 +234,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
                     "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             }
@@ -215,9 +244,13 @@
     "groups": [
         [
             0
+        ],
+        [
+            1
         ]
     ],
     "repeats": [
+        1,
         1
     ],
     "substitutes": [

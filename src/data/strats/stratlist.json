@@ -393,6 +393,7 @@
         "Cold Front": "salamence/cold_front",
         "An All-Dragon-Showdown": "salamence/dragon_showdown",
         "Make a Wish": "salamence/make_a_wish",
+        "Mareep": "salamence/mareep",
         "Nukebro": "salamence/nukebro",
         "Polar Playpen": "salamence/polar_playpen"
     },
@@ -615,6 +616,7 @@
         "A Pirouette-style Takedown!": "feraligatr/pirouette",
         "Blue": "feraligatr/blue",
         "Mythicals": "feraligatr/mythicals",
+        "Mareep Vs Feraligatr": "feraligatr/mareep",
         "Nukebro": "feraligatr/nukebro",
         "Little Dark Age": "feraligatr/little_dark_age"
     },
@@ -756,7 +758,7 @@
         "Little Spartans": "incineroar/little_spartans",
         "Burnt Buns": "incineroar/burnt_buns",
         "Phanpy's Pixilated Paradise!": "incineroar/phanpy",
-        "Mareep": "incineroar/mareep",
+        "A New VGC King": "incineroar/mareep",
         "Nukebro Returns to the Water": "incineroar/nukebro",
         "Heavy Sleepers": "incineroar/heavy_sleepers"
     },
@@ -862,6 +864,7 @@
         "Metal and Magic": "sceptile/metal_and_magic",
         "Topsy-Turvy Reshiram": "sceptile/topsy_turvy",
         "Mythicals": "sceptile/mythicals",
+        "Mareep Sweeps Through Sceptile!": "sceptile/mareep",
         "Nukebro: Across the Nukeverse 1": "sceptile/nukebro_1",
         "Nukebro: Across the Nukeverse 2": "sceptile/nukebro_2",
         "Nukebro: Across the Nukeverse 3": "sceptile/nukebro_3",
@@ -1052,6 +1055,7 @@
         "Double Trouble": "blastoise/double_trouble",
         "Pardon the Int-Eruption!": "blastoise/interuption",
         "Mythicals Heat Things Up": "blastoise/mythicals",
+        "Mareep Trailblazes its Way Past Blastoise!": "blastoise/mareep",
         "Nukebro vs. Blastoise": "blastoise/nukebro",
         "The Hocus-Pokids": "blastoise/hocus_pokids"
     },
@@ -1148,6 +1152,7 @@
         "Skill Issue 2: Electric Boogaloo": "blaziken/skill_issue",
         "Skill Issue 2: Electric Boogaloo: The Sequel": "blaziken/skill_issue_sequel",
         "Tackling The Problem Head On": "blaziken/head_on",
+        "Mareep Fried Chicken": "blaziken/mareep",
         "Nukebro vs. Blaziken": "blaziken/nukebro",
         "Maybe Babies?": "blaziken/maybe_babies",
         "Rock-a-Bye Baby": "blaziken/rockabye"
@@ -1393,7 +1398,7 @@
         "Iron Ignition": "rillaboom/iron_ignition",
         "Gym Bros": "rillaboom/gym_bros",
         "Stargate Atlantis": "rillaboom/stargate_atlantis",
-        "Mareep": "rillaboom/mareep",
+        "Mareep's Thunderous Beats": "rillaboom/mareep",
         "Nukebro vs. Rillaboom": "rillaboom/nukebro",
         "Nukebro vs. Rillaboom 2": "rillaboom/nukebro_2",
         "Lil' Timmy's Revenge": "rillaboom/timmys_revenge"
@@ -1431,6 +1436,7 @@
         "Aquatic Act!": "delphox/aquatic_act",
         "Magician Makes Mammals Mad!": "delphox/mmmm",
         "Mosaic Magic": "delphox/mosaic_magic",
+        "Mareep's Shocking Illusion!": "delphox/mareep",
         "Nukebro vs. Delphox": "delphox/nukebro",
         "Nukebro vs. Delphox Again": "delphox/nukebro_2",
         "Nukebro vs. Delphox 3": "delphox/nukebro_3",
@@ -1472,6 +1478,7 @@
         "Apple Pie with Cream": "chesnaught/apple_pie",
         "Tremor": "chesnaught/tremor",
         "Phanpy's Choice in Ches(naughts)!": "chesnaught/phanpy",
+        "Mareep: Unstoppable Force Vs Immovable Object": "chesnaught/mareep",
         "Nukebro vs. Chesnaught": "chesnaught/nukebro",
         "Nukebro vs. Chesnaught 2": "chesnaught/nukebro_2",
         "Simple as That, Baby!": "chesnaught/simple"
@@ -1551,6 +1558,7 @@
         "Fire, Water, and Cake": "samurott/fire_water_cake",
         "Renegade Ronin": "samurott/renegade_ronin",
         "Phanpy's Sweet Smashburgner!": "samurott/phanpy",
+        "Mareep's Calculated Strike!": "samurott/mareep",
         "Nukebro vs. Samurott": "samurott/nukebro",
         "Nukebro vs. Samurott 2": "samurott/nukebro_2",
         "Heads Up, 7 Up!": "samurott/heads_up_7_up"
@@ -1743,6 +1751,7 @@
         "Godzilla vs. Rodan": "charizard/godzilla_vs_rodan",
         "Zen (and PSY's) Pixilated Impact on the World!": "charizard/zen_and_psy",
         "King Ghidorah vs. Rodan": "charizard/king_ghidorah",
+        "Mareep's Mellifluous Monsoon!": "charizard/mareep",
         "Nukebro vs. Charizard": "charizard/nukebro",
         "Toddzilla vs. Rodan": "charizard/toddzilla_vs_rodan"
     }

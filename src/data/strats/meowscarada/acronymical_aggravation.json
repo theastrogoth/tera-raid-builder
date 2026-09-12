@@ -1,7 +1,7 @@
 {
-    "name": "Catfished (Duo)",
-    "notes": "- Let Ninetales use Will-O-Wisp before Chi-Yu moves (the Burn will make Meowscarada deal less damage).\n- Ninetales has a slim chance of fainting.\n- The Chi-Yu build with HP EVs instead of Speed EVs has a slim chance of fainting if the Chi-Yu player hosts.",
-    "credits": "Presented by the r/PokePortal Team and Team Rocket",
+    "name": "Acronymical Aggravation",
+    "notes": "- Take the first letters of each mon starting with Meowscarada for the acronym!\n- Relies on Annihilape drawing Acrobatics to activate Weakness Policy",
+    "credits": "@Hydracinth",
     "pokemon": [
         {
             "id": 0,
@@ -52,19 +52,19 @@
         },
         {
             "id": 1,
-            "role": "Chi-Yu",
-            "name": "Chi-Yu",
-            "shiny": false,
-            "ability": "Beads of Ruin",
-            "item": "Life Orb",
-            "nature": "Modest",
+            "role": "Annihilape",
+            "name": "Annihilape",
+            "shiny": true,
+            "ability": "Defiant",
+            "item": "Weakness Policy",
+            "nature": "Adamant",
             "evs": {
-                "hp": 0,
-                "atk": 0,
+                "hp": 252,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
+                "spa": 0,
                 "spd": 0,
-                "spe": 252
+                "spe": 0
             },
             "ivs": {
                 "hp": 31,
@@ -77,18 +77,47 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Nasty Plot",
-                "Flamethrower"
+                "Rage Fist"
             ]
         },
         {
             "id": 2,
-            "role": "Ninetales",
-            "name": "Ninetales",
-            "shiny": false,
-            "ability": "Drought",
-            "item": "Zoom Lens",
+            "role": "Galvantula",
+            "name": "Galvantula",
+            "shiny": true,
+            "ability": "Compound Eyes",
+            "item": "Sitrus Berry",
             "nature": "Relaxed",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 0,
+                "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Igglybuff",
+            "name": "Igglybuff",
+            "shiny": true,
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Bold",
             "evs": {
                 "hp": 252,
                 "atk": 0,
@@ -108,74 +137,104 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Will-O-Wisp",
-                "Fake Tears"
+                "Helping Hand"
             ]
         },
         {
-            "id": 3,
-            "role": "NPC",
-            "name": "NPC",
-            "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
-            "evs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
-            },
-            "level": 1,
-            "gender": "N",
-            "moves": []
-        },
-        {
             "id": 4,
-            "role": "NPC",
-            "name": "NPC",
-            "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
-            "nature": "Hardy",
+            "role": "Cinccino",
+            "name": "Cinccino",
+            "shiny": true,
+            "ability": "Skill Link",
+            "item": "Flame Orb",
+            "nature": "Timid",
             "evs": {
-                "hp": 0,
+                "hp": 252,
                 "atk": 0,
-                "def": 0,
+                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
-            "moves": []
+            "moves": [
+                "Fling",
+                "Bullet Seed"
+            ]
         }
     ],
     "turns": [
         {
             "id": 0,
-            "group": 2,
+            "group": 0,
             "moveInfo": {
+                "name": "(No Move)",
+                "userID": 1,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
                 "name": "Hone Claws",
                 "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 10,
+            "group": 2,
+            "moveInfo": {
+                "name": "Screech",
+                "userID": 2,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "allowMiss": false,
+                    "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 3,
+            "group": 2,
+            "moveInfo": {
+                "name": "Fling",
+                "userID": 4,
                 "targetID": 0,
                 "options": {
                     "crit": false,
@@ -186,9 +245,9 @@
                 }
             },
             "bossMoveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 0,
-                "targetID": 0,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -200,16 +259,16 @@
         },
         {
             "id": 1,
-            "group": 5,
+            "group": 7,
             "moveInfo": {
-                "name": "Will-O-Wisp",
-                "userID": 2,
-                "targetID": 0,
+                "name": "Helping Hand",
+                "userID": 3,
+                "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -220,45 +279,17 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             }
         },
         {
             "id": 2,
-            "group": 0,
-            "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 3,
             "group": 1,
             "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Screech",
                 "userID": 2,
                 "targetID": 0,
                 "options": {
@@ -278,6 +309,34 @@
                     "secondaryEffects": false,
                     "allowMiss": false,
                     "roll": "avg",
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 5,
+            "group": 1,
+            "moveInfo": {
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(Most Damaging)",
+                "userID": 0,
+                "targetID": 1,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             }
@@ -286,15 +345,15 @@
             "id": 4,
             "group": 1,
             "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 1,
+                "name": "Bullet Seed",
+                "userID": 4,
                 "targetID": 1,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
                     "roll": "avg",
                     "allowMiss": false,
-                    "hits": 1
+                    "hits": 3
                 }
             },
             "bossMoveInfo": {
@@ -306,43 +365,15 @@
                     "secondaryEffects": false,
                     "roll": "avg",
                     "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 5,
-            "group": 3,
-            "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
                     "hits": 1
                 }
             }
         },
         {
             "id": 6,
-            "group": 4,
+            "group": 3,
             "moveInfo": {
-                "name": "Flamethrower",
+                "name": "Rage Fist",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -372,17 +403,16 @@
             0
         ],
         [
+            10,
+            3
+        ],
+        [
             1
         ],
         [
-            2
-        ],
-        [
-            3,
+            2,
+            5,
             4
-        ],
-        [
-            5
         ],
         [
             6
@@ -393,25 +423,25 @@
         1,
         1,
         1,
-        1,
         1
     ],
     "substitutes": [
+        [],
         [
             {
                 "raider": {
-                    "id": 1,
-                    "role": "Chi-Yu",
-                    "name": "Chi-Yu",
-                    "shiny": false,
-                    "ability": "Beads of Ruin",
-                    "item": "Life Orb",
-                    "nature": "Modest",
+                    "id": 2,
+                    "role": "Gliscor",
+                    "name": "Gliscor",
+                    "shiny": true,
+                    "ability": "(No Ability)",
+                    "item": "Zoom Lens",
+                    "nature": "Relaxed",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
-                        "spa": 252,
+                        "spa": 0,
                         "spd": 0,
                         "spe": 0
                     },
@@ -426,23 +456,22 @@
                     "level": 100,
                     "gender": "N",
                     "moves": [
-                        "Nasty Plot",
-                        "Flamethrower"
+                        "Screech",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [
-                    "Nasty Plot",
-                    "Nasty Plot",
-                    "Flamethrower"
+                    "Screech",
+                    "Screech"
                 ],
                 "substituteTargets": [
-                    1,
-                    1,
+                    0,
                     0
                 ]
             }
         ],
-        [],
         [],
         []
     ]

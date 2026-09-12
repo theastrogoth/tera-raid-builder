@@ -1,7 +1,7 @@
 {
-    "name": "Catfished (Duo)",
-    "notes": "- Let Ninetales use Will-O-Wisp before Chi-Yu moves (the Burn will make Meowscarada deal less damage).\n- Ninetales has a slim chance of fainting.\n- The Chi-Yu build with HP EVs instead of Speed EVs has a slim chance of fainting if the Chi-Yu player hosts.",
-    "credits": "Presented by the r/PokePortal Team and Team Rocket",
+    "name": "Black and Yellow (Trio T1)",
+    "notes": "- Relies on Camerupt drawing Flower Trick to activate Anger Point\n- Shoutout Wiz Khalifa",
+    "credits": "@Hydracinth",
     "pokemon": [
         {
             "id": 0,
@@ -27,7 +27,7 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
+            "gender": "N",
             "teraType": "Grass",
             "moves": [
                 "Flower Trick",
@@ -42,57 +42,26 @@
                 "Grassy Terrain"
             ],
             "shieldData": {
-                "hpTrigger": 80,
-                "timeTrigger": 75,
-                "shieldCancelDamage": 35,
-                "shieldDamageRate": 20,
-                "shieldDamageRateTera": 70,
-                "shieldDamageRateTeraChange": 30
+                "hpTrigger": 0,
+                "timeTrigger": 0,
+                "shieldCancelDamage": 0,
+                "shieldDamageRate": 0,
+                "shieldDamageRateTera": 0,
+                "shieldDamageRateTeraChange": 0
             }
         },
         {
             "id": 1,
-            "role": "Chi-Yu",
-            "name": "Chi-Yu",
-            "shiny": false,
-            "ability": "Beads of Ruin",
-            "item": "Life Orb",
-            "nature": "Modest",
+            "role": "Camerupt",
+            "name": "Camerupt",
+            "shiny": true,
+            "ability": "Anger Point",
+            "item": "Choice Band",
+            "nature": "Impish",
             "evs": {
                 "hp": 0,
-                "atk": 0,
+                "atk": 252,
                 "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 252
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Nasty Plot",
-                "Flamethrower"
-            ]
-        },
-        {
-            "id": 2,
-            "role": "Ninetales",
-            "name": "Ninetales",
-            "shiny": false,
-            "ability": "Drought",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 252,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
@@ -108,17 +77,16 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Will-O-Wisp",
-                "Fake Tears"
+                "Flare Blitz"
             ]
         },
         {
-            "id": 3,
-            "role": "NPC",
-            "name": "NPC",
-            "shiny": false,
-            "isAnyLevel": true,
-            "ability": "(No Ability)",
+            "id": 2,
+            "role": "Arbok",
+            "name": "Arbok",
+            "shiny": true,
+            "ability": "Intimidate",
+            "item": "Zoom Lens",
             "nature": "Hardy",
             "evs": {
                 "hp": 0,
@@ -129,12 +97,43 @@
                 "spe": 0
             },
             "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Screech"
+            ]
+        },
+        {
+            "id": 3,
+            "role": "Koraidon",
+            "name": "Koraidon",
+            "shiny": true,
+            "isAnyLevel": true,
+            "ability": "Orichalcum Pulse",
+            "item": "Focus Sash",
+            "nature": "Hardy",
+            "evs": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
                 "spa": 0,
                 "spd": 0,
                 "spe": 0
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
             "level": 1,
             "gender": "N",
@@ -145,7 +144,6 @@
             "role": "NPC",
             "name": "NPC",
             "shiny": false,
-            "isAnyLevel": true,
             "ability": "(No Ability)",
             "nature": "Hardy",
             "evs": {
@@ -157,22 +155,22 @@
                 "spe": 0
             },
             "ivs": {
-                "hp": 0,
-                "atk": 0,
-                "def": 0,
-                "spa": 0,
-                "spd": 0,
-                "spe": 0
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
             },
-            "level": 1,
+            "level": 100,
             "gender": "N",
             "moves": []
         }
     ],
     "turns": [
         {
-            "id": 0,
-            "group": 2,
+            "id": 1,
+            "group": 1,
             "moveInfo": {
                 "name": "Hone Claws",
                 "userID": 0,
@@ -180,8 +178,8 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
                     "allowMiss": false,
+                    "roll": "avg",
                     "hits": 1
                 }
             },
@@ -192,34 +190,6 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 1,
-            "group": 5,
-            "moveInfo": {
-                "name": "Will-O-Wisp",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
                     "allowMiss": false,
                     "roll": "avg",
                     "hits": 1
@@ -227,38 +197,10 @@
             }
         },
         {
-            "id": 2,
+            "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 1,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "roll": "avg",
-                    "allowMiss": false,
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 3,
-            "group": 1,
-            "moveInfo": {
-                "name": "Fake Tears",
+                "name": "Screech",
                 "userID": 2,
                 "targetID": 0,
                 "options": {
@@ -284,11 +226,11 @@
         },
         {
             "id": 4,
-            "group": 1,
+            "group": 0,
             "moveInfo": {
-                "name": "Nasty Plot",
-                "userID": 1,
-                "targetID": 1,
+                "name": "Attack Cheer",
+                "userID": 3,
+                "targetID": 3,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
@@ -311,38 +253,10 @@
             }
         },
         {
-            "id": 5,
-            "group": 3,
+            "id": 2,
+            "group": 2,
             "moveInfo": {
-                "name": "Fake Tears",
-                "userID": 2,
-                "targetID": 0,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            },
-            "bossMoveInfo": {
-                "name": "(Most Damaging)",
-                "userID": 0,
-                "targetID": 1,
-                "options": {
-                    "crit": false,
-                    "secondaryEffects": false,
-                    "allowMiss": false,
-                    "roll": "avg",
-                    "hits": 1
-                }
-            }
-        },
-        {
-            "id": 6,
-            "group": 4,
-            "moveInfo": {
-                "name": "Flamethrower",
+                "name": "Flare Blitz",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -369,49 +283,40 @@
     ],
     "groups": [
         [
-            0
-        ],
-        [
             1
         ],
         [
-            2
-        ],
-        [
-            3,
+            0,
             4
         ],
         [
-            5
-        ],
-        [
-            6
+            2
         ]
     ],
     "repeats": [
         1,
         1,
-        1,
-        1,
-        1,
         1
     ],
     "substitutes": [
+        [],
+        [],
         [
             {
                 "raider": {
-                    "id": 1,
-                    "role": "Chi-Yu",
-                    "name": "Chi-Yu",
-                    "shiny": false,
-                    "ability": "Beads of Ruin",
-                    "item": "Life Orb",
-                    "nature": "Modest",
+                    "id": 3,
+                    "role": "Vulpix",
+                    "name": "Vulpix",
+                    "shiny": true,
+                    "isAnyLevel": true,
+                    "ability": "Drought",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
                     "evs": {
-                        "hp": 252,
+                        "hp": 0,
                         "atk": 0,
                         "def": 0,
-                        "spa": 252,
+                        "spa": 0,
                         "spd": 0,
                         "spe": 0
                     },
@@ -423,27 +328,149 @@
                         "spd": 31,
                         "spe": 31
                     },
-                    "level": 100,
+                    "level": 1,
                     "gender": "N",
                     "moves": [
-                        "Nasty Plot",
-                        "Flamethrower"
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
                     ]
                 },
                 "substituteMoves": [
-                    "Nasty Plot",
-                    "Nasty Plot",
-                    "Flamethrower"
+                    "Attack Cheer"
                 ],
                 "substituteTargets": [
-                    1,
-                    1,
-                    0
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Groudon",
+                    "name": "Groudon",
+                    "shiny": true,
+                    "isAnyLevel": true,
+                    "ability": "Drought",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Ninetales",
+                    "name": "Ninetales",
+                    "shiny": true,
+                    "isAnyLevel": true,
+                    "ability": "Drought",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    3
+                ]
+            },
+            {
+                "raider": {
+                    "id": 3,
+                    "role": "Torkoal",
+                    "name": "Torkoal",
+                    "shiny": true,
+                    "isAnyLevel": true,
+                    "ability": "Drought",
+                    "item": "Focus Sash",
+                    "nature": "Hardy",
+                    "evs": {
+                        "hp": 0,
+                        "atk": 0,
+                        "def": 0,
+                        "spa": 0,
+                        "spd": 0,
+                        "spe": 0
+                    },
+                    "ivs": {
+                        "hp": 31,
+                        "atk": 31,
+                        "def": 31,
+                        "spa": 31,
+                        "spd": 31,
+                        "spe": 31
+                    },
+                    "level": 1,
+                    "gender": "N",
+                    "moves": [
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)",
+                        "(No Move)"
+                    ]
+                },
+                "substituteMoves": [
+                    "Attack Cheer"
+                ],
+                "substituteTargets": [
+                    3
                 ]
             }
         ],
-        [],
-        [],
         []
     ]
 }

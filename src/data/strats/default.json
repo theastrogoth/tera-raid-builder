@@ -5,11 +5,11 @@
     "pokemon": [
         {
             "id": 0,
-            "role": "Meowscarada",
-            "name": "Meowscarada",
+            "role": "Skeledirge",
+            "name": "Skeledirge",
             "shiny": false,
-            "ability": "Protean",
-            "nature": "Adamant",
+            "ability": "Unaware",
+            "nature": "Rash",
             "evs": {
                 "hp": 0,
                 "atk": 0,
@@ -27,24 +27,24 @@
                 "spe": 31
             },
             "level": 100,
-            "gender": "F",
-            "teraType": "Grass",
+            "gender": "M",
+            "teraType": "Fire",
             "moves": [
-                "Flower Trick",
-                "Night Slash",
-                "Acrobatics",
-                "Play Rough"
+                "Torch Song",
+                "Shadow Ball",
+                "Stomping Tantrum",
+                "Hyper Voice"
             ],
             "bossMultiplier": 3500,
             "extraMoves": [
-                "Hone Claws",
-                "Petal Blizzard",
-                "Grassy Terrain"
+                "Disarming Voice",
+                "Flame Charge",
+                "Hyper Voice"
             ],
             "shieldData": {
-                "hpTrigger": 80,
+                "hpTrigger": 75,
                 "timeTrigger": 75,
-                "shieldCancelDamage": 35,
+                "shieldCancelDamage": 25,
                 "shieldDamageRate": 20,
                 "shieldDamageRateTera": 70,
                 "shieldDamageRateTeraChange": 30
@@ -52,51 +52,50 @@
         },
         {
             "id": 1,
-            "role": "Chi-Yu",
-            "name": "Chi-Yu",
+            "role": "Kyogre",
+            "name": "Kyogre",
             "shiny": false,
-            "ability": "Beads of Ruin",
-            "item": "Life Orb",
+            "ability": "Drizzle",
+            "item": "Choice Specs",
             "nature": "Modest",
-            "evs": {
-                "hp": 252,
-                "atk": 0,
-                "def": 0,
-                "spa": 252,
-                "spd": 0,
-                "spe": 0
-            },
-            "ivs": {
-                "hp": 31,
-                "atk": 31,
-                "def": 31,
-                "spa": 31,
-                "spd": 31,
-                "spe": 31
-            },
-            "level": 100,
-            "gender": "N",
-            "moves": [
-                "Nasty Plot",
-                "Flamethrower",
-                "Lava Plume",
-                "Sunny Day"
-            ]
-        },
-        {
-            "id": 2,
-            "role": "Torkoal",
-            "name": "Torkoal",
-            "shiny": false,
-            "ability": "Drought",
-            "item": "Zoom Lens",
-            "nature": "Relaxed",
             "evs": {
                 "hp": 0,
                 "atk": 0,
                 "def": 0,
-                "spa": 0,
+                "spa": 252,
                 "spd": 0,
+                "spe": 252
+            },
+            "ivs": {
+                "hp": 31,
+                "atk": 31,
+                "def": 31,
+                "spa": 31,
+                "spd": 31,
+                "spe": 31
+            },
+            "level": 100,
+            "gender": "N",
+            "moves": [
+                "Water Spout",
+                "Surf",
+                "Muddy Water"
+            ]
+        },
+        {
+            "id": 2,
+            "role": "Araquanid",
+            "name": "Araquanid",
+            "shiny": false,
+            "ability": "Water Bubble",
+            "item": "Sitrus Berry",
+            "nature": "Careful",
+            "evs": {
+                "hp": 252,
+                "atk": 0,
+                "def": 0,
+                "spa": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -110,26 +109,25 @@
             "level": 100,
             "gender": "N",
             "moves": [
-                "Will-O-Wisp",
-                "Helping Hand",
-                "Inferno",
-                "Sunny Day"
+                "Entrainment",
+                "Rain Dance",
+                "Liquidation"
             ]
         },
         {
             "id": 3,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -145,24 +143,24 @@
             "moves": [
                 "Fake Tears",
                 "Helping Hand",
-                "Reflect",
-                "Sunny Day"
+                "Life Dew",
+                "Rain Dance"
             ]
         },
         {
             "id": 4,
-            "role": "Umbreon",
-            "name": "Umbreon",
+            "role": "Clefairy",
+            "name": "Clefairy",
             "shiny": false,
-            "ability": "(No Ability)",
-            "item": "Covert Cloak",
-            "nature": "Bold",
+            "ability": "Friend Guard",
+            "item": "Eviolite",
+            "nature": "Calm",
             "evs": {
                 "hp": 252,
                 "atk": 0,
-                "def": 252,
+                "def": 0,
                 "spa": 0,
-                "spd": 0,
+                "spd": 252,
                 "spe": 0
             },
             "ivs": {
@@ -178,8 +176,8 @@
             "moves": [
                 "Fake Tears",
                 "Helping Hand",
-                "Reflect",
-                "Sunny Day"
+                "Life Dew",
+                "Rain Dance"
             ]
         }
     ],
@@ -188,14 +186,14 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "Hone Claws",
+                "name": "Disarming Voice",
                 "userID": 0,
                 "targetID": 0,
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             },
@@ -206,17 +204,45 @@
                 "options": {
                     "crit": false,
                     "secondaryEffects": false,
-                    "allowMiss": false,
                     "roll": "avg",
+                    "allowMiss": false,
                     "hits": 1
                 }
             }
         },
         {
             "id": 1,
+            "group": 0,
+            "moveInfo": {
+                "name": "Flame Charge",
+                "userID": 0,
+                "targetID": 5,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            },
+            "bossMoveInfo": {
+                "name": "(No Move)",
+                "userID": 0,
+                "targetID": 0,
+                "options": {
+                    "crit": false,
+                    "secondaryEffects": false,
+                    "roll": "avg",
+                    "allowMiss": false,
+                    "hits": 1
+                }
+            }
+        },
+        {
+            "id": 2,
             "group": 1,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "(Most Damaging)",
                 "userID": 1,
                 "targetID": 0,
                 "options": {
@@ -243,10 +269,11 @@
     ],
     "groups": [
         [
-            0
+            0,
+            1
         ],
         [
-            1
+            2
         ]
     ],
     "repeats": [

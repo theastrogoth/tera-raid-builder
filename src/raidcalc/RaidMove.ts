@@ -1258,6 +1258,9 @@ export class RaidMove {
     private applyStatChanges() {
         const category = this.moveData.category;
         if (this._isSheerForceBoosted) { return; }
+        if (category === "damage+raise" && (
+            this._affectedIDs.length == 0 || this._affectedIDs.every(id => !!this._doesNotAffect[id])
+        )){ return; }
         const affectedIDs = category === "damage+raise" ? [this.userID] : this._affectedIDs;
         let statChanges = this.moveData.statChanges;
         // handle Growth

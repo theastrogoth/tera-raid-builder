@@ -71,6 +71,9 @@ export class RaidState implements State.RaidState{
             if (damage > 0) {
                 pokemon.hitsTaken = pokemon.hitsTaken + 1;
             }
+            if (pokemon.item === "Air Balloon") { // lost even with Ice Face or Disguise
+                this.loseItem(id, true, blockSymbiosis);
+            }
             // Item consumption / Ability Activation triggered by damage
             if (pokemon.hasAbility("Ice Face") && !pokemon.abilityOn && pokemon.name.includes("Eiscue") && moveCategory === "Physical") {
                 pokemon.changeForm("Eiscue-Noice" as SpeciesName);
@@ -96,9 +99,6 @@ export class RaidState implements State.RaidState{
                     if (!pokemon.hasAbility("Sturdy")) { this.consumeItem(id, pokemon.item!, true, blockSymbiosis); }
                     fainted = false;
                 }
-            }
-            if (pokemon.item === "Air Balloon") {
-                this.loseItem(id, true, blockSymbiosis);
             }
             // Weakness Policy and Super-Effective reducing Berries
             // TO DO - abilities that let users use berries more than once

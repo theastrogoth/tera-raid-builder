@@ -32,7 +32,7 @@ export type RaidMoveResult= {
     warnings?: string[];
 }
 
-// const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
+const nonMoveActions = ["(No Move)","Attack Cheer","Defense Cheer","Heal Cheer","Clear Boosts / Abilities","Remove Negative Effects","Steal Tera Charge","Activate Shield"];
 const ignoredVolatileStatuses = [
     "banefulbunker",
     "burningbulwark",
@@ -2076,7 +2076,9 @@ export class RaidMove {
         /// Item-related effects that occur at the end of a successful move
         // Choice-locking items
         if (this._user.hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
-            this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf")) {
+            this.raidState.raiders[this.raiderID].hasItem("Choice Specs", "Choice Band", "Choice Scarf") &&
+            !nonMoveActions.includes(this.moveData.name)
+        ) {
             this._user.isChoiceLocked = true;
         }
         // confusion from thrash-like moves (assuming 2 turns instead of 3)

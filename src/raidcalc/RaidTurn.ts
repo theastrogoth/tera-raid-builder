@@ -356,13 +356,13 @@ export class RaidTurn {
     }
 
     private applyChangedMove() {
-        const raiderSelectableMoves = this.raiderID === 5 ? ["(No Move)"] : getSelectableMoves(this.raidState.raiders[this.raiderID], false)[0];
+        const raiderSelectableMoves = this.raiderID === 5 ? [{name: "(No Move)" as MoveName}] : getSelectableMoves(this.raidState.raiders[this.raiderID], false)[0];
         const bossSelectableMoves = getSelectableMoves(this.raidState.raiders[0], this._isBossAction)[0];
         // handle invalid move selection
-        if (isRegularMove(this.raiderMoveData.name) && !raiderSelectableMoves.includes(this.raiderMoveData.name)) {
+        if (isRegularMove(this.raiderMoveData.name) && !raiderSelectableMoves.some(m => m.name === this.raiderMoveData.name)) {
             this._raiderMoveData = raiderSelectableMoves.length > 0 ? {name: "(No Move)" as MoveName} : {...STRUGGLE_DATA};
         }
-        if (isRegularMove(this.bossMoveData.name) && !bossSelectableMoves.includes(this.bossMoveData.name)) {
+        if (isRegularMove(this.bossMoveData.name) && !bossSelectableMoves.some(m => m.name === this.bossMoveData.name)) {
             this._bossMoveData = bossSelectableMoves.length > 0 ? {name: "(Most Damaging)" as MoveName} : {...STRUGGLE_DATA}
         }
         // Charge up moves (should be redundant with the above now)
@@ -429,11 +429,10 @@ export class RaidTurn {
             if (moveOptions.length === 0) {
                 this._bossMoveData = {...STRUGGLE_DATA};
             } else {
-                let bestMove = "(No Move)";
+                let bestMove: MoveData = {name: "(No Move)" as MoveName};
                 let bestDamage = 0;
-                for (const move of moveOptions) {
-                    const moveData = this._raidState.raiders[0].moveData.find((moveData) => moveData.name === move) || {name: move} as MoveData;
-                    const testMove = new Move(9, move, this.bossOptions);
+                for (const moveData of moveOptions) {
+                    const testMove = new Move(9, moveData.name, this.bossOptions);
                     const hits = Math.min(Math.max(this.bossOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
                     testMove.isCrit = this.bossOptions.crit || false;
                     testMove.hits = hits;
@@ -450,24 +449,23 @@ export class RaidTurn {
                     }
                     damage = damage * hits; // since this isn't being handled by calculate
                     if (damage > bestDamage) {
-                        bestMove = move;
+                        bestMove = moveData;
                         bestDamage = damage;
                     }
                 }
-                this._bossMoveData = this._raidState.raiders[0].moveData.find((move) => move.name === bestMove) || {name: bestMove} as MoveData;
-                this._bossMove = new Move(9, bestMove, this.bossOptions);
-                this._bossMoveUsed = bestMove;
+                this._bossMoveData = bestMove;
+                this._bossMove = new Move(9, bestMove.name, this.bossOptions);
+                this._bossMoveUsed = bestMove.name;
             }
         }
         if (this._raiderMoveData.name === "(Most Damaging)") {
             if (raiderSelectableMoves.length === 0) {
                 this._raiderMoveData = {...STRUGGLE_DATA};
             } else {
-                let bestMove = "(No Move)";
+                let bestMove: MoveData = {name: "(No Move)" as MoveName};
                 let bestDamage = 0;
-                for (const move of raiderSelectableMoves) {
-                    const moveData = this._raidState.raiders[this.raiderID].moveData.find((moveData) => moveData.name === move) || {name: move} as MoveData;
-                    const testMove = new Move(9, move, this.raiderOptions);
+                for (const moveData of raiderSelectableMoves) {
+                    const testMove = new Move(9, moveData.name, this.raiderOptions);
                     const hits = Math.min(Math.max(this.raiderOptions.hits || 1, moveData.minHits || 1), moveData.maxHits || 1);
                     testMove.isCrit = this.raiderOptions.crit || false;
                     testMove.hits = hits;
@@ -484,13 +482,13 @@ export class RaidTurn {
                     }
                     damage = damage * hits; // since this isn't being handled by calculate
                     if (damage > bestDamage && !(testMove.name === "Pollen Puff" && this.targetID !== 0)) {
-                        bestMove = move;
+                        bestMove = moveData;
                         bestDamage = damage;
                     }
                 }
-                this._raiderMoveData = this._raidState.raiders[this.raiderID].moveData.find((move) => move.name === bestMove) || {name: bestMove} as MoveData;
-                this._raiderMove = new Move(9, bestMove, this.raiderOptions);
-                this._raiderMoveUsed = bestMove;
+                this._raiderMoveData = bestMove;
+                this._raiderMove = new Move(9, bestMove.name, this.raiderOptions);
+                this._raiderMoveUsed = bestMove.name;
             }
         }
         // Force the move to be the last move used for Choice Lock / Encore (also redundant)

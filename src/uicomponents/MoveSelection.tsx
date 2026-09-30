@@ -328,7 +328,7 @@ function MoveOptionsControls({moveInfo, setMoveInfo, raider, isBoss = false, tra
 }
 
 function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, selectableMoves, isActionLocked, translationKey}:
-    {groupIndex: number, turnIndex: number, raiders: Raider[], groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], isActionLocked: boolean, translationKey: any})
+    {groupIndex: number, turnIndex: number, raiders: Raider[], groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveData[], isActionLocked: boolean, translationKey: any})
 {
     const roles = raiders.map((raider) => raider.role);
     const moveInfo = groups[groupIndex].turns[turnIndex].moveInfo;
@@ -338,7 +338,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
 
     // const moves = getSelectableMoves(raiders[moveInfo.userID]); // raiders[moveInfo.userID].moves;
     const raider = raiders[groups[groupIndex].turns[turnIndex].moveInfo.userID];
-    const moveSet = raider.id > 0 ? ["(No Move)", ...(isActionLocked ? [] : ["(Most Damaging)", "(Wait)"]), ...(selectableMoves.length > 0 ? selectableMoves : ["Struggle"]), ...((((raider.cheersLeft || 0) > 0) && !isActionLocked) ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])]
+    const moveSet = raider.id > 0 ? ["(No Move)", ...(isActionLocked ? [] : ["(Most Damaging)", "(Wait)"]), ...(selectableMoves.length > 0 ? selectableMoves.map(m => m.name) : ["Struggle"]), ...((((raider.cheersLeft || 0) > 0) && !isActionLocked) ? ["Attack Cheer", "Defense Cheer", "Heal Cheer"] : [])]
                                   : ["(No Move)", ...(raider.extraMoves || []), "Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"];
     const [disableTarget, setDisableTarget] = useState<boolean>(
             moveInfo.moveData.name === "(No Move)" ||
@@ -577,7 +577,7 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                         }
                         onChange={(e) => {
                             const name = e.target.value as MoveName;
-                            let mData: MoveData = {name: name};
+                            let mData: MoveData | undefined = {name: name};
                             if (name === "(No Move)" || name === "(Wait)") {
                             } else if (name === "(Most Damaging)") {
                                 mData = {name: name, target: "selected-pokemon"};
@@ -589,10 +589,16 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
                                 mData = {...STRUGGLE_DATA};
                             } else if (raiders[moveInfo.userID].id === 0) {
                                 if (isRegularMove(name)) {
-                                    mData = [...raiders[moveInfo.userID].moveData, ...raiders[moveInfo.userID].extraMoveData!].find((m) => m.name === name) as MoveData;
+                                    mData = [...raiders[moveInfo.userID].moveData, ...raiders[moveInfo.userID].extraMoveData!].find((m) => m.name === name);
                                 }
                             } else {
-                                mData = raiders[moveInfo.userID].moveData.find((m) => m.name === name) as MoveData;
+                                mData = raiders[moveInfo.userID].moveData.find((m) => m.name === name);
+                            }
+                            if (mData === undefined){
+                                mData = selectableMoves.find((m) => m.name === name);
+                            }
+                            if (mData === undefined){
+                                mData = {name: "(No Move)" as MoveName};
                             }
                             setMoveInfo({...moveInfo, moveData: mData})}
                         }
@@ -665,11 +671,11 @@ function MoveDropdown({groupIndex, turnIndex, raiders, groups, setGroups, select
 }
 
 function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selectableMoves, translationKey}:
-    {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveName[], translationKey: any})
+    {groupIndex: number, turnIndex: number, boss: Raider, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, selectableMoves: MoveData[], translationKey: any})
 {
     const moveInfo = groups[groupIndex].turns[turnIndex].bossMoveInfo;
     const moveSet = [
-        "(No Move)", "(Most Damaging)", "(Optimal Move)", ...selectableMoves,
+        "(No Move)", "(Most Damaging)", "(Optimal Move)", ...selectableMoves.map(m => m.name),
         ...(groups[groupIndex].turns[turnIndex].moveInfo.moveData.name === "(No Move)" ? ["Remove Negative Effects", "Clear Boosts / Abilities", "Steal Tera Charge", "Activate Shield"] : [])
     ];
 
@@ -721,9 +727,15 @@ function BossMoveDropdown({groupIndex, turnIndex, boss, groups, setGroups, selec
                     }
                     onChange={(e) => {
                         const name = e.target.value as MoveName;
-                        let mData: MoveData = {name: name};
+                        let mData: MoveData | undefined = {name: name};
                         if (isRegularMove(name)) {
                             mData = [...boss.moveData, ...boss.extraMoveData!].find((m) => m.name === name) as MoveData;
+                        }
+                        if (mData === undefined){
+                            mData = selectableMoves.find((m) => m.name === name);
+                        }
+                        if (mData === undefined){
+                            mData = {name: "(No Move)" as MoveName};
                         }
                         setMoveInfo({...moveInfo, moveData: mData})}
                     }
@@ -852,7 +864,7 @@ function CloseButton({onClick, visible, disabled=false}: {onClick: () => void, v
 }
 
 function MoveSelectionCard({raiders, groupIndex, turnIndex, groups, setGroups, raiderSelectableMoves, isActionLocked, bossSelectableMoves, buttonsVisible, bossVisible, setTransitionIn, setTransitionOut, translationKey}:
-    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, raiderSelectableMoves: MoveName[], isActionLocked: boolean, bossSelectableMoves: MoveName[], buttonsVisible: boolean, bossVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any})
+    {raiders: Raider[], groupIndex: number, turnIndex: number, groups: TurnGroupInfo[], setGroups: (t: TurnGroupInfo[]) => void, raiderSelectableMoves: MoveData[], isActionLocked: boolean, bossSelectableMoves: MoveData[], buttonsVisible: boolean, bossVisible: boolean, setTransitionIn: (i: number) => void, setTransitionOut: (i: number) => void, translationKey: any})
 {
     const timer = useRef<NodeJS.Timeout | null>(null);
     const handleRemoveTurn = () => {
@@ -940,9 +952,9 @@ const MoveSelectionCardMemo = React.memo(MoveSelectionCard, (prevProps, nextProp
         pRaider.teraType === nRaider.teraType &&
         arraysEqual(prevProps.raiders.map((r) => r.name), nextProps.raiders.map((r) => r.name)) &&
         arraysEqual(prevProps.raiders.map((r) => r.role), nextProps.raiders.map((r) => r.role)) &&
-        arraysEqual(prevProps.raiderSelectableMoves, nextProps.raiderSelectableMoves) &&
+        arraysEqual(prevProps.raiderSelectableMoves.map(m => m.name), nextProps.raiderSelectableMoves.map(m => m.name)) &&
         prevProps.isActionLocked === nextProps.isActionLocked &&
-        arraysEqual(prevProps.bossSelectableMoves, nextProps.bossSelectableMoves) &&
+        arraysEqual(prevProps.bossSelectableMoves.map(m => m.name), nextProps.bossSelectableMoves.map(m => m.name)) &&
         prevProps.buttonsVisible === nextProps.buttonsVisible &&
         prevProps.bossVisible === nextProps.bossVisible &&
         prevProps.groups.length === nextProps.groups.length &&

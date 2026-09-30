@@ -140,6 +140,7 @@ export function getFinalSpeed(gen: Generation, pokemon: Pokemon, field: Field, s
     speed = Math.floor(OF32(speed * (gen.num < 7 ? 25 : 50)) / 100);
   }
 
+  speed = speed % 8192; // speed overflow
   speed = Math.min(gen.num <= 2 ? 999 : 10000, speed);
   return Math.max(0, speed);
 }

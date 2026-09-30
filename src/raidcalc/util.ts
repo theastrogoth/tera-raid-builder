@@ -20,7 +20,7 @@ export function isStatus(ailment: AilmentName): Boolean {
         ailment === "frz" ||
         ailment === "slp" ||
         ailment === "tox"
-    ); 
+    );
 }
 
 export function hasNoStatus(pokemon: Pokemon) {
@@ -64,9 +64,9 @@ export function isSuperEffective(move: Move, moveType: TypeName, field: Field, a
         field.isGravity,
         isRingTarget
       ) : 1;
-      
+
     let typeEffectiveness = type1Effectiveness * type2Effectiveness * type3Effectiveness;
-  
+
     if (defender.isTera && defender.teraType) {
       typeEffectiveness = getMoveEffectiveness(
         gen,
@@ -77,12 +77,12 @@ export function isSuperEffective(move: Move, moveType: TypeName, field: Field, a
         isRingTarget
       );
     }
-  
+
     if (typeEffectiveness === 0 && move.hasType('Ground') &&
       defender.hasItem('Iron Ball') && !defender.hasAbility('Klutz')) {
       typeEffectiveness = 1;
     }
-  
+
     if (typeEffectiveness === 0 && move.named('Thousand Arrows')) {
       typeEffectiveness = 1;
     }
@@ -112,7 +112,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
     if (attacker.hasAbility("No Guard") || defender.hasAbility("No Guard") || defender.glaiveRush) {
         return [100,[]];
     }
-    
+
     const movename = movedata.name;
     // Toxic NEVER misses if used by a poison type
     if (movename === "Toxic" && attacker.hasType("Poison")) {
@@ -148,7 +148,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
     }
     // guaranteed hit moves
     if (
-        !movedata.accuracy || 
+        !movedata.accuracy ||
         (attacker.lastMove && attacker.lastMove.name === "Lock-On") ||
         (attacker.field.hasWeather("Rain") && ["Thunder","Hurricane","Sandsear Storm","Bleakwind Storm","Wildbolt Storm"].includes(movename)) ||
         (attacker.field.hasWeather("Snow","Hail") && movename === "Blizzard") ||
@@ -171,7 +171,7 @@ export function getAccuracy(movedata: MoveData, category: "Physical" | "Special"
     const evaStage = attacker.hasAbility("Keen Eye", "Illuminate") ? 0 : (defender.boosts.eva || 0);
     const calcStage = Math.max(-6, Math.min(6, accStage - evaStage));
 
-    const accMod = calcStage >= 0 ? ((calcStage + 3)/3) : (3/(3 - calcStage)); 
+    const accMod = calcStage >= 0 ? ((calcStage + 3)/3) : (3/(3 - calcStage));
 
     let accuracy = baseAccuracy * accMod;
     let effects: string[] = []
@@ -274,7 +274,7 @@ export function getModifiedSpeed(pokemon: Raider) {
     speed = modifyPokemonSpeedByAbility(speed, pokemon.ability, pokemon.abilityOn, pokemon.status);
     speed = modifyPokemonSpeedByQP(speed, pokemon.field, pokemon.ability, pokemon.item, pokemon.boostedStat as StatIDExceptHP);
     speed = modifyPokemonSpeedByField(speed, pokemon.field, pokemon.ability);
-    return speed;
+    return speed % 8192;
 }
 
 export function modifyPokemonSpeedByStatus(speed: number, status?: string, ability?: AbilityName) {
@@ -372,9 +372,9 @@ export function getGroupedTurns(turns: RaidTurnInfo[]) {
 
 const RAID_ACTIONS = [
     "Attack Cheer",
-    "Defense Cheer", 
-    "Heal Cheer", 
-    "Remove Negative Effects", 
+    "Defense Cheer",
+    "Heal Cheer",
+    "Remove Negative Effects",
     "Clear Boosts / Abilities",
     "Steal Tera Charge",
     "Activate Shield"

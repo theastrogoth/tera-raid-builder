@@ -291,7 +291,7 @@
             "id": 0,
             "group": 0,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Coil",
                 "userID": 1,
                 "targetID": 1,
                 "options": {
@@ -375,7 +375,7 @@
             "id": 7,
             "group": 4,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Coil",
                 "userID": 1,
                 "targetID": 1,
                 "options": {
@@ -459,7 +459,7 @@
             "id": 11,
             "group": 5,
             "moveInfo": {
-                "name": "(No Move)",
+                "name": "Coil",
                 "userID": 1,
                 "targetID": 1,
                 "options": {

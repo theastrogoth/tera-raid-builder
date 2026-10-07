@@ -1609,7 +1609,7 @@ export class RaidState implements State.RaidState{
         pokemon.abilityNullified = undefined;
         pokemon.moveRepeated = undefined;
         pokemon.isChoiceLocked = false;
-        pokemon.lastMove = undefined;
+        // pokemon.lastMove = undefined; // needed for Copycat, so don't remove it!
         pokemon.isSaltCure = false;
         pokemon.usedBoosterEnergy = false;
         pokemon.boostedStat = undefined;
@@ -1660,6 +1660,8 @@ export class RaidState implements State.RaidState{
         if (pokemon.hasItem("Room Service") && pokemon.field.isTrickRoom) {
             this.consumeItem(id, pokemon.item!)
         }
+        // clear last move used
+        pokemon.lastMove = undefined;
 
         // Mew stat boosts for Mewtwo event.
         if (id !== 0 && pokemon.name === "Mew" && this.raiders[0].name === "Mewtwo") {
